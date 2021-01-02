@@ -3552,8 +3552,8 @@
         "affectsGlobalScope": false
       },
       "../necromancer/necromancer.ts": {
-        "version": "1848868aa6089abd4b09e6f1d98f4be53b50c8a579e5133e319180c45128e713",
-        "signature": "febfef88c07823cfbff1cb6a6787269359f234bd9a9ffbbfb69c19ee9e18efdb",
+        "version": "0a1b4b2b6d113a88f50bb991946a0f4acee73f339a1d98d11fed1fdae879f54e",
+        "signature": "8e58426fb69b441bf61c1ac45443194f1d890d8b40f2c0eba6d8b4f0dd6d8064",
         "affectsGlobalScope": false
       },
       "../necromancer/doll.ts": {
@@ -3562,12 +3562,12 @@
         "affectsGlobalScope": false
       },
       "../necromancer/mass-summon.ts": {
-        "version": "c7be707f3572f058cafd8b09c0e0665272cdf0f80c0f6f8cdbb7e3ccf34da952",
+        "version": "123ecae312303001c15c70e2bd14febb8d2a9e0d9247f5c9524e2795b5531cd1",
         "signature": "d80d9e14a7a22cfb90c44bd11f49e60fde3b623ed63180f981e7844eff08a6de",
         "affectsGlobalScope": false
       },
       "../necromancer/minions.ts": {
-        "version": "e81e2638f004940b57b50d92e4bf7233cca73c8e37c6854089c44a7e42734b3c",
+        "version": "4f0bb9b69df1eb6e1126f99a8f8974287f484ea7c2d9d472e9953ff0f9f82b80",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },

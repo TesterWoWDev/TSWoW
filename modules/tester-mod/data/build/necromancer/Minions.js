@@ -73,6 +73,27 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
             entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(40, 0).Action.setCast(25307, 0, 32);
             break;
         }
+        case 'healer': {
+            entity.UnitClass.setMage();
+            entity.Stats.ManaMod.set(25);
+            entity.Stats.DamageMod.set(1);
+            //fix mana
+            entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166, 0, 0);
+            entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(688, 0, 0);
+            entity.Scripts.onUpdateOoc(0, 0, 0, 0).Target.setSelf().Action.setCast(29166, 0, 0);
+            //timed calls
+            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(0, 5, 9, 8000, 13000, 100);
+            entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(0);
+            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(1, 0, 1, 13000, 15000, 100);
+            entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(1);
+            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(2, 1, 2, 3000, 3000, 100);
+            entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(1);
+            //combat loop
+            entity.Scripts.onTimedEventTriggered(0).Target.setCreatureRange(0, 0, 40, 0).Action.setCast(34861, 2, 7);
+            entity.Scripts.onTimedEventTriggered(1).Target.setCreatureRange(0, 0, 40, 0).Action.setCast(48068, 2, 7);
+            entity.Scripts.onTimedEventTriggered(2).Target.setCreatureRange(0, 0, 40, 0).Action.setCast(6064, 0, 0);
+            break;
+        }
         default: {
             console.log("Issue, pet summoned not in assumed expected minion types. Investigate");
             break;
@@ -91,7 +112,8 @@ for (let i = 0; i < totems.length; ++i) { //HAS A LINKED LIVE SCRIPT
     (_c = controllers.Attack) === null || _c === void 0 ? void 0 : _c.Name.enGB.set(`Minion Attack`);
     (_d = controllers.Attack) === null || _d === void 0 ? void 0 : _d.Description.enGB.set(`Command your minions to attack your target`);
     makeSummon(i, 'warrior', 'Skeleton Warrior', 9790, 'Interface\\Icons\\Spell_Shadow_RaiseDead.blp');
-    makeSummon(i, 'tank', 'Tanky Scarab', 10031, 'Interface\\Icons\\Ability_Creature_Disease_02.blp');
+    makeSummon(i, 'tank', 'Tanky Scarab', 10031, 'Interface\\Icons\\Ability_Creature_Disease_02.blp', 1.5);
     makeSummon(i, 'caster', 'Crypt Caster', 14698, 'Interface\\Icons\\Achievement_Dungeon_AzjolLowercity.blp', 0.4);
+    makeSummon(i, 'healer', 'Skeleton Healer', 9790, 'Interface\\Icons\\Achievement_Dungeon_AzjolLowercity.blp');
 }
 //# sourceMappingURL=Minions.js.map
