@@ -1,0 +1,10 @@
+^C:\TESTING-TSWOW\TSWOW\MODULES\TESTER-MOD\SCRIPTS\BUILD\LIB\CMAKEFILES\D4334825E147DF9A417EDDA9FF40D441\GENERATE.STAMP.RULE
+setlocal
+C:\Testing-TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
