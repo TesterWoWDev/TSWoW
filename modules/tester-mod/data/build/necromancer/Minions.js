@@ -57,8 +57,8 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
         }
         case 'caster': {
             entity.UnitClass.setMage();
-            entity.Stats.ManaMod.set(15);
-            entity.Stats.DamageMod.set(5);
+            entity.Stats.ManaMod.set(10);
+            entity.Stats.DamageMod.set(3);
             //fix mana
             entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166, 0, 0);
             entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(688, 0, 0);
@@ -68,14 +68,17 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(0);
             entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(1, 1, 1, 3000, 3000, 100);
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(1);
+            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(2, 1, 2, 30000, 45000, 100);
+            entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(2);
             //combat loop
             entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(40, 0).Action.setCast(47813, 0, 0);
             entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(40, 0).Action.setCast(25307, 0, 32);
+            entity.Scripts.onTimedEventTriggered(2).Target.setSelf().Action.setCast(29166, 2, 7); //mana
             break;
         }
         case 'healer': {
             entity.UnitClass.setMage();
-            entity.Stats.ManaMod.set(25);
+            entity.Stats.ManaMod.set(10);
             entity.Stats.DamageMod.set(1);
             //fix mana
             entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166, 0, 0);
@@ -88,10 +91,13 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(1);
             entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(2, 1, 2, 3000, 3000, 100);
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(2);
+            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(3, 1, 2, 30000, 45000, 100);
+            entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(3);
             //combat loop
-            entity.Scripts.onTimedEventTriggered(0).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(34861, 2, 7);
-            entity.Scripts.onTimedEventTriggered(1).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(48068, 2, 7);
-            entity.Scripts.onTimedEventTriggered(2).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(6064, 0, 0);
+            entity.Scripts.onTimedEventTriggered(0).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(34861, 2, 7); //AoE heal
+            entity.Scripts.onTimedEventTriggered(1).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(48068, 2, 7); //renew
+            entity.Scripts.onTimedEventTriggered(2).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(6064, 0, 0); //single heal
+            entity.Scripts.onTimedEventTriggered(3).Target.setSelf().Action.setCast(29166, 2, 7); //mana
             break;
         }
         default: {
