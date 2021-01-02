@@ -85,7 +85,7 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 		 }
 
 		default: { 
-		   console.log("Issue, pet summoned not in totem catagory. Investigate")
+		   console.log("Issue, pet summoned not in assumed expected minion types. Investigate")
 		   break; 
 		}
 	 } 
