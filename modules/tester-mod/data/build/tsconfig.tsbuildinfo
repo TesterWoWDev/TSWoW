@@ -3541,11 +3541,6 @@
         "signature": "2ce77cf1b131194582cfaf2f1317c32c5ff923643f1a08cd07513430d35d83c2",
         "affectsGlobalScope": false
       },
-      "../test-data.ts": {
-        "version": "f1b1ed47513943d9ac976363bc7f9cf0f2183bc243f9c766aef7b111c2d26c36",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
-        "affectsGlobalScope": false
-      },
       "../creatures/megaboss.ts": {
         "version": "d52b2c81cec4f0d79f05971dc71c386b1c1e6f68538a481b3bffeaa8933fcf71",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
@@ -3567,12 +3562,12 @@
         "affectsGlobalScope": false
       },
       "../necromancer/mass-summon.ts": {
-        "version": "3c76a8fa468386e79a5072afe50ca668028964592d87bf92da419f3846a65ce2",
+        "version": "c7be707f3572f058cafd8b09c0e0665272cdf0f80c0f6f8cdbb7e3ccf34da952",
         "signature": "d80d9e14a7a22cfb90c44bd11f49e60fde3b623ed63180f981e7844eff08a6de",
         "affectsGlobalScope": false
       },
       "../necromancer/minions.ts": {
-        "version": "703e994f5503b2f08c1a1e6ade5582101881a456fe9e42f4192c232bd487935f",
+        "version": "e81e2638f004940b57b50d92e4bf7233cca73c8e37c6854089c44a7e42734b3c",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -7644,9 +7639,6 @@
         "../enemycreature.ts"
       ],
       "../sword.ts": [
-        "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts"
-      ],
-      "../test-data.ts": [
         "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts"
       ],
       "../../../tswow-stdlib/data/build/achievement/achievement.d.ts": [
@@ -14483,7 +14475,6 @@
       "../necromancer/necromancer.ts",
       "../quest_tests/quest1.ts",
       "../sword.ts",
-      "../test-data.ts",
       "../../../tswow-stdlib/data/build/achievement/achievement.d.ts",
       "../../../tswow-stdlib/data/build/achievement/achievementcriteria.d.ts",
       "../../../tswow-stdlib/data/build/area/area.d.ts",
