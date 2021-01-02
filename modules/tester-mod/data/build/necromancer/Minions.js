@@ -84,14 +84,14 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
             //timed calls
             entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(0, 5, 9, 8000, 13000, 100);
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(0);
-            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(1, 0, 1, 13000, 15000, 100);
+            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(1, 1, 1, 13000, 15000, 100);
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(1);
             entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(2, 1, 2, 3000, 3000, 100);
-            entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(1);
+            entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(2);
             //combat loop
-            entity.Scripts.onTimedEventTriggered(0).Target.setCreatureRange(0, 0, 40, 0).Action.setCast(34861, 2, 7);
-            entity.Scripts.onTimedEventTriggered(1).Target.setCreatureRange(0, 0, 40, 0).Action.setCast(48068, 2, 7);
-            entity.Scripts.onTimedEventTriggered(2).Target.setCreatureRange(0, 0, 40, 0).Action.setCast(6064, 0, 0);
+            entity.Scripts.onTimedEventTriggered(0).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(34861, 2, 7);
+            entity.Scripts.onTimedEventTriggered(1).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(48068, 2, 7);
+            entity.Scripts.onTimedEventTriggered(2).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(6064, 0, 0);
             break;
         }
         default: {
