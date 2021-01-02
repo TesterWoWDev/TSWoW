@@ -2,7 +2,7 @@ import { std } from 'tswow-stdlib';
 
 const TSWOW_TESTMODULE = "tester-mod"
 export const NECROMANCER_CLASS = 
-	std.Classes.create(TSWOW_TESTMODULE,'necromancer','NECROMANCER','MAGE');
+std.Classes.create(TSWOW_TESTMODULE,'necromancer','NECROMANCER','MAGE');
 
 export const NECROMANCER_ROBE = std.Items.create(TSWOW_TESTMODULE,'cls',56).Visual.row.Texture.set
 
@@ -30,8 +30,8 @@ NECROMANCER_CLASS.UI.Description.set("Necromancers raise and control the undead,
 // Spell Crit = 0.1*level
 NECROMANCER_CLASS.Stats.SpellCrit.set((x,level)=>0.000005*level)
 // Melee crit = 0.1*level
-
 NECROMANCER_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
+
 
 export const NECROMANCY_SKILL = std.SkillLines
 	.createClass(TSWOW_TESTMODULE,'necromancy-skill',NECROMANCER_CLASS.ID)
@@ -39,7 +39,6 @@ NECROMANCY_SKILL.Name.enGB.set(`Necromancy`)
 NECROMANCY_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 
 // Truly the epitome of creativity
-export const DEATH_SKILL = std.SkillLines
-	.createClass(TSWOW_TESTMODULE,'death-skill',NECROMANCER_CLASS.ID)
-DEATH_SKILL.Name.enGB.set(`Pestilence`)
-DEATH_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_DeathCoil')
+export const PESTILENCE_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'death-skill',NECROMANCER_CLASS.ID)
+PESTILENCE_SKILL.Name.enGB.set(`Pestilence`)
+PESTILENCE_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_DeathCoil')
