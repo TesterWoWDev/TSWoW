@@ -1,4 +1,3 @@
-import { kill } from "process";
 import { ID } from "./ID";
 
 class TestClass  {
