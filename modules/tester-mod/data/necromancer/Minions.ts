@@ -7,14 +7,20 @@ const totems : TotemType[] = ['EARTH','AIR','WATER','FIRE']
 
 function makeSummon(index: number, name: string, displayName: string, modelId: number, icon: string, scale = 1) {
 	const entity = std.CreatureTemplates.create(TSWOW_TESTMODULE,`${name}-${index}`,416);
-	entity.Models.set([modelId]);
-	entity.Name.enGB.set(`${displayName}`);
+
 	const summon_spell = std.Spells.TotemCreatures.createSummon(TSWOW_TESTMODULE,`summon-${name}-${index}`, totems[index], entity.ID);
 	summon_spell.Power.setMana(40,5)
 	summon_spell.CastTime.Base.set(500)
-	summon_spell.Duration.Duration.set(60000)
+	summon_spell.Duration.Duration.set(45000)
+	summon_spell.SkillLines.add(NECROMANCY_SKILL.ID).setAutolearn();
+	summon_spell.Name.enGB.set(`Summon ${displayName}`)
+	summon_spell.Icon.set(icon);
+	summon_spell.Cooldown.Time.set(5000)
+	summon_spell.Description.enGB.set(`Summon and control a ${displayName} for ${summon_spell.Duration.Duration.get()/1000} seconds.`)
+
+	entity.Models.set([modelId]);
+	entity.Name.enGB.set(`${displayName}`);
 	entity.Scale.set(scale);
-	
 	switch(name) { 
 		case 'warrior': {
 			entity.UnitClass.setWarrior();
@@ -111,11 +117,6 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 		}
 	 } 
 
-	summon_spell.SkillLines.add(NECROMANCY_SKILL.ID).setAutolearn();
-	summon_spell.Name.enGB.set(`Summon ${displayName}`)
-	summon_spell.Icon.set(icon);
-	summon_spell.Cooldown.Time.set(5000)
-	summon_spell.Description.enGB.set(`Summon ${displayName} for 60 seconds`)
 }
 
 for(let i=0;i<totems.length;++i){//HAS A LINKED LIVE SCRIPT

@@ -13,22 +13,22 @@ void Main(TSEventHandlers *  events)
         console->log(arr->get_length());
         for (auto i = 0; i < arr->get_length(); i++)
         {
-            console->log(arr->get(i)->inner->guid);
+            console->log(arr->get(i)->guid);
             console->log(killer->GetGUIDLow());
-            if (arr->get(i)->inner->guid == killer->GetGUIDLow()) {
+            if (arr->get(i)->guid == killer->GetGUIDLow()) {
                 foundIndex = i;
-                arr->get(i)->inner->kills++;
+                arr->get(i)->kills++;
             }
-            if (arr->get(i)->inner->guid == killed->GetGUIDLow()) {
+            if (arr->get(i)->guid == killed->GetGUIDLow()) {
                 foundIndex = i;
-                arr->get(i)->inner->kills = 0;
+                arr->get(i)->kills = 0;
             }
         }
         if (foundIndex > -1) {
-            kills = arr->get(foundIndex)->inner->kills;
+            kills = arr->get(foundIndex)->kills;
         } else {
             auto holder = std::make_shared<TestContainer>();
-            holder->inner->guid = killer->GetGUIDLow();
+            holder->guid = killer->GetGUIDLow();
             arr->push(holder);
         }
         killer->SendBroadcastMessage(JSTR("|cffff0000[KillTracker] ") + killer->GetName() + JSTR("|r Has Murdered |cffff0000") + killed->GetName() + JSTR("|r In Cold Blood. Current killstreak of ") + kills);
@@ -42,7 +42,7 @@ void Main(TSEventHandlers *  events)
     );
     events->Player->OnLevelChanged([](auto player, auto oldLevel)
     {
-        player->SendAreaTriggerMessage(JSTR("Congrats on leveling up!"));
+        player->SendAreaTriggerMessage(JSTR("Congrats on leveling up to ") + player->GetLevel() + JSTR("!"));
         auto level = player->GetLevel();
         if (level % 5 == 0) {
             player->ModifyMoney(100);
