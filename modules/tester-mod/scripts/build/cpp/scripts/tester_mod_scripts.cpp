@@ -49,7 +49,7 @@ void Main(TSEventHandlers *  events)
             player->AddItem(20880, level / 5);
         }
         if (level == 80) {
-            player->SendBroadcastMessage(JSTR("|cffffffff[LevelTracker]|r ") + player->GetName() + JSTR(" Has Reached Max Level! Congrats ") + player->GetName() + JSTR("!"));
+            player->SendBroadcastMessage(JSTR("|cffffffff[LevelTracker]|r ") + player->GetName() + JSTR(" Has Reached Max Level! Congrats ") + player->GetName() + JSTR(" on reaching ") + player->GetLevel() + JSTR("!"));
         }
     }
     );
