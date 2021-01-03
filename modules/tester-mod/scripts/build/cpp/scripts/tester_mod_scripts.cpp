@@ -9,6 +9,7 @@ void Main(TSEventHandlers *  events)
         auto AMOUNT = 5;
         killer->AddItem(PVPTOKEN, AMOUNT);
         auto foundIndex = -1;
+        auto kills = 1;
         console->log(arr->get_length());
         for (auto i = 0; i < arr->get_length(); i++)
         {
@@ -23,12 +24,14 @@ void Main(TSEventHandlers *  events)
                 arr->get(i)->inner->kills = 0;
             }
         }
-        if (foundIndex == -1) {
+        if (foundIndex > -1) {
+            kills = arr->get(foundIndex)->inner->kills;
+        } else {
             auto holder = std::make_shared<TestContainer>();
             holder->inner->guid = killer->GetGUIDLow();
             arr->push(holder);
         }
-        killer->SendBroadcastMessage(JSTR("|cffff0000[KillTracker] ") + killer->GetName() + JSTR("|r Has Murdered |cffff0000") + killed->GetName() + JSTR("|r In Cold Blood. Current killstreak of ") + arr->get(foundIndex)->inner->kills);
+        killer->SendBroadcastMessage(JSTR("|cffff0000[KillTracker] ") + killer->GetName() + JSTR("|r Has Murdered |cffff0000") + killed->GetName() + JSTR("|r In Cold Blood. Current killstreak of ") + kills);
     }
     );
     events->Player->OnDuelStart([](auto player1, auto player2)
