@@ -7,12 +7,17 @@ const TSWOW_TESTMODULE = "tester-mod";
 const totems = ['EARTH', 'AIR', 'WATER', 'FIRE'];
 function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
     const entity = tswow_stdlib_1.std.CreatureTemplates.create(TSWOW_TESTMODULE, `${name}-${index}`, 416);
-    entity.Models.set([modelId]);
-    entity.Name.enGB.set(`${displayName}`);
     const summon_spell = tswow_stdlib_1.std.Spells.TotemCreatures.createSummon(TSWOW_TESTMODULE, `summon-${name}-${index}`, totems[index], entity.ID);
     summon_spell.Power.setMana(40, 5);
     summon_spell.CastTime.Base.set(500);
-    summon_spell.Duration.Duration.set(60000);
+    summon_spell.Duration.Duration.set(45000);
+    summon_spell.SkillLines.add(Necromancer_1.NECROMANCY_SKILL.ID).setAutolearn();
+    summon_spell.Name.enGB.set(`Summon ${displayName}`);
+    summon_spell.Icon.set(icon);
+    summon_spell.Cooldown.Time.set(5000);
+    summon_spell.Description.enGB.set(`Summon and control a ${displayName} for ${summon_spell.Duration.Duration.get() / 1000} seconds.`);
+    entity.Models.set([modelId]);
+    entity.Name.enGB.set(`${displayName}`);
     entity.Scale.set(scale);
     switch (name) {
         case 'warrior': {
@@ -106,11 +111,6 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
             break;
         }
     }
-    summon_spell.SkillLines.add(Necromancer_1.NECROMANCY_SKILL.ID).setAutolearn();
-    summon_spell.Name.enGB.set(`Summon ${displayName}`);
-    summon_spell.Icon.set(icon);
-    summon_spell.Cooldown.Time.set(5000);
-    summon_spell.Description.enGB.set(`Summon ${displayName} for 60 seconds`);
 }
 for (let i = 0; i < totems.length; ++i) { //HAS A LINKED LIVE SCRIPT
     const controllers = tswow_stdlib_1.std.Spells.TotemCreatures.createControllers(TSWOW_TESTMODULE, `control-${i}`, [i], ['Attack']);

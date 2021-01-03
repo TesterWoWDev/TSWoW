@@ -1,11 +1,8 @@
 import { ID } from "./ID";
 
-class TestClass  {
+class TestContainer {
 	guid: uint32 = 0
 	kills: int16 = 1
-}
-class TestContainer {
-    inner: TestClass = new TestClass();
 }
 
 let arr : TSArray<TestContainer> = [];
@@ -20,22 +17,22 @@ export function Main(events: TSEventHandlers) {
 		let kills = 1
 		console.log(arr.length)
 		for(let i=0;i<arr.length;i++){
-			console.log(arr.get(i).inner.guid)
+			console.log(arr.get(i).guid)
 			console.log(killer.GetGUIDLow())
-			if(arr.get(i).inner.guid == killer.GetGUIDLow()){
+			if(arr.get(i).guid == killer.GetGUIDLow()){
 				foundIndex = i
-				arr.get(i).inner.kills++
+				arr.get(i).kills++
 			}
-			if(arr.get(i).inner.guid == killed.GetGUIDLow()){
+			if(arr.get(i).guid == killed.GetGUIDLow()){
 				foundIndex = i
-				arr.get(i).inner.kills = 0
+				arr.get(i).kills = 0
 			}
 		}
 		if(foundIndex > -1){
-			kills = arr.get(foundIndex).inner.kills
+			kills = arr.get(foundIndex).kills
 		}else{
 			let holder = new TestContainer();
-			holder.inner.guid = killer.GetGUIDLow()
+			holder.guid = killer.GetGUIDLow()
 			arr.push(holder)
 		}
 		 killer.SendBroadcastMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Current killstreak of "+kills)
