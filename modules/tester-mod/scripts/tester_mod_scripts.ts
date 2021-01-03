@@ -1,3 +1,4 @@
+import { ID } from "./ID";
 export function Main(events: TSEventHandlers) {
 //kill tracker/reward system
 	events.Player.OnPVPKill((killer,killed)=>{
@@ -17,19 +18,19 @@ export function Main(events: TSEventHandlers) {
 	events.Player.OnLevelChanged((player,oldLevel)=>{
 		player.SendAreaTriggerMessage("Congrats on leveling up!")
 		let level: int = player.GetLevel()
-		if(level%5 < 1){
+		if(level%5 == 0){
 			player.ModifyMoney(100)
 			player.AddItem(20880,level/5)
 		} 
-		if(level > 79){
+		if(level == 80){
 			player.SendBroadcastMessage("|cffffffff[LevelTracker]|r "+player.GetName() + " Has Reached Max Level! Congrats "+ player.GetName()+"!")
 		}   
 	});
 
-	events.Spells.OnCast(200000,(spell)=>{//cast all other minion attacks
+	events.Spells.OnCast(ID.TESTER_MOD_CONTROL_0_ATTACK,(spell)=>{//cast all other minion attacks
 		let player = spell.GetCaster().ToPlayer()
-		player.CastSpell(player,200005,true)
-		player.CastSpell(player,200010,true)
-		player.CastSpell(player,200015,true)
+		player.CastSpell(player,ID.TESTER_MOD_CONTROL_1_ATTACK,true)
+		player.CastSpell(player,ID.TESTER_MOD_CONTROL_2_ATTACK,true)
+		player.CastSpell(player,ID.TESTER_MOD_CONTROL_3_ATTACK,true)
 	});
 }

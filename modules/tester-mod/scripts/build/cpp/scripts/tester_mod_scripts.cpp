@@ -21,21 +21,21 @@ void Main(TSEventHandlers *  events)
     {
         player->SendAreaTriggerMessage(JSTR("Congrats on leveling up!"));
         auto level = player->GetLevel();
-        if (level % 5 < 1) {
+        if (level % 5 == 0) {
             player->ModifyMoney(100);
             player->AddItem(20880, level / 5);
         }
-        if (level > 79) {
+        if (level == 80) {
             player->SendBroadcastMessage(JSTR("|cffffffff[LevelTracker]|r ") + player->GetName() + JSTR(" Has Reached Max Level! Congrats ") + player->GetName() + JSTR("!"));
         }
     }
     );
-    events->Spells->OnCast(200000, [](auto spell)
+    events->Spells->OnCast(ID::TESTER_MOD_CONTROL_0_ATTACK, [](auto spell)
     {
         auto player = spell->GetCaster()->ToPlayer();
-        player->CastSpell(player, 200005, true);
-        player->CastSpell(player, 200010, true);
-        player->CastSpell(player, 200015, true);
+        player->CastSpell(player, ID::TESTER_MOD_CONTROL_1_ATTACK, true);
+        player->CastSpell(player, ID::TESTER_MOD_CONTROL_2_ATTACK, true);
+        player->CastSpell(player, ID::TESTER_MOD_CONTROL_3_ATTACK, true);
     }
     );
 };
