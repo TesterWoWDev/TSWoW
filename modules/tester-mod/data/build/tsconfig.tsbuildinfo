@@ -3567,7 +3567,7 @@
         "affectsGlobalScope": false
       },
       "../necromancer/minions.ts": {
-        "version": "8c87ede8b99dca3d56b6d6fd81fc679f430d3904ed9b569e2712d724878df975",
+        "version": "4073573b52396d769218dc2c3fb9e4fceae4cfe64b7140a1c9654b44b375cd10",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },

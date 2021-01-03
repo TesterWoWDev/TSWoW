@@ -91,7 +91,7 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(1);
             entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(2, 1, 2, 3000, 3000, 100);
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(2);
-            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(3, 1, 2, 30000, 45000, 100);
+            entity.Scripts.onUpdateIc(0, 0, 0, 0).Action.setCreateTimedEvent(3, 1, 2, 20000, 35000, 100);
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Action.setRemoveTimedEvent(3);
             //combat loop
             entity.Scripts.onTimedEventTriggered(0).Target.setCreatureRange(0, 0, 40, 1).Action.setCast(34861, 2, 7); //AoE heal
