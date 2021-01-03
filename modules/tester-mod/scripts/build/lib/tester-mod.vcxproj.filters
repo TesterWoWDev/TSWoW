@@ -7,9 +7,6 @@
     <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\ID.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\tester_mod_scripts.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Debug\cmake_pch.hxx">
