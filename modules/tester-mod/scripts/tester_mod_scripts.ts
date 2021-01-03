@@ -18,6 +18,7 @@ export function Main(events: TSEventHandlers) {
 		let AMOUNT = 5
 		killer.AddItem(PVPTOKEN,AMOUNT)
 		let foundIndex = -1
+		let kills = 1
 		console.log(arr.length)
 		for(let i=0;i<arr.length;i++){
 			console.log(arr.get(i).inner.guid)
@@ -31,13 +32,14 @@ export function Main(events: TSEventHandlers) {
 				arr.get(i).inner.kills = 0
 			}
 		}
-		if(foundIndex == -1){
+		if(foundIndex > -1){
+			kills = arr.get(foundIndex).inner.kills
+		}else{
 			let holder = new TestContainer();
 			holder.inner.guid = killer.GetGUIDLow()
 			arr.push(holder)
-			
 		}
-		 killer.SendBroadcastMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Current killstreak of "+arr.get(foundIndex).inner.kills)
+		 killer.SendBroadcastMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Current killstreak of "+kills)
 		});
 
 //reset cds on duel
