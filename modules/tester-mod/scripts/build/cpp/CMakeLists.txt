@@ -6,7 +6,7 @@ include_directories(../../../../../bin/include)
 file (GLOB headers "../../../../../bin/include/*.h")
 file (GLOB libs "../../../../../bin/libraries/Release/*.lib")
 
-add_library(tester-mod SHARED scripts/ID.cpp scripts/tester_mod_scripts.cpp)
+add_library(tester-mod SHARED scripts/ID.cpp)
 target_link_libraries(tester-mod ${libs})
 
 target_precompile_headers(tester-mod
