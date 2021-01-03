@@ -1,4 +1,3 @@
-        nrt
 /*
  * This file is part of tswow (https://github.com/tswow/).
  * Copyright (C) 2020 tswow <https://github.com/tswow/>
@@ -41,6 +40,11 @@ declare class TSPosition {
     z: float;
     o: float;
     map: uint32;
+}
+
+interface Array<T> {
+    get(index: number): T;
+    set(index: number, value: T);
 }
 
 declare class TSMutableString extends TSMutable<string>{}
@@ -1007,6 +1011,17 @@ declare class TSEventHandlers {
     Group: _hidden.Group;
     Spells: _hidden.Spells;
 }
+
+declare class TSDictionary<K,V> {
+    get(key: K) : V;
+    set(key: K, value: V);
+    contains(key: K): boolean;
+    forEach(callback: (key: K, value: V)=>void);
+    reduce<T>(callback: (previous: T,key: K, value: V)=>T, initial: T) : T;
+    filter(callback: (key: K, value: V)=>boolean): TSDictionary<K,V>
+}
+
+declare function MakeDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V>
 
 declare function GetID(table: string, mod: string, name: string);
 declare function GetIDRange(table: string, mod: string, name: string);

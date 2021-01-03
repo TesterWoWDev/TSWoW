@@ -1,6 +1,7 @@
 #ifndef SCRIPTS_TESTER_MOD_SCRIPTS_H
 #define SCRIPTS_TESTER_MOD_SCRIPTS_H
 #include "TSAll.h"
+#include "./ID.h"
 
 
 extern "C" 
@@ -17,7 +18,7 @@ extern "C"
     __declspec(dllexport) void AddScripts(){}
     __declspec(dllexport) char const* GetScriptModule()
     {
-        return "0.5772840689878931";
+        return "0.5885296644492093";
     }
     __declspec(dllexport) char const* GetBuildDirective()
     {

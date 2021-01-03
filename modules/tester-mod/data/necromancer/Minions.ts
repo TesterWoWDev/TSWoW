@@ -112,7 +112,7 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 	 } 
 
 	summon_spell.SkillLines.add(NECROMANCY_SKILL.ID).setAutolearn();
-	summon_spell.Name.enGB.set(`Summon ${displayName}`)//  ${totems[index]}
+	summon_spell.Name.enGB.set(`Summon ${displayName}`)
 	summon_spell.Icon.set(icon);
 	summon_spell.Cooldown.Time.set(5000)
 	summon_spell.Description.enGB.set(`Summon ${displayName} for 60 seconds`)
@@ -120,7 +120,7 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 
 for(let i=0;i<totems.length;++i){//HAS A LINKED LIVE SCRIPT
 	const controllers = std.Spells.TotemCreatures.createControllers(TSWOW_TESTMODULE,`control-${i}`,[i],['Attack'])
-	if( controllers.Attack?.ID == 200000)
+	if( i == 0)
 	controllers.Attack?.SkillLines.add(NECROMANCY_SKILL.ID).setAutolearn();
 	controllers.Attack?.Name.enGB.set(`Minion Attack`);
 	controllers.Attack?.Description.enGB.set(`Command your minions to attack your target`)

@@ -257,8 +257,8 @@
         "affectsGlobalScope": true
       },
       "../../../../node_modules/@types/node/fs.d.ts": {
-        "version": "f87f95c015900102a5c0edcdebb17596de1382510e6cc17ab79f375d3505bb12",
-        "signature": "f87f95c015900102a5c0edcdebb17596de1382510e6cc17ab79f375d3505bb12",
+        "version": "80b94a222a5e83289583833de76f8b3a5962ec4c3803690e20c875a2776ddfdc",
+        "signature": "80b94a222a5e83289583833de76f8b3a5962ec4c3803690e20c875a2776ddfdc",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/fs/promises.d.ts": {
@@ -417,8 +417,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/assert.d.ts": {
-        "version": "6fbe72eed85e363ad83b763e03be824558c6ea7456c7259a48bcf0afdeb9d7e4",
-        "signature": "6fbe72eed85e363ad83b763e03be824558c6ea7456c7259a48bcf0afdeb9d7e4",
+        "version": "b3593bd345ebea5e4d0a894c03251a3774b34df3d6db57075c18e089a599ba76",
+        "signature": "b3593bd345ebea5e4d0a894c03251a3774b34df3d6db57075c18e089a599ba76",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/base.d.ts": {
@@ -782,8 +782,8 @@
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqltable.d.ts": {
-        "version": "3c0337fe525a30e72c58a90df5f6b1517d86626f24e8040c9cce86d636551f3c",
-        "signature": "3c0337fe525a30e72c58a90df5f6b1517d86626f24e8040c9cce86d636551f3c",
+        "version": "25406e980affa4d3b32a41836fffdbd5e5ba4c9a820d24f5c34217e5e4ad7656",
+        "signature": "25406e980affa4d3b32a41836fffdbd5e5ba4c9a820d24f5c34217e5e4ad7656",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqlrow.d.ts": {
@@ -869,6 +869,16 @@
       "../../../tswow-stdlib/data/build/achievement/achievement.d.ts": {
         "version": "c7afbefe73d015f9287762cbbec07e430522a075e9e709bbd630b54dfd69a5a0",
         "signature": "c7afbefe73d015f9287762cbbec07e430522a075e9e709bbd630b54dfd69a5a0",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts": {
+        "version": "e1d05d7ea8623c21c35a05e4d1a75671dea3db89f55fa29e386d6ca138ed43ea",
+        "signature": "e1d05d7ea8623c21c35a05e4d1a75671dea3db89f55fa29e386d6ca138ed43ea",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/sql/sqlconnection.d.ts": {
+        "version": "ea367424da3b08725ce054f3a791b1a5ce9269532941fd189d8101247bc6d49b",
+        "signature": "ea367424da3b08725ce054f3a791b1a5ce9269532941fd189d8101247bc6d49b",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/sql/types/access_requirement.d.ts": {
@@ -1742,8 +1752,8 @@
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqlfiles.d.ts": {
-        "version": "9aef395e64e1273dc10153309f538f0ebfa46a8fb35fb2be07c2afba3ff0dcb4",
-        "signature": "9aef395e64e1273dc10153309f538f0ebfa46a8fb35fb2be07c2afba3ff0dcb4",
+        "version": "e484c6943db4fd0e6e35ca954013d068821bb471d5a0417112b9c2be319565a0",
+        "signature": "e484c6943db4fd0e6e35ca954013d068821bb471d5a0417112b9c2be319565a0",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/achievement_category.d.ts": {
@@ -3472,8 +3482,8 @@
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/wotlkdata.d.ts": {
-        "version": "ec825b76de18a1bccc7dbffe792c97a9dcf89c87e3e02c8748192d2ba32a8f40",
-        "signature": "ec825b76de18a1bccc7dbffe792c97a9dcf89c87e3e02c8748192d2ba32a8f40",
+        "version": "4e42bca9992f37861452935785955c289847ba27c4dac32345e25565d698d134",
+        "signature": "4e42bca9992f37861452935785955c289847ba27c4dac32345e25565d698d134",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/light/lightintband.d.ts": {
@@ -3547,12 +3557,12 @@
         "affectsGlobalScope": false
       },
       "../quest_tests/quest1.ts": {
-        "version": "a046a2e7eb39910f570ca47c45b027715a585c7f8f2f4874a4066c97c177d2a5",
+        "version": "494c2d197272dcd57c2cc107134062874dc01329df00a72040c014fab8122ddc",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
       "../necromancer/necromancer.ts": {
-        "version": "0a1b4b2b6d113a88f50bb991946a0f4acee73f339a1d98d11fed1fdae879f54e",
+        "version": "e6a9fac8545d9d19da5ec682fee6f3691cfc87b6f548bd29ded56f1451b1c190",
         "signature": "8e58426fb69b441bf61c1ac45443194f1d890d8b40f2c0eba6d8b4f0dd6d8064",
         "affectsGlobalScope": false
       },
@@ -3567,7 +3577,7 @@
         "affectsGlobalScope": false
       },
       "../necromancer/minions.ts": {
-        "version": "4073573b52396d769218dc2c3fb9e4fceae4cfe64b7140a1c9654b44b375cd10",
+        "version": "72258ec947aad336e6fd1038e1ad912db8dd7f7f09cf6d217b70367541e661e4",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -5750,6 +5760,12 @@
         "../../../../bin/scripts/tswow/wotlkdata/cell/cell.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts"
       ],
+      "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts": [
+        "../../../../node_modules/@types/node/events.d.ts",
+        "../../../../node_modules/@types/node/index.d.ts",
+        "../../../../node_modules/@types/node/stream.d.ts",
+        "../../../../node_modules/@types/node/tls.d.ts"
+      ],
       "../../../../bin/scripts/tswow/wotlkdata/primitives.d.ts": [
         "../../../../bin/scripts/tswow/wotlkdata/dbc/dbcbuffer.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/dbc/localization.d.ts"
@@ -5759,7 +5775,14 @@
         "../../../../bin/scripts/tswow/wotlkdata/cell/cellreadonly.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/sqlrow.d.ts"
       ],
+      "../../../../bin/scripts/tswow/wotlkdata/sql/sqlconnection.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/sqlrow.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/sqltable.d.ts"
+      ],
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqlfiles.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/sqlconnection.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/sqltable.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/access_requirement.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/achievement_criteria_data.d.ts",
@@ -7434,6 +7457,7 @@
         "../../../../bin/scripts/tswow/wotlkdata/dbc/types/zonemusic.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/ids/ids.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/luaxml/luaxml.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/sqlfiles.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/access_requirement.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/achievement_criteria_data.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/achievement_dbc.d.ts",
@@ -10921,6 +10945,12 @@
         "../../../../bin/scripts/tswow/wotlkdata/cell/cell.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts"
       ],
+      "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts": [
+        "../../../../node_modules/@types/node/events.d.ts",
+        "../../../../node_modules/@types/node/index.d.ts",
+        "../../../../node_modules/@types/node/stream.d.ts",
+        "../../../../node_modules/@types/node/tls.d.ts"
+      ],
       "../../../../bin/scripts/tswow/wotlkdata/primitives.d.ts": [
         "../../../../bin/scripts/tswow/wotlkdata/dbc/dbcbuffer.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/dbc/localization.d.ts"
@@ -10930,7 +10960,14 @@
         "../../../../bin/scripts/tswow/wotlkdata/cell/cellreadonly.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/sqlrow.d.ts"
       ],
+      "../../../../bin/scripts/tswow/wotlkdata/sql/sqlconnection.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/sqlrow.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/sqltable.d.ts"
+      ],
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqlfiles.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/sqlconnection.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/sqltable.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/access_requirement.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/achievement_criteria_data.d.ts",
@@ -12605,6 +12642,7 @@
         "../../../../bin/scripts/tswow/wotlkdata/dbc/types/zonemusic.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/ids/ids.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/luaxml/luaxml.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/sqlfiles.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/access_requirement.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/achievement_criteria_data.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/achievement_dbc.d.ts",
@@ -14282,9 +14320,11 @@
       "../../../../bin/scripts/tswow/wotlkdata/luaxml/luaxml.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/luaxml/luaxmlfiles.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/luaxml/textfile.d.ts",
+      "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/primitives.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/query/relations.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqlcell.d.ts",
+      "../../../../bin/scripts/tswow/wotlkdata/sql/sqlconnection.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqlfiles.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqlrow.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqltable.d.ts",

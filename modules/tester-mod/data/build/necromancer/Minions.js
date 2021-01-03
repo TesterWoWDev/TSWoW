@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b, _c, _d;
+var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tswow_stdlib_1 = require("tswow-stdlib");
 const Necromancer_1 = require("./Necromancer");
@@ -40,6 +40,7 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
             entity.Stats.HealthMod.set(3);
             entity.Stats.DamageMod.set(0.75);
             entity.Stats.ArmorMod.set(2);
+            entity.Title.enGB.set("subname");
             //fix mana
             entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166, 0, 0);
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Target.setSelf().Action.setCast(29166, 0, 0);
@@ -106,17 +107,17 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
         }
     }
     summon_spell.SkillLines.add(Necromancer_1.NECROMANCY_SKILL.ID).setAutolearn();
-    summon_spell.Name.enGB.set(`Summon ${displayName}`); //  ${totems[index]}
+    summon_spell.Name.enGB.set(`Summon ${displayName}`);
     summon_spell.Icon.set(icon);
     summon_spell.Cooldown.Time.set(5000);
     summon_spell.Description.enGB.set(`Summon ${displayName} for 60 seconds`);
 }
 for (let i = 0; i < totems.length; ++i) { //HAS A LINKED LIVE SCRIPT
     const controllers = tswow_stdlib_1.std.Spells.TotemCreatures.createControllers(TSWOW_TESTMODULE, `control-${i}`, [i], ['Attack']);
-    if (((_a = controllers.Attack) === null || _a === void 0 ? void 0 : _a.ID) == 200000)
-        (_b = controllers.Attack) === null || _b === void 0 ? void 0 : _b.SkillLines.add(Necromancer_1.NECROMANCY_SKILL.ID).setAutolearn();
-    (_c = controllers.Attack) === null || _c === void 0 ? void 0 : _c.Name.enGB.set(`Minion Attack`);
-    (_d = controllers.Attack) === null || _d === void 0 ? void 0 : _d.Description.enGB.set(`Command your minions to attack your target`);
+    if (i == 0)
+        (_a = controllers.Attack) === null || _a === void 0 ? void 0 : _a.SkillLines.add(Necromancer_1.NECROMANCY_SKILL.ID).setAutolearn();
+    (_b = controllers.Attack) === null || _b === void 0 ? void 0 : _b.Name.enGB.set(`Minion Attack`);
+    (_c = controllers.Attack) === null || _c === void 0 ? void 0 : _c.Description.enGB.set(`Command your minions to attack your target`);
     makeSummon(i, 'warrior', 'Skeleton Warrior', 9790, 'Interface\\Icons\\Spell_Shadow_RaiseDead.blp');
     makeSummon(i, 'tank', 'Tanky Scarab', 10031, 'Interface\\Icons\\Ability_Creature_Disease_02.blp', 1.5);
     makeSummon(i, 'caster', 'Crypt Caster', 14698, 'Interface\\Icons\\Achievement_Dungeon_AzjolLowercity.blp', 0.4);

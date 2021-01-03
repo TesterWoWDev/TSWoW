@@ -7,6 +7,7 @@
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSAura.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSBase.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSBattleground.h"
+#include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSClass.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSClasses.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSConsole.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSCorpse.h"
