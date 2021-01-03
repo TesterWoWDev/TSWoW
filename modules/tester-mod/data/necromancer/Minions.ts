@@ -16,7 +16,6 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 	entity.Scale.set(scale);
 	
 	switch(name) { 
-
 		case 'warrior': {
 			entity.UnitClass.setWarrior();
 			entity.Stats.HealthMod.set(1)
@@ -38,13 +37,12 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			entity.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(10,0).Action.setCast(67037,2,7)
 			break; 
 		 } 
-
 		case 'tank': {
 		   entity.UnitClass.setPaladin();
 		   entity.Stats.HealthMod.set(3)
 		   entity.Stats.DamageMod.set(0.75)
 		   entity.Stats.ArmorMod.set(2)
-
+			entity.Title.enGB.set("subname")
 			//fix mana
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166,0,0)
 			entity.Scripts.onUpdateOoc(0,0,0,0).Target.setSelf().Action.setCast(29166,0,0)
@@ -60,7 +58,6 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(10,0).Action.setCast(1161,2,7)		
 		   break; 
 		} 
-
 		 case 'caster': {
 			entity.UnitClass.setMage()
 			entity.Stats.ManaMod.set(10)
@@ -83,7 +80,6 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			entity.Scripts.onTimedEventTriggered(2).Target.setSelf().Action.setCast(29166,2,7)//mana
 			break; 
 		 }
-
 		 case 'healer': {
 			entity.UnitClass.setMage()
 			entity.Stats.ManaMod.set(10)
@@ -109,7 +105,6 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			entity.Scripts.onTimedEventTriggered(3).Target.setSelf().Action.setCast(29166,2,7)//mana
 			break; 
 		 }
-
 		default: { 
 		   console.log("Issue, pet summoned not in assumed expected minion types. Investigate")
 		   break; 
