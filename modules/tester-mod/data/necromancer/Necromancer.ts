@@ -12,9 +12,9 @@ NECROMANCER_CLASS.Name.enGB.set('Necromancer');
 NECROMANCER_CLASS.EquipSkills.Staves.setAuto();
 NECROMANCER_CLASS.EquipSkills.Cloth.setAuto();
 NECROMANCER_CLASS.EquipSkills.Polearms.setAuto();
-NECROMANCER_CLASS.StartGear.Mainhand.set(41821)
-NECROMANCER_CLASS.StartGear.Ranged.set(39134)
-NECROMANCER_CLASS.StartGear.Chest.set(42844)
+// NECROMANCER_CLASS.StartGear.Mainhand.set(41821)
+// NECROMANCER_CLASS.StartGear.Ranged.set(39134)
+// NECROMANCER_CLASS.StartGear.Chest.set(42844)
 
 // NECROMANCER_CLASS.UI.TCoords.set(0.5,0.75,0.5,0.75);
 // NECROMANCER_CLASS.UI.ClassButton.setPos(85,-420)
