@@ -1,11 +1,4 @@
-import { Test } from "mocha";
 import { ID } from "./ID";
-
-class TestContainer {
-	kills: int = 0	
-}
-
-let arr : TSArray<TestContainer> = [];
 
 export function Main(events: TSEventHandlers) {
 //kill tracker/reward system
@@ -13,9 +6,7 @@ export function Main(events: TSEventHandlers) {
 		const PVPTOKEN = 20880
 		let AMOUNT = 5
 		killer.AddItem(PVPTOKEN,AMOUNT)
-		arr.set(killer.GetGUIDLow(),new TestContainer())
-		console.log(arr.get(killer.GetGUIDLow()))
-		killer.SendBroadcastMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Current killstreak of "+ arr.get(killer.GetGUIDLow()).kills)
+		 killer.SendBroadcastMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood.")
 	});
 
 //reset cds on duel

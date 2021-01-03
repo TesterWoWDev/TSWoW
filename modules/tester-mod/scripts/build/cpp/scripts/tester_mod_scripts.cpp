@@ -8,9 +8,7 @@ void Main(TSEventHandlers *  events)
         auto PVPTOKEN = 20880;
         auto AMOUNT = 5;
         killer->AddItem(PVPTOKEN, AMOUNT);
-        arr->set(killer->GetGUIDLow(), std::make_shared<TestContainer>());
-        console->log(arr->get(killer->GetGUIDLow()));
-        killer->SendBroadcastMessage(JSTR("|cffff0000[KillTracker] ") + killer->GetName() + JSTR("|r Has Murdered |cffff0000") + killed->GetName() + JSTR("|r In Cold Blood. Current killstreak of ") + arr->get(killer->GetGUIDLow())->kills);
+        killer->SendBroadcastMessage(JSTR("|cffff0000[KillTracker] ") + killer->GetName() + JSTR("|r Has Murdered |cffff0000") + killed->GetName() + JSTR("|r In Cold Blood."));
     }
     );
     events->Player->OnDuelStart([](auto player1, auto player2)
@@ -43,7 +41,6 @@ void Main(TSEventHandlers *  events)
 };
 
 
-TSArray<std::shared_ptr<TestContainer>> arr = TSArray<std::shared_ptr<TestContainer>>();
 
 ___scripts_tester_mod_scripts_ts::___scripts_tester_mod_scripts_ts()
 {
