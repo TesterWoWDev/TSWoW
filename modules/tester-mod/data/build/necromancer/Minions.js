@@ -45,7 +45,6 @@ function makeSummon(index, name, displayName, modelId, icon, scale = 1) {
             entity.Stats.HealthMod.set(3);
             entity.Stats.DamageMod.set(0.75);
             entity.Stats.ArmorMod.set(2);
-            entity.Title.enGB.set("subname");
             //fix mana
             entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166, 0, 0);
             entity.Scripts.onUpdateOoc(0, 0, 0, 0).Target.setSelf().Action.setCast(29166, 0, 0);

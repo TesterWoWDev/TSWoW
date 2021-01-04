@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tswow_stdlib_1 = require("tswow-stdlib");
-const EnemyCreature_1 = require("../EnemyCreature");
+const EnemyCreature_1 = require("../Creatures/EnemyCreature");
 // Create the quest
 const killQuest = tswow_stdlib_1.std.Quests.create('my-module', 'kill-zombies-quest');
 // Set the quest log title
