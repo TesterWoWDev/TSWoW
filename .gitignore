@@ -1,4 +1,9 @@
-node_modules
-bin
-config
-coredata
+/.vscode
+/bin
+/config
+/coredata
+/log.txt
+/node_modules
+/package-lock.json
+/package.json
+/TSWoW.rar
