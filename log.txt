@@ -588,3 +588,23 @@ No more errors in modules/path/data
 
 All modules finished compiling!
 
+Uncaching file modules/path/Quest1.ts
+
+Removing  ../path/Quest1.ts
+
+Quest_Tests/path/EnemyCreature' or its corresponding type declarations.
+
+Uncaching file modules/path/sword.ts
+
+Removing  ..\sword.ts
+
+Quest_Tests/path/EnemyCreature' or its corresponding type declarations.
+
+No more errors in modules/path/data
+
+All modules finished compiling!
+
+git push
+
+Error: No command git
+
