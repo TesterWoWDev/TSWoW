@@ -3547,8 +3547,8 @@
         "affectsGlobalScope": false
       },
       "../creatures/megaboss.ts": {
-        "version": "d52b2c81cec4f0d79f05971dc71c386b1c1e6f68538a481b3bffeaa8933fcf71",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
+        "version": "c5841f60d9ab14e6a06e9e1b4b9bd32f9adbbebe3d0b10920d187ca0a7d2f1cb",
+        "signature": "db9346457fd915bc4a747c8e1b9d2b1d086afc1d5aa6945e74e23cad3870680f",
         "affectsGlobalScope": false
       },
       "../quest_tests/quest1.ts": {
@@ -3685,6 +3685,7 @@
       "forceConsistentCasingInFileNames": true,
       "experimentalDecorators": true,
       "sourceMap": true,
+      "watch": true,
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {
@@ -12820,6 +12821,9 @@
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/waypoints.d.ts"
       ],
       "../creatures/enemycreature.ts": [
+        "../../../tswow-stdlib/data/build/creature/creaturetemplate.d.ts"
+      ],
+      "../creatures/megaboss.ts": [
         "../../../tswow-stdlib/data/build/creature/creaturetemplate.d.ts"
       ],
       "../items/sword.ts": [
