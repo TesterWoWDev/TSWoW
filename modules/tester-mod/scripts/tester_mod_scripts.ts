@@ -15,7 +15,6 @@ export function Main(events: TSEventHandlers) {
 		killer.AddItem(PVPTOKEN,AMOUNT)
 		let foundIndex = -1
 		let kills = 1
-		console.log(arr.length)
 		for(let i=0;i<arr.length;i++){
 			console.log(arr.get(i).guid)
 			console.log(killer.GetGUIDLow())
@@ -24,7 +23,6 @@ export function Main(events: TSEventHandlers) {
 				arr.get(i).kills++
 			}
 			if(arr.get(i).guid == killed.GetGUIDLow()){
-				foundIndex = i
 				arr.get(i).kills = 0
 			}
 		}
@@ -57,10 +55,12 @@ export function Main(events: TSEventHandlers) {
 		} 
 	});
 
-	events.Spells.OnCast(ID.TESTER_MOD_CONTROL_0_ATTACK,(spell)=>{//cast all other minion attacks
+	events.SpellID.OnCast(ID.TESTER_MOD_CONTROL_0_ATTACK,(spell)=>{//cast all other minion attacks
 		let player = spell.GetCaster().ToPlayer()
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_1_ATTACK,true)
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_2_ATTACK,true)
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_3_ATTACK,true)
 	});
+
+	
 }

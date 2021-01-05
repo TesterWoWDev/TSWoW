@@ -161,14 +161,19 @@
         "signature": "32b8443be144970b813b9dd72dcdba2059fbdfdae4d3a50c4d8a158ed6057bbe",
         "affectsGlobalScope": false
       },
+      "../../../../bin/scripts/tswow/wotlkdata/ids/allocator.d.ts": {
+        "version": "354fab151055ebafc87f56111db480ba2d1e23965dfbf7ffaef4a43f65f57b0a",
+        "signature": "354fab151055ebafc87f56111db480ba2d1e23965dfbf7ffaef4a43f65f57b0a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/table/table.d.ts": {
+        "version": "5b4585105212b82c49b79a2f0da10d9a114b31a647ec9b7cfd635349a2cad8f8",
+        "signature": "5b4585105212b82c49b79a2f0da10d9a114b31a647ec9b7cfd635349a2cad8f8",
+        "affectsGlobalScope": false
+      },
       "../../../../bin/scripts/tswow/wotlkdata/cell/cellroot.d.ts": {
         "version": "ce622d50ff432a4a78145a893f86469b03215527665769c01af25952a3f1fb08",
         "signature": "ce622d50ff432a4a78145a893f86469b03215527665769c01af25952a3f1fb08",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/cellarray.d.ts": {
-        "version": "ba53a477004c7d180c0a661704a28115f35ac74257e3be9a1c91b1b59ca1672d",
-        "signature": "ba53a477004c7d180c0a661704a28115f35ac74257e3be9a1c91b1b59ca1672d",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/cell/cell.d.ts": {
@@ -176,19 +181,14 @@
         "signature": "12bace32cc4cfd88b036666a043de3fb0b9ad91cfd4636234854ce2cd7280507",
         "affectsGlobalScope": false
       },
+      "../../../../bin/scripts/tswow/wotlkdata/cell/cellarray.d.ts": {
+        "version": "ba53a477004c7d180c0a661704a28115f35ac74257e3be9a1c91b1b59ca1672d",
+        "signature": "ba53a477004c7d180c0a661704a28115f35ac74257e3be9a1c91b1b59ca1672d",
+        "affectsGlobalScope": false
+      },
       "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts": {
         "version": "3b84e2fee99abc24a6840f60f0f087604be6d1d3962dda2a1bcc1cb5b83c2bdb",
         "signature": "3b84e2fee99abc24a6840f60f0f087604be6d1d3962dda2a1bcc1cb5b83c2bdb",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/pendingcell.d.ts": {
-        "version": "0672523d2817886c2d1f75135cf7d57e5087d0af282a715fdfa670eba13cbb6a",
-        "signature": "0672523d2817886c2d1f75135cf7d57e5087d0af282a715fdfa670eba13cbb6a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapperexists.d.ts": {
-        "version": "b348308b0b472367ee16bffafa53c86911bb23744da32448911246f64f2533bb",
-        "signature": "b348308b0b472367ee16bffafa53c86911bb23744da32448911246f64f2533bb",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/localization.d.ts": {
@@ -212,8 +212,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/child_process.d.ts": {
-        "version": "987249e7b75023387c5fd9dc2f959ee777cb8989b7900f5a9eb4a67d290f2cba",
-        "signature": "987249e7b75023387c5fd9dc2f959ee777cb8989b7900f5a9eb4a67d290f2cba",
+        "version": "a4b5411d87995b9fb847f491f4388b38f829d8ab39be3e2fd65a3e40709f29a8",
+        "signature": "a4b5411d87995b9fb847f491f4388b38f829d8ab39be3e2fd65a3e40709f29a8",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/cluster.d.ts": {
@@ -232,8 +232,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/crypto.d.ts": {
-        "version": "75d76be86ffc40ae985ebace0cbd2c79b1e10c224c925d91f4df5a2705cc3f76",
-        "signature": "75d76be86ffc40ae985ebace0cbd2c79b1e10c224c925d91f4df5a2705cc3f76",
+        "version": "3d9c3ccc05ebc6e288bef007bcc47a2fc0dce748ea634093ef0732b9be743805",
+        "signature": "3d9c3ccc05ebc6e288bef007bcc47a2fc0dce748ea634093ef0732b9be743805",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/dgram.d.ts": {
@@ -242,8 +242,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/dns.d.ts": {
-        "version": "7db7569fbb3e2b01ba8751c761cdd3f0debd104170d5665b7dc20a11630df3a9",
-        "signature": "7db7569fbb3e2b01ba8751c761cdd3f0debd104170d5665b7dc20a11630df3a9",
+        "version": "d6bc4b879a18de0a1ba065b9a1c6888c67d98f3fe4886584459cdaa9e211a5f7",
+        "signature": "d6bc4b879a18de0a1ba065b9a1c6888c67d98f3fe4886584459cdaa9e211a5f7",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/domain.d.ts": {
@@ -267,8 +267,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/http.d.ts": {
-        "version": "35fe02b2c10616cc7ac3db9c15778df7ed9c99276889efdd9be31f342841cfcd",
-        "signature": "35fe02b2c10616cc7ac3db9c15778df7ed9c99276889efdd9be31f342841cfcd",
+        "version": "f2f8a385694fd71a421616cbaca477a539f30f4098f11261b1d188d72dc3478a",
+        "signature": "f2f8a385694fd71a421616cbaca477a539f30f4098f11261b1d188d72dc3478a",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/http2.d.ts": {
@@ -292,8 +292,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/net.d.ts": {
-        "version": "8de97668870cfb20fc9d355d2ef379e897bdd8a98c889c7d8a6de40ee408ad52",
-        "signature": "8de97668870cfb20fc9d355d2ef379e897bdd8a98c889c7d8a6de40ee408ad52",
+        "version": "5345d90ffb42ef6a15807f494b38b818f668f5fd6e5086586497ea0125334cd4",
+        "signature": "5345d90ffb42ef6a15807f494b38b818f668f5fd6e5086586497ea0125334cd4",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/os.d.ts": {
@@ -367,8 +367,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/url.d.ts": {
-        "version": "80ffc1786a5dab91b4aa59a72720f02f25df8b7c76b593e04d5e381aec284ccb",
-        "signature": "80ffc1786a5dab91b4aa59a72720f02f25df8b7c76b593e04d5e381aec284ccb",
+        "version": "4001971b90f18161f7bd46d68150d32a5da47e3f177956a267a2b29a2771896a",
+        "signature": "4001971b90f18161f7bd46d68150d32a5da47e3f177956a267a2b29a2771896a",
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/util.d.ts": {
@@ -427,8 +427,8 @@
         "affectsGlobalScope": false
       },
       "../../../../node_modules/@types/node/index.d.ts": {
-        "version": "5825520e2099309182c6e2a2b3061b060d42a098c58f67d1754880a7e2cce99a",
-        "signature": "5825520e2099309182c6e2a2b3061b060d42a098c58f67d1754880a7e2cce99a",
+        "version": "744e6430bafc6f39f66c4fc1e6a0d8c9551260ffd1782aa7e3f5166ac6aa1f86",
+        "signature": "744e6430bafc6f39f66c4fc1e6a0d8c9551260ffd1782aa7e3f5166ac6aa1f86",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/dbcbuffer.d.ts": {
@@ -441,9 +441,14 @@
         "signature": "2d5bae3aa00f886a163381eb1e5cb3c1329042ede7cb5a2ae7fb8e06ac4a2d04",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/locsystem.d.ts": {
-        "version": "d0fb4d7e73475241a7f5e1d00fab33af44da0df103b639d233219d6912898e1f",
-        "signature": "d0fb4d7e73475241a7f5e1d00fab33af44da0df103b639d233219d6912898e1f",
+      "../../../../bin/scripts/tswow/wotlkdata/cell/pendingcell.d.ts": {
+        "version": "0672523d2817886c2d1f75135cf7d57e5087d0af282a715fdfa670eba13cbb6a",
+        "signature": "0672523d2817886c2d1f75135cf7d57e5087d0af282a715fdfa670eba13cbb6a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapperexists.d.ts": {
+        "version": "b348308b0b472367ee16bffafa53c86911bb23744da32448911246f64f2533bb",
+        "signature": "b348308b0b472367ee16bffafa53c86911bb23744da32448911246f64f2533bb",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/cell/wrappedloc.d.ts": {
@@ -461,14 +466,9 @@
         "signature": "9e0efd0df5bd313c2c8b9abe2e21fea2f5cda55f9d369d50120d8e79f0902093",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/systems/mask.d.ts": {
-        "version": "49ffa59111fecfb5eba81b5e71cd5cccc76ca3c0feff21586a1c0116e5994148",
-        "signature": "49ffa59111fecfb5eba81b5e71cd5cccc76ca3c0feff21586a1c0116e5994148",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/table/table.d.ts": {
-        "version": "5b4585105212b82c49b79a2f0da10d9a114b31a647ec9b7cfd635349a2cad8f8",
-        "signature": "5b4585105212b82c49b79a2f0da10d9a114b31a647ec9b7cfd635349a2cad8f8",
+      "../../../../bin/scripts/tswow/wotlkdata/cell/locsystem.d.ts": {
+        "version": "d0fb4d7e73475241a7f5e1d00fab33af44da0df103b639d233219d6912898e1f",
+        "signature": "d0fb4d7e73475241a7f5e1d00fab33af44da0df103b639d233219d6912898e1f",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/cell/mainsystem.d.ts": {
@@ -506,354 +506,14 @@
         "signature": "43f07c9c93542e9eefad8b7222202288e0ab9ac62af4771f44c95ce9568e9403",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spell.d.ts": {
-        "version": "684b9582545680182746512cc17f10f6248177bcb387b259015361738fa3f61e",
-        "signature": "684b9582545680182746512cc17f10f6248177bcb387b259015361738fa3f61e",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/base/includeexclude.d.ts": {
-        "version": "e687fe56af714dd0ab5334515924544a0f9a23e160e68a1fe50a290150cec576",
-        "signature": "e687fe56af714dd0ab5334515924544a0f9a23e160e68a1fe50a290150cec576",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/base/mainentity.d.ts": {
-        "version": "b759c41cd3ba8512a2b2b70f60d44d739037f37460727243fc1b37f164246789",
-        "signature": "b759c41cd3ba8512a2b2b70f60d44d739037f37460727243fc1b37f164246789",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/aurainterruptflags.d.ts": {
-        "version": "c769d4b8333907435857d8b14cf69b7a1e9d818bc0ebad53ecd0372fead39d7c",
-        "signature": "c769d4b8333907435857d8b14cf69b7a1e9d818bc0ebad53ecd0372fead39d7c",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/interruptflags.d.ts": {
-        "version": "1e5be5e98a4d2a39c3f8dcb0d687b2288c368d0677689679e495ccfa61d4235a",
-        "signature": "1e5be5e98a4d2a39c3f8dcb0d687b2288c368d0677689679e495ccfa61d4235a",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellattributes.d.ts": {
-        "version": "59dd704797d351ee8115394ff149273cc3811fe07e8b0b16f4a942b43e23d4fa",
-        "signature": "59dd704797d351ee8115394ff149273cc3811fe07e8b0b16f4a942b43e23d4fa",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellcasttimes.d.ts": {
-        "version": "d69a02b20e1e85ade1f6f22cd7109322db80fdc9251fa891fea8fc3bfc72896d",
-        "signature": "d69a02b20e1e85ade1f6f22cd7109322db80fdc9251fa891fea8fc3bfc72896d",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellcasttime.d.ts": {
-        "version": "5779631261e6d126a92dfc6bfedc2087260402bcef909652ec869ce9edcb2113",
-        "signature": "5779631261e6d126a92dfc6bfedc2087260402bcef909652ec869ce9edcb2113",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/systems/systemarray.d.ts": {
-        "version": "cfea3731d8e5e51e0e56c617708eef9807e3a2e5be9e0683159cc4ef410b52f3",
-        "signature": "cfea3731d8e5e51e0e56c617708eef9807e3a2e5be9e0683159cc4ef410b52f3",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/systems/enum.d.ts": {
-        "version": "35a867aab4919395dba4ee813098019bb1a35f729a35a48f4b79a11adcb40c53",
-        "signature": "35a867aab4919395dba4ee813098019bb1a35f729a35a48f4b79a11adcb40c53",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/auratype.d.ts": {
-        "version": "55a1ed3646b8da0eeef610519108f6eab61502abb56f0ae84a6d6ce2a6c31132",
-        "signature": "55a1ed3646b8da0eeef610519108f6eab61502abb56f0ae84a6d6ce2a6c31132",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spelleffectmechanics.d.ts": {
-        "version": "96f0f1726a53ac0bba25f14f5381f8d0e9dc2776be676f5ce084f1bff6111d4a",
-        "signature": "96f0f1726a53ac0bba25f14f5381f8d0e9dc2776be676f5ce084f1bff6111d4a",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spelleffecttype.d.ts": {
-        "version": "2ca2083c1a6392f44645eae40784cf029f5f6e57c36fcf5d466c2936e7d421ae",
-        "signature": "2ca2083c1a6392f44645eae40784cf029f5f6e57c36fcf5d466c2936e7d421ae",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellradius.d.ts": {
-        "version": "6edd92496a3245c38a578d099a48701b558b01ad731bcae552ac027240d60b39",
-        "signature": "6edd92496a3245c38a578d099a48701b558b01ad731bcae552ac027240d60b39",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellradius.d.ts": {
-        "version": "2665adea4f8ee7fa904d0c610dec05155dd107548b0da9ee69be744f8890a16f",
-        "signature": "2665adea4f8ee7fa904d0c610dec05155dd107548b0da9ee69be744f8890a16f",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spelleffect.d.ts": {
-        "version": "44c4b122e65aa9373ddd7553c8e8a9927d1f837aeb9ba1e8faff0cf811d6811c",
-        "signature": "44c4b122e65aa9373ddd7553c8e8a9927d1f837aeb9ba1e8faff0cf811d6811c",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellclassset.d.ts": {
-        "version": "c7763de7c50fea7b3c3dbb0251be1bac362a232e9d9d3de96b036c5365e017bf",
-        "signature": "c7763de7c50fea7b3c3dbb0251be1bac362a232e9d9d3de96b036c5365e017bf",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spelldescriptionvariables.d.ts": {
-        "version": "d5d3fa1d753e4e075b8ee3657068e71a0aef2c121cf0de61a269423946ed1843",
-        "signature": "d5d3fa1d753e4e075b8ee3657068e71a0aef2c121cf0de61a269423946ed1843",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spelldescriptionvariable.d.ts": {
-        "version": "03f9602ee4b0b17f0d76229a1aa85941d53470a498a4becddbb6ecd5cc25c333",
-        "signature": "03f9602ee4b0b17f0d76229a1aa85941d53470a498a4becddbb6ecd5cc25c333",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spelldifficulty.d.ts": {
-        "version": "4ce689f6cdf8a80f697d8cf6ede6e52840fc188da9bbe1087bde2354ad34dc7a",
-        "signature": "4ce689f6cdf8a80f697d8cf6ede6e52840fc188da9bbe1087bde2354ad34dc7a",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spelldifficulty.d.ts": {
-        "version": "2c7b9832f61ffec04906b733eb61dda48cd9d4a1d82249aa069d5facb09bf0be",
-        "signature": "2c7b9832f61ffec04906b733eb61dda48cd9d4a1d82249aa069d5facb09bf0be",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellduration.d.ts": {
-        "version": "c49bf5ab87147d18bf51dc38e3a7ec01147309a759bb93324c640c35cffdbe01",
-        "signature": "c49bf5ab87147d18bf51dc38e3a7ec01147309a759bb93324c640c35cffdbe01",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellduration.d.ts": {
-        "version": "a68d975e037bff133278554ea8e3eca53e1a59a71ff28dc2a4e21b368a2ecf89",
-        "signature": "a68d975e037bff133278554ea8e3eca53e1a59a71ff28dc2a4e21b368a2ecf89",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/dummycell.d.ts": {
-        "version": "bc533a766d692a123cf2bcbb43718be23d49b8f3d6d1ab9b575838da1af56b42",
-        "signature": "bc533a766d692a123cf2bcbb43718be23d49b8f3d6d1ab9b575838da1af56b42",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellicon.d.ts": {
-        "version": "d32c407f1e695af381c128b178a7483b90cdc22d2883d895577680194bb0ecdb",
-        "signature": "d32c407f1e695af381c128b178a7483b90cdc22d2883d895577680194bb0ecdb",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellicon.d.ts": {
-        "version": "aa78284af029d565cf4ae796ce5edfa40e4b2be2a98ee89d902155cea6e76df3",
-        "signature": "aa78284af029d565cf4ae796ce5edfa40e4b2be2a98ee89d902155cea6e76df3",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellitemequips.d.ts": {
-        "version": "6546eac9cd093b70ac39f0ef4e36c6cba4d4d3670d7ff7d5cbb0945504aaf0c0",
-        "signature": "6546eac9cd093b70ac39f0ef4e36c6cba4d4d3670d7ff7d5cbb0945504aaf0c0",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spelllevels.d.ts": {
-        "version": "ee9c3d346b7690eb19b6fb15aaad6e84c82cd5b7b5640b01e7991e634ea19c3f",
-        "signature": "ee9c3d346b7690eb19b6fb15aaad6e84c82cd5b7b5640b01e7991e634ea19c3f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellmissile.d.ts": {
-        "version": "4652ab0378220f117ee48e028e6b1ba3dbb2aae05764ffff69e1b21b985daf08",
-        "signature": "4652ab0378220f117ee48e028e6b1ba3dbb2aae05764ffff69e1b21b985daf08",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellmissile.d.ts": {
-        "version": "a7009a709f466f417c0db8b10344274a7cc66129b8e64751201cf09710074280",
-        "signature": "a7009a709f466f417c0db8b10344274a7cc66129b8e64751201cf09710074280",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellpower.d.ts": {
-        "version": "96d1abad0bc4ecafd720f7133fbd266064195020443d729a22117dd08b2d7eed",
-        "signature": "96d1abad0bc4ecafd720f7133fbd266064195020443d729a22117dd08b2d7eed",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellpowerdisplay.d.ts": {
-        "version": "35031a8486eebbd7d41438965a9e8ee35a8742b65b4545dcb64059ac2e95979e",
-        "signature": "35031a8486eebbd7d41438965a9e8ee35a8742b65b4545dcb64059ac2e95979e",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellproc.d.ts": {
-        "version": "37e2d42e244cacc6e5cafb2fa72f57068a037e7a01456ec53b027d35a6b6f4c7",
-        "signature": "37e2d42e244cacc6e5cafb2fa72f57068a037e7a01456ec53b027d35a6b6f4c7",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellrange.d.ts": {
-        "version": "6c0fdf5f847684ec1eb56b3744cf969d15fd132d9f513c50cef2464aa3fb8438",
-        "signature": "6c0fdf5f847684ec1eb56b3744cf969d15fd132d9f513c50cef2464aa3fb8438",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellrange.d.ts": {
-        "version": "b3d0bcfbd9cc4866feb42da41a37005276d54a7c55ded0ceb3233220a5e52942",
-        "signature": "b3d0bcfbd9cc4866feb42da41a37005276d54a7c55ded0ceb3233220a5e52942",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellreagents.d.ts": {
-        "version": "b5727273f6e94f8dc994a4651d4bd97140ac135b9840a5467d1202aab459d8f6",
-        "signature": "b5727273f6e94f8dc994a4651d4bd97140ac135b9840a5467d1202aab459d8f6",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellrecovery.d.ts": {
-        "version": "a09478cafa953b96475cde369b1ed95c6646f01501c4e1bafdf2126c9a638b0e",
-        "signature": "a09478cafa953b96475cde369b1ed95c6646f01501c4e1bafdf2126c9a638b0e",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellreputation.d.ts": {
-        "version": "888d794d4102d08edc5dc9c6659dfb51f44772905a13873986e71bef435f6cb9",
-        "signature": "888d794d4102d08edc5dc9c6659dfb51f44772905a13873986e71bef435f6cb9",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skilllineability.d.ts": {
-        "version": "fe9997e6e66b901f64c861eab5443f77a28a3c138fc882e47b996b763d404051",
-        "signature": "fe9997e6e66b901f64c861eab5443f77a28a3c138fc882e47b996b763d404051",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellskilllines.d.ts": {
-        "version": "c6e4f13701db3fd76918998dbbdd161b7db51dd49044cf2bc4d3ebd6b2ce9274",
-        "signature": "c6e4f13701db3fd76918998dbbdd161b7db51dd49044cf2bc4d3ebd6b2ce9274",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisual.d.ts": {
-        "version": "e78ea27ed508649a2945fb5343036cd0f7cb0ede76adb0a3b1f53e384834e23e",
-        "signature": "e78ea27ed508649a2945fb5343036cd0f7cb0ede76adb0a3b1f53e384834e23e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/systems/vector3.d.ts": {
-        "version": "f488bf9ef96cf018015f0d008b994aac4dbfb9ab5bf1a0f1627b62d58369ce52",
-        "signature": "f488bf9ef96cf018015f0d008b994aac4dbfb9ab5bf1a0f1627b62d58369ce52",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualkit.d.ts": {
-        "version": "f6bf47535336766b224ede59fc15e089ef7c4d8c618a9cbbfe70be4c5cb27734",
-        "signature": "f6bf47535336766b224ede59fc15e089ef7c4d8c618a9cbbfe70be4c5cb27734",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellvisual.d.ts": {
-        "version": "d603410c1c78f538f91ae10ed9e6bc3d63bc3976d01890cc523a44d8638f0e16",
-        "signature": "d603410c1c78f538f91ae10ed9e6bc3d63bc3976d01890cc523a44d8638f0e16",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/targetcreaturetype.d.ts": {
-        "version": "f6da47d847b0e5a8ad73ee15566a80c7a02bf2a731865571fcbaaa635f7f260e",
-        "signature": "f6da47d847b0e5a8ad73ee15566a80c7a02bf2a731865571fcbaaa635f7f260e",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/targettype.d.ts": {
-        "version": "6b2fdb5437163326f115de969415590b2904e81edfe809d2870540e33d4c079b",
-        "signature": "6b2fdb5437163326f115de969415590b2904e81edfe809d2870540e33d4c079b",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spell.d.ts": {
-        "version": "e2fe8909fd1d8ff47ea15e09ad61559206eb479a1c668fe4623d4cba1dbbc30c",
-        "signature": "e2fe8909fd1d8ff47ea15e09ad61559206eb479a1c668fe4623d4cba1dbbc30c",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/spellranks.d.ts": {
-        "version": "5aa405f7eba2c54a063dd87de9d1cbbb8471fb5883259c8fdeb464910913f9d5",
-        "signature": "5aa405f7eba2c54a063dd87de9d1cbbb8471fb5883259c8fdeb464910913f9d5",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/totem/totemtype.d.ts": {
-        "version": "9260071e794cb5b014f1cc626a1da238155b7c2e572fcc302caaaac11c48f448",
-        "signature": "9260071e794cb5b014f1cc626a1da238155b7c2e572fcc302caaaac11c48f448",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/spell/totemcreatures.d.ts": {
-        "version": "bb5e7be87d36e29b9718d0dd409b74ae539baf6190f700589d048c30196f9f4a",
-        "signature": "bb5e7be87d36e29b9718d0dd409b74ae539baf6190f700589d048c30196f9f4a",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/race/racetype.d.ts": {
-        "version": "a75a162f579df97a981b53405931e83ebdccce38e8e0c1b6de373b78e6355f7e",
-        "signature": "a75a162f579df97a981b53405931e83ebdccce38e8e0c1b6de373b78e6355f7e",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/class/classtype.d.ts": {
-        "version": "47135498f0d276b6e8fe73a06cbd6f974dda6a48f4d4b1aae97991d005214f05",
-        "signature": "47135498f0d276b6e8fe73a06cbd6f974dda6a48f4d4b1aae97991d005214f05",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/languagewords.d.ts": {
-        "version": "c9a21d6dd5a9f1847b9f90ef6052efdc5f3cd15dd72e7b0142243d3af4d8f40f",
-        "signature": "c9a21d6dd5a9f1847b9f90ef6052efdc5f3cd15dd72e7b0142243d3af4d8f40f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/languages.d.ts": {
-        "version": "6475d68d12e65f20ccb121fccd4b3dafd78650d6f273056089181a801b6507cf",
-        "signature": "6475d68d12e65f20ccb121fccd4b3dafd78650d6f273056089181a801b6507cf",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/languages/languages.d.ts": {
-        "version": "b2a2dd22bec99daabddecdbfaf8e79bc023dd939751fa57d654edb47518baab3",
-        "signature": "b2a2dd22bec99daabddecdbfaf8e79bc023dd939751fa57d654edb47518baab3",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/sql/sqltable.d.ts": {
-        "version": "25406e980affa4d3b32a41836fffdbd5e5ba4c9a820d24f5c34217e5e4ad7656",
-        "signature": "25406e980affa4d3b32a41836fffdbd5e5ba4c9a820d24f5c34217e5e4ad7656",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/sql/sqlrow.d.ts": {
-        "version": "07608f3cf1ebad7f1cf4bebd3a2525a161e84ecbfb6a8b6819207a39eb025043",
-        "signature": "07608f3cf1ebad7f1cf4bebd3a2525a161e84ecbfb6a8b6819207a39eb025043",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/sql/sqlcell.d.ts": {
-        "version": "53f8c475e3d99b57b09ca4a8298b20d59f6a9a85f4835889005e84b7dda99757",
-        "signature": "53f8c475e3d99b57b09ca4a8298b20d59f6a9a85f4835889005e84b7dda99757",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/sql/types/quest_template.d.ts": {
-        "version": "a2c7770098f53e75b3beacbf73a749a0c43095ce9c295614201850365b85d3b3",
-        "signature": "a2c7770098f53e75b3beacbf73a749a0c43095ce9c295614201850365b85d3b3",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/quest/questflags.d.ts": {
-        "version": "78e0eaa3f033a651ab4b69f8f0a82314653864ed198c9ac13b84fd9aca9861df",
-        "signature": "78e0eaa3f033a651ab4b69f8f0a82314653864ed198c9ac13b84fd9aca9861df",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/quest/questgiver.d.ts": {
-        "version": "349536d3b199e847d79873e60ed85600c087f19aa84de2f8e15368536665271e",
-        "signature": "349536d3b199e847d79873e60ed85600c087f19aa84de2f8e15368536665271e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/sql/types/quest_template_locale.d.ts": {
-        "version": "a96032c5d2ff4c87d70cf0fbe4d0c4359fcb817da7f7ed5a1d77703eb02201df",
-        "signature": "a96032c5d2ff4c87d70cf0fbe4d0c4359fcb817da7f7ed5a1d77703eb02201df",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/quest/questobjective.d.ts": {
-        "version": "d88f517be805487761a92a653a89d8ce2a1f946aed15f67e97ca874d91a3b286",
-        "signature": "d88f517be805487761a92a653a89d8ce2a1f946aed15f67e97ca874d91a3b286",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/quest/questreward.d.ts": {
-        "version": "cd2336088d52b1e0c7cd0d650950d7be5e87955cc2597210f261b2b121f83a6b",
-        "signature": "cd2336088d52b1e0c7cd0d650950d7be5e87955cc2597210f261b2b121f83a6b",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/base/sqllocsystem.d.ts": {
-        "version": "6f780d6f3a6418870f31428349431e3709cff019fffa258e7983a7f534587e35",
-        "signature": "6f780d6f3a6418870f31428349431e3709cff019fffa258e7983a7f534587e35",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/quest/questtext.d.ts": {
-        "version": "c94225eb15f8a34c4a5be15e64e0ae5f71a80467b343100e75722b661a418530",
-        "signature": "c94225eb15f8a34c4a5be15e64e0ae5f71a80467b343100e75722b661a418530",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/quest/quest.d.ts": {
-        "version": "d103bd7553ed67fe2cd7446c181df77e3ae5727404b596dc4d548bb10d197e56",
-        "signature": "d103bd7553ed67fe2cd7446c181df77e3ae5727404b596dc4d548bb10d197e56",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chartitles.d.ts": {
-        "version": "d3d1eba23409242244cab69523244f3a2629dec23f8e0c05477d542e0ef46339",
-        "signature": "d3d1eba23409242244cab69523244f3a2629dec23f8e0c05477d542e0ef46339",
-        "affectsGlobalScope": false
-      },
-      "../../../tswow-stdlib/data/build/title/titles.d.ts": {
-        "version": "c7332f66b0a12722efc243c022c6db0df138ba38d050308650b60e00535831fd",
-        "signature": "c7332f66b0a12722efc243c022c6db0df138ba38d050308650b60e00535831fd",
-        "affectsGlobalScope": false
-      },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/achievement.d.ts": {
         "version": "3b22cef8facf184aa29f6537401af7a70eb23551ac39a2426beb9520d3181923",
         "signature": "3b22cef8facf184aa29f6537401af7a70eb23551ac39a2426beb9520d3181923",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/achievement_category.d.ts": {
+        "version": "cc7aa0b14957b34be882e182bcd3b80f7fac274b6070fd6af17c1478433cd69d",
+        "signature": "cc7aa0b14957b34be882e182bcd3b80f7fac274b6070fd6af17c1478433cd69d",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/achievement_criteria.d.ts": {
@@ -861,14 +521,1229 @@
         "signature": "ca5d41337a42cf418ae0b382ab659d06ec564889659cf4d096f62d01a16e832c",
         "affectsGlobalScope": false
       },
-      "../../../tswow-stdlib/data/build/achievement/achievementcriteria.d.ts": {
-        "version": "69f7fa26fdb60f8ba19e5e371a171054e6f4d7edb9967c804435e83abfb043a5",
-        "signature": "69f7fa26fdb60f8ba19e5e371a171054e6f4d7edb9967c804435e83abfb043a5",
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/animationdata.d.ts": {
+        "version": "8cde8516e67ad2433a73aed8d5ab8f3fa9ba47177a30904e0b5b0ab05823e3a2",
+        "signature": "8cde8516e67ad2433a73aed8d5ab8f3fa9ba47177a30904e0b5b0ab05823e3a2",
         "affectsGlobalScope": false
       },
-      "../../../tswow-stdlib/data/build/achievement/achievement.d.ts": {
-        "version": "c7afbefe73d015f9287762cbbec07e430522a075e9e709bbd630b54dfd69a5a0",
-        "signature": "c7afbefe73d015f9287762cbbec07e430522a075e9e709bbd630b54dfd69a5a0",
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/areagroup.d.ts": {
+        "version": "484f06d6472b82224b05680a66f34a4ed9efe018476688250b71784d4d1bd0c4",
+        "signature": "484f06d6472b82224b05680a66f34a4ed9efe018476688250b71784d4d1bd0c4",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/areapoi.d.ts": {
+        "version": "8ec2d36ff6da5a92a0b85518b95aaff182040df13b340d14b5d0b13933c7eb0b",
+        "signature": "8ec2d36ff6da5a92a0b85518b95aaff182040df13b340d14b5d0b13933c7eb0b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/areatable.d.ts": {
+        "version": "956a49f262c7863356a9186feb55ed45c2d0c3246aecd1dc7599f2912697589d",
+        "signature": "956a49f262c7863356a9186feb55ed45c2d0c3246aecd1dc7599f2912697589d",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/areatrigger.d.ts": {
+        "version": "2fe5a32b61d7b6167c649536d65af15c3086a683927f78d98995b5fd5c863a59",
+        "signature": "2fe5a32b61d7b6167c649536d65af15c3086a683927f78d98995b5fd5c863a59",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/attackanimkits.d.ts": {
+        "version": "00866b0116e7d2f7ec053be5466700f07b71ee7382c95b4fa298cc3b27de31e1",
+        "signature": "00866b0116e7d2f7ec053be5466700f07b71ee7382c95b4fa298cc3b27de31e1",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/attackanimtypes.d.ts": {
+        "version": "d39f6dd202f5848494cbd18e67eebf92eaafa8eebcdee5e2c83bcc19aabea435",
+        "signature": "d39f6dd202f5848494cbd18e67eebf92eaafa8eebcdee5e2c83bcc19aabea435",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/auctionhouse.d.ts": {
+        "version": "3741a114abb4736036bb62967698ca1e7efef9d3e2f1153eaa3f38cbe5e54c32",
+        "signature": "3741a114abb4736036bb62967698ca1e7efef9d3e2f1153eaa3f38cbe5e54c32",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/bankbagslotprices.d.ts": {
+        "version": "c142d973bd7a1c36dd1d709948857212c080ec29ac246b1435886c197b26ba25",
+        "signature": "c142d973bd7a1c36dd1d709948857212c080ec29ac246b1435886c197b26ba25",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/bannedaddons.d.ts": {
+        "version": "7178f35f0d24f8cbea9f08abf8a1e8ae877f033dc7f635cc38f2f61e7c6887fa",
+        "signature": "7178f35f0d24f8cbea9f08abf8a1e8ae877f033dc7f635cc38f2f61e7c6887fa",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/barbershopstyle.d.ts": {
+        "version": "5f0d05b90543547002d78c1ae8e3e28d7897332b10975e99c557a38a1ebfbc47",
+        "signature": "5f0d05b90543547002d78c1ae8e3e28d7897332b10975e99c557a38a1ebfbc47",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/battlemasterlist.d.ts": {
+        "version": "69d7a3b3f64d67b1b62c59dd74bba6d06db278ac19e6054dc08dc3126da1b56f",
+        "signature": "69d7a3b3f64d67b1b62c59dd74bba6d06db278ac19e6054dc08dc3126da1b56f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/camerashakes.d.ts": {
+        "version": "174ff1a8979f029a8d53e8dd1a3a9455684d3e39011a27a0d4d69b8eccc72f81",
+        "signature": "174ff1a8979f029a8d53e8dd1a3a9455684d3e39011a27a0d4d69b8eccc72f81",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/cfg_categories.d.ts": {
+        "version": "c5c0a8e33f861af424ac420d751af05e2fbb6b645e01474a57ced40bc8f620c7",
+        "signature": "c5c0a8e33f861af424ac420d751af05e2fbb6b645e01474a57ced40bc8f620c7",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/cfg_configs.d.ts": {
+        "version": "0058ab1444d1b5f0df026775c3da64705a8dbecb6477022e73dec14ccaeb7322",
+        "signature": "0058ab1444d1b5f0df026775c3da64705a8dbecb6477022e73dec14ccaeb7322",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/characterfacialhairstyles.d.ts": {
+        "version": "93486d31474ab6fb63b808f273f50ea4ab394885de3efd3da1b938524e8633ec",
+        "signature": "93486d31474ab6fb63b808f273f50ea4ab394885de3efd3da1b938524e8633ec",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charbaseinfo.d.ts": {
+        "version": "27f436fff562a8b860c7ff8c648456398f48be77f91018d61824459a42601543",
+        "signature": "27f436fff562a8b860c7ff8c648456398f48be77f91018d61824459a42601543",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charhairgeosets.d.ts": {
+        "version": "de83f54d8bc9170b7cef52d3772b5e990047e54997fff1ac843426c27b10dde9",
+        "signature": "de83f54d8bc9170b7cef52d3772b5e990047e54997fff1ac843426c27b10dde9",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charhairtextures.d.ts": {
+        "version": "34933b62d842447f7ed98557e6c996a5944692107069a7be6250756b808a02bf",
+        "signature": "34933b62d842447f7ed98557e6c996a5944692107069a7be6250756b808a02bf",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charsections.d.ts": {
+        "version": "8e941d30803807c898ab927d51049a761a59b75ebcd5cfdda571c925f6468606",
+        "signature": "8e941d30803807c898ab927d51049a761a59b75ebcd5cfdda571c925f6468606",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charstartoutfit.d.ts": {
+        "version": "68b654f5c4255b2ca88f17d7f59d11ee9d616b2db0bb778e85f6e0b1c6d292c1",
+        "signature": "68b654f5c4255b2ca88f17d7f59d11ee9d616b2db0bb778e85f6e0b1c6d292c1",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chartitles.d.ts": {
+        "version": "d3d1eba23409242244cab69523244f3a2629dec23f8e0c05477d542e0ef46339",
+        "signature": "d3d1eba23409242244cab69523244f3a2629dec23f8e0c05477d542e0ef46339",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chatchannels.d.ts": {
+        "version": "b30af6873f48a6553e4dab082c771270afabd8cb1624508129af50d13d551ed4",
+        "signature": "b30af6873f48a6553e4dab082c771270afabd8cb1624508129af50d13d551ed4",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chatprofanity.d.ts": {
+        "version": "a5d77bfdbcd612bd53f16b881d966372d96c17a72c35226008b1b2473c87b93e",
+        "signature": "a5d77bfdbcd612bd53f16b881d966372d96c17a72c35226008b1b2473c87b93e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chrclasses.d.ts": {
+        "version": "81bda583900d2f519df6cbf0ee117438f44f98fc69bd042d7a2ee6ca638842d4",
+        "signature": "81bda583900d2f519df6cbf0ee117438f44f98fc69bd042d7a2ee6ca638842d4",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chrraces.d.ts": {
+        "version": "bc8617aa06b8e8e2b0d03ac92bb3f1869ffaccd027abb4934c377e5e76e83005",
+        "signature": "bc8617aa06b8e8e2b0d03ac92bb3f1869ffaccd027abb4934c377e5e76e83005",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/cinematiccamera.d.ts": {
+        "version": "b1dd9934ec590fa28423298dc042589d53e3171959f7ca2709a79a859e738a09",
+        "signature": "b1dd9934ec590fa28423298dc042589d53e3171959f7ca2709a79a859e738a09",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/cinematicsequences.d.ts": {
+        "version": "23cdc4c7d44a5a6c54fb197305ca506f4399e7985e529173f231e028f727ddba",
+        "signature": "23cdc4c7d44a5a6c54fb197305ca506f4399e7985e529173f231e028f727ddba",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturedisplayinfo.d.ts": {
+        "version": "6d7ba24dd0b09cbe7d338263b4b73d4bb82bcb9db61e1868f9662b2ba3e9d7c2",
+        "signature": "6d7ba24dd0b09cbe7d338263b4b73d4bb82bcb9db61e1868f9662b2ba3e9d7c2",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturedisplayinfoextra.d.ts": {
+        "version": "19e640ff15bf8a6a7a18fd0963fbf3c668de5528e69b98a21252717bb0bbd2d8",
+        "signature": "19e640ff15bf8a6a7a18fd0963fbf3c668de5528e69b98a21252717bb0bbd2d8",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturefamily.d.ts": {
+        "version": "b2e98f211343d2f1cbc532a6bff5d02267c698c0ae4bea027a7dd232c3c9d9fb",
+        "signature": "b2e98f211343d2f1cbc532a6bff5d02267c698c0ae4bea027a7dd232c3c9d9fb",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturemodeldata.d.ts": {
+        "version": "5e24b14dcee8f5bbc60b4745753fda687d7613f867799254f64862869c180ba9",
+        "signature": "5e24b14dcee8f5bbc60b4745753fda687d7613f867799254f64862869c180ba9",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturemovementinfo.d.ts": {
+        "version": "91158304c96162991fca2e039e0424ac54db2671ae74a5637b9fa876f1ba7a4a",
+        "signature": "91158304c96162991fca2e039e0424ac54db2671ae74a5637b9fa876f1ba7a4a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturesounddata.d.ts": {
+        "version": "5744321b9b21d3d23b9f1004fdddae24e10c9bf4feb0e5f6cc48ee3a28dec9de",
+        "signature": "5744321b9b21d3d23b9f1004fdddae24e10c9bf4feb0e5f6cc48ee3a28dec9de",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturespelldata.d.ts": {
+        "version": "287bace821a3d02cf10181eb9993ffa29591088889f999b20225508983b2f2f3",
+        "signature": "287bace821a3d02cf10181eb9993ffa29591088889f999b20225508983b2f2f3",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturetype.d.ts": {
+        "version": "31879951186a93cd5d0f85ff359f5ea58108504e9dcf34a1c5dc9bf7e7ddb650",
+        "signature": "31879951186a93cd5d0f85ff359f5ea58108504e9dcf34a1c5dc9bf7e7ddb650",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/currencycategory.d.ts": {
+        "version": "e09e870676d16ed1a141f1e5e234ab4198040e0108bca4170df0cc2f9f559f78",
+        "signature": "e09e870676d16ed1a141f1e5e234ab4198040e0108bca4170df0cc2f9f559f78",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/currencytypes.d.ts": {
+        "version": "c27d49c9a77ee727267c48e3d8cc32af462c072c756fa9cf178ac0b3890c358c",
+        "signature": "c27d49c9a77ee727267c48e3d8cc32af462c072c756fa9cf178ac0b3890c358c",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/dancemoves.d.ts": {
+        "version": "73c6b007dfbea82dc57c653e8bec7db05d27c8559144a392ff69a55280167361",
+        "signature": "73c6b007dfbea82dc57c653e8bec7db05d27c8559144a392ff69a55280167361",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/deaththudlookups.d.ts": {
+        "version": "14549e305c58cc7a9e551ceee3028eea15864b4baf90666d75b0cb2b281fdc4f",
+        "signature": "14549e305c58cc7a9e551ceee3028eea15864b4baf90666d75b0cb2b281fdc4f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/declinedword.d.ts": {
+        "version": "d33428a04678f534cd55b55992fa7df00192d69d36f0cc751dffd67b4000b634",
+        "signature": "d33428a04678f534cd55b55992fa7df00192d69d36f0cc751dffd67b4000b634",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/declinedwordcases.d.ts": {
+        "version": "af588654d59328d8d7e31bc1253d056645a243ddf8434a545223b18dea9adf71",
+        "signature": "af588654d59328d8d7e31bc1253d056645a243ddf8434a545223b18dea9adf71",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/destructiblemodeldata.d.ts": {
+        "version": "6f070b29a34f6b06d2f5080bfdda3428a09ef33861cf938c459ea3241d6526c1",
+        "signature": "6f070b29a34f6b06d2f5080bfdda3428a09ef33861cf938c459ea3241d6526c1",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/dungeonencounter.d.ts": {
+        "version": "c5bbf1d9677464d081de4666a4f994615d730fa959902d5b78b3a4e508d8b141",
+        "signature": "c5bbf1d9677464d081de4666a4f994615d730fa959902d5b78b3a4e508d8b141",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/dungeonmap.d.ts": {
+        "version": "0e3320b80eb1143b5a06d3685d0ba514d33c09c0f4f85cd08178c718eb89bfb9",
+        "signature": "0e3320b80eb1143b5a06d3685d0ba514d33c09c0f4f85cd08178c718eb89bfb9",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/dungeonmapchunk.d.ts": {
+        "version": "e6ed49026efb7a01c0edf260b93d288e04b8d8a47da051dc99c0b46ee9a88d15",
+        "signature": "e6ed49026efb7a01c0edf260b93d288e04b8d8a47da051dc99c0b46ee9a88d15",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/durabilitycosts.d.ts": {
+        "version": "d5f6f4092d2a50cb387b81adb8a532dbd6cbbbc996576be4ebca1ea81d9fd7a2",
+        "signature": "d5f6f4092d2a50cb387b81adb8a532dbd6cbbbc996576be4ebca1ea81d9fd7a2",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/durabilityquality.d.ts": {
+        "version": "bce37c7b3a68cbd2928cdca932df9ceae65b75facb08c84360392067f659df36",
+        "signature": "bce37c7b3a68cbd2928cdca932df9ceae65b75facb08c84360392067f659df36",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/emotes.d.ts": {
+        "version": "be734d9e072eb47f500411ad1a8bd373085479cb72ac580268adc4e5eb2dcc32",
+        "signature": "be734d9e072eb47f500411ad1a8bd373085479cb72ac580268adc4e5eb2dcc32",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/emotestext.d.ts": {
+        "version": "88738a4fb52e0d63ffcbe2be1e62e404d8db7a766c32833af15fdc98aec20b98",
+        "signature": "88738a4fb52e0d63ffcbe2be1e62e404d8db7a766c32833af15fdc98aec20b98",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/emotestextdata.d.ts": {
+        "version": "3ebb7f0b6fc537bf4221e4d37a83d1f0e9b25762fdbf78db300777e1b1eb9e4e",
+        "signature": "3ebb7f0b6fc537bf4221e4d37a83d1f0e9b25762fdbf78db300777e1b1eb9e4e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/emotestextsound.d.ts": {
+        "version": "8074c20f5e4b8358df9b1ead009f7fc1724e4aab0b34925d7c42d2eeff3280ab",
+        "signature": "8074c20f5e4b8358df9b1ead009f7fc1724e4aab0b34925d7c42d2eeff3280ab",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/environmentaldamage.d.ts": {
+        "version": "f7abfbdb5a4f96d54795329d78ed628080c9b4245daba5b12bea792319cacad9",
+        "signature": "f7abfbdb5a4f96d54795329d78ed628080c9b4245daba5b12bea792319cacad9",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/exhaustion.d.ts": {
+        "version": "41ef2be6e5d0431cf46f6f09038b56c8af1cb78ca4513032c217b05cbc0159a5",
+        "signature": "41ef2be6e5d0431cf46f6f09038b56c8af1cb78ca4513032c217b05cbc0159a5",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/faction.d.ts": {
+        "version": "001b600980275f0959104f49d6e7d91bacd1bce5a0d4e0f983ce2bc2bd7e944c",
+        "signature": "001b600980275f0959104f49d6e7d91bacd1bce5a0d4e0f983ce2bc2bd7e944c",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/factiongroup.d.ts": {
+        "version": "501413417b97bbed77818e6b180a17707251c7a36e68943f273040e3f8456327",
+        "signature": "501413417b97bbed77818e6b180a17707251c7a36e68943f273040e3f8456327",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/factiontemplate.d.ts": {
+        "version": "4d87daec2f172ff227ae8a07f965784a9e320d728bc4946796d3520810483eb4",
+        "signature": "4d87daec2f172ff227ae8a07f965784a9e320d728bc4946796d3520810483eb4",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/filedata.d.ts": {
+        "version": "48bb729c4feaecb18e6bc42eec80b1524975c44cd9b315561fdf8bddb4709be4",
+        "signature": "48bb729c4feaecb18e6bc42eec80b1524975c44cd9b315561fdf8bddb4709be4",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/footprinttextures.d.ts": {
+        "version": "736b9fd82ef0880425e516b104ec3e27b90388f43c7a43bf10970d08635ea4b1",
+        "signature": "736b9fd82ef0880425e516b104ec3e27b90388f43c7a43bf10970d08635ea4b1",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/footstepterrainlookup.d.ts": {
+        "version": "c6e9c853d4f1e533f714ef0fda62c455dc12d092fffa69ce9937622b6e857579",
+        "signature": "c6e9c853d4f1e533f714ef0fda62c455dc12d092fffa69ce9937622b6e857579",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gameobjectartkit.d.ts": {
+        "version": "65fc544258f36ea6046ba9358bee48ac4907394c478403d7d288bda21f564a36",
+        "signature": "65fc544258f36ea6046ba9358bee48ac4907394c478403d7d288bda21f564a36",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gameobjectdisplayinfo.d.ts": {
+        "version": "7f6aaef7df6b658baa75f1d7f8dff7b9bb0e4915a3158b96c82284d377f14a88",
+        "signature": "7f6aaef7df6b658baa75f1d7f8dff7b9bb0e4915a3158b96c82284d377f14a88",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gametables.d.ts": {
+        "version": "45db181cf543187017f147fbe36a70a3954981cd39fb09df62751902cd74f66f",
+        "signature": "45db181cf543187017f147fbe36a70a3954981cd39fb09df62751902cd74f66f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gametips.d.ts": {
+        "version": "3fa2c2c5ffd587950cf31ace162f1360a9bb33c84f45b2a5c55c372125327625",
+        "signature": "3fa2c2c5ffd587950cf31ace162f1360a9bb33c84f45b2a5c55c372125327625",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gemproperties.d.ts": {
+        "version": "4861a7844ecbb1f9fef2fc1c71f6da4dbd76206193da3daf8a0e99c91587cd4b",
+        "signature": "4861a7844ecbb1f9fef2fc1c71f6da4dbd76206193da3daf8a0e99c91587cd4b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/glyphproperties.d.ts": {
+        "version": "fb6450c8f2427b6eae4409095a6d72a7fba1615ad1ab78caa260d49fe84e377f",
+        "signature": "fb6450c8f2427b6eae4409095a6d72a7fba1615ad1ab78caa260d49fe84e377f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/glyphslot.d.ts": {
+        "version": "57d43cf574fae05a15eab708b5d753a8764af860cc63e748812d6c7b7b81257e",
+        "signature": "57d43cf574fae05a15eab708b5d753a8764af860cc63e748812d6c7b7b81257e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmsurveyanswers.d.ts": {
+        "version": "496275b57c3855c725a8aa9fb09d481329cfd3daf3e6ddb99aadcc6f681b1b22",
+        "signature": "496275b57c3855c725a8aa9fb09d481329cfd3daf3e6ddb99aadcc6f681b1b22",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmsurveycurrentsurvey.d.ts": {
+        "version": "063ad3c5dce1d88e9e358d7461bc802f2eed49458e36373a8b8e3ab5c0ffdd18",
+        "signature": "063ad3c5dce1d88e9e358d7461bc802f2eed49458e36373a8b8e3ab5c0ffdd18",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmsurveyquestions.d.ts": {
+        "version": "a9070ae0a0ca5cbec8e2ef4960c1d8adf976b7a124b01d28c4d1712f8b76fa06",
+        "signature": "a9070ae0a0ca5cbec8e2ef4960c1d8adf976b7a124b01d28c4d1712f8b76fa06",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmsurveysurveys.d.ts": {
+        "version": "5a78a56dd5456728b24eec4deb0f144bbd2209b9d03bd7e5fa80bdb9e746a559",
+        "signature": "5a78a56dd5456728b24eec4deb0f144bbd2209b9d03bd7e5fa80bdb9e746a559",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmticketcategory.d.ts": {
+        "version": "3af5141e901867af7fe8b0585ed306903433c90c86cb8eada8d8d329e1cb471f",
+        "signature": "3af5141e901867af7fe8b0585ed306903433c90c86cb8eada8d8d329e1cb471f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/groundeffectdoodad.d.ts": {
+        "version": "4bae452946e679f5f7940b087cca94d0cef3e3776a87330af83f7c1a3342c0e3",
+        "signature": "4bae452946e679f5f7940b087cca94d0cef3e3776a87330af83f7c1a3342c0e3",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/groundeffecttexture.d.ts": {
+        "version": "0803efa0e2b7c7792613a1a7588c40fc4ad993215d3f86ec2d45d615f1b8184b",
+        "signature": "0803efa0e2b7c7792613a1a7588c40fc4ad993215d3f86ec2d45d615f1b8184b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtbarbershopcostbase.d.ts": {
+        "version": "6b1a3d0c84a5adeee49bade7ab101d238bb68cc5cf6db394c8dbfea4890e465f",
+        "signature": "6b1a3d0c84a5adeee49bade7ab101d238bb68cc5cf6db394c8dbfea4890e465f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtchancetomeleecrit.d.ts": {
+        "version": "78c8ca9ac12718f2d546036c3a4a7172e847ecdad469a2f2f36d38fc978a4894",
+        "signature": "78c8ca9ac12718f2d546036c3a4a7172e847ecdad469a2f2f36d38fc978a4894",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtchancetomeleecritbase.d.ts": {
+        "version": "da2a88c5e56dc0f101cfd824e5e9a5aaf9801e5cb6d4dc9271a1d97b1e559b11",
+        "signature": "da2a88c5e56dc0f101cfd824e5e9a5aaf9801e5cb6d4dc9271a1d97b1e559b11",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtchancetospellcrit.d.ts": {
+        "version": "e507fa370070ee52d039f108d26a5a5dc127eabb70081053b4f7ee18603e9865",
+        "signature": "e507fa370070ee52d039f108d26a5a5dc127eabb70081053b4f7ee18603e9865",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtchancetospellcritbase.d.ts": {
+        "version": "18bf3a80364961ce7d1f95fd9408b87fd97138aac817a61be3f2f437fc0b06bb",
+        "signature": "18bf3a80364961ce7d1f95fd9408b87fd97138aac817a61be3f2f437fc0b06bb",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtcombatratings.d.ts": {
+        "version": "193a44ddf825009f669cd5be8fd8793d6131fe00ba886d3b3714cc82f749a70e",
+        "signature": "193a44ddf825009f669cd5be8fd8793d6131fe00ba886d3b3714cc82f749a70e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtnpcmanacostscaler.d.ts": {
+        "version": "0d091d588b5bbcf1ff79a9f5794dd13b4a6cfd773dfc637d28ee3f23dd58959a",
+        "signature": "0d091d588b5bbcf1ff79a9f5794dd13b4a6cfd773dfc637d28ee3f23dd58959a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtoctclasscombatratingscalar.d.ts": {
+        "version": "8de6d79120ad6d0642438db9c8d80ab5c579812a2909ba38a5c14c09b69cdc74",
+        "signature": "8de6d79120ad6d0642438db9c8d80ab5c579812a2909ba38a5c14c09b69cdc74",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtoctregenhp.d.ts": {
+        "version": "34cf656220c10d4a2ae05061a8ba186beac60306711021675b0c81e73cca6a03",
+        "signature": "34cf656220c10d4a2ae05061a8ba186beac60306711021675b0c81e73cca6a03",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtoctregenmp.d.ts": {
+        "version": "03b4def7055e7c35d02710c274fb4ba57de1196b64da55b7c988f9371761080e",
+        "signature": "03b4def7055e7c35d02710c274fb4ba57de1196b64da55b7c988f9371761080e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtregenhpperspt.d.ts": {
+        "version": "20a6c2444799dc4391c13a65104a19ce362365f855acb974cfafe6eca827bc00",
+        "signature": "20a6c2444799dc4391c13a65104a19ce362365f855acb974cfafe6eca827bc00",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtregenmpperspt.d.ts": {
+        "version": "9e2c65679a55ffafad36be00e896e67abe8bebe39c69184ba36b19655e051f69",
+        "signature": "9e2c65679a55ffafad36be00e896e67abe8bebe39c69184ba36b19655e051f69",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/helmetgeosetvisdata.d.ts": {
+        "version": "173e9e7a2439a0d77c6dfe3c88b9b79cb8e1c351e561d1f8c74d9a6e241e834d",
+        "signature": "173e9e7a2439a0d77c6dfe3c88b9b79cb8e1c351e561d1f8c74d9a6e241e834d",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/holidaydescriptions.d.ts": {
+        "version": "4d84db10909a377cf36bfea17ee21dee5f28b27ccea87fbd572777e6cc4a8250",
+        "signature": "4d84db10909a377cf36bfea17ee21dee5f28b27ccea87fbd572777e6cc4a8250",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/holidaynames.d.ts": {
+        "version": "c9e2532349cdc79db490a6708e0d422f646241f33d0fe8f8c2808bf2ce2235c8",
+        "signature": "c9e2532349cdc79db490a6708e0d422f646241f33d0fe8f8c2808bf2ce2235c8",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/holidays.d.ts": {
+        "version": "4222c732d50ea859a3135411585723889face86c304daa8a128007eedc63bf73",
+        "signature": "4222c732d50ea859a3135411585723889face86c304daa8a128007eedc63bf73",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/item.d.ts": {
+        "version": "b5edda47ecc9ca406deca4be9ed60f87fc85734c33b1fe7dcc8881bb382d94b4",
+        "signature": "b5edda47ecc9ca406deca4be9ed60f87fc85734c33b1fe7dcc8881bb382d94b4",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itembagfamily.d.ts": {
+        "version": "200c79bed861e6a74f7fa5200408376090a13d69c617cb8afbb9fec3f6b51681",
+        "signature": "200c79bed861e6a74f7fa5200408376090a13d69c617cb8afbb9fec3f6b51681",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemclass.d.ts": {
+        "version": "ad8620e05065e51e99c5e74c4c109bbccf932a0169eeb183bba9b88147a353ee",
+        "signature": "ad8620e05065e51e99c5e74c4c109bbccf932a0169eeb183bba9b88147a353ee",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemcondextcosts.d.ts": {
+        "version": "2c3ef651bea92a74147385b1345dd14919939eab28b9fd30859126fe18c571bd",
+        "signature": "2c3ef651bea92a74147385b1345dd14919939eab28b9fd30859126fe18c571bd",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemdisplayinfo.d.ts": {
+        "version": "61872b59dd26d130359669bd647f15a23ccc543c64da143ec7622b99cc9f4e7c",
+        "signature": "61872b59dd26d130359669bd647f15a23ccc543c64da143ec7622b99cc9f4e7c",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemextendedcost.d.ts": {
+        "version": "e34422a8dd793e4faceffefb3d0112af8ac39b6166f80aeff48e7f9ca6c08a1e",
+        "signature": "e34422a8dd793e4faceffefb3d0112af8ac39b6166f80aeff48e7f9ca6c08a1e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemgroupsounds.d.ts": {
+        "version": "c0708a5770703c8a825d3f5436a035b452637487d8fc50752798b4e58a6a4fc3",
+        "signature": "c0708a5770703c8a825d3f5436a035b452637487d8fc50752798b4e58a6a4fc3",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemlimitcategory.d.ts": {
+        "version": "fe5fd87f2024278efd2046634ed59d6899b504d05a488f727b4b34a12cdff748",
+        "signature": "fe5fd87f2024278efd2046634ed59d6899b504d05a488f727b4b34a12cdff748",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itempetfood.d.ts": {
+        "version": "255705553968ec2d2b87aa41017ba886897c50c680dbf0b0e7e7fe2a650797e0",
+        "signature": "255705553968ec2d2b87aa41017ba886897c50c680dbf0b0e7e7fe2a650797e0",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itempurchasegroup.d.ts": {
+        "version": "bd554bacf6122fd9935f0818069bf0f7d85c3cb6562ff6ba1e373d0d38f14a0b",
+        "signature": "bd554bacf6122fd9935f0818069bf0f7d85c3cb6562ff6ba1e373d0d38f14a0b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemrandomproperties.d.ts": {
+        "version": "3c58fe699d553eefb3397456014fdbce32172eaab3591d464e705d6c2bffa401",
+        "signature": "3c58fe699d553eefb3397456014fdbce32172eaab3591d464e705d6c2bffa401",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemrandomsuffix.d.ts": {
+        "version": "4e83d4d18a052ba6f9f032270da3fbbdb35ad93719b845814c5d90e3ca69d559",
+        "signature": "4e83d4d18a052ba6f9f032270da3fbbdb35ad93719b845814c5d90e3ca69d559",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemset.d.ts": {
+        "version": "ddb2a76340754e5e576c3185560152bcd245caee06f5a98166887dafa961efeb",
+        "signature": "ddb2a76340754e5e576c3185560152bcd245caee06f5a98166887dafa961efeb",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemsubclass.d.ts": {
+        "version": "1f4d4b78d00e94b21639573ac54d03ecef7cc9b195b61eb0bd1ddc1776fb2897",
+        "signature": "1f4d4b78d00e94b21639573ac54d03ecef7cc9b195b61eb0bd1ddc1776fb2897",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemsubclassmask.d.ts": {
+        "version": "7f5364c0d1041831a041fb4620bd09d71833380fd7d28a858a48a295275e7113",
+        "signature": "7f5364c0d1041831a041fb4620bd09d71833380fd7d28a858a48a295275e7113",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemvisualeffects.d.ts": {
+        "version": "9682d4fbaf8c307e8ba236c4ace75d4085f85e32f71b9e5dfc598c0e4454b785",
+        "signature": "9682d4fbaf8c307e8ba236c4ace75d4085f85e32f71b9e5dfc598c0e4454b785",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemvisuals.d.ts": {
+        "version": "6a8031b9065604efe561506875e99ce898d02627cf272bb4ab873b06feaa5290",
+        "signature": "6a8031b9065604efe561506875e99ce898d02627cf272bb4ab873b06feaa5290",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/languages.d.ts": {
+        "version": "6475d68d12e65f20ccb121fccd4b3dafd78650d6f273056089181a801b6507cf",
+        "signature": "6475d68d12e65f20ccb121fccd4b3dafd78650d6f273056089181a801b6507cf",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/languagewords.d.ts": {
+        "version": "c9a21d6dd5a9f1847b9f90ef6052efdc5f3cd15dd72e7b0142243d3af4d8f40f",
+        "signature": "c9a21d6dd5a9f1847b9f90ef6052efdc5f3cd15dd72e7b0142243d3af4d8f40f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lfgdungeonexpansion.d.ts": {
+        "version": "60f76793d74b1957120627b7fd898b3951d32b76b96d52576bb7f81f6095f1c8",
+        "signature": "60f76793d74b1957120627b7fd898b3951d32b76b96d52576bb7f81f6095f1c8",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lfgdungeongroup.d.ts": {
+        "version": "aafb2e4c6fc9b2796208ed8bf58ea9a97b5f426fdfdbd0b45122f99f2a2418a6",
+        "signature": "aafb2e4c6fc9b2796208ed8bf58ea9a97b5f426fdfdbd0b45122f99f2a2418a6",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lfgdungeons.d.ts": {
+        "version": "8eb36526e2007f18d3c5069986b5d69a87a59a72ec9b72f2ff943c7c60bd9590",
+        "signature": "8eb36526e2007f18d3c5069986b5d69a87a59a72ec9b72f2ff943c7c60bd9590",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/light.d.ts": {
+        "version": "f53072bea12f01c8c58de81ab2d9b4fe49a69bdaf1d8640bf35dd6335dfd9a3f",
+        "signature": "f53072bea12f01c8c58de81ab2d9b4fe49a69bdaf1d8640bf35dd6335dfd9a3f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lightfloatband.d.ts": {
+        "version": "965c59d4a0bc571a301cf3d77b526e07fc8f24fbcd11ffe86b48243d24992015",
+        "signature": "965c59d4a0bc571a301cf3d77b526e07fc8f24fbcd11ffe86b48243d24992015",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lightintband.d.ts": {
+        "version": "633fa4bab77a382caa5ae046f2ecd0bd03c9917559012eb819ef4b75f7152407",
+        "signature": "633fa4bab77a382caa5ae046f2ecd0bd03c9917559012eb819ef4b75f7152407",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lightparams.d.ts": {
+        "version": "13c58f9ca8bd7a1e7f3aa3228f97aef1a9ac6b4c232942104777c23d2d61098a",
+        "signature": "13c58f9ca8bd7a1e7f3aa3228f97aef1a9ac6b4c232942104777c23d2d61098a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lightskybox.d.ts": {
+        "version": "f25e4b966d36d995182dc1174bf21528b048926de0e91fcbce8a5be1735ee57f",
+        "signature": "f25e4b966d36d995182dc1174bf21528b048926de0e91fcbce8a5be1735ee57f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/liquidmaterial.d.ts": {
+        "version": "78bfd02dc691cfe463105a6a0fa6fcd11774484b8dfe36159bf5bed4b403b9e9",
+        "signature": "78bfd02dc691cfe463105a6a0fa6fcd11774484b8dfe36159bf5bed4b403b9e9",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/liquidtype.d.ts": {
+        "version": "ae3051ee7c56965d26448c7f2bb637958978d82c84d95405a81710409d033803",
+        "signature": "ae3051ee7c56965d26448c7f2bb637958978d82c84d95405a81710409d033803",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/loadingscreens.d.ts": {
+        "version": "096ffd1713d4fc2d6969a1687188035c784d2e86d140151afdba1cfceb842d5e",
+        "signature": "096ffd1713d4fc2d6969a1687188035c784d2e86d140151afdba1cfceb842d5e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/loadingscreentaxisplines.d.ts": {
+        "version": "9e362c7b203cda5d1e1ee885260266e53fab924b5e9f5e51ea3d9c04484ba0e1",
+        "signature": "9e362c7b203cda5d1e1ee885260266e53fab924b5e9f5e51ea3d9c04484ba0e1",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lock.d.ts": {
+        "version": "54d8cd8f56dee7201cada2ffcadc1a86192250794df3112839e7857b2ee69b39",
+        "signature": "54d8cd8f56dee7201cada2ffcadc1a86192250794df3112839e7857b2ee69b39",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/locktype.d.ts": {
+        "version": "fa5233fd63d396106c0cbb98217de8a094aec7446cd333ce4dbd35d25bd2d2e1",
+        "signature": "fa5233fd63d396106c0cbb98217de8a094aec7446cd333ce4dbd35d25bd2d2e1",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/mailtemplate.d.ts": {
+        "version": "e486f4b04e5d7ce84c181e4ed9105fa5516744312d90dc73e9d67d66797d39b9",
+        "signature": "e486f4b04e5d7ce84c181e4ed9105fa5516744312d90dc73e9d67d66797d39b9",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/map.d.ts": {
+        "version": "04715d39da2e363fbc4711e28040a8c0cdd065ebfb60a7503be575a551582ab2",
+        "signature": "04715d39da2e363fbc4711e28040a8c0cdd065ebfb60a7503be575a551582ab2",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/mapdifficulty.d.ts": {
+        "version": "f5cba891e50f01c6a578bedb5bf201bcb0d872c1a3b660064d7dd5973de69b82",
+        "signature": "f5cba891e50f01c6a578bedb5bf201bcb0d872c1a3b660064d7dd5973de69b82",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/material.d.ts": {
+        "version": "f30bbca9fed6eae34af6404d9cddac5c93c0e642aea1e6d5a4edc533cca75d73",
+        "signature": "f30bbca9fed6eae34af6404d9cddac5c93c0e642aea1e6d5a4edc533cca75d73",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/movie.d.ts": {
+        "version": "7c42df790e92460ae089786097bdd112d4aabf6122e0059db6599071639343ae",
+        "signature": "7c42df790e92460ae089786097bdd112d4aabf6122e0059db6599071639343ae",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/moviefiledata.d.ts": {
+        "version": "2de181c887d0e269eacedef97c0a05a045eb3e673d8f55d1d3d76a4f07effc16",
+        "signature": "2de181c887d0e269eacedef97c0a05a045eb3e673d8f55d1d3d76a4f07effc16",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/movievariation.d.ts": {
+        "version": "0ef784e9664cc1460497d42173c465ad6e7e13fb1ab82f233e4c00ba33ff289d",
+        "signature": "0ef784e9664cc1460497d42173c465ad6e7e13fb1ab82f233e4c00ba33ff289d",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/namegen.d.ts": {
+        "version": "745aa62fc41ebfe6a15ece3043660e13e3cf2aeb7afe1c31841a537858c80060",
+        "signature": "745aa62fc41ebfe6a15ece3043660e13e3cf2aeb7afe1c31841a537858c80060",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/namesprofanity.d.ts": {
+        "version": "4d128fb042b527b375a9c9dec7a41e642d2511b8044ae4324be5bb483fe31606",
+        "signature": "4d128fb042b527b375a9c9dec7a41e642d2511b8044ae4324be5bb483fe31606",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/namesreserved.d.ts": {
+        "version": "c3eb48ac3f229cc719db1a9d18d219beb28eef28806fda281ebdef8ce689f23e",
+        "signature": "c3eb48ac3f229cc719db1a9d18d219beb28eef28806fda281ebdef8ce689f23e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/npcsounds.d.ts": {
+        "version": "c1b51f1987a79537edff51a71a2d14a53b47f66059e853305c5a6d52b7931ea5",
+        "signature": "c1b51f1987a79537edff51a71a2d14a53b47f66059e853305c5a6d52b7931ea5",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffect.d.ts": {
+        "version": "47e1fe6ca3592ba905d35069d606d262b86c8156884e6a007cbe99d8be618ee1",
+        "signature": "47e1fe6ca3592ba905d35069d606d262b86c8156884e6a007cbe99d8be618ee1",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffectgroup.d.ts": {
+        "version": "fa394e0d00d90f12440d9b620dbe08fa1edb38cd5d578c561a0ab718c409f8ae",
+        "signature": "fa394e0d00d90f12440d9b620dbe08fa1edb38cd5d578c561a0ab718c409f8ae",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffectmodifier.d.ts": {
+        "version": "cde2e92fa90e98844bea9025677fbb4d66878cdbe821ce64b555b449e25a7894",
+        "signature": "cde2e92fa90e98844bea9025677fbb4d66878cdbe821ce64b555b449e25a7894",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffectpackage.d.ts": {
+        "version": "64b898f17c69f5d5f36d6ac7e7377a866788d2d53d43622634dd58c92bcd2319",
+        "signature": "64b898f17c69f5d5f36d6ac7e7377a866788d2d53d43622634dd58c92bcd2319",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffectpackageelem.d.ts": {
+        "version": "0297a8fa1329dca78117ab69af593e1f4cba2746a5be808e37159ce3b4c6754a",
+        "signature": "0297a8fa1329dca78117ab69af593e1f4cba2746a5be808e37159ce3b4c6754a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/overridespelldata.d.ts": {
+        "version": "e3e05ae4d1b542d22ab6c242bfc9c945ffe2acd335c836cdb3b2971f69d8edcd",
+        "signature": "e3e05ae4d1b542d22ab6c242bfc9c945ffe2acd335c836cdb3b2971f69d8edcd",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/package.d.ts": {
+        "version": "68d7ae1be2370e91efca081eb448c6a6792d292c58fb34a20808f98452adcd38",
+        "signature": "68d7ae1be2370e91efca081eb448c6a6792d292c58fb34a20808f98452adcd38",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/pagetextmaterial.d.ts": {
+        "version": "f01f6bdb96837ff6415dd87d368a9180d6a755cd1138fcea5adefb038ac88028",
+        "signature": "f01f6bdb96837ff6415dd87d368a9180d6a755cd1138fcea5adefb038ac88028",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/paperdollitemframe.d.ts": {
+        "version": "8bb526fe88f74c0a11d9551c356772b5b4edd015943bc1578590ced412b3771c",
+        "signature": "8bb526fe88f74c0a11d9551c356772b5b4edd015943bc1578590ced412b3771c",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/particlecolor.d.ts": {
+        "version": "b1ce977ffc2317f4f7fa5a1993994e776f2d369ed09da679f7089b93b263e709",
+        "signature": "b1ce977ffc2317f4f7fa5a1993994e776f2d369ed09da679f7089b93b263e709",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/petitiontype.d.ts": {
+        "version": "b1e56c97189a6edaf68bfb4b53fc2c235c7cb97ab1d8749e3859ae3c3f28d39c",
+        "signature": "b1e56c97189a6edaf68bfb4b53fc2c235c7cb97ab1d8749e3859ae3c3f28d39c",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/petpersonality.d.ts": {
+        "version": "0e1aca55c58f6165cf766a601e85799f6a2ac063d815c41c8706131dd5a1841b",
+        "signature": "0e1aca55c58f6165cf766a601e85799f6a2ac063d815c41c8706131dd5a1841b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/powerdisplay.d.ts": {
+        "version": "e66594435dbd8a148b71ed9e58a06822d6abab18cf1a01c4625f3073bf001ecb",
+        "signature": "e66594435dbd8a148b71ed9e58a06822d6abab18cf1a01c4625f3073bf001ecb",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/pvpdifficulty.d.ts": {
+        "version": "676e232700b257289cc3e8b9cce1b79f1bd4310b3ee61bcd57a2d537df765d30",
+        "signature": "676e232700b257289cc3e8b9cce1b79f1bd4310b3ee61bcd57a2d537df765d30",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/questfactionreward.d.ts": {
+        "version": "1b8cd1dea2032158c8471c4b5f77e37c6392ca4ddf540517a405fd4087335970",
+        "signature": "1b8cd1dea2032158c8471c4b5f77e37c6392ca4ddf540517a405fd4087335970",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/questinfo.d.ts": {
+        "version": "6f2c8bc69400e05ab64278f8aebcdf7287de6b59609937181ac5efcfa400f30e",
+        "signature": "6f2c8bc69400e05ab64278f8aebcdf7287de6b59609937181ac5efcfa400f30e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/questsort.d.ts": {
+        "version": "217301bee9870d957ce59fc7b77208e328d37e9a2d42db3e0935820bebf0491d",
+        "signature": "217301bee9870d957ce59fc7b77208e328d37e9a2d42db3e0935820bebf0491d",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/questxp.d.ts": {
+        "version": "2d7f22811ca537d8246e6eee5c436d681074961896947b7b99b4f17b06261eb4",
+        "signature": "2d7f22811ca537d8246e6eee5c436d681074961896947b7b99b4f17b06261eb4",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/randproppoints.d.ts": {
+        "version": "99a45ba807df2b219a78ab24602245fdc8abc99bf61a67dddeb727be1e3d7c0b",
+        "signature": "99a45ba807df2b219a78ab24602245fdc8abc99bf61a67dddeb727be1e3d7c0b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/resistances.d.ts": {
+        "version": "e334af79516629cd37a813efe35fd129d7c10cc9fc78bd15de88a4fb9ce26d9e",
+        "signature": "e334af79516629cd37a813efe35fd129d7c10cc9fc78bd15de88a4fb9ce26d9e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/scalingstatdistribution.d.ts": {
+        "version": "54d8b3ac52cc1cb4f8064fda8efa04d374d7c5b9fb21beef5d3f4256aaf6bcfb",
+        "signature": "54d8b3ac52cc1cb4f8064fda8efa04d374d7c5b9fb21beef5d3f4256aaf6bcfb",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/scalingstatvalues.d.ts": {
+        "version": "16dc54396df8bb8767c94a1ce1ea1baf3ba998ce3ae8635b25f2779a2a349ac5",
+        "signature": "16dc54396df8bb8767c94a1ce1ea1baf3ba998ce3ae8635b25f2779a2a349ac5",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/screeneffect.d.ts": {
+        "version": "c669d2321a1a39e7077a26de72133309c4416d92df59a03c6ed3badecfd53ae6",
+        "signature": "c669d2321a1a39e7077a26de72133309c4416d92df59a03c6ed3badecfd53ae6",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/servermessages.d.ts": {
+        "version": "b963a024ca0cb7dc2b37687429d6351103a984218ec01ca86183aff36f4cf042",
+        "signature": "b963a024ca0cb7dc2b37687429d6351103a984218ec01ca86183aff36f4cf042",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/sheathesoundlookups.d.ts": {
+        "version": "6d177060399d90d130d4156a5302100e1d9f4e6908d6b846ff627d04b9472c22",
+        "signature": "6d177060399d90d130d4156a5302100e1d9f4e6908d6b846ff627d04b9472c22",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skillcostsdata.d.ts": {
+        "version": "513f712b7b5d872f3ed64eb524df432cec6c42f06071bb94a097a753e48cd0e2",
+        "signature": "513f712b7b5d872f3ed64eb524df432cec6c42f06071bb94a097a753e48cd0e2",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skillline.d.ts": {
+        "version": "dfe234798ae43196c359156d1e8d28b488398065c747dc10510909f2f6523809",
+        "signature": "dfe234798ae43196c359156d1e8d28b488398065c747dc10510909f2f6523809",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skilllineability.d.ts": {
+        "version": "fe9997e6e66b901f64c861eab5443f77a28a3c138fc882e47b996b763d404051",
+        "signature": "fe9997e6e66b901f64c861eab5443f77a28a3c138fc882e47b996b763d404051",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skilllinecategory.d.ts": {
+        "version": "4415c1645a09b34b74fea2e17b3d19caae2f34832118cd99ca9488c2ffb1d4ea",
+        "signature": "4415c1645a09b34b74fea2e17b3d19caae2f34832118cd99ca9488c2ffb1d4ea",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skillraceclassinfo.d.ts": {
+        "version": "719ce5ea02ebe3e330ebffdd389cc26e1b933acb05281a7bfdb326a3e911d96d",
+        "signature": "719ce5ea02ebe3e330ebffdd389cc26e1b933acb05281a7bfdb326a3e911d96d",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skilltiers.d.ts": {
+        "version": "b46b1a71139d72ee5ec2758dca9bede27865cf59c3f80ebaded89a34f29b2bed",
+        "signature": "b46b1a71139d72ee5ec2758dca9bede27865cf59c3f80ebaded89a34f29b2bed",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundambience.d.ts": {
+        "version": "10f398157a1153e6693a5e0a34b67fc3d2970a92f0e358c2273b233d7e8c55ed",
+        "signature": "10f398157a1153e6693a5e0a34b67fc3d2970a92f0e358c2273b233d7e8c55ed",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundemitters.d.ts": {
+        "version": "f09f0e2a4b4029c35c0fd63a404f4c3e9b93f02b3acb608079528c9074518158",
+        "signature": "f09f0e2a4b4029c35c0fd63a404f4c3e9b93f02b3acb608079528c9074518158",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundentries.d.ts": {
+        "version": "7ade275b584f39079ce50719787c61fabf4c12d87cfc07cf410825fa4ee865e7",
+        "signature": "7ade275b584f39079ce50719787c61fabf4c12d87cfc07cf410825fa4ee865e7",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundentriesadvanced.d.ts": {
+        "version": "1b743b08ad7666d47331868e1cbf34b65d0d5b2cda0810b57a09d5f1414b559a",
+        "signature": "1b743b08ad7666d47331868e1cbf34b65d0d5b2cda0810b57a09d5f1414b559a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundfilter.d.ts": {
+        "version": "0db8f7b70c0819d4ae699d9b67d50d8489b084650b8b14e5fa8209a780ce4757",
+        "signature": "0db8f7b70c0819d4ae699d9b67d50d8489b084650b8b14e5fa8209a780ce4757",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundfilterelem.d.ts": {
+        "version": "9e7dc78d2fde03e18c52a600c33d03b3ddd3d2d25a8d033b40df772016acaa11",
+        "signature": "9e7dc78d2fde03e18c52a600c33d03b3ddd3d2d25a8d033b40df772016acaa11",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundproviderpreferences.d.ts": {
+        "version": "066ba364573b7be90823b9daeb23a0603b8c1911e8d1442b3a75527dd35644b8",
+        "signature": "066ba364573b7be90823b9daeb23a0603b8c1911e8d1442b3a75527dd35644b8",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundsamplepreferences.d.ts": {
+        "version": "776548308f02781b08f04a5ee3975b284435cddadf983f1d37fd16af6400e277",
+        "signature": "776548308f02781b08f04a5ee3975b284435cddadf983f1d37fd16af6400e277",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundwatertype.d.ts": {
+        "version": "af50b973d949c973e22ff6ecc63c13c5db88cfa6fc793fcd5d0a5c6a9c358f03",
+        "signature": "af50b973d949c973e22ff6ecc63c13c5db88cfa6fc793fcd5d0a5c6a9c358f03",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spammessages.d.ts": {
+        "version": "33d2aa3a853960e0ec0f6a12d04f0d72c04c3ae67951cb06a58731067b75270f",
+        "signature": "33d2aa3a853960e0ec0f6a12d04f0d72c04c3ae67951cb06a58731067b75270f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spell.d.ts": {
+        "version": "684b9582545680182746512cc17f10f6248177bcb387b259015361738fa3f61e",
+        "signature": "684b9582545680182746512cc17f10f6248177bcb387b259015361738fa3f61e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellcasttimes.d.ts": {
+        "version": "d69a02b20e1e85ade1f6f22cd7109322db80fdc9251fa891fea8fc3bfc72896d",
+        "signature": "d69a02b20e1e85ade1f6f22cd7109322db80fdc9251fa891fea8fc3bfc72896d",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellcategory.d.ts": {
+        "version": "fd442ebd16476a49e1baafb0134293525bbcb85f2b64aa6e5a50d97eaea38c64",
+        "signature": "fd442ebd16476a49e1baafb0134293525bbcb85f2b64aa6e5a50d97eaea38c64",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellchaineffects.d.ts": {
+        "version": "6533fd2c027041382ddba2a11740f400a8ef8516c258f0133c99d3f77aafd6b0",
+        "signature": "6533fd2c027041382ddba2a11740f400a8ef8516c258f0133c99d3f77aafd6b0",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spelldescriptionvariables.d.ts": {
+        "version": "d5d3fa1d753e4e075b8ee3657068e71a0aef2c121cf0de61a269423946ed1843",
+        "signature": "d5d3fa1d753e4e075b8ee3657068e71a0aef2c121cf0de61a269423946ed1843",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spelldifficulty.d.ts": {
+        "version": "4ce689f6cdf8a80f697d8cf6ede6e52840fc188da9bbe1087bde2354ad34dc7a",
+        "signature": "4ce689f6cdf8a80f697d8cf6ede6e52840fc188da9bbe1087bde2354ad34dc7a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spelldispeltype.d.ts": {
+        "version": "d07362941575a6f2f46cbd7f19232584d4834371266997110c8c41192144ec23",
+        "signature": "d07362941575a6f2f46cbd7f19232584d4834371266997110c8c41192144ec23",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellduration.d.ts": {
+        "version": "c49bf5ab87147d18bf51dc38e3a7ec01147309a759bb93324c640c35cffdbe01",
+        "signature": "c49bf5ab87147d18bf51dc38e3a7ec01147309a759bb93324c640c35cffdbe01",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spelleffectcamerashakes.d.ts": {
+        "version": "1b19d5666781985f4cb9fbb35a606c901fac76e220d6268608360dcf9516c4f6",
+        "signature": "1b19d5666781985f4cb9fbb35a606c901fac76e220d6268608360dcf9516c4f6",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellfocusobject.d.ts": {
+        "version": "97b4143a1d42cfa309f919d8df4321e6bdc45582d26170d18a650045cb5bcb49",
+        "signature": "97b4143a1d42cfa309f919d8df4321e6bdc45582d26170d18a650045cb5bcb49",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellicon.d.ts": {
+        "version": "d32c407f1e695af381c128b178a7483b90cdc22d2883d895577680194bb0ecdb",
+        "signature": "d32c407f1e695af381c128b178a7483b90cdc22d2883d895577680194bb0ecdb",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellitemenchantment.d.ts": {
+        "version": "39966395aefaeffc0fd08cb0f6237e729c1f911dee3e054ada94106ebc9394a9",
+        "signature": "39966395aefaeffc0fd08cb0f6237e729c1f911dee3e054ada94106ebc9394a9",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellitemenchantmentcondition.d.ts": {
+        "version": "a59d1ab72bae91818c6d960baa7239e7cc3475d2898123e0634435f2cf1a0022",
+        "signature": "a59d1ab72bae91818c6d960baa7239e7cc3475d2898123e0634435f2cf1a0022",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellmechanic.d.ts": {
+        "version": "9f3c232a843a40fbca71841fd4b993e6ed20160e3189e095230d3d9c6fda962d",
+        "signature": "9f3c232a843a40fbca71841fd4b993e6ed20160e3189e095230d3d9c6fda962d",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellmissile.d.ts": {
+        "version": "4652ab0378220f117ee48e028e6b1ba3dbb2aae05764ffff69e1b21b985daf08",
+        "signature": "4652ab0378220f117ee48e028e6b1ba3dbb2aae05764ffff69e1b21b985daf08",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellmissilemotion.d.ts": {
+        "version": "b7a35537411f06011fa326f6b1fa5248e58028c8462811d48477bcab204ae72a",
+        "signature": "b7a35537411f06011fa326f6b1fa5248e58028c8462811d48477bcab204ae72a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellradius.d.ts": {
+        "version": "6edd92496a3245c38a578d099a48701b558b01ad731bcae552ac027240d60b39",
+        "signature": "6edd92496a3245c38a578d099a48701b558b01ad731bcae552ac027240d60b39",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellrange.d.ts": {
+        "version": "6c0fdf5f847684ec1eb56b3744cf969d15fd132d9f513c50cef2464aa3fb8438",
+        "signature": "6c0fdf5f847684ec1eb56b3744cf969d15fd132d9f513c50cef2464aa3fb8438",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellrunecost.d.ts": {
+        "version": "811f8b00f5da5640c6114d065eafcf8852cb21a158a43d932b507a8e0958d90b",
+        "signature": "811f8b00f5da5640c6114d065eafcf8852cb21a158a43d932b507a8e0958d90b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellshapeshiftform.d.ts": {
+        "version": "0d01f98a33689628de7d4ad780cb923785374e87d430e7a0c48d6b1aa09ee8f7",
+        "signature": "0d01f98a33689628de7d4ad780cb923785374e87d430e7a0c48d6b1aa09ee8f7",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisual.d.ts": {
+        "version": "e78ea27ed508649a2945fb5343036cd0f7cb0ede76adb0a3b1f53e384834e23e",
+        "signature": "e78ea27ed508649a2945fb5343036cd0f7cb0ede76adb0a3b1f53e384834e23e",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualeffectname.d.ts": {
+        "version": "7684f0133bedc780382c6c67b9fda6b0fec163a91b5c9eeda9b327b41f07daab",
+        "signature": "7684f0133bedc780382c6c67b9fda6b0fec163a91b5c9eeda9b327b41f07daab",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualkit.d.ts": {
+        "version": "f6bf47535336766b224ede59fc15e089ef7c4d8c618a9cbbfe70be4c5cb27734",
+        "signature": "f6bf47535336766b224ede59fc15e089ef7c4d8c618a9cbbfe70be4c5cb27734",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualkitareamodel.d.ts": {
+        "version": "29555e18b1dd72f73b93bc764a69933e80d0959610944adebd46e6b22979fd9f",
+        "signature": "29555e18b1dd72f73b93bc764a69933e80d0959610944adebd46e6b22979fd9f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualkitmodelattach.d.ts": {
+        "version": "e14984d941e7876098802cac7d1843db8063977e5ede45cf80b1ace0b70eacff",
+        "signature": "e14984d941e7876098802cac7d1843db8063977e5ede45cf80b1ace0b70eacff",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualprecasttransitions.d.ts": {
+        "version": "fc62658a1c0c0ed54a99ff66de3787a808d69aeb8a62a687ef0d21388f09206d",
+        "signature": "fc62658a1c0c0ed54a99ff66de3787a808d69aeb8a62a687ef0d21388f09206d",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/stableslotprices.d.ts": {
+        "version": "9c7ecc0530fca9c7fc7d058a3d1e3c7c9a6b4389e5f40eb665dfc0dd9b2defd6",
+        "signature": "9c7ecc0530fca9c7fc7d058a3d1e3c7c9a6b4389e5f40eb665dfc0dd9b2defd6",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/startup_strings.d.ts": {
+        "version": "7893350af89bf419786b9d177240da361d963f00be76d9078ff5d844ce1824cc",
+        "signature": "7893350af89bf419786b9d177240da361d963f00be76d9078ff5d844ce1824cc",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/stationery.d.ts": {
+        "version": "889a8c00705f95d77e9060d52c4f5307987a644ced2c84b2558686b4bcaf0b35",
+        "signature": "889a8c00705f95d77e9060d52c4f5307987a644ced2c84b2558686b4bcaf0b35",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/stringlookups.d.ts": {
+        "version": "22ea9bb5b25a4fa6e9583ea70efe06ed991fa4bd94f887f6c8a56750a57c2c78",
+        "signature": "22ea9bb5b25a4fa6e9583ea70efe06ed991fa4bd94f887f6c8a56750a57c2c78",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/summonproperties.d.ts": {
+        "version": "e417e4acd57ffcb36f42a4ce57e0a991677ea545a2b32ec87f6e7b22a55e1c12",
+        "signature": "e417e4acd57ffcb36f42a4ce57e0a991677ea545a2b32ec87f6e7b22a55e1c12",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/talent.d.ts": {
+        "version": "24ce5cc8423bbe5c75725d30f3e54e4856d56d3cb744902312ca783e0d9b29af",
+        "signature": "24ce5cc8423bbe5c75725d30f3e54e4856d56d3cb744902312ca783e0d9b29af",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/talenttab.d.ts": {
+        "version": "de4f37990801971233a41460e1e9d46de0c4da5178fffb711ef302e718072e0f",
+        "signature": "de4f37990801971233a41460e1e9d46de0c4da5178fffb711ef302e718072e0f",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/taxinodes.d.ts": {
+        "version": "5cdfed7fbb107aede44043abc28904fd3cdce0e386339af1acdbf256842328d0",
+        "signature": "5cdfed7fbb107aede44043abc28904fd3cdce0e386339af1acdbf256842328d0",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/taxipath.d.ts": {
+        "version": "1da9566e5ce0784ec5d101b3fb71574f1306a6047af096bf50035862d4930d76",
+        "signature": "1da9566e5ce0784ec5d101b3fb71574f1306a6047af096bf50035862d4930d76",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/taxipathnode.d.ts": {
+        "version": "4b37965407a8050d5c1cca178e78caed793aa300ebe745862629405b69de9ab6",
+        "signature": "4b37965407a8050d5c1cca178e78caed793aa300ebe745862629405b69de9ab6",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/teamcontributionpoints.d.ts": {
+        "version": "b76c75d27521eb3e4298629928abd12ae4f79110bb2b514c95159414d19b95c2",
+        "signature": "b76c75d27521eb3e4298629928abd12ae4f79110bb2b514c95159414d19b95c2",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/terraintype.d.ts": {
+        "version": "7585f78211372e5433949d039201ef6964b32b81aded0fa7750f7cc4723ae20a",
+        "signature": "7585f78211372e5433949d039201ef6964b32b81aded0fa7750f7cc4723ae20a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/terraintypesounds.d.ts": {
+        "version": "bffaa081b9978707a30ef03b130a350d5fc5bb95982bf6275889561ac74253e5",
+        "signature": "bffaa081b9978707a30ef03b130a350d5fc5bb95982bf6275889561ac74253e5",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/totemcategory.d.ts": {
+        "version": "5d2ed412f8283086aa16b1259b14af17bd567670bb6f56fc9f88c1d20f695771",
+        "signature": "5d2ed412f8283086aa16b1259b14af17bd567670bb6f56fc9f88c1d20f695771",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/transportanimation.d.ts": {
+        "version": "3bbb913eef79a70020b41577e233a5504632966aa9aeb7152c04bb3b193ab87b",
+        "signature": "3bbb913eef79a70020b41577e233a5504632966aa9aeb7152c04bb3b193ab87b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/transportphysics.d.ts": {
+        "version": "f38396c6228305bc830423462b36fb57aef6823e3682e1f3568fc2aa43980f59",
+        "signature": "f38396c6228305bc830423462b36fb57aef6823e3682e1f3568fc2aa43980f59",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/transportrotation.d.ts": {
+        "version": "3e3c526f88bacf07d5352c32fa393bf6e004d6a6911afcd41b1cd80174b2d737",
+        "signature": "3e3c526f88bacf07d5352c32fa393bf6e004d6a6911afcd41b1cd80174b2d737",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/uisoundlookups.d.ts": {
+        "version": "f45f2e001c761106c26ebbbed800ae6c3d7520cfbeeb0ff31f0ac4c7cc5ae7a2",
+        "signature": "f45f2e001c761106c26ebbbed800ae6c3d7520cfbeeb0ff31f0ac4c7cc5ae7a2",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/unitblood.d.ts": {
+        "version": "80ec67d1f1cade8ecf78c4093cf49d145dcbad0fc4a112cfa1a9160cccb46169",
+        "signature": "80ec67d1f1cade8ecf78c4093cf49d145dcbad0fc4a112cfa1a9160cccb46169",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/unitbloodlevels.d.ts": {
+        "version": "b23e2c0521387199114bc3de7098b67e190f62e7c930dba3a7562302a24d43b7",
+        "signature": "b23e2c0521387199114bc3de7098b67e190f62e7c930dba3a7562302a24d43b7",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vehicle.d.ts": {
+        "version": "54ab40e06dcfeb9712972a56ef7fb8e3cc88144ecf871dc39103bf4d1a3ee83a",
+        "signature": "54ab40e06dcfeb9712972a56ef7fb8e3cc88144ecf871dc39103bf4d1a3ee83a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vehicleseat.d.ts": {
+        "version": "1bd16625a24022b9fb52d0123ce3ce26e6076647b1e3c4bb0176fc05581bc023",
+        "signature": "1bd16625a24022b9fb52d0123ce3ce26e6076647b1e3c4bb0176fc05581bc023",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vehicleuiindicator.d.ts": {
+        "version": "066939379baa1ad4ee829b279bf9844a268c2b9e2b2726dd41ed6fd4fdd44bd6",
+        "signature": "066939379baa1ad4ee829b279bf9844a268c2b9e2b2726dd41ed6fd4fdd44bd6",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vehicleuiindseat.d.ts": {
+        "version": "be73590336ed4747714266e4154c3ceb3ea83464ad7bfece1a6ef2f97a047af2",
+        "signature": "be73590336ed4747714266e4154c3ceb3ea83464ad7bfece1a6ef2f97a047af2",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/videohardware.d.ts": {
+        "version": "69b502d131cc38cc7c9b77a328bd6517d1d6e5bd5f496fa1d6f07f8e262e9cd8",
+        "signature": "69b502d131cc38cc7c9b77a328bd6517d1d6e5bd5f496fa1d6f07f8e262e9cd8",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vocaluisounds.d.ts": {
+        "version": "04a9713866a012a3e41b2301f5dd9b836774a786a5c7468de5e2f0ba9b252a27",
+        "signature": "04a9713866a012a3e41b2301f5dd9b836774a786a5c7468de5e2f0ba9b252a27",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/weaponimpactsounds.d.ts": {
+        "version": "ca500b4f5e7087fde872d6cbe7e199329c3a7522599e829d9c6504298debd2f6",
+        "signature": "ca500b4f5e7087fde872d6cbe7e199329c3a7522599e829d9c6504298debd2f6",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/weaponswingsounds2.d.ts": {
+        "version": "8673638b9f0c8eb941d7f3821b4974e659d1c8813e314046f869eb36740b4168",
+        "signature": "8673638b9f0c8eb941d7f3821b4974e659d1c8813e314046f869eb36740b4168",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/weather.d.ts": {
+        "version": "4677bd41b15369adc4cbdc1a28908c0b1c005d30ba2650a741324c8930977396",
+        "signature": "4677bd41b15369adc4cbdc1a28908c0b1c005d30ba2650a741324c8930977396",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/wmoareatable.d.ts": {
+        "version": "19ab30050c14a8c59a1305f034497bf7e021abf2370b23b898443ea08bf63492",
+        "signature": "19ab30050c14a8c59a1305f034497bf7e021abf2370b23b898443ea08bf63492",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldchunksounds.d.ts": {
+        "version": "f6c39f133577ba66b75e7b5122ca2e406bcbf4ef52b291518acb8906b0e0b9ee",
+        "signature": "f6c39f133577ba66b75e7b5122ca2e406bcbf4ef52b291518acb8906b0e0b9ee",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldmaparea.d.ts": {
+        "version": "59fbc47d22cf4d3baca99db7b2008e64539a9b579ad84a4f1c9e01af823a7a35",
+        "signature": "59fbc47d22cf4d3baca99db7b2008e64539a9b579ad84a4f1c9e01af823a7a35",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldmapcontinent.d.ts": {
+        "version": "a2ecae1837bd788eff64bc3ff1fcb630710773f55e7479f3c2f9d16a7e06c382",
+        "signature": "a2ecae1837bd788eff64bc3ff1fcb630710773f55e7479f3c2f9d16a7e06c382",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldmapoverlay.d.ts": {
+        "version": "b4df42817359676dc4d413caba2406d597fd2cc5fcc6d07f0f76daa070837197",
+        "signature": "b4df42817359676dc4d413caba2406d597fd2cc5fcc6d07f0f76daa070837197",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldmaptransforms.d.ts": {
+        "version": "015ce5a41c412b589acdfe8fd36aab96ef71f63688abf926c96fe3ba33d9b695",
+        "signature": "015ce5a41c412b589acdfe8fd36aab96ef71f63688abf926c96fe3ba33d9b695",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldsafelocs.d.ts": {
+        "version": "4ae88ec9c34f162bd09d829035b2dd527e6571829bb135bb08468f076c7c6ea0",
+        "signature": "4ae88ec9c34f162bd09d829035b2dd527e6571829bb135bb08468f076c7c6ea0",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldstateui.d.ts": {
+        "version": "5a1cfd36f2e0d3a56e45746203d7eb6981b7b14735c806d635de4c48ac92d5cb",
+        "signature": "5a1cfd36f2e0d3a56e45746203d7eb6981b7b14735c806d635de4c48ac92d5cb",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldstatezonesounds.d.ts": {
+        "version": "831994f9f76f4ba06cb0606b0df5759c7f2641cc4e18aa4e5ba5d1902dafadbf",
+        "signature": "831994f9f76f4ba06cb0606b0df5759c7f2641cc4e18aa4e5ba5d1902dafadbf",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/wowerror_strings.d.ts": {
+        "version": "e154a8c09e4d373a58e1132671755d49893642dcd6073f485ee3c43af5e8390a",
+        "signature": "e154a8c09e4d373a58e1132671755d49893642dcd6073f485ee3c43af5e8390a",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/zoneintromusictable.d.ts": {
+        "version": "6149219ee2aa9fc9cadb2f433522f483b496171aeae3d8bdbf4f7ba4b8565cae",
+        "signature": "6149219ee2aa9fc9cadb2f433522f483b496171aeae3d8bdbf4f7ba4b8565cae",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/zonemusic.d.ts": {
+        "version": "34bdae580e9da37b4160e511c28022d796eed476a80ccae8046b3ad45b8e8f16",
+        "signature": "34bdae580e9da37b4160e511c28022d796eed476a80ccae8046b3ad45b8e8f16",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/dbc/dbcfiles.d.ts": {
+        "version": "a332bc2998b07d6d59bb74fc6f39f187be56ac12a8d85460c2bee875f47eee69",
+        "signature": "a332bc2998b07d6d59bb74fc6f39f187be56ac12a8d85460c2bee875f47eee69",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/sql/sqlrow.d.ts": {
+        "version": "07608f3cf1ebad7f1cf4bebd3a2525a161e84ecbfb6a8b6819207a39eb025043",
+        "signature": "07608f3cf1ebad7f1cf4bebd3a2525a161e84ecbfb6a8b6819207a39eb025043",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/sql/sqltable.d.ts": {
+        "version": "25406e980affa4d3b32a41836fffdbd5e5ba4c9a820d24f5c34217e5e4ad7656",
+        "signature": "25406e980affa4d3b32a41836fffdbd5e5ba4c9a820d24f5c34217e5e4ad7656",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/node_modules/@types/mysql/index.d.ts": {
@@ -879,6 +1754,11 @@
       "../../../../bin/scripts/tswow/wotlkdata/sql/sqlconnection.d.ts": {
         "version": "ea367424da3b08725ce054f3a791b1a5ce9269532941fd189d8101247bc6d49b",
         "signature": "ea367424da3b08725ce054f3a791b1a5ce9269532941fd189d8101247bc6d49b",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/sql/sqlcell.d.ts": {
+        "version": "53f8c475e3d99b57b09ca4a8298b20d59f6a9a85f4835889005e84b7dda99757",
+        "signature": "53f8c475e3d99b57b09ca4a8298b20d59f6a9a85f4835889005e84b7dda99757",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/sql/types/access_requirement.d.ts": {
@@ -1526,9 +2406,19 @@
         "signature": "4cdd5ebbafa2f8d369cc5b81ebe86909384486c2cc69ac82f93806025eb06480",
         "affectsGlobalScope": false
       },
+      "../../../../bin/scripts/tswow/wotlkdata/sql/types/quest_template.d.ts": {
+        "version": "a2c7770098f53e75b3beacbf73a749a0c43095ce9c295614201850365b85d3b3",
+        "signature": "a2c7770098f53e75b3beacbf73a749a0c43095ce9c295614201850365b85d3b3",
+        "affectsGlobalScope": false
+      },
       "../../../../bin/scripts/tswow/wotlkdata/sql/types/quest_template_addon.d.ts": {
         "version": "75885e9b444d5d53f55dd2a9f4d273a23695ea9466299bc122470953466facc5",
         "signature": "75885e9b444d5d53f55dd2a9f4d273a23695ea9466299bc122470953466facc5",
+        "affectsGlobalScope": false
+      },
+      "../../../../bin/scripts/tswow/wotlkdata/sql/types/quest_template_locale.d.ts": {
+        "version": "a96032c5d2ff4c87d70cf0fbe4d0c4359fcb817da7f7ed5a1d77703eb02201df",
+        "signature": "a96032c5d2ff4c87d70cf0fbe4d0c4359fcb817da7f7ed5a1d77703eb02201df",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/sql/types/reference_loot_template.d.ts": {
@@ -1756,1149 +2646,299 @@
         "signature": "e484c6943db4fd0e6e35ca954013d068821bb471d5a0417112b9c2be319565a0",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/achievement_category.d.ts": {
-        "version": "cc7aa0b14957b34be882e182bcd3b80f7fac274b6070fd6af17c1478433cd69d",
-        "signature": "cc7aa0b14957b34be882e182bcd3b80f7fac274b6070fd6af17c1478433cd69d",
+      "../../../../bin/scripts/tswow/wotlkdata/ids/ids.d.ts": {
+        "version": "292e818df812f74c339c4389016e0ed8ac00e3dccbdd011e5022787f6268f776",
+        "signature": "292e818df812f74c339c4389016e0ed8ac00e3dccbdd011e5022787f6268f776",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/animationdata.d.ts": {
-        "version": "8cde8516e67ad2433a73aed8d5ab8f3fa9ba47177a30904e0b5b0ab05823e3a2",
-        "signature": "8cde8516e67ad2433a73aed8d5ab8f3fa9ba47177a30904e0b5b0ab05823e3a2",
+      "../../../../bin/scripts/tswow/wotlkdata/luaxml/luaxmlfiles.d.ts": {
+        "version": "f35d537cfe90c863d21abe89b76669cd4966697898b109f8b6290f6dd081745c",
+        "signature": "f35d537cfe90c863d21abe89b76669cd4966697898b109f8b6290f6dd081745c",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/areagroup.d.ts": {
-        "version": "484f06d6472b82224b05680a66f34a4ed9efe018476688250b71784d4d1bd0c4",
-        "signature": "484f06d6472b82224b05680a66f34a4ed9efe018476688250b71784d4d1bd0c4",
+      "../../../../bin/scripts/tswow/wotlkdata/luaxml/textfile.d.ts": {
+        "version": "53329278f6ae77de061642c058971a6419b8561335b9d419c14c2eaa2741b83a",
+        "signature": "53329278f6ae77de061642c058971a6419b8561335b9d419c14c2eaa2741b83a",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/areapoi.d.ts": {
-        "version": "8ec2d36ff6da5a92a0b85518b95aaff182040df13b340d14b5d0b13933c7eb0b",
-        "signature": "8ec2d36ff6da5a92a0b85518b95aaff182040df13b340d14b5d0b13933c7eb0b",
+      "../../../../bin/scripts/tswow/wotlkdata/luaxml/luaxml.d.ts": {
+        "version": "43d50115b24a1431098012e70ca5190222a5478313099fdb55fca6fe2f2e094b",
+        "signature": "43d50115b24a1431098012e70ca5190222a5478313099fdb55fca6fe2f2e094b",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/areatable.d.ts": {
-        "version": "956a49f262c7863356a9186feb55ed45c2d0c3246aecd1dc7599f2912697589d",
-        "signature": "956a49f262c7863356a9186feb55ed45c2d0c3246aecd1dc7599f2912697589d",
+      "../../../../bin/scripts/tswow/wotlkdata/cell/objectiteration.d.ts": {
+        "version": "334f096ddfd2857a538caef9d0bacb1f721c70654d81119ee3c8fdf66537e26d",
+        "signature": "334f096ddfd2857a538caef9d0bacb1f721c70654d81119ee3c8fdf66537e26d",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/areatrigger.d.ts": {
-        "version": "2fe5a32b61d7b6167c649536d65af15c3086a683927f78d98995b5fd5c863a59",
-        "signature": "2fe5a32b61d7b6167c649536d65af15c3086a683927f78d98995b5fd5c863a59",
+      "../../../../bin/scripts/tswow/wotlkdata/wotlkdata.d.ts": {
+        "version": "4e42bca9992f37861452935785955c289847ba27c4dac32345e25565d698d134",
+        "signature": "4e42bca9992f37861452935785955c289847ba27c4dac32345e25565d698d134",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/attackanimkits.d.ts": {
-        "version": "00866b0116e7d2f7ec053be5466700f07b71ee7382c95b4fa298cc3b27de31e1",
-        "signature": "00866b0116e7d2f7ec053be5466700f07b71ee7382c95b4fa298cc3b27de31e1",
+      "../create-db-tables.ts": {
+        "version": "043546daa50250d18f388ada2260a890513fbcff169e003eee745e1aa2b4b632",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/attackanimtypes.d.ts": {
-        "version": "d39f6dd202f5848494cbd18e67eebf92eaafa8eebcdee5e2c83bcc19aabea435",
-        "signature": "d39f6dd202f5848494cbd18e67eebf92eaafa8eebcdee5e2c83bcc19aabea435",
+      "../../../../bin/scripts/tswow/wotlkdata/cell/systems/mask.d.ts": {
+        "version": "49ffa59111fecfb5eba81b5e71cd5cccc76ca3c0feff21586a1c0116e5994148",
+        "signature": "49ffa59111fecfb5eba81b5e71cd5cccc76ca3c0feff21586a1c0116e5994148",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/auctionhouse.d.ts": {
-        "version": "3741a114abb4736036bb62967698ca1e7efef9d3e2f1153eaa3f38cbe5e54c32",
-        "signature": "3741a114abb4736036bb62967698ca1e7efef9d3e2f1153eaa3f38cbe5e54c32",
+      "../../../tswow-stdlib/data/build/base/includeexclude.d.ts": {
+        "version": "e687fe56af714dd0ab5334515924544a0f9a23e160e68a1fe50a290150cec576",
+        "signature": "e687fe56af714dd0ab5334515924544a0f9a23e160e68a1fe50a290150cec576",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/bankbagslotprices.d.ts": {
-        "version": "c142d973bd7a1c36dd1d709948857212c080ec29ac246b1435886c197b26ba25",
-        "signature": "c142d973bd7a1c36dd1d709948857212c080ec29ac246b1435886c197b26ba25",
+      "../../../tswow-stdlib/data/build/base/mainentity.d.ts": {
+        "version": "b759c41cd3ba8512a2b2b70f60d44d739037f37460727243fc1b37f164246789",
+        "signature": "b759c41cd3ba8512a2b2b70f60d44d739037f37460727243fc1b37f164246789",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/bannedaddons.d.ts": {
-        "version": "7178f35f0d24f8cbea9f08abf8a1e8ae877f033dc7f635cc38f2f61e7c6887fa",
-        "signature": "7178f35f0d24f8cbea9f08abf8a1e8ae877f033dc7f635cc38f2f61e7c6887fa",
+      "../../../tswow-stdlib/data/build/spell/aurainterruptflags.d.ts": {
+        "version": "c769d4b8333907435857d8b14cf69b7a1e9d818bc0ebad53ecd0372fead39d7c",
+        "signature": "c769d4b8333907435857d8b14cf69b7a1e9d818bc0ebad53ecd0372fead39d7c",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/barbershopstyle.d.ts": {
-        "version": "5f0d05b90543547002d78c1ae8e3e28d7897332b10975e99c557a38a1ebfbc47",
-        "signature": "5f0d05b90543547002d78c1ae8e3e28d7897332b10975e99c557a38a1ebfbc47",
+      "../../../tswow-stdlib/data/build/spell/interruptflags.d.ts": {
+        "version": "1e5be5e98a4d2a39c3f8dcb0d687b2288c368d0677689679e495ccfa61d4235a",
+        "signature": "1e5be5e98a4d2a39c3f8dcb0d687b2288c368d0677689679e495ccfa61d4235a",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/battlemasterlist.d.ts": {
-        "version": "69d7a3b3f64d67b1b62c59dd74bba6d06db278ac19e6054dc08dc3126da1b56f",
-        "signature": "69d7a3b3f64d67b1b62c59dd74bba6d06db278ac19e6054dc08dc3126da1b56f",
+      "../../../tswow-stdlib/data/build/spell/spellattributes.d.ts": {
+        "version": "59dd704797d351ee8115394ff149273cc3811fe07e8b0b16f4a942b43e23d4fa",
+        "signature": "59dd704797d351ee8115394ff149273cc3811fe07e8b0b16f4a942b43e23d4fa",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/camerashakes.d.ts": {
-        "version": "174ff1a8979f029a8d53e8dd1a3a9455684d3e39011a27a0d4d69b8eccc72f81",
-        "signature": "174ff1a8979f029a8d53e8dd1a3a9455684d3e39011a27a0d4d69b8eccc72f81",
+      "../../../tswow-stdlib/data/build/spell/spellcasttime.d.ts": {
+        "version": "5779631261e6d126a92dfc6bfedc2087260402bcef909652ec869ce9edcb2113",
+        "signature": "5779631261e6d126a92dfc6bfedc2087260402bcef909652ec869ce9edcb2113",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/cfg_categories.d.ts": {
-        "version": "c5c0a8e33f861af424ac420d751af05e2fbb6b645e01474a57ced40bc8f620c7",
-        "signature": "c5c0a8e33f861af424ac420d751af05e2fbb6b645e01474a57ced40bc8f620c7",
+      "../../../../bin/scripts/tswow/wotlkdata/cell/systems/systemarray.d.ts": {
+        "version": "cfea3731d8e5e51e0e56c617708eef9807e3a2e5be9e0683159cc4ef410b52f3",
+        "signature": "cfea3731d8e5e51e0e56c617708eef9807e3a2e5be9e0683159cc4ef410b52f3",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/cfg_configs.d.ts": {
-        "version": "0058ab1444d1b5f0df026775c3da64705a8dbecb6477022e73dec14ccaeb7322",
-        "signature": "0058ab1444d1b5f0df026775c3da64705a8dbecb6477022e73dec14ccaeb7322",
+      "../../../../bin/scripts/tswow/wotlkdata/cell/systems/enum.d.ts": {
+        "version": "35a867aab4919395dba4ee813098019bb1a35f729a35a48f4b79a11adcb40c53",
+        "signature": "35a867aab4919395dba4ee813098019bb1a35f729a35a48f4b79a11adcb40c53",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/characterfacialhairstyles.d.ts": {
-        "version": "93486d31474ab6fb63b808f273f50ea4ab394885de3efd3da1b938524e8633ec",
-        "signature": "93486d31474ab6fb63b808f273f50ea4ab394885de3efd3da1b938524e8633ec",
+      "../../../tswow-stdlib/data/build/spell/auratype.d.ts": {
+        "version": "55a1ed3646b8da0eeef610519108f6eab61502abb56f0ae84a6d6ce2a6c31132",
+        "signature": "55a1ed3646b8da0eeef610519108f6eab61502abb56f0ae84a6d6ce2a6c31132",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charbaseinfo.d.ts": {
-        "version": "27f436fff562a8b860c7ff8c648456398f48be77f91018d61824459a42601543",
-        "signature": "27f436fff562a8b860c7ff8c648456398f48be77f91018d61824459a42601543",
+      "../../../tswow-stdlib/data/build/spell/spelleffectmechanics.d.ts": {
+        "version": "96f0f1726a53ac0bba25f14f5381f8d0e9dc2776be676f5ce084f1bff6111d4a",
+        "signature": "96f0f1726a53ac0bba25f14f5381f8d0e9dc2776be676f5ce084f1bff6111d4a",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charhairgeosets.d.ts": {
-        "version": "de83f54d8bc9170b7cef52d3772b5e990047e54997fff1ac843426c27b10dde9",
-        "signature": "de83f54d8bc9170b7cef52d3772b5e990047e54997fff1ac843426c27b10dde9",
+      "../../../tswow-stdlib/data/build/spell/spelleffecttype.d.ts": {
+        "version": "2ca2083c1a6392f44645eae40784cf029f5f6e57c36fcf5d466c2936e7d421ae",
+        "signature": "2ca2083c1a6392f44645eae40784cf029f5f6e57c36fcf5d466c2936e7d421ae",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charhairtextures.d.ts": {
-        "version": "34933b62d842447f7ed98557e6c996a5944692107069a7be6250756b808a02bf",
-        "signature": "34933b62d842447f7ed98557e6c996a5944692107069a7be6250756b808a02bf",
+      "../../../tswow-stdlib/data/build/spell/spellradius.d.ts": {
+        "version": "2665adea4f8ee7fa904d0c610dec05155dd107548b0da9ee69be744f8890a16f",
+        "signature": "2665adea4f8ee7fa904d0c610dec05155dd107548b0da9ee69be744f8890a16f",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charsections.d.ts": {
-        "version": "8e941d30803807c898ab927d51049a761a59b75ebcd5cfdda571c925f6468606",
-        "signature": "8e941d30803807c898ab927d51049a761a59b75ebcd5cfdda571c925f6468606",
+      "../../../tswow-stdlib/data/build/spell/spelleffect.d.ts": {
+        "version": "44c4b122e65aa9373ddd7553c8e8a9927d1f837aeb9ba1e8faff0cf811d6811c",
+        "signature": "44c4b122e65aa9373ddd7553c8e8a9927d1f837aeb9ba1e8faff0cf811d6811c",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charstartoutfit.d.ts": {
-        "version": "68b654f5c4255b2ca88f17d7f59d11ee9d616b2db0bb778e85f6e0b1c6d292c1",
-        "signature": "68b654f5c4255b2ca88f17d7f59d11ee9d616b2db0bb778e85f6e0b1c6d292c1",
+      "../../../tswow-stdlib/data/build/spell/spellclassset.d.ts": {
+        "version": "c7763de7c50fea7b3c3dbb0251be1bac362a232e9d9d3de96b036c5365e017bf",
+        "signature": "c7763de7c50fea7b3c3dbb0251be1bac362a232e9d9d3de96b036c5365e017bf",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chatchannels.d.ts": {
-        "version": "b30af6873f48a6553e4dab082c771270afabd8cb1624508129af50d13d551ed4",
-        "signature": "b30af6873f48a6553e4dab082c771270afabd8cb1624508129af50d13d551ed4",
+      "../../../tswow-stdlib/data/build/spell/spelldescriptionvariable.d.ts": {
+        "version": "03f9602ee4b0b17f0d76229a1aa85941d53470a498a4becddbb6ecd5cc25c333",
+        "signature": "03f9602ee4b0b17f0d76229a1aa85941d53470a498a4becddbb6ecd5cc25c333",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chatprofanity.d.ts": {
-        "version": "a5d77bfdbcd612bd53f16b881d966372d96c17a72c35226008b1b2473c87b93e",
-        "signature": "a5d77bfdbcd612bd53f16b881d966372d96c17a72c35226008b1b2473c87b93e",
+      "../../../tswow-stdlib/data/build/spell/spelldifficulty.d.ts": {
+        "version": "2c7b9832f61ffec04906b733eb61dda48cd9d4a1d82249aa069d5facb09bf0be",
+        "signature": "2c7b9832f61ffec04906b733eb61dda48cd9d4a1d82249aa069d5facb09bf0be",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chrclasses.d.ts": {
-        "version": "81bda583900d2f519df6cbf0ee117438f44f98fc69bd042d7a2ee6ca638842d4",
-        "signature": "81bda583900d2f519df6cbf0ee117438f44f98fc69bd042d7a2ee6ca638842d4",
+      "../../../tswow-stdlib/data/build/spell/spellduration.d.ts": {
+        "version": "a68d975e037bff133278554ea8e3eca53e1a59a71ff28dc2a4e21b368a2ecf89",
+        "signature": "a68d975e037bff133278554ea8e3eca53e1a59a71ff28dc2a4e21b368a2ecf89",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/chrraces.d.ts": {
-        "version": "bc8617aa06b8e8e2b0d03ac92bb3f1869ffaccd027abb4934c377e5e76e83005",
-        "signature": "bc8617aa06b8e8e2b0d03ac92bb3f1869ffaccd027abb4934c377e5e76e83005",
+      "../../../../bin/scripts/tswow/wotlkdata/cell/dummycell.d.ts": {
+        "version": "bc533a766d692a123cf2bcbb43718be23d49b8f3d6d1ab9b575838da1af56b42",
+        "signature": "bc533a766d692a123cf2bcbb43718be23d49b8f3d6d1ab9b575838da1af56b42",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/cinematiccamera.d.ts": {
-        "version": "b1dd9934ec590fa28423298dc042589d53e3171959f7ca2709a79a859e738a09",
-        "signature": "b1dd9934ec590fa28423298dc042589d53e3171959f7ca2709a79a859e738a09",
+      "../../../tswow-stdlib/data/build/spell/spellicon.d.ts": {
+        "version": "aa78284af029d565cf4ae796ce5edfa40e4b2be2a98ee89d902155cea6e76df3",
+        "signature": "aa78284af029d565cf4ae796ce5edfa40e4b2be2a98ee89d902155cea6e76df3",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/cinematicsequences.d.ts": {
-        "version": "23cdc4c7d44a5a6c54fb197305ca506f4399e7985e529173f231e028f727ddba",
-        "signature": "23cdc4c7d44a5a6c54fb197305ca506f4399e7985e529173f231e028f727ddba",
+      "../../../tswow-stdlib/data/build/spell/spellitemequips.d.ts": {
+        "version": "6546eac9cd093b70ac39f0ef4e36c6cba4d4d3670d7ff7d5cbb0945504aaf0c0",
+        "signature": "6546eac9cd093b70ac39f0ef4e36c6cba4d4d3670d7ff7d5cbb0945504aaf0c0",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturedisplayinfo.d.ts": {
-        "version": "6d7ba24dd0b09cbe7d338263b4b73d4bb82bcb9db61e1868f9662b2ba3e9d7c2",
-        "signature": "6d7ba24dd0b09cbe7d338263b4b73d4bb82bcb9db61e1868f9662b2ba3e9d7c2",
+      "../../../tswow-stdlib/data/build/spell/spelllevels.d.ts": {
+        "version": "ee9c3d346b7690eb19b6fb15aaad6e84c82cd5b7b5640b01e7991e634ea19c3f",
+        "signature": "ee9c3d346b7690eb19b6fb15aaad6e84c82cd5b7b5640b01e7991e634ea19c3f",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturedisplayinfoextra.d.ts": {
-        "version": "19e640ff15bf8a6a7a18fd0963fbf3c668de5528e69b98a21252717bb0bbd2d8",
-        "signature": "19e640ff15bf8a6a7a18fd0963fbf3c668de5528e69b98a21252717bb0bbd2d8",
+      "../../../tswow-stdlib/data/build/spell/spellmissile.d.ts": {
+        "version": "a7009a709f466f417c0db8b10344274a7cc66129b8e64751201cf09710074280",
+        "signature": "a7009a709f466f417c0db8b10344274a7cc66129b8e64751201cf09710074280",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturefamily.d.ts": {
-        "version": "b2e98f211343d2f1cbc532a6bff5d02267c698c0ae4bea027a7dd232c3c9d9fb",
-        "signature": "b2e98f211343d2f1cbc532a6bff5d02267c698c0ae4bea027a7dd232c3c9d9fb",
+      "../../../tswow-stdlib/data/build/spell/spellpower.d.ts": {
+        "version": "96d1abad0bc4ecafd720f7133fbd266064195020443d729a22117dd08b2d7eed",
+        "signature": "96d1abad0bc4ecafd720f7133fbd266064195020443d729a22117dd08b2d7eed",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturemodeldata.d.ts": {
-        "version": "5e24b14dcee8f5bbc60b4745753fda687d7613f867799254f64862869c180ba9",
-        "signature": "5e24b14dcee8f5bbc60b4745753fda687d7613f867799254f64862869c180ba9",
+      "../../../tswow-stdlib/data/build/spell/spellpowerdisplay.d.ts": {
+        "version": "35031a8486eebbd7d41438965a9e8ee35a8742b65b4545dcb64059ac2e95979e",
+        "signature": "35031a8486eebbd7d41438965a9e8ee35a8742b65b4545dcb64059ac2e95979e",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturemovementinfo.d.ts": {
-        "version": "91158304c96162991fca2e039e0424ac54db2671ae74a5637b9fa876f1ba7a4a",
-        "signature": "91158304c96162991fca2e039e0424ac54db2671ae74a5637b9fa876f1ba7a4a",
+      "../../../tswow-stdlib/data/build/spell/spellproc.d.ts": {
+        "version": "37e2d42e244cacc6e5cafb2fa72f57068a037e7a01456ec53b027d35a6b6f4c7",
+        "signature": "37e2d42e244cacc6e5cafb2fa72f57068a037e7a01456ec53b027d35a6b6f4c7",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturesounddata.d.ts": {
-        "version": "5744321b9b21d3d23b9f1004fdddae24e10c9bf4feb0e5f6cc48ee3a28dec9de",
-        "signature": "5744321b9b21d3d23b9f1004fdddae24e10c9bf4feb0e5f6cc48ee3a28dec9de",
+      "../../../tswow-stdlib/data/build/spell/spellrange.d.ts": {
+        "version": "b3d0bcfbd9cc4866feb42da41a37005276d54a7c55ded0ceb3233220a5e52942",
+        "signature": "b3d0bcfbd9cc4866feb42da41a37005276d54a7c55ded0ceb3233220a5e52942",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturespelldata.d.ts": {
-        "version": "287bace821a3d02cf10181eb9993ffa29591088889f999b20225508983b2f2f3",
-        "signature": "287bace821a3d02cf10181eb9993ffa29591088889f999b20225508983b2f2f3",
+      "../../../tswow-stdlib/data/build/spell/spellreagents.d.ts": {
+        "version": "b5727273f6e94f8dc994a4651d4bd97140ac135b9840a5467d1202aab459d8f6",
+        "signature": "b5727273f6e94f8dc994a4651d4bd97140ac135b9840a5467d1202aab459d8f6",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/creaturetype.d.ts": {
-        "version": "31879951186a93cd5d0f85ff359f5ea58108504e9dcf34a1c5dc9bf7e7ddb650",
-        "signature": "31879951186a93cd5d0f85ff359f5ea58108504e9dcf34a1c5dc9bf7e7ddb650",
+      "../../../tswow-stdlib/data/build/spell/spellrecovery.d.ts": {
+        "version": "a09478cafa953b96475cde369b1ed95c6646f01501c4e1bafdf2126c9a638b0e",
+        "signature": "a09478cafa953b96475cde369b1ed95c6646f01501c4e1bafdf2126c9a638b0e",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/currencycategory.d.ts": {
-        "version": "e09e870676d16ed1a141f1e5e234ab4198040e0108bca4170df0cc2f9f559f78",
-        "signature": "e09e870676d16ed1a141f1e5e234ab4198040e0108bca4170df0cc2f9f559f78",
+      "../../../tswow-stdlib/data/build/spell/spellreputation.d.ts": {
+        "version": "888d794d4102d08edc5dc9c6659dfb51f44772905a13873986e71bef435f6cb9",
+        "signature": "888d794d4102d08edc5dc9c6659dfb51f44772905a13873986e71bef435f6cb9",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/currencytypes.d.ts": {
-        "version": "c27d49c9a77ee727267c48e3d8cc32af462c072c756fa9cf178ac0b3890c358c",
-        "signature": "c27d49c9a77ee727267c48e3d8cc32af462c072c756fa9cf178ac0b3890c358c",
+      "../../../tswow-stdlib/data/build/spell/spellskilllines.d.ts": {
+        "version": "c6e4f13701db3fd76918998dbbdd161b7db51dd49044cf2bc4d3ebd6b2ce9274",
+        "signature": "c6e4f13701db3fd76918998dbbdd161b7db51dd49044cf2bc4d3ebd6b2ce9274",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/dancemoves.d.ts": {
-        "version": "73c6b007dfbea82dc57c653e8bec7db05d27c8559144a392ff69a55280167361",
-        "signature": "73c6b007dfbea82dc57c653e8bec7db05d27c8559144a392ff69a55280167361",
+      "../../../../bin/scripts/tswow/wotlkdata/cell/systems/vector3.d.ts": {
+        "version": "f488bf9ef96cf018015f0d008b994aac4dbfb9ab5bf1a0f1627b62d58369ce52",
+        "signature": "f488bf9ef96cf018015f0d008b994aac4dbfb9ab5bf1a0f1627b62d58369ce52",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/deaththudlookups.d.ts": {
-        "version": "14549e305c58cc7a9e551ceee3028eea15864b4baf90666d75b0cb2b281fdc4f",
-        "signature": "14549e305c58cc7a9e551ceee3028eea15864b4baf90666d75b0cb2b281fdc4f",
+      "../../../tswow-stdlib/data/build/spell/spellvisual.d.ts": {
+        "version": "d603410c1c78f538f91ae10ed9e6bc3d63bc3976d01890cc523a44d8638f0e16",
+        "signature": "d603410c1c78f538f91ae10ed9e6bc3d63bc3976d01890cc523a44d8638f0e16",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/declinedword.d.ts": {
-        "version": "d33428a04678f534cd55b55992fa7df00192d69d36f0cc751dffd67b4000b634",
-        "signature": "d33428a04678f534cd55b55992fa7df00192d69d36f0cc751dffd67b4000b634",
+      "../../../tswow-stdlib/data/build/spell/targetcreaturetype.d.ts": {
+        "version": "f6da47d847b0e5a8ad73ee15566a80c7a02bf2a731865571fcbaaa635f7f260e",
+        "signature": "f6da47d847b0e5a8ad73ee15566a80c7a02bf2a731865571fcbaaa635f7f260e",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/declinedwordcases.d.ts": {
-        "version": "af588654d59328d8d7e31bc1253d056645a243ddf8434a545223b18dea9adf71",
-        "signature": "af588654d59328d8d7e31bc1253d056645a243ddf8434a545223b18dea9adf71",
+      "../../../tswow-stdlib/data/build/spell/targettype.d.ts": {
+        "version": "6b2fdb5437163326f115de969415590b2904e81edfe809d2870540e33d4c079b",
+        "signature": "6b2fdb5437163326f115de969415590b2904e81edfe809d2870540e33d4c079b",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/destructiblemodeldata.d.ts": {
-        "version": "6f070b29a34f6b06d2f5080bfdda3428a09ef33861cf938c459ea3241d6526c1",
-        "signature": "6f070b29a34f6b06d2f5080bfdda3428a09ef33861cf938c459ea3241d6526c1",
+      "../../../tswow-stdlib/data/build/spell/spell.d.ts": {
+        "version": "e2fe8909fd1d8ff47ea15e09ad61559206eb479a1c668fe4623d4cba1dbbc30c",
+        "signature": "e2fe8909fd1d8ff47ea15e09ad61559206eb479a1c668fe4623d4cba1dbbc30c",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/dungeonencounter.d.ts": {
-        "version": "c5bbf1d9677464d081de4666a4f994615d730fa959902d5b78b3a4e508d8b141",
-        "signature": "c5bbf1d9677464d081de4666a4f994615d730fa959902d5b78b3a4e508d8b141",
+      "../../../tswow-stdlib/data/build/spell/spellranks.d.ts": {
+        "version": "5aa405f7eba2c54a063dd87de9d1cbbb8471fb5883259c8fdeb464910913f9d5",
+        "signature": "5aa405f7eba2c54a063dd87de9d1cbbb8471fb5883259c8fdeb464910913f9d5",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/dungeonmap.d.ts": {
-        "version": "0e3320b80eb1143b5a06d3685d0ba514d33c09c0f4f85cd08178c718eb89bfb9",
-        "signature": "0e3320b80eb1143b5a06d3685d0ba514d33c09c0f4f85cd08178c718eb89bfb9",
+      "../../../tswow-stdlib/data/build/totem/totemtype.d.ts": {
+        "version": "9260071e794cb5b014f1cc626a1da238155b7c2e572fcc302caaaac11c48f448",
+        "signature": "9260071e794cb5b014f1cc626a1da238155b7c2e572fcc302caaaac11c48f448",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/dungeonmapchunk.d.ts": {
-        "version": "e6ed49026efb7a01c0edf260b93d288e04b8d8a47da051dc99c0b46ee9a88d15",
-        "signature": "e6ed49026efb7a01c0edf260b93d288e04b8d8a47da051dc99c0b46ee9a88d15",
+      "../../../tswow-stdlib/data/build/spell/totemcreatures.d.ts": {
+        "version": "bb5e7be87d36e29b9718d0dd409b74ae539baf6190f700589d048c30196f9f4a",
+        "signature": "bb5e7be87d36e29b9718d0dd409b74ae539baf6190f700589d048c30196f9f4a",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/durabilitycosts.d.ts": {
-        "version": "d5f6f4092d2a50cb387b81adb8a532dbd6cbbbc996576be4ebca1ea81d9fd7a2",
-        "signature": "d5f6f4092d2a50cb387b81adb8a532dbd6cbbbc996576be4ebca1ea81d9fd7a2",
+      "../../../tswow-stdlib/data/build/race/racetype.d.ts": {
+        "version": "a75a162f579df97a981b53405931e83ebdccce38e8e0c1b6de373b78e6355f7e",
+        "signature": "a75a162f579df97a981b53405931e83ebdccce38e8e0c1b6de373b78e6355f7e",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/durabilityquality.d.ts": {
-        "version": "bce37c7b3a68cbd2928cdca932df9ceae65b75facb08c84360392067f659df36",
-        "signature": "bce37c7b3a68cbd2928cdca932df9ceae65b75facb08c84360392067f659df36",
+      "../../../tswow-stdlib/data/build/class/classtype.d.ts": {
+        "version": "47135498f0d276b6e8fe73a06cbd6f974dda6a48f4d4b1aae97991d005214f05",
+        "signature": "47135498f0d276b6e8fe73a06cbd6f974dda6a48f4d4b1aae97991d005214f05",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/emotes.d.ts": {
-        "version": "be734d9e072eb47f500411ad1a8bd373085479cb72ac580268adc4e5eb2dcc32",
-        "signature": "be734d9e072eb47f500411ad1a8bd373085479cb72ac580268adc4e5eb2dcc32",
+      "../../../tswow-stdlib/data/build/languages/languages.d.ts": {
+        "version": "b2a2dd22bec99daabddecdbfaf8e79bc023dd939751fa57d654edb47518baab3",
+        "signature": "b2a2dd22bec99daabddecdbfaf8e79bc023dd939751fa57d654edb47518baab3",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/emotestext.d.ts": {
-        "version": "88738a4fb52e0d63ffcbe2be1e62e404d8db7a766c32833af15fdc98aec20b98",
-        "signature": "88738a4fb52e0d63ffcbe2be1e62e404d8db7a766c32833af15fdc98aec20b98",
+      "../../../tswow-stdlib/data/build/quest/questflags.d.ts": {
+        "version": "78e0eaa3f033a651ab4b69f8f0a82314653864ed198c9ac13b84fd9aca9861df",
+        "signature": "78e0eaa3f033a651ab4b69f8f0a82314653864ed198c9ac13b84fd9aca9861df",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/emotestextdata.d.ts": {
-        "version": "3ebb7f0b6fc537bf4221e4d37a83d1f0e9b25762fdbf78db300777e1b1eb9e4e",
-        "signature": "3ebb7f0b6fc537bf4221e4d37a83d1f0e9b25762fdbf78db300777e1b1eb9e4e",
+      "../../../tswow-stdlib/data/build/quest/questgiver.d.ts": {
+        "version": "349536d3b199e847d79873e60ed85600c087f19aa84de2f8e15368536665271e",
+        "signature": "349536d3b199e847d79873e60ed85600c087f19aa84de2f8e15368536665271e",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/emotestextsound.d.ts": {
-        "version": "8074c20f5e4b8358df9b1ead009f7fc1724e4aab0b34925d7c42d2eeff3280ab",
-        "signature": "8074c20f5e4b8358df9b1ead009f7fc1724e4aab0b34925d7c42d2eeff3280ab",
+      "../../../tswow-stdlib/data/build/quest/questobjective.d.ts": {
+        "version": "d88f517be805487761a92a653a89d8ce2a1f946aed15f67e97ca874d91a3b286",
+        "signature": "d88f517be805487761a92a653a89d8ce2a1f946aed15f67e97ca874d91a3b286",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/environmentaldamage.d.ts": {
-        "version": "f7abfbdb5a4f96d54795329d78ed628080c9b4245daba5b12bea792319cacad9",
-        "signature": "f7abfbdb5a4f96d54795329d78ed628080c9b4245daba5b12bea792319cacad9",
+      "../../../tswow-stdlib/data/build/quest/questreward.d.ts": {
+        "version": "cd2336088d52b1e0c7cd0d650950d7be5e87955cc2597210f261b2b121f83a6b",
+        "signature": "cd2336088d52b1e0c7cd0d650950d7be5e87955cc2597210f261b2b121f83a6b",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/exhaustion.d.ts": {
-        "version": "41ef2be6e5d0431cf46f6f09038b56c8af1cb78ca4513032c217b05cbc0159a5",
-        "signature": "41ef2be6e5d0431cf46f6f09038b56c8af1cb78ca4513032c217b05cbc0159a5",
+      "../../../tswow-stdlib/data/build/base/sqllocsystem.d.ts": {
+        "version": "6f780d6f3a6418870f31428349431e3709cff019fffa258e7983a7f534587e35",
+        "signature": "6f780d6f3a6418870f31428349431e3709cff019fffa258e7983a7f534587e35",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/faction.d.ts": {
-        "version": "001b600980275f0959104f49d6e7d91bacd1bce5a0d4e0f983ce2bc2bd7e944c",
-        "signature": "001b600980275f0959104f49d6e7d91bacd1bce5a0d4e0f983ce2bc2bd7e944c",
+      "../../../tswow-stdlib/data/build/quest/questtext.d.ts": {
+        "version": "c94225eb15f8a34c4a5be15e64e0ae5f71a80467b343100e75722b661a418530",
+        "signature": "c94225eb15f8a34c4a5be15e64e0ae5f71a80467b343100e75722b661a418530",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/factiongroup.d.ts": {
-        "version": "501413417b97bbed77818e6b180a17707251c7a36e68943f273040e3f8456327",
-        "signature": "501413417b97bbed77818e6b180a17707251c7a36e68943f273040e3f8456327",
+      "../../../tswow-stdlib/data/build/quest/quest.d.ts": {
+        "version": "d103bd7553ed67fe2cd7446c181df77e3ae5727404b596dc4d548bb10d197e56",
+        "signature": "d103bd7553ed67fe2cd7446c181df77e3ae5727404b596dc4d548bb10d197e56",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/factiontemplate.d.ts": {
-        "version": "4d87daec2f172ff227ae8a07f965784a9e320d728bc4946796d3520810483eb4",
-        "signature": "4d87daec2f172ff227ae8a07f965784a9e320d728bc4946796d3520810483eb4",
+      "../../../tswow-stdlib/data/build/title/titles.d.ts": {
+        "version": "c7332f66b0a12722efc243c022c6db0df138ba38d050308650b60e00535831fd",
+        "signature": "c7332f66b0a12722efc243c022c6db0df138ba38d050308650b60e00535831fd",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/filedata.d.ts": {
-        "version": "48bb729c4feaecb18e6bc42eec80b1524975c44cd9b315561fdf8bddb4709be4",
-        "signature": "48bb729c4feaecb18e6bc42eec80b1524975c44cd9b315561fdf8bddb4709be4",
+      "../../../tswow-stdlib/data/build/achievement/achievementcriteria.d.ts": {
+        "version": "69f7fa26fdb60f8ba19e5e371a171054e6f4d7edb9967c804435e83abfb043a5",
+        "signature": "69f7fa26fdb60f8ba19e5e371a171054e6f4d7edb9967c804435e83abfb043a5",
         "affectsGlobalScope": false
       },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/footprinttextures.d.ts": {
-        "version": "736b9fd82ef0880425e516b104ec3e27b90388f43c7a43bf10970d08635ea4b1",
-        "signature": "736b9fd82ef0880425e516b104ec3e27b90388f43c7a43bf10970d08635ea4b1",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/footstepterrainlookup.d.ts": {
-        "version": "c6e9c853d4f1e533f714ef0fda62c455dc12d092fffa69ce9937622b6e857579",
-        "signature": "c6e9c853d4f1e533f714ef0fda62c455dc12d092fffa69ce9937622b6e857579",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gameobjectartkit.d.ts": {
-        "version": "65fc544258f36ea6046ba9358bee48ac4907394c478403d7d288bda21f564a36",
-        "signature": "65fc544258f36ea6046ba9358bee48ac4907394c478403d7d288bda21f564a36",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gameobjectdisplayinfo.d.ts": {
-        "version": "7f6aaef7df6b658baa75f1d7f8dff7b9bb0e4915a3158b96c82284d377f14a88",
-        "signature": "7f6aaef7df6b658baa75f1d7f8dff7b9bb0e4915a3158b96c82284d377f14a88",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gametables.d.ts": {
-        "version": "45db181cf543187017f147fbe36a70a3954981cd39fb09df62751902cd74f66f",
-        "signature": "45db181cf543187017f147fbe36a70a3954981cd39fb09df62751902cd74f66f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gametips.d.ts": {
-        "version": "3fa2c2c5ffd587950cf31ace162f1360a9bb33c84f45b2a5c55c372125327625",
-        "signature": "3fa2c2c5ffd587950cf31ace162f1360a9bb33c84f45b2a5c55c372125327625",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gemproperties.d.ts": {
-        "version": "4861a7844ecbb1f9fef2fc1c71f6da4dbd76206193da3daf8a0e99c91587cd4b",
-        "signature": "4861a7844ecbb1f9fef2fc1c71f6da4dbd76206193da3daf8a0e99c91587cd4b",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/glyphproperties.d.ts": {
-        "version": "fb6450c8f2427b6eae4409095a6d72a7fba1615ad1ab78caa260d49fe84e377f",
-        "signature": "fb6450c8f2427b6eae4409095a6d72a7fba1615ad1ab78caa260d49fe84e377f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/glyphslot.d.ts": {
-        "version": "57d43cf574fae05a15eab708b5d753a8764af860cc63e748812d6c7b7b81257e",
-        "signature": "57d43cf574fae05a15eab708b5d753a8764af860cc63e748812d6c7b7b81257e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmsurveyanswers.d.ts": {
-        "version": "496275b57c3855c725a8aa9fb09d481329cfd3daf3e6ddb99aadcc6f681b1b22",
-        "signature": "496275b57c3855c725a8aa9fb09d481329cfd3daf3e6ddb99aadcc6f681b1b22",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmsurveycurrentsurvey.d.ts": {
-        "version": "063ad3c5dce1d88e9e358d7461bc802f2eed49458e36373a8b8e3ab5c0ffdd18",
-        "signature": "063ad3c5dce1d88e9e358d7461bc802f2eed49458e36373a8b8e3ab5c0ffdd18",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmsurveyquestions.d.ts": {
-        "version": "a9070ae0a0ca5cbec8e2ef4960c1d8adf976b7a124b01d28c4d1712f8b76fa06",
-        "signature": "a9070ae0a0ca5cbec8e2ef4960c1d8adf976b7a124b01d28c4d1712f8b76fa06",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmsurveysurveys.d.ts": {
-        "version": "5a78a56dd5456728b24eec4deb0f144bbd2209b9d03bd7e5fa80bdb9e746a559",
-        "signature": "5a78a56dd5456728b24eec4deb0f144bbd2209b9d03bd7e5fa80bdb9e746a559",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gmticketcategory.d.ts": {
-        "version": "3af5141e901867af7fe8b0585ed306903433c90c86cb8eada8d8d329e1cb471f",
-        "signature": "3af5141e901867af7fe8b0585ed306903433c90c86cb8eada8d8d329e1cb471f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/groundeffectdoodad.d.ts": {
-        "version": "4bae452946e679f5f7940b087cca94d0cef3e3776a87330af83f7c1a3342c0e3",
-        "signature": "4bae452946e679f5f7940b087cca94d0cef3e3776a87330af83f7c1a3342c0e3",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/groundeffecttexture.d.ts": {
-        "version": "0803efa0e2b7c7792613a1a7588c40fc4ad993215d3f86ec2d45d615f1b8184b",
-        "signature": "0803efa0e2b7c7792613a1a7588c40fc4ad993215d3f86ec2d45d615f1b8184b",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtbarbershopcostbase.d.ts": {
-        "version": "6b1a3d0c84a5adeee49bade7ab101d238bb68cc5cf6db394c8dbfea4890e465f",
-        "signature": "6b1a3d0c84a5adeee49bade7ab101d238bb68cc5cf6db394c8dbfea4890e465f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtchancetomeleecrit.d.ts": {
-        "version": "78c8ca9ac12718f2d546036c3a4a7172e847ecdad469a2f2f36d38fc978a4894",
-        "signature": "78c8ca9ac12718f2d546036c3a4a7172e847ecdad469a2f2f36d38fc978a4894",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtchancetomeleecritbase.d.ts": {
-        "version": "da2a88c5e56dc0f101cfd824e5e9a5aaf9801e5cb6d4dc9271a1d97b1e559b11",
-        "signature": "da2a88c5e56dc0f101cfd824e5e9a5aaf9801e5cb6d4dc9271a1d97b1e559b11",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtchancetospellcrit.d.ts": {
-        "version": "e507fa370070ee52d039f108d26a5a5dc127eabb70081053b4f7ee18603e9865",
-        "signature": "e507fa370070ee52d039f108d26a5a5dc127eabb70081053b4f7ee18603e9865",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtchancetospellcritbase.d.ts": {
-        "version": "18bf3a80364961ce7d1f95fd9408b87fd97138aac817a61be3f2f437fc0b06bb",
-        "signature": "18bf3a80364961ce7d1f95fd9408b87fd97138aac817a61be3f2f437fc0b06bb",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtcombatratings.d.ts": {
-        "version": "193a44ddf825009f669cd5be8fd8793d6131fe00ba886d3b3714cc82f749a70e",
-        "signature": "193a44ddf825009f669cd5be8fd8793d6131fe00ba886d3b3714cc82f749a70e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtnpcmanacostscaler.d.ts": {
-        "version": "0d091d588b5bbcf1ff79a9f5794dd13b4a6cfd773dfc637d28ee3f23dd58959a",
-        "signature": "0d091d588b5bbcf1ff79a9f5794dd13b4a6cfd773dfc637d28ee3f23dd58959a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtoctclasscombatratingscalar.d.ts": {
-        "version": "8de6d79120ad6d0642438db9c8d80ab5c579812a2909ba38a5c14c09b69cdc74",
-        "signature": "8de6d79120ad6d0642438db9c8d80ab5c579812a2909ba38a5c14c09b69cdc74",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtoctregenhp.d.ts": {
-        "version": "34cf656220c10d4a2ae05061a8ba186beac60306711021675b0c81e73cca6a03",
-        "signature": "34cf656220c10d4a2ae05061a8ba186beac60306711021675b0c81e73cca6a03",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtoctregenmp.d.ts": {
-        "version": "03b4def7055e7c35d02710c274fb4ba57de1196b64da55b7c988f9371761080e",
-        "signature": "03b4def7055e7c35d02710c274fb4ba57de1196b64da55b7c988f9371761080e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtregenhpperspt.d.ts": {
-        "version": "20a6c2444799dc4391c13a65104a19ce362365f855acb974cfafe6eca827bc00",
-        "signature": "20a6c2444799dc4391c13a65104a19ce362365f855acb974cfafe6eca827bc00",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gtregenmpperspt.d.ts": {
-        "version": "9e2c65679a55ffafad36be00e896e67abe8bebe39c69184ba36b19655e051f69",
-        "signature": "9e2c65679a55ffafad36be00e896e67abe8bebe39c69184ba36b19655e051f69",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/helmetgeosetvisdata.d.ts": {
-        "version": "173e9e7a2439a0d77c6dfe3c88b9b79cb8e1c351e561d1f8c74d9a6e241e834d",
-        "signature": "173e9e7a2439a0d77c6dfe3c88b9b79cb8e1c351e561d1f8c74d9a6e241e834d",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/holidaydescriptions.d.ts": {
-        "version": "4d84db10909a377cf36bfea17ee21dee5f28b27ccea87fbd572777e6cc4a8250",
-        "signature": "4d84db10909a377cf36bfea17ee21dee5f28b27ccea87fbd572777e6cc4a8250",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/holidaynames.d.ts": {
-        "version": "c9e2532349cdc79db490a6708e0d422f646241f33d0fe8f8c2808bf2ce2235c8",
-        "signature": "c9e2532349cdc79db490a6708e0d422f646241f33d0fe8f8c2808bf2ce2235c8",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/holidays.d.ts": {
-        "version": "4222c732d50ea859a3135411585723889face86c304daa8a128007eedc63bf73",
-        "signature": "4222c732d50ea859a3135411585723889face86c304daa8a128007eedc63bf73",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/item.d.ts": {
-        "version": "b5edda47ecc9ca406deca4be9ed60f87fc85734c33b1fe7dcc8881bb382d94b4",
-        "signature": "b5edda47ecc9ca406deca4be9ed60f87fc85734c33b1fe7dcc8881bb382d94b4",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itembagfamily.d.ts": {
-        "version": "200c79bed861e6a74f7fa5200408376090a13d69c617cb8afbb9fec3f6b51681",
-        "signature": "200c79bed861e6a74f7fa5200408376090a13d69c617cb8afbb9fec3f6b51681",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemclass.d.ts": {
-        "version": "ad8620e05065e51e99c5e74c4c109bbccf932a0169eeb183bba9b88147a353ee",
-        "signature": "ad8620e05065e51e99c5e74c4c109bbccf932a0169eeb183bba9b88147a353ee",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemcondextcosts.d.ts": {
-        "version": "2c3ef651bea92a74147385b1345dd14919939eab28b9fd30859126fe18c571bd",
-        "signature": "2c3ef651bea92a74147385b1345dd14919939eab28b9fd30859126fe18c571bd",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemdisplayinfo.d.ts": {
-        "version": "61872b59dd26d130359669bd647f15a23ccc543c64da143ec7622b99cc9f4e7c",
-        "signature": "61872b59dd26d130359669bd647f15a23ccc543c64da143ec7622b99cc9f4e7c",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemextendedcost.d.ts": {
-        "version": "e34422a8dd793e4faceffefb3d0112af8ac39b6166f80aeff48e7f9ca6c08a1e",
-        "signature": "e34422a8dd793e4faceffefb3d0112af8ac39b6166f80aeff48e7f9ca6c08a1e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemgroupsounds.d.ts": {
-        "version": "c0708a5770703c8a825d3f5436a035b452637487d8fc50752798b4e58a6a4fc3",
-        "signature": "c0708a5770703c8a825d3f5436a035b452637487d8fc50752798b4e58a6a4fc3",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemlimitcategory.d.ts": {
-        "version": "fe5fd87f2024278efd2046634ed59d6899b504d05a488f727b4b34a12cdff748",
-        "signature": "fe5fd87f2024278efd2046634ed59d6899b504d05a488f727b4b34a12cdff748",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itempetfood.d.ts": {
-        "version": "255705553968ec2d2b87aa41017ba886897c50c680dbf0b0e7e7fe2a650797e0",
-        "signature": "255705553968ec2d2b87aa41017ba886897c50c680dbf0b0e7e7fe2a650797e0",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itempurchasegroup.d.ts": {
-        "version": "bd554bacf6122fd9935f0818069bf0f7d85c3cb6562ff6ba1e373d0d38f14a0b",
-        "signature": "bd554bacf6122fd9935f0818069bf0f7d85c3cb6562ff6ba1e373d0d38f14a0b",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemrandomproperties.d.ts": {
-        "version": "3c58fe699d553eefb3397456014fdbce32172eaab3591d464e705d6c2bffa401",
-        "signature": "3c58fe699d553eefb3397456014fdbce32172eaab3591d464e705d6c2bffa401",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemrandomsuffix.d.ts": {
-        "version": "4e83d4d18a052ba6f9f032270da3fbbdb35ad93719b845814c5d90e3ca69d559",
-        "signature": "4e83d4d18a052ba6f9f032270da3fbbdb35ad93719b845814c5d90e3ca69d559",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemset.d.ts": {
-        "version": "ddb2a76340754e5e576c3185560152bcd245caee06f5a98166887dafa961efeb",
-        "signature": "ddb2a76340754e5e576c3185560152bcd245caee06f5a98166887dafa961efeb",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemsubclass.d.ts": {
-        "version": "1f4d4b78d00e94b21639573ac54d03ecef7cc9b195b61eb0bd1ddc1776fb2897",
-        "signature": "1f4d4b78d00e94b21639573ac54d03ecef7cc9b195b61eb0bd1ddc1776fb2897",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemsubclassmask.d.ts": {
-        "version": "7f5364c0d1041831a041fb4620bd09d71833380fd7d28a858a48a295275e7113",
-        "signature": "7f5364c0d1041831a041fb4620bd09d71833380fd7d28a858a48a295275e7113",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemvisualeffects.d.ts": {
-        "version": "9682d4fbaf8c307e8ba236c4ace75d4085f85e32f71b9e5dfc598c0e4454b785",
-        "signature": "9682d4fbaf8c307e8ba236c4ace75d4085f85e32f71b9e5dfc598c0e4454b785",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/itemvisuals.d.ts": {
-        "version": "6a8031b9065604efe561506875e99ce898d02627cf272bb4ab873b06feaa5290",
-        "signature": "6a8031b9065604efe561506875e99ce898d02627cf272bb4ab873b06feaa5290",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lfgdungeonexpansion.d.ts": {
-        "version": "60f76793d74b1957120627b7fd898b3951d32b76b96d52576bb7f81f6095f1c8",
-        "signature": "60f76793d74b1957120627b7fd898b3951d32b76b96d52576bb7f81f6095f1c8",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lfgdungeongroup.d.ts": {
-        "version": "aafb2e4c6fc9b2796208ed8bf58ea9a97b5f426fdfdbd0b45122f99f2a2418a6",
-        "signature": "aafb2e4c6fc9b2796208ed8bf58ea9a97b5f426fdfdbd0b45122f99f2a2418a6",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lfgdungeons.d.ts": {
-        "version": "8eb36526e2007f18d3c5069986b5d69a87a59a72ec9b72f2ff943c7c60bd9590",
-        "signature": "8eb36526e2007f18d3c5069986b5d69a87a59a72ec9b72f2ff943c7c60bd9590",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/light.d.ts": {
-        "version": "f53072bea12f01c8c58de81ab2d9b4fe49a69bdaf1d8640bf35dd6335dfd9a3f",
-        "signature": "f53072bea12f01c8c58de81ab2d9b4fe49a69bdaf1d8640bf35dd6335dfd9a3f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lightfloatband.d.ts": {
-        "version": "965c59d4a0bc571a301cf3d77b526e07fc8f24fbcd11ffe86b48243d24992015",
-        "signature": "965c59d4a0bc571a301cf3d77b526e07fc8f24fbcd11ffe86b48243d24992015",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lightintband.d.ts": {
-        "version": "633fa4bab77a382caa5ae046f2ecd0bd03c9917559012eb819ef4b75f7152407",
-        "signature": "633fa4bab77a382caa5ae046f2ecd0bd03c9917559012eb819ef4b75f7152407",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lightparams.d.ts": {
-        "version": "13c58f9ca8bd7a1e7f3aa3228f97aef1a9ac6b4c232942104777c23d2d61098a",
-        "signature": "13c58f9ca8bd7a1e7f3aa3228f97aef1a9ac6b4c232942104777c23d2d61098a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lightskybox.d.ts": {
-        "version": "f25e4b966d36d995182dc1174bf21528b048926de0e91fcbce8a5be1735ee57f",
-        "signature": "f25e4b966d36d995182dc1174bf21528b048926de0e91fcbce8a5be1735ee57f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/liquidmaterial.d.ts": {
-        "version": "78bfd02dc691cfe463105a6a0fa6fcd11774484b8dfe36159bf5bed4b403b9e9",
-        "signature": "78bfd02dc691cfe463105a6a0fa6fcd11774484b8dfe36159bf5bed4b403b9e9",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/liquidtype.d.ts": {
-        "version": "ae3051ee7c56965d26448c7f2bb637958978d82c84d95405a81710409d033803",
-        "signature": "ae3051ee7c56965d26448c7f2bb637958978d82c84d95405a81710409d033803",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/loadingscreens.d.ts": {
-        "version": "096ffd1713d4fc2d6969a1687188035c784d2e86d140151afdba1cfceb842d5e",
-        "signature": "096ffd1713d4fc2d6969a1687188035c784d2e86d140151afdba1cfceb842d5e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/loadingscreentaxisplines.d.ts": {
-        "version": "9e362c7b203cda5d1e1ee885260266e53fab924b5e9f5e51ea3d9c04484ba0e1",
-        "signature": "9e362c7b203cda5d1e1ee885260266e53fab924b5e9f5e51ea3d9c04484ba0e1",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/lock.d.ts": {
-        "version": "54d8cd8f56dee7201cada2ffcadc1a86192250794df3112839e7857b2ee69b39",
-        "signature": "54d8cd8f56dee7201cada2ffcadc1a86192250794df3112839e7857b2ee69b39",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/locktype.d.ts": {
-        "version": "fa5233fd63d396106c0cbb98217de8a094aec7446cd333ce4dbd35d25bd2d2e1",
-        "signature": "fa5233fd63d396106c0cbb98217de8a094aec7446cd333ce4dbd35d25bd2d2e1",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/mailtemplate.d.ts": {
-        "version": "e486f4b04e5d7ce84c181e4ed9105fa5516744312d90dc73e9d67d66797d39b9",
-        "signature": "e486f4b04e5d7ce84c181e4ed9105fa5516744312d90dc73e9d67d66797d39b9",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/map.d.ts": {
-        "version": "04715d39da2e363fbc4711e28040a8c0cdd065ebfb60a7503be575a551582ab2",
-        "signature": "04715d39da2e363fbc4711e28040a8c0cdd065ebfb60a7503be575a551582ab2",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/mapdifficulty.d.ts": {
-        "version": "f5cba891e50f01c6a578bedb5bf201bcb0d872c1a3b660064d7dd5973de69b82",
-        "signature": "f5cba891e50f01c6a578bedb5bf201bcb0d872c1a3b660064d7dd5973de69b82",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/material.d.ts": {
-        "version": "f30bbca9fed6eae34af6404d9cddac5c93c0e642aea1e6d5a4edc533cca75d73",
-        "signature": "f30bbca9fed6eae34af6404d9cddac5c93c0e642aea1e6d5a4edc533cca75d73",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/movie.d.ts": {
-        "version": "7c42df790e92460ae089786097bdd112d4aabf6122e0059db6599071639343ae",
-        "signature": "7c42df790e92460ae089786097bdd112d4aabf6122e0059db6599071639343ae",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/moviefiledata.d.ts": {
-        "version": "2de181c887d0e269eacedef97c0a05a045eb3e673d8f55d1d3d76a4f07effc16",
-        "signature": "2de181c887d0e269eacedef97c0a05a045eb3e673d8f55d1d3d76a4f07effc16",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/movievariation.d.ts": {
-        "version": "0ef784e9664cc1460497d42173c465ad6e7e13fb1ab82f233e4c00ba33ff289d",
-        "signature": "0ef784e9664cc1460497d42173c465ad6e7e13fb1ab82f233e4c00ba33ff289d",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/namegen.d.ts": {
-        "version": "745aa62fc41ebfe6a15ece3043660e13e3cf2aeb7afe1c31841a537858c80060",
-        "signature": "745aa62fc41ebfe6a15ece3043660e13e3cf2aeb7afe1c31841a537858c80060",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/namesprofanity.d.ts": {
-        "version": "4d128fb042b527b375a9c9dec7a41e642d2511b8044ae4324be5bb483fe31606",
-        "signature": "4d128fb042b527b375a9c9dec7a41e642d2511b8044ae4324be5bb483fe31606",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/namesreserved.d.ts": {
-        "version": "c3eb48ac3f229cc719db1a9d18d219beb28eef28806fda281ebdef8ce689f23e",
-        "signature": "c3eb48ac3f229cc719db1a9d18d219beb28eef28806fda281ebdef8ce689f23e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/npcsounds.d.ts": {
-        "version": "c1b51f1987a79537edff51a71a2d14a53b47f66059e853305c5a6d52b7931ea5",
-        "signature": "c1b51f1987a79537edff51a71a2d14a53b47f66059e853305c5a6d52b7931ea5",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffect.d.ts": {
-        "version": "47e1fe6ca3592ba905d35069d606d262b86c8156884e6a007cbe99d8be618ee1",
-        "signature": "47e1fe6ca3592ba905d35069d606d262b86c8156884e6a007cbe99d8be618ee1",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffectgroup.d.ts": {
-        "version": "fa394e0d00d90f12440d9b620dbe08fa1edb38cd5d578c561a0ab718c409f8ae",
-        "signature": "fa394e0d00d90f12440d9b620dbe08fa1edb38cd5d578c561a0ab718c409f8ae",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffectmodifier.d.ts": {
-        "version": "cde2e92fa90e98844bea9025677fbb4d66878cdbe821ce64b555b449e25a7894",
-        "signature": "cde2e92fa90e98844bea9025677fbb4d66878cdbe821ce64b555b449e25a7894",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffectpackage.d.ts": {
-        "version": "64b898f17c69f5d5f36d6ac7e7377a866788d2d53d43622634dd58c92bcd2319",
-        "signature": "64b898f17c69f5d5f36d6ac7e7377a866788d2d53d43622634dd58c92bcd2319",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/objecteffectpackageelem.d.ts": {
-        "version": "0297a8fa1329dca78117ab69af593e1f4cba2746a5be808e37159ce3b4c6754a",
-        "signature": "0297a8fa1329dca78117ab69af593e1f4cba2746a5be808e37159ce3b4c6754a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/overridespelldata.d.ts": {
-        "version": "e3e05ae4d1b542d22ab6c242bfc9c945ffe2acd335c836cdb3b2971f69d8edcd",
-        "signature": "e3e05ae4d1b542d22ab6c242bfc9c945ffe2acd335c836cdb3b2971f69d8edcd",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/package.d.ts": {
-        "version": "68d7ae1be2370e91efca081eb448c6a6792d292c58fb34a20808f98452adcd38",
-        "signature": "68d7ae1be2370e91efca081eb448c6a6792d292c58fb34a20808f98452adcd38",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/pagetextmaterial.d.ts": {
-        "version": "f01f6bdb96837ff6415dd87d368a9180d6a755cd1138fcea5adefb038ac88028",
-        "signature": "f01f6bdb96837ff6415dd87d368a9180d6a755cd1138fcea5adefb038ac88028",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/paperdollitemframe.d.ts": {
-        "version": "8bb526fe88f74c0a11d9551c356772b5b4edd015943bc1578590ced412b3771c",
-        "signature": "8bb526fe88f74c0a11d9551c356772b5b4edd015943bc1578590ced412b3771c",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/particlecolor.d.ts": {
-        "version": "b1ce977ffc2317f4f7fa5a1993994e776f2d369ed09da679f7089b93b263e709",
-        "signature": "b1ce977ffc2317f4f7fa5a1993994e776f2d369ed09da679f7089b93b263e709",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/petitiontype.d.ts": {
-        "version": "b1e56c97189a6edaf68bfb4b53fc2c235c7cb97ab1d8749e3859ae3c3f28d39c",
-        "signature": "b1e56c97189a6edaf68bfb4b53fc2c235c7cb97ab1d8749e3859ae3c3f28d39c",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/petpersonality.d.ts": {
-        "version": "0e1aca55c58f6165cf766a601e85799f6a2ac063d815c41c8706131dd5a1841b",
-        "signature": "0e1aca55c58f6165cf766a601e85799f6a2ac063d815c41c8706131dd5a1841b",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/powerdisplay.d.ts": {
-        "version": "e66594435dbd8a148b71ed9e58a06822d6abab18cf1a01c4625f3073bf001ecb",
-        "signature": "e66594435dbd8a148b71ed9e58a06822d6abab18cf1a01c4625f3073bf001ecb",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/pvpdifficulty.d.ts": {
-        "version": "676e232700b257289cc3e8b9cce1b79f1bd4310b3ee61bcd57a2d537df765d30",
-        "signature": "676e232700b257289cc3e8b9cce1b79f1bd4310b3ee61bcd57a2d537df765d30",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/questfactionreward.d.ts": {
-        "version": "1b8cd1dea2032158c8471c4b5f77e37c6392ca4ddf540517a405fd4087335970",
-        "signature": "1b8cd1dea2032158c8471c4b5f77e37c6392ca4ddf540517a405fd4087335970",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/questinfo.d.ts": {
-        "version": "6f2c8bc69400e05ab64278f8aebcdf7287de6b59609937181ac5efcfa400f30e",
-        "signature": "6f2c8bc69400e05ab64278f8aebcdf7287de6b59609937181ac5efcfa400f30e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/questsort.d.ts": {
-        "version": "217301bee9870d957ce59fc7b77208e328d37e9a2d42db3e0935820bebf0491d",
-        "signature": "217301bee9870d957ce59fc7b77208e328d37e9a2d42db3e0935820bebf0491d",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/questxp.d.ts": {
-        "version": "2d7f22811ca537d8246e6eee5c436d681074961896947b7b99b4f17b06261eb4",
-        "signature": "2d7f22811ca537d8246e6eee5c436d681074961896947b7b99b4f17b06261eb4",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/randproppoints.d.ts": {
-        "version": "99a45ba807df2b219a78ab24602245fdc8abc99bf61a67dddeb727be1e3d7c0b",
-        "signature": "99a45ba807df2b219a78ab24602245fdc8abc99bf61a67dddeb727be1e3d7c0b",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/resistances.d.ts": {
-        "version": "e334af79516629cd37a813efe35fd129d7c10cc9fc78bd15de88a4fb9ce26d9e",
-        "signature": "e334af79516629cd37a813efe35fd129d7c10cc9fc78bd15de88a4fb9ce26d9e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/scalingstatdistribution.d.ts": {
-        "version": "54d8b3ac52cc1cb4f8064fda8efa04d374d7c5b9fb21beef5d3f4256aaf6bcfb",
-        "signature": "54d8b3ac52cc1cb4f8064fda8efa04d374d7c5b9fb21beef5d3f4256aaf6bcfb",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/scalingstatvalues.d.ts": {
-        "version": "16dc54396df8bb8767c94a1ce1ea1baf3ba998ce3ae8635b25f2779a2a349ac5",
-        "signature": "16dc54396df8bb8767c94a1ce1ea1baf3ba998ce3ae8635b25f2779a2a349ac5",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/screeneffect.d.ts": {
-        "version": "c669d2321a1a39e7077a26de72133309c4416d92df59a03c6ed3badecfd53ae6",
-        "signature": "c669d2321a1a39e7077a26de72133309c4416d92df59a03c6ed3badecfd53ae6",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/servermessages.d.ts": {
-        "version": "b963a024ca0cb7dc2b37687429d6351103a984218ec01ca86183aff36f4cf042",
-        "signature": "b963a024ca0cb7dc2b37687429d6351103a984218ec01ca86183aff36f4cf042",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/sheathesoundlookups.d.ts": {
-        "version": "6d177060399d90d130d4156a5302100e1d9f4e6908d6b846ff627d04b9472c22",
-        "signature": "6d177060399d90d130d4156a5302100e1d9f4e6908d6b846ff627d04b9472c22",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skillcostsdata.d.ts": {
-        "version": "513f712b7b5d872f3ed64eb524df432cec6c42f06071bb94a097a753e48cd0e2",
-        "signature": "513f712b7b5d872f3ed64eb524df432cec6c42f06071bb94a097a753e48cd0e2",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skillline.d.ts": {
-        "version": "dfe234798ae43196c359156d1e8d28b488398065c747dc10510909f2f6523809",
-        "signature": "dfe234798ae43196c359156d1e8d28b488398065c747dc10510909f2f6523809",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skilllinecategory.d.ts": {
-        "version": "4415c1645a09b34b74fea2e17b3d19caae2f34832118cd99ca9488c2ffb1d4ea",
-        "signature": "4415c1645a09b34b74fea2e17b3d19caae2f34832118cd99ca9488c2ffb1d4ea",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skillraceclassinfo.d.ts": {
-        "version": "719ce5ea02ebe3e330ebffdd389cc26e1b933acb05281a7bfdb326a3e911d96d",
-        "signature": "719ce5ea02ebe3e330ebffdd389cc26e1b933acb05281a7bfdb326a3e911d96d",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/skilltiers.d.ts": {
-        "version": "b46b1a71139d72ee5ec2758dca9bede27865cf59c3f80ebaded89a34f29b2bed",
-        "signature": "b46b1a71139d72ee5ec2758dca9bede27865cf59c3f80ebaded89a34f29b2bed",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundambience.d.ts": {
-        "version": "10f398157a1153e6693a5e0a34b67fc3d2970a92f0e358c2273b233d7e8c55ed",
-        "signature": "10f398157a1153e6693a5e0a34b67fc3d2970a92f0e358c2273b233d7e8c55ed",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundemitters.d.ts": {
-        "version": "f09f0e2a4b4029c35c0fd63a404f4c3e9b93f02b3acb608079528c9074518158",
-        "signature": "f09f0e2a4b4029c35c0fd63a404f4c3e9b93f02b3acb608079528c9074518158",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundentries.d.ts": {
-        "version": "7ade275b584f39079ce50719787c61fabf4c12d87cfc07cf410825fa4ee865e7",
-        "signature": "7ade275b584f39079ce50719787c61fabf4c12d87cfc07cf410825fa4ee865e7",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundentriesadvanced.d.ts": {
-        "version": "1b743b08ad7666d47331868e1cbf34b65d0d5b2cda0810b57a09d5f1414b559a",
-        "signature": "1b743b08ad7666d47331868e1cbf34b65d0d5b2cda0810b57a09d5f1414b559a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundfilter.d.ts": {
-        "version": "0db8f7b70c0819d4ae699d9b67d50d8489b084650b8b14e5fa8209a780ce4757",
-        "signature": "0db8f7b70c0819d4ae699d9b67d50d8489b084650b8b14e5fa8209a780ce4757",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundfilterelem.d.ts": {
-        "version": "9e7dc78d2fde03e18c52a600c33d03b3ddd3d2d25a8d033b40df772016acaa11",
-        "signature": "9e7dc78d2fde03e18c52a600c33d03b3ddd3d2d25a8d033b40df772016acaa11",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundproviderpreferences.d.ts": {
-        "version": "066ba364573b7be90823b9daeb23a0603b8c1911e8d1442b3a75527dd35644b8",
-        "signature": "066ba364573b7be90823b9daeb23a0603b8c1911e8d1442b3a75527dd35644b8",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundsamplepreferences.d.ts": {
-        "version": "776548308f02781b08f04a5ee3975b284435cddadf983f1d37fd16af6400e277",
-        "signature": "776548308f02781b08f04a5ee3975b284435cddadf983f1d37fd16af6400e277",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/soundwatertype.d.ts": {
-        "version": "af50b973d949c973e22ff6ecc63c13c5db88cfa6fc793fcd5d0a5c6a9c358f03",
-        "signature": "af50b973d949c973e22ff6ecc63c13c5db88cfa6fc793fcd5d0a5c6a9c358f03",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spammessages.d.ts": {
-        "version": "33d2aa3a853960e0ec0f6a12d04f0d72c04c3ae67951cb06a58731067b75270f",
-        "signature": "33d2aa3a853960e0ec0f6a12d04f0d72c04c3ae67951cb06a58731067b75270f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellcategory.d.ts": {
-        "version": "fd442ebd16476a49e1baafb0134293525bbcb85f2b64aa6e5a50d97eaea38c64",
-        "signature": "fd442ebd16476a49e1baafb0134293525bbcb85f2b64aa6e5a50d97eaea38c64",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellchaineffects.d.ts": {
-        "version": "6533fd2c027041382ddba2a11740f400a8ef8516c258f0133c99d3f77aafd6b0",
-        "signature": "6533fd2c027041382ddba2a11740f400a8ef8516c258f0133c99d3f77aafd6b0",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spelldispeltype.d.ts": {
-        "version": "d07362941575a6f2f46cbd7f19232584d4834371266997110c8c41192144ec23",
-        "signature": "d07362941575a6f2f46cbd7f19232584d4834371266997110c8c41192144ec23",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spelleffectcamerashakes.d.ts": {
-        "version": "1b19d5666781985f4cb9fbb35a606c901fac76e220d6268608360dcf9516c4f6",
-        "signature": "1b19d5666781985f4cb9fbb35a606c901fac76e220d6268608360dcf9516c4f6",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellfocusobject.d.ts": {
-        "version": "97b4143a1d42cfa309f919d8df4321e6bdc45582d26170d18a650045cb5bcb49",
-        "signature": "97b4143a1d42cfa309f919d8df4321e6bdc45582d26170d18a650045cb5bcb49",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellitemenchantment.d.ts": {
-        "version": "39966395aefaeffc0fd08cb0f6237e729c1f911dee3e054ada94106ebc9394a9",
-        "signature": "39966395aefaeffc0fd08cb0f6237e729c1f911dee3e054ada94106ebc9394a9",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellitemenchantmentcondition.d.ts": {
-        "version": "a59d1ab72bae91818c6d960baa7239e7cc3475d2898123e0634435f2cf1a0022",
-        "signature": "a59d1ab72bae91818c6d960baa7239e7cc3475d2898123e0634435f2cf1a0022",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellmechanic.d.ts": {
-        "version": "9f3c232a843a40fbca71841fd4b993e6ed20160e3189e095230d3d9c6fda962d",
-        "signature": "9f3c232a843a40fbca71841fd4b993e6ed20160e3189e095230d3d9c6fda962d",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellmissilemotion.d.ts": {
-        "version": "b7a35537411f06011fa326f6b1fa5248e58028c8462811d48477bcab204ae72a",
-        "signature": "b7a35537411f06011fa326f6b1fa5248e58028c8462811d48477bcab204ae72a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellrunecost.d.ts": {
-        "version": "811f8b00f5da5640c6114d065eafcf8852cb21a158a43d932b507a8e0958d90b",
-        "signature": "811f8b00f5da5640c6114d065eafcf8852cb21a158a43d932b507a8e0958d90b",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellshapeshiftform.d.ts": {
-        "version": "0d01f98a33689628de7d4ad780cb923785374e87d430e7a0c48d6b1aa09ee8f7",
-        "signature": "0d01f98a33689628de7d4ad780cb923785374e87d430e7a0c48d6b1aa09ee8f7",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualeffectname.d.ts": {
-        "version": "7684f0133bedc780382c6c67b9fda6b0fec163a91b5c9eeda9b327b41f07daab",
-        "signature": "7684f0133bedc780382c6c67b9fda6b0fec163a91b5c9eeda9b327b41f07daab",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualkitareamodel.d.ts": {
-        "version": "29555e18b1dd72f73b93bc764a69933e80d0959610944adebd46e6b22979fd9f",
-        "signature": "29555e18b1dd72f73b93bc764a69933e80d0959610944adebd46e6b22979fd9f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualkitmodelattach.d.ts": {
-        "version": "e14984d941e7876098802cac7d1843db8063977e5ede45cf80b1ace0b70eacff",
-        "signature": "e14984d941e7876098802cac7d1843db8063977e5ede45cf80b1ace0b70eacff",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/spellvisualprecasttransitions.d.ts": {
-        "version": "fc62658a1c0c0ed54a99ff66de3787a808d69aeb8a62a687ef0d21388f09206d",
-        "signature": "fc62658a1c0c0ed54a99ff66de3787a808d69aeb8a62a687ef0d21388f09206d",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/stableslotprices.d.ts": {
-        "version": "9c7ecc0530fca9c7fc7d058a3d1e3c7c9a6b4389e5f40eb665dfc0dd9b2defd6",
-        "signature": "9c7ecc0530fca9c7fc7d058a3d1e3c7c9a6b4389e5f40eb665dfc0dd9b2defd6",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/startup_strings.d.ts": {
-        "version": "7893350af89bf419786b9d177240da361d963f00be76d9078ff5d844ce1824cc",
-        "signature": "7893350af89bf419786b9d177240da361d963f00be76d9078ff5d844ce1824cc",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/stationery.d.ts": {
-        "version": "889a8c00705f95d77e9060d52c4f5307987a644ced2c84b2558686b4bcaf0b35",
-        "signature": "889a8c00705f95d77e9060d52c4f5307987a644ced2c84b2558686b4bcaf0b35",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/stringlookups.d.ts": {
-        "version": "22ea9bb5b25a4fa6e9583ea70efe06ed991fa4bd94f887f6c8a56750a57c2c78",
-        "signature": "22ea9bb5b25a4fa6e9583ea70efe06ed991fa4bd94f887f6c8a56750a57c2c78",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/summonproperties.d.ts": {
-        "version": "e417e4acd57ffcb36f42a4ce57e0a991677ea545a2b32ec87f6e7b22a55e1c12",
-        "signature": "e417e4acd57ffcb36f42a4ce57e0a991677ea545a2b32ec87f6e7b22a55e1c12",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/talent.d.ts": {
-        "version": "24ce5cc8423bbe5c75725d30f3e54e4856d56d3cb744902312ca783e0d9b29af",
-        "signature": "24ce5cc8423bbe5c75725d30f3e54e4856d56d3cb744902312ca783e0d9b29af",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/talenttab.d.ts": {
-        "version": "de4f37990801971233a41460e1e9d46de0c4da5178fffb711ef302e718072e0f",
-        "signature": "de4f37990801971233a41460e1e9d46de0c4da5178fffb711ef302e718072e0f",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/taxinodes.d.ts": {
-        "version": "5cdfed7fbb107aede44043abc28904fd3cdce0e386339af1acdbf256842328d0",
-        "signature": "5cdfed7fbb107aede44043abc28904fd3cdce0e386339af1acdbf256842328d0",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/taxipath.d.ts": {
-        "version": "1da9566e5ce0784ec5d101b3fb71574f1306a6047af096bf50035862d4930d76",
-        "signature": "1da9566e5ce0784ec5d101b3fb71574f1306a6047af096bf50035862d4930d76",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/taxipathnode.d.ts": {
-        "version": "4b37965407a8050d5c1cca178e78caed793aa300ebe745862629405b69de9ab6",
-        "signature": "4b37965407a8050d5c1cca178e78caed793aa300ebe745862629405b69de9ab6",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/teamcontributionpoints.d.ts": {
-        "version": "b76c75d27521eb3e4298629928abd12ae4f79110bb2b514c95159414d19b95c2",
-        "signature": "b76c75d27521eb3e4298629928abd12ae4f79110bb2b514c95159414d19b95c2",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/terraintype.d.ts": {
-        "version": "7585f78211372e5433949d039201ef6964b32b81aded0fa7750f7cc4723ae20a",
-        "signature": "7585f78211372e5433949d039201ef6964b32b81aded0fa7750f7cc4723ae20a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/terraintypesounds.d.ts": {
-        "version": "bffaa081b9978707a30ef03b130a350d5fc5bb95982bf6275889561ac74253e5",
-        "signature": "bffaa081b9978707a30ef03b130a350d5fc5bb95982bf6275889561ac74253e5",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/totemcategory.d.ts": {
-        "version": "5d2ed412f8283086aa16b1259b14af17bd567670bb6f56fc9f88c1d20f695771",
-        "signature": "5d2ed412f8283086aa16b1259b14af17bd567670bb6f56fc9f88c1d20f695771",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/transportanimation.d.ts": {
-        "version": "3bbb913eef79a70020b41577e233a5504632966aa9aeb7152c04bb3b193ab87b",
-        "signature": "3bbb913eef79a70020b41577e233a5504632966aa9aeb7152c04bb3b193ab87b",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/transportphysics.d.ts": {
-        "version": "f38396c6228305bc830423462b36fb57aef6823e3682e1f3568fc2aa43980f59",
-        "signature": "f38396c6228305bc830423462b36fb57aef6823e3682e1f3568fc2aa43980f59",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/transportrotation.d.ts": {
-        "version": "3e3c526f88bacf07d5352c32fa393bf6e004d6a6911afcd41b1cd80174b2d737",
-        "signature": "3e3c526f88bacf07d5352c32fa393bf6e004d6a6911afcd41b1cd80174b2d737",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/uisoundlookups.d.ts": {
-        "version": "f45f2e001c761106c26ebbbed800ae6c3d7520cfbeeb0ff31f0ac4c7cc5ae7a2",
-        "signature": "f45f2e001c761106c26ebbbed800ae6c3d7520cfbeeb0ff31f0ac4c7cc5ae7a2",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/unitblood.d.ts": {
-        "version": "80ec67d1f1cade8ecf78c4093cf49d145dcbad0fc4a112cfa1a9160cccb46169",
-        "signature": "80ec67d1f1cade8ecf78c4093cf49d145dcbad0fc4a112cfa1a9160cccb46169",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/unitbloodlevels.d.ts": {
-        "version": "b23e2c0521387199114bc3de7098b67e190f62e7c930dba3a7562302a24d43b7",
-        "signature": "b23e2c0521387199114bc3de7098b67e190f62e7c930dba3a7562302a24d43b7",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vehicle.d.ts": {
-        "version": "54ab40e06dcfeb9712972a56ef7fb8e3cc88144ecf871dc39103bf4d1a3ee83a",
-        "signature": "54ab40e06dcfeb9712972a56ef7fb8e3cc88144ecf871dc39103bf4d1a3ee83a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vehicleseat.d.ts": {
-        "version": "1bd16625a24022b9fb52d0123ce3ce26e6076647b1e3c4bb0176fc05581bc023",
-        "signature": "1bd16625a24022b9fb52d0123ce3ce26e6076647b1e3c4bb0176fc05581bc023",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vehicleuiindicator.d.ts": {
-        "version": "066939379baa1ad4ee829b279bf9844a268c2b9e2b2726dd41ed6fd4fdd44bd6",
-        "signature": "066939379baa1ad4ee829b279bf9844a268c2b9e2b2726dd41ed6fd4fdd44bd6",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vehicleuiindseat.d.ts": {
-        "version": "be73590336ed4747714266e4154c3ceb3ea83464ad7bfece1a6ef2f97a047af2",
-        "signature": "be73590336ed4747714266e4154c3ceb3ea83464ad7bfece1a6ef2f97a047af2",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/videohardware.d.ts": {
-        "version": "69b502d131cc38cc7c9b77a328bd6517d1d6e5bd5f496fa1d6f07f8e262e9cd8",
-        "signature": "69b502d131cc38cc7c9b77a328bd6517d1d6e5bd5f496fa1d6f07f8e262e9cd8",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/vocaluisounds.d.ts": {
-        "version": "04a9713866a012a3e41b2301f5dd9b836774a786a5c7468de5e2f0ba9b252a27",
-        "signature": "04a9713866a012a3e41b2301f5dd9b836774a786a5c7468de5e2f0ba9b252a27",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/weaponimpactsounds.d.ts": {
-        "version": "ca500b4f5e7087fde872d6cbe7e199329c3a7522599e829d9c6504298debd2f6",
-        "signature": "ca500b4f5e7087fde872d6cbe7e199329c3a7522599e829d9c6504298debd2f6",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/weaponswingsounds2.d.ts": {
-        "version": "8673638b9f0c8eb941d7f3821b4974e659d1c8813e314046f869eb36740b4168",
-        "signature": "8673638b9f0c8eb941d7f3821b4974e659d1c8813e314046f869eb36740b4168",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/weather.d.ts": {
-        "version": "4677bd41b15369adc4cbdc1a28908c0b1c005d30ba2650a741324c8930977396",
-        "signature": "4677bd41b15369adc4cbdc1a28908c0b1c005d30ba2650a741324c8930977396",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/wmoareatable.d.ts": {
-        "version": "19ab30050c14a8c59a1305f034497bf7e021abf2370b23b898443ea08bf63492",
-        "signature": "19ab30050c14a8c59a1305f034497bf7e021abf2370b23b898443ea08bf63492",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldchunksounds.d.ts": {
-        "version": "f6c39f133577ba66b75e7b5122ca2e406bcbf4ef52b291518acb8906b0e0b9ee",
-        "signature": "f6c39f133577ba66b75e7b5122ca2e406bcbf4ef52b291518acb8906b0e0b9ee",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldmaparea.d.ts": {
-        "version": "59fbc47d22cf4d3baca99db7b2008e64539a9b579ad84a4f1c9e01af823a7a35",
-        "signature": "59fbc47d22cf4d3baca99db7b2008e64539a9b579ad84a4f1c9e01af823a7a35",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldmapcontinent.d.ts": {
-        "version": "a2ecae1837bd788eff64bc3ff1fcb630710773f55e7479f3c2f9d16a7e06c382",
-        "signature": "a2ecae1837bd788eff64bc3ff1fcb630710773f55e7479f3c2f9d16a7e06c382",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldmapoverlay.d.ts": {
-        "version": "b4df42817359676dc4d413caba2406d597fd2cc5fcc6d07f0f76daa070837197",
-        "signature": "b4df42817359676dc4d413caba2406d597fd2cc5fcc6d07f0f76daa070837197",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldmaptransforms.d.ts": {
-        "version": "015ce5a41c412b589acdfe8fd36aab96ef71f63688abf926c96fe3ba33d9b695",
-        "signature": "015ce5a41c412b589acdfe8fd36aab96ef71f63688abf926c96fe3ba33d9b695",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldsafelocs.d.ts": {
-        "version": "4ae88ec9c34f162bd09d829035b2dd527e6571829bb135bb08468f076c7c6ea0",
-        "signature": "4ae88ec9c34f162bd09d829035b2dd527e6571829bb135bb08468f076c7c6ea0",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldstateui.d.ts": {
-        "version": "5a1cfd36f2e0d3a56e45746203d7eb6981b7b14735c806d635de4c48ac92d5cb",
-        "signature": "5a1cfd36f2e0d3a56e45746203d7eb6981b7b14735c806d635de4c48ac92d5cb",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/worldstatezonesounds.d.ts": {
-        "version": "831994f9f76f4ba06cb0606b0df5759c7f2641cc4e18aa4e5ba5d1902dafadbf",
-        "signature": "831994f9f76f4ba06cb0606b0df5759c7f2641cc4e18aa4e5ba5d1902dafadbf",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/wowerror_strings.d.ts": {
-        "version": "e154a8c09e4d373a58e1132671755d49893642dcd6073f485ee3c43af5e8390a",
-        "signature": "e154a8c09e4d373a58e1132671755d49893642dcd6073f485ee3c43af5e8390a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/zoneintromusictable.d.ts": {
-        "version": "6149219ee2aa9fc9cadb2f433522f483b496171aeae3d8bdbf4f7ba4b8565cae",
-        "signature": "6149219ee2aa9fc9cadb2f433522f483b496171aeae3d8bdbf4f7ba4b8565cae",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/types/zonemusic.d.ts": {
-        "version": "34bdae580e9da37b4160e511c28022d796eed476a80ccae8046b3ad45b8e8f16",
-        "signature": "34bdae580e9da37b4160e511c28022d796eed476a80ccae8046b3ad45b8e8f16",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/dbc/dbcfiles.d.ts": {
-        "version": "a332bc2998b07d6d59bb74fc6f39f187be56ac12a8d85460c2bee875f47eee69",
-        "signature": "a332bc2998b07d6d59bb74fc6f39f187be56ac12a8d85460c2bee875f47eee69",
+      "../../../tswow-stdlib/data/build/achievement/achievement.d.ts": {
+        "version": "c7afbefe73d015f9287762cbbec07e430522a075e9e709bbd630b54dfd69a5a0",
+        "signature": "c7afbefe73d015f9287762cbbec07e430522a075e9e709bbd630b54dfd69a5a0",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/base/ids.d.ts": {
@@ -3069,11 +3109,6 @@
       "../../../tswow-stdlib/data/build/creature/creatureinstance.d.ts": {
         "version": "4f3ad1d02aadeb6e76ecfa018f51ad0ddb896f49e004792d4a3ff65addfd287e",
         "signature": "4f3ad1d02aadeb6e76ecfa018f51ad0ddb896f49e004792d4a3ff65addfd287e",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/luaxml/textfile.d.ts": {
-        "version": "53329278f6ae77de061642c058971a6419b8561335b9d419c14c2eaa2741b83a",
-        "signature": "53329278f6ae77de061642c058971a6419b8561335b9d419c14c2eaa2741b83a",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/class/classstartinventory.d.ts": {
@@ -3454,36 +3489,6 @@
       "../../../tswow-stdlib/data/build/light/lightfloatband.d.ts": {
         "version": "80da1589f311fdbda965c932c6b16814512fa6a0d2877fc52d684b5b8b95bb11",
         "signature": "80da1589f311fdbda965c932c6b16814512fa6a0d2877fc52d684b5b8b95bb11",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/ids/allocator.d.ts": {
-        "version": "354fab151055ebafc87f56111db480ba2d1e23965dfbf7ffaef4a43f65f57b0a",
-        "signature": "354fab151055ebafc87f56111db480ba2d1e23965dfbf7ffaef4a43f65f57b0a",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/ids/ids.d.ts": {
-        "version": "292e818df812f74c339c4389016e0ed8ac00e3dccbdd011e5022787f6268f776",
-        "signature": "292e818df812f74c339c4389016e0ed8ac00e3dccbdd011e5022787f6268f776",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/luaxml/luaxmlfiles.d.ts": {
-        "version": "f35d537cfe90c863d21abe89b76669cd4966697898b109f8b6290f6dd081745c",
-        "signature": "f35d537cfe90c863d21abe89b76669cd4966697898b109f8b6290f6dd081745c",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/luaxml/luaxml.d.ts": {
-        "version": "43d50115b24a1431098012e70ca5190222a5478313099fdb55fca6fe2f2e094b",
-        "signature": "43d50115b24a1431098012e70ca5190222a5478313099fdb55fca6fe2f2e094b",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/cell/objectiteration.d.ts": {
-        "version": "334f096ddfd2857a538caef9d0bacb1f721c70654d81119ee3c8fdf66537e26d",
-        "signature": "334f096ddfd2857a538caef9d0bacb1f721c70654d81119ee3c8fdf66537e26d",
-        "affectsGlobalScope": false
-      },
-      "../../../../bin/scripts/tswow/wotlkdata/wotlkdata.d.ts": {
-        "version": "4e42bca9992f37861452935785955c289847ba27c4dac32345e25565d698d134",
-        "signature": "4e42bca9992f37861452935785955c289847ba27c4dac32345e25565d698d134",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/light/lightintband.d.ts": {
@@ -7634,6 +7639,9 @@
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/waypoint_data.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/waypoint_scripts.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/waypoints.d.ts"
+      ],
+      "../create-db-tables.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/wotlkdata.d.ts"
       ],
       "../creatures/enemycreature.ts": [
         "../../../tswow-stdlib/data/build/misc/position.d.ts",
@@ -14510,6 +14518,7 @@
       "../../../../bin/scripts/tswow/wotlkdata/table/row.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/table/table.d.ts",
       "../../../../bin/scripts/tswow/wotlkdata/wotlkdata.d.ts",
+      "../create-db-tables.ts",
       "../creatures/enemycreature.ts",
       "../creatures/megaboss.ts",
       "../items/sword.ts",
