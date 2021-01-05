@@ -54,7 +54,7 @@ export function Main(events: TSEventHandlers) {
 		} 
 		if(level == 80){
 			player.SendBroadcastMessage("|cffffffff[LevelTracker]|r "+player.GetName() + " Has Reached Max Level! Congrats "+ player.GetName()+" on reaching "+player.GetLevel()+"!")
-		}   
+		} 
 	});
 
 	events.Spells.OnCast(ID.TESTER_MOD_CONTROL_0_ATTACK,(spell)=>{//cast all other minion attacks
