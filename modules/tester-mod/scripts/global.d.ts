@@ -619,8 +619,8 @@ declare class TSVehicle {
 declare class TSWorldObject extends TSObject {
     IsNull() : bool
     GetCreaturesInRange(range : float,entry : uint32,hostile : uint32,dead : uint32) : TSArray<TSCreature>
+    GetUnitsInRange(range : float,hostile : uint32,dead : uint32) : TSArray<TSUnit>
     GetPlayersInRange(range : float,hostile : uint32,dead : uint32) : TSArray<TSPlayer>
-    GetNearObjects(range : float,type : uint16,entry : uint32,hostile : uint32,dead : uint32) : TSArray<TSWorldObject>
     GetGameObjectsInRange(range : float,entry : uint32,hostile : uint32) : TSArray<TSGameObject>
     GetName() : string
     GetMap() : TSMap
@@ -638,7 +638,6 @@ declare class TSWorldObject extends TSObject {
     GetNearestPlayer(range : float,hostile : uint32,dead : uint32) : TSPlayer
     GetNearestGameObject(range : float,entry : uint32,hostile : uint32) : TSGameObject
     GetNearestCreature(range : float,entry : uint32,hostile : uint32,dead : uint32) : TSCreature
-    GetNearObject(range : float,type : uint16,entry : uint32,hostile : uint32,dead : uint32) : TSWorldObject
     GetDistance(target : TSWorldObject,X : float,Y : float,Z : float) : float
     GetDistance2d(target : TSWorldObject,X : float,Y : float) : float
     GetRelativePoint(dist : float,rad : float) : float
@@ -775,8 +774,6 @@ declare class TSUnit extends TSWorldObject {
     GetRaceAsString(locale : uint8) : string
     GetFaction() : uint32
     GetAura(spellID : uint32) : TSAura
-    GetFriendlyUnitsInRange(range : float) : TSArray<TSUnit>
-    GetUnfriendlyUnitsInRange(range : float) : TSArray<TSUnit>
     GetVehicleKit() : TSVehicle
     GetVehicle() : TSVehicle
     GetCritterGUID() : uint64
@@ -935,10 +932,10 @@ declare namespace _hidden {
         OnDuelRequest(callback: (target : TSPlayer,challenger : TSPlayer)=>void);
         OnDuelStart(callback: (player1 : TSPlayer,player2 : TSPlayer)=>void);
         OnDuelEnd(callback: (winner : TSPlayer,loser : TSPlayer,type : uint32)=>void);
-        OnSay(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string)=>void);
+        OnSay(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : TSMutableString)=>void);
         OnWhisper(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,receiver : TSPlayer)=>void);
-        //OnPartyChat(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,group : TSGroup)=>void);
-        //OnGuildChat(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,guild : TSGuild)=>void);
+        OnChatGroup(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,group : TSGroup)=>void);
+        OnChatGuild(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,guild : TSGuild)=>void);
         // TODO: Fix chat to channel
         //OnChat(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,channel : Channel*)=>void),
         OnEmote(callback: (player : TSPlayer,emote : uint32)=>void);
@@ -989,11 +986,76 @@ declare namespace _hidden {
         OnDisband(callback: (group : TSGroup)=>void);
     }
 
-    export class Spells {
+    export class SpellID {
         OnCast(spell: uint32, callback : (spell: TSSpell)=>void);
         OnDispel(spell: uint32, callback: (spell: TSSpell, dispelType: uint32)=>void);
         OnHit(spell: uint32, callback: (spell: TSSpell)=>void);
         OnTick(spell: uint32, callback: (caster: TSUnit, target: TSUnit)=>void);
+    }
+
+    export class Spells {
+        OnCast(callback : (spell: TSSpell)=>void);
+        OnDispel(callback: (spell: TSSpell, dispelType: uint32)=>void);
+        OnHit(callback: (spell: TSSpell)=>void);
+        OnTick(callback: (caster: TSUnit, target: TSUnit)=>void);
+    }
+
+    export class CreatureID {
+        OnMoveInLOS(creature: uint32, callback: (creature: TSCreature, seen: TSUnit)=>void);
+        OnJustEnteredCombat(creature: uint32, callback: (creature: TSCreature, target: TSUnit)=>void);
+        OnDeath(creature: uint32, callback: (creature: TSCreature, killer: TSUnit)=>void);
+        OnKilledUnit(creature: uint32, callback: (creature: TSCreature, killed: TSUnit)=>void);
+        OnSummoned(creature: uint32, callback: (creature: TSCreature, summon: TSCreature)=>void);
+        OnIsSummoned(creature: uint32, callback: (creature: TSCreature, summoner: TSWorldObject)=>void);
+        OnSummonDespawn(creature: uint32, callback: (creature: TSCreature, summon: TSCreature)=>void);
+        OnSummonDies(creature: uint32, callback: (creature: TSCreature, summon: TSCreature, killer: TSUnit)=>void);
+        OnHitBySpell(creature: uint32, callback: (creature: TSCreature, caster: TSWorldObject, spellInfo: TSSpellInfo)=>void);
+        OnSpellHitTarget(creature: uint32, callback: (creature: TSCreature, target: TSWorldObject, spellInfo: TSSpellInfo)=>void);
+        OnSpellCastFinished(creature: uint32, callback: (creature: TSCreature, spellInfo: TSSpellInfo, reason: uint32)=>void);
+        OnJustAppeared(creature: uint32, callback: (creature: TSCreature)=>void);
+        OnCharmed(creature: uint32, callback: (creature: TSCreature, isNew: boolean)=>void);
+        OnReachedHome(creature: uint32, callback: (creature: TSCreature)=>void);
+        OnReceiveEmote(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, emote: uint32)=>void);
+        OnOwnerAttacked(creature: uint32, callback: (creature: TSCreature, attacker: TSUnit)=>void);
+        OnOwnerAttacks(creature: uint32, callback: (creature: TSCreature, target: TSUnit)=>void);
+        OnCorpseRemoved(creature: uint32, callback: (creature: TSCreature, delay: uint32)=>void);b
+
+        OnWaypointStarted(creature: uint32, callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
+        OnWaypointReached(creature: uint32, callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
+        OnWaypointPathEnded(creature: uint32, callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
+        OnPassengerBoarded(creature: uint32, callback: (creature: TSCreature, passenger: TSUnit, seatId: int8, isFirst: boolean)=>void);
+
+        OnSpellClick(creature: uint32, callback: (creature: TSCreature, clicker: TSUnit, isFirst: boolean)=>void);
+        OnUpdateAI(creature: uint32, callback: (creature: TSCreature, diff: uint32)=>void);
+    }
+
+    export class Creatures {
+        OnMoveInLOS(callback: (creature: TSCreature, seen: TSUnit)=>void);
+        OnJustEnteredCombat(callback: (creature: TSCreature, target: TSUnit)=>void);
+        OnDeath(callback: (creature: TSCreature, killer: TSUnit)=>void);
+        OnKilledUnit(callback: (creature: TSCreature, killed: TSUnit)=>void);
+        OnSummoned(callback: (creature: TSCreature, summon: TSCreature)=>void);
+        OnIsSummoned(callback: (creature: TSCreature, summoner: TSWorldObject)=>void);
+        OnSummonDespawn(callback: (creature: TSCreature, summon: TSCreature)=>void);
+        OnSummonDies(callback: (creature: TSCreature, summon: TSCreature, killer: TSUnit)=>void);
+        OnHitBySpell(callback: (creature: TSCreature, caster: TSWorldObject, spellInfo: TSSpellInfo)=>void);
+        OnSpellHitTarget(callback: (creature: TSCreature, target: TSWorldObject, spellInfo: TSSpellInfo)=>void);
+        OnSpellCastFinished(callback: (creature: TSCreature, spellInfo: TSSpellInfo, reason: uint32)=>void);
+        OnJustAppeared(callback: (creature: TSCreature)=>void);
+        OnCharmed(callback: (creature: TSCreature, isNew: boolean)=>void);
+        OnReachedHome(callback: (creature: TSCreature)=>void);
+        OnReceiveEmote(callback: (creature: TSCreature, player: TSPlayer, emote: uint32)=>void);
+        OnOwnerAttacked(callback: (creature: TSCreature, attacker: TSUnit)=>void);
+        OnOwnerAttacks(callback: (creature: TSCreature, target: TSUnit)=>void);
+        OnCorpseRemoved(callback: (creature: TSCreature, delay: uint32)=>void);
+
+        OnWaypointStarted(callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
+        OnWaypointReached(callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
+        OnWaypointPathEnded(callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
+        OnPassengerBoarded(callback: (creature: TSCreature, passenger: TSUnit, seatId: int8, isFirst: boolean)=>void);
+
+        OnSpellClick(callback: (creature: TSCreature, clicker: TSUnit, isFirst: boolean)=>void);
+        OnUpdateAI(callback: (creature: TSCreature, diff: uint32)=>void);
     }
 }
 
@@ -1010,6 +1072,9 @@ declare class TSEventHandlers {
     Guild: _hidden.Guild;
     Group: _hidden.Group;
     Spells: _hidden.Spells;
+    Creatures: _hidden.Creatures;
+    CreatureID: _hidden.CreatureID;
+    SpellID: _hidden.SpellID;
 }
 
 declare class TSDictionary<K,V> {
@@ -1017,6 +1082,7 @@ declare class TSDictionary<K,V> {
     set(key: K, value: V);
     contains(key: K): boolean;
     forEach(callback: (key: K, value: V)=>void);
+    keys(): TSArray<K>
     reduce<T>(callback: (previous: T,key: K, value: V)=>T, initial: T) : T;
     filter(callback: (key: K, value: V)=>boolean): TSDictionary<K,V>
 }
@@ -1025,3 +1091,45 @@ declare function MakeDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V
 
 declare function GetID(table: string, mod: string, name: string);
 declare function GetIDRange(table: string, mod: string, name: string);
+
+declare class TSDatabaseResult {
+    GetUInt8(index: int): uint8;
+    GetUInt16(index: int): uint16;
+    GetUInt32(index: int): uint32;
+    GetUInt64(index: int): uint64;
+
+    GetInt8(index: int): int8;
+    GetInt16(index: int): int16;
+    GetInt32(index: int): int32;
+    GetInt64(index: int): int64;
+
+    GetFloat(index: int): float;
+    GetDouble(index: int): double;
+    GetString(index: int): string;
+
+    GetRow(): boolean;
+    IsValid(): boolean;
+}
+
+declare class DBTable {
+    saveQuery(): string;
+    loadQuery(): string;
+    save(): void;
+    load(): boolean;
+}
+
+declare class TSClass {
+    stringify(indention?: int): string;
+}
+
+declare function QueryWorld(query: string): TSDatabaseResult;
+declare function QueryCharacters(query: string): TSDatabaseResult;
+declare function QueryAuth(query: string): TSDatabaseResult;
+
+declare function WorldTable(classTarget: any)
+declare function CharactersTable(classTarget: any)
+declare function AuthTable(classTarget: any)
+declare function Field(fieldTarget: any, name: any)
+declare function PrimaryKey(pkTarget: any, name: any)
+
+declare function LoadRows<T extends DBTable>(cls: {new (...args: any[]): T}, query: string): TSArray<T>

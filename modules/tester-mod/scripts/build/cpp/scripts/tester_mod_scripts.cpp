@@ -10,7 +10,6 @@ void Main(TSEventHandlers *  events)
         killer->AddItem(PVPTOKEN, AMOUNT);
         auto foundIndex = -1;
         auto kills = 1;
-        console->log(arr->get_length());
         for (auto i = 0; i < arr->get_length(); i++)
         {
             console->log(arr->get(i)->guid);
@@ -20,7 +19,6 @@ void Main(TSEventHandlers *  events)
                 arr->get(i)->kills++;
             }
             if (arr->get(i)->guid == killed->GetGUIDLow()) {
-                foundIndex = i;
                 arr->get(i)->kills = 0;
             }
         }
@@ -53,7 +51,7 @@ void Main(TSEventHandlers *  events)
         }
     }
     );
-    events->Spells->OnCast(ID::TESTER_MOD_CONTROL_0_ATTACK, [](auto spell)
+    events->SpellID->OnCast(ID::TESTER_MOD_CONTROL_0_ATTACK, [](auto spell)
     {
         auto player = spell->GetCaster()->ToPlayer();
         player->CastSpell(player, ID::TESTER_MOD_CONTROL_1_ATTACK, true);
