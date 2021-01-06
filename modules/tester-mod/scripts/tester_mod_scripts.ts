@@ -1,5 +1,6 @@
+import { visitEachChild } from "typescript";
 import { ID } from "./ID";
-
+import { VIP } from "./VIP"
 class TestContainer {
 	guid: uint32 = 0
 	kills: int16 = 1
@@ -8,6 +9,8 @@ class TestContainer {
 let arr : TSArray<TestContainer> = [];
 
 export function Main(events: TSEventHandlers) {
+	VIP(events)
+
 //kill tracker/reward system
 	events.Player.OnPVPKill((killer,killed)=>{
 		let PVPTOKEN = 20880
@@ -61,6 +64,4 @@ export function Main(events: TSEventHandlers) {
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_2_ATTACK,true)
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_3_ATTACK,true)
 	});
-
-	
 }
