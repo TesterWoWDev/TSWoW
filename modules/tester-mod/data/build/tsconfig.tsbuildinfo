@@ -602,8 +602,8 @@
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charbaseinfo.d.ts": {
-        "version": "27f436fff562a8b860c7ff8c648456398f48be77f91018d61824459a42601543",
-        "signature": "27f436fff562a8b860c7ff8c648456398f48be77f91018d61824459a42601543",
+        "version": "b73288c4b192fc325ac0806a7a8599300fed8292cc344f39c68de2db00f75a74",
+        "signature": "b73288c4b192fc325ac0806a7a8599300fed8292cc344f39c68de2db00f75a74",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charhairgeosets.d.ts": {
@@ -3582,7 +3582,7 @@
         "affectsGlobalScope": false
       },
       "../necromancer/minions.ts": {
-        "version": "05319d4b0b438eb2b9bb564374cd849b9d0254005e26284146d012d43f80ed80",
+        "version": "32491c2545b17c646a944b3cccb7e7a6da6c37b490d036c7c4091de2d0bfa85a",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -3690,7 +3690,6 @@
       "forceConsistentCasingInFileNames": true,
       "experimentalDecorators": true,
       "sourceMap": true,
-      "watch": true,
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {

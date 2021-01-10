@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b, _c;
+var _a, _b, _c, _d;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tswow_stdlib_1 = require("tswow-stdlib");
 const Necromancer_1 = require("./Necromancer");
@@ -117,6 +117,7 @@ for (let i = 0; i < totems.length; ++i) { //HAS A LINKED LIVE SCRIPT
         (_a = controllers.Attack) === null || _a === void 0 ? void 0 : _a.SkillLines.add(Necromancer_1.NECROMANCY_SKILL.ID).setAutolearn();
     (_b = controllers.Attack) === null || _b === void 0 ? void 0 : _b.Name.enGB.set(`Minion Attack`);
     (_c = controllers.Attack) === null || _c === void 0 ? void 0 : _c.Description.enGB.set(`Command your minions to attack your target`);
+    (_d = controllers.Attack) === null || _d === void 0 ? void 0 : _d.Subtext.enGB.set("");
     makeSummon(i, 'warrior', 'Skeleton Warrior', 9790, 'Interface\\Icons\\Spell_Shadow_RaiseDead.blp');
     makeSummon(i, 'tank', 'Tanky Scarab', 10031, 'Interface\\Icons\\Ability_Creature_Disease_02.blp', 1.5);
     makeSummon(i, 'caster', 'Crypt Caster', 14698, 'Interface\\Icons\\Achievement_Dungeon_AzjolLowercity.blp', 0.4);
