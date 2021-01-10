@@ -18,6 +18,7 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 	summon_spell.Icon.set(icon);
 	summon_spell.Cooldown.Time.set(5000)
 	summon_spell.Description.enGB.set(`Summon and control a ${displayName} for ${summon_spell.Duration.Duration.get()/1000} seconds.`)
+
 	entity.Models.set([modelId]);
 	entity.Name.enGB.set(`${displayName}`);
 	entity.Scale.set(scale);
@@ -124,6 +125,7 @@ for(let i=0;i<totems.length;++i){//HAS A LINKED LIVE SCRIPT
 	controllers.Attack?.SkillLines.add(NECROMANCY_SKILL.ID).setAutolearn();
 	controllers.Attack?.Name.enGB.set(`Minion Attack`);
 	controllers.Attack?.Description.enGB.set(`Command your minions to attack your target`)
+	controllers.Attack?.Subtext.enGB.set("")
 	makeSummon(i, 'warrior', 'Skeleton Warrior',9790,'Interface\\Icons\\Spell_Shadow_RaiseDead.blp');
 	makeSummon(i, 'tank', 'Tanky Scarab', 10031,'Interface\\Icons\\Ability_Creature_Disease_02.blp',1.5);
 	makeSummon(i, 'caster', 'Crypt Caster', 14698,'Interface\\Icons\\Achievement_Dungeon_AzjolLowercity.blp',0.4)
