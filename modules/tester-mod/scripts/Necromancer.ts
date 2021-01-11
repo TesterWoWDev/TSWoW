@@ -1,3 +1,4 @@
+import { spawn } from "child_process";
 import { ID } from "./ID";
 
 export function NecromancerClass(events: TSEventHandlers) {
@@ -12,23 +13,14 @@ export function NecromancerClass(events: TSEventHandlers) {
 	}); 
 	
 	//test build out for summon creature that goes forward 20 yards
-	events.SpellID.OnCast(10,(spell)=>{
-		let player = spell.GetCaster().ToPlayer()
-		const pX = player.GetX()
-		const pY = player.GetY()
-		const pZ = player.GetZ()
+	events.SpellID.OnCast(5185,(spell)=>{
+		const distance = 20
+		const creatureID = 3210
+
+		const player = spell.GetCaster().ToPlayer()
 		const pO = player.GetO()
-
-		let finalX = pX
-		let finalY = pY
-		let finalZ = pZ
-
-	// finalX = finalX + Math.cos(pO)*20
-	// finalY = finalY + Math.sin(pO)*20
-	//OR
-	// finalX,finalY,finalZ = player.GetRelativePoint(20,player.GetO())
-
-		const creature = player.SpawnCreature(1,pX,pY,pZ,pO,1,10)
-		creature.MoveTo(1,finalX,finalY,finalZ,true)
-    });
+		const creature = player.SpawnCreature(creatureID,player.GetX(),player.GetY(),player.GetZ(),pO,3,5000)
+		const TSPosition = player.GetRelativePoint(distance,player.GetO())
+		//creature.MoveTo(1,TSPosition.x,TSPosition.y,TSPosition.z,true)
+	});
 }
