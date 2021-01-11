@@ -9,6 +9,7 @@ export function VIP(events: TSEventHandlers) {
 			player.AddItem(2589,1)
 		}
 	})
+	
 //VIP xp modifier
 	events.Player.OnGiveXP((player,amount,victim)=>{
 		const query = QueryAuth('SELECT multiplier FROM vip_list WHERE accID = '+player.GetAccountId())
