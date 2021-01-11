@@ -602,8 +602,8 @@
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charbaseinfo.d.ts": {
-        "version": "b73288c4b192fc325ac0806a7a8599300fed8292cc344f39c68de2db00f75a74",
-        "signature": "b73288c4b192fc325ac0806a7a8599300fed8292cc344f39c68de2db00f75a74",
+        "version": "1c9faba6f068486a865f832f29eb9c700c8f9f0785e8d6a170504a49dce0a7c9",
+        "signature": "1c9faba6f068486a865f832f29eb9c700c8f9f0785e8d6a170504a49dce0a7c9",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charhairgeosets.d.ts": {
@@ -2682,8 +2682,8 @@
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/cell/systems/mask.d.ts": {
-        "version": "49ffa59111fecfb5eba81b5e71cd5cccc76ca3c0feff21586a1c0116e5994148",
-        "signature": "49ffa59111fecfb5eba81b5e71cd5cccc76ca3c0feff21586a1c0116e5994148",
+        "version": "5b9e7ebbe71d996d80fe68bf62653ac3f4b25b3d4106573a1bbaa092256867bd",
+        "signature": "5b9e7ebbe71d996d80fe68bf62653ac3f4b25b3d4106573a1bbaa092256867bd",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/base/includeexclude.d.ts": {
@@ -2832,8 +2832,8 @@
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/spell/spellskilllines.d.ts": {
-        "version": "c6e4f13701db3fd76918998dbbdd161b7db51dd49044cf2bc4d3ebd6b2ce9274",
-        "signature": "c6e4f13701db3fd76918998dbbdd161b7db51dd49044cf2bc4d3ebd6b2ce9274",
+        "version": "8ff5dbf5e7b67b06e15301f314a9f4503d7079958d5f1d80e41880d1877ca24b",
+        "signature": "8ff5dbf5e7b67b06e15301f314a9f4503d7079958d5f1d80e41880d1877ca24b",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/cell/systems/vector3.d.ts": {
@@ -2942,8 +2942,8 @@
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/base/ids.d.ts": {
-        "version": "1193c75d7ae96da86dace1195ea94b3945f3b0bc9db1e4c44437071c2ee7e9c6",
-        "signature": "1193c75d7ae96da86dace1195ea94b3945f3b0bc9db1e4c44437071c2ee7e9c6",
+        "version": "18f202e2a3ba5b208f1327bd93d50cdb88fb28c78116cc9c9b6c0d44578b3724",
+        "signature": "18f202e2a3ba5b208f1327bd93d50cdb88fb28c78116cc9c9b6c0d44578b3724",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/loot/loot.d.ts": {
@@ -3376,14 +3376,19 @@
         "signature": "edaa7eacf488e868787c9a7935bdedb82df5a4a5acdee53c79e31b2ef6115f2e",
         "affectsGlobalScope": false
       },
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts": {
+        "version": "e6e939f543b41dc8ee274036160e428638ca51833fb4b7464bf873606ba64af2",
+        "signature": "e6e939f543b41dc8ee274036160e428638ca51833fb4b7464bf873606ba64af2",
+        "affectsGlobalScope": false
+      },
       "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts": {
         "version": "3293aa924fed3095856e67b41555125dd6618c604cb92830eab979b552ee3a16",
         "signature": "3293aa924fed3095856e67b41555125dd6618c604cb92830eab979b552ee3a16",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts": {
-        "version": "c50cced7658cae2a63975a9e13d331eb499a45014bcba594795623413f773d69",
-        "signature": "c50cced7658cae2a63975a9e13d331eb499a45014bcba594795623413f773d69",
+        "version": "fda533beadbb5087f54de1cf34f22f5dda3471b4594163614a1eae68e74c8a14",
+        "signature": "fda533beadbb5087f54de1cf34f22f5dda3471b4594163614a1eae68e74c8a14",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/base/goorcreature.d.ts": {
@@ -3541,9 +3546,174 @@
         "signature": "35d8aed8787b6d8c8be21b687c72f32247e7a58d1d8fdb0aa32d57c4f6e32b34",
         "affectsGlobalScope": false
       },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectareadamage.d.ts": {
+        "version": "4cd8b8c3378bba8b0520a2b289d9cccc011cbd8941c9b3c0ee1f663e521cc1ab",
+        "signature": "4cd8b8c3378bba8b0520a2b289d9cccc011cbd8941c9b3c0ee1f663e521cc1ab",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectauragenerator.d.ts": {
+        "version": "244cd5bdfdab49a4cb0fa489bd25bf3c335e9639f1b2c07936448c20909a0b4d",
+        "signature": "244cd5bdfdab49a4cb0fa489bd25bf3c335e9639f1b2c07936448c20909a0b4d",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbarberchair.d.ts": {
+        "version": "6307b04765702d8263c78c00b858796f22b353f7c6a7caff6a4e3d9e7e2c3dbb",
+        "signature": "6307b04765702d8263c78c00b858796f22b353f7c6a7caff6a4e3d9e7e2c3dbb",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbutton.d.ts": {
+        "version": "0fb36a3988ba5d6f7d077fb5c9ff5e84446adeb2af66f66ea9cef73b969f3a6a",
+        "signature": "0fb36a3988ba5d6f7d077fb5c9ff5e84446adeb2af66f66ea9cef73b969f3a6a",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcamera.d.ts": {
+        "version": "6b4970953299571e3f316ac1be01376b9c208bce425a626f05eabb81d4575c2b",
+        "signature": "6b4970953299571e3f316ac1be01376b9c208bce425a626f05eabb81d4575c2b",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcapturepoint.d.ts": {
+        "version": "8061ea9411236773dfd41c45be1eccda2b5a31fc2237b5798a2ad899d8aae771",
+        "signature": "8061ea9411236773dfd41c45be1eccda2b5a31fc2237b5798a2ad899d8aae771",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchair.d.ts": {
+        "version": "6862854fb6a13a8de021dadbee20956e77c1395a1930271b4d10c44e5df44dd5",
+        "signature": "6862854fb6a13a8de021dadbee20956e77c1395a1930271b4d10c44e5df44dd5",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchest.d.ts": {
+        "version": "b9f267fc4b38979bec4990d8575d9570389efd3c0039ca2c374fb043a223ec59",
+        "signature": "b9f267fc4b38979bec4990d8575d9570389efd3c0039ca2c374fb043a223ec59",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdestructiblebuilding.d.ts": {
+        "version": "f81b5d99b35b1c4abf5244c93e7442860203238357cccd5d0466c31a2ca1c077",
+        "signature": "f81b5d99b35b1c4abf5244c93e7442860203238357cccd5d0466c31a2ca1c077",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdoor.d.ts": {
+        "version": "bbe561174a188f472578563e4a2eee9ecfacdff421a0fd30fd5c7e1cbb4ca0fc",
+        "signature": "bbe561174a188f472578563e4a2eee9ecfacdff421a0fd30fd5c7e1cbb4ca0fc",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdungeondifficulty.d.ts": {
+        "version": "8293d92cd64206243d63bbb4954f7946e52712015d21d55fb04b3c742ca591e1",
+        "signature": "8293d92cd64206243d63bbb4954f7946e52712015d21d55fb04b3c742ca591e1",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectfishinghole.d.ts": {
+        "version": "9b48da2c50f8094203cb9c18aeffd8d5f24f2c44ba80b41621c354b76b29623f",
+        "signature": "9b48da2c50f8094203cb9c18aeffd8d5f24f2c44ba80b41621c354b76b29623f",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagdrop.d.ts": {
+        "version": "c06a296328543a7f603dd0f4b040e6de01fb9a2ad2502c0faaf87e8dd67d3d83",
+        "signature": "c06a296328543a7f603dd0f4b040e6de01fb9a2ad2502c0faaf87e8dd67d3d83",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagstand.d.ts": {
+        "version": "a9d668bafee392a5311fc070fa1bb279c4f2dbe238bb05171b672850ffe0fb9f",
+        "signature": "a9d668bafee392a5311fc070fa1bb279c4f2dbe238bb05171b672850ffe0fb9f",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgeneric.d.ts": {
+        "version": "db61cdf6c8162e7527c02c9999ee1131be00c7a725d90f516f8071ae29af5fdd",
+        "signature": "db61cdf6c8162e7527c02c9999ee1131be00c7a725d90f516f8071ae29af5fdd",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgoober.d.ts": {
+        "version": "6433a3cbe097c7de27b59e2b7ca0954bd7cb77346c60b675bdd2f14ea3a2433e",
+        "signature": "6433a3cbe097c7de27b59e2b7ca0954bd7cb77346c60b675bdd2f14ea3a2433e",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguardpost.d.ts": {
+        "version": "98d3f3de9e9e5268b563e12f2413cf2b0559ebf2dbeccd6faff5251ca4d20925",
+        "signature": "98d3f3de9e9e5268b563e12f2413cf2b0559ebf2dbeccd6faff5251ca4d20925",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguildbank.d.ts": {
+        "version": "aeb876efd7a2434182eb3ad043800a063cb4a9326d029c2b87ba53d9f5e8ae3a",
+        "signature": "aeb876efd7a2434182eb3ad043800a063cb4a9326d029c2b87ba53d9f5e8ae3a",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmailbox.d.ts": {
+        "version": "1d973e48c1b2ea98dd2d01418cf5dc502e018791a94335287bfc9ec5cf83ab8f",
+        "signature": "1d973e48c1b2ea98dd2d01418cf5dc502e018791a94335287bfc9ec5cf83ab8f",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmeetingstone.d.ts": {
+        "version": "07976bf4b3d14f4c628c38925a84bea44af36ac5d658d46de6d69bbc44df7408",
+        "signature": "07976bf4b3d14f4c628c38925a84bea44af36ac5d658d46de6d69bbc44df7408",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectminigame.d.ts": {
+        "version": "91f3f1f793cfd050b58bd68e220b59890c0aa20c69065a59e27191f4815b185d",
+        "signature": "91f3f1f793cfd050b58bd68e220b59890c0aa20c69065a59e27191f4815b185d",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmotransport.d.ts": {
+        "version": "cc6a1161433bcaf158b3734b3be563c1f177699d95ec49f5d18f7b7257270132",
+        "signature": "cc6a1161433bcaf158b3734b3be563c1f177699d95ec49f5d18f7b7257270132",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectquestgiver.d.ts": {
+        "version": "a9c90132c5ccc6835e058a764c519404e2a5cbba542e1a457b7687bd171e4444",
+        "signature": "a9c90132c5ccc6835e058a764c519404e2a5cbba542e1a457b7687bd171e4444",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellcaster.d.ts": {
+        "version": "7dc70d3b24826f9db73e37faa2a00acfa59ca423ab65310353f598b460f6da52",
+        "signature": "7dc70d3b24826f9db73e37faa2a00acfa59ca423ab65310353f598b460f6da52",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellfocus.d.ts": {
+        "version": "a59abd496b07f1cebff74c28638449414d185f9f3c97334ce45a96b7984c3b09",
+        "signature": "a59abd496b07f1cebff74c28638449414d185f9f3c97334ce45a96b7984c3b09",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectsummoningritual.d.ts": {
+        "version": "1324d6989745afb55e75eebfd603f0bed21d6a973c1ffc8f5c2563f55ae7910d",
+        "signature": "1324d6989745afb55e75eebfd603f0bed21d6a973c1ffc8f5c2563f55ae7910d",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttext.d.ts": {
+        "version": "33e04b47266d3feef1c7b00c0b6ae8ce0ae752753b984145c11898ba6928536b",
+        "signature": "33e04b47266d3feef1c7b00c0b6ae8ce0ae752753b984145c11898ba6928536b",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttransport.d.ts": {
+        "version": "53af7846027160b467dfb59608f8602952a1edb93bee51263ac4bb9dd55df18f",
+        "signature": "53af7846027160b467dfb59608f8602952a1edb93bee51263ac4bb9dd55df18f",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrap.d.ts": {
+        "version": "98eed2f6901d97019ec79cf1d737f1c5281ac5c7c1fcc382750b111830f25a5e",
+        "signature": "98eed2f6901d97019ec79cf1d737f1c5281ac5c7c1fcc382750b111830f25a5e",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrapdoor.d.ts": {
+        "version": "cde7d4f1f903f2c35e0245e56c57d12cf4c52986762b46c796d9d70230f60aab",
+        "signature": "cde7d4f1f903f2c35e0245e56c57d12cf4c52986762b46c796d9d70230f60aab",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectbase.d.ts": {
+        "version": "48c23e6c573ca3342137321677abc9c5ca9b649fbeee1619957c9f4212935f27",
+        "signature": "48c23e6c573ca3342137321677abc9c5ca9b649fbeee1619957c9f4212935f27",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/misc/boundingbox.d.ts": {
+        "version": "d36e1bf2bc06200349b193591946ac01618a214ef61efc78ba5f6c3305770389",
+        "signature": "d36e1bf2bc06200349b193591946ac01618a214ef61efc78ba5f6c3305770389",
+        "affectsGlobalScope": false
+      },
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectdisplay.d.ts": {
+        "version": "17410a767545441eb6516fae46272a05f4f39e09928f0806d66efaecdfdd6e2a",
+        "signature": "17410a767545441eb6516fae46272a05f4f39e09928f0806d66efaecdfdd6e2a",
+        "affectsGlobalScope": false
+      },
       "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts": {
-        "version": "704b346798d7d76f1f3036f54b3dff2b9ae87062564514fa628a861d53d44e93",
-        "signature": "704b346798d7d76f1f3036f54b3dff2b9ae87062564514fa628a861d53d44e93",
+        "version": "b0f405d07a19d5eddd41bd5784a83c31505f9d5532a37d91e1edca57eb05d07c",
+        "signature": "b0f405d07a19d5eddd41bd5784a83c31505f9d5532a37d91e1edca57eb05d07c",
         "affectsGlobalScope": false
       },
       "../creatures/enemycreature.ts": {
@@ -7967,6 +8137,55 @@
         "../../../tswow-stdlib/data/build/faction/faction.d.ts",
         "../../../tswow-stdlib/data/build/race/racetype.d.ts"
       ],
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectbase.d.ts": [
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectareadamage.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectauragenerator.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbarberchair.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbutton.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcamera.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcapturepoint.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchair.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchest.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdestructiblebuilding.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdoor.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdungeondifficulty.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectfishinghole.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagdrop.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagstand.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgeneric.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgoober.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguardpost.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguildbank.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmailbox.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmeetingstone.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectminigame.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmotransport.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectquestgiver.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellcaster.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellfocus.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectsummoningritual.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttransport.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrap.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrapdoor.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectdisplay.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cell.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/cell/systems/systemarray.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gameobjectdisplayinfo.d.ts",
+        "../../../tswow-stdlib/data/build/base/mainentity.d.ts",
+        "../../../tswow-stdlib/data/build/misc/boundingbox.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/types/gameobject.d.ts",
+        "../../../tswow-stdlib/data/build/base/mainentity.d.ts",
+        "../../../tswow-stdlib/data/build/misc/position.d.ts"
+      ],
       "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts": [
         "../../../../bin/scripts/tswow/wotlkdata/cell/cell.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/dbc/localization.d.ts",
@@ -7978,7 +8197,133 @@
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/gameobject_template.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/gameobject_template_addon.d.ts",
         "../../../tswow-stdlib/data/build/base/goorcreature.d.ts",
-        "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts"
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts",
+        "../../../tswow-stdlib/data/build/misc/position.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectareadamage.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectauragenerator.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbarberchair.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbutton.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/broadcasttext/broadcasttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcamera.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcapturepoint.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchair.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchest.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/broadcasttext/broadcasttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdestructiblebuilding.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdoor.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/broadcasttext/broadcasttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdungeondifficulty.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectfishinghole.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagdrop.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagstand.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgeneric.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgoober.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguardpost.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguildbank.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmailbox.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmeetingstone.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectminigame.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmotransport.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectquestgiver.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/broadcasttext/broadcasttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellcaster.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellfocus.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectsummoningritual.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttext.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttransport.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrap.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrapdoor.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
       ],
       "../../../tswow-stdlib/data/build/gossip/gossip.d.ts": [
         "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts",
@@ -8609,6 +8954,9 @@
         "../../../tswow-stdlib/data/build/creature/creatureinstance.d.ts",
         "../../../tswow-stdlib/data/build/creature/creaturetemplate.d.ts",
         "../../../tswow-stdlib/data/build/faction/faction.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectbase.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectdisplay.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts",
         "../../../tswow-stdlib/data/build/gossip/gossip.d.ts",
         "../../../tswow-stdlib/data/build/item/itemtemplate.d.ts",
         "../../../tswow-stdlib/data/build/languages/languages.d.ts",
@@ -8617,6 +8965,7 @@
         "../../../tswow-stdlib/data/build/loot/loot.d.ts",
         "../../../tswow-stdlib/data/build/map/loadingscreen.d.ts",
         "../../../tswow-stdlib/data/build/map/map.d.ts",
+        "../../../tswow-stdlib/data/build/misc/boundingbox.d.ts",
         "../../../tswow-stdlib/data/build/misc/position.d.ts",
         "../../../tswow-stdlib/data/build/quest/quest.d.ts",
         "../../../tswow-stdlib/data/build/race/racetype.d.ts",
@@ -13142,6 +13491,50 @@
         "../../../tswow-stdlib/data/build/faction/faction.d.ts",
         "../../../tswow-stdlib/data/build/race/racetype.d.ts"
       ],
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectbase.d.ts": [
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbutton.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcapturepoint.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchair.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchest.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdestructiblebuilding.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdoor.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdungeondifficulty.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectfishinghole.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagdrop.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagstand.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgeneric.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgoober.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguardpost.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguildbank.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmailbox.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmeetingstone.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectminigame.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmotransport.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectquestgiver.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellcaster.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellfocus.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectsummoningritual.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttransport.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrap.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrapdoor.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectdisplay.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cell.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/cell/systems/systemarray.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gameobjectdisplayinfo.d.ts",
+        "../../../tswow-stdlib/data/build/base/mainentity.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts",
+        "../../../../bin/scripts/tswow/wotlkdata/sql/types/gameobject.d.ts",
+        "../../../tswow-stdlib/data/build/base/mainentity.d.ts",
+        "../../../tswow-stdlib/data/build/misc/position.d.ts"
+      ],
       "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts": [
         "../../../../bin/scripts/tswow/wotlkdata/cell/cell.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/dbc/localization.d.ts",
@@ -13153,7 +13546,132 @@
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/gameobject_template.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/gameobject_template_addon.d.ts",
         "../../../tswow-stdlib/data/build/base/goorcreature.d.ts",
-        "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts"
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts",
+        "../../../tswow-stdlib/data/build/misc/position.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectareadamage.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectauragenerator.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbarberchair.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbutton.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/broadcasttext/broadcasttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcamera.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcapturepoint.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchair.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchest.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/broadcasttext/broadcasttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdestructiblebuilding.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdoor.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/broadcasttext/broadcasttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdungeondifficulty.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectfishinghole.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagdrop.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagstand.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgeneric.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgoober.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguardpost.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguildbank.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmailbox.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmeetingstone.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectminigame.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmotransport.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectquestgiver.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/broadcasttext/broadcasttext.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellcaster.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellfocus.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectsummoningritual.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttext.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttransport.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrap.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
+      ],
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrapdoor.d.ts": [
+        "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts"
       ],
       "../../../tswow-stdlib/data/build/gossip/gossip.d.ts": [
         "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts",
@@ -13784,6 +14302,8 @@
         "../../../tswow-stdlib/data/build/creature/creatureinstance.d.ts",
         "../../../tswow-stdlib/data/build/creature/creaturetemplate.d.ts",
         "../../../tswow-stdlib/data/build/faction/faction.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectbase.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectdisplay.d.ts",
         "../../../tswow-stdlib/data/build/gossip/gossip.d.ts",
         "../../../tswow-stdlib/data/build/item/itemtemplate.d.ts",
         "../../../tswow-stdlib/data/build/languages/languages.d.ts",
@@ -14585,8 +15105,41 @@
       "../../../tswow-stdlib/data/build/faction/factionrelations.d.ts",
       "../../../tswow-stdlib/data/build/faction/factionreputation.d.ts",
       "../../../tswow-stdlib/data/build/faction/reputationranks.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectbase.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectdisplay.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts",
       "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts",
       "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectareadamage.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectauragenerator.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbarberchair.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbutton.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcamera.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcapturepoint.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchair.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchest.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdestructiblebuilding.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdoor.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectdungeondifficulty.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectfishinghole.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagdrop.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectflagstand.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgeneric.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectgoober.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguardpost.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectguildbank.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmailbox.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmeetingstone.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectminigame.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectmotransport.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectquestgiver.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellcaster.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectspellfocus.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjectsummoningritual.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttext.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttransport.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrap.d.ts",
+      "../../../tswow-stdlib/data/build/gameobject/types/gameobjecttrapdoor.d.ts",
       "../../../tswow-stdlib/data/build/gossip/gossip.d.ts",
       "../../../tswow-stdlib/data/build/gossip/gossipicon.d.ts",
       "../../../tswow-stdlib/data/build/gossip/gossipoption.d.ts",
@@ -14630,6 +15183,7 @@
       "../../../tswow-stdlib/data/build/map/loadingscreen.d.ts",
       "../../../tswow-stdlib/data/build/map/map.d.ts",
       "../../../tswow-stdlib/data/build/map/mapinstancetype.d.ts",
+      "../../../tswow-stdlib/data/build/misc/boundingbox.d.ts",
       "../../../tswow-stdlib/data/build/misc/drunkstate.d.ts",
       "../../../tswow-stdlib/data/build/misc/gender.d.ts",
       "../../../tswow-stdlib/data/build/misc/position.d.ts",

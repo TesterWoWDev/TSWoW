@@ -25,6 +25,7 @@
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSMacros.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSMain.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSMap.h"
+#include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSMath.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSMutable.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSMutableString.h"
 #include "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/../../../../../bin/include/TSObject.h"
