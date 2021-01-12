@@ -20,6 +20,7 @@ namespace ID {
     extern uint32 TESTER_MOD_TANK_3;
     extern uint32 TESTER_MOD_CASTER_3;
     extern uint32 TESTER_MOD_HEALER_3;
+    extern uint32 TESTER_MOD_SCARAB_POISON_CREATURE;
     extern uint32 TESTER_MOD_CLS;
     extern uint32 TESTER_MOD_NECROMANCER;
     extern uint32 TESTER_MOD_NECROMANCY_SKILL;
@@ -44,6 +45,9 @@ namespace ID {
     extern uint32 TESTER_MOD_SUMMON_TANK_3;
     extern uint32 TESTER_MOD_SUMMON_CASTER_3;
     extern uint32 TESTER_MOD_SUMMON_HEALER_3;
+    extern uint32 TESTER_MOD_PLONK;
+    extern uint32 TESTER_MOD_SCARAB_POISON_SPELL;
+    extern uint32 TESTER_MOD_SCARAB_POISON_SPELL_PROC;
 }
 
 namespace ID {

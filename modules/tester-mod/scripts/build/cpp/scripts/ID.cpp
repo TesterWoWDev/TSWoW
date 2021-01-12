@@ -19,6 +19,7 @@ namespace ID { uint32 TESTER_MOD_WARRIOR_3 = GetID(JSTR("creature_template"), JS
 namespace ID { uint32 TESTER_MOD_TANK_3 = GetID(JSTR("creature_template"), JSTR("tester-mod"), JSTR("tank-3"));};
 namespace ID { uint32 TESTER_MOD_CASTER_3 = GetID(JSTR("creature_template"), JSTR("tester-mod"), JSTR("caster-3"));};
 namespace ID { uint32 TESTER_MOD_HEALER_3 = GetID(JSTR("creature_template"), JSTR("tester-mod"), JSTR("healer-3"));};
+namespace ID { uint32 TESTER_MOD_SCARAB_POISON_CREATURE = GetID(JSTR("creature_template"), JSTR("tester-mod"), JSTR("scarab-poison-creature"));};
 namespace ID { uint32 TESTER_MOD_CLS = GetID(JSTR("item_template"), JSTR("tester-mod"), JSTR("cls"));};
 namespace ID { uint32 TESTER_MOD_NECROMANCER = GetID(JSTR("ChrClasses"), JSTR("tester-mod"), JSTR("necromancer"));};
 namespace ID { uint32 TESTER_MOD_NECROMANCY_SKILL = GetID(JSTR("SkillLineAbility"), JSTR("tester-mod"), JSTR("necromancy-skill"));};
@@ -43,6 +44,9 @@ namespace ID { uint32 TESTER_MOD_SUMMON_WARRIOR_3 = GetID(JSTR("Spell"), JSTR("t
 namespace ID { uint32 TESTER_MOD_SUMMON_TANK_3 = GetID(JSTR("Spell"), JSTR("tester-mod"), JSTR("summon-tank-3"));};
 namespace ID { uint32 TESTER_MOD_SUMMON_CASTER_3 = GetID(JSTR("Spell"), JSTR("tester-mod"), JSTR("summon-caster-3"));};
 namespace ID { uint32 TESTER_MOD_SUMMON_HEALER_3 = GetID(JSTR("Spell"), JSTR("tester-mod"), JSTR("summon-healer-3"));};
+namespace ID { uint32 TESTER_MOD_PLONK = GetID(JSTR("Spell"), JSTR("tester-mod"), JSTR("plonk"));};
+namespace ID { uint32 TESTER_MOD_SCARAB_POISON_SPELL = GetID(JSTR("Spell"), JSTR("tester-mod"), JSTR("scarab-poison-spell"));};
+namespace ID { uint32 TESTER_MOD_SCARAB_POISON_SPELL_PROC = GetID(JSTR("Spell"), JSTR("tester-mod"), JSTR("scarab-poison-spell-proc"));};
 
 ___scripts_ID_ts::___scripts_ID_ts()
 {
