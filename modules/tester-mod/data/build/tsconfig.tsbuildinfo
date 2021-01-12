@@ -2842,8 +2842,8 @@
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/spell/spellvisual.d.ts": {
-        "version": "d603410c1c78f538f91ae10ed9e6bc3d63bc3976d01890cc523a44d8638f0e16",
-        "signature": "d603410c1c78f538f91ae10ed9e6bc3d63bc3976d01890cc523a44d8638f0e16",
+        "version": "00e0084a3fba12d5ca8016f2d837763a024b3def2ab21cf5ad6087a0eb994645",
+        "signature": "00e0084a3fba12d5ca8016f2d837763a024b3def2ab21cf5ad6087a0eb994645",
         "affectsGlobalScope": false
       },
       "../../../tswow-stdlib/data/build/spell/targetcreaturetype.d.ts": {
@@ -3753,6 +3753,11 @@
       },
       "../necromancer/minions.ts": {
         "version": "32491c2545b17c646a944b3cccb7e7a6da6c37b490d036c7c4091de2d0bfa85a",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
+        "affectsGlobalScope": false
+      },
+      "../necromancer/poison-scarab.ts": {
+        "version": "c6bdce5c78d053b20e31c2b279339b23c945235d47666f5179a25c207d622018",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -7837,6 +7842,9 @@
         "../necromancer/necromancer.ts"
       ],
       "../necromancer/necromancer.ts": [
+        "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts"
+      ],
+      "../necromancer/poison-scarab.ts": [
         "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts"
       ],
       "../quest_tests/quest1.ts": [
@@ -13493,7 +13501,11 @@
       ],
       "../../../tswow-stdlib/data/build/gameobject/gameobjectbase.d.ts": [
         "../../../tswow-stdlib/data/build/gameobject/gameobjecttemplate.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectareadamage.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectauragenerator.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbarberchair.d.ts",
         "../../../tswow-stdlib/data/build/gameobject/types/gameobjectbutton.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcamera.d.ts",
         "../../../tswow-stdlib/data/build/gameobject/types/gameobjectcapturepoint.d.ts",
         "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchair.d.ts",
         "../../../tswow-stdlib/data/build/gameobject/types/gameobjectchest.d.ts",
@@ -13526,7 +13538,8 @@
         "../../../../bin/scripts/tswow/wotlkdata/cell/subsystem.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/cell/systems/systemarray.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/dbc/types/gameobjectdisplayinfo.d.ts",
-        "../../../tswow-stdlib/data/build/base/mainentity.d.ts"
+        "../../../tswow-stdlib/data/build/base/mainentity.d.ts",
+        "../../../tswow-stdlib/data/build/misc/boundingbox.d.ts"
       ],
       "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts": [
         "../../../../bin/scripts/tswow/wotlkdata/cell/cellwrapper.d.ts",
@@ -13546,6 +13559,7 @@
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/gameobject_template.d.ts",
         "../../../../bin/scripts/tswow/wotlkdata/sql/types/gameobject_template_addon.d.ts",
         "../../../tswow-stdlib/data/build/base/goorcreature.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts",
         "../../../tswow-stdlib/data/build/gameobject/gameobjectname.d.ts",
         "../../../tswow-stdlib/data/build/misc/position.d.ts"
       ],
@@ -14304,6 +14318,7 @@
         "../../../tswow-stdlib/data/build/faction/faction.d.ts",
         "../../../tswow-stdlib/data/build/gameobject/gameobjectbase.d.ts",
         "../../../tswow-stdlib/data/build/gameobject/gameobjectdisplay.d.ts",
+        "../../../tswow-stdlib/data/build/gameobject/gameobjectinstance.d.ts",
         "../../../tswow-stdlib/data/build/gossip/gossip.d.ts",
         "../../../tswow-stdlib/data/build/item/itemtemplate.d.ts",
         "../../../tswow-stdlib/data/build/languages/languages.d.ts",
@@ -14312,6 +14327,7 @@
         "../../../tswow-stdlib/data/build/loot/loot.d.ts",
         "../../../tswow-stdlib/data/build/map/loadingscreen.d.ts",
         "../../../tswow-stdlib/data/build/map/map.d.ts",
+        "../../../tswow-stdlib/data/build/misc/boundingbox.d.ts",
         "../../../tswow-stdlib/data/build/misc/position.d.ts",
         "../../../tswow-stdlib/data/build/quest/quest.d.ts",
         "../../../tswow-stdlib/data/build/race/racetype.d.ts",
@@ -15046,6 +15062,7 @@
       "../necromancer/mass-summon.ts",
       "../necromancer/minions.ts",
       "../necromancer/necromancer.ts",
+      "../necromancer/poison-scarab.ts",
       "../quest_tests/quest1.ts",
       "../../../tswow-stdlib/data/build/achievement/achievement.d.ts",
       "../../../tswow-stdlib/data/build/achievement/achievementcriteria.d.ts",

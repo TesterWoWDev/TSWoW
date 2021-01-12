@@ -11,16 +11,16 @@ void NecromancerClass(TSEventHandlers *  events)
         player->CastSpell(player, ID::TESTER_MOD_CONTROL_3_ATTACK, true);
     }
     );
-    events->SpellID->OnCast(5185, [](auto spell)
+    events->SpellID->OnCast(53307, [](auto spell)
     {
         auto distance = 20;
-        auto creatureID = 3210;
+        auto creatureID = ID::TESTER_MOD_SCARAB_POISON_CREATURE;
+        auto despawnTime = 3000;
         auto player = spell->GetCaster()->ToPlayer();
-        auto pO = player->GetO();
-        auto spawner = player->GetNearestCreature(50000, 0, 0, 0);
-        spawner->SpawnCreature(creatureID, player->GetX(), player->GetY(), player->GetZ(), pO, 3, 5000);
-        auto creature = player->SpawnCreature(creatureID, player->GetX(), player->GetY(), player->GetZ(), pO, 3, 5000);
-        auto TSPosition = player->GetRelativePoint(distance, player->GetO());
+        auto TSPosition = player->GetRelativePoint(distance, 0);
+        auto creature = player->SpawnCreature(creatureID, player->GetX(), player->GetY(), player->GetZ(), player->GetO(), 3, despawnTime);
+        creature->CastSpell(creature, ID::TESTER_MOD_SCARAB_POISON_SPELL, true);
+        creature->MoveTo(1, TSPosition->x, TSPosition->y, TSPosition->z, true);
     }
     );
 };
