@@ -13,8 +13,8 @@ const testSpell = std.Spells.create("tester-mod","skillshot-proc",15237)
 
 const scarabSpell = std.Spells.create('tester-mod','skillshot-cast',68037)
     scarabSpell.Effects.get(0).AuraType.setPeriodicTriggerSpell()
-    .AuraPeriod.set(100)
-    .TriggerSpell.set(testSpell.ID)
+        .AuraPeriod.set(100)
+        .TriggerSpell.set(testSpell.ID)
     scarabSpell.Visual.Kits.clearAll()
 
 const scarabCreature = std.CreatureTemplates.create('tester-mod','skillshot-creature',16863)

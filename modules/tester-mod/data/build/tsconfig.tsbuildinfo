@@ -3757,7 +3757,7 @@
         "affectsGlobalScope": false
       },
       "../necromancer/poison-scarab.ts": {
-        "version": "c6bdce5c78d053b20e31c2b279339b23c945235d47666f5179a25c207d622018",
+        "version": "00c2fa1d1a378eaf928d147e7e0f90008bdeadafa0a1c1300febdd4ebe71fd9d",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
