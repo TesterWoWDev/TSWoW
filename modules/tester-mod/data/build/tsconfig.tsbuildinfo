@@ -602,8 +602,8 @@
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charbaseinfo.d.ts": {
-        "version": "1c9faba6f068486a865f832f29eb9c700c8f9f0785e8d6a170504a49dce0a7c9",
-        "signature": "1c9faba6f068486a865f832f29eb9c700c8f9f0785e8d6a170504a49dce0a7c9",
+        "version": "b73288c4b192fc325ac0806a7a8599300fed8292cc344f39c68de2db00f75a74",
+        "signature": "b73288c4b192fc325ac0806a7a8599300fed8292cc344f39c68de2db00f75a74",
         "affectsGlobalScope": false
       },
       "../../../../bin/scripts/tswow/wotlkdata/dbc/types/charhairgeosets.d.ts": {
