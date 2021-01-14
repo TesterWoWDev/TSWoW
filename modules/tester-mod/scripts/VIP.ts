@@ -1,5 +1,5 @@
 export function VIP(events: TSEventHandlers) {
-    //VIP commands
+	//VIP commands
 	events.Player.OnSay((player,type,lang,msg)=>{
 		if(msg.get().startsWith("#buff")){
 			player.CastSpell(player,58054,true)

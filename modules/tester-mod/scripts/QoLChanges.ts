@@ -1,10 +1,10 @@
 
 export function QoLChanges(events: TSEventHandlers) {
 //reset cds on duel
-    events.Player.OnDuelStart((player1,player2)=>{
-        player1.ResetAllCooldowns()
-        player2.ResetAllCooldowns()
-    });
+	events.Player.OnDuelStart((player1,player2)=>{
+		player1.ResetAllCooldowns()
+		player2.ResetAllCooldowns()
+	});
 
 //levelup rewards/notif
 	events.Player.OnLevelChanged((player,oldLevel)=>{
