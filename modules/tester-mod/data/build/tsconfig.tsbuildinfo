@@ -3716,6 +3716,11 @@
         "signature": "b0f405d07a19d5eddd41bd5784a83c31505f9d5532a37d91e1edca57eb05d07c",
         "affectsGlobalScope": false
       },
+      "../skillshot-spell.ts": {
+        "version": "00c2fa1d1a378eaf928d147e7e0f90008bdeadafa0a1c1300febdd4ebe71fd9d",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
+        "affectsGlobalScope": false
+      },
       "../creatures/enemycreature.ts": {
         "version": "773715abc8951f3de0ac4940a9a20edf68452871b35aff34f13b987d16fb0056",
         "signature": "20cfa71d1ab9ccbc1cea971779da873a536aa748c91190dd3ddfd9fc8ee6af0d",
@@ -3753,11 +3758,6 @@
       },
       "../necromancer/minions.ts": {
         "version": "32491c2545b17c646a944b3cccb7e7a6da6c37b490d036c7c4091de2d0bfa85a",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
-        "affectsGlobalScope": false
-      },
-      "../necromancer/poison-scarab.ts": {
-        "version": "00c2fa1d1a378eaf928d147e7e0f90008bdeadafa0a1c1300febdd4ebe71fd9d",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
         "affectsGlobalScope": false
       },
@@ -7844,12 +7844,12 @@
       "../necromancer/necromancer.ts": [
         "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts"
       ],
-      "../necromancer/poison-scarab.ts": [
-        "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts"
-      ],
       "../quest_tests/quest1.ts": [
         "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts",
         "../creatures/enemycreature.ts"
+      ],
+      "../skillshot-spell.ts": [
+        "../../../tswow-stdlib/data/build/tswow-stdlib-data.d.ts"
       ],
       "../../../tswow-stdlib/data/build/achievement/achievement.d.ts": [
         "../../../../bin/scripts/tswow/wotlkdata/cell/cell.d.ts",
@@ -15062,8 +15062,8 @@
       "../necromancer/mass-summon.ts",
       "../necromancer/minions.ts",
       "../necromancer/necromancer.ts",
-      "../necromancer/poison-scarab.ts",
       "../quest_tests/quest1.ts",
+      "../skillshot-spell.ts",
       "../../../tswow-stdlib/data/build/achievement/achievement.d.ts",
       "../../../tswow-stdlib/data/build/achievement/achievementcriteria.d.ts",
       "../../../tswow-stdlib/data/build/area/area.d.ts",

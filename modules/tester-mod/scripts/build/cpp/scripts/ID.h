@@ -4,27 +4,8 @@
 
 
 namespace ID {
-    extern uint32 TESTER_MOD_WARRIOR_0;
-    extern uint32 TESTER_MOD_TANK_0;
-    extern uint32 TESTER_MOD_CASTER_0;
-    extern uint32 TESTER_MOD_HEALER_0;
-    extern uint32 TESTER_MOD_WARRIOR_1;
-    extern uint32 TESTER_MOD_TANK_1;
-    extern uint32 TESTER_MOD_CASTER_1;
-    extern uint32 TESTER_MOD_HEALER_1;
-    extern uint32 TESTER_MOD_WARRIOR_2;
-    extern uint32 TESTER_MOD_TANK_2;
-    extern uint32 TESTER_MOD_CASTER_2;
-    extern uint32 TESTER_MOD_HEALER_2;
-    extern uint32 TESTER_MOD_WARRIOR_3;
-    extern uint32 TESTER_MOD_TANK_3;
-    extern uint32 TESTER_MOD_CASTER_3;
-    extern uint32 TESTER_MOD_HEALER_3;
-    extern uint32 TESTER_MOD_SCARAB_POISON_CREATURE;
-    extern uint32 TESTER_MOD_CLS;
-    extern uint32 TESTER_MOD_NECROMANCER;
-    extern uint32 TESTER_MOD_NECROMANCY_SKILL;
-    extern uint32 TESTER_MOD_DEATH_SKILL;
+    extern uint32 TESTER_MOD_SKILLSHOT_PROC;
+    extern uint32 TESTER_MOD_SKILLSHOT_CAST;
     extern uint32 TESTER_MOD_CONTROL_0_ATTACK;
     extern uint32 TESTER_MOD_SUMMON_WARRIOR_0;
     extern uint32 TESTER_MOD_SUMMON_TANK_0;
@@ -45,9 +26,27 @@ namespace ID {
     extern uint32 TESTER_MOD_SUMMON_TANK_3;
     extern uint32 TESTER_MOD_SUMMON_CASTER_3;
     extern uint32 TESTER_MOD_SUMMON_HEALER_3;
-    extern uint32 TESTER_MOD_PLONK;
-    extern uint32 TESTER_MOD_SCARAB_POISON_SPELL;
-    extern uint32 TESTER_MOD_SCARAB_POISON_SPELL_PROC;
+    extern uint32 TESTER_MOD_SKILLSHOT_CREATURE;
+    extern uint32 TESTER_MOD_WARRIOR_0;
+    extern uint32 TESTER_MOD_TANK_0;
+    extern uint32 TESTER_MOD_CASTER_0;
+    extern uint32 TESTER_MOD_HEALER_0;
+    extern uint32 TESTER_MOD_WARRIOR_1;
+    extern uint32 TESTER_MOD_TANK_1;
+    extern uint32 TESTER_MOD_CASTER_1;
+    extern uint32 TESTER_MOD_HEALER_1;
+    extern uint32 TESTER_MOD_WARRIOR_2;
+    extern uint32 TESTER_MOD_TANK_2;
+    extern uint32 TESTER_MOD_CASTER_2;
+    extern uint32 TESTER_MOD_HEALER_2;
+    extern uint32 TESTER_MOD_WARRIOR_3;
+    extern uint32 TESTER_MOD_TANK_3;
+    extern uint32 TESTER_MOD_CASTER_3;
+    extern uint32 TESTER_MOD_HEALER_3;
+    extern uint32 TESTER_MOD_CLS;
+    extern uint32 TESTER_MOD_NECROMANCER;
+    extern uint32 TESTER_MOD_NECROMANCY_SKILL;
+    extern uint32 TESTER_MOD_DEATH_SKILL;
 }
 
 namespace ID {

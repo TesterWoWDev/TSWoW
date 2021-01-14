@@ -13,13 +13,10 @@ void NecromancerClass(TSEventHandlers *  events)
     );
     events->SpellID->OnCast(53307, [](auto spell)
     {
-        auto distance = 20;
-        auto creatureID = ID::TESTER_MOD_SCARAB_POISON_CREATURE;
-        auto despawnTime = 3000;
         auto player = spell->GetCaster()->ToPlayer();
-        auto TSPosition = player->GetRelativePoint(distance, 0);
-        auto creature = player->SpawnCreature(creatureID, player->GetX(), player->GetY(), player->GetZ(), player->GetO(), 3, despawnTime);
-        creature->CastSpell(creature, ID::TESTER_MOD_SCARAB_POISON_SPELL, true);
+        auto TSPosition = player->GetRelativePoint(20, 0);
+        auto creature = player->SpawnCreature(ID::TESTER_MOD_SKILLSHOT_CREATURE, player->GetX(), player->GetY(), player->GetZ(), player->GetO(), 3, 3000);
+        creature->CastSpell(creature, ID::TESTER_MOD_SKILLSHOT_CAST, true);
         creature->MoveTo(1, TSPosition->x, TSPosition->y, TSPosition->z, true);
     }
     );
