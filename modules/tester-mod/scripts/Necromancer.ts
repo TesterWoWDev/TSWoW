@@ -10,7 +10,6 @@ export function NecromancerClass(events: TSEventHandlers) {
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_1_ATTACK,true)
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_2_ATTACK,true)
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_3_ATTACK,true)
-		//player.SpawnCreature(1,player.GetX(),player.GetY(),player.GetZ(),player.GetO(),1,10).MoveTo(1,player.GetX(),player.GetY(),player.GetZ(),true)
 	}); 
 	
 	//test build out for summon creature that goes forward 20 yards
