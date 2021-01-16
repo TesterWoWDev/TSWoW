@@ -1,7 +1,7 @@
-import { ID } from "./ID";
 import { NecromancerClass } from "./Necromancer";
 import { PvP } from "./PvP";
 import { QoLChanges } from "./QoLChanges";
+import { Skillshot } from "./skillshot";
 import { VIP } from "./VIP"
 
 export function Main(events: TSEventHandlers) {
@@ -9,4 +9,5 @@ export function Main(events: TSEventHandlers) {
 	QoLChanges(events)
 	NecromancerClass(events)
 	PvP(events)
+	Skillshot(events)
 }
