@@ -24,7 +24,7 @@ extern "C"
     __declspec(dllexport) void AddScripts(){}
     __declspec(dllexport) char const* GetScriptModule()
     {
-        return "0.2697568325828401";
+        return "0.4028722972753098";
     }
     __declspec(dllexport) char const* GetBuildDirective()
     {
