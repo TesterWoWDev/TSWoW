@@ -16,6 +16,9 @@
     <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\QoLChanges.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\skillshot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\tester_mod_scripts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

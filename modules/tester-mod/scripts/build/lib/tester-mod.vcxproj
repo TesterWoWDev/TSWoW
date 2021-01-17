@@ -399,6 +399,24 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\skillshot.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
     <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\tester_mod_scripts.cpp">
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>

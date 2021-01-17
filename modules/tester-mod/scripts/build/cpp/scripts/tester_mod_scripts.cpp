@@ -7,6 +7,7 @@ void Main(TSEventHandlers *  events)
     QoLChanges(events);
     NecromancerClass(events);
     PvP(events);
+    Skillshot(events);
 };
 
 
