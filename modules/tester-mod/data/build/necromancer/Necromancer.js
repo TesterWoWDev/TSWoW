@@ -27,7 +27,7 @@ exports.NECROMANCER_CLASS.Stats.SpellCrit.set((x, level) => 0.000005 * level);
 // Melee crit = 0.1*level
 exports.NECROMANCER_CLASS.Stats.MeleeCrit.set((x, level) => 0.00008 * level);
 exports.NECROMANCY_SKILL = tswow_stdlib_1.std.SkillLines
-	.createClass(TSWOW_TESTMODULE, 'necromancy-skill', exports.NECROMANCER_CLASS.ID);
+    .createClass(TSWOW_TESTMODULE, 'necromancy-skill', exports.NECROMANCER_CLASS.ID);
 exports.NECROMANCY_SKILL.Name.enGB.set(`Necromancy`);
 exports.NECROMANCY_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp');
 // Truly the epitome of creativity
