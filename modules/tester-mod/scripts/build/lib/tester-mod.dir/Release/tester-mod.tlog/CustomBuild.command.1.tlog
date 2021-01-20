@@ -1,6 +1,6 @@
-^C:\TESTING-TSWOW\TSWOW\MODULES\TESTER-MOD\SCRIPTS\BUILD\CPP\CMAKELISTS.TXT
+^C:\TSWOW\TSWOW\MODULES\TESTER-MOD\SCRIPTS\BUILD\CPP\CMAKELISTS.TXT
 setlocal
-C:\Testing-TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
+C:\TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
