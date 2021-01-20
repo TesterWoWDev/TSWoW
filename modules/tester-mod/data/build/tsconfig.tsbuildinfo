@@ -3742,7 +3742,7 @@
         "affectsGlobalScope": false
       },
       "../necromancer/necromancer.ts": {
-        "version": "e6a9fac8545d9d19da5ec682fee6f3691cfc87b6f548bd29ded56f1451b1c190",
+        "version": "2451a13d0b34a4aa7e0c428ad39181fa39483ce503247cfb0f06d32df016e738",
         "signature": "8e58426fb69b441bf61c1ac45443194f1d890d8b40f2c0eba6d8b4f0dd6d8064",
         "affectsGlobalScope": false
       },

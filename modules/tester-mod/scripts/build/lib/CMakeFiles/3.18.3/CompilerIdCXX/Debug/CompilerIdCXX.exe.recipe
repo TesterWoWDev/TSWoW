@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CompilerIdCXX\CompilerIdCXX.exe</FullPath>
+      <FullPath>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CompilerIdCXX\CompilerIdCXX.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
