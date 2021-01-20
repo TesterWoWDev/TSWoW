@@ -22,13 +22,6 @@ void QoLChanges(TSEventHandlers *  events)
         }
     }
     );
-    events->SpellID->OnCast(23881, [](auto spell)
-    {
-        auto target = spell->GetTarget()->ToCreature();
-        auto player = spell->GetCaster();
-        target->GetLoot()->AddItem(CreateLootItem(25861));
-    }
-    );
 };
 
 
