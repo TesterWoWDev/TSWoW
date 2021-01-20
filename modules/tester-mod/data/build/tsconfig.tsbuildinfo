@@ -3865,7 +3865,6 @@
       "forceConsistentCasingInFileNames": true,
       "experimentalDecorators": true,
       "sourceMap": true,
-      "watch": true,
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {

@@ -3,7 +3,7 @@
 /bin/addons
 /bin/BLPConverter
 /bin/cmake
-/bin/include
+/bin/include/*.h
 /bin/libraries
 /bin/mpqbuilder
 /bin/mysql
@@ -14,6 +14,10 @@
 /bin/start.js
 /bin/symlinkmaker.js
 /bin/tdb.7z
+/bin/trinitycore/release/Crashes
+/bin/trinitycore/release/*.dll
+/bin/trinitycore/release/*.dist
+/bin/trinitycore/release/scripts
 /config
 /coredata/dbc
 /coredata/dbc_source
