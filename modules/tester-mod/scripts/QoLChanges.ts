@@ -19,9 +19,9 @@ export function QoLChanges(events: TSEventHandlers) {
 		} 
 	});
 
-	// events.SpellID.OnCast(23881,(spell)=>{//use corpse explosion
-	// 	const target = spell.GetTarget().ToCreature()
-	// 	const player = spell.GetCaster()
-	// 	target.GetLoot().AddItem(CreateLootItem(25861))
-	// })
+	events.SpellID.OnCast(23881,(spell)=>{//use corpse explosion
+		const target = spell.GetTarget().ToCreature()
+		const player = spell.GetCaster()
+		target.GetLoot().AddItem(CreateLootItem(25861))
+	})
 }
