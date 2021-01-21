@@ -3,7 +3,6 @@
 /bin/addons
 /bin/BLPConverter
 /bin/cmake
-/bin/include/*.h
 /bin/libraries
 /bin/mpqbuilder
 /bin/mysql
@@ -44,12 +43,5 @@
 /TSWoW.rar
 *.txt
 log.txt
-*.cpp
-*.h
-*.cmake
-*.vcxproj
-*.filters
-*.sln
-*.obj
 modules/tester-mod/scripts/*.json
 modules/tester-mod/scripts/build/
