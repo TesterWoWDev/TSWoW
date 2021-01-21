@@ -6,7 +6,7 @@ include_directories(../../../../../bin/include)
 file (GLOB headers "../../../../../bin/include/*.h")
 file (GLOB libs "../../../../../bin/libraries/Release/*.lib")
 
-add_library(tester-mod SHARED scripts/ID.cpp scripts/Necromancer.cpp scripts/PvP.cpp scripts/QoLChanges.cpp scripts/skillshot.cpp scripts/tester_mod_scripts.cpp scripts/VIP.cpp)
+add_library(tester-mod SHARED scripts/death.cpp scripts/ID.cpp scripts/Necromancer.cpp scripts/PvP.cpp scripts/QoLChanges.cpp scripts/skillshot.cpp scripts/tester_mod_scripts.cpp scripts/VIP.cpp)
 target_link_libraries(tester-mod ${libs})
 
 target_precompile_headers(tester-mod

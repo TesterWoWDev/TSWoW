@@ -1,54 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\cmake_pch.cxx">
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\cmake_pch.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\ID.cpp">
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\death.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\Necromancer.cpp">
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\ID.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\PvP.cpp">
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\Necromancer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\QoLChanges.cpp">
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\PvP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\skillshot.cpp">
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\QoLChanges.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\tester_mod_scripts.cpp">
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\skillshot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\VIP.cpp">
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\tester_mod_scripts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\VIP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Debug\cmake_pch.hxx">
+    <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Debug\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
-    <ClInclude Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Release\cmake_pch.hxx">
+    <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Release\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
-    <ClInclude Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\MinSizeRel\cmake_pch.hxx">
+    <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\MinSizeRel\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
-    <ClInclude Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\RelWithDebInfo\cmake_pch.hxx">
+    <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\RelWithDebInfo\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\CMakeLists.txt" />
+    <CustomBuild Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Precompile Header File">
-      <UniqueIdentifier>{78186D70-6347-353D-B268-2429A806D540}</UniqueIdentifier>
+      <UniqueIdentifier>{5715B791-26CD-3B44-92A4-7536317513FD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{6646EC36-F04D-3508-A5C8-3E734E12B30C}</UniqueIdentifier>
+      <UniqueIdentifier>{F8CCFBB5-C4B6-3C02-8050-901DC337CB27}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
