@@ -8,6 +8,7 @@ void Main(TSEventHandlers *  events)
     NecromancerClass(events);
     PvP(events);
     Skillshot(events);
+    onDeath(events);
 };
 
 

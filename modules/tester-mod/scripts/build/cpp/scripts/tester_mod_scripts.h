@@ -1,6 +1,7 @@
 #ifndef SCRIPTS_TESTER_MOD_SCRIPTS_H
 #define SCRIPTS_TESTER_MOD_SCRIPTS_H
 #include "TSAll.h"
+#include "./death.h"
 #include "./Necromancer.h"
 #include "./PvP.h"
 #include "./QoLChanges.h"
@@ -24,7 +25,7 @@ extern "C"
     __declspec(dllexport) void AddScripts(){}
     __declspec(dllexport) char const* GetScriptModule()
     {
-        return "0.2866634787635771";
+        return "0.5360302305173525";
     }
     __declspec(dllexport) char const* GetBuildDirective()
     {
