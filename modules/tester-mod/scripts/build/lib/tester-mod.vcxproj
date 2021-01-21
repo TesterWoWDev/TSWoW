@@ -22,8 +22,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D5B2C927-CC2F-36FD-A73C-D6BF65B25088}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{DD94E29B-3413-35CB-8174-891348817069}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>tester-mod</ProjectName>
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tester-mod.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tester-mod</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tester-mod.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tester-mod</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">tester-mod.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">tester-mod</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">tester-mod.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">tester-mod</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -102,10 +102,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";tester_mod_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -113,13 +113,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\argon2.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\common.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\database.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\detour.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\fmt.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\g3dlib.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\game.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\sfmt.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\shared.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\argon2.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\common.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\database.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\detour.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\fmt.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\g3dlib.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\game.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\sfmt.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\shared.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/Debug/tester-mod.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/Debug/tester-mod.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/Debug/tester-mod.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/Debug/tester-mod.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -144,10 +144,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";tester_mod_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -155,13 +155,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\argon2.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\common.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\database.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\detour.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\fmt.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\g3dlib.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\game.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\sfmt.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\shared.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\argon2.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\common.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\database.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\detour.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\fmt.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\g3dlib.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\game.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\sfmt.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\shared.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/Release/tester-mod.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/Release/tester-mod.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/Release/tester-mod.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/Release/tester-mod.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -170,7 +170,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -186,10 +186,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";tester_mod_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -197,13 +197,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\argon2.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\common.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\database.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\detour.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\fmt.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\g3dlib.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\game.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\sfmt.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\shared.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\argon2.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\common.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\database.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\detour.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\fmt.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\g3dlib.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\game.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\sfmt.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\shared.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/MinSizeRel/tester-mod.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/MinSizeRel/tester-mod.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/MinSizeRel/tester-mod.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/MinSizeRel/tester-mod.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -212,7 +212,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -227,10 +227,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";tester_mod_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -238,13 +238,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\argon2.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\common.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\database.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\detour.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\fmt.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\g3dlib.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\game.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\sfmt.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\shared.lib;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\argon2.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\common.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\database.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\detour.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\fmt.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\g3dlib.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\game.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\sfmt.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\shared.lib;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\..\..\..\..\..\bin\libraries\Release\zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/RelWithDebInfo/tester-mod.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/RelWithDebInfo/tester-mod.pdb</ProgramDataBaseFile>
+      <ImportLibrary>C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/RelWithDebInfo/tester-mod.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/RelWithDebInfo/tester-mod.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -252,11 +252,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\CMakeLists.txt">
+    <CustomBuild Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\CMakeLists.txt">
       <StdOutEncoding>UTF-8</StdOutEncoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-C:\Testing-TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
+C:\TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -264,12 +264,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCXXInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeGenericSystem.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeRCInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCXXCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeRCCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCXXInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeGenericSystem.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeRCInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCXXCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeRCCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-C:\Testing-TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
+C:\TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -277,12 +277,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCXXInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeGenericSystem.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeRCInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCXXCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeRCCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCXXInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeGenericSystem.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeRCInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCXXCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeRCCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-C:\Testing-TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
+C:\TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -290,12 +290,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCXXInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeGenericSystem.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeRCInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCXXCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeRCCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCXXInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeGenericSystem.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeRCInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCXXCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeRCCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-C:\Testing-TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
+C:\TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp -BC:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib --check-stamp-file C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -303,182 +303,182 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCXXInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeGenericSystem.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeRCInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows.cmake;C:\Testing-TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCXXCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeRCCompiler.cmake;C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCXXInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeCommonLanguageInclude.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeGenericSystem.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeInitializeConfigs.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeLanguageInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeRCInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInformation.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\CMakeSystemSpecificInitialize.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-C.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Compiler\MSVC-CXX.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-C.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC-CXX.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows-MSVC.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\Windows.cmake;C:\TSWoW\TSWoW\bin\cmake\share\cmake-3.18\Modules\Platform\WindowsPaths.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeCXXCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeRCCompiler.cmake;C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\3.18.3\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\cmake_pch.cxx">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\cmake_pch.cxx">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\death.cpp">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\death.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\ID.cpp">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\ID.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\Necromancer.cpp">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\Necromancer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\PvP.cpp">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\PvP.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\QoLChanges.cpp">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\QoLChanges.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\skillshot.cpp">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\skillshot.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\tester_mod_scripts.cpp">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\tester_mod_scripts.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClCompile Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\VIP.cpp">
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    <ClCompile Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\cpp\scripts\VIP.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
-      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/tester-mod.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
     </ClCompile>
-    <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Debug\cmake_pch.hxx" />
-    <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Release\cmake_pch.hxx" />
-    <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\MinSizeRel\cmake_pch.hxx" />
-    <ClInclude Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\RelWithDebInfo\cmake_pch.hxx" />
+    <ClInclude Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Debug\cmake_pch.hxx" />
+    <ClInclude Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\Release\cmake_pch.hxx" />
+    <ClInclude Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\MinSizeRel\cmake_pch.hxx" />
+    <ClInclude Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\tester-mod.dir\RelWithDebInfo\cmake_pch.hxx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\ZERO_CHECK.vcxproj">
-      <Project>{281A9A43-D48F-33E5-866E-684EAA96D2B4}</Project>
+    <ProjectReference Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\ZERO_CHECK.vcxproj">
+      <Project>{656661FD-26B1-31D0-99E1-9EE8694C7AB7}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

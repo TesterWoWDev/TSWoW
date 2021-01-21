@@ -1,3 +1,3 @@
-C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir
-C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/ALL_BUILD.dir
-C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/ZERO_CHECK.dir
+C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/tester-mod.dir
+C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/ALL_BUILD.dir
+C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/CMakeFiles/ZERO_CHECK.dir
