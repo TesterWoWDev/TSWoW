@@ -7,10 +7,11 @@ export function onDeath(events: TSEventHandlers) {
         let itemEntry = 0
         let itemCount = 0
         chest.GetLoot().Clear()//maybe?
-        chest.GetLoot().AddLooter(player.GetGUIDLow())
-        chest.GetLoot().SetMoney(player.GetMoney())
-        player.ModifyMoney(-999999999)//idk
-        for (let x=19;x<=22;x++){//equipped bags inside slots
+        chest.GetLoot().AddLooter(player.GetGUIDLow())//prolly work?
+        const charmoney = player.GetMoney()
+        chest.GetLoot().SetMoney(charmoney)
+        player.ModifyMoney(-1*charmoney)
+        for (let x=19;x<=22;x++){//items inside inventory bags
             for (let i = 0; i <= 35; ++i){
                 item = player.GetItemByPos(x,i)
                 if(!item.IsNull()){
@@ -21,7 +22,7 @@ export function onDeath(events: TSEventHandlers) {
                 }
             }
         }
-        for (let x=67;x<=74;x++){//equipped bags inside bank slots
+        for (let x=67;x<=74;x++){//items inside bank bags
             for (let i = 0; i <= 35; ++i){
                 item = player.GetItemByPos(x,i)
                 if(!item.IsNull()){
@@ -32,18 +33,15 @@ export function onDeath(events: TSEventHandlers) {
                 }
             }
         }
-        for(let i=0;i<=118;i++){//equip/equip bags/backpack/bank main/bank bags/keyring
+        for(let i=0;i<=118;i++){//equipment/inventory equipped bags/backpack(base 16)/bank main area/bank equipped bags/keyring
             item = player.GetItemByPos(255,i)
-            if(!item.IsNull()){
-                itemEntry = item.GetEntry()
-                itemCount = item.GetCount()
-                chest.GetLoot().AddItem(CreateLootItem(itemEntry,0,100,0,false,0,itemCount,itemCount))
-                player.RemoveItem(item,itemCount,itemEntry)
-            }
+            itemEntry = item.GetEntry()
+            itemCount = item.GetCount()
+            chest.GetLoot().AddItem(CreateLootItem(itemEntry,0,100,0,false,0,itemCount,itemCount))
+            player.RemoveItem(item,itemCount,itemEntry)
         }
     });
 
     events.Player.OnPVPKill((killer,player)=>{
-        
     });
 }
