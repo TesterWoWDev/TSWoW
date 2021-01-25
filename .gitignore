@@ -43,5 +43,5 @@
 /TSWoW.rar
 *.txt
 log.txt
-modules/tester-mod/scripts/*.json
-modules/tester-mod/scripts/build/
+modules/tester-mod/scripts/build
+*/build
