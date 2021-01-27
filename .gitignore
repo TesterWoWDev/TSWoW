@@ -37,6 +37,4 @@
 /coredata/worldserver.conf.dist
 /log.txt
 /node_modules
-/package-lock.json
-/package.json
 modules/*/scripts/build
