@@ -18,6 +18,7 @@
     "chokidar": "^3.4.3",
     "cross-spawn": "^7.0.3",
     "deasync": "^0.1.21",
+    "flannel-mod": "file:modules/flannel-mod/data/build",
     "fs-extra": "^9.0.1",
     "install": "^0.13.0",
     "js-yaml": "^3.14.0",
