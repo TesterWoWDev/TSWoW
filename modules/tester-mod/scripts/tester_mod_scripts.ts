@@ -3,7 +3,6 @@ import { NecromancerClass } from "./Necromancer";
 import { PvP } from "./PvP";
 import { QoLChanges } from "./QoLChanges";
 import { Skillshot } from "./skillshot";
-import { testChest } from "./testChest";
 import { VIP } from "./VIP"
 
 export function Main(events: TSEventHandlers) {
@@ -12,6 +11,5 @@ export function Main(events: TSEventHandlers) {
 	NecromancerClass(events)
 	PvP(events)
 	Skillshot(events)
-	//onDeath(events)
-	testChest(events)
+	onDeath(events)
 }

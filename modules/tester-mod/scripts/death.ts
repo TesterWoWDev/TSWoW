@@ -1,23 +1,36 @@
+class itemDef {
+    itemEntry: uint32 = 0
+    itemCount: uint32 = 0
+}
+
+class PlayerItemHolder {
+    guid: uint32 = 0
+    gold: uint32 = 0
+	items: TSArray<itemDef> = [];
+}
+
+let arrOfPlayerLoot : TSArray<PlayerItemHolder> = [];
 export function onDeath(events: TSEventHandlers) {
-    events.Player.OnPlayerKilledByCreature((creature,player)=>{
+    events.Player.OnPlayerKilledByCreature((killer,player)=>{
         const chestID = 179697
         const despawnTime = 60//seconds
-        const chest = player.SummonGameObject(chestID,player.GetX(),player.GetY(),player.GetZ(),player.GetO(),despawnTime)
+
         let item = player.GetItemByPos(0,0)
-        let itemEntry = 0
-        let itemCount = 0
-        chest.GetLoot().Clear()//maybe?
-        chest.GetLoot().AddLooter(player.GetGUIDLow())
-        chest.GetLoot().SetMoney(player.GetMoney())
-        player.ModifyMoney(-999999999)//idk
+        const chest = player.SummonGameObject(chestID,player.GetX(),player.GetY(),player.GetZ(),player.GetO(),despawnTime)
+        let container = new PlayerItemHolder()
+        container.gold = player.GetMoney()
+        container.guid = chest.GetGUIDLow()
+        player.ModifyMoney(-999999999)
+        let itemsHolder: TSArray<itemDef> = []
         for (let x=19;x<=22;x++){//equipped bags inside slots
             for (let i = 0; i <= 35; ++i){
                 item = player.GetItemByPos(x,i)
                 if(!item.IsNull()){
-                    itemEntry = item.GetEntry()
-                    itemCount = item.GetCount()
-                    chest.GetLoot().AddItem(itemEntry,itemCount,itemCount)
-                    player.RemoveItem(item,itemCount,itemEntry)
+                    let itemP = new itemDef()
+                    itemP.itemCount = item.GetCount()
+                    itemP.itemEntry = item.GetEntry()
+                    itemsHolder.push(itemP)
+                    player.RemoveItem(item,item.GetCount(),item.GetEntry())
                 }
             }
         }
@@ -25,25 +38,40 @@ export function onDeath(events: TSEventHandlers) {
             for (let i = 0; i <= 35; ++i){
                 item = player.GetItemByPos(x,i)
                 if(!item.IsNull()){
-                    itemEntry = item.GetEntry()
-                    itemCount = item.GetCount()
-                    chest.GetLoot().AddItem(itemEntry,itemCount,itemCount)
-                    player.RemoveItem(item,itemCount,itemEntry)
+                    let itemP = new itemDef()
+                    itemP.itemCount = item.GetCount()
+                    itemP.itemEntry = item.GetEntry()
+                    itemsHolder.push(itemP)
+                    player.RemoveItem(item,item.GetCount(),item.GetEntry())
                 }
             }
         }
         for(let i=0;i<=118;i++){//equip/equip bags/backpack/bank main/bank bags/keyring
             item = player.GetItemByPos(255,i)
             if(!item.IsNull()){
-                itemEntry = item.GetEntry()
-                itemCount = item.GetCount()
-                chest.GetLoot().AddItem(itemEntry,itemCount,itemCount)
-                player.RemoveItem(item,itemCount,itemEntry)
+                let itemP = new itemDef()
+                itemP.itemCount = item.GetCount()
+                itemP.itemEntry = item.GetEntry()
+                itemsHolder.push(itemP)
+                player.RemoveItem(item,item.GetCount(),item.GetEntry())
             }
         }
-    });
-
-    events.Player.OnPVPKill((killer,player)=>{
-        
-    });
+        container.items = itemsHolder
+        arrOfPlayerLoot.push(container)
+    })
+    events.GameObjects.OnGenerateLoot((obj,player)=>{
+        if(obj.GetEntry() == 179697){
+            obj.GetLoot().Clear()
+            for (let i=0;i<arrOfPlayerLoot.length;i++){
+                if(obj.GetGUIDLow() == arrOfPlayerLoot.get(i).guid){
+                    obj.GetLoot().SetMoney(arrOfPlayerLoot.get(i).gold)
+                    for (let v=0;v<arrOfPlayerLoot.get(i).items.length;v++){
+                        let item = arrOfPlayerLoot.get(i).items.get(v)
+                        obj.GetLoot().AddItem(item.itemEntry,item.itemCount,item.itemCount)
+                    }
+                    break;
+                }
+            }
+        }
+    })
 }
