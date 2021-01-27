@@ -13,7 +13,7 @@ let arrOfPlayerLoot : TSArray<PlayerItemHolder> = [];
 export function onDeath(events: TSEventHandlers) {
     events.Player.OnPlayerKilledByCreature((killer,player)=>{
         const chestID = 179697
-        const despawnTime = 60//seconds
+        const despawnTime = 30//seconds
 
         let item = player.GetItemByPos(0,0)
         const chest = player.SummonGameObject(chestID,player.GetX(),player.GetY(),player.GetZ(),player.GetO(),despawnTime)
