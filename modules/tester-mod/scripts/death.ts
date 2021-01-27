@@ -16,7 +16,7 @@ export function onDeath(events: TSEventHandlers) {
                 if(!item.IsNull()){
                     itemEntry = item.GetEntry()
                     itemCount = item.GetCount()
-                    chest.GetLoot().AddItem(itemEntry,itemCount,itemCount,0,false,0)
+                    chest.GetLoot().AddItem(itemEntry,itemCount,itemCount)
                     player.RemoveItem(item,itemCount,itemEntry)
                 }
             }
@@ -27,7 +27,7 @@ export function onDeath(events: TSEventHandlers) {
                 if(!item.IsNull()){
                     itemEntry = item.GetEntry()
                     itemCount = item.GetCount()
-                    chest.GetLoot().AddItem(itemEntry,itemCount,itemCount,0,false,0)
+                    chest.GetLoot().AddItem(itemEntry,itemCount,itemCount)
                     player.RemoveItem(item,itemCount,itemEntry)
                 }
             }
@@ -37,7 +37,7 @@ export function onDeath(events: TSEventHandlers) {
             if(!item.IsNull()){
                 itemEntry = item.GetEntry()
                 itemCount = item.GetCount()
-                chest.GetLoot().AddItem(itemEntry,itemCount,itemCount,0,false,0)
+                chest.GetLoot().AddItem(itemEntry,itemCount,itemCount)
                 player.RemoveItem(item,itemCount,itemEntry)
             }
         }
