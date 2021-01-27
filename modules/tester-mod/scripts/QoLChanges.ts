@@ -18,10 +18,4 @@ export function QoLChanges(events: TSEventHandlers) {
 			player.SendBroadcastMessage("|cffffffff[LevelTracker]|r "+player.GetName() + " Has Reached Max Level! Congrats "+ player.GetName()+" on reaching "+player.GetLevel()+"!")
 		} 
 	});
-
-	// events.SpellID.OnCast(23881,(spell)=>{//use corpse explosion
-	// 	const target = spell.GetTarget().ToCreature()
-	// 	const player = spell.GetCaster()
-	// 	target.GetLoot().AddItem(CreateLootItem(25861))
-	// })
 }
