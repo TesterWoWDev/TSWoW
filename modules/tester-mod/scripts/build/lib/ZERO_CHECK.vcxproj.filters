@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\0e0b61e39636f8b8c3f5c934a51674c9\generate.stamp.rule">
+    <CustomBuild Include="C:\Testing-TSWoW\TSWoW\modules\tester-mod\scripts\build\lib\CMakeFiles\d4334825e147df9a417edda9ff40d441\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{EB5530E0-5CE8-3003-8DD8-420E84ACE13E}</UniqueIdentifier>
+      <UniqueIdentifier>{76D6CF78-FC23-341A-9BB8-B1BA5BA276E1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

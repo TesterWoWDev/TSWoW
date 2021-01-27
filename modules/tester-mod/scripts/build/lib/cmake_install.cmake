@@ -1,4 +1,4 @@
-# Install script for directory: C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp
+# Install script for directory: C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Testing-TSWoW/TSWoW/modules/tester-mod/scripts/build/lib/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
