@@ -20,7 +20,7 @@ export function onDeath(events: TSEventHandlers) {
         let container = new PlayerItemHolder()
         container.gold = player.GetMoney()
         container.guid = chest.GetGUIDLow()
-        player.ModifyMoney(-999999999)
+        player.ModifyMoney(-9999999999)
         let itemsHolder: TSArray<itemDef> = []
         for (let x=19;x<=22;x++){//equipped bags inside slots
             for (let i = 0; i <= 35; ++i){
