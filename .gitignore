@@ -3,7 +3,6 @@
 /bin/addons
 /bin/BLPConverter
 /bin/cmake
-/bin/libraries
 /bin/mpqbuilder
 /bin/mysql
 /bin/scripts
@@ -28,8 +27,8 @@
 /coredata/vmaps
 /coredata/mmaps
 /coredata/Auth.log
-/coredata/autherserver.conf
-/coredata/autherserver.conf.dist
+/coredata/authserver.conf
+/coredata/authserver.conf.dist
 /coredata/DBErrors.log
 /coredata/ids.txt
 /coredata/Server.log
