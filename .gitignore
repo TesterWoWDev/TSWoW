@@ -39,8 +39,4 @@
 /node_modules
 /package-lock.json
 /package.json
-/TSWoW.rar
-*.txt
-log.txt
-modules/tester-mod/scripts/build
-*/build
+modules/*/scripts/build
