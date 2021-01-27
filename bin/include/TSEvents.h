@@ -24,6 +24,8 @@
 #include "TSChannel.h"
 #include "TSAura.h"
 #include "TSLoot.h"
+#include "TSMail.h"
+#include "TSAuction.h"
 #include <cstdint>
 
 // WorldScript
@@ -42,13 +44,6 @@ EVENT_TYPE(FormulaOnBaseGainCalculation,TSMutable<uint32>,uint8,uint8,uint32)
 EVENT_TYPE(FormulaOnGainCalculation,TSMutable<uint32>,TSPlayer,TSUnit)
 EVENT_TYPE(FormulaOnGroupRateCalculation,TSMutable<float>,uint32,bool)
 
-// ItemScript
-EVENT_TYPE(ItemOnQuestAccept,TSPlayer,TSItem,TSQuest, TSMutable<bool>)
-//EVENT_TYPE(ItemOnUse,TSPlayer,TSItem,TSMutable<const>, TSMutable<bool>)
-EVENT_TYPE(ItemOnExpire,TSPlayer,TSItemTemplate, TSMutable<bool>)
-EVENT_TYPE(ItemOnRemove,TSPlayer,TSItem, TSMutable<bool>)
-EVENT_TYPE(ItemOnCastItemCombatSpell,TSPlayer,TSUnit,TSSpellInfo,TSItem,TSMutable<bool>)
-
 // UnitScript
 EVENT_TYPE(UnitOnHeal,TSUnit,TSUnit,TSMutable<uint32>)
 EVENT_TYPE(UnitOnDamage,TSUnit,TSUnit,TSMutable<uint32>)
@@ -57,6 +52,7 @@ EVENT_TYPE(UnitModifyMeleeDamage,TSUnit,TSUnit,TSMutable<uint32>)
 EVENT_TYPE(UnitModifySpellDamageTaken,TSUnit,TSUnit,TSMutable<int32>)
 //EVENT_TYPE(UnitModifyVehiclePassengerExitPos,TSUnit,TSVehicle,TSMutable<Position>)
 
+
 // AreaTriggerScript
 //EVENT_TYPE(AreaTriggerOnTrigger,TSPlayer,const*, TSMutable<bool>)
 
@@ -64,10 +60,10 @@ EVENT_TYPE(UnitModifySpellDamageTaken,TSUnit,TSUnit,TSMutable<int32>)
 //EVENT_TYPE(WeatherOnChange,Weather*,WeatherState,float)
 
 // AuctionHouseScript
-//EVENT_TYPE(AuctionHouseOnAuctionAdd,AuctionHouseObject*,AuctionEntry*)
-//EVENT_TYPE(AuctionHouseOnAuctionRemove,AuctionHouseObject*,AuctionEntry*)
-//EVENT_TYPE(AuctionHouseOnAuctionSuccessful,AuctionHouseObject*,AuctionEntry*)
-//EVENT_TYPE(AuctionHouseOnAuctionExpire,AuctionHouseObject*,AuctionEntry*)
+EVENT_TYPE(AuctionHouseOnAuctionAdd,TSAuctionHouseObject,TSAuctionEntry)
+EVENT_TYPE(AuctionHouseOnAuctionRemove,TSAuctionHouseObject,TSAuctionEntry)
+EVENT_TYPE(AuctionHouseOnAuctionSuccessful,TSAuctionHouseObject,TSAuctionEntry)
+EVENT_TYPE(AuctionHouseOnAuctionExpire,TSAuctionHouseObject,TSAuctionEntry)
 
 // ConditionScript
 //EVENT_TYPE(ConditionOnConditionCheck,const*,TSMutable<ConditionSourceInfo>, TSMutable<bool>)
@@ -118,6 +114,13 @@ EVENT_TYPE(PlayerOnQuestObjectiveProgress,TSPlayer,TSQuest,uint32,uint16)
 EVENT_TYPE(PlayerOnQuestStatusChange,TSPlayer,uint32)
 EVENT_TYPE(PlayerOnMovieComplete,TSPlayer,uint32)
 EVENT_TYPE(PlayerOnPlayerRepop,TSPlayer)
+EVENT_TYPE(PlayerOnSendMail,TSPlayer,TSMailDraft,TSMutable<uint32>)
+
+EVENT_TYPE(PlayerOnGenerateItemLoot,TSPlayer,TSItem,TSLoot,uint32)
+EVENT_TYPE(PlayerOnLootCorpse,TSPlayer,TSCorpse)
+
+EVENT_TYPE(PlayerOnGossipSelect,TSPlayer,TSPlayer,uint32_t,uint32_t,TSMutable<bool>)
+EVENT_TYPE(PlayerOnGossipSelectCode,TSPlayer,TSPlayer,uint32_t,uint32_t,TSString,TSMutable<bool>)
 
 // AccountScript
 EVENT_TYPE(AccountOnAccountLogin,uint32)
@@ -195,10 +198,18 @@ EVENT_TYPE(CreatureOnPassengerBoarded,TSCreature,TSUnit,int8,bool)
 EVENT_TYPE(CreatureOnSpellClick,TSCreature,TSUnit,bool)
 EVENT_TYPE(CreatureOnUpdateAI,TSCreature,uint32)
 EVENT_TYPE(CreatureOnGenerateLoot,TSCreature,TSPlayer)
+EVENT_TYPE(CreatureOnCreate,TSCreature,TSMutable<bool>)
+EVENT_TYPE(CreatureOnRemove,TSCreature)
 
 EVENT_TYPE(CreatureOnGossipHello,TSCreature,TSPlayer,TSMutable<bool>)
 EVENT_TYPE(CreatureOnGossipSelect,TSCreature,TSPlayer,uint32,uint32,TSMutable<bool>)
 EVENT_TYPE(CreatureOnGossipSelectCode,TSCreature,TSPlayer,uint32,uint32,TSString,TSMutable<bool>)
+EVENT_TYPE(CreatureOnQuestAccept,TSCreature,TSPlayer,TSQuest)
+EVENT_TYPE(CreatureOnQuestReward,TSCreature,TSPlayer,TSQuest,uint32)
+
+EVENT_TYPE(CreatureOnCanGeneratePickPocketLoot,TSCreature,TSPlayer,TSMutable<bool>)
+EVENT_TYPE(CreatureOnGeneratePickPocketLoot,TSCreature,TSPlayer,TSLoot)
+EVENT_TYPE(CreatureOnGenerateSkinningLoot,TSCreature,TSPlayer,TSLoot)
 
 struct TSCreatureEvents {
      EVENT(CreatureOnMoveInLOS)
@@ -227,10 +238,18 @@ struct TSCreatureEvents {
      EVENT(CreatureOnSpellClick)
      EVENT(CreatureOnUpdateAI)
      EVENT(CreatureOnGenerateLoot)
+     EVENT(CreatureOnCreate)
+     EVENT(CreatureOnRemove)
 
      EVENT(CreatureOnGossipHello)
      EVENT(CreatureOnGossipSelect)
      EVENT(CreatureOnGossipSelectCode)
+     EVENT(CreatureOnQuestAccept)
+     EVENT(CreatureOnQuestReward)
+
+     EVENT(CreatureOnCanGeneratePickPocketLoot)
+     EVENT(CreatureOnGeneratePickPocketLoot)
+     EVENT(CreatureOnGenerateSkinningLoot)
 };
 
 class TSCreatureMap : public TSEventMap<TSCreatureEvents>
@@ -238,6 +257,117 @@ class TSCreatureMap : public TSEventMap<TSCreatureEvents>
      void OnAdd(uint32_t,TSCreatureEvents*);
      void OnRemove(uint32_t);
 };
+
+// ItemScript
+EVENT_TYPE(ItemOnUse,TSItem,TSPlayer,void*,TSMutable<bool>)
+EVENT_TYPE(ItemOnExpire,TSItemTemplate,TSPlayer, TSMutable<bool>)
+EVENT_TYPE(ItemOnRemove,TSItem,TSPlayer,TSMutable<bool>)
+EVENT_TYPE(ItemOnCastSpell,TSItem,TSPlayer,TSUnit,TSSpellInfo,TSMutable<bool>)
+
+EVENT_TYPE(ItemOnQuestAccept,TSItem,TSPlayer,TSQuest)
+
+EVENT_TYPE(ItemOnGossipHello,TSItem,TSPlayer,TSMutable<bool>)
+EVENT_TYPE(ItemOnGossipSelect,TSItem,TSPlayer,uint32,uint32,TSMutable<bool>)
+EVENT_TYPE(ItemOnGossipSelectCode,TSItem,TSPlayer,uint32,uint32,TSString,TSMutable<bool>)
+
+struct TSItemEvents {
+     EVENT(ItemOnUse)
+     EVENT(ItemOnExpire)
+     EVENT(ItemOnRemove)
+     EVENT(ItemOnCastSpell)
+
+     EVENT(ItemOnQuestAccept)
+
+     EVENT(ItemOnGossipHello)
+     EVENT(ItemOnGossipSelect)
+     EVENT(ItemOnGossipSelectCode)
+};
+
+class TSItemMap : public TSEventMap<TSItemEvents>
+{
+     void OnAdd(uint32_t,TSItemEvents*);
+     void OnRemove(uint32_t);
+};
+
+// GameObjectScript
+EVENT_TYPE(GameObjectOnUpdate,TSGameObject,uint32)
+EVENT_TYPE(GameObjectOnDialogStatus,TSGameObject,TSPlayer)
+EVENT_TYPE(GameObjectOnDestroyed,TSGameObject,TSWorldObject)
+EVENT_TYPE(GameObjectOnDamaged,TSGameObject,TSWorldObject)
+EVENT_TYPE(GameObjectOnLootStateChanged,TSGameObject,uint32,TSUnit)
+EVENT_TYPE(GameObjectOnGOStateChanged,TSGameObject,uint32)
+
+EVENT_TYPE(GameObjectOnGossipHello,TSGameObject,TSPlayer,TSMutable<bool>)
+EVENT_TYPE(GameObjectOnGossipSelect,TSGameObject,TSPlayer,uint32,uint32,TSMutable<bool>)
+EVENT_TYPE(GameObjectOnGossipSelectCode,TSGameObject,TSPlayer,uint32,uint32,TSString,TSMutable<bool>)
+
+EVENT_TYPE(GameObjectOnCreate,TSGameObject,TSMutable<bool>)
+EVENT_TYPE(GameObjectOnRemove,TSGameObject)
+EVENT_TYPE(GameObjectOnUse,TSGameObject,TSUnit,TSMutable<bool>)
+EVENT_TYPE(GameObjectOnQuestAccept,TSGameObject,TSPlayer,TSQuest)
+EVENT_TYPE(GameObjectOnQuestReward,TSGameObject,TSPlayer,TSQuest,uint32)
+EVENT_TYPE(GameObjectOnGenerateLoot,TSGameObject,TSPlayer)
+EVENT_TYPE(GameObjectOnGenerateFishLoot,TSGameObject,TSPlayer,TSLoot,bool)
+
+struct TSGameObjectEvents {
+     EVENT(GameObjectOnUpdate)
+     EVENT(GameObjectOnDialogStatus)
+     EVENT(GameObjectOnDestroyed)
+     EVENT(GameObjectOnDamaged)
+     EVENT(GameObjectOnLootStateChanged)
+     EVENT(GameObjectOnGOStateChanged)
+
+     EVENT(GameObjectOnGossipHello)
+     EVENT(GameObjectOnGossipSelect)
+     EVENT(GameObjectOnGossipSelectCode)
+
+     EVENT(GameObjectOnCreate)
+     EVENT(GameObjectOnRemove)
+     EVENT(GameObjectOnUse)
+     EVENT(GameObjectOnQuestAccept)
+     EVENT(GameObjectOnQuestReward)
+     EVENT(GameObjectOnGenerateLoot)
+     EVENT(GameObjectOnGenerateFishLoot)
+};
+
+class TSGameObjectMap : public TSEventMap<TSGameObjectEvents>
+{
+    void OnAdd(uint32_t, TSGameObjectEvents*);
+    void OnRemove(uint32_t);
+};
+
+EVENT_TYPE(MapOnCreate,TSMap)
+EVENT_TYPE(MapOnUpdate,TSMap,uint32)
+EVENT_TYPE(MapOnPlayerEnter,TSMap,TSPlayer)
+EVENT_TYPE(MapOnPlayerLeave,TSMap,TSPlayer)
+EVENT_TYPE(MapOnCreatureCreate,TSMap,TSCreature,TSMutable<bool>)
+EVENT_TYPE(MapOnCreatureRemove,TSMap,TSCreature)
+EVENT_TYPE(MapOnGameObjectCreate,TSMap,TSGameObject,TSMutable<bool>)
+EVENT_TYPE(MapOnGameObjectRemove,TSMap,TSGameObject)
+EVENT_TYPE(MapOnCheckEncounter,TSMap,TSPlayer)
+
+struct TSMapEvents {
+     EVENT(MapOnCreate)
+     EVENT(MapOnUpdate)
+     EVENT(MapOnPlayerEnter)
+     EVENT(MapOnPlayerLeave)
+     EVENT(MapOnCreatureCreate)
+     EVENT(MapOnCreatureRemove)
+     EVENT(MapOnGameObjectCreate)
+     EVENT(MapOnGameObjectRemove)
+     EVENT(MapOnCheckEncounter)
+};
+
+class TSMapMap : public TSEventMap<TSMapEvents>
+{
+    void OnAdd(uint32_t, TSMapEvents*);
+    void OnRemove(uint32_t);
+};
+
+struct TSMapDataExtra {
+     TSMapEvents* events = nullptr;
+};
+TC_GAME_API TSMapDataExtra* GetMapDataExtra(uint32_t);
 
 struct TSEvents
 {
@@ -258,12 +388,16 @@ struct TSEvents
     EVENT(FormulaOnGroupRateCalculation)
 
     // ItemScript
-    EVENT(ItemOnQuestAccept)
-    //EVENT(ItemOnUse)
+    EVENT(ItemOnUse)
     EVENT(ItemOnExpire)
     EVENT(ItemOnRemove)
-    EVENT(ItemOnCastItemCombatSpell)
+    EVENT(ItemOnCastSpell)
 
+    EVENT(ItemOnQuestAccept)
+
+    EVENT(ItemOnGossipHello)
+    EVENT(ItemOnGossipSelect)
+    EVENT(ItemOnGossipSelectCode)
 
     // UnitScript
     EVENT(UnitOnHeal)
@@ -280,10 +414,10 @@ struct TSEvents
     //EVENT(WeatherOnChange)
 
     // AuctionHouseScript
-    //EVENT(AuctionHouseOnAuctionAdd)
-    //EVENT(AuctionHouseOnAuctionRemove)
-    //EVENT(AuctionHouseOnAuctionSuccessful)
-    //EVENT(AuctionHouseOnAuctionExpire)
+    EVENT(AuctionHouseOnAuctionAdd)
+    EVENT(AuctionHouseOnAuctionRemove)
+    EVENT(AuctionHouseOnAuctionSuccessful)
+    EVENT(AuctionHouseOnAuctionExpire)
 
     // ConditionScript
     //EVENT(ConditionOnConditionCheck)
@@ -334,6 +468,11 @@ struct TSEvents
     EVENT(PlayerOnQuestStatusChange)
     EVENT(PlayerOnMovieComplete)
     EVENT(PlayerOnPlayerRepop)
+    EVENT(PlayerOnSendMail)
+    EVENT(PlayerOnGossipSelect)
+    EVENT(PlayerOnGossipSelectCode)
+    EVENT(PlayerOnGenerateItemLoot)
+    EVENT(PlayerOnLootCorpse)
 
     // AccountScript
     EVENT(AccountOnAccountLogin)
@@ -389,10 +528,17 @@ struct TSEvents
     EVENT(CreatureOnSpellClick)
     EVENT(CreatureOnUpdateAI)
     EVENT(CreatureOnGenerateLoot)
+    EVENT(CreatureOnCreate)
+    EVENT(CreatureOnRemove)
 
     EVENT(CreatureOnGossipHello)
     EVENT(CreatureOnGossipSelect)
     EVENT(CreatureOnGossipSelectCode)
+    EVENT(CreatureOnQuestAccept)
+    EVENT(CreatureOnQuestReward)
+    EVENT(CreatureOnCanGeneratePickPocketLoot)
+    EVENT(CreatureOnGeneratePickPocketLoot)
+    EVENT(CreatureOnGenerateSkinningLoot)
 
     // SpellScript
     EVENT(SpellOnCast)
@@ -401,13 +547,49 @@ struct TSEvents
     EVENT(SpellOnTick)
     EVENT(SpellOnRemove)
 
+    // GameObjects
+    EVENT(GameObjectOnUpdate)
+    EVENT(GameObjectOnDialogStatus)
+    EVENT(GameObjectOnDestroyed)
+    EVENT(GameObjectOnDamaged)
+    EVENT(GameObjectOnLootStateChanged)
+    EVENT(GameObjectOnGOStateChanged)
+
+    EVENT(GameObjectOnGossipHello)
+    EVENT(GameObjectOnGossipSelect)
+    EVENT(GameObjectOnGossipSelectCode)
+
+    EVENT(GameObjectOnCreate)
+    EVENT(GameObjectOnRemove)
+    EVENT(GameObjectOnUse)
+    EVENT(GameObjectOnQuestAccept)
+    EVENT(GameObjectOnQuestReward)
+    EVENT(GameObjectOnGenerateLoot)
+    EVENT(GameObjectOnGenerateFishLoot)
+
+    // Maps
+    EVENT(MapOnCreate)
+    EVENT(MapOnUpdate)
+    EVENT(MapOnPlayerEnter)
+    EVENT(MapOnPlayerLeave)
+    EVENT(MapOnCreatureCreate)
+    EVENT(MapOnCreatureRemove)
+    EVENT(MapOnGameObjectCreate)
+    EVENT(MapOnGameObjectRemove)
+    EVENT(MapOnCheckEncounter)
+
     TSSpellMap Spells;
     TSCreatureMap Creatures;
+    TSGameObjectMap GameObjects;
+    TSMapMap Maps;
+    TSItemMap Items;
 };
 
 class TSEventHandlers
 {
 public:
+     uint32_t modid;
+
     struct ServerEvents: public EventHandler
     {
          ServerEvents* operator->() { return this;}
@@ -435,16 +617,6 @@ public:
          EVENT_HANDLE(Formula,OnGroupRateCalculation)
     } Formula;
 
-    struct ItemEvents: public EventHandler
-    {
-         ItemEvents* operator->() { return this;}
-         EVENT_HANDLE(Item,OnQuestAccept)
-         //EVENT_HANDLE(Item,OnUse)
-         EVENT_HANDLE(Item,OnExpire)
-         EVENT_HANDLE(Item,OnRemove)
-         EVENT_HANDLE(Item,OnCastItemCombatSpell)
-    } Item;
-
     struct UnitEvents: public EventHandler
     {
          UnitEvents* operator->() { return this;}
@@ -471,10 +643,10 @@ public:
     struct AuctionEvents: public EventHandler
     {
          AuctionEvents* operator->() { return this;}
-         //EVENT_HANDLE(AuctionHouse,OnAuctionAdd)
-         //EVENT_HANDLE(AuctionHouse,OnAuctionRemove)
-         //EVENT_HANDLE(AuctionHouse,OnAuctionSuccessful)
-         //EVENT_HANDLE(AuctionHouse,OnAuctionExpire)
+         EVENT_HANDLE(AuctionHouse,OnAuctionAdd)
+         EVENT_HANDLE(AuctionHouse,OnAuctionRemove)
+         EVENT_HANDLE(AuctionHouse,OnAuctionSuccessful)
+         EVENT_HANDLE(AuctionHouse,OnAuctionExpire)
     } AuctionHouse;
 
     struct ConditionEvents: public EventHandler
@@ -537,6 +709,11 @@ public:
          EVENT_HANDLE(Player,OnQuestStatusChange)
          EVENT_HANDLE(Player,OnMovieComplete)
          EVENT_HANDLE(Player,OnPlayerRepop)
+         EVENT_HANDLE(Player,OnSendMail)
+         EVENT_HANDLE(Player,OnGossipSelect)
+         EVENT_HANDLE(Player,OnGossipSelectCode)
+         EVENT_HANDLE(Player,OnGenerateItemLoot)
+         EVENT_HANDLE(Player,OnLootCorpse)
     } Player;
 
     struct AccountEvents : public EventHandler
@@ -623,12 +800,19 @@ public:
           EVENT_HANDLE(Creature,OnPassengerBoarded)
           EVENT_HANDLE(Creature,OnSpellClick)
           EVENT_HANDLE(Creature,OnUpdateAI)
-
           EVENT_HANDLE(Creature,OnGenerateLoot)
+          EVENT_HANDLE(Creature,OnCreate)
+          EVENT_HANDLE(Creature,OnRemove)
+
+          EVENT_HANDLE(Creature,OnCanGeneratePickPocketLoot)
+          EVENT_HANDLE(Creature,OnGeneratePickPocketLoot)
+          EVENT_HANDLE(Creature,OnGenerateSkinningLoot)
 
           EVENT_HANDLE(Creature,OnGossipHello)
           EVENT_HANDLE(Creature,OnGossipSelect)
           EVENT_HANDLE(Creature,OnGossipSelectCode)
+          EVENT_HANDLE(Creature,OnQuestAccept)
+          EVENT_HANDLE(Creature,OnQuestReward)
     } Creatures;
 
     struct CreatureIDEvents : public MappedEventHandler<TSCreatureMap>
@@ -660,19 +844,124 @@ public:
           MAP_EVENT_HANDLE(Creature,OnSpellClick)
           MAP_EVENT_HANDLE(Creature,OnUpdateAI)
           MAP_EVENT_HANDLE(Creature,OnGenerateLoot)
+          MAP_EVENT_HANDLE(Creature,OnCreate)
+          MAP_EVENT_HANDLE(Creature,OnRemove)
+
+          MAP_EVENT_HANDLE(Creature,OnCanGeneratePickPocketLoot)
+          MAP_EVENT_HANDLE(Creature,OnGeneratePickPocketLoot)
+          MAP_EVENT_HANDLE(Creature,OnGenerateSkinningLoot)
 
           MAP_EVENT_HANDLE(Creature,OnGossipHello)
           MAP_EVENT_HANDLE(Creature,OnGossipSelect)
           MAP_EVENT_HANDLE(Creature,OnGossipSelectCode)
+          MAP_EVENT_HANDLE(Creature,OnQuestAccept) 
+          MAP_EVENT_HANDLE(Creature,OnQuestReward)
     } CreatureID;
 
+    struct GameObjectEvents: public EventHandler {
+          GameObjectEvents* operator->(){return this;}
+          EVENT_HANDLE(GameObject,OnUpdate)
+          EVENT_HANDLE(GameObject,OnDialogStatus)
+          EVENT_HANDLE(GameObject,OnDestroyed)
+          EVENT_HANDLE(GameObject,OnDamaged)
+          EVENT_HANDLE(GameObject,OnLootStateChanged)
+          EVENT_HANDLE(GameObject,OnGOStateChanged)
+
+          EVENT_HANDLE(GameObject,OnGossipHello)
+          EVENT_HANDLE(GameObject,OnGossipSelect)
+          EVENT_HANDLE(GameObject,OnGossipSelectCode)
+
+          EVENT_HANDLE(GameObject,OnCreate)
+          EVENT_HANDLE(GameObject,OnRemove)
+          EVENT_HANDLE(GameObject,OnUse)
+          EVENT_HANDLE(GameObject,OnQuestAccept)
+          EVENT_HANDLE(GameObject,OnQuestReward)
+          EVENT_HANDLE(GameObject,OnGenerateLoot)
+          EVENT_HANDLE(GameObject,OnGenerateFishLoot)
+    } GameObjects;
+
+     struct GameObjectIDEvents: public MappedEventHandler<TSGameObjectMap> {
+          GameObjectIDEvents* operator->(){return this;}
+          MAP_EVENT_HANDLE(GameObject,OnUpdate)
+          MAP_EVENT_HANDLE(GameObject,OnDialogStatus)
+          MAP_EVENT_HANDLE(GameObject,OnDestroyed)
+          MAP_EVENT_HANDLE(GameObject,OnDamaged)
+          MAP_EVENT_HANDLE(GameObject,OnLootStateChanged)
+          MAP_EVENT_HANDLE(GameObject,OnGOStateChanged)
+
+          MAP_EVENT_HANDLE(GameObject,OnGossipHello)
+          MAP_EVENT_HANDLE(GameObject,OnGossipSelect)
+          MAP_EVENT_HANDLE(GameObject,OnGossipSelectCode)
+
+          MAP_EVENT_HANDLE(GameObject,OnCreate)
+          MAP_EVENT_HANDLE(GameObject,OnRemove)
+          MAP_EVENT_HANDLE(GameObject,OnUse)
+          MAP_EVENT_HANDLE(GameObject,OnQuestAccept)
+          MAP_EVENT_HANDLE(GameObject,OnQuestReward)
+          MAP_EVENT_HANDLE(GameObject,OnGenerateLoot)
+          MAP_EVENT_HANDLE(GameObject,OnGenerateFishLoot)
+    } GameObjectID;
+
+    struct MapEvents: public EventHandler {
+          MapEvents* operator->(){return this;}
+          EVENT_HANDLE(Map,OnCreate)
+          EVENT_HANDLE(Map,OnUpdate)
+          EVENT_HANDLE(Map,OnPlayerEnter)
+          EVENT_HANDLE(Map,OnPlayerLeave)
+          EVENT_HANDLE(Map,OnCreatureCreate)
+          EVENT_HANDLE(Map,OnCreatureRemove)
+          EVENT_HANDLE(Map,OnGameObjectCreate)
+          EVENT_HANDLE(Map,OnGameObjectRemove)
+          EVENT_HANDLE(Map,OnCheckEncounter) 
+    } Maps;
+
+    struct MapIDEvents: public MappedEventHandler<TSMapMap>
+    {
+          MapIDEvents* operator->(){return this;}
+          MAP_EVENT_HANDLE(Map,OnCreate)
+          MAP_EVENT_HANDLE(Map,OnUpdate)
+          MAP_EVENT_HANDLE(Map,OnPlayerEnter)
+          MAP_EVENT_HANDLE(Map,OnPlayerLeave)
+          MAP_EVENT_HANDLE(Map,OnCreatureCreate)
+          MAP_EVENT_HANDLE(Map,OnCreatureRemove)
+          MAP_EVENT_HANDLE(Map,OnGameObjectCreate)
+          MAP_EVENT_HANDLE(Map,OnGameObjectRemove)
+          MAP_EVENT_HANDLE(Map,OnCheckEncounter) 
+    } MapID;
+
+     struct ItemEvents: public EventHandler {
+         ItemEvents* operator->(){return this;}
+         EVENT_HANDLE(Item,OnUse)
+         EVENT_HANDLE(Item,OnExpire)
+         EVENT_HANDLE(Item,OnRemove)
+         EVENT_HANDLE(Item,OnCastSpell)
+
+         EVENT_HANDLE(Item,OnQuestAccept)
+
+         EVENT_HANDLE(Item,OnGossipHello)
+         EVENT_HANDLE(Item,OnGossipSelect)
+         EVENT_HANDLE(Item,OnGossipSelectCode)
+     } Items;
+
+    struct ItemIDEvents: public MappedEventHandler<TSItemMap> {
+         ItemIDEvents* operator->(){return this;}
+         MAP_EVENT_HANDLE(Item,OnUse)
+         MAP_EVENT_HANDLE(Item,OnExpire)
+         MAP_EVENT_HANDLE(Item,OnRemove)
+         MAP_EVENT_HANDLE(Item,OnCastSpell)
+
+         MAP_EVENT_HANDLE(Item,OnQuestAccept)
+
+         MAP_EVENT_HANDLE(Item,OnGossipHello)
+         MAP_EVENT_HANDLE(Item,OnGossipSelect)
+         MAP_EVENT_HANDLE(Item,OnGossipSelectCode)
+    } ItemID;
 
     void LoadEvents(TSEvents* events)
     {
         Server.LoadEvents(events);
         World.LoadEvents(events);
         Formula.LoadEvents(events);
-        Item.LoadEvents(events);
         Unit.LoadEvents(events);
         AreaTrigger.LoadEvents(events);
         Weather.LoadEvents(events);
@@ -688,6 +977,12 @@ public:
         CreatureID.LoadEvents(&events->Creatures);
         Creatures.LoadEvents(events);
         Spells.LoadEvents(events);
+        GameObjects.LoadEvents(events);
+        GameObjectID.LoadEvents(&events->GameObjects);
+        Items.LoadEvents(events);
+        ItemID.LoadEvents(&events->Items);
+        Maps.LoadEvents(events);
+        MapID.LoadEvents(&events->Maps);
     }
 
     void Unload()
@@ -695,7 +990,6 @@ public:
          Server.Unload();
          World.Unload();
          Formula.Unload();
-         Item.Unload();
          Unit.Unload();
          AreaTrigger.Unload();
          Weather.Unload();
@@ -711,5 +1005,14 @@ public:
          CreatureID.Unload();
          Spells.Unload();
          Creatures.Unload();
+         GameObjects.Unload();
+         GameObjectID.Unload();
+         Items.Unload();
+         ItemID.Unload();
+         Maps.Unload();
+         MapID.Unload();
     }
 };
+
+TC_GAME_API TSTasks<void*> GetTimers();
+TC_GAME_API TSEvents* GetTSEvents();

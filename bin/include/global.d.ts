@@ -73,6 +73,18 @@ declare class TSPlayer extends TSUnit {
     IsNull() : bool
 
     /**
+     * Immediately sends a mail to this player
+     * @param senderType 
+     * @param from 
+     * @param subject 
+     * @param body 
+     * @param money 
+     * @param cod 
+     * @param items 
+     */
+	SendMail(senderType: uint8, from: uint64, subject: string, body: string, money? : uint32, cod? : uint32, items? : TSArray<TSItem>);
+
+    /**
      * Returns 'true' if the [Player] can Titan Grip, 'false' otherwise.
      *
      * @return bool canTitanGrip
@@ -3167,6 +3179,9 @@ declare class TSQuest {
 declare class TSMap {
     IsNull() : bool
 
+    GetTasks(): TSTasks<TSMap>;
+    GetData(): TSStorage;
+
     /**
      * Returns `true` if the [Map] is an arena [BattleGround], `false` otherwise.
      *
@@ -4097,12 +4112,50 @@ declare class TSVehicle {
     RemovePassenger(passenger : TSUnit) : void    
 }
 
+declare class TSStorage {
+    SetObject<T>(modid: uint32, key: string, obj: T): T;
+    HasObject(modid: uint32, key: string): boolean;
+    GetObject<T>(modid: uint32, key: string, creator: ()=>T): T;
+
+    SetInt(key: string, value: uint32): uint32;
+    HasInt(key: string): boolean;
+    GetInt(key: string): uint32;
+
+    SetFloat(key: string, value: double): double;
+    HasFloat(key: string): boolean;
+    GetFloat(key: string): double;
+
+    SetString(key: string, value: string): string;
+    HasString(key: string): boolean;
+    GetString(key: string): string;
+}
+
+declare class TSCollisionEntry {
+    readonly name: string;
+    maxHIts: uint32;
+    range: float;
+    minDelay: uint64;
+    hitmap: TSDictionary<uint64,uint32>
+    Tick(value: TSWorldObject, force?: boolean)
+}
+
+declare class TSCollisions {
+    Add(modid: uint32, id: string, range: float, minDelay: uint32, maxHits: uint32, callback: (entry: TSCollisionEntry, self: TSWorldObject, collided: TSWorldObject, range: float, cancel: TSMutable<uint32>)=>void)
+    Contains(id: string): bool;
+    Get(id: string): TSCollisionEntry;
+}
+
 declare class TSWorldObject extends TSObject {
+    GetCollisions(): TSCollisions;
     IsNull() : bool
     GetCreaturesInRange(range : float,entry : uint32,hostile : uint32,dead : uint32) : TSArray<TSCreature>
     GetUnitsInRange(range : float,hostile : uint32,dead : uint32) : TSArray<TSUnit>
     GetPlayersInRange(range : float,hostile : uint32,dead : uint32) : TSArray<TSPlayer>
     GetGameObjectsInRange(range : float,entry : uint32,hostile : uint32) : TSArray<TSGameObject>
+
+    GetData(): TSStorage;
+
+    GetTasks(): TSTasks<TSWorldObject>
 
     /**
      * Returns the name of the [WorldObject]
@@ -6116,6 +6169,9 @@ declare namespace _hidden {
         OnQuestStatusChange(callback: (player : TSPlayer,questId : uint32)=>void);
         OnMovieComplete(callback: (player : TSPlayer,movieId : uint32)=>void);
         OnPlayerRepop(callback: (player : TSPlayer)=>void);
+        OnSendMail(callback: (player: TSPlayer, draft: TSMailDraft, delay: TSMutable<uint32>)=>void);
+        OnGenerateItemLoot(callback: (player: TSPlayer, item: TSItem, loot: TSLoot, type: uint32)=>void);
+        OnLootCorpse(callback: (player: TSPlayer, corpse: TSCorpse)=>void);
     }
 
     export class Account {
@@ -6183,7 +6239,10 @@ declare namespace _hidden {
         OnReceiveEmote(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, emote: uint32)=>void);
         OnOwnerAttacked(creature: uint32, callback: (creature: TSCreature, attacker: TSUnit)=>void);
         OnOwnerAttacks(creature: uint32, callback: (creature: TSCreature, target: TSUnit)=>void);
-        OnCorpseRemoved(creature: uint32, callback: (creature: TSCreature, delay: uint32)=>void);b
+        OnCorpseRemoved(creature: uint32, callback: (creature: TSCreature, delay: uint32)=>void);
+
+        OnCreate(creature: uint32, callback: (creature: TSCreature, cancel: TSMutable<boolean>)=>void)
+        OnRemove(creature: uint32, callback: (creature: TSCreature)=>void)
 
         OnWaypointStarted(creature: uint32, callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
         OnWaypointReached(creature: uint32, callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
@@ -6196,6 +6255,18 @@ declare namespace _hidden {
         OnGossipHello(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, cancel: TSMutable<bool>)=>void)
         OnGossipSelect(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, menuId: number, selectionId: number, cancel: TSMutable<bool>)=>void)
         OnGossipSelectCode(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, menuId: number, selectionId: number, code: string, cancel: TSMutable<bool>)=>void)
+        OnQuestAccept(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, quest: TSQuest)=>void)
+        OnQuestReward(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, quest: TSQuest, selection: uint32)=>void)
+        /**
+         * NOTE: Only use this event to enable pickpocket loot
+         * Use "CreatureOnGeneratePickPocketLoot" to actually generate loot
+         */
+        OnCanGeneratePickPocketLoot(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, canGenerate: TSMutable<bool>)=>void)
+        /**
+         * NOTE: You may need to also call "OnCanGeneratePickPocketLoot" if this doesn't fire for your specific creature
+         */
+        OnGeneratePickPocketLoot(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void)
+        OnGenerateSkinningLoot(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void)
     }
 
     export class Creatures {
@@ -6230,13 +6301,114 @@ declare namespace _hidden {
         OnGossipHello(callback: (creature: TSCreature, player: TSPlayer, cancel: TSMutable<bool>)=>void)
         OnGossipSelect(callback: (creature: TSCreature, player: TSPlayer, menuId: number, selectionId: number, cancel: TSMutable<bool>)=>void)
         OnGossipSelectCode(callback: (creature: TSCreature, player: TSPlayer, menuId: number, selectionId: number, code: string, cancel: TSMutable<bool>)=>void)
+
+        OnQuestAccept(callback: (creature: TSCreature, player: TSPlayer, quest: TSQuest)=>void)
+        OnQuestReward(callback: (creature: TSCreature, player: TSPlayer, quest: TSQuest, selection: uint32)=>void)
+        /**
+         * NOTE: Only use this event to enable pickpocket loot
+         * Use "CreatureOnGeneratePickPocketLoot" to actually generate loot
+         */
+        OnCanGeneratePickPocketLoot(callback: (creature: TSCreature, player: TSPlayer, canGenerate: TSMutable<bool>)=>void)
+        /**
+         * NOTE: You may need to also call "OnCanGeneratePickPocketLoot" if this doesn't fire for your specific creature
+         */
+        OnGeneratePickPocketLoot(callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void)
+        OnGenerateSkinningLoot(callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void)
+    }
+
+    export class Items {
+        OnUse(callback: (item: TSItem, player: TSPlayer, reserved: void, cancel: TSMutable<boolean>)=>void)
+        OnExpire(callback: (template: TSItemTemplate, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
+        OnRemove(callback: (item: TSItem, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
+        OnCastSpell(callback: (item: TSItem, player: TSPlayer, unit: TSUnit, spell: TSSpellInfo, cancel: TSMutable<boolean>)=>void)
+        OnQuestAccept(callback: (item: TSItem, player: TSPlayer, quest: TSQuest)=>void)
+        OnGossipHello(callback: (item: TSItem, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
+        OnGossipSelect(callback: (item: TSItem, player: TSPlayer, menuId: uint32, selectionId: uint32, cancel: TSMutable<boolean>)=>void)
+        OnGossipSelectCode(callback: (item: TSItem, player: TSPlayer, menuId: uint32, selectionId: uint32, text: string, cancel: TSMutable<boolean>)=>void)
+    }
+
+    export class ItemID {
+        OnUse(callback: (item: TSItem, player: TSPlayer, reserved: void, cancel: TSMutable<boolean>)=>void)
+        OnExpire(callback: (template: TSItemTemplate, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
+        OnRemove(callback: (item: TSItem, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
+        OnCastSpell(callback: (item: TSItem, player: TSPlayer, unit: TSUnit, spell: TSSpellInfo, cancel: TSMutable<boolean>)=>void)
+        OnQuestAccept(callback: (item: TSItem, player: TSPlayer, quest: TSQuest)=>void)
+        OnGossipHello(callback: (item: TSItem, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
+        OnGossipSelect(callback: (item: TSItem, player: TSPlayer, menuId: uint32, selectionId: uint32, cancel: TSMutable<boolean>)=>void)
+        OnGossipSelectCode(callback: (item: TSItem, player: TSPlayer, menuId: uint32, selectionId: uint32, text: string, cancel: TSMutable<boolean>)=>void)
+    }
+
+    export class GameObjects {
+        OnUpdate(callback: (obj: TSGameObject, diff: uint32)=>void)
+        OnDialogStatus(callback: (obj: TSGameObject, player: TSPlayer)=>void)
+        OnDestroyed(callback: (obj: TSGameObject, destroyer: TSWorldObject)=>void)
+        OnDamaged(callback: (obj: TSGameObject, damagerOrHealer: TSWorldObject)=>void)
+        OnLootStateChanged(callback: (obj: TSGameObject, state: uint32, changer: TSUnit)=>void)
+        OnGOStateChanged(callback: (obj: TSGameObject, state: uint32)=>void)
+        OnGossipHello(callback: (obj: TSGameObject, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
+        OnGossipSelect(callback: (obj:TSGameObject, player: TSPlayer, menuId: uint32, selection: uint32, cancel: TSMutable<boolean>)=>void)
+        OnGossipSelectCode(callback: (obj:TSGameObject, player: TSPlayer, menuId: uint32, selection: uint32, text: string, cancel: TSMutable<boolean>)=>void)
+        OnCreate(callback: (obj: TSGameObject, cancel: TSMutable<boolean>)=>void)
+        OnRemove(callback: (obj: TSGameObject)=>void)
+        OnUse(callback: (obj: TSGameObject, user: TSUnit, cancel: TSMutable<boolean>)=>void)
+        OnQuestAccept(callback: (obj: TSGameObject, player: TSPlayer, quest: TSQuest)=>void)
+        OnGenerateLoot(callback: (obj: TSGameObject, player: TSPlayer)=>void)
+        OnGenerateFishLoot(callback: (obj: TSGameObject, player: TSPlayer, loot: TSLoot, isFish: bool)=>void)
+    }
+
+    export class GameObejctID {
+        OnUpdate(obj: uint32, callback: (obj: TSGameObject, diff: uint32)=>void)
+        OnDialogStatus(obj: uint32, callback: (obj: TSGameObject, player: TSPlayer)=>void)
+        OnDestroyed(obj: uint32, callback: (obj: TSGameObject, destroyer: TSWorldObject)=>void)
+        OnDamaged(obj: uint32, callback: (obj: TSGameObject, damagerOrHealer: TSWorldObject)=>void)
+        OnLootStateChanged(obj: uint32, callback: (obj: TSGameObject, state: uint32, changer: TSUnit)=>void)
+        OnGOStateChanged(obj: uint32, callback: (obj: TSGameObject, state: uint32)=>void)
+        OnGossipHello(obj: uint32, callback: (obj: TSGameObject, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
+        OnGossipSelect(obj: uint32, callback: (obj:TSGameObject, player: TSPlayer, menuId: uint32, selection: uint32, cancel: TSMutable<boolean>)=>void)
+        OnGossipSelectCode(obj: uint32, callback: (obj:TSGameObject, player: TSPlayer, menuId: uint32, selection: uint32, text: string, cancel: TSMutable<boolean>)=>void)
+        OnCreate(obj: uint32, callback: (obj: TSGameObject, cancel: TSMutable<boolean>)=>void)
+        OnRemove(obj: uint32, callback: (obj: TSGameObject)=>void)
+        OnUse(obj: uint32, callback: (obj: TSGameObject, user: TSUnit, cancel: TSMutable<boolean>)=>void)
+        OnQuestAccept(obj: uint32, callback: (obj: TSGameObject, player: TSPlayer, quest: TSQuest)=>void)
+    }
+
+    export class Maps {
+        OnCreate(callback: (map: TSMap)=>void)
+        OnUpdate(callback: (map: TSMap, diff: uint32)=>void)
+        OnPlayerEnter(callback: (map: TSMap, player: TSPlayer)=>void)
+        OnPlayerLeave(callback: (map: TSMap, player: TSPlayer)=>void)
+        OnCreatureCreate(callback: (map: TSMap, creature: TSCreature, cancel: TSMutable<bool>)=>void)
+        OnCreatureRemove(callback: (map: TSMap, creature: TSCreature)=>void)
+
+        OnGameObjectCreate(callback: (map: TSMap, obj: TSGameObject, cancel: TSMutable<bool>)=>void)
+        OnGameObjectRemove(callback: (map: TSMap, obj: TSGameObject)=>void)
+        OnCheckEncounter(callback: (map: TSMap, player: TSPlayer)=>void)
+    }
+
+    export class MapID {
+        OnCreate(map: uint32, callback: (map: TSMap)=>void)
+        OnUpdate(map: uint32, callback: (map: TSMap, diff: uint32)=>void)
+        OnPlayerEnter(map: uint32, callback: (map: TSMap, player: TSPlayer)=>void)
+        OnPlayerLeave(map: uint32, callback: (map: TSMap, player: TSPlayer)=>void)
+        OnCreatureCreate(map: uint32, callback: (map: TSMap, creature: TSCreature, cancel: TSMutable<bool>)=>void)
+        OnCreatureRemove(map: uint32, callback: (map: TSMap, creature: TSCreature)=>void)
+
+        OnGameObjectCreate(map: uint32, callback: (map: TSMap, obj: TSGameObject, cancel: TSMutable<bool>)=>void)
+        OnGameObjectRemove(map: uint32, callback: (map: TSMap, obj: TSGameObject)=>void)
+        OnCheckEncounter(map: uint32, callback: (map: TSMap, player: TSPlayer)=>void)
+    }
+
+    export class AuctionHouse {
+        OnAuctionAdd(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
+        OnAuctionRemove(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
+        OnAuctionSuccessful(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
+        OnAuctionExpire(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
     }
 }
 
 declare class TSEventHandlers {
     World: _hidden.World;
     Formula: _hidden.Formula;
-    //Item: _hidden.Item;
     Unit: _hidden.Unit;
     //AreaTrigger: _hidden.AreaTrigger;
     //Vehicle: _hidden.Vehicle;
@@ -6249,6 +6421,13 @@ declare class TSEventHandlers {
     Creatures: _hidden.Creatures;
     CreatureID: _hidden.CreatureID;
     SpellID: _hidden.SpellID;
+    Auction: _hidden.AuctionHouse;
+    Maps: _hidden.Maps;
+    MapID: _hidden.MapID;
+    Items: _hidden.Items;
+    ItemID: _hidden.ItemID;
+    GameObjects: _hidden.GameObjects;
+    GameObjectID: _hidden.GameObejctID;
 }
 
 declare class TSDictionary<K,V> {
@@ -6261,32 +6440,21 @@ declare class TSDictionary<K,V> {
     filter(callback: (key: K, value: V)=>boolean): TSDictionary<K,V>
 }
 
-declare class TSLootStoreItem {
-    SetItemID(itemId: uint32) : TSLootStoreItem;
-    SetReference(reference: uint32) : TSLootStoreItem;
-    SetChance(chance: float) : TSLootStoreItem;
-    SetLootMode(lootMode: uint16) : TSLootStoreItem;
-    SetNeedsQuest(needsQuest: bool) : TSLootStoreItem;
-    SetGroupID(groupId: uint8) : TSLootStoreItem;
-    SetMinCount(minCount: uint8) : TSLootStoreItem;
-    SetMaxCount(maxCount: uint8) : TSLootStoreItem;
-
+declare class TSLootItem {
     GetItemID(): uint32;
-    GetReference(): uint32;
-    GetChance(): float;
-    GetLootMode(): uint16;
-    GetNeedsQuest(): bool;
-    GetGroupID(): uint8;
-    GetMinCount(): uint8;
-    GetMaxCount(): uint8;
+    GetRandomSuffix(): uint32;
+    GetRandomPropertyID(): uint32;
+    GetCount(): uint32;
+    SetItemID(itemId: uint32);
+    SetRandomPropertyID(propertyId: int32);
+    SetCount(count: uint8);
 }
 
 declare class TSLoot {
     IsNull(): bool;
     Clear(): void;
     IsLooted(): bool;
-    AddItem(item: TSLootStoreItem): void;
-    AddItems(items: TSArray<TSLootStoreItem>);
+    AddItem(id: uint32, minCount: uint8, maxCount: uint8, lootMode?: uint16, needsQuest?: bool, groupId?: uint8): void;
     AddLooter(looter: uint64): void;
     RemoveLooter(looter: uint64): void;
     SetLootType(lootType: uint32): void;
@@ -6295,12 +6463,117 @@ declare class TSLoot {
     GetMoney(): uint32;
     GetLootOwner(): uint64;
     SetLootOwner(owner: uint64);
+    GetItemCount(): uint32;
+    GetQuestItemCount(): uint32;
+
+    GetItem(index: uint32): TSLootItem;
+    GetQuestItem(index: uint32): TSLootItem;
+    Filter(predicate: (item: TSLootItem)=>bool);
 }
+
+declare class TSAuctionEntry {
+    GetID(): uint32;
+    GetHouseID(): uint8;
+    /**
+     * Returns the GUID of this item
+     */
+    GetItemID(): uint64;
+    /**
+     * Returns the item_template id of this item
+     */
+    GetItemEntry(): uint32;
+    GetItemCount(): uint32;
+    GetOwnerID(): uint64;
+    GetStartBid(): uint32;
+    GetBid(): uint32;
+    GetBuyout(): uint32;
+    GetExpireTime(): uint64;
+    GetBidder(): uint64;
+    GetDeposit(): uint32;
+    GetETime(): uint32;
+    GetBidders(): TSArray<uint64>
+    GetFlags(): uint32;
+    
+    SetItemID(itemId: uint64);
+    SetItemEntry(itemEntry: uint64);
+    SetItemCount(itemCount: uint32);
+    SetOwnerID(ownerId: uint64);
+    SetStartBid(startBid: uint32);
+    SetBid(bid: uint32);
+    SetBuyout(buyout: uint32);
+    SetBidder(bidder:uint64);
+    SetDeposit(deposit: uint32);
+    SetETime(eTime: uint32);
+    SetFlags(flags: uint32);
+}
+
+declare class TSAuctionHouseObject {
+    GetKeys() : TSArray<uint32>
+    GetEntry(key: uint32): TSAuctionEntry
+    RemoveAuction(key: uint32|TSAuctionEntry): bool
+    GetCount(): uint32;
+    AddAuction(entry: TSAuctionEntry);
+}
+
+declare class TSMailItemInfo {
+    GetGUID(): uint64;
+    GetItemTemplate(): uint32;
+}
+
+declare class TSMail {
+    GetID(): uint32;
+    GetType(): uint8;
+    GetTemplateID(): uint16;
+    GetSender(): uint64;
+    GetReceiver(): uint64;
+    GetState(): uint16;
+    GetMoney(): uint32;
+    GetCOD(): uint32;
+    GetChecked(): uint32;
+    GetSubject(): string;
+    GetBody(): string;
+    GetItems(): TSArray<TSMailItemInfo>
+    GetItemCount(): uint32;
+    FilterItems(predicate: (info: TSMailItemInfo)=>boolean);
+    RemoveAllItems();
+    AddItem(entry: uint32, count: uint8, player?: TSPlayer);
+    SetMoney(money: uint32)
+    SetCOD(cod: uint32)
+    SetChecked(checked: uint32)
+    SetSender(type: uint8, guid: uint64)
+    SetSubject(subject: string)
+    SetBody(body: string)
+    SetState(state: uint8)
+}
+
+declare class TSMailDraft {
+    GetTemplateID(): uint16
+    GetSubject(): string
+    GetBody(): string;
+    GetMoney(): uint32;
+    GetCOD(): uint32;
+    GetItemKeys(): TSArray<uint64>
+    GetItem(item: uint64): TSItem
+    SetTemplateID(id: uint16);
+    SetSubject(subject: string);
+    SetBody(body: string);
+    AddItem(enry: uint32, count: uint8, player?: TSPlayer);
+    FilterItems(predicate: (item: TSItem)=>boolean);
+}
+
+// Global.h
+declare function SendMail(senderType: uint8, from: uint64, subject: string, body: string, money?: uint32, cod?: uint32, delay?: uint32, items?: TSArray<TSItem>);
+// end of Global.h
 
 declare function MakeDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V>
 
 declare function GetID(table: string, mod: string, name: string);
 declare function GetIDRange(table: string, mod: string, name: string);
+
+declare class TSTasks<T> {
+    AddTimer(id: uint32, name: string, time: uint32, repeats: uint32, cb: (type: T, delay: uint32, cancel: TSMutable<bool>)=>void)
+    RemoveTimer(name: string);
+}
 
 declare class TSDatabaseResult {
     GetUInt8(index: int): uint8;
@@ -6333,6 +6606,7 @@ declare class TSClass {
 }
 
 declare function CreateLootItem(id: uint32, reference?: uint32, chance?: float, lootmode?: uint16, needsQuest?: bool, groupId?: uint8, minCount?: uint8, maxCount?: uint8)
+declare function CreateItem(entry: uint32, count: uint32): TSItem;
 
 declare function QueryWorld(query: string): TSDatabaseResult;
 declare function QueryCharacters(query: string): TSDatabaseResult;
@@ -6343,5 +6617,9 @@ declare function CharactersTable(classTarget: any)
 declare function AuthTable(classTarget: any)
 declare function Field(fieldTarget: any, name: any)
 declare function PrimaryKey(pkTarget: any, name: any)
+
+declare function GetTimers() : TSTasks<void>
+
+declare function ModID(): uint32;
 
 declare function LoadRows<T extends DBTable>(cls: {new (...args: any[]): T}, query: string): TSArray<T>
