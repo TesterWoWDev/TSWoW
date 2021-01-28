@@ -1,4 +1,5 @@
 import { std } from 'tswow-stdlib';
+import { SQL } from 'wotlkdata';
 
 const TSWOW_TESTMODULE = "tester-mod"
 export const RANGED_CLASS = std.Classes.create(TSWOW_TESTMODULE,'ranged','RANGED','HUNTER');
@@ -18,7 +19,8 @@ RANGED_CLASS.EquipSkills.Crossbows.setAuto();
 RANGED_CLASS.EquipSkills.Bows.setAuto();
 RANGED_CLASS.EquipSkills.Leather.setAuto();
 RANGED_CLASS.EquipSkills.Mail.setAuto();
-
+RANGED_CLASS.DisplayPower.set(3)
+SQL.player_classlevelstats.find({class:14}).basemana.set(0)
 // RANGED_CLASS.StartGear.Mainhand.set(41821)
 // RANGED_CLASS.UI.TCoords.set(0.5,0.75,0.5,0.75);
 
