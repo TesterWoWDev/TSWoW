@@ -80,11 +80,11 @@ local postFifteenSpells = {
 local function onLevelUp(event,player,oldLevel)
 	if(player:GetLevel() < 15)then
 		for i,v in pairs(firstSpells[player:GetClass()])do
-			if(player:GetLevel >= v[1])then
+			if(player:GetLevel() >= v[1])then
 				player:LearnSpell(v[2])
 			end
 		end
-	elseif(player:GetLevel() > 15)then)
+	elseif(player:GetLevel() > 15)then
 		for i,v in pairs(allSpecTokenItemIDs)do
 			if(player:HasItem(v))then
 				for x,z in pairs(postFifteenSpells[player:GetClass()][v])do
