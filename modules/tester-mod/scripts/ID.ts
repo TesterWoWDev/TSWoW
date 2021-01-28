@@ -42,7 +42,6 @@ export namespace ID {
     export const TESTER_MOD_CASTER : uint32 = GetID("ChrClasses","tester-mod","caster");
     export const TESTER_MOD_MELEE : uint32 = GetID("ChrClasses","tester-mod","melee");
     export const TESTER_MOD_RANGED : uint32 = GetID("ChrClasses","tester-mod","ranged");
-    export const TESTER_MOD_NECROMANCY_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","necromancy-skill");
     export const TESTER_MOD_DEATH_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","death-skill");
     export const TESTER_MOD_BLOOD_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","BLOOD-skill");
     export const TESTER_MOD_BEAST_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","beast-skill");
