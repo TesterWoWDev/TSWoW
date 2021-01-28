@@ -1,4 +1,4 @@
-var spellPre15:TSArray<TSArray<TSArray<int>>> = [
+var spellPre15:TSArray<TSArray<TSArray<float>>> = [
     [//12
         [1,1],[5,1]//level requirement,spellID
     ],
@@ -11,19 +11,19 @@ var spellPre15:TSArray<TSArray<TSArray<int>>> = [
 
 ]
 
-var spellsPast15:TSArray<TSArray<TSArray<TSArray<int>>>>=[
+var spellsPast15:TSArray<TSArray<TSArray<TSArray<float>>>>=[
     [//12
         [//spec1
             [16,1],[18,1]//level requirement, spellID
         ],
         [//spec2
-            []
+            [16,1],[18,1]//level requirement, spellID
         ],
         [//spec3
-            []
+            [16,1],[18,1]//level requirement, spellID
         ],
         [//spec4
-            []
+            [16,1],[18,1]//level requirement, spellID
         ]
     ],
     [//13
@@ -31,13 +31,13 @@ var spellsPast15:TSArray<TSArray<TSArray<TSArray<int>>>>=[
             [16,1],[18,1]
         ],
         [//spec2
-            []
+            [16,1],[18,1]//level requirement, spellID
         ],
         [//spec3
-            []
+            [16,1],[18,1]//level requirement, spellID
         ],
         [//spec4
-            []
+            [16,1],[18,1]//level requirement, spellID
         ]
     ],
     [//14
@@ -45,18 +45,18 @@ var spellsPast15:TSArray<TSArray<TSArray<TSArray<int>>>>=[
             [16,1],[18,1]
         ],
         [//spec2
-            []
+            [16,1],[18,1]//level requirement, spellID
         ],
         [//spec3
-            []
+            [16,1],[18,1]//level requirement, spellID
         ],
         [//spec4
-            []
+            [16,1],[18,1]//level requirement, spellID
         ]
     ]
 ]
 
-var hasItemToSpec:TSArray<TSArray<int>> = [//itemID,specID
+var hasItemToSpec:TSArray<TSArray<float>> = [//itemID,specID
     [1,0],[2,1],[3,2],[3,2],//class 12
     [1,0],[2,1],[3,2],[3,2],//class 13
     [1,0],[2,1],[3,2],[3,2]//class 14
