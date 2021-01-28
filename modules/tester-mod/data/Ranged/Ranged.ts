@@ -49,3 +49,7 @@ TRAPPER_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 export const MARKSMAN_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'marksman-skill',RANGED_CLASS.ID)
 MARKSMAN_SKILL.Name.enGB.set(`Marksman`)
 MARKSMAN_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
+
+export const AMAZONIAN_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'amazonian-skill',RANGED_CLASS.ID)
+AMAZONIAN_SKILL.Name.enGB.set(`Amazonian`)
+AMAZONIAN_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')

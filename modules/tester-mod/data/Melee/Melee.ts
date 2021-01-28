@@ -49,3 +49,7 @@ KNIGHT_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 export const DEFENDER_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'defender-skill',MELEE_CLASS.ID)
 DEFENDER_SKILL.Name.enGB.set(`Defender`)
 DEFENDER_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
+
+export const ASSASSINATION_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'assassination-skill',MELEE_CLASS.ID)
+ASSASSINATION_SKILL.Name.enGB.set(`Assassination`)
+ASSASSINATION_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
