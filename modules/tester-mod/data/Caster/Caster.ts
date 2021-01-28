@@ -5,18 +5,16 @@ export const CASTER_CLASS = std.Classes.create(TSWOW_TESTMODULE,'caster','CASTER
 
 export const NECROMANCER_ROBE = std.Items.create(TSWOW_TESTMODULE,'cls',56).Visual.row.Texture.set
 
-CASTER_CLASS.addRaces(['HUMAN','ORC','BLOODELF','UNDEAD']);
+CASTER_CLASS.addRaces(['HUMAN','ORC','BLOODELF','DRAENEI', 'NIGHTELF']);
 CASTER_CLASS.Name.enGB.set('Caster');
-
+CASTER_CLASS.UI.ClassButton.setPos(-52,-460)
+CASTER_CLASS.RequiredExpansion.set(1)
 CASTER_CLASS.EquipSkills.Staves.setAuto();
 CASTER_CLASS.EquipSkills.Cloth.setAuto();
 CASTER_CLASS.EquipSkills.Polearms.setAuto();
 // CASTER_CLASS.StartGear.Mainhand.set(41821)
-// CASTER_CLASS.StartGear.Ranged.set(39134)
-// CASTER_CLASS.StartGear.Chest.set(42844)
 
 // CASTER_CLASS.UI.TCoords.set(0.5,0.75,0.5,0.75);
-// CASTER_CLASS.UI.ClassButton.setPos(85,-420)
 
 // Change the stats
 CASTER_CLASS.UI.Color.set(0xcc0077)
