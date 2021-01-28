@@ -39,5 +39,13 @@ RANGED_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
 
 
 export const BEAST_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'beast-skill',RANGED_CLASS.ID)
-BEAST_SKILL.Name.enGB.set(`Beasiary`)
+BEAST_SKILL.Name.enGB.set(`Beastiary`)
 BEAST_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
+
+export const TRAPPER_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'trapper-skill',RANGED_CLASS.ID)
+TRAPPER_SKILL.Name.enGB.set(`Trapper`)
+TRAPPER_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
+
+export const MARKSMAN_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'marksman-skill',RANGED_CLASS.ID)
+MARKSMAN_SKILL.Name.enGB.set(`Marksman`)
+MARKSMAN_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
