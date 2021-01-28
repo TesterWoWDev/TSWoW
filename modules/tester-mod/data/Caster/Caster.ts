@@ -21,7 +21,7 @@ CASTER_CLASS.UI.Color.set(0xcc0077)
 CASTER_CLASS.UI.Info.add('- Role: Damage, Healer')
 CASTER_CLASS.UI.Info.add('- Light Armor (Cloth)')
 CASTER_CLASS.UI.Info.add('- Magiky')
-CASTER_CLASS.UI.Info.add('- Uses mana as a resource')
+CASTER_CLASS.UI.Info.add('- Uses energy as a resource')
 CASTER_CLASS.UI.Description.set("I handle all the magic")
 
 // Spell Crit = 0.1*level
