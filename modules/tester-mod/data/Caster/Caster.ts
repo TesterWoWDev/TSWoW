@@ -5,7 +5,7 @@ export const CASTER_CLASS = std.Classes.create(TSWOW_TESTMODULE,'caster','CASTER
 
 export const NECROMANCER_ROBE = std.Items.create(TSWOW_TESTMODULE,'cls',56).Visual.row.Texture.set
 
-CASTER_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
+CASTER_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','']);
 CASTER_CLASS.Name.enGB.set('Caster');
 CASTER_CLASS.UI.ClassButton.setPos(-52,-460)
 CASTER_CLASS.RequiredExpansion.set(1)
@@ -21,7 +21,7 @@ CASTER_CLASS.UI.Color.set(0xcc0077)
 CASTER_CLASS.UI.Info.add('- Role: Damage, Healer')
 CASTER_CLASS.UI.Info.add('- Light Armor (Cloth)')
 CASTER_CLASS.UI.Info.add('- Magiky')
-CASTER_CLASS.UI.Info.add('- Uses energy as a resource')
+CASTER_CLASS.UI.Info.add('- Uses mana as a resource')
 CASTER_CLASS.UI.Description.set("I handle all the magic")
 
 // Spell Crit = 0.1*level
