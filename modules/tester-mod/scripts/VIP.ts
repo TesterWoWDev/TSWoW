@@ -6,7 +6,7 @@ export function VIP(events: TSEventHandlers) {
 		}else if(msg.get().startsWith("#mall")){
 			player.Teleport(0,-8833,628,94,1)
 		}else if(msg.get().startsWith("#gift")){//possibly give health stone/heartstone/teleport stone
-			player.AddItem(2589,1)
+			player.AddItem(100002,1)
 		}
 	})
 	
