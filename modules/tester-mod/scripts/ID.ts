@@ -45,4 +45,13 @@ export namespace ID {
     export const TESTER_MOD_DEATH_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","death-skill");
     export const TESTER_MOD_BLOOD_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","BLOOD-skill");
     export const TESTER_MOD_BEAST_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","beast-skill");
+    export const TESTER_MOD_ARCANE_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","arcane-skill");
+    export const TESTER_MOD_FIRE_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","fire-skill");
+    export const TESTER_MOD_FROST_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","frost-skill");
+    export const TESTER_MOD_LIFE_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","life-skill");
+    export const TESTER_MOD_JUGGERNAUT_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","juggernaut-skill");
+    export const TESTER_MOD_KNIGHT_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","knight-skill");
+    export const TESTER_MOD_DEFENDER_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","defender-skill");
+    export const TESTER_MOD_TRAPPER_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","trapper-skill");
+    export const TESTER_MOD_MARKSMAN_SKILL : uint32 = GetID("SkillLineAbility","tester-mod","marksman-skill");
 };
