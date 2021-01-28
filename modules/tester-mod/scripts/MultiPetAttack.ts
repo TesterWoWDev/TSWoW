@@ -1,6 +1,6 @@
 import { ID } from "./ID";
 
-export function NecromancerClass(events: TSEventHandlers) {
+export function MultiPetAttack(events: TSEventHandlers) {
 
 //cast all other minion attacks
 	events.SpellID.OnCast(ID.TESTER_MOD_CONTROL_0_ATTACK,(spell)=>{
