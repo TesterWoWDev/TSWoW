@@ -29,7 +29,7 @@ RANGED_CLASS.UI.Color.set(0xcc0077)
 RANGED_CLASS.UI.Info.add('- Role: Damage')
 RANGED_CLASS.UI.Info.add('- Medium Armor (Leather,Mail)')
 RANGED_CLASS.UI.Info.add('- pokey boi')
-RANGED_CLASS.UI.Info.add('- Uses mana as a resource')
+RANGED_CLASS.UI.Info.add('- Uses energy as a resource')
 RANGED_CLASS.UI.Description.set("I handle all the poke")
 
 // Spell Crit = 0.1*level
