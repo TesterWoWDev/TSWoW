@@ -1,4 +1,4 @@
 
 import { std } from "tswow-stdlib";
 
-console.log("work work!");
+//console.log("work work!");
