@@ -3,7 +3,7 @@ import { std } from 'tswow-stdlib';
 const TSWOW_TESTMODULE = "tester-mod"
 export const MELEE_CLASS = std.Classes.create(TSWOW_TESTMODULE,'melee','MELEE','WARRIOR');
 
-MELEE_CLASS.addRaces(['HUMAN','ORC','DWARF','TAUREN','TROLL']);
+MELEE_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
 MELEE_CLASS.Name.enGB.set('Melee');
 MELEE_CLASS.UI.ClassButton.setPos(40,-460)
 MELEE_CLASS.RequiredExpansion.set(1)

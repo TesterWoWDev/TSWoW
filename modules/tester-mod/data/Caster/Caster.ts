@@ -5,7 +5,7 @@ export const CASTER_CLASS = std.Classes.create(TSWOW_TESTMODULE,'caster','CASTER
 
 export const NECROMANCER_ROBE = std.Items.create(TSWOW_TESTMODULE,'cls',56).Visual.row.Texture.set
 
-CASTER_CLASS.addRaces(['HUMAN','ORC','BLOODELF','DRAENEI', 'NIGHTELF']);
+CASTER_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
 CASTER_CLASS.Name.enGB.set('Caster');
 CASTER_CLASS.UI.ClassButton.setPos(-52,-460)
 CASTER_CLASS.RequiredExpansion.set(1)
