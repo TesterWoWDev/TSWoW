@@ -94,7 +94,7 @@ local function onLevelUp(event,player,oldLevel)
 				end
 			end
 		end
-	else--player is 15, do something here for specs
+	else--player is 15, do something here for specs. AIO stuff
 	
 	end
 end
