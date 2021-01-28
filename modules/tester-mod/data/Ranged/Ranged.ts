@@ -5,7 +5,7 @@ export const RANGED_CLASS = std.Classes.create(TSWOW_TESTMODULE,'ranged','RANGED
 
 export const NECROMANCER_ROBE = std.Items.create(TSWOW_TESTMODULE,'cls',56).Visual.row.Texture.set
 
-RANGED_CLASS.addRaces(['HUMAN','ORC','BLOODELF','UNDEAD','GNOME']);
+RANGED_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
 RANGED_CLASS.Name.enGB.set('Ranged');
 RANGED_CLASS.RequiredExpansion.set(1)
 RANGED_CLASS.UI.ClassButton.setPos(-6,-460)
