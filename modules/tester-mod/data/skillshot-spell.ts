@@ -19,4 +19,5 @@ const scarabSpell = std.Spells.create('tester-mod','skillshot-cast',68037)
 
 const scarabCreature = std.CreatureTemplates.create('tester-mod','skillshot-creature',16863)
 	scarabCreature.UnitFlags.NotSelectable.mark()
+	scarabCreature.UnitFlags.Immune.mark()
 	scarabCreature.FactionTemplate.set(35)

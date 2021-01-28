@@ -17,6 +17,7 @@
     "adm-zip": "^0.4.16",
     "chokidar": "^3.4.3",
     "cross-spawn": "^7.0.3",
+    "dante-mod": "file:modules/dante-mod/data/build",
     "deasync": "^0.1.21",
     "flannel-mod": "file:modules/flannel-mod/data/build",
     "fs-extra": "^9.0.1",
