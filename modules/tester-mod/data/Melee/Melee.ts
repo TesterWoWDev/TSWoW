@@ -38,9 +38,9 @@ MELEE_CLASS.Stats.SpellCrit.set((x,level)=>0.000005*level)
 MELEE_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
 
 
-export const BLOOD_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'juggernaut-skill',MELEE_CLASS.ID)
-BLOOD_SKILL.Name.enGB.set(`Juggernaut`)
-BLOOD_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
+export const JUGGERNAUT_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'juggernaut-skill',MELEE_CLASS.ID)
+JUGGERNAUT_SKILL.Name.enGB.set(`Juggernaut`)
+JUGGERNAUT_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 
 export const KNIGHT_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'knight-skill',MELEE_CLASS.ID)
 KNIGHT_SKILL.Name.enGB.set(`Knight`)

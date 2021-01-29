@@ -8,7 +8,6 @@ const totems : TotemType[] = ['EARTH','AIR','WATER','FIRE']
 function makeSummon(index: number, name: string, displayName: string, modelId: number, icon: string, scale = 1) {
 	const entity = std.CreatureTemplates.create(TSWOW_TESTMODULE,`${name}-${index}`,416);
 
-
 	const summon_spell = std.Spells.TotemCreatures.createSummon(TSWOW_TESTMODULE,`summon-${name}-${index}`, totems[index], entity.ID);
 	summon_spell.Power.setMana(40,5)
 	summon_spell.CastTime.Base.set(500)
