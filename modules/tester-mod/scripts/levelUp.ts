@@ -62,15 +62,15 @@ var spellsPast15:TSArray<TSArray<TSArray<TSArray<float>>>>=
 ]
 
 var hasItemToSpec:TSArray<TSArray<float>> = [//itemID,specID
-    [1,0],[2,1],[3,2],[3,2],//class 12caster
+    [1,0],[2,1],[3,2],[3,2],[3,2],//class 12caster
     [1,0],[2,1],[3,2],[3,2],//class 13melee
     [1,0],[2,1],[3,2],[3,2]//class 14ranged
 ]
 
 var specIDToName:TSArray<TSArray<string>> = [//itemID,specID
-    ["spec1"],["spec2"],["spec3"],["spec4"],["spec5"],//class 12caster
-    ["spec1"],["spec2"],["spec3"],["spec4"],//class 13melee
-    ["spec1"],["spec2"],["spec3"],["spec4"]//class 14ranged
+    ["Death"],["Arane"],["Fire"],["Frost"],["Life"],//class 12caster
+    ["Juggernaut"],["Knight"],["Defender"],["Assassination"],//class 13melee
+    ["Beastiary"],["Trapper"],["Marksman"],["Amazonian"]//class 14ranged
 ]
 
 
