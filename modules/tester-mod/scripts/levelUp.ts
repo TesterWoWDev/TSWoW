@@ -66,6 +66,14 @@ var hasItemToSpec:TSArray<TSArray<float>> = [//itemID,specID
     [1,0],[2,1],[3,2],[3,2],//class 13melee
     [1,0],[2,1],[3,2],[3,2]//class 14ranged
 ]
+
+var specIDToName:TSArray<TSArray<string>> = [//itemID,specID
+    ["spec1"],["spec2"],["spec3"],["spec4"],["spec5"],//class 12caster
+    ["spec1"],["spec2"],["spec3"],["spec4"],//class 13melee
+    ["spec1"],["spec2"],["spec3"],["spec4"]//class 14ranged
+]
+
+
 export function onLevel(events: TSEventHandlers) {
     events.Player.OnLevelChanged((player,oldLevel)=>{
         const classID = player.GetClass()-12
@@ -84,6 +92,20 @@ export function onLevel(events: TSEventHandlers) {
             //do something at 15 for specs
         }
     })
+
+    events.CreatureID.OnGossipHello(1,(creature,player,cancel)=>{
+        const classID = player.GetLevel() -12
+        for (let i=0;i<hasItemToSpec.get(classID).length;i++){
+            player.GossipMenuAddItem(1,specIDToName.get(classID).get(i),0,i,false,"Are you sure you want this to be your new spec?",0)
+        }
+    })
+    events.CreatureID.OnGossipSelect(1,(creature,player,menuID,selectionID,cancel)=>{
+        if(selectionID < 10){
+            removeSpells(player)
+            addSpellBySpecID(player,selectionID)
+        }
+        player.GossipComplete()
+    })
 }
 
 function getSpecID(player:TSPlayer):float{
@@ -95,7 +117,7 @@ function getSpecID(player:TSPlayer):float{
     return 0//default 0 if spec not found
 }
 
-function removeSpells(player:TSPlayer){
+export function removeSpells(player:TSPlayer){
     const classID = player.GetClass()-12
     for(let x =0;x<spellsPast15.get(classID).length;x++){
         const spellsToTest = spellsPast15.get(classID).get(x)
@@ -105,7 +127,7 @@ function removeSpells(player:TSPlayer){
     }
 }
 
-function addSpellBySpecID(player:TSPlayer,specID:float){
+export function addSpellBySpecID(player:TSPlayer,specID:float){
     const classID = player.GetClass()-12
     const spellsToTest = spellsPast15.get(classID).get(specID)
     for (let i=0;i<spellsToTest.length;i++){
