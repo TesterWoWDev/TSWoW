@@ -12,7 +12,7 @@ testquest3.Objectives.Item.add(769,4)
 testquest3.Objectives.Item.add(12208,4)
 testquest3.Objectives.Item.add(44855,8)
 testquest3.Objectives.Item.add(37707,6)
-testquest3.Rewards.choiceItem.add(46349,1)
+testquest3.Rewards.ChoiceItem.add(46349,1)
 testquest3.QuestLevel.set(10)
 
 
