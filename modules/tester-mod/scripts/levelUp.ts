@@ -73,7 +73,11 @@ var specIDToName:TSArray<TSArray<string>> = [//itemID,specID
     ["Beastiary"],["Trapper"],["Marksman"],["Amazonian"]//class 14ranged
 ]
 
-
+var classIDToQuest:TSArray<float>=[
+    1,//caster
+    1,//melee
+    1//ranged
+]
 export function onLevel(events: TSEventHandlers) {
     events.Player.OnLevelChanged((player,oldLevel)=>{
         const classID = player.GetClass()-12
@@ -89,7 +93,7 @@ export function onLevel(events: TSEventHandlers) {
             }
         }
         else{
-            //do something at 15 for specs
+            player.SendQuestTemplate(classIDToQuest.get(classID),true)
         }
     })
 
