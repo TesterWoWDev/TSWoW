@@ -1,4 +1,4 @@
-const TABLE_NAME = "player_killstreak";
+const TABLE_NAME = "playerkillstreak";
 
 @CharactersTable
 class PlayerKillstreak extends DBTable {
@@ -17,7 +17,7 @@ class PlayerKillstreak extends DBTable {
 export function Killstreaks(events: TSEventHandlers) {
     events.Player.OnLogin((player,first)=>{
         const guid = player.GetGUIDLow()
-        const rows = LoadRows(PlayerKillstreak,`player = ${guid}`)
+        const rows = LoadRows(PlayerKillstreak,`playerGUID = ${guid}`)
         const tableData = rows.length > 0 ? rows.get(0) : new PlayerKillstreak(guid);
         player.GetData().SetObject(ModID(),TABLE_NAME,tableData);
     });
