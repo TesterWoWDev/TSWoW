@@ -26,7 +26,7 @@ MELEE_CLASS.EquipSkills.Plate.setAuto();
 // Change the stats
 MELEE_CLASS.UI.Color.set(0xcc0077)
 MELEE_CLASS.UI.Info.add('- Role: Damage, Tank')
-MELEE_CLASS.UI.Info.add('- Heavy Armor (mail,plate)')
+MELEE_CLASS.UI.Info.add('- Heavy Armor (Mail,Plate)')
 MELEE_CLASS.UI.Info.add('- tanki')
 MELEE_CLASS.UI.Info.add('- Uses rage as a resource')
 MELEE_CLASS.UI.Description.set("I handle all the front lines")
