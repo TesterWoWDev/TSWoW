@@ -15,8 +15,7 @@ MELEE_CLASS.EquipSkills.OneHandedAxes.setAuto();
 MELEE_CLASS.EquipSkills.TwoHandedAxes.setAuto();
 MELEE_CLASS.EquipSkills.Thrown.setAuto();
 MELEE_CLASS.EquipSkills.Polearms.setAuto();
-MELEE_CLASS.EquipSkills.Cloth.setAuto();
-MELEE_CLASS.EquipSkills.Leather.setAuto();
+MELEE_CLASS.EquipSkills.Shield.setAuto();
 MELEE_CLASS.EquipSkills.Mail.setAuto();
 MELEE_CLASS.EquipSkills.Plate.setAuto();
 
