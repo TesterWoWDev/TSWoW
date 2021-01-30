@@ -3,7 +3,7 @@ import { ID } from "./ID";
 export function MultiPetAttack(events: TSEventHandlers) {
 
 //cast all other minion attacks
-let spellID = ID.TESTER_MOD_CONTROL_0_ATTACK
+let spellID = ID.TESTER_MOD_CONTROL_0_ATTACK//the period breaks lambda
 	events.SpellID.OnCast(spellID,(spell)=>{
 		let player = spell.GetCaster().ToPlayer()
 		player.CastSpell(player,ID.TESTER_MOD_CONTROL_1_ATTACK,true)
