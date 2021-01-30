@@ -25,7 +25,7 @@ export function Killstreaks(events: TSEventHandlers) {
         
 		killed.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME,()=>new PlayerKillstreak(killed.GetGUIDLow())).killCount = 0
         SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Current killstreak of "+(killCount+1))
-        killer.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME,()=>new PlayerKillstreak(killer.GetGUIDLow())).save();
-        killed.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME,()=>new PlayerKillstreak(killed.GetGUIDLow())).save();
+        killer.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME).save();
+        killed.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME).save();
     });
 }
