@@ -11,7 +11,7 @@ class PlayerKillstreak extends DBTable {
 	playerGUID: uint32 = 0;
 	
     @Field
-    killCount: int32 = 0;
+    killCount: int32 = 1;
 }
 
 export function Killstreaks(events: TSEventHandlers) {
