@@ -33,8 +33,4 @@ export function Killstreaks(events: TSEventHandlers) {
     events.Player.OnSave((player)=>{
         player.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME,()=>new PlayerKillstreak(player.GetGUIDLow())).save();
 	});
-
-	events.Player.OnLogout((player)=>{
-        player.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME,()=>new PlayerKillstreak(player.GetGUIDLow())).save();
-    });
 }
