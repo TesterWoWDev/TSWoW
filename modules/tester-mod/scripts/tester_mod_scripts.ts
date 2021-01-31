@@ -5,6 +5,7 @@ import { QoLChanges } from "./QoLChanges";
 import { Skillshot } from "./skillshot";
 import { VIP } from "./VIP"
 import { HealthLink } from "./caster/HealthLink";
+import { HealthSwap } from "./caster/HealthSwap";
 
 export function Main(events: TSEventHandlers) {
 	VIP(events)
@@ -14,4 +15,5 @@ export function Main(events: TSEventHandlers) {
 	Skillshot(events)
 	onDeath(events)
 	HealthLink(events)
+	HealthSwap(events)
 }

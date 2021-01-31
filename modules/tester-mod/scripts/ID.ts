@@ -54,6 +54,7 @@ export namespace ID {
     export const TESTER_MOD_SUMMON_TANK_3 : uint32 = GetID("Spell","tester-mod","summon-tank-3");
     export const TESTER_MOD_SUMMON_CASTER_3 : uint32 = GetID("Spell","tester-mod","summon-caster-3");
     export const TESTER_MOD_SUMMON_HEALER_3 : uint32 = GetID("Spell","tester-mod","summon-healer-3");
+    export const TESTER_MOD_HEALTH_SWAP : uint32 = GetID("Spell","tester-mod","health-swap");
     export const TESTER_MOD_CASTER : uint32 = GetID("ChrClasses","tester-mod","caster");
     export const TESTER_MOD_MELEE : uint32 = GetID("ChrClasses","tester-mod","melee");
     export const TESTER_MOD_RANGED : uint32 = GetID("ChrClasses","tester-mod","ranged");
