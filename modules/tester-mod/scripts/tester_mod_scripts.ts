@@ -6,6 +6,7 @@ import { Skillshot } from "./skillshot";
 import { VIP } from "./VIP"
 import { HealthLink } from "./caster/HealthLink";
 import { HealthSwap } from "./caster/HealthSwap";
+import { DoubelCast } from "./caster/DoubleCast";
 
 export function Main(events: TSEventHandlers) {
 	VIP(events)
@@ -16,4 +17,5 @@ export function Main(events: TSEventHandlers) {
 	onDeath(events)
 	HealthLink(events)
 	HealthSwap(events)
+	DoubelCast(events)
 }
