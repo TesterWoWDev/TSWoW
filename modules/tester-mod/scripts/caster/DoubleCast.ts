@@ -12,7 +12,7 @@ export function DoubelCast(events: TSEventHandlers) {
     events.SpellID.OnCast(spellID,(spell)=>{
         const creatureID = 31746
         const mineDespawn = 10000
-        const caster = spell.GetCaster().ToPlayer()
+        const caster = spell.GetCaster().ToUnit()
         let flag = caster.GetData().GetObject<PlayerDoublecast>(ModID(),TABLE_NAME_DOUBLE,()=>new PlayerDoublecast()).castFlag
         if(flag == 0){
             caster.GetData().GetObject<PlayerDoublecast>(ModID(),TABLE_NAME_DOUBLE).castFlag = 1
@@ -22,7 +22,7 @@ export function DoubelCast(events: TSEventHandlers) {
             caster.GetData().GetObject<PlayerDoublecast>(ModID(),TABLE_NAME_DOUBLE).spawnedGUID = creature.GetGUIDLow()
 
             caster.GetTasks().AddTimer(ModID(),"reset_doublecast",mineDespawn,1,(timer,entity,del,can)=>{
-                entity.ToPlayer().GetData().GetObject<PlayerDoublecast>(ModID(),TABLE_NAME_DOUBLE).castFlag = 0
+                entity.ToUnit().GetData().GetObject<PlayerDoublecast>(ModID(),TABLE_NAME_DOUBLE).castFlag = 0
             });
         }
         else{
