@@ -1,4 +1,4 @@
-const TABLE_NAME = "playerkillstreak";
+const TABLE_NAME_KILLSTREAK = "playerkillstreak";
 
 @CharactersTable
 class PlayerKillstreak extends DBTable {
@@ -15,7 +15,7 @@ class PlayerKillstreak extends DBTable {
 
 export function Killstreaks(events: TSEventHandlers) {
 	events.Player.OnPVPKill((killer,killed)=>{
-        let killCount = killer.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME,()=>
+        let killCount = killer.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME_KILLSTREAK,()=>
         {
             const guid = killer.GetGUIDLow()
             const rows = LoadRows(PlayerKillstreak,`playerGUID = ${guid}`)
@@ -23,9 +23,9 @@ export function Killstreaks(events: TSEventHandlers) {
         }
         ).killCount++
         
-		killed.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME,()=>new PlayerKillstreak(killed.GetGUIDLow())).killCount = 0
+		killed.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME_KILLSTREAK,()=>new PlayerKillstreak(killed.GetGUIDLow())).killCount = 0
         SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Current killstreak of "+(killCount+1))
-        killer.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME).save();
-        killed.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME).save();
+        killer.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME_KILLSTREAK).save();
+        killed.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME_KILLSTREAK).save();
     });
 }
