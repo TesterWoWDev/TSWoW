@@ -1,7 +1,7 @@
 import { std } from 'tswow-stdlib';
 import { SQL } from 'wotlkdata';
 
-const TSWOW_TESTMODULE = "tester-mod"
+const TSWOW_TESTMODULE = "classes-mod"
 export const RANGED_CLASS = std.Classes.create(TSWOW_TESTMODULE,'ranged','RANGED','HUNTER');
 
 export const NECROMANCER_ROBE = std.Items.create(TSWOW_TESTMODULE,'cls',56).Visual.row.Texture.set

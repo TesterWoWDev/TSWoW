@@ -1,6 +1,6 @@
-import { ID } from "../ID";
+import { ID } from "../../ID";
 export function HealthSwap(events: TSEventHandlers) {
-    let spellID = ID.TESTER_MOD_HEALTH_SWAP
+    let spellID = ID.CLASSES_MOD_HEALTH_SWAP
         events.SpellID.OnCast(spellID,(spell)=>{
             const caster = spell.GetCaster().ToUnit()
             const target = spell.GetTarget().ToUnit()

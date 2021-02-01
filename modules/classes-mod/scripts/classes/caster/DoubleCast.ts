@@ -1,4 +1,4 @@
-import { ID } from "../ID";
+import { ID } from "../../ID";
 const TABLE_NAME_DOUBLE = "doubleCast"
 class PlayerDoublecast {
 	playerGUID: uint32 = 0;
@@ -6,8 +6,8 @@ class PlayerDoublecast {
     spawnedGUID: int32 = 0;
 }
 
-export function DoubelCast(events: TSEventHandlers) {
-    const spellID = ID.TESTER_MOD_DOUBLE_CAST
+export function DoubleCast(events: TSEventHandlers) {
+    const spellID = ID.CLASSES_MOD_DOUBLE_CAST
 
     events.SpellID.OnCast(spellID,(spell)=>{
         const creatureID = 31746

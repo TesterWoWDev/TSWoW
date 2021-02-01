@@ -1,6 +1,6 @@
 import { std } from 'tswow-stdlib';
 
-const TSWOW_TESTMODULE = "tester-mod"
+const TSWOW_TESTMODULE = "classes-mod"
 export const MELEE_CLASS = std.Classes.create(TSWOW_TESTMODULE,'melee','MELEE','WARRIOR');
 
 MELEE_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
