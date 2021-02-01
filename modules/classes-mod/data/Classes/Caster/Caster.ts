@@ -1,6 +1,6 @@
 import { std } from 'tswow-stdlib';
 
-const TSWOW_TESTMODULE = "tester-mod"
+const TSWOW_TESTMODULE = "classes-mod"
 export const CASTER_CLASS = std.Classes.create(TSWOW_TESTMODULE,'caster','CASTER','MAGE');
 
 export const NECROMANCER_ROBE = std.Items.create(TSWOW_TESTMODULE,'cls',56).Visual.row.Texture.set

@@ -2,7 +2,7 @@ import { std } from "tswow-stdlib";
 import { TotemType } from "tswow-stdlib/Totem/TotemType";
 import { DEATH_SKILL } from "./Caster";
 
-const TSWOW_TESTMODULE = "tester-mod"
+const TSWOW_TESTMODULE = "classes-mod"
 const totems : TotemType[] = ['EARTH','AIR','WATER','FIRE']
 
 function makeSummon(index: number, name: string, displayName: string, modelId: number, icon: string, scale = 1) {
