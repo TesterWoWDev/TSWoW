@@ -42,6 +42,13 @@ export namespace ID {
     export const CLASSES_MOD_SUMMON_TANK_3 : uint32 = GetID("Spell","classes-mod","summon-tank-3");
     export const CLASSES_MOD_SUMMON_CASTER_3 : uint32 = GetID("Spell","classes-mod","summon-caster-3");
     export const CLASSES_MOD_SUMMON_HEALER_3 : uint32 = GetID("Spell","classes-mod","summon-healer-3");
+    export const CLASSES_MOD_FIREBALL_RANK1 : uint32 = GetID("Spell","classes-mod","fireball-rank1");
+    export const CLASSES_MOD_FIREBALL_RANK2 : uint32 = GetID("Spell","classes-mod","fireball-rank2");
+    export const CLASSES_MOD_FIREBALL_RANK3 : uint32 = GetID("Spell","classes-mod","fireball-rank3");
+    export const CLASSES_MOD_FIREBALL_RANK4 : uint32 = GetID("Spell","classes-mod","fireball-rank4");
+    export const CLASSES_MOD_FIREBALL_RANK5 : uint32 = GetID("Spell","classes-mod","fireball-rank5");
+    export const CLASSES_MOD_FIREBALL_RANK6 : uint32 = GetID("Spell","classes-mod","fireball-rank6");
+    export const CLASSES_MOD_FIREBALL_RANK7 : uint32 = GetID("Spell","classes-mod","fireball-rank7");
     export const CLASSES_MOD_WARRIOR_0 : uint32 = GetID("creature_template","classes-mod","warrior-0");
     export const CLASSES_MOD_TANK_0 : uint32 = GetID("creature_template","classes-mod","tank-0");
     export const CLASSES_MOD_CASTER_0 : uint32 = GetID("creature_template","classes-mod","caster-0");
