@@ -65,4 +65,5 @@ export namespace ID {
     export const CLASSES_MOD_TANK_3 : uint32 = GetID("creature_template","classes-mod","tank-3");
     export const CLASSES_MOD_CASTER_3 : uint32 = GetID("creature_template","classes-mod","caster-3");
     export const CLASSES_MOD_HEALER_3 : uint32 = GetID("creature_template","classes-mod","healer-3");
+    export const CLASSES_MOD_FIRE_SKILL_TRAINER : uint32 = GetID("creature_template","classes-mod","fire-skill-trainer");
 };
