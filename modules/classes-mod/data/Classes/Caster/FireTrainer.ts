@@ -1,5 +1,6 @@
 import {std} from "tswow-stdlib"
 import { CASTER_CLASS, FIRE_SKILL } from "./Caster"
+import { fire2 } from "./FireSpells"
 
 export const FIRE_SKILL_TRAINER_HORDE = std.CreatureTemplates.create('classes-mod', 'fire-skill-trainer', 3049)
 
@@ -10,4 +11,4 @@ FIRE_SKILL_TRAINER_HORDE.Trainer.Class.set(CASTER_CLASS.ID);
 
 FIRE_SKILL_TRAINER_HORDE.GossipID.set(0);
 
-FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(200028,10,6,FIRE_SKILL.ID)  //Spellid, cost in copper, level to learn, Required Skill
+FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(fire2.ID,10,6,FIRE_SKILL.ID)  //Spellid, cost in copper, level to learn, Required Skill
