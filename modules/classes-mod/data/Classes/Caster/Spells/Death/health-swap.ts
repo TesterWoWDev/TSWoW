@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib";
-import { DEATH_SKILL } from "./Caster";
+import { DEATH_SKILL } from "../../Caster";
 
 export const HEALTH_LINK = std.Spells.create('classes-mod','health-swap',686)
 HEALTH_LINK.Name.enGB.set('Health Swap')

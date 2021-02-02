@@ -1,4 +1,4 @@
-import { ID } from "../../ID";
+import { ID } from "../../../../ID";
 export function HealthSwap(events: TSEventHandlers) {
     let spellID = ID.CLASSES_MOD_HEALTH_SWAP
         events.SpellID.OnCast(spellID,(spell)=>{

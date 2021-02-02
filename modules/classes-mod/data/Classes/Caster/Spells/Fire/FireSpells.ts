@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib";
-import { FIRE_SKILL } from "../Caster";
+import { FIRE_SKILL } from "../../Caster";
 import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
 
 const fireball1 = std.Spells.create('classes-mod','fireball-rank1',133).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;

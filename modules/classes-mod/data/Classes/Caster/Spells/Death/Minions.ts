@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib";
 import { TotemType } from "tswow-stdlib/Totem/TotemType";
-import { DEATH_SKILL } from "./Caster";
+import { DEATH_SKILL } from "../../Caster";
 
 const TSWOW_TESTMODULE = "classes-mod"
 const totems : TotemType[] = ['EARTH','AIR','WATER','FIRE']
