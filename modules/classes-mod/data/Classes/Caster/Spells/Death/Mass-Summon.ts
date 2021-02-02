@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib";
-import {DEATH_SKILL} from "./Caster"
+import {DEATH_SKILL} from "../../Caster"
 export const DEATH_BOLT = std.Spells.create('classes-mod','death-bolt',686)
 DEATH_BOLT.Name.enGB.set('Death Bolt')
 DEATH_BOLT.Description.enGB.set('A bolt of death!');

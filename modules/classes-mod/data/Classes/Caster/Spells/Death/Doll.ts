@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib";
-import { CASTER_CLASS } from "./Caster";
+import { CASTER_CLASS } from "../../Caster";
 
 export const CASTER_TOTEM = std.Items.create('classes-mod', 'caster-totem-item',46978)
 CASTER_TOTEM.Name.set({enGB:"Caster's Doll"})
