@@ -1,5 +1,5 @@
 import {std} from "tswow-stdlib"
-import { CASTER_CLASS, FIRE_SKILL } from "./Caster"
+import { CASTER_CLASS, FIRE_SKILL } from "../Caster"
 
 export const FIRE_SKILL_TRAINER_HORDE = std.CreatureTemplates.create('classes-mod', 'fire-skill-trainer', 3049)
 
