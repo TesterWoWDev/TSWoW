@@ -4115,7 +4115,7 @@ declare class TSVehicle {
 declare class TSStorage {
     SetObject<T>(modid: uint32, key: string, obj: T): T;
     HasObject(modid: uint32, key: string): boolean;
-    GetObject<T>(modid: uint32, key: string, creator: ()=>T): T;
+    GetObject<T>(modid: uint32, key: string, creator?: ()=>T): T;
 
     SetInt(key: string, value: uint32): uint32;
     HasInt(key: string): boolean;
@@ -4132,7 +4132,7 @@ declare class TSStorage {
 
 declare class TSCollisionEntry {
     readonly name: string;
-    maxHIts: uint32;
+    maxHits: uint32;
     range: float;
     minDelay: uint64;
     hitmap: TSDictionary<uint64,uint32>
@@ -4140,7 +4140,7 @@ declare class TSCollisionEntry {
 }
 
 declare class TSCollisions {
-    Add(modid: uint32, id: string, range: float, minDelay: uint32, maxHits: uint32, callback: (entry: TSCollisionEntry, self: TSWorldObject, collided: TSWorldObject, range: float, cancel: TSMutable<uint32>)=>void)
+    Add(modid: uint32, id: string, range: float, minDelay: uint32, maxHits: uint32, callback: (entry: TSCollisionEntry, self: TSWorldObject, collided: TSWorldObject, cancel: TSMutable<uint32>)=>void)
     Contains(id: string): bool;
     Get(id: string): TSCollisionEntry;
 }
@@ -6353,7 +6353,7 @@ declare namespace _hidden {
         OnUse(callback: (obj: TSGameObject, user: TSUnit, cancel: TSMutable<boolean>)=>void)
         OnQuestAccept(callback: (obj: TSGameObject, player: TSPlayer, quest: TSQuest)=>void)
         OnGenerateLoot(callback: (obj: TSGameObject, player: TSPlayer)=>void)
-        OnGenerateFishLoot(callback: (obj: TSGameObject, player: TSPlayer, loot: TSLoot, isFish: bool)=>void)
+        OnGenerateFishLoot(callback: (obj: TSGameObject, player: TSPlayer, loot: TSLoot, isJunk: bool)=>void)
     }
 
     export class GameObejctID {
@@ -6469,6 +6469,8 @@ declare class TSLoot {
     GetItem(index: uint32): TSLootItem;
     GetQuestItem(index: uint32): TSLootItem;
     Filter(predicate: (item: TSLootItem)=>bool);
+    GetGeneratesNormally(): bool;
+    SetGeneratesNormally(normal: bool);
 }
 
 declare class TSAuctionEntry {
@@ -6563,6 +6565,7 @@ declare class TSMailDraft {
 
 // Global.h
 declare function SendMail(senderType: uint8, from: uint64, subject: string, body: string, money?: uint32, cod?: uint32, delay?: uint32, items?: TSArray<TSItem>);
+declare function SendWorldMessage(message: TSString);
 // end of Global.h
 
 declare function MakeDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V>
@@ -6570,8 +6573,14 @@ declare function MakeDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V
 declare function GetID(table: string, mod: string, name: string);
 declare function GetIDRange(table: string, mod: string, name: string);
 
+declare class TSTimer {
+    delay: uint32;
+    repeats: uint32;
+    readonly name: string;
+}
+
 declare class TSTasks<T> {
-    AddTimer(id: uint32, name: string, time: uint32, repeats: uint32, cb: (type: T, delay: uint32, cancel: TSMutable<bool>)=>void)
+    AddTimer(id: uint32, name: string, time: uint32, repeats: uint32, cb: (timer: TSTimer,owner: T, delay: uint32, cancel: TSMutable<bool>)=>void)
     RemoveTimer(name: string);
 }
 
