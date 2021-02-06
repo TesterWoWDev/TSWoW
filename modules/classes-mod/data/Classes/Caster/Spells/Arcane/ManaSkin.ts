@@ -1,11 +1,16 @@
 import { std } from "tswow-stdlib"
 import { AuraType } from "tswow-stdlib/Spell/AuraType"
+import { CASTER_CLASS } from "../../Caster";
+import { ARCANE_SKILL } from "../../Caster";
+
+
 
 
 const CONCENTRATE = std.Spells.load(19746)
 const PAINSUPPRESSION = std.Spells.load(69910)
 const MANASKIN = std.Spells.create('casterbuff','manaskin',69910)
 MANASKIN.Name.enGB.set('Mana Skin')
+MANASKIN.SkillLines.add(ARCANE_SKILL.ID)
 MANASKIN.Description.enGB.set('Envelops the caster in their own mana, reducing damage taken by $s1% and causing them to lose $s2% less casting or channeling time when damaged for 30 min.')
 MANASKIN.AuraDescription.enGB.set('Shrouded in mana, reducing damage taken by $s1% and cast or channel time lost when damaged by $s2%.')
 MANASKIN.Attributes.singleTargetSpell

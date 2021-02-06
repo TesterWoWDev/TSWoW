@@ -16,6 +16,7 @@
     "@types/xml2js": "^0.4.5",
     "adm-zip": "^0.4.16",
     "chokidar": "^3.4.3",
+    "classes-mod": "file:modules/classes-mod/data/build",
     "cross-spawn": "^7.0.3",
     "dante-mod": "file:modules/dante-mod/data/build",
     "deasync": "^0.1.21",
