@@ -9,9 +9,9 @@ testquest1.Text.Description.enGB.set("Kill the mongrels surrounding Northshire A
 testquest1.Text.Objective.enGB.set("So, you're $n.. and you said what? you'd.. a who now? Developer? I doubt you could pass that off, there's a slew of things you have to kill to even be qualified!")
 testquest1.Objectives.Entity.add(299, 20)
 testquest1.Objectives.Entity.add(6, 20)
-testquest1.Rewards.choiceItem.add(100001,1)
-testquest1.Rewards.choiceItem.add(9413,1)
-testquest1.Rewards.money.set(276)
+testquest1.Rewards.ChoiceItem.add(100001,1)
+testquest1.Rewards.ChoiceItem.add(9413,1)
+testquest1.Rewards.Money.set(276)
 testquest1.QuestLevel.set(10)
 
 

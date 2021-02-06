@@ -12,18 +12,4 @@ export function Skillshot(events: TSEventHandlers) {
 		creature.MoveTo(1,TSPosition.x,TSPosition.y,TSPosition.z,true)
 		creature.SetDisplayId(11686)
 	});
-
-	events.SpellID.OnCast(1,(spell)=>{//knock enemies into air
-        const caster = spell.GetCaster()
-        const nearbyCreatures = caster.GetCreaturesInRange(10,0,1,0)
-        const nearbyPlayers = caster.GetPlayersInRange(10,1,0)
-        for (let i=0;i<nearbyCreatures.length;i++){
-            const curCreature = nearbyCreatures.get(i)
-            curCreature.MoveJump(curCreature.GetX(),curCreature.GetY(),curCreature.GetZ()+30,50,20,1)
-        }
-        for (let i=0;i<nearbyPlayers.length;i++){
-            const curPlayer = nearbyPlayers.get(i)
-            curPlayer.MoveJump(curPlayer.GetX(),curPlayer.GetY(),curPlayer.GetZ()+30,50,20,1)
-        }
-    })
 }
