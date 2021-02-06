@@ -34,7 +34,7 @@ MANASKIN.Effects.get(0).BasePoints.set(-6)
 MANASKIN.Effects.add().AuraType.setReducePushback().BasePoints.set(19)
 CONCENTRATE.Effects.objectify()
 CONCENTRATE.Effects.get(0).objectify
-console.log(CONCENTRATE.objectify())
+
 
 
 
