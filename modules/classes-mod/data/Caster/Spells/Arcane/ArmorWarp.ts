@@ -49,3 +49,4 @@ const ArmorWarp5 = std.Spells.create(MODNAME,'armor-warp-rank-5',47865).SkillLin
     ARCANE_TRAINER_ALLY.Trainer.addSpell(ArmorWarp5.ID,600,40)
 
 createAllSpellRank([ArmorWarp1.ID,ArmorWarp2.ID,ArmorWarp3.ID,ArmorWarp4.ID,ArmorWarp5.ID])
+

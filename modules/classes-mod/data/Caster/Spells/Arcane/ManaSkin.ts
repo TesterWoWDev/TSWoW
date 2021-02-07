@@ -25,7 +25,7 @@ const MANASKIN = std.Spells.create(MODNAME,'manaskin',69910)
     MANASKIN.Proc.Chance.set(101)
     MANASKIN.Icon.set('Interface\\Icons\\Spell_arcane_prismaticcloak')
     MANASKIN.Effects.get(0).BasePoints.set(-6)
-    MANASKIN.Effects.add().AuraType.setReducePushback().BasePoints.set(19)
+    MANASKIN.Effects.add().AuraType.setReducePushback().BasePoints.set(19).DieSides.set(1)
 
 
 
