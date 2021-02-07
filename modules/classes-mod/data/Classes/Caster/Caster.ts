@@ -31,21 +31,21 @@ CASTER_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
 
 
 export const DEATH_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'death-skill',CASTER_CLASS.ID)
-DEATH_SKILL.Name.enGB.set(`Death`)
-DEATH_SKILL.Icon.set('Interface\\Icons\\spell_shadow_fingerofdeath.blp')
+    DEATH_SKILL.Name.enGB.set(`Death`)
+    DEATH_SKILL.Icon.set('Interface\\Icons\\spell_shadow_fingerofdeath.blp')
 
 export const ARCANE_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'arcane-skill',CASTER_CLASS.ID)
-ARCANE_SKILL.Name.enGB.set(`Arcane`)
-ARCANE_SKILL.Icon.set('Interface\\Icons\\spell_arcane_starfire.blp')
+    ARCANE_SKILL.Name.enGB.set(`Arcane`)
+    ARCANE_SKILL.Icon.set('Interface\\Icons\\spell_arcane_starfire.blp')
 
 export const FIRE_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'fire-skill',CASTER_CLASS.ID)
-FIRE_SKILL.Name.enGB.set(`Fire`)
-FIRE_SKILL.Icon.set('Interface\\Icons\\ability_mage_firestarter.blp')
+    FIRE_SKILL.Name.enGB.set(`Fire`)
+    FIRE_SKILL.Icon.set('Interface\\Icons\\ability_mage_firestarter.blp')
 
 export const FROST_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'frost-skill',CASTER_CLASS.ID)
-FROST_SKILL.Name.enGB.set(`Frost`)
-FROST_SKILL.Icon.set('Interface\\Icons\\spell_frost_frostblast.blp')
+    FROST_SKILL.Name.enGB.set(`Frost`)
+    FROST_SKILL.Icon.set('Interface\\Icons\\spell_frost_frostblast.blp')
 
 export const LIFE_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'life-skill',CASTER_CLASS.ID)
-LIFE_SKILL.Name.enGB.set(`Life`)
-LIFE_SKILL.Icon.set('Interface\\Icons\\spell_nature_healingtouch.blp')
+    LIFE_SKILL.Name.enGB.set(`Life`)
+    LIFE_SKILL.Icon.set('Interface\\Icons\\spell_nature_healingtouch.blp')
