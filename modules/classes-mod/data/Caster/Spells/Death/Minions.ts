@@ -1,14 +1,14 @@
 import { std } from "tswow-stdlib";
 import { TotemType } from "tswow-stdlib/Totem/TotemType";
+import { MODNAME } from "../../../moduleName";
 import { DEATH_SKILL } from "../../Caster";
 
-const TSWOW_TESTMODULE = "classes-mod"
 const totems : TotemType[] = ['EARTH','AIR','WATER','FIRE']
 
 function makeSummon(index: number, name: string, displayName: string, modelId: number, icon: string, scale = 1) {
-	const entity = std.CreatureTemplates.create(TSWOW_TESTMODULE,`${name}-${index}`,416);
+	const entity = std.CreatureTemplates.create(MODNAME,`${name}-${index}`,416);
 
-	const summon_spell = std.Spells.TotemCreatures.createSummon(TSWOW_TESTMODULE,`summon-${name}-${index}`, totems[index], entity.ID);
+	const summon_spell = std.Spells.TotemCreatures.createSummon(MODNAME,`summon-${name}-${index}`, totems[index], entity.ID);
 	summon_spell.Power.setMana(40,5)
 	summon_spell.CastTime.Base.set(500)
 	summon_spell.Duration.Duration.set(45000)
@@ -119,7 +119,7 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 }
 
 for(let i=0;i<totems.length;++i){//HAS A LINKED LIVE SCRIPT
-	const controllers = std.Spells.TotemCreatures.createControllers(TSWOW_TESTMODULE,`control-${i}`,[i],['Attack'])
+	const controllers = std.Spells.TotemCreatures.createControllers(MODNAME,`control-${i}`,[i],['Attack'])
 	if( i == 0)
 	controllers.Attack?.SkillLines.add(DEATH_SKILL.ID).setAutolearn();
 	controllers.Attack?.Name.enGB.set(`Minion Attack`);

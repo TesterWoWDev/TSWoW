@@ -1,7 +1,7 @@
 import { std } from 'tswow-stdlib';
+import { MODNAME } from '../moduleName';
 
-const TSWOW_TESTMODULE = "classes-mod"
-export const MELEE_CLASS = std.Classes.create(TSWOW_TESTMODULE,'melee','MELEE','WARRIOR');
+export const MELEE_CLASS = std.Classes.create(MODNAME,'melee','MELEE','WARRIOR');
     MELEE_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
     MELEE_CLASS.Name.enGB.set('Melee');
     MELEE_CLASS.UI.ClassButton.setPos(40,-460)
@@ -36,18 +36,18 @@ MELEE_CLASS.Stats.SpellCrit.set((x,level)=>0.000005*level)
 MELEE_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
 
 
-export const JUGGERNAUT_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'juggernaut-skill',MELEE_CLASS.ID)
+export const JUGGERNAUT_SKILL = std.SkillLines.createClass(MODNAME,'juggernaut-skill',MELEE_CLASS.ID)
     JUGGERNAUT_SKILL.Name.enGB.set(`Juggernaut`)
     JUGGERNAUT_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 
-export const KNIGHT_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'knight-skill',MELEE_CLASS.ID)
+export const KNIGHT_SKILL = std.SkillLines.createClass(MODNAME,'knight-skill',MELEE_CLASS.ID)
     KNIGHT_SKILL.Name.enGB.set(`Knight`)
     KNIGHT_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 
-export const DEFENDER_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'defender-skill',MELEE_CLASS.ID)
+export const DEFENDER_SKILL = std.SkillLines.createClass(MODNAME,'defender-skill',MELEE_CLASS.ID)
     DEFENDER_SKILL.Name.enGB.set(`Defender`)
     DEFENDER_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 
-export const ASSASSINATION_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'assassination-skill',MELEE_CLASS.ID)
+export const ASSASSINATION_SKILL = std.SkillLines.createClass(MODNAME,'assassination-skill',MELEE_CLASS.ID)
     ASSASSINATION_SKILL.Name.enGB.set(`Assassination`)
     ASSASSINATION_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
