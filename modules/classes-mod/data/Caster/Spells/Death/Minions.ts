@@ -28,15 +28,15 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			entity.Stats.DamageMod.set(2.5)
 
 			//on combat start
-			entity.Scripts.onRange(0,20,0,0).Target.setSelf().Action.setCast(3385,0,0)
+			entity.Scripts.onRange(0,20,1,1).Target.setSelf().Action.setCast(3385,0,0)
 			//timed calls
 			//(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0)
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1)
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(0,0,0,11000,15000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(0)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(1,0,0,3000,7000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(1)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(2,0,0,5000,7000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(2)
 			//combat loop
 			entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(10,0).Action.setCast(45462,2,7)
 			entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(10,0).Action.setCast(45902,2,7)
@@ -50,14 +50,14 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 		   entity.Stats.ArmorMod.set(2)
 			//fix mana
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166,0,0)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Target.setSelf().Action.setCast(29166,0,0)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Target.setSelf().Action.setCast(29166,0,0)
 			//on combat start
-			entity.Scripts.onRange(0,20,0,0).Target.setClosestEnemy(10,0).Action.setCast(1161,2,7)
+			entity.Scripts.onRange(0,20,1,1).Target.setClosestEnemy(10,0).Action.setCast(1161,2,7)
 			//timed calls
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,7000,11000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0)
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,4000,7000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(0,0,0,7000,11000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(0)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(1,0,0,4000,7000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(1)
 			//combat loop
 			entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(10,0).Action.setCast(70428,2,7)
 			entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(10,0).Action.setCast(1161,2,7)		
@@ -71,14 +71,14 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			//fix mana
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166,0,0)
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(688,0,0)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Target.setSelf().Action.setCast(29166,0,0)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Target.setSelf().Action.setCast(29166,0,0)
 			//timed calls
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,5,9,6000,10000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0)
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,1,1,3000,3000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1)
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,1,2,30000,45000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(0,5,9,6000,10000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(0)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(1,1,1,3000,3000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(1)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(2,1,2,30000,45000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(2)
 			//combat loop
 			entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(40,0).Action.setCast(47813,0,0)
 			entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(40,0).Action.setCast(25307,0,32)
@@ -93,16 +93,16 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			//fix mana
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166,0,0)
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(688,0,0)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Target.setSelf().Action.setCast(29166,0,0)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Target.setSelf().Action.setCast(29166,0,0)
 			//timed calls
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,5,9,8000,13000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0)
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,1,1,13000,15000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1)
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,1,2,3000,3000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2)
-			entity.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(3,1,2,20000,35000,100)
-			entity.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(3)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(0,5,9,8000,13000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(0)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(1,1,1,13000,15000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(1)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(2,1,2,3000,3000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(2)
+			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(3,1,2,20000,35000,100)
+			entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(3)
 			//combat loop
 			entity.Scripts.onTimedEventTriggered(0).Target.setCreatureRange(0,0,40,1).Action.setCast(34861,2,7)//AoE heal
 			entity.Scripts.onTimedEventTriggered(1).Target.setCreatureRange(0,0,40,1).Action.setCast(48068,2,7)//renew
