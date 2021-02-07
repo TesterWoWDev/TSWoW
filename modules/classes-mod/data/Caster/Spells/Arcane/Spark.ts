@@ -66,7 +66,7 @@ SPARK7.Levels.Base.set(31)
 SPARK7.Levels.Spell.set(31)
 SPARK7.Subtext.enGB.set('Rank 7')
 SPARK7.Effects.add().BasePoints.set(356.984)
-ARCANE_TRAINER_ALLY.Trainer.addSpell(SPARK2.ID,645,31)
+ARCANE_TRAINER_ALLY.Trainer.addSpell(SPARK7.ID,645,31)
 
 createAllSpellRank([SPARK.ID,SPARK2.ID,SPARK3.ID,SPARK4.ID,SPARK5.ID,SPARK6.ID,SPARK7.ID])
 
