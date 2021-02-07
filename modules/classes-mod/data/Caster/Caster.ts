@@ -1,9 +1,9 @@
 import { std } from 'tswow-stdlib';
+import { MODNAME } from '../moduleName';
 
-const TSWOW_TESTMODULE = "classes-mod"
-export const CASTER_CLASS = std.Classes.create(TSWOW_TESTMODULE,'caster','CASTER','MAGE');
+export const CASTER_CLASS = std.Classes.create(MODNAME,'caster','CASTER','MAGE');
 
-export const NECROMANCER_ROBE = std.Items.create(TSWOW_TESTMODULE,'cls',56).Visual.row.Texture.set
+export const NECROMANCER_ROBE = std.Items.create(MODNAME,'cls',56).Visual.row.Texture.set
 
 CASTER_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL']);
 CASTER_CLASS.Name.enGB.set('Caster');
@@ -30,22 +30,22 @@ CASTER_CLASS.Stats.SpellCrit.set((x,level)=>0.000005*level)
 CASTER_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
 
 
-export const DEATH_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'death-skill',CASTER_CLASS.ID)
+export const DEATH_SKILL = std.SkillLines.createClass(MODNAME,'death-skill',CASTER_CLASS.ID)
     DEATH_SKILL.Name.enGB.set(`Death`)
     DEATH_SKILL.Icon.set('Interface\\Icons\\spell_shadow_fingerofdeath.blp')
 
-export const ARCANE_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'arcane-skill',CASTER_CLASS.ID)
+export const ARCANE_SKILL = std.SkillLines.createClass(MODNAME,'arcane-skill',CASTER_CLASS.ID)
     ARCANE_SKILL.Name.enGB.set(`Arcane`)
     ARCANE_SKILL.Icon.set('Interface\\Icons\\spell_arcane_starfire.blp')
 
-export const FIRE_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'fire-skill',CASTER_CLASS.ID)
+export const FIRE_SKILL = std.SkillLines.createClass(MODNAME,'fire-skill',CASTER_CLASS.ID)
     FIRE_SKILL.Name.enGB.set(`Fire`)
     FIRE_SKILL.Icon.set('Interface\\Icons\\ability_mage_firestarter.blp')
 
-export const FROST_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'frost-skill',CASTER_CLASS.ID)
+export const FROST_SKILL = std.SkillLines.createClass(MODNAME,'frost-skill',CASTER_CLASS.ID)
     FROST_SKILL.Name.enGB.set(`Frost`)
     FROST_SKILL.Icon.set('Interface\\Icons\\spell_frost_frostblast.blp')
 
-export const LIFE_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'life-skill',CASTER_CLASS.ID)
+export const LIFE_SKILL = std.SkillLines.createClass(MODNAME,'life-skill',CASTER_CLASS.ID)
     LIFE_SKILL.Name.enGB.set(`Life`)
     LIFE_SKILL.Icon.set('Interface\\Icons\\spell_nature_healingtouch.blp')

@@ -1,8 +1,8 @@
 import { std } from 'tswow-stdlib';
 import { SQL } from 'wotlkdata';
+import { MODNAME } from '../moduleName';
 
-const TSWOW_TESTMODULE = "classes-mod"
-export const RANGED_CLASS = std.Classes.create(TSWOW_TESTMODULE,'ranged','RANGED','HUNTER');
+export const RANGED_CLASS = std.Classes.create(MODNAME,'ranged','RANGED','HUNTER');
     RANGED_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
     RANGED_CLASS.Name.enGB.set('Ranged');
     RANGED_CLASS.RequiredExpansion.set(1)
@@ -35,18 +35,18 @@ RANGED_CLASS.Stats.SpellCrit.set((x,level)=>0.000005*level)
 RANGED_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
 
 
-export const BEAST_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'beast-skill',RANGED_CLASS.ID)
+export const BEAST_SKILL = std.SkillLines.createClass(MODNAME,'beast-skill',RANGED_CLASS.ID)
     BEAST_SKILL.Name.enGB.set(`Beastiary`)
     BEAST_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 
-export const TRAPPER_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'trapper-skill',RANGED_CLASS.ID)
+export const TRAPPER_SKILL = std.SkillLines.createClass(MODNAME,'trapper-skill',RANGED_CLASS.ID)
     TRAPPER_SKILL.Name.enGB.set(`Trapper`)
     TRAPPER_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 
-export const MARKSMAN_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'marksman-skill',RANGED_CLASS.ID)
+export const MARKSMAN_SKILL = std.SkillLines.createClass(MODNAME,'marksman-skill',RANGED_CLASS.ID)
     MARKSMAN_SKILL.Name.enGB.set(`Marksman`)
     MARKSMAN_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
 
-export const AMAZONIAN_SKILL = std.SkillLines.createClass(TSWOW_TESTMODULE,'amazonian-skill',RANGED_CLASS.ID)
+export const AMAZONIAN_SKILL = std.SkillLines.createClass(MODNAME,'amazonian-skill',RANGED_CLASS.ID)
     AMAZONIAN_SKILL.Name.enGB.set(`Amazonian`)
     AMAZONIAN_SKILL.Icon.set('Interface\\Icons\\Spell_Shadow_ShadeTrueSight.blp')
