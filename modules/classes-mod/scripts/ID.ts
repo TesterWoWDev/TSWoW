@@ -18,6 +18,13 @@ export namespace ID {
     export const CLASSES_MOD_MARKSMAN_SKILL : uint32 = GetID("SkillLineAbility","classes-mod","marksman-skill");
     export const CLASSES_MOD_AMAZONIAN_SKILL : uint32 = GetID("SkillLineAbility","classes-mod","amazonian-skill");
     export const CLASSES_MOD_DOUBLE_CAST : uint32 = GetID("Spell","classes-mod","double-cast");
+    export const CLASSES_MOD_ARMOR_WARP_RANK_1 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-1");
+    export const CLASSES_MOD_ARMOR_WARP_RANK_2 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-2");
+    export const CLASSES_MOD_ARMOR_WARP_RANK_3 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-3");
+    export const CLASSES_MOD_ARMOR_WARP_RANK_4 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-4");
+    export const CLASSES_MOD_ARMOR_WARP_RANK_5 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-5");
+    export const CLASSES_MOD_MANASKIN : uint32 = GetID("Spell","classes-mod","manaskin");
+    export const CLASSES_MOD_ARCANE_SPARK : uint32 = GetID("Spell","classes-mod","arcane-spark");
     export const CLASSES_MOD_HEALTH_LINK : uint32 = GetID("Spell","classes-mod","health-link");
     export const CLASSES_MOD_HEALTH_SWAP : uint32 = GetID("Spell","classes-mod","health-swap");
     export const CLASSES_MOD_DEATH_BOLT : uint32 = GetID("Spell","classes-mod","death-bolt");
@@ -49,12 +56,9 @@ export namespace ID {
     export const CLASSES_MOD_FIREBALL_RANK5 : uint32 = GetID("Spell","classes-mod","fireball-rank5");
     export const CLASSES_MOD_FIREBALL_RANK6 : uint32 = GetID("Spell","classes-mod","fireball-rank6");
     export const CLASSES_MOD_FIREBALL_RANK7 : uint32 = GetID("Spell","classes-mod","fireball-rank7");
-    export const CLASSES_MOD_ARMOR_WARP_RANK_1 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-1");
-    export const CLASSES_MOD_ARMOR_WARP_RANK_2 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-2");
-    export const CLASSES_MOD_ARMOR_WARP_RANK_3 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-3");
-    export const CLASSES_MOD_ARMOR_WARP_RANK_4 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-4");
-    export const CLASSES_MOD_ARMOR_WARP_RANK_5 : uint32 = GetID("Spell","classes-mod","armor-warp-rank-5");
-    export const CLASSES_MOD_MANASKIN : uint32 = GetID("Spell","classes-mod","manaskin");
+    export const CLASSES_MOD_ARCANE_SPARK_RANK_2 : uint32 = GetID("Spell","classes-mod","arcane-spark-rank-2");
+    export const CLASSES_MOD_ARCANE_SPARK_RANK_3 : uint32 = GetID("Spell","classes-mod","arcane-spark-rank-3");
+    export const CLASSES_MOD_ARCANE_TRAINER : uint32 = GetID("creature_template","classes-mod","arcane-trainer");
     export const CLASSES_MOD_WARRIOR_0 : uint32 = GetID("creature_template","classes-mod","warrior-0");
     export const CLASSES_MOD_TANK_0 : uint32 = GetID("creature_template","classes-mod","tank-0");
     export const CLASSES_MOD_CASTER_0 : uint32 = GetID("creature_template","classes-mod","caster-0");
@@ -72,5 +76,4 @@ export namespace ID {
     export const CLASSES_MOD_CASTER_3 : uint32 = GetID("creature_template","classes-mod","caster-3");
     export const CLASSES_MOD_HEALER_3 : uint32 = GetID("creature_template","classes-mod","healer-3");
     export const CLASSES_MOD_FIRE_SKILL_TRAINER : uint32 = GetID("creature_template","classes-mod","fire-skill-trainer");
-    export const CLASSES_MOD_ARCANE_TRAINER : uint32 = GetID("creature_template","classes-mod","arcane-trainer");
 };
