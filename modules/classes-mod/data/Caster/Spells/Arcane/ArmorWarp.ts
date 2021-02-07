@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../../moduleName";
 import { ARCANE_SKILL } from "../../Caster";
-import { createAllSpellRank, createSingleSpellRank } from "../SpellRank";
+import { createAllSpellRank, createSingleSpellRank } from "../../../SpellRank";
 import { ARCANE_TRAINER_ALLY } from "./ArcaneTrainer";
 
 const ArmorWarp1 = std.Spells.create(MODNAME,'armor-warp-rank-1',1490).SkillLines.add(ARCANE_SKILL.ID).AcquireMethod.set(0).end
