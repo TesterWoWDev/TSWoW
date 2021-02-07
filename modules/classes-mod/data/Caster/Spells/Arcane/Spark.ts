@@ -7,7 +7,7 @@ import { ARCANE_TRAINER_ALLY } from "./ArcaneTrainer";
 const SPARK = std.Spells.create(MODNAME,'arcane-spark',133).SkillLines.add(ARCANE_SKILL.ID).end
 SPARK.Name.enGB.set('Spark')
 SPARK.Icon.set('Interface\\Icons\\spell_arcane_arcane04')
-SPARK.Description.enGB.set('Throws pure arcane magic that causes $s1% Arcane damage and an additional $3% over 4 sec.')
+SPARK.Description.enGB.set('Throws pure arcane magic that causes $s1% Arcane damage and an additional $s2 over 4 sec.')
 SPARK.SchoolMask.set(64)
 console.log(SPARK.Effects.objectify())
 SPARK.Visual.cloneFrom(62250,true)
