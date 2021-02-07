@@ -1,4 +1,4 @@
-import { ID } from "../../ID";
+import { ID } from "../ID";
 const TABLE_NAME_DOUBLE = "doubleCast"
 class PlayerDoublecast {
 	playerGUID: uint32 = 0;

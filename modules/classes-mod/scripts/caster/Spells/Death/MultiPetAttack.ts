@@ -1,4 +1,4 @@
-import { ID } from "../../../../ID";
+import { ID } from "../../../ID";
 
 export function MultiPetAttack(events: TSEventHandlers) {
 
