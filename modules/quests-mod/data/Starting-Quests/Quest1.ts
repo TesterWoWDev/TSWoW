@@ -1,10 +1,11 @@
 import { std } from 'tswow-stdlib';
+import { MODNAME } from '../quests-mod-data';
 
-export const draftPaper = std.Items.create("tester-mod","startQuest1-draftpaper",20810)
+export const draftPaper = std.Items.create(MODNAME,"startQuest1-draftpaper",20810)
     draftPaper.Name.enGB.set("Draft Papers")
     draftPaper.Description.enGB.set("tattered, but still legible")
 
-const startQuest1 = std.Quests.create("tester-mod", "startQuest1")
+const startQuest1 = std.Quests.create(MODNAME, "startQuest1")
     startQuest1.QuestLevel.set(1)
     startQuest1.Text.Title.enGB.set("An Urgent Message")
     startQuest1.Text.Objective.enGB.set("Take the letter to Archbishop Fairway")

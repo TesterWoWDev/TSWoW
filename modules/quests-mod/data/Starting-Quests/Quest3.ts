@@ -1,15 +1,16 @@
 import { std } from 'tswow-stdlib';
+import { MODNAME } from '../quests-mod-data';
 import { emptyVials } from './Quest2';
 
-export const mysteriousVials = std.Items.create("tester-mod","startQuest3-mysteriousliquidvial",3371)
+export const mysteriousVials = std.Items.create(MODNAME,"startQuest3-mysteriousliquidvial",3371)
     mysteriousVials.Name.enGB.set("Mysterious Liquid Vials")
     mysteriousVials.Description.enGB.set("kinda dirty...")
 
-const poorNotes = std.Items.create("tester-mod","startquest3-poornotes",20810)
+const poorNotes = std.Items.create(MODNAME,"startquest3-poornotes",20810)
     poorNotes.Name.enGB.set("Poorly Written Notes")
     poorNotes.Description.enGB.set("They're bad. Like Connor bad.")
 
-const startQuest3 = std.Quests.create("tester-mod", "startQuest3")
+const startQuest3 = std.Quests.create(MODNAME, "startQuest3")
     startQuest3.QuestLevel.set(1)
     startQuest3.Text.Title.enGB.set("An Ancient Foe")
     startQuest3.Text.Objective.enGB.set("fill me")
