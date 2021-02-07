@@ -1,20 +1,21 @@
 import { std } from "tswow-stdlib"
 import { ARCANE_SKILL } from "../../Caster";
+import { createAllSpellRank, createSingleSpellRank } from "../SpellRank";
 import { ARCANE_TRAINER_ALLY } from "./ArcaneTrainer";
 
-const ARC_Skill = std.Spells.create('arcane-spell','armor-warp-rank-1',1490).SkillLines.add(ARCANE_SKILL.ID).AcquireMethod.set(0).end
-    ARCANE_TRAINER_ALLY.Trainer.addSpell(ARC_Skill.ID,10,8)
-    ARC_Skill.Name.enGB.set('Armor Warp')
-    ARC_Skill.Description.enGB.set('Age a target\'s armor with time magics, reducing their spell resistances by $s1 and increasing magic damage taken by $s2% for 30 seconds.')
-    ARC_Skill.Icon.set('Interface\\Icons\\spell_holy_dispelmagic')
-    ARC_Skill.Levels.Base.set(8)
-    ARC_Skill.Levels.Spell.set(8)
-    ARC_Skill.DispelType.set(1)
-    ARC_Skill.DefenseType.set(1)
-    ARC_Skill.Duration.set(30000,0,0)
-    ARC_Skill.Power.setMana(20,40,0,0,0)
-    ARC_Skill.Effects.get(0).BasePoints.set(-21)
-    ARC_Skill.Effects.get(1).BasePoints.set(2)
+const ArmorWarp1 = std.Spells.create('arcane-spell','armor-warp-rank-1',1490).SkillLines.add(ARCANE_SKILL.ID).AcquireMethod.set(0).end
+    ArmorWarp1.Name.enGB.set('Armor Warp')
+    ArmorWarp1.Description.enGB.set('Age a target\'s armor with time magics, reducing their spell resistances by $s1 and increasing magic damage taken by $s2% for 30 seconds.')
+    ArmorWarp1.Icon.set('Interface\\Icons\\spell_holy_dispelmagic')
+    ArmorWarp1.Levels.Base.set(8)
+    ArmorWarp1.Levels.Spell.set(8)
+    ArmorWarp1.DispelType.set(1)
+    ArmorWarp1.DefenseType.set(1)
+    ArmorWarp1.Duration.set(30000,0,0)
+    ArmorWarp1.Power.setMana(20,40,0,0,0)
+    ArmorWarp1.Effects.get(0).BasePoints.set(-21)
+    ArmorWarp1.Effects.get(1).BasePoints.set(2)
+    ARCANE_TRAINER_ALLY.Trainer.addSpell(ArmorWarp1.ID,10,8)
 
 const ArmorWarp2 = std.Spells.create('arcane-spell','armor-warp-rank-2',11721).SkillLines.add(ARCANE_SKILL.ID).AcquireMethod.set(0).end
     ArmorWarp2.Name.enGB.set('Armor Warp')
@@ -46,8 +47,4 @@ const ArmorWarp5 = std.Spells.create('arcane-spell','armor-warp-rank-5',47865).S
     ArmorWarp5.Effects.get(0).BasePoints.set(-52)
     ARCANE_TRAINER_ALLY.Trainer.addSpell(ArmorWarp5.ID,600,40)
 
-
-
-
-
-
+createAllSpellRank([ArmorWarp1.ID,ArmorWarp2.ID,ArmorWarp3.ID,ArmorWarp4.ID,ArmorWarp5.ID])
