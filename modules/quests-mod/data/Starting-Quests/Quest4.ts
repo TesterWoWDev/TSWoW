@@ -1,12 +1,13 @@
 import { std } from 'tswow-stdlib';
+import { MODNAME } from '../quests-mod-data';
 import { emptyVials } from './Quest2';
 import {mysteriousVials} from './Quest3'
 
-const plaguePapers = std.Items.create("tester-mod","startquest4-plaguepapers",20810)
+const plaguePapers = std.Items.create(MODNAME,"startquest4-plaguepapers",20810)
     plaguePapers.Name.enGB.set("Plague Papers")
     plaguePapers.Description.enGB.set("They're blank.")
 
-const startQuest4 = std.Quests.create("tester-mod", "startQuest4")
+const startQuest4 = std.Quests.create(MODNAME, "startQuest4")
     startQuest4.QuestLevel.set(1)
     startQuest4.Text.Title.enGB.set("Unfortunate Circumstances")
     startQuest4.Text.Objective.enGB.set("fill me")

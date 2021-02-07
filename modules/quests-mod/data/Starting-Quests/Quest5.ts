@@ -1,12 +1,13 @@
 import { std } from 'tswow-stdlib';
+import { MODNAME } from '../quests-mod-data';
 import { emptyVials } from './Quest2';
 import {mysteriousVials} from './Quest3'
 
-export const signedPapers = std.Items.create("tester-mod","startquest5-signeddoc",20810)
+export const signedPapers = std.Items.create(MODNAME,"startquest5-signeddoc",20810)
     signedPapers.Name.enGB.set("Signed Documents")
     signedPapers.Description.enGB.set("They're blank.")
 
-const startQuest5 = std.Quests.create("tester-mod", "startQuest5")
+const startQuest5 = std.Quests.create(MODNAME, "startQuest5")
     startQuest5.QuestLevel.set(1)
     startQuest5.Text.Title.enGB.set("Fortuitous Allies")
     startQuest5.Text.Objective.enGB.set("fill me")

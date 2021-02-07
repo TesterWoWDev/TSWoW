@@ -1,15 +1,16 @@
 import { std } from 'tswow-stdlib';
+import { MODNAME } from '../quests-mod-data';
 import {draftPaper} from './Quest1'
 
-export const emptyVials = std.Items.create("tester-mod","startQuest2-emptyVials",3371)
+export const emptyVials = std.Items.create(MODNAME,"startQuest2-emptyVials",3371)
     emptyVials.Name.enGB.set("Empty Vials")
     emptyVials.Description.enGB.set("kinda dirty...")
 
-export const blankPapers = std.Items.create("tester-mod","startquest2-blankpapers",20810)
+export const blankPapers = std.Items.create(MODNAME,"startquest2-blankpapers",20810)
     blankPapers.Name.enGB.set("Blank Papers")
     blankPapers.Description.enGB.set("They're blank.")
 
-const startQuest2 = std.Quests.create("tester-mod", "startQuest2")
+const startQuest2 = std.Quests.create(MODNAME, "startQuest2")
     startQuest2.QuestLevel.set(1)
     startQuest2.Text.Title.enGB.set("Call for Action")
     startQuest2.Text.Objective.enGB.set("fill me")
