@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib";
+import { MODNAME } from "./moduleName";
 
-const testSpell = std.Spells.create("tester-mod","skillshot-proc",15237)
+const testSpell = std.Spells.create(MODNAME,"skillshot-proc",15237)
 	.Effects.clearAll()
 	.Effects.add()
 		.EffectType.setSchoolDamage()
@@ -11,13 +12,13 @@ const testSpell = std.Spells.create("tester-mod","skillshot-proc",15237)
 	.end
 	testSpell.Visual.Kits.clearAll()
 
-const scarabSpell = std.Spells.create('tester-mod','skillshot-cast',68037)
+const scarabSpell = std.Spells.create(MODNAME,'skillshot-cast',68037)
 	scarabSpell.Effects.get(0).AuraType.setPeriodicTriggerSpell()
 		.AuraPeriod.set(100)
 		.TriggerSpell.set(testSpell.ID)
 	scarabSpell.Visual.Kits.clearAll()
 
-const skillshotCreature = std.CreatureTemplates.create('tester-mod','skillshot-creature',16863)
+const skillshotCreature = std.CreatureTemplates.create(MODNAME,'skillshot-creature',16863)
 	skillshotCreature.UnitFlags.NotSelectable.mark()
 //	skillshotCreature.UnitFlags.Immune.mark()
 	skillshotCreature.FactionTemplate.set(35)
