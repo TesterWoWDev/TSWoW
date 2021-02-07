@@ -29,7 +29,6 @@ export const ZOMBIE = std.CreatureTemplates.create('mymod','zombie',1501)
     ZOMBIE.FactionTemplate.set(wolf.FactionTemplate.get())
     for(let i=0;i<positions.length;++i){
     const spawn = ZOMBIE.spawn('mymod',`zombie-spawn-${i}`,positions[i]);
-    //console.log(positions[i].x)
 }
 
 ZOMBIE.Loot.Normal.addItem(30595,80,1,1,true)

@@ -6,7 +6,6 @@ test_bow.Quality.setPurple()
 test_bow.Stats.addAgility(17)
 test_bow.Damage.addFire(5,30)
 test_bow.Delay.set(5)
-console.log(test_bow.ID)
 
 
 
