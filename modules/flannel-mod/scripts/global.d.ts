@@ -28,6 +28,7 @@ type uint64 = number;
 type int64 = number;
 type bool = boolean;
 type TSArray<T> = T[];
+type TSString = string;
 
 declare class TSMutable<T> {
     get() : T;
@@ -66,10 +67,11 @@ declare class TSChatChannel {
     SetInvisible(player: TSPlayer, on: bool): void;
     SetOwner(guid: uint64, exclaim?: bool): void;
     Say(guid: uint64, what: string, lang: uint32): void;
-    
 }
 
 declare class TSPlayer extends TSUnit {
+    SendData(data: any)
+
     IsNull() : bool
 
     /**
@@ -6149,10 +6151,10 @@ declare namespace _hidden {
         OnDuelStart(callback: (player1 : TSPlayer,player2 : TSPlayer)=>void);
         OnDuelEnd(callback: (winner : TSPlayer,loser : TSPlayer,type : uint32)=>void);
         OnSay(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : TSMutableString)=>void);
-        OnWhisper(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,receiver : TSPlayer)=>void);
-        OnChatGroup(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,group : TSGroup)=>void);
-        OnChatGuild(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,guild : TSGuild)=>void);
-        OnChat(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : string,channel : TSChatChannel)=>void);
+        OnWhisper(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : TSMutableString,receiver : TSPlayer)=>void);
+        OnChatGroup(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : TSMutableString,group : TSGroup)=>void);
+        OnChatGuild(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : TSMutableString,guild : TSGuild)=>void);
+        OnChat(callback: (player : TSPlayer,type : uint32,lang : uint32,msg : TSMutableString,channel : TSChatChannel)=>void);
         OnEmote(callback: (player : TSPlayer,emote : uint32)=>void);
         OnTextEmote(callback: (player : TSPlayer,textEmote : uint32,emoteNum : uint32,guid : uint64)=>void);
         OnSpellCast(callback: (player : TSPlayer,spell : TSSpell,skipCheck : bool)=>void);
@@ -6404,12 +6406,18 @@ declare namespace _hidden {
         OnAuctionSuccessful(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
         OnAuctionExpire(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
     }
+
+    export class Addon {
+        OnMessage(callback: (reader: any)=>void);
+        OnMessageID<T>(cls: new()=>T, callback: (player: TSPlayer,message: T)=>void);
+    }
 }
 
 declare class TSEventHandlers {
     World: _hidden.World;
     Formula: _hidden.Formula;
     Unit: _hidden.Unit;
+    Addon: _hidden.Addon;
     //AreaTrigger: _hidden.AreaTrigger;
     //Vehicle: _hidden.Vehicle;
     //AchievementCriteria: _hidden.AchievementCriteria;
@@ -6431,12 +6439,18 @@ declare class TSEventHandlers {
 }
 
 declare class TSDictionary<K,V> {
-    get(key: K) : V;
+    [custom: string]: V;
+    // @ts-ignore
     set(key: K, value: V);
+    // @ts-ignore
     contains(key: K): boolean;
+    // @ts-ignore
     forEach(callback: (key: K, value: V)=>void);
+    // @ts-ignore
     keys(): TSArray<K>
+    // @ts-ignore
     reduce<T>(callback: (previous: T,key: K, value: V)=>T, initial: T) : T;
+    // @ts-ignore
     filter(callback: (key: K, value: V)=>boolean): TSDictionary<K,V>
 }
 
@@ -6565,7 +6579,7 @@ declare class TSMailDraft {
 
 // Global.h
 declare function SendMail(senderType: uint8, from: uint64, subject: string, body: string, money?: uint32, cod?: uint32, delay?: uint32, items?: TSArray<TSItem>);
-declare function SendWorldMessage(message: TSString);
+declare function SendWorldMessage(message: string);
 // end of Global.h
 
 declare function MakeDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V>
@@ -6582,6 +6596,25 @@ declare class TSTimer {
 declare class TSTasks<T> {
     AddTimer(id: uint32, name: string, time: uint32, repeats: uint32, cb: (timer: TSTimer,owner: T, delay: uint32, cancel: TSMutable<bool>)=>void)
     RemoveTimer(name: string);
+}
+
+declare class BinReader<L extends number> {
+    Read<T extends number>(offset: L) : T;
+    Write<T extends number>(offset: L, value: T)
+    ReadArray<T extends number>(offset: L, arr: TSArray<T>, max: L);
+    WriteArray<T extends number>(offset: L, arr: TSArray<T>, max: L);
+    ReadString(offset: L, max: L);
+    WriteString(offset: L,str: string, max: L);
+    WriteStringArray(offset: L, arr: TSArray<string>, arrMax: number, strMax: number);
+    ReadStringArray(offset: L, arr: TSArray<string>, marMax: L, strMax: L);
+    WriteDouble(offset: L, value: double);
+    ReadDouble(offset: L): double;
+    WriteArrayDouble(offset: L, arr: TSArray<double>, max: L);
+    ReadArrayDouble(offset: L, arr: TSArray<double>, max: L);
+    WriteClass<T>(offset: L, value: T);
+    ReadClass<T>(offset: L, value: T);
+    ReadClassArray<T>(offset: L, arr: TSArray<T>, max: L, ind_size: L, con : ()=>T);
+    WriteClassArray<T>(offset: L, arr: TSArray<T>, max: L, ind_size: L);
 }
 
 declare class TSDatabaseResult {
@@ -6626,6 +6659,14 @@ declare function CharactersTable(classTarget: any)
 declare function AuthTable(classTarget: any)
 declare function Field(fieldTarget: any, name: any)
 declare function PrimaryKey(pkTarget: any, name: any)
+
+declare function Message(classTarget: any)
+declare function MsgClass(classTarget: any, name: string)
+declare function MsgClassArray(size: number): (field: any, name: any)=>void
+declare function MsgPrimitive(classTarget: any, name: string)
+declare function MsgPrimitiveArray(capacity: number): (field: any, name: any)=>void;
+declare function MsgString(size: number): (field: any, name: any)=>void
+declare function MsgStringArray(arrSize: number, stringSize: number): (field: any, name: any)=>void
 
 declare function GetTimers() : TSTasks<void>
 

@@ -10,6 +10,6 @@
       "experimentalDecorators": true,
       "forceConsistentCasingInFileNames": true
     },
-    "include":["./","../Ids.ts"],
-    "exclude":["../data"]
+    "include":["./","../Ids.ts","../shared"],
+    "exclude":["../data","../addons"]
 }
