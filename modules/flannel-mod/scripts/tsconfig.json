@@ -1,15 +1,15 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "outDir": "./build",
-      "rootDir": "../",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "experimentalDecorators": true,
-      "forceConsistentCasingInFileNames": true
-    },
-    "include":["./","../Ids.ts","../shared"],
-    "exclude":["../data","../addons"]
+		"compilerOptions": {
+			"target": "es5",
+			"module": "commonjs",
+			"outDir": "./build",
+			"rootDir": "../",
+			"strict": true,
+			"esModuleInterop": true,
+			"skipLibCheck": true,
+			"experimentalDecorators": true,
+			"forceConsistentCasingInFileNames": true
+		},
+		"include":["./","../Ids.ts","../shared"],
+		"exclude":["../data","../addons"]
 }
