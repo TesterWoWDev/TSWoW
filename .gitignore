@@ -38,3 +38,4 @@
 /node_modules
 modules/*/*/build
 modules/tswow-stdlib
+*.pdb
