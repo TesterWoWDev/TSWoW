@@ -10,7 +10,7 @@ When dealing with time, the database considers everything in miliseconds.
 
 Example: "For( loop"
 "for(let i=0;i<10;i++){
-    console.log("words")
+		console.log("words")
 }
 
 i<10 = if i is less than 10, repeat the function
@@ -20,8 +20,8 @@ i++ = take the variable i, add 1.
 Secondary:
 let i = 0;
 while(i<10){
-    console.log("words")
-    i = i +1
+		console.log("words")
+		i = i +1
 }
 
 when

@@ -6,17 +6,17 @@ import { DEATH_SKILL } from "../../Caster";
 const totems : TotemType[] = ['EARTH','AIR','WATER','FIRE']
 
 function makeSummon(index: number, name: string, displayName: string, modelId: number, icon: string, scale = 1) {
-	const entity = std.CreatureTemplates.create(MODNAME,`${name}-${index}`,416);
+    const entity = std.CreatureTemplates.create(MODNAME,`${name}-${index}`,416);
 
 	const summon_spell = std.Spells.TotemCreatures.createSummon(MODNAME,`summon-${name}-${index}`, totems[index], entity.ID);
-	summon_spell.Power.setMana(40,5)
-	summon_spell.CastTime.Base.set(500)
-	summon_spell.Duration.Duration.set(45000)
-	summon_spell.SkillLines.add(DEATH_SKILL.ID).setAutolearn();
-	summon_spell.Name.enGB.set(`Summon ${displayName}`)
-	summon_spell.Icon.set(icon);
-	summon_spell.Cooldown.Time.set(5000)
-	summon_spell.Description.enGB.set(`Summon and control a ${displayName} for ${summon_spell.Duration.Duration.get()/1000} seconds.`)
+        summon_spell.Power.setMana(40,5)
+        summon_spell.CastTime.Base.set(500)
+        summon_spell.Duration.Duration.set(45000)
+        summon_spell.SkillLines.add(DEATH_SKILL.ID).setAutolearn();
+        summon_spell.Name.enGB.set(`Summon ${displayName}`)
+        summon_spell.Icon.set(icon);
+        summon_spell.Cooldown.Time.set(5000)
+        summon_spell.Description.enGB.set(`Summon and control a ${displayName} for ${summon_spell.Duration.Duration.get()/1000} seconds.`)
 
 	entity.Models.set([modelId]);
 	entity.Name.enGB.set(`${displayName}`);
@@ -44,10 +44,10 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			break; 
 		 } 
 		case 'tank': {
-		   entity.UnitClass.setPaladin();
-		   entity.Stats.HealthMod.set(3)
-		   entity.Stats.DamageMod.set(0.75)
-		   entity.Stats.ArmorMod.set(2)
+			 entity.UnitClass.setPaladin();
+			 entity.Stats.HealthMod.set(3)
+			 entity.Stats.DamageMod.set(0.75)
+			 entity.Stats.ArmorMod.set(2)
 			//fix mana
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166,0,0)
 			entity.Scripts.onUpdateOoc(1,1,1,1).Target.setSelf().Action.setCast(29166,0,0)
@@ -61,7 +61,7 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			//combat loop
 			entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(10,0).Action.setCast(70428,2,7)
 			entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(10,0).Action.setCast(1161,2,7)		
-		   break; 
+			 break; 
 		} 
 		 case 'caster': {
 			entity.UnitClass.setMage()
@@ -111,11 +111,10 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			break; 
 		 }
 		default: { 
-		   console.log("Issue, pet summoned not in assumed expected minion types. Investigate")
-		   break; 
+			 console.log("Issue, pet summoned not in assumed expected minion types. Investigate")
+			 break; 
 		}
 	 } 
-
 }
 
 for(let i=0;i<totems.length;++i){//HAS A LINKED LIVE SCRIPT
