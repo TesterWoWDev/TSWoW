@@ -19,6 +19,7 @@ export function Main(events: TSEventHandlers) {
 	});
 	// Wait for clients to send this message back
 	events.Addon.OnMessageID(WrapperMessage,(player,msg)=>{
+        console.log(msg.inner.str)
 		player.SendBroadcastMessage("Server received a WrapperMessage from the client!")				
 	});		
 }
