@@ -50,21 +50,21 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                     text3.SetPoint("BOTTOMRIGHT",-5,5)
                     text3.SetText(arrayOButtonStuff[i][4])
                 button.HookScript("OnClick",(frame,evName,btnDown)=>{
-            let serverpacket = new buttonIDMessage()
-                serverpacket.button = frame.GetName()
-            SendToServer(serverpacket);
-        }) 
-        button.HookScript("OnEnter",(self)=>{
-            let index = parseInt(self.GetName())
-            GameTooltip.SetOwner(button,'CENTER')
-            GameTooltip.SetHyperlink("item:"+ arrayOButtonStuff[index][3] +":0:0:0:0:0:0:0")
-            GameTooltip.AppendText("\nPrice:"+arrayOButtonStuff[index][2])
-            GameTooltip.Show()
-        })            
-        button.HookScript("OnLeave",()=>{
-            GameTooltip.ClearLines()
-            GameTooltip.Hide()
-            })
+                    let serverpacket = new buttonIDMessage()
+                        serverpacket.button = frame.GetName()
+                    SendToServer(serverpacket);
+                }) 
+                button.HookScript("OnEnter",(self)=>{
+                    GameTooltip.ClearLines()
+                    let index = parseInt(self.GetName())
+                    GameTooltip.SetOwner(button,'CENTER')
+                    GameTooltip.SetHyperlink("item:"+ arrayOButtonStuff[index][3] +":0:0:0:0:0:0:0")
+                    GameTooltip.AppendText("\n|cffffffffPrice:"+arrayOButtonStuff[index][2]+"|r")
+                    GameTooltip.Show()
+                })            
+                button.HookScript("OnLeave",()=>{
+                    GameTooltip.Hide()
+                })
         }
         mframe.Show()
     }
