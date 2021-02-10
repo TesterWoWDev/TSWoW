@@ -59,8 +59,8 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                     let index = parseInt(self.GetName())
                     GameTooltip.SetOwner(button,'CENTER')
                     GameTooltip.SetHyperlink("item:"+ arrayOButtonStuff[index][3] +":0:0:0:0:0:0:0")
-                    GameTooltip.AppendText("\n|cffffffffPrice:"+arrayOButtonStuff[index][2]+"|r")
                     GameTooltip.Show()
+                    GameTooltip.AppendText("\n|cffffffffPrice:"+arrayOButtonStuff[index][2]+"|r")
                 })            
                 button.HookScript("OnLeave",()=>{
                     GameTooltip.Hide()

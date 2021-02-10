@@ -34,8 +34,7 @@ export function Store(events: TSEventHandlers) {
 		let sender = new showFrameMessage()
         sender.show = "1"
 		player.SendData(sender);        
-	});
-
+	})
     events.Player.OnLogin((player,firstlogin)=>{
         let itemVar = new itemMessage()
         //for(let i=0;i<arr.length();i++){
@@ -52,7 +51,7 @@ export function Store(events: TSEventHandlers) {
     })
 	// Wait for clients to send this message back
 	events.Addon.OnMessageID(buttonIDMessage,(player,msg)=>{
-        const wardGoldItemID = 1
+        const wardGoldItemID = 44837
 		player.SendBroadcastMessage("Server received a buttonIDMessage from the client! button ID:"+msg.button)
         let index = ToUInt32(msg.button)
         const cost = ToUInt32(arrItemsToSend[index][2])
@@ -62,6 +61,5 @@ export function Store(events: TSEventHandlers) {
         }else{
             player.SendAreaTriggerMessage("You do not have enough money. poor bastard")
         }
-	});		
-    
+	})
 }
