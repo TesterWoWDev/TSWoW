@@ -3,7 +3,7 @@ import { Killstreaks } from "./Killstreak";
 import { QoLChanges } from "./QoLChanges";
 import { Skillshot } from "./skillshot";
 import { VIP } from "./VIP"
-import { WrapperMessage } from "../shared/testMessage";
+import { Store } from "./store";
 
 export function Main(events: TSEventHandlers) {
 	VIP(events)
@@ -11,15 +11,5 @@ export function Main(events: TSEventHandlers) {
 	Killstreaks(events)
 	Skillshot(events)
 	onDeath(events)
-	// Use a basic OnSay event to trigger the transmission
-	events.Player.OnSay((player,type,lang,msg)=>{
-		let sender = new WrapperMessage()
-		sender.inner.str = "from server"
-		player.SendData(sender);
-	});
-	// Wait for clients to send this message back
-	events.Addon.OnMessageID(WrapperMessage,(player,msg)=>{
-        console.log(msg.inner.str)
-		player.SendBroadcastMessage("Server received a WrapperMessage from the client!")				
-	});		
+    Store(events)
 }
