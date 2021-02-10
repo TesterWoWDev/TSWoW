@@ -1,4 +1,4 @@
-import { buttonIDMessage,showFrameMessage, itemMessage } from "../shared/Messages";
+import { buttonIDMessage,showFrameMessage, itemMessage, currencyMessage } from "../shared/Messages";
 var arrItemsToSend:TSArray<TSArray<string>> = 
 [
     ["iconName","itemName","price","itemIDToGive","AmountOfItemToGive"],
@@ -28,6 +28,9 @@ var arrItemsToSend:TSArray<TSArray<string>> =
     ["Ability_Druid_AquaticForm","name","11","44837","1"],
     ["Ability_Druid_BalanceofPower","name","11","46948","1"]
 ]
+
+const wardGoldItemID = 44837
+const currencyPath = "INV_Misc_Food_45"
 export function Store(events: TSEventHandlers) {
     // Use a basic OnSay event to trigger the transmission
 	events.Player.OnSay((player,type,lang,msg)=>{
@@ -36,8 +39,12 @@ export function Store(events: TSEventHandlers) {
 		player.SendData(sender);        
 	})
     events.Player.OnLogin((player,firstlogin)=>{
+        let pkt = new currencyMessage()
+        pkt.ID = wardGoldItemID
+        pkt.icon = currencyPath
+        pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
+        player.SendData(pkt)
         let itemVar = new itemMessage()
-        //for(let i=0;i<arr.length();i++){
             for(let i=1;i<arrItemsToSend.length;i++){
             itemVar = new itemMessage()
             itemVar.ID = i
@@ -49,13 +56,11 @@ export function Store(events: TSEventHandlers) {
             player.SendData(itemVar)
         }
     })
-	// Wait for clients to send this message back
-	events.Addon.OnMessageID(buttonIDMessage,(player,msg)=>{
-        const wardGoldItemID = 44837
-		player.SendBroadcastMessage("Server received a buttonIDMessage from the client! button ID:"+msg.button)
+
+	events.Addon.OnMessageID(buttonIDMessage,(player,msg)=>{ 
         let index = ToUInt32(msg.button)
         const cost = ToUInt32(arrItemsToSend[index][2])
-        if(player.HasItem(wardGoldItemID,cost,true)){
+        if(player.HasItem(wardGoldItemID,cost,false)){
             player.RemoveItem(player.GetItemByEntry(wardGoldItemID),cost,wardGoldItemID)
             player.AddItem(ToUInt32(arrItemsToSend[index][3]),ToUInt32(arrItemsToSend[index][4]))            
         }else{

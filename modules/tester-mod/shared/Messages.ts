@@ -25,3 +25,13 @@ export class itemMessage {
     @MsgString(5)
         amount:string = "-1";
 }
+
+@Message
+export class currencyMessage {
+    @MsgPrimitive
+        ID: uint32 = 1;
+    @MsgPrimitive
+        curAmt: uint32 = 1;
+    @MsgString(30) 
+		icon: string = "11111111111111111111111111111111111";
+}
