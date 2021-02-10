@@ -4,6 +4,7 @@ let arrayOButtonStuff = [[]]
 let currencyID = 1
 let currencyIcon = "1"
 let currencyAmount = 1
+let del = []
 // All we need to set up an event listener is a frame with a unique name.
 const mframe = CreateFrame('Frame','UniqueName',UIParent);
 mframe.SetWidth(1024)
@@ -28,6 +29,9 @@ let exitbutn = CreateFrame("Button", "CLOSE", mframe)
 
 Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
     if(msg.show == "1"){
+        for(let i=0;i<del.length;i++){
+            del.pop().Hide()
+        }
         for(let i=1;i<arrayOButtonStuff.length;i++){
             let x = i-1
             let button = CreateFrame("Button", i.toString(), mframe)
@@ -63,7 +67,8 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                 button.HookScript("OnLeave",()=>{
                     GameTooltip.Hide()
                 })
-        }
+        del.push(button)
+    }
 
     let amtFrame = CreateFrame("Button", "amt", mframe)
         amtFrame.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",-100,-50)
@@ -85,13 +90,13 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
         amtFrame.HookScript("OnLeave",()=>{
             GameTooltip.Hide()
         })
+        del.push(amtFrame)
         mframe.Show()
     }
     else{
         mframe.Hide()
     }
 });
-
 Events.AddOns.OnMessage(mframe,itemMessage,(msg)=>{
     arrayOButtonStuff.push([msg.icon,msg.name,msg.price,msg.itemID,msg.amount])
 });

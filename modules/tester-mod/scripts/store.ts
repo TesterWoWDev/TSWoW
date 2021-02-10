@@ -62,7 +62,17 @@ export function Store(events: TSEventHandlers) {
         const cost = ToUInt32(arrItemsToSend[index][2])
         if(player.HasItem(wardGoldItemID,cost,false)){
             player.RemoveItem(player.GetItemByEntry(wardGoldItemID),cost,wardGoldItemID)
-            player.AddItem(ToUInt32(arrItemsToSend[index][3]),ToUInt32(arrItemsToSend[index][4]))            
+            player.AddItem(ToUInt32(arrItemsToSend[index][3]),ToUInt32(arrItemsToSend[index][4]))  
+            
+        let pkt = new currencyMessage()
+            pkt.ID = wardGoldItemID
+            pkt.icon = currencyPath
+            pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
+            player.SendData(pkt)
+
+        let sender = new showFrameMessage()
+            sender.show = "1"
+            player.SendData(sender);  
         }else{
             player.SendAreaTriggerMessage("You do not have enough money. poor bastard")
         }
