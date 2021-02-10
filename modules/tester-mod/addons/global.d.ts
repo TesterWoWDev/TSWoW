@@ -10141,6 +10141,10 @@ declare namespace WoWAPI {
          */
         AddDoubleLine(textLeft: string, textRight: string, textLeftRed: number, textLeftGreen: number, textLeftBlue: number, textRightRed: number, textRightGreen: number, textRightBlue: number): void;
         /**
+         * Hides this tooltip
+         */
+        Hide(): void;
+        /**
          * Dynamically expands the size of a tooltip
          * @param leftString unknown
          * @param rightString unknown
@@ -10315,13 +10319,6 @@ declare namespace WoWAPI {
          * @tupleReturn
          */
         SetInventoryItem(unit: UnitId, slot: number, nameOnly?: Unknown): [boolean, boolean, number];
-        /**
-         * Shows an ItemKey in a tooltip.
-         * @param itemID
-         * @param itemLevel
-         * @param itemSuffix
-         */
-        SetItemKey(itemID: number, itemLevel: number, itemSuffix: number): void;
         /**
          * Sets the GameTooltip to show a loot item
          * @param lootIndex The index of the loot item to show (from 1 to GetNumLootItems())
