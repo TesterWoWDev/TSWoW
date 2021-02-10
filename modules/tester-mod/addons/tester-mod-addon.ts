@@ -11,11 +11,7 @@ texture.SetAllPoints(mframe)
 mframe.SetPoint("CENTER",0,0)
 mframe.Hide()
 
-// let tooltip = CreateFrame( "GameTooltip", "MyScanningTooltip",mframe,'GameTooltip' );
-// //tooltip.setx()
-// tooltip.AddFontStrings(
-//     tooltip.CreateFontString( "$parentTextLeft1", null, "GameTooltipText" ),
-//     tooltip.CreateFontString( "$parentTextRight1", null, "GameTooltipText" ) );
+let mframeTip = CreateFrame( "GameTooltip", "MyScanningTooltip" )
 
 let exitbutn = CreateFrame("Button", "CLOSE", mframe)
     exitbutn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",0,0)
@@ -52,12 +48,23 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                     text2.SetText("Price: "+arrayOButtonStuff[i][2]+"")
                     let text3 = button.CreateFontString("amount"+i,'OVERLAY','GameTooltipText')
                     text3.SetPoint("BOTTOMRIGHT",-5,5)
-                    text3.SetText(arrayOButtonStuff[i][3])
+                    text3.SetText(arrayOButtonStuff[i][4])
                 button.HookScript("OnClick",(frame,evName,btnDown)=>{
             let serverpacket = new buttonIDMessage()
                 serverpacket.button = frame.GetName()
             SendToServer(serverpacket);
-        })      
+        }) 
+        button.HookScript("OnEnter",(self)=>{
+            let index = parseInt(self.GetName())
+            GameTooltip.SetOwner(button,'CENTER')
+            GameTooltip.SetHyperlink("item:"+ arrayOButtonStuff[index][3] +":0:0:0:0:0:0:0")
+            GameTooltip.AppendText("\nPrice:"+arrayOButtonStuff[index][2])
+            GameTooltip.Show()
+        })            
+        button.HookScript("OnLeave",()=>{
+            GameTooltip.ClearLines()
+            GameTooltip.Hide()
+            })
         }
         mframe.Show()
     }
@@ -68,6 +75,6 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
 
 // Registers a listener for "ExampleMessage" packets
 Events.AddOns.OnMessage(mframe,itemMessage,(msg)=>{
-    arrayOButtonStuff.push([msg.icon,msg.name,msg.price,msg.amount])
+    arrayOButtonStuff.push([msg.icon,msg.name,msg.price,msg.itemID,msg.amount])
 });
 

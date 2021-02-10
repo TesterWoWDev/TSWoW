@@ -21,5 +21,7 @@ export class itemMessage {
     @MsgString(5)
         price:string = "-1";
     @MsgString(5)
+        itemID:string = "-1";
+    @MsgString(5)
         amount:string = "-1";
 }

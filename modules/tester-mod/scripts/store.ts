@@ -45,22 +45,23 @@ export function Store(events: TSEventHandlers) {
             itemVar.icon = arrItemsToSend[i][0]
             itemVar.name = arrItemsToSend[i][1]
             itemVar.price = arrItemsToSend[i][2]
+            itemVar.itemID = arrItemsToSend[i][3]
             itemVar.amount = arrItemsToSend[i][4]
             player.SendData(itemVar)
         }
     })
-	// // Wait for clients to send this message back
-	// events.Addon.OnMessageID(buttonIDMessage,(player,msg)=>{
-    //     const wardGoldItemID = 1
-	// 	player.SendBroadcastMessage("Server received a buttonIDMessage from the client! button ID:"+msg.button)
-    //     let index = Number(msg.button)
-    //     const cost = Number(arrItemsToSend[index][2])
-    //     if(player.HasItem(wardGoldItemID,cost,true)){
-    //         player.RemoveItem(player.GetItemByEntry(wardGoldItemID),cost,wardGoldItemID)
-    //         player.AddItem(Number(arrItemsToSend[index][3]),Number(arrItemsToSend[index][4]))
-    //     }else{
-    //         player.SendAreaTriggerMessage("You do not have enough money. poor bastard")
-    //     }
-	// });		
+	// Wait for clients to send this message back
+	events.Addon.OnMessageID(buttonIDMessage,(player,msg)=>{
+        const wardGoldItemID = 1
+		player.SendBroadcastMessage("Server received a buttonIDMessage from the client! button ID:"+msg.button)
+        let index = ToUInt32(msg.button)
+        const cost = ToUInt32(arrItemsToSend[index][2])
+        if(player.HasItem(wardGoldItemID,cost,true)){
+            player.RemoveItem(player.GetItemByEntry(wardGoldItemID),cost,wardGoldItemID)
+            player.AddItem(ToUInt32(arrItemsToSend[index][3]),ToUInt32(arrItemsToSend[index][4]))            
+        }else{
+            player.SendAreaTriggerMessage("You do not have enough money. poor bastard")
+        }
+	});		
     
 }
