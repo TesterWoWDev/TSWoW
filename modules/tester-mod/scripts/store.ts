@@ -2,7 +2,7 @@ import { buttonIDMessage,showFrameMessage, itemMessage, currencyMessage } from "
 var arrItemsToSend:TSArray<TSArray<string>> = 
 [
     ["iconName","itemName","price","itemIDToGive","AmountOfItemToGive"],
-    ["Ability_Ambush","name1","1","6948","1"],
+    ["Ability_Ambush","tacosalad","1","6948","1"],
     ["Ability_BackStab","name2","1","100001","1"],
     ["Ability_BullRush","name3","11","44837","1"],
     ["Ability_CheapShot","name4","12","46948","1"],
@@ -45,7 +45,7 @@ export function Store(events: TSEventHandlers) {
         pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
         player.SendData(pkt)
         let itemVar = new itemMessage()
-            for(let i=1;i<arrItemsToSend.length;i++){
+        for(let i=1;i<arrItemsToSend.length;i++){
             itemVar = new itemMessage()
             itemVar.ID = i
             itemVar.icon = arrItemsToSend[i][0]
