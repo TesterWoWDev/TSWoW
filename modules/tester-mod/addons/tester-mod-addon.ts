@@ -5,6 +5,7 @@ let currencyID = 1
 let currencyIcon = "1"
 let currencyAmount = 1
 let del = []
+let yesnobtn = []
 // All we need to set up an event listener is a frame with a unique name.
 const mframe = CreateFrame('Frame','UniqueName',UIParent);
 mframe.SetWidth(1024)
@@ -52,9 +53,51 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                     text3.SetPoint("BOTTOMRIGHT",-5,5)
                     text3.SetText(arrayOButtonStuff[i][4])
                 button.HookScript("OnClick",(frame,evName,btnDown)=>{
-                    let serverpacket = new buttonIDMessage()
-                        serverpacket.button = frame.GetName()
-                        SendToServer(serverpacket);
+                    yesnobtn.forEach(element => {
+                        element.Hide()
+                    });
+                    let sure = frame.CreateFontString("sure",'OVERLAY','GameTooltipText')
+                        sure.SetPoint("TOP", mframe, "TOP",20,-80)
+                        sure.SetText("Are you sure you wish to purchase that?")
+                    let button = CreateFrame("Button", frame.GetName(), mframe)
+                        button.SetPoint("TOP", mframe, "TOP",0,-100)
+                        button.SetWidth(40)
+                        button.SetHeight(40)
+                        let texy = button.CreateTexture("textureyes",'BACKGROUND')
+                            texy.SetTexture("Interface\\Icons\\Ability_Creature_Cursed_04.blp")
+                            texy.SetAllPoints(button)
+                            texy.SetPoint("CENTER",0,0)
+                        let text1y = button.CreateFontString("nameyes",'OVERLAY','GameTooltipText')
+                            text1y.SetPoint("CENTER",0,0)
+                            text1y.SetText("yes")
+                        button.HookScript("OnClick",(frame,enName,btnDown)=>{
+                            let serverpacket = new buttonIDMessage()
+                                serverpacket.button = frame.GetName()
+                                SendToServer(serverpacket);
+                                button.Hide()
+                                buttonn.Hide()
+                                sure.Hide()
+                            })
+                    let buttonn = CreateFrame("Button", frame.GetName(), mframe)
+                            buttonn.SetPoint("TOP", mframe, "TOP",50,-100)
+                            buttonn.SetWidth(40)
+                            buttonn.SetHeight(40)
+                            let texn = buttonn.CreateTexture("textureyes",'BACKGROUND')
+                                texn.SetTexture("Interface\\Icons\\Ability_Creature_Cursed_04.blp")
+                                texn.SetAllPoints(buttonn)
+                                texn.SetPoint("CENTER",0,0)
+                            let text1n = buttonn.CreateFontString("nameyes",'OVERLAY','GameTooltipText')
+                                text1n.SetPoint("CENTER",0,0)
+                                text1n.SetText("no")
+                                buttonn.HookScript("OnClick",(frame,enName,btnDown)=>{
+                                    button.Hide()
+                                    buttonn.Hide()
+                                    sure.Hide()
+                                })
+                                yesnobtn.push(button)
+                                yesnobtn.push(buttonn)
+                                yesnobtn.push(sure)
+
                 }) 
                 button.HookScript("OnEnter",(self)=>{
                     GameTooltip.ClearLines()
