@@ -2,31 +2,31 @@ import { buttonIDMessage,showFrameMessage, itemMessage, currencyMessage } from "
 var arrItemsToSend:TSArray<TSArray<string>> = 
 [
     ["iconName","itemName","price","itemIDToGive","AmountOfItemToGive"],
-    ["Ability_Ambush","tacosalad","1","6948","1"],
-    ["Ability_BackStab","name2","1","100001","1"],
-    ["Ability_BullRush","name3","11","44837","1"],
-    ["Ability_CheapShot","name4","12","46948","1"],
-    ["Ability_Creature_Cursed_01","name5","1","6948","1"],
-    ["Ability_Creature_Cursed_02","name6","14","6948","1"],
-    ["Ability_Creature_Cursed_03","name7","2","6948","1"],
-    ["Ability_Creature_Cursed_04","name8","16","6948","1"],
-    ["Ability_Creature_Cursed_05","name9","1","6948","1"],
-    ["Ability_Creature_Disease_01","name0","611","44837","1"],
-    ["Ability_Creature_Disease_02","name","71","46948","1"],
-    ["Ability_Creature_Disease_03","name","51","44837","1"],
-    ["Ability_Creature_Disease_04","name","14","46948","1"],
-    ["Ability_Creature_Disease_05","name","131","44837","1"],
-    ["Ability_Creature_Poison_01","name","155","46948","1"],
-    ["Ability_Creature_Poison_02","name","1453","44837","1"],
-    ["Ability_Creature_Poison_03","name","144","46948","1"],
-    ["Ability_Creature_Poison_04","name","1","44837","1"],
-    ["Ability_Creature_Poison_05","name","2","46948","1"],
-    ["Ability_Creature_Poison_06","name","3","44837","1"],
-    ["Ability_CriticalStrike","name","4","46948","1"],
-    ["Ability_Defend","name","11","44837","1"],
-    ["Ability_Devour","name","11","46948","1"],
-    ["Ability_Druid_AquaticForm","name","11","44837","1"],
-    ["Ability_Druid_BalanceofPower","name","11","46948","1"]
+    ["Ability_Ambush","tacosalad","1","117","1"],
+    ["Ability_BackStab","name2","1","117","1"],
+    ["Ability_BullRush","name3","11","117","1"],
+    ["Ability_CheapShot","name4","12","117","1"],
+    ["Ability_Creature_Cursed_01","name5","1","117","1"],
+    ["Ability_Creature_Cursed_02","name6","14","117","1"],
+    ["Ability_Creature_Cursed_03","name7","2","117","1"],
+    ["Ability_Creature_Cursed_04","name8","16","117","1"],
+    ["Ability_Creature_Cursed_05","name9","1","117","1"],
+    ["Ability_Creature_Disease_01","name0","611","117","1"],
+    ["Ability_Creature_Disease_02","name","71","117","1"],
+    ["Ability_Creature_Disease_03","name","51","117","1"],
+    ["Ability_Creature_Disease_04","name","14","117","1"],
+    ["Ability_Creature_Disease_05","name","131","117","1"],
+    ["Ability_Creature_Poison_01","name","155","117","1"],
+    ["Ability_Creature_Poison_02","name","1453","117","1"],
+    ["Ability_Creature_Poison_03","name","144","117","1"],
+    ["Ability_Creature_Poison_04","name","1","117","1"],
+    ["Ability_Creature_Poison_05","name","2","117","1"],
+    ["Ability_Creature_Poison_06","name","3","117","1"],
+    ["Ability_CriticalStrike","name","4","117","1"],
+    ["Ability_Defend","name","11","117","1"],
+    ["Ability_Devour","name","11","117","1"],
+    ["Ability_Druid_AquaticForm","name","11","117","1"],
+    ["Ability_Druid_BalanceofPower","name","11","117","1"]
 ]
 
 const wardGoldItemID = 44837
@@ -34,6 +34,12 @@ const currencyPath = "INV_Misc_Food_45"
 export function Store(events: TSEventHandlers) {
     // Use a basic OnSay event to trigger the transmission
 	events.Player.OnSay((player,type,lang,msg)=>{
+        let pkt = new currencyMessage()
+        pkt.ID = wardGoldItemID
+        pkt.icon = currencyPath
+        pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
+        player.SendData(pkt)
+
 		let sender = new showFrameMessage()
         sender.show = "1"
 		player.SendData(sender);        

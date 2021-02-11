@@ -50,7 +50,7 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                     text2.SetPoint("CENTER",0,-40)
                     text2.SetText("Price: "+arrayOButtonStuff[i][2]+"")
                     let text3 = button.CreateFontString("amount"+i,'OVERLAY','GameTooltipText')
-                    text3.SetPoint("BOTTOMRIGHT",-5,5)
+                    text3.SetPoint("BOTTOMRIGHT",-10,5)
                     text3.SetText(arrayOButtonStuff[i][4])
                 button.HookScript("OnClick",(frame,evName,btnDown)=>{
                     yesnobtn.forEach(element => {
@@ -103,9 +103,9 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                     GameTooltip.ClearLines()
                     let index = parseInt(self.GetName())
                     GameTooltip.SetOwner(button,'CENTER')
-                    GameTooltip.SetHyperlink("item:"+ arrayOButtonStuff[index][3] +":0:0:0:0:0:0:0")
+                    GameTooltip.SetHyperlink("item:"+ arrayOButtonStuff[index][3])
                     GameTooltip.Show()
-                    GameTooltip.AppendText("\n|cffffffffPrice:"+arrayOButtonStuff[index][2]+"|r")
+                    //GameTooltip.AppendText("\n|cffffffffPrice:"+arrayOButtonStuff[index][2]+"|r")
                 })            
                 button.HookScript("OnLeave",()=>{
                     GameTooltip.Hide()
@@ -127,7 +127,7 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
         amtFrame.HookScript("OnEnter",(self)=>{
             GameTooltip.ClearLines()
             GameTooltip.SetOwner(amtFrame,'CENTER')
-            GameTooltip.SetHyperlink("item:" + currencyID + ":0:0:0:0:0:0:0")
+            GameTooltip.SetHyperlink("item:" + currencyID)
             GameTooltip.Show()
         })            
         amtFrame.HookScript("OnLeave",()=>{
