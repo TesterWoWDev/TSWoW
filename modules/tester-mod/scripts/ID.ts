@@ -14,4 +14,8 @@ export namespace ID {
     export const TESTER_MOD_STARTQUEST3 : uint32 = GetID("quest_template","tester-mod","startQuest3");
     export const TESTER_MOD_STARTQUEST4 : uint32 = GetID("quest_template","tester-mod","startQuest4");
     export const TESTER_MOD_STARTQUEST5 : uint32 = GetID("quest_template","tester-mod","startQuest5");
+    export const TESTER_MOD_BUTTONIDMESSAGE : uint32 = GetID("Messages","tester-mod","buttonIDMessage");
+    export const TESTER_MOD_SHOWFRAMEMESSAGE : uint32 = GetID("Messages","tester-mod","showFrameMessage");
+    export const TESTER_MOD_ITEMMESSAGE : uint32 = GetID("Messages","tester-mod","itemMessage");
+    export const TESTER_MOD_CURRENCYMESSAGE : uint32 = GetID("Messages","tester-mod","currencyMessage");
 };
