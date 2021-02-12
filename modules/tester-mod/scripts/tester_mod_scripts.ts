@@ -11,5 +11,5 @@ export function Main(events: TSEventHandlers) {
 	Skillshot(events)
 	onDeath(events)
     Store(events)
-    encampment(events)
+    //encampment(events)
 }
