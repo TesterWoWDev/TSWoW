@@ -70,7 +70,6 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			
 			//fix mana
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166,0,0)
-			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(688,0,0)
 			entity.Scripts.onUpdateOoc(1,1,1,1).Target.setSelf().Action.setCast(29166,0,0)
 			//timed calls
 			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(0,5,9,6000,10000,100)
@@ -92,7 +91,6 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
 			
 			//fix mana
 			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166,0,0)
-			entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(688,0,0)
 			entity.Scripts.onUpdateOoc(1,1,1,1).Target.setSelf().Action.setCast(29166,0,0)
 			//timed calls
 			entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(0,5,9,8000,13000,100)
