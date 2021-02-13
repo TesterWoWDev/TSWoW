@@ -21,9 +21,9 @@ entity.Scripts.onUpdateIc(1,1,1,1).Action.setCreateTimedEvent(2,0,0,5000,7000,10
 entity.Scripts.onUpdateOoc(1,1,1,1).Action.setRemoveTimedEvent(2)
 
 //combat loop
-entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(40,0).Action.setCast(fireball1.ID,2,7)
-entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(40,0).Action.setCast(45902,2,7)
-entity.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(40,0).Action.setCast(67037,2,7)
+entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(40,0).Action.setCast(701,0,0)
+//entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(40,0).Action.setCast(45902,2,7)
+//entity.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(40,0).Action.setCast(67037,2,7)
 
 const FIREELEMENTAL = std.Spells.create(MODNAME,'FireElemental',688).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
 FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(FIREELEMENTAL.ID,10,69)//CHANGE LATER
