@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
 import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
 
-const fireball1 = std.Spells.create(MODNAME,'fireball-rank1',133).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
+export const fireball1 = std.Spells.create(MODNAME,'fireball-rank1',133).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
 
 const fireball2 = std.Spells.create(MODNAME,'fireball-rank2',143).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
 	FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(fireball2.ID,10,6)//Spellid, cost in copper, level to learn
