@@ -17,9 +17,9 @@ export function Killstreaks(events: TSEventHandlers) {
 	events.Player.OnPVPKill((killer,killed)=>{
 				let killCount = killer.GetData().GetObject<PlayerKillstreak>(ModID(),TABLE_NAME_KILLSTREAK,()=>
 				{
-						const guid = killer.GetGUIDLow()
-						const rows = LoadRows(PlayerKillstreak,`playerGUID = ${guid}`)
-						return rows.length > 0 ? rows.get(0) : new PlayerKillstreak(guid);
+					const guid = killer.GetGUIDLow()
+					const rows = LoadRows(PlayerKillstreak,`playerGUID = ${guid}`)
+					return rows.length > 0 ? rows.get(0) : new PlayerKillstreak(guid);
 				}
 				).killCount++
 				
