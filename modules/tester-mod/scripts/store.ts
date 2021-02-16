@@ -35,20 +35,19 @@ export function Store(events: TSEventHandlers) {
     // Use a basic OnSay event to trigger the transmission
 	events.Player.OnSay((player,type,lang,msg)=>{
         let pkt = new currencyMessage()
-        pkt.ID = wardGoldItemID
-        pkt.icon = currencyPath
-        pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
+            pkt.ID = wardGoldItemID
+            pkt.icon = currencyPath
+            pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
         player.SendData(pkt)
-
 		let sender = new showFrameMessage()
-        sender.show = "1"
+            sender.show = "1"
 		player.SendData(sender);        
 	})
     events.Player.OnLogin((player,firstlogin)=>{
         let pkt = new currencyMessage()
-        pkt.ID = wardGoldItemID
-        pkt.icon = currencyPath
-        pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
+            pkt.ID = wardGoldItemID
+            pkt.icon = currencyPath
+            pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
         player.SendData(pkt)
         let itemVar = new itemMessage()
         for(let i=1;i<arrItemsToSend.length;i++){
@@ -69,16 +68,15 @@ export function Store(events: TSEventHandlers) {
         if(player.HasItem(wardGoldItemID,cost,false)){
             player.RemoveItem(player.GetItemByEntry(wardGoldItemID),cost,wardGoldItemID)
             player.AddItem(ToUInt32(arrItemsToSend[index][3]),ToUInt32(arrItemsToSend[index][4]))  
-            
-        let pkt = new currencyMessage()
-            pkt.ID = wardGoldItemID
-            pkt.icon = currencyPath
-            pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
-            player.SendData(pkt)
+            let pkt = new currencyMessage()
+                pkt.ID = wardGoldItemID
+                pkt.icon = currencyPath
+                pkt.curAmt = player.GetItemCount(wardGoldItemID,false)
+                player.SendData(pkt)
 
-        let sender = new showFrameMessage()
-            sender.show = "1"
-            player.SendData(sender);  
+            let sender = new showFrameMessage()
+                sender.show = "1"
+                player.SendData(sender);  
         }else{
             player.SendAreaTriggerMessage("You do not have enough money. poor bastard")
         }
