@@ -1,7 +1,6 @@
 import { std } from "tswow-stdlib";
 import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
-import { fireball1 } from "./FireSpells";
 import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
 
 
