@@ -12,5 +12,8 @@ IGNITE.Description.enGB.set('Your critical strikes from Fire damage spells cause
 IGNITE.Icon.set('Interface\\Icons\\spell_fire_incinerate.blp')
 IGNITE.Attributes.isPassive.mark()
 
-export const IGNITEDOT = std.Spells.create (MODNAME,'Ignite-dot').SkillLines.add(FIRE_SKILL.ID).end;
+export const IGNITEDOT = std.Spells.create (MODNAME,'Ignite-dot',172).SkillLines.add(FIRE_SKILL.ID).end;
 IGNITEDOT.AuraDescription.enGB.set('Dealing additional Fire Damage equal to 3 times the casters level')//adjust this later
+IGNITEDOT.Name.enGB.set('Burning')
+IGNITEDOT.Duration.set(4000,0,4000)
+IGNITEDOT.Icon.set('Interface\\Icons\\spell_fire_incinerate.blp')
