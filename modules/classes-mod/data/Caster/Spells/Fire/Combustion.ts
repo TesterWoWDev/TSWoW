@@ -8,7 +8,8 @@ import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
 const COMBUSTION = std.Spells.create (MODNAME,'Combustion').SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
 FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(COMBUSTION.ID,10,69)//CHANGE LATER
 COMBUSTION.Name.enGB.set('Combustion')
-COMBUSTION.Description.enGB.set('Increases Critical Strike Chance of all Fire Spells by $s1% and Fire Spell casting time by $s2% for $d seconds.')
+COMBUSTION.Subtext.enGB.set('')
+COMBUSTION.Description.enGB.set('Increases Critical Strike Chance of all Fire Spells by $s1% and Fire Spell casting time by $s2% for $d seconds.') //can change the %
 COMBUSTION.AuraDescription.enGB.set('Increased Fire Critical Strike Chance by $s1% and Fire Spell cast time for $s2%')
 COMBUSTION.Icon.set('Interface\\Icons\\spell_fire_sealoffire.blp')
 COMBUSTION.Duration.set(15000,0,15000)
