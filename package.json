@@ -24,6 +24,7 @@
     "flannel-mod": "file:modules/flannel-mod/data/build",
     "fs-extra": "^9.0.1",
     "install": "^0.13.0",
+    "item-addon": "file:modules/item-addon/data/build",
     "js-yaml": "^3.14.0",
     "md5": "^2.3.0",
     "md5-file": "^5.0.0",
