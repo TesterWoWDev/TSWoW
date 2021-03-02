@@ -1,4 +1,4 @@
-import { bagSlotMessage, frameCloseMessage } from "../shared/Messages";
+import { bagSlotMessage, frameCloseMessage, scrapMessage } from "../shared/Messages";
 import { Events, SendToServer } from "./events";
 let itemsInFrame = [];
 let buttons = [];
@@ -26,6 +26,21 @@ let exitbutn = CreateFrame("Button", "CLOSE", mframe)
         mframe.Hide()
     })
 
+let scrapButn = CreateFrame("Button", "SCRAP", mframe)
+    scrapButn.SetPoint("CENTER", mframe, "CENTER",0,-100)
+    scrapButn.SetWidth(250)
+    scrapButn.SetHeight(50)
+    let scraptex = exitbutn.CreateTexture("SCRAPTEXTURE",'BACKGROUND')
+        scraptex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
+        scraptex.SetAllPoints(scrapButn)
+        scraptex.SetPoint("CENTER",0,0)
+        scrapButn.HookScript("OnClick",(frame,evName,btnDown)=>{
+        SendToServer(new scrapMessage())
+        removeButtons()
+        itemsInFrame = [];
+        buttons = [];
+    })
+
 Events.Container.OnItemLocked(mframe,(bag,slot)=>{
     let pkt = new bagSlotMessage()
     pkt.Bag = bag
@@ -45,7 +60,7 @@ Events.AddOns.OnMessage(mframe,bagSlotMessage,(msg)=>{
 
 function removeButtons(){
     for (let i=0;i<buttons.length;i++){
-        buttons.pop().Hide()
+        buttons[i].Hide()
     }
 }
 function makeButtons(){
