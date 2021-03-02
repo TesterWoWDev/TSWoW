@@ -1,4 +1,4 @@
-import { bagSlotMessage, frameCloseMessage } from "../shared/Messages";
+import { bagSlotMessage, frameCloseMessage, scrapMessage } from "../shared/Messages";
 
 
 class ScrapperItems extends TSClass {
@@ -24,8 +24,7 @@ export function Main(events: TSEventHandlers) {
             pkt.Bag = msg.Bag
             pkt.Slot = msg.Slot
             if(!found){
-                let item =player.GetItemByPos(msg.Bag,msg.Slot)
-                    //pkt.itemID = player.GetItemByPos(msg.Bag,msg.Slot).GetEntry();
+                //let item = player.GetItemByPos((msg.Bag+19),msg.Slot)
                     pkt.itemID = msg.itemID
                     selectedItems.push(pkt)
                     player.GetData().SetObject(ModID(),"ScrapperItems",charItems);
@@ -38,10 +37,12 @@ export function Main(events: TSEventHandlers) {
     })
 
     events.Addon.OnMessageID(frameCloseMessage,(player,msg)=>{
-        let charItems = player.GetData().GetObject<ScrapperItems>(ModID(),"ScrapperItems",()=>new ScrapperItems())
-        console.log(charItems.selectedItems.length)
         player.GetData().SetObject(ModID(),"ScrapperItems",new ScrapperItems());
-        charItems = player.GetData().GetObject<ScrapperItems>(ModID(),"ScrapperItems",()=>new ScrapperItems())
-        console.log(charItems.selectedItems.length)
+    })
+
+    events.Addon.OnMessageID(scrapMessage,(player,msg)=>{
+        console.log("scrapped")
+        // do something
+        player.GetData().SetObject(ModID(),"ScrapperItems",new ScrapperItems());
     })
 }

@@ -13,3 +13,9 @@ export class frameCloseMessage {
     @MsgPrimitive
         Close: uint32 = 1;
 }
+
+@Message
+export class scrapMessage {
+    @MsgPrimitive
+        Close: uint32 = 1;
+}
