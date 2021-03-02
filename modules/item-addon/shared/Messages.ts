@@ -1,9 +1,11 @@
 @Message
-export class blagSlotMessage {
+export class bagSlotMessage {
     @MsgPrimitive
         Bag: uint32 = 1;
     @MsgPrimitive
         Slot: uint32 = 1;
+    @MsgPrimitive
+        itemID: uint32 = 0;
 }
 
 @Message
