@@ -42,7 +42,17 @@ export function Main(events: TSEventHandlers) {
 
     events.Addon.OnMessageID(scrapMessage,(player,msg)=>{
         console.log("scrapped")
-        // do something
+        let charItems = player.GetData().GetObject<ScrapperItems>(ModID(),"ScrapperItems",()=>new ScrapperItems());
+        if(charItems.selectedItems.length > 0){
+            for(let i=0;i<charItems.selectedItems.length;i++){
+                let item = player.GetItemByEntry(charItems.selectedItems[i].itemID)
+                let itemID = charItems.selectedItems[i].itemID
+                let count = item.GetCount()
+                player.RemoveItem(item,count,itemID)
+            }
+        }else{
+            player.SendAreaTriggerMessage("You need to fill the scrapper!")
+        }
         player.GetData().SetObject(ModID(),"ScrapperItems",new ScrapperItems());
     })
 }

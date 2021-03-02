@@ -2,6 +2,7 @@ import { bagSlotMessage, frameCloseMessage, scrapMessage } from "../shared/Messa
 import { Events, SendToServer } from "./events";
 let itemsInFrame = [];
 let buttons = [];
+let gossip = true
 const mframe = CreateFrame('Frame','UniqueName',UIParent);
 mframe.SetWidth(500)
 mframe.SetHeight(700)
@@ -35,21 +36,28 @@ let scrapButn = CreateFrame("Button", "SCRAP", mframe)
         scraptex.SetAllPoints(scrapButn)
         scraptex.SetPoint("CENTER",0,0)
         scrapButn.HookScript("OnClick",(frame,evName,btnDown)=>{
-        SendToServer(new scrapMessage())
-        removeButtons()
-        itemsInFrame = [];
-        buttons = [];
-    })
-
-Events.Container.OnItemLocked(mframe,(bag,slot)=>{
-    let pkt = new bagSlotMessage()
-    pkt.Bag = bag
-    pkt.Slot = slot
-    pkt.itemID = Number(GetCursorInfo()[1])
-    SendToServer(pkt)
-    mframe.Show()
-
+            SendToServer(new scrapMessage())
+            removeButtons()
+            itemsInFrame = [];
+            buttons = [];
+        })
+Events.Container.OnBagUpdate(mframe,(bagID)=>{
+    SendToServer(new frameCloseMessage())
+    removeButtons()
+    itemsInFrame = [];
+    buttons = [];
+    mframe.Hide()
 })
+if(gossip){//add a server packet that makes this true on gossip and false on gossipExit
+    Events.Container.OnItemLocked(mframe,(bag,slot)=>{
+        let pkt = new bagSlotMessage()
+        pkt.Bag = bag
+        pkt.Slot = slot
+        pkt.itemID = Number(GetCursorInfo()[1])
+        SendToServer(pkt)
+        mframe.Show()
+    })
+}
 
 Events.AddOns.OnMessage(mframe,bagSlotMessage,(msg)=>{
     if(msg.itemID > 0){
