@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
 import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
 
-const PYROBLAST = std.Spells.create (MODNAME,'Pyroblast').SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
+const PYROBLAST = std.Spells.create (MODNAME,'Pyroblast',11366).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
 FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(PYROBLAST.ID,10,20)//CHANGE LATER
 PYROBLAST.Name.enGB.set('Pyroblast')
 PYROBLAST.Subtext.enGB.set('')
@@ -11,8 +11,7 @@ PYROBLAST.Description.enGB.set('Hurls an immense fiery boulder that causes $s1 F
 PYROBLAST.AuraDescription.enGB.set('$s2 Fire damage every $t2 seconds.')
 PYROBLAST.Icon.set('Interface\\Icons\\spell_fire_fireball02.blp')
 PYROBLAST.CastTime.set(5000,0,0)
-PYROBLAST.Duration.set(12,0,12)
-PYROBLAST.Range.set(0,35,0,0)
+PYROBLAST.Duration.set(12000,0,12000)
 PYROBLAST.Power.setMana(5,22)
 PYROBLAST.Cooldown.set(0,0,0,0)
 PYROBLAST.Effects.add()
