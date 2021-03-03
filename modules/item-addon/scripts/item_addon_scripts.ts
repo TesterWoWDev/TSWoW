@@ -44,11 +44,33 @@ export function Main(events: TSEventHandlers) {
         console.log("scrapped")
         let charItems = player.GetData().GetObject<ScrapperItems>(ModID(),"ScrapperItems",()=>new ScrapperItems());
         if(charItems.selectedItems.length > 0){
+            let itemLevel = 0
             for(let i=0;i<charItems.selectedItems.length;i++){
                 let item = player.GetItemByEntry(charItems.selectedItems[i].itemID)
                 let itemID = charItems.selectedItems[i].itemID
                 let count = item.GetCount()
+                itemLevel = item.GetItemLevel()
                 player.RemoveItem(item,count,itemID)
+            }
+
+            while (itemLevel > 0){
+                if(itemLevel > 10000){
+
+                    itemLevel = itemLevel - 10000
+                }
+                else if(itemLevel > 5000){
+
+                    itemLevel = itemLevel - 5000
+                }
+                else if(itemLevel > 1000){
+                    
+                    itemLevel = itemLevel - 1000
+
+                }
+                else{
+                    player.ModifyMoney(itemLevel)
+                    itemLevel = 0
+                }
             }
         }else{
             player.SendAreaTriggerMessage("You need to fill the scrapper!")
