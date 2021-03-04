@@ -6,7 +6,6 @@ export namespace ID {
     export const TESTER_MOD_WRAPPERMESSAGE : uint32 = GetID("Messages","tester-mod","WrapperMessage");
     export const TESTER_MOD_BUTTONIDMESSAGE : uint32 = GetID("Messages","tester-mod","buttonIDMessage");
     export const TESTER_MOD_SHOWFRAMEMESSAGE : uint32 = GetID("Messages","tester-mod","showFrameMessage");
-    export const TESTER_MOD_ITEM : uint32 = GetID("Messages","tester-mod","item");
     export const TESTER_MOD_ITEMMESSAGE : uint32 = GetID("Messages","tester-mod","itemMessage");
     export const TESTER_MOD_CURRENCYMESSAGE : uint32 = GetID("Messages","tester-mod","currencyMessage");
 };
