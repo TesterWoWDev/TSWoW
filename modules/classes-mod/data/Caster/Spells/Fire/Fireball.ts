@@ -7,7 +7,6 @@ export const fireball1 = std.Spells.create(MODNAME,'fireball-rank1',133).SkillLi
 
 const fireball2 = std.Spells.create(MODNAME,'fireball-rank2',143).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
 	FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(fireball2.ID,10,6)//Spellid, cost in copper, level to learn
-	
 
 const fireball3 = std.Spells.create(MODNAME,'fireball-rank3',145).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
 	FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(fireball3.ID,10,12)//Spellid, cost in copper, level to learn
