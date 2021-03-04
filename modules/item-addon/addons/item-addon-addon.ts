@@ -48,7 +48,7 @@ Events.Container.OnBagUpdate(mframe,(bagID)=>{
     buttons = [];
     mframe.Hide()
 })
-if(gossip){//add a server packet that makes this true on gossip and false on gossipExit
+if(gossip){//add a server packet that makes this true on gossip and false on gossipExitm
     Events.Container.OnItemLocked(mframe,(bag,slot)=>{
         let pkt = new bagSlotMessage()
         pkt.Bag = bag

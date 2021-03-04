@@ -46,26 +46,25 @@ export function Main(events: TSEventHandlers) {
         if(charItems.selectedItems.length > 0){
             let itemLevel = 0
             for(let i=0;i<charItems.selectedItems.length;i++){
-                let item = player.GetItemByEntry(charItems.selectedItems[i].itemID)
                 let itemID = charItems.selectedItems[i].itemID
+                let item = player.GetItemByEntry(itemID)
                 let count = item.GetCount()
                 itemLevel = item.GetItemLevel() + itemLevel
                 player.RemoveItem(item,count,itemID)
             }
-
             while (itemLevel > 0){
                 if(itemLevel > 10000){
-                    player.AddItem(1,1)
+                   // player.AddItem(1,1)
                     itemLevel = itemLevel - 10000
                     player.SendBroadcastMessage("You scrapped up a taco")
                 }
                 else if(itemLevel > 5000){
-                    player.AddItem(1,1)
+                   // player.AddItem(1,1)
                     itemLevel = itemLevel - 5000
                     player.SendBroadcastMessage("You scrapped up a taco")
                 }
                 else if(itemLevel > 1000){
-                    player.AddItem(1,1)
+                   // player.AddItem(1,1)
                     itemLevel = itemLevel - 1000
                     player.SendBroadcastMessage("You scrapped up a taco")
                 }
