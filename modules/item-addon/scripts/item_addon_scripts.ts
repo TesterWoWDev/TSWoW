@@ -25,9 +25,9 @@ export function Main(events: TSEventHandlers) {
             pkt.Slot = msg.Slot
             if(!found){
                 //let item = player.GetItemByPos((msg.Bag+19),msg.Slot)
-                    pkt.itemID = msg.itemID
-                    selectedItems.push(pkt)
-                    player.GetData().SetObject(ModID(),"ScrapperItems",charItems);
+                pkt.itemID = msg.itemID
+                selectedItems.push(pkt)
+                player.GetData().SetObject(ModID(),"ScrapperItems",charItems);
             }
             player.SendData(pkt)
         }
@@ -41,7 +41,6 @@ export function Main(events: TSEventHandlers) {
     })
 
     events.Addon.OnMessageID(scrapMessage,(player,msg)=>{
-        console.log("scrapped")
         let charItems = player.GetData().GetObject<ScrapperItems>(ModID(),"ScrapperItems",()=>new ScrapperItems());
         if(charItems.selectedItems.length > 0){
             let itemLevel = 0
