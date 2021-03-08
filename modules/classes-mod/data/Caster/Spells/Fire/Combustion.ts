@@ -1,12 +1,12 @@
 import { std } from "tswow-stdlib";
 import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
-import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
+import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 
 //spark of imagination - causes the caster to gain 25% increased critical strike chance and 25% increased haste for # seconds
 
 const COMBUSTION = std.Spells.create (MODNAME,'Combustion').SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
-FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(COMBUSTION.ID,10,69)//CHANGE LATER
+CASTER_SKILL_TRAINER_HORDE.Trainer.addSpell(COMBUSTION.ID,10,69)//CHANGE LATER
 COMBUSTION.Name.enGB.set('Combustion')
 COMBUSTION.Subtext.enGB.set('')
 COMBUSTION.Description.enGB.set('Increases Critical Strike Chance of all Fire Spells by $s1% and Fire Spell casting time by $s2% for $d seconds.') //can change the %

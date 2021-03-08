@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib";
 import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
-import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
+import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 //store player fire spell dmage as a data pack(same as killstreak) get number in onTick to deal %
 
 export const IGNITE = std.Spells.create (MODNAME,'Ignite').SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
