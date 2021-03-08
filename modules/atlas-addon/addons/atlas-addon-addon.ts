@@ -20,7 +20,11 @@ let searchButn = CreateFrame("Button", "CLOSE", mframe)
         searchtex.SetPoint("CENTER",0,0)
     searchButn.HookScript("OnClick",(frame,evName,btnDown)=>{
         let pkt = new creatureNamePacket()
-        pkt.name = "name";//change for an edit box get text
+        let entryCheckbox = 1;//add some toggle in the UI
+        pkt.entry = "entry";//change for an edit box get text
+        if(entryCheckbox == 1){
+            pkt.isEntry = 1;
+        }
         SendToServer(pkt)
     })
 
@@ -33,7 +37,6 @@ Events.AddOns.OnMessage(mframe,itemLootFinishPacket,(msg)=>{
 });
 
 Events.AddOns.OnMessage(mframe,creatureNoExistPacket,(msg)=>{
-    //empty buttons
     //set text of "cannot find creature, check your spelling"
 });
 function createButtons(){
