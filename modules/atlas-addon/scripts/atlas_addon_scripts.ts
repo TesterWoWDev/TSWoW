@@ -3,7 +3,7 @@ import { creatureNamePacket, creatureNoExistPacket, itemLootFinishPacket, itemLo
 export function Main(events: TSEventHandlers) {
     events.Addon.OnMessageID(creatureNamePacket,(player,msg)=>{ 
         let entry = msg.entry
-        if(msg.isEntry == 0){
+        if(msg.isName == 1){
             let query1 = QueryWorld('SELECT entry FROM creature_template WHERE name=' + msg.entry + ';');
             while (query1.GetRow()){
                 entry = query1.GetString(0)
