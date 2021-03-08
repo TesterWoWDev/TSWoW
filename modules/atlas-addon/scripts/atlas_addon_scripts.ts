@@ -4,10 +4,10 @@ export function Main(events: TSEventHandlers) {
     events.Addon.OnMessageID(creatureNamePacket,(player,msg)=>{ 
         let entry = msg.entry
         if(msg.isName == 1){
-            let query1 = QueryWorld('SELECT COUNT(*) FROM creature_template WHERE name=' + entry + ';');
+            let query1 = QueryWorld('SELECT COUNT(*) FROM creature_template WHERE name="' + entry + '";');
             while (query1.GetRow()){
                 if(query1.GetUInt32(0) > 0){
-                    let query2 = QueryWorld('SELECT entry FROM creature_template WHERE name=' + msg.entry + ';');
+                    let query2 = QueryWorld('SELECT entry FROM creature_template WHERE name="' + msg.entry + '";');
                     while(query2.GetRow()){
                         entry = query2.GetString(0)
                     }
