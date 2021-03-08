@@ -1,6 +1,6 @@
 @Message
 export class creatureNamePacket {
-	@MsgString(100) 
+	@MsgString(30) 
 		entry: string = "name";
     @MsgPrimitive 
 		isName: uint32 = 1;

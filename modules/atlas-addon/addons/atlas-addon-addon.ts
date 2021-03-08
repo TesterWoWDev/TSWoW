@@ -5,6 +5,8 @@ let allButtons = [];
 let page = 0;
 let columns = 8
 let rows = 6
+let shown = false;
+
 let mframe = CreateFrame('Frame','atlas',UIParent);
     mframe.SetWidth(1024)
     mframe.SetHeight(768)
@@ -16,6 +18,27 @@ let mframe = CreateFrame('Frame','atlas',UIParent);
     let pageCt = mframe.CreateFontString('','OVERLAY','GameTooltipText')
         pageCt.SetPoint("TOP",0,-65)
         pageCt.SetText("Page " + (page+1) + "/"+1)
+    mframe.Hide()
+let showBtn = CreateFrame('Button','show',UIParent)
+    showBtn.SetWidth(22)
+    showBtn.SetHeight(22)
+    showBtn.SetPoint("TOPRIGHT",-5,-105)
+    let showTex = showBtn.CreateTexture('','BACKGROUND')
+        showTex.SetTexture("Interface\\BUTTONS\\UI-GroupLoot-Dice-Up.blp")
+        showTex.SetAllPoints(showBtn)
+        showBtn.HookScript("OnClick",(frame,evName,btnDown)=>{
+            if(shown){
+                shown = false;
+                mframe.Hide()
+                searchBox.Hide()
+            }
+            else{
+                shown = true
+                mframe.Show()
+                searchBox.Show()
+                searchBox.SetFocus()
+            }
+        })
 
 let exitButn = CreateFrame("Button", '', mframe)
     exitButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",0,0)
@@ -26,7 +49,9 @@ let exitButn = CreateFrame("Button", '', mframe)
         exittex.SetAllPoints(exitButn)
         exittex.SetPoint("CENTER",0,0)
     exitButn.HookScript("OnClick",(frame,evName,btnDown)=>{
+        shown = false;
         mframe.Hide()
+        searchBox.Hide()
     })
 
 let lastPageButn = CreateFrame("Button", '', mframe)
@@ -67,11 +92,16 @@ let nextPageButn = CreateFrame("Button", '', mframe)
         searchBox.SetSize(300,50)
         searchBox.SetPoint('TOP',mframe,'TOP',0,0)
         searchBox.SetFont('Fonts\\ARIALN.TTF',14)
-        searchBox.SetMaxLetters(40)
+        searchBox.SetMaxLetters(30)
         searchBox.SetMultiLine(false)
-        // searchBox.HookScript('OnEnterPressed',(frame,evname,btndown)=>{
-        //     searchLoot()
-        // })
+        searchBox.SetScript('OnEnterPressed',(frame)=>{
+            searchBox.ClearFocus()
+            searchLoot()
+        })
+        searchBox.SetScript('OnEscapePressed',(frame)=>{
+            searchBox.ClearFocus()
+        })
+        searchBox.Hide()
 
 let searchButn = CreateFrame("Button", '', mframe)
     searchButn.SetPoint("CENTER", mframe, "CENTER",0,350)
