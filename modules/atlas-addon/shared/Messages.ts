@@ -15,7 +15,7 @@ export class itemLootPacket {
     @MsgPrimitive
         itemCountMax: uint32 = 0;
     @MsgPrimitive
-        dropChance: uint32 = 0;  
+        dropChance: double = 0;  
 }
 
 @Message

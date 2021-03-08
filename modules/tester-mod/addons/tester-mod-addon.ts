@@ -7,7 +7,7 @@ let currencyAmount = 1
 let del = []
 let yesnobtn = []
 // All we need to set up an event listener is a frame with a unique name.
-const mframe = CreateFrame('Frame','',UIParent);
+const mframe = CreateFrame('Frame','store',UIParent);
 mframe.SetWidth(1024)
 mframe.SetHeight(800)
 const texture = mframe.CreateTexture('','BACKGROUND')
