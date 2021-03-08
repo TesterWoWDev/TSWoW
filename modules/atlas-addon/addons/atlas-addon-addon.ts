@@ -13,6 +13,9 @@ let mframe = CreateFrame('Frame','atlas',UIParent);
         texture.SetTexture("Interface\\BUTTONS\\BLUEGRAD64.blp")
         texture.SetAllPoints(mframe)
     //mframe.Hide() //make some button that makes this show/hide, possibly tied to the minimap
+    let pageCt = mframe.CreateFontString('','OVERLAY','GameTooltipText')
+        pageCt.SetPoint("TOP",0,-65)
+        pageCt.SetText("Page " + (page+1) + "/"+1)
 
 let exitButn = CreateFrame("Button", '', mframe)
     exitButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",0,0)
@@ -27,31 +30,33 @@ let exitButn = CreateFrame("Button", '', mframe)
     })
 
 let lastPageButn = CreateFrame("Button", '', mframe)
-    lastPageButn.SetPoint("CENTER", mframe, "CENTER",-30,300)
+    lastPageButn.SetPoint("TOP", mframe, "TOP",-60,-50)
     lastPageButn.SetWidth(50)
     lastPageButn.SetHeight(50)
     let lasttex = lastPageButn.CreateTexture('','BACKGROUND')
-        lasttex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
+        lasttex.SetTexture("Interface\\BUTTONS\\UI-SpellbookIcon-PrevPage-Up.blp")
         lasttex.SetAllPoints(lastPageButn)
         lasttex.SetPoint("CENTER",0,0)
     lastPageButn.HookScript("OnClick",(frame,evName,btnDown)=>{
         if(page > 0)
         page = page - 1
+        pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
         clearButtons()
         createButtons()
     })
 
 let nextPageButn = CreateFrame("Button", '', mframe)
-    nextPageButn.SetPoint("CENTER", mframe, "CENTER",30,300)
+    nextPageButn.SetPoint("TOP", mframe, "TOP",60,-50)
     nextPageButn.SetWidth(50)
     nextPageButn.SetHeight(50)
     let nexttex = nextPageButn.CreateTexture('','BACKGROUND')
-        nexttex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
+        nexttex.SetTexture("Interface\\BUTTONS\\UI-SpellbookIcon-NextPage-Up.blp")
         nexttex.SetAllPoints(nextPageButn)
         nexttex.SetPoint("CENTER",0,0)
     nextPageButn.HookScript("OnClick",(frame,evName,btnDown)=>{
         if(itemArray.length  > columns*rows*(page+1))
         page = page + 1
+        pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
         clearButtons()
         createButtons()
     })
@@ -70,8 +75,9 @@ let searchButn = CreateFrame("Button", '', mframe)
             pkt.entry = "3100";//change for an edit box get text
             if(entryCheckbox == 1){
                 pkt.isName = 0;
-            }
-        clearButtons()
+            }   
+        resetFrames()
+        pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
         SendToServer(pkt)
     })
 Events.AddOns.OnMessage(mframe,itemLootPacket,(msg)=>{
@@ -79,12 +85,18 @@ Events.AddOns.OnMessage(mframe,itemLootPacket,(msg)=>{
 });
 
 Events.AddOns.OnMessage(mframe,itemLootFinishPacket,(msg)=>{
+    pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
     createButtons()
 });
 
 Events.AddOns.OnMessage(mframe,creatureNoExistPacket,(msg)=>{
     console.log("DOES NOT EXIST!!!")
 });
+function resetFrames(){
+    page = 0
+    clearButtons()
+    itemArray = []
+}
 
 function createButtons(){
     let length = columns*rows;
@@ -129,6 +141,5 @@ function clearButtons(){
     for(let i=0;i<allButtons.length;i++){
         allButtons[i].Hide()
     }
-    itemArray = []
     allButtons = []
 }
