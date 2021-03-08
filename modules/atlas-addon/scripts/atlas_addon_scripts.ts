@@ -24,10 +24,10 @@ export function Main(events: TSEventHandlers) {
                 let query = QueryWorld('SELECT * FROM creature_loot_template WHERE Entry=' + entry + ';');
                 while(query.GetRow()) {
                     let pkt = new itemLootPacket()
-                        pkt.itemID = ToUInt32(entry);
-                        pkt.dropChance = query.GetInt8(2);
-                        pkt.itemCountMin = query.GetInt8(4);
-                        pkt.itemCountMax = query.GetInt8(5);
+                        pkt.itemID = query.GetUInt32(1);
+                        pkt.itemCountMin = query.GetInt8(7);
+                        pkt.itemCountMax = query.GetInt8(8);
+                        pkt.dropChance = query.GetDouble(3);
                     player.SendData(pkt)
                 }
             }

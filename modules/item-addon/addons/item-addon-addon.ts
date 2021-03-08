@@ -6,11 +6,11 @@ let gossip = true
 const mframe = CreateFrame('Frame','',UIParent);
     mframe.SetWidth(500)
     mframe.SetHeight(700)
-    const texture = mframe.CreateTexture('','BACKGROUND')
+    const texture = mframe.CreateTexture('scrapper','BACKGROUND')
         texture.SetTexture("Interface\\BUTTONS\\BLUEGRAD64.blp")
         texture.SetAllPoints(mframe)
         mframe.SetPoint("CENTER",0,0)
-        //mframe.Hide()
+        mframe.Hide()
 let exitbutn = CreateFrame("Button", '', mframe)
     exitbutn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",0,0)
     exitbutn.SetWidth(50)
