@@ -133,7 +133,6 @@ function searchLoot(){
         if(Number(pkt.entry) > 0){
             pkt.isName = 0;
             pkt.entry = Number(pkt.entry).toString()
-            print(pkt.entry)
         }  
     resetFrames()
     pageCt.SetText("Page 1/1")
