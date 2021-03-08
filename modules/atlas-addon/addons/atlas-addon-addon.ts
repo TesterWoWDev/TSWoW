@@ -23,7 +23,7 @@ let searchButn = CreateFrame("Button", "CLOSE", mframe)
         let entryCheckbox = 1;//add some toggle in the UI
         pkt.entry = "entry";//change for an edit box get text
         if(entryCheckbox == 1){
-            pkt.isEntry = 1;
+            pkt.isName = 0;
         }
         SendToServer(pkt)
     })
