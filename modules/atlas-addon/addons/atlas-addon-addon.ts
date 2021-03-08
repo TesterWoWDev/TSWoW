@@ -38,9 +38,10 @@ let lastPageButn = CreateFrame("Button", '', mframe)
         lasttex.SetAllPoints(lastPageButn)
         lasttex.SetPoint("CENTER",0,0)
     lastPageButn.HookScript("OnClick",(frame,evName,btnDown)=>{
-        if(page > 0)
-        page = page - 1
-        pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
+        if(page > 0){
+            page = page - 1
+            pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
+        }
         clearButtons()
         createButtons()
     })
@@ -54,12 +55,23 @@ let nextPageButn = CreateFrame("Button", '', mframe)
         nexttex.SetAllPoints(nextPageButn)
         nexttex.SetPoint("CENTER",0,0)
     nextPageButn.HookScript("OnClick",(frame,evName,btnDown)=>{
-        if(itemArray.length  > columns*rows*(page+1))
-        page = page + 1
-        pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
+        if(itemArray.length  > columns*rows*(page+1)){
+            page = page + 1
+            pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
+        }
         clearButtons()
         createButtons()
     })
+
+    let searchBox = CreateFrame('EditBox','',UIParent)
+        searchBox.SetSize(300,50)
+        searchBox.SetPoint('TOP',mframe,'TOP',0,0)
+        searchBox.SetFont('Fonts\\ARIALN.TTF',14)
+        searchBox.SetMaxLetters(40)
+        searchBox.SetMultiLine(false)
+        // searchBox.HookScript('OnEnterPressed',(frame,evname,btndown)=>{
+        //     searchLoot()
+        // })
 
 let searchButn = CreateFrame("Button", '', mframe)
     searchButn.SetPoint("CENTER", mframe, "CENTER",0,350)
@@ -70,15 +82,7 @@ let searchButn = CreateFrame("Button", '', mframe)
         searchtex.SetAllPoints(searchButn)
         searchtex.SetPoint("CENTER",0,0)
     searchButn.HookScript("OnClick",(frame,evName,btnDown)=>{
-        let entryCheckbox = 1;//add some toggle in the UI
-        let pkt = new creatureNamePacket()
-            pkt.entry = "3100";//change for an edit box get text
-            if(entryCheckbox == 1){
-                pkt.isName = 0;
-            }   
-        resetFrames()
-        pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
-        SendToServer(pkt)
+        searchLoot()
     })
 Events.AddOns.OnMessage(mframe,itemLootPacket,(msg)=>{
     itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
@@ -92,6 +96,20 @@ Events.AddOns.OnMessage(mframe,itemLootFinishPacket,(msg)=>{
 Events.AddOns.OnMessage(mframe,creatureNoExistPacket,(msg)=>{
     console.log("DOES NOT EXIST!!!")
 });
+
+function searchLoot(){
+    let pkt = new creatureNamePacket()
+        pkt.entry = searchBox.GetText();
+        if(Number(pkt.entry) > 0){
+            pkt.isName = 0;
+            pkt.entry = Number(pkt.entry).toString()
+            print(pkt.entry)
+        }  
+    resetFrames()
+    pageCt.SetText("Page 1/1")
+    SendToServer(pkt)
+}
+
 function resetFrames(){
     page = 0
     clearButtons()

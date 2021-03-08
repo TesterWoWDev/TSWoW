@@ -1,44 +1,81 @@
-/**
- * Modified by TSWoW
+/*
+ * MIT License
+ * Copyright (c) 2019 Oliver Level <dev@qhun.de>
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
-declare type uint8 = number;
-declare type uint16 = number;
-declare type uint32 = number;
-declare type uint64 = number;
-declare type int8 = number;
-declare type int16 = number;
-declare type int32 = number;
-declare type int64 = number;
-declare type float = number;
-declare type bool = boolean;
-declare type double = number;
-declare type TSArray<T> = T[];
-declare type TSString = string;
-declare function Message(classTarget: any): any;
-declare function MsgClass(classTarget: any, name: string): any;
-declare function MsgClassArray(size: number): (field: any, name: any) => void;
-declare function MsgPrimitive(classTarget: any, name: string): any;
-declare function MsgPrimitiveArray(capacity: number): (field: any, name: any) => void;
-declare function MsgString(size: number): (field: any, name: any) => void;
-declare function MsgStringArray(arrSize: number, stringSize: number): (field: any, name: any) => void;
-declare function __TS__StringLen(str: string): number;
+
+ /**
+  * Modified by TSWoW
+  */
+
+type uint8 = number;
+type uint16 = number;
+type uint32 = number;
+type uint64 = number;
+type int8 = number;
+type int16 = number;
+type int32 = number;
+type int64 = number;
+type float = number;
+type bool = boolean;
+type double = number;
+type TSArray<T> = T[];
+type TSString = string;
+
+declare function Message(classTarget: any): any
+declare function MsgClass(classTarget: any, name: string): any
+declare function MsgClassArray(size: number): (field: any, name: any)=>void
+declare function MsgPrimitive(classTarget: any, name: string): any
+declare function MsgPrimitiveArray(capacity: number): (field: any, name: any)=>void;
+declare function MsgString(size: number): (field: any, name: any)=>void
+declare function MsgStringArray(arrSize: number, stringSize: number): (field: any, name: any)=>void
+
+declare function __TS__StringLen(str: string): number
+
 declare function __TS__Unpack(args: any[]): any;
+
 declare function __TS__New(target: any): any;
+
 declare function base64_decode(str: string): string;
 declare function base64_encode(str: string): string;
+
 /**
  * Returns the highest expansion id the current account has been flagged for.
  */
-declare function GetAccountExpansionLevel(): EXPANSION_CLASSIC | EXPANSION_BURNING_CRUSADE | EXPANSION_WRATH_OF_THE_LICH_KING | EXPANSION_CATACLYSM | EXPANSION_MISTS_OF_PANDARIA | EXPANSION_WARLORDS_OF_DRAENOR | EXPANSION_LEGION | EXPANSION_BATTLE_FOR_AZEROTH;
+declare function GetAccountExpansionLevel(): EXPANSION_CLASSIC | EXPANSION_BURNING_CRUSADE | EXPANSION_WRATH_OF_THE_LICH_KING | EXPANSION_CATACLYSM |
+    EXPANSION_MISTS_OF_PANDARIA | EXPANSION_WARLORDS_OF_DRAENOR | EXPANSION_LEGION | EXPANSION_BATTLE_FOR_AZEROTH;
+
 /**
  * Returns the time spent logged in in current billing unit. This function is to limit players from playing the game for too long
  * @return Amount of time left in seconds to play as rested. See details below for clarification. Returns nil for EU and US accounts
  */
 declare function GetBillingTimeRested(): number;
+
 /**
  * Returns whether the player is using a trial (free-to-play) account
  */
 declare function IsTrialAccount(): boolean;
+
+
+/// <reference path="global.d.ts" />
+/// <reference path="unit.d.ts" />
+
 declare namespace WoWAPI {
     /**
      * Achievement links are returned by GetAchievementLink().
@@ -46,6 +83,7 @@ declare namespace WoWAPI {
      */
     type AchievementLink = Hyperlink;
 }
+
 /**
  * Marks an achievement for tracking in the WatchFrame.
  *
@@ -53,18 +91,21 @@ declare namespace WoWAPI {
  * @event TRACKED_ACHIEVEMENT_UPDATE
  */
 declare function AddTrackedAchievement(achivementId: number): void;
+
 /**
  * Returns whether account-wide achievements are hidden from other players
  *
  * @returns true if other players cannot view your account-level achievements; false otherwise
  */
 declare function AreAccountAchievementsHidden(): boolean;
+
 /**
  * Returns if the AchievementUI can be displayed
  *
  * @returns true if the achievement data is available (and hence the AchievementUI can be displayed), false otherwise
  */
 declare function CanShowAchievementUI(): boolean;
+
 /**
  * Returns the category number the requested achievement belongs to
  *
@@ -72,6 +113,7 @@ declare function CanShowAchievementUI(): boolean;
  * @returns ID of the achievement's category.
  */
 declare function GetAchievementCategory(achivementId: number): number;
+
 /**
  * Returns information about the comparison unit's achievements
  *
@@ -80,6 +122,7 @@ declare function GetAchievementCategory(achivementId: number): number;
  * @tupleReturn
  */
 declare function GetAchievementComparisonInfo(achivementId: number): [boolean, number, number, number];
+
 /**
  * Returns information about the given Achievement's specified criteria
  *
@@ -88,7 +131,9 @@ declare function GetAchievementComparisonInfo(achivementId: number): [boolean, n
  * @see https://wow.gamepedia.com/API_GetAchievementCriteriaInfo
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetAchievementCriteriaInfo(achivementId: number, criteriaIndex: number): [string, number, boolean, number, number, string, number, number, string, number, boolean];
+
 /**
  * Returns information about the given Achievement's specified criteria
  *
@@ -96,7 +141,9 @@ declare function GetAchievementCriteriaInfo(achivementId: number, criteriaIndex:
  * @param criteriaId Index of the criteria to query, ascending from 1 up to GetAchievementNumCriteria(achievementID).
  * @see https://wow.gamepedia.com/API_GetAchievementCriteriaInfoByID
  */
+// tslint:disable-next-line max-line-length
 declare function GetAchievementCriteriaInfoByID(achivementId: number, criteriaId: number): [string, number, boolean, number, string, number, number, string, number, boolean];
+
 /**
  * Returns information about the given Achievement
  *
@@ -105,8 +152,11 @@ declare function GetAchievementCriteriaInfoByID(achivementId: number, criteriaId
  * @see https://wow.gamepedia.com/API_GetAchievementInfo
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetAchievementInfo(achivementId: number, index: number): [number, string, number, boolean, number, number, number, string, number, number, string, boolean, boolean, string];
+// tslint:disable-next-line max-line-length
 declare function GetAchievementInfo(categoryId: number, index: number): [number, string, number, boolean, number, number, number, string, number, number, string, boolean, boolean, string];
+
 /**
  * Returns a achievementLink for the specified Achievement
  *
@@ -114,6 +164,7 @@ declare function GetAchievementInfo(categoryId: number, index: number): [number,
  * @see https://wow.gamepedia.com/API_GetAchievementLink
  */
 declare function GetAchievementLink(achivementId: number): WoWAPI.AchievementLink;
+
 /**
  * Returns the number of criteria for the given Achievement
  *
@@ -121,6 +172,7 @@ declare function GetAchievementLink(achivementId: number): WoWAPI.AchievementLin
  * @see https://wow.gamepedia.com/API_GetAchievementNumCriteria
  */
 declare function GetAchievementNumCriteria(achivementId: number): number;
+
 /**
  * Returns information about the given Category
  *
@@ -129,6 +181,7 @@ declare function GetAchievementNumCriteria(achivementId: number): number;
  * @tupleReturn
  */
 declare function GetCategoryInfo(categoryId: number): [string, number, number];
+
 /**
  * Returns the list of Achievement categories
  *
@@ -136,6 +189,7 @@ declare function GetCategoryInfo(categoryId: number): [string, number, number];
  * @see https://wow.gamepedia.com/API_GetCategoryList
  */
 declare function GetCategoryList(): number[];
+
 /**
  * Returns the total, completed and incompleted number of achievements in a specific category
  *
@@ -145,6 +199,7 @@ declare function GetCategoryList(): number[];
  * @tupleReturn
  */
 declare function GetCategoryNumAchievements(categoryId: number, includeAll?: boolean): [number, number, number];
+
 /**
  * Return the value of the requested Statistic from the comparison unit
  *
@@ -153,6 +208,7 @@ declare function GetCategoryNumAchievements(categoryId: number, includeAll?: boo
  * @see https://wow.gamepedia.com/API_GetComparisonStatistic
  */
 declare function GetComparisonStatistic(achivementId: number): string;
+
 /**
  * Return the next achievement in a chain
  *
@@ -161,6 +217,7 @@ declare function GetComparisonStatistic(achivementId: number): string;
  * @see https://wow.gamepedia.com/API_GetNextAchievement
  */
 declare function GetNextAchievement(achivementId: number): number | null;
+
 /**
  * Returns the number of completed achievements for the comparison player
  *
@@ -168,6 +225,7 @@ declare function GetNextAchievement(achivementId: number): number | null;
  * @see https://wow.gamepedia.com/API_GetNumComparisonCompletedAchievements
  */
 declare function GetNumComparisonCompletedAchievements(achivementId: number): [number, number];
+
 /**
  * Return the total number of Achievements, and number completed
  *
@@ -175,6 +233,7 @@ declare function GetNumComparisonCompletedAchievements(achivementId: number): [n
  * @tupleReturn
  */
 declare function GetNumCompletedAchievements(): [number, number];
+
 /**
  * Return the previous achievement in a chain
  *
@@ -183,6 +242,7 @@ declare function GetNumCompletedAchievements(): [number, number];
  * @see https://wow.gamepedia.com/API_GetPreviousAchievement
  */
 declare function GetPreviousAchievement(achivementId: number): number | null;
+
 /**
  * Return the value of the requested Statistic
  *
@@ -191,6 +251,7 @@ declare function GetPreviousAchievement(achivementId: number): number | null;
  * @see https://wow.gamepedia.com/API_GetStatistic
  */
 declare function GetStatistic(achievementId: number): WoWAPI.UnknownStringKeyTable;
+
 /**
  * Returns a table of achievement categories
  *
@@ -198,6 +259,7 @@ declare function GetStatistic(achievementId: number): WoWAPI.UnknownStringKeyTab
  * @see https://wow.gamepedia.com/API_GetStatisticsCategoryList
  */
 declare function GetStatisticsCategoryList(): WoWAPI.UnknownNumberKeyTable;
+
 /**
  * Returns the total number of Achievement Points earned
  *
@@ -205,6 +267,7 @@ declare function GetStatisticsCategoryList(): WoWAPI.UnknownNumberKeyTable;
  * @see https://wow.gamepedia.com/API_GetTotalAchievementPoints
  */
 declare function GetTotalAchievementPoints(): number;
+
 /**
  * Returns a list of (up to 10) currently tracked achievements
  *
@@ -214,6 +277,7 @@ declare function GetTotalAchievementPoints(): number;
  * @tupleReturn
  */
 declare function GetTrackedAchievements(): [number, number, number, number, number, number, number, number, number, number];
+
 /**
  * Returns the total number of tracked achievements
  *
@@ -222,6 +286,7 @@ declare function GetTrackedAchievements(): [number, number, number, number, numb
  * @since 3.1.0
  */
 declare function GetNumTrackedAchievements(): number;
+
 /**
  * Un-marks an achievement for tracking in the WatchFrame
  *
@@ -231,6 +296,7 @@ declare function GetNumTrackedAchievements(): number;
  * @since 3.1.0
  */
 declare function RemoveTrackedAchievement(achievementId: number): void;
+
 /**
  * Sets the unit to be compared to.
  *
@@ -240,6 +306,12 @@ declare function RemoveTrackedAchievement(achievementId: number): void;
  * @event INSPECT_ACHIEVEMENT_READY
  */
 declare function SetAchievementComparisonUnit(unit: WoWAPI.UnitId): boolean;
+
+
+
+/// <reference path="global.d.ts" />
+/// <reference path="ui/ui.d.ts" />
+
 /**
  * Presses the specified FrameXML action button
  *
@@ -248,6 +320,7 @@ declare function SetAchievementComparisonUnit(unit: WoWAPI.UnitId): boolean;
  * @private PROTECTED UI
  */
 declare function ActionButtonDown(buttonId: number): void;
+
 /**
  * Releases the specified action button
  *
@@ -256,6 +329,7 @@ declare function ActionButtonDown(buttonId: number): void;
  * @private PROTECTED UI
  */
 declare function ActionButtonUp(buttonId: number): void;
+
 /**
  * Returns true if the action has a numeric range requirement.
  *
@@ -264,6 +338,7 @@ declare function ActionButtonUp(buttonId: number): void;
  * @see https://wow.gamepedia.com/API_ActionHasRange
  */
 declare function ActionHasRange(slotId: ActionBarSlotId): boolean;
+
 /**
  * Begin "Left click" in the 3D world
  *
@@ -271,6 +346,7 @@ declare function ActionHasRange(slotId: ActionBarSlotId): boolean;
  * @private PROTECTED
  */
 declare function CameraOrSelectOrMoveStart(): void;
+
 /**
  * End "Left click" in the 3D game world
  *
@@ -279,6 +355,7 @@ declare function CameraOrSelectOrMoveStart(): void;
  * @private PROTECTED
  */
 declare function CameraOrSelectOrMoveStop(stickyFlag?: WoWAPI.Unknown): void;
+
 /**
  * Changes the current action button to the one specified in the arguments
  *
@@ -287,6 +364,7 @@ declare function CameraOrSelectOrMoveStop(stickyFlag?: WoWAPI.Unknown): void;
  * @private NOCOMBAT
  */
 declare function ChangeActionBarPage(actionBarPage: ActionBarPage): void;
+
 /**
  * Returns the index of the currently-selected action bar page
  *
@@ -294,6 +372,7 @@ declare function ChangeActionBarPage(actionBarPage: ActionBarPage): void;
  * @see https://wow.gamepedia.com/API_GetActionBarPage
  */
 declare function GetActionBarPage(): ActionBarPage;
+
 /**
  * Gets the toggle states of the extra action bars.
  *
@@ -302,6 +381,7 @@ declare function GetActionBarPage(): ActionBarPage;
  * @tupleReturn
  */
 declare function GetActionBarToggles(): [boolean, boolean, boolean, boolean];
+
 /**
  * Returns information about the charges of a charge-accumulating player ability
  *
@@ -311,6 +391,7 @@ declare function GetActionBarToggles(): [boolean, boolean, boolean, boolean];
  * @tupleReturn
  */
 declare function GetActionCharges(slotId: ActionBarSlotId): [number, number, number, number, number];
+
 /**
  * Retrieves the cooldown data of the action specified
  *
@@ -320,6 +401,7 @@ declare function GetActionCharges(slotId: ActionBarSlotId): [number, number, num
  * @tupleReturn
  */
 declare function GetActionCooldown(slotId: ActionBarSlotId): [number, number, number, number];
+
 /**
  * Gets the available count for an action, if applicable
  *
@@ -329,6 +411,7 @@ declare function GetActionCooldown(slotId: ActionBarSlotId): [number, number, nu
  * @see https://wow.gamepedia.com/API_GetActionCount
  */
 declare function GetActionCount(slotId: ActionBarSlotId): string | number;
+
 /**
  * Returns information about a specific action
  *
@@ -338,6 +421,7 @@ declare function GetActionCount(slotId: ActionBarSlotId): string | number;
  * @tupleReturn
  */
 declare function GetActionInfo(slotId: ActionBarSlotId): [string, WoWAPI.Unknown, WoWAPI.Unknown];
+
 /**
  * Gets the text label for an action
  *
@@ -347,6 +431,7 @@ declare function GetActionInfo(slotId: ActionBarSlotId): [string, WoWAPI.Unknown
  * @see https://wow.gamepedia.com/API_GetActionText
  */
 declare function GetActionText(slotId: ActionBarSlotId): string | null;
+
 /**
  * Returns the filepath for an action's texture
  *
@@ -355,6 +440,7 @@ declare function GetActionText(slotId: ActionBarSlotId): string | null;
  * @see https://wow.gamepedia.com/API_GetActionTexture
  */
 declare function GetActionTexture(slotId: ActionBarSlotId): WoWAPI.TexturePath | null;
+
 /**
  * Returns the current bonus action bar index
  *
@@ -362,6 +448,7 @@ declare function GetActionTexture(slotId: ActionBarSlotId): WoWAPI.TexturePath |
  * @see https://wow.gamepedia.com/API_GetBonusBarOffset
  */
 declare function GetBonusBarOffset(): number;
+
 /**
  * Returns the name of the button responsible causing the OnClick handler to fire
  *
@@ -369,6 +456,7 @@ declare function GetBonusBarOffset(): number;
  * @see https://wow.gamepedia.com/API_GetMouseButtonClicked
  */
 declare function GetMouseButtonClicked(): WoWAPI.MouseButton;
+
 /**
  * Tests if an action slot is occupied
  *
@@ -377,6 +465,7 @@ declare function GetMouseButtonClicked(): WoWAPI.MouseButton;
  * @see https://wow.gamepedia.com/API_HasAction
  */
 declare function HasAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
+
 /**
  * Returns whether an action is in range for use
  *
@@ -385,6 +474,7 @@ declare function HasAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
  * @see https://wow.gamepedia.com/API_IsActionInRange
  */
 declare function IsActionInRange(slotId: ActionBarSlotId): WoWAPI.Flag | null;
+
 /**
  * Determine whether action slot is an attack action
  *
@@ -393,6 +483,7 @@ declare function IsActionInRange(slotId: ActionBarSlotId): WoWAPI.Flag | null;
  * @see https://wow.gamepedia.com/API_IsAttackAction
  */
 declare function IsAttackAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
+
 /**
  * Determine whether action slot is auto repeating
  *
@@ -401,6 +492,7 @@ declare function IsAttackAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
  * @see https://wow.gamepedia.com/API_IsAutoRepeatAction
  */
 declare function IsAutoRepeatAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
+
 /**
  * Determine whether an action is currently executing
  *
@@ -409,6 +501,7 @@ declare function IsAutoRepeatAction(slotId: ActionBarSlotId): WoWAPI.Flag | null
  * @see https://wow.gamepedia.com/API_IsCurrentAction
  */
 declare function IsCurrentAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
+
 /**
  * Tests if the action is linked to a consumable item
  *
@@ -418,6 +511,7 @@ declare function IsCurrentAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
  * @see https://wow.gamepedia.com/API_IsConsumableAction
  */
 declare function IsConsumableAction(slotId: ActionBarSlotId): boolean;
+
 /**
  * An equip action is created if you drag a weapon from the Inventory to an action bar slot. If you click this action to
  * equip the weapon, the action icon will obtain a green outline. It is in this case that IsEquippedAction() returns 1.
@@ -428,6 +522,7 @@ declare function IsConsumableAction(slotId: ActionBarSlotId): boolean;
  * @see https://wow.gamepedia.com/API_IsEquippedAction
  */
 declare function IsEquippedAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
+
 /**
  * Determine if an action can be used (you have sufficient mana, reagents and the action is not on cooldown).
  *
@@ -437,6 +532,7 @@ declare function IsEquippedAction(slotId: ActionBarSlotId): WoWAPI.Flag | null;
  * @tupleReturn
  */
 declare function IsUsableAction(slotId: ActionBarSlotId): [boolean, boolean];
+
 /**
  * Determine if player has a pet with an action bar.
  *
@@ -444,6 +540,7 @@ declare function IsUsableAction(slotId: ActionBarSlotId): [boolean, boolean];
  * @see https://wow.gamepedia.com/API_PetHasActionBar
  */
 declare function PetHasActionBar(): WoWAPI.Flag | null;
+
 /**
  * Pick up an action for drag-and-drop
  *
@@ -452,6 +549,7 @@ declare function PetHasActionBar(): WoWAPI.Flag | null;
  * @private PROTECTED NOCOMBAT
  */
 declare function PickupAction(slotId: ActionBarSlotId): void;
+
 /**
  * Pick up a pet action for drag-and-drop
  *
@@ -460,6 +558,7 @@ declare function PickupAction(slotId: ActionBarSlotId): void;
  * @private PROTECTED NOCOMBAT
  */
 declare function PickupPetAction(petSlotId: SlotActionBarPet): void;
+
 /**
  * Place the drag-and-drop item as an action
  *
@@ -467,6 +566,7 @@ declare function PickupPetAction(petSlotId: SlotActionBarPet): void;
  * @see https://wow.gamepedia.com/API_PlaceAction
  */
 declare function PlaceAction(slotId: ActionBarSlotId): void;
+
 /**
  * Set the desired state of the extra action bars
  *
@@ -477,7 +577,9 @@ declare function PlaceAction(slotId: ActionBarSlotId): void;
  * @param alwaysShow 1 if the bars are always shown, 0 or nil otherwise.
  * @see https://wow.gamepedia.com/API_SetActionBarToggles
  */
+// tslint:disable-next-line max-line-length
 declare function SetActionBarToggles(bottomLeftState: WoWAPI.Flag, bottomRightState: WoWAPI.Flag, sideRightState: WoWAPI.Flag, sideRight2State: WoWAPI.Flag, alwaysShow: WoWAPI.Flag): void;
+
 /**
  * Begin "Right click" in the 3D game world.
  *
@@ -485,6 +587,7 @@ declare function SetActionBarToggles(bottomLeftState: WoWAPI.Flag, bottomRightSt
  * @private PROTECTED
  */
 declare function TurnOrActionStart(): void;
+
 /**
  * End "Right click" in the 3D game world
  *
@@ -492,6 +595,7 @@ declare function TurnOrActionStart(): void;
  * @private PROTECTED
  */
 declare function TurnOrActionStop(): void;
+
 /**
  * Perform the action in the specified action slot
  *
@@ -505,12 +609,17 @@ declare function TurnOrActionStop(): void;
  * @private PROTECTED
  */
 declare function UseAction(slot: ActionBarSlotId, checkCursor?: WoWAPI.Flag, onSelf?: WoWAPI.Flag): void;
+
+
+/// <reference path="global.d.ts" />
+
 /**
  * Accept the challenge to a duel.
  *
  * @see https://wow.gamepedia.com/API_AcceptDuel
  */
 declare function AcceptDuel(): void;
+
 /**
  * Toggles auto-attacking of the player's current target
  *
@@ -518,12 +627,14 @@ declare function AcceptDuel(): void;
  * @private PROTECTED
  */
 declare function AttackTarget(): void;
+
 /**
  * Forfeits the current duel, or declines an invitation to duel
  *
  * @see https://wow.gamepedia.com/API_CancelDuel
  */
 declare function CancelDuel(): void;
+
 /**
  * Cancels the logout timer (from camping or quitting).
  *
@@ -531,18 +642,21 @@ declare function CancelDuel(): void;
  * @private PROTECTED
  */
 declare function CancelLogout(): void;
+
 /**
  * Rejects a summon request
  *
  * @see https://wow.gamepedia.com/API_CancelSummon
  */
 declare function CancelSummon(): void;
+
 /**
  * Accepts a summon request (only works during the two minutes the summon is available).
  *
  * @see https://wow.gamepedia.com/API_ConfirmSummon
  */
 declare function ConfirmSummon(): void;
+
 /**
  * The player stops descending (while flying or swimming).
  *
@@ -550,6 +664,7 @@ declare function ConfirmSummon(): void;
  * @private PROTECTED
  */
 declare function DescendStop(): void;
+
 /**
  * Dismounts the player if the player was mounted
  *
@@ -557,6 +672,7 @@ declare function DescendStop(): void;
  * @since 2.0.3
  */
 declare function Dismount(): void;
+
 /**
  * Instantly quits the game, bypassing the usual 20 seconds countdown
  *
@@ -564,6 +680,7 @@ declare function Dismount(): void;
  * @private PROTECTED
  */
 declare function ForceQuit(): void;
+
 /**
  * Returns the amount of time left on your PVP flag
  *
@@ -571,12 +688,14 @@ declare function ForceQuit(): void;
  * @see https://wow.gamepedia.com/API_GetPVPTimer
  */
 declare function GetPVPTimer(): number;
+
 /**
  * Returns the name of the area you're being summoned to
  *
  * @see https://wow.gamepedia.com/API_GetSummonConfirmAreaName
  */
 declare function GetSummonConfirmAreaName(): WoWAPI.Unknown;
+
 /**
  * Get the name of the unit which initiated the players summon
  *
@@ -584,12 +703,14 @@ declare function GetSummonConfirmAreaName(): WoWAPI.Unknown;
  * @see https://wow.gamepedia.com/API_GetSummonConfirmSummoner
  */
 declare function GetSummonConfirmSummoner(): string;
+
 /**
  * Returns the amount of time left before the pending summon expires
  *
  * @see https://wow.gamepedia.com/API_GetSummonConfirmTimeLeft
  */
 declare function GetSummonConfirmTimeLeft(): WoWAPI.Unknown;
+
 /**
  * Logs the player character out of the game.
  *
@@ -598,6 +719,7 @@ declare function GetSummonConfirmTimeLeft(): WoWAPI.Unknown;
  * @private PROTECTED
  */
 declare function Logout(): void;
+
 /**
  * Quits the game.
  *
@@ -606,6 +728,7 @@ declare function Logout(): void;
  * @private PROTECTED
  */
 declare function Quit(): void;
+
 /**
  * Performs a random roll between two numbers
  *
@@ -615,6 +738,7 @@ declare function Quit(): void;
  * @see https://wow.gamepedia.com/API_RandomRoll
  */
 declare function RandomRoll(low?: number, high?: number): void;
+
 /**
  * Used to toggle PVP on or Off
  *
@@ -622,6 +746,7 @@ declare function RandomRoll(low?: number, high?: number): void;
  * @see https://wow.gamepedia.com/API_SetPVP
  */
 declare function SetPVP(flag: WoWAPI.Flag | null): void;
+
 /**
  * The player sits, stands, or begins to descend (while swimming or flying)
  *
@@ -630,6 +755,7 @@ declare function SetPVP(flag: WoWAPI.Flag | null): void;
  * @private PROTECTED
  */
 declare function SitStandOrDescendStart(): void;
+
 /**
  * Invites the specified player to a duel
  *
@@ -637,12 +763,14 @@ declare function SitStandOrDescendStart(): void;
  * @see https://wow.gamepedia.com/API_StartDuel
  */
 declare function StartDuel(playerName: string): void;
+
 /**
  * Toggles PvP setting on or off
  *
  * @see https://wow.gamepedia.com/API_TogglePVP
  */
 declare function TogglePVP(): void;
+
 /**
  * Toggles sheathed or unsheathed weapons
  *
@@ -650,70 +778,92 @@ declare function TogglePVP(): void;
  * @event UNIT_MODEL_CHANGED
  */
 declare function ToggleSheath(): void;
+
 /**
  * Use an active soulstone to resurrect yourself after death. Also works for Shamans with Reincarnation available
  *
  * @see https://wow.gamepedia.com/API_UseSoulstone
  */
 declare function UseSoulstone(): void;
+
+
+/// <reference path="global.d.ts" />
+
 declare namespace WoWAPI {
     /**
      * Addon is banned by the client
      */
     type ADDON_LOAD_REASON_BANNED = "BANNED";
+
     /**
      * The addon's file(s) are corrupt
      */
     type ADDON_LOAD_REASON_CORRUPT = "CORRUPT";
+
     /**
      * Addon's dependency is banned by the client
      */
     type ADDON_LOAD_REASON_DEP_BANNED = "DEP_BANNED";
+
     /**
      * The addon's dependency cannot load because its file(s) are corrupt
      */
     type ADDON_LOAD_REASON_DEP_CORRUPT = "DEP_CORRUPT";
+
     /**
      * The addon cannot load without its dependency enabled
      */
     type ADDON_LOAD_REASON_DEP_DISABLED = "DEP_DISABLED";
+
     /**
      * The addon cannot load if its dependency cannot load
      */
     type ADDON_LOAD_REASON_DEP_INCOMPATIBLE = "DEP_INCOMPATIBLE";
+
     /**
      * The addon's dependency is physically not there
      */
     type ADDON_LOAD_REASON_DEP_MISSING = "DEP_MISSING";
+
     /**
      * The addon's dependency must be loadable on demand too
      */
     type ADDON_LOAD_REASON_DEP_NOT_DEMAND_LOADED = "DEP_NOT_DEMAND_LOADED";
+
     /**
      * Addon is disabled on the character select screen
      */
     type ADDON_LOAD_REASON_DISABLED = "DISABLED";
+
     /**
      * The addon is too old.
      */
     type ADDON_LOAD_REASON_INCOMPATIBLE = "INCOMPATIBLE";
+
     /**
      * The addon is physically not there
      */
     type ADDON_LOAD_REASON_MISSING = "MISSING";
+
     /**
      * As of 1.8 only addons marked as LoadOnDemand can be loaded via this function
      */
     type ADDON_LOAD_REASON_NOT_DEMAND_LOADED = "NOT_DEMAND_LOADED";
+
     /**
      * Unknown, presumably the interface version in the .toc file is incorrect
      */
     type ADDON_LOAD_REASON_INTERFACE_VERSION = "INTERFACE_VERSION";
+
     /**
      * all possible load error reasons
      */
-    type ADDON_LOAD_REASON = ADDON_LOAD_REASON_BANNED | ADDON_LOAD_REASON_CORRUPT | ADDON_LOAD_REASON_DEP_BANNED | ADDON_LOAD_REASON_DEP_CORRUPT | ADDON_LOAD_REASON_DEP_DISABLED | ADDON_LOAD_REASON_DEP_INCOMPATIBLE | ADDON_LOAD_REASON_DEP_MISSING | ADDON_LOAD_REASON_DEP_NOT_DEMAND_LOADED | ADDON_LOAD_REASON_DISABLED | ADDON_LOAD_REASON_INCOMPATIBLE | ADDON_LOAD_REASON_MISSING | ADDON_LOAD_REASON_NOT_DEMAND_LOADED | ADDON_LOAD_REASON_INTERFACE_VERSION;
+    type ADDON_LOAD_REASON = ADDON_LOAD_REASON_BANNED | ADDON_LOAD_REASON_CORRUPT | ADDON_LOAD_REASON_DEP_BANNED | ADDON_LOAD_REASON_DEP_CORRUPT |
+        ADDON_LOAD_REASON_DEP_DISABLED | ADDON_LOAD_REASON_DEP_INCOMPATIBLE | ADDON_LOAD_REASON_DEP_MISSING |
+        ADDON_LOAD_REASON_DEP_NOT_DEMAND_LOADED | ADDON_LOAD_REASON_DISABLED | ADDON_LOAD_REASON_INCOMPATIBLE | ADDON_LOAD_REASON_MISSING |
+        ADDON_LOAD_REASON_NOT_DEMAND_LOADED | ADDON_LOAD_REASON_INTERFACE_VERSION;
 }
+
 /**
  * Disable an AddOn for subsequent sessions
  *
@@ -721,6 +871,7 @@ declare namespace WoWAPI {
  * @see https://wow.gamepedia.com/API_DisableAddOn
  */
 declare function DisableAddOn(index: number): void;
+
 /**
  * Disable an AddOn for subsequent sessions
  *
@@ -729,12 +880,14 @@ declare function DisableAddOn(index: number): void;
  * @see https://wow.gamepedia.com/API_DisableAddOn
  */
 declare function DisableAddOn(name: string, character?: string): void;
+
 /**
  * Disable all AddOns for subsequent sessions
  *
  * @see https://wow.gamepedia.com/API_DisableAllAddOns
  */
 declare function DisableAllAddOns(): void;
+
 /**
  * Enable an AddOn for subsequent sessions
  *
@@ -742,12 +895,14 @@ declare function DisableAllAddOns(): void;
  * @see https://wow.gamepedia.com/API_EnableAddOn
  */
 declare function EnableAddOn(indexOrName: number | string): void;
+
 /**
  * Enable all AddOns for subsequent sessions
  *
  * @see https://wow.gamepedia.com/API_EnableAllAddOns
  */
 declare function EnableAllAddOns(): void;
+
 /**
  * Get the required dependencies for an AddOn
  *
@@ -758,6 +913,7 @@ declare function EnableAllAddOns(): void;
  * @tupleReturn
  */
 declare function GetAddOnDependencies(indexOrName: number | string): [...string[]];
+
 /**
  * Unknown
  *
@@ -766,6 +922,7 @@ declare function GetAddOnDependencies(indexOrName: number | string): [...string[
  * @see https://wow.gamepedia.com/API_GetAddOnEnableState
  */
 declare function GetAddOnEnableState(character: WoWAPI.Unknown, addonIndex: WoWAPI.Unknown): WoWAPI.Unknown;
+
 /**
  * Get information about an AddOn
  *
@@ -776,6 +933,7 @@ declare function GetAddOnEnableState(character: WoWAPI.Unknown, addonIndex: WoWA
  * @tupleReturn
  */
 declare function GetAddOnInfo(indexOrName: number | string): [string, string, string, boolean, WoWAPI.ADDON_LOAD_REASON, string, boolean];
+
 /**
  * get addon metadata from the toc file
  *
@@ -785,6 +943,7 @@ declare function GetAddOnInfo(indexOrName: number | string): [string, string, st
  * @see https://wow.gamepedia.com/API_GetAddOnMetadata
  */
 declare function GetAddOnMetadata(addonNameOrIndex: string | number, field: string): string | null;
+
 /**
  * Returns a list of optional dependencies
  *
@@ -794,12 +953,14 @@ declare function GetAddOnMetadata(addonNameOrIndex: string | number, field: stri
  * @tupleReturn
  */
 declare function GetAddOnOptionalDependencies(indexOrName: number | string): [...string[]];
+
 /**
  * Get the number of user supplied AddOns
  *
  * @see https://wow.gamepedia.com/API_GetNumAddOns
  */
 declare function GetNumAddOns(): number;
+
 /**
  * Returns whether an addon has been loaded
  *
@@ -810,6 +971,7 @@ declare function GetNumAddOns(): number;
  * @tupleReturn
  */
 declare function IsAddOnLoaded(indexOrName: number | string): [WoWAPI.Flag, WoWAPI.Flag];
+
 /**
  * Determine if an AddOn is loaded on demand (via .toc file dependencies or LoadAddOn) rather than at startup
  *
@@ -819,6 +981,7 @@ declare function IsAddOnLoaded(indexOrName: number | string): [WoWAPI.Flag, WoWA
  * @see https://wow.gamepedia.com/API_IsAddOnLoadOnDemand
  */
 declare function IsAddOnLoadOnDemand(indexOrName: number | string): WoWAPI.Flag;
+
 /**
  * Request the loading of an On-Demand AddOn
  *
@@ -829,10 +992,16 @@ declare function IsAddOnLoadOnDemand(indexOrName: number | string): WoWAPI.Flag;
  * @tupleReturn
  */
 declare function LoadAddOn(indexOrName: number | string): [WoWAPI.Flag, WoWAPI.ADDON_LOAD_REASON];
+
+
+/// <reference path="global.d.ts" />
+/// <reference path="ui/ui.d.ts" />
+
 declare namespace WoWAPI {
     type ARCHAELOLOGY_RARITY_COMMON = 0;
     type ARCHAELOLOGY_RARITY_RARE = 1;
     type ARCHAELOLOGY_RARITY = ARCHAELOLOGY_RARITY_COMMON | ARCHAELOLOGY_RARITY_RARE;
+
     type ARCHAELOLOGY_BRANCH_DWARF = 1;
     type ARCHAELOLOGY_BRANCH_DRAENEI = 2;
     type ARCHAELOLOGY_BRANCH_FOSSIL = 3;
@@ -851,19 +1020,30 @@ declare namespace WoWAPI {
     type ARCHAELOLOGY_BRANCH_HIGHBORNE = 404;
     type ARCHAELOLOGY_BRANCH_HIGHMOUNTAIN_TAUREN = 406;
     type ARCHAELOLOGY_BRANCH_DEMONIC = 408;
+
     /**
      * all currently known branches
      */
-    type ARCHAELOLOGY_BRANCH = ARCHAELOLOGY_BRANCH_DWARF | ARCHAELOLOGY_BRANCH_DRAENEI | ARCHAELOLOGY_BRANCH_FOSSIL | ARCHAELOLOGY_BRANCH_NIGHT_ELF | ARCHAELOLOGY_BRANCH_NERUBIAN | ARCHAELOLOGY_BRANCH_ORC | ARCHAELOLOGY_BRANCH_TOL_VIR | ARCHAELOLOGY_BRANCH_TROLL | ARCHAELOLOGY_BRANCH_VRYKUL | ARCHAELOLOGY_BRANCH_MANTID | ARCHAELOLOGY_BRANCH_PANDAREN | ARCHAELOLOGY_BRANCH_MOGU | ARCHAELOLOGY_BRANCH_ARAKKOA | ARCHAELOLOGY_BRANCH_DRAENOR_CLANS | ARCHAELOLOGY_BRANCH_OGRE | ARCHAELOLOGY_BRANCH_HIGHBORNE | ARCHAELOLOGY_BRANCH_HIGHMOUNTAIN_TAUREN | ARCHAELOLOGY_BRANCH_DEMONIC;
+    type ARCHAELOLOGY_BRANCH = ARCHAELOLOGY_BRANCH_DWARF | ARCHAELOLOGY_BRANCH_DRAENEI | ARCHAELOLOGY_BRANCH_FOSSIL |
+        ARCHAELOLOGY_BRANCH_NIGHT_ELF | ARCHAELOLOGY_BRANCH_NERUBIAN | ARCHAELOLOGY_BRANCH_ORC | ARCHAELOLOGY_BRANCH_TOL_VIR |
+        ARCHAELOLOGY_BRANCH_TROLL | ARCHAELOLOGY_BRANCH_VRYKUL | ARCHAELOLOGY_BRANCH_MANTID | ARCHAELOLOGY_BRANCH_PANDAREN |
+        ARCHAELOLOGY_BRANCH_MOGU | ARCHAELOLOGY_BRANCH_ARAKKOA | ARCHAELOLOGY_BRANCH_DRAENOR_CLANS | ARCHAELOLOGY_BRANCH_OGRE |
+        ARCHAELOLOGY_BRANCH_HIGHBORNE | ARCHAELOLOGY_BRANCH_HIGHMOUNTAIN_TAUREN | ARCHAELOLOGY_BRANCH_DEMONIC;
+
 }
+
+/// <reference path="global.d.ts" />
+
 declare namespace WoWAPI {
     type ARENA_TEAM_GREEN = 0;
     type ARENA_TEAM_GOLD = 1;
     type ARENA_TEAM = ARENA_TEAM_GREEN | ARENA_TEAM_GOLD;
+
     type ARENA_ID_2VS2 = 4;
     type ARENA_ID_3VS3 = 5;
     type ARENA_ID = ARENA_ID_2VS2 | ARENA_ID_3VS3;
 }
+
 /**
  * Returns information regarding an Arena team
  *
@@ -873,6 +1053,7 @@ declare namespace WoWAPI {
  * @tupleReturn
  */
 declare function GetBattlefieldTeamInfo(index: WoWAPI.ARENA_TEAM): [string, number, number, number];
+
 /**
  * Returns the current arena season. Returns 0 when there is no active season
  *
@@ -880,12 +1061,14 @@ declare function GetBattlefieldTeamInfo(index: WoWAPI.ARENA_TEAM): [string, numb
  * @see https://wow.gamepedia.com/API_GetCurrentArenaSeason
  */
 declare function GetCurrentArenaSeason(): number;
+
 /**
  * Gets the previous Arena season
  *
  * @see https://wow.gamepedia.com/API_GetPreviousArenaSeason
  */
 declare function GetPreviousArenaSeason(): WoWAPI.Unknown;
+
 /**
  * Used for checking if the player is inside an arena or if it's a rated match. If you are in waiting room and/or countdown is going on, it will return false
  *
@@ -894,6 +1077,7 @@ declare function GetPreviousArenaSeason(): WoWAPI.Unknown;
  * @tupleReturn
  */
 declare function IsActiveBattlefieldArena(): [boolean, boolean];
+
 /**
  * Returns a value based on whether the player is the arena team captain
  *
@@ -901,12 +1085,14 @@ declare function IsActiveBattlefieldArena(): [boolean, boolean];
  * @see https://wow.gamepedia.com/API_IsArenaTeamCaptain
  */
 declare function IsArenaTeamCaptain(index: WoWAPI.ARENA_TEAM): boolean;
+
 /**
  * Returns true if you are a member of an arena team.
  *
  * @see https://wow.gamepedia.com/API_IsInArenaTeam
  */
 declare function IsInArenaTeam(): boolean;
+
 /**
  * Queue for a arena either solo or as a group
  *
@@ -915,58 +1101,81 @@ declare function IsInArenaTeam(): boolean;
  * @see https://wow.gamepedia.com/API_JoinSkirmish
  */
 declare function JoinSkirmish(arenaId: WoWAPI.ARENA_ID, joinAsGroup?: boolean): void;
+
+
+// @todo: write declarations!
+
+
+/// <reference path="global.d.ts" />
+/// <reference path="item.d.ts" />
+
 declare namespace WoWAPI {
+
     type AUCTION_RUNTIME_12H = 1;
     type AUCTION_RUNTIME_24H = 2;
     type AUCTION_RUNTIME_48H = 3;
     type AUCTION_RUNTIME = AUCTION_RUNTIME_12H | AUCTION_RUNTIME_24H | AUCTION_RUNTIME_48H;
+
     type AUCTION_SALE_STATUS_UNSOLD = 0;
     type AUCTION_SALE_STATUS_SOLD = 1;
     type AUCTION_SALE_STATUS = AUCTION_SALE_STATUS_UNSOLD | AUCTION_SALE_STATUS_SOLD;
+
     /**
      * short (less than 30 minutes)
      */
     type AUCTION_TIMELEFT_SHORT = 0;
+
     /**
      * medium (30 minutes - 2 hours)
      */
     type AUCTION_TIMELEFT_MEDIUM = 1;
+
     /**
      * long (2 - 12 hours)
      */
     type AUCTION_TIMELEFT_LONG = 2;
+
     /**
      * very long (more than 12 hours)
      */
     type AUCTION_TIMELEFT_VERY_LONG = 3;
+
     /**
      * all currently known time left values
      */
     type AUCTION_TIMELEFT = AUCTION_TIMELEFT_SHORT | AUCTION_TIMELEFT_MEDIUM | AUCTION_TIMELEFT_LONG | AUCTION_TIMELEFT_VERY_LONG;
+
     /**
      * An item up for auction, the "Browse" tab in the dialog
      */
     type AUCTION_TYPE_LIST = "list";
+
     /**
      * An item the player has bid on, the "Bids" tab in the dialog
      */
     type AUCTION_TYPE_BIDDER = "bidder";
+
     /**
      * An item the player has up for auction, the "Auctions" tab in the dialog
      */
     type AUCTION_TYPE_OWNER = "owner";
+
     /**
      * the currently known auction types
      */
     type AUCTION_TYPE = AUCTION_TYPE_LIST | AUCTION_TYPE_BIDDER | AUCTION_TYPE_OWNER;
+
     /**
      * The itemLink of one item in the current retrieved list of items from the Auction House
      */
     type AuctionLink = Hyperlink;
+
     type AUCTION_HOUSE_FILTER_CATEGORY_UNCATEGORIZED = 0;
     type AUCTION_HOUSE_FILTER_CATEGORY_EQUIPMENT = 1;
     type AUCTION_HOUSE_FILTER_CATEGORY_RARITY = 2;
-    type AUCTION_HOUSE_FILTER_CATEGORY = AUCTION_HOUSE_FILTER_CATEGORY_UNCATEGORIZED | AUCTION_HOUSE_FILTER_CATEGORY_EQUIPMENT | AUCTION_HOUSE_FILTER_CATEGORY_RARITY;
+    type AUCTION_HOUSE_FILTER_CATEGORY = AUCTION_HOUSE_FILTER_CATEGORY_UNCATEGORIZED |
+        AUCTION_HOUSE_FILTER_CATEGORY_EQUIPMENT | AUCTION_HOUSE_FILTER_CATEGORY_RARITY;
+
     type AUCTION_HOUSE_FILTER_UNCOLLECTED_ONLY = 0;
     type AUCTION_HOUSE_FILTER_USABLE_ONLY = 1;
     type AUCTION_HOUSE_FILTER_UPGRADES_ONLY = 2;
@@ -978,17 +1187,31 @@ declare namespace WoWAPI {
     type AUCTION_HOUSE_FILTER_EPIC_QUALITY = 8;
     type AUCTION_HOUSE_FILTER_LEGENDARY_QUALITY = 9;
     type AUCTION_HOUSE_FILTER_ARTIFACT_QUALITY = 10;
-    type AUCTION_HOUSE_FILTER = AUCTION_HOUSE_FILTER_UNCOLLECTED_ONLY | AUCTION_HOUSE_FILTER_USABLE_ONLY | AUCTION_HOUSE_FILTER_UPGRADES_ONLY | AUCTION_HOUSE_FILTER_EXACT_MATCH | AUCTION_HOUSE_FILTER_POOR_QUALITY | AUCTION_HOUSE_FILTER_COMMON_QUALITY | AUCTION_HOUSE_FILTER_UNCOMMON_QUALITY | AUCTION_HOUSE_FILTER_RARE_QUALITY | AUCTION_HOUSE_FILTER_EPIC_QUALITY | AUCTION_HOUSE_FILTER_LEGENDARY_QUALITY | AUCTION_HOUSE_FILTER_ARTIFACT_QUALITY;
+    type AUCTION_HOUSE_FILTER = AUCTION_HOUSE_FILTER_UNCOLLECTED_ONLY |
+        AUCTION_HOUSE_FILTER_USABLE_ONLY |
+        AUCTION_HOUSE_FILTER_UPGRADES_ONLY |
+        AUCTION_HOUSE_FILTER_EXACT_MATCH |
+        AUCTION_HOUSE_FILTER_POOR_QUALITY |
+        AUCTION_HOUSE_FILTER_COMMON_QUALITY |
+        AUCTION_HOUSE_FILTER_UNCOMMON_QUALITY |
+        AUCTION_HOUSE_FILTER_RARE_QUALITY |
+        AUCTION_HOUSE_FILTER_EPIC_QUALITY |
+        AUCTION_HOUSE_FILTER_LEGENDARY_QUALITY |
+        AUCTION_HOUSE_FILTER_ARTIFACT_QUALITY;
+
     type AUCTION_HOUSE_SORT_ORDER_PRICE = 0;
     type AUCTION_HOUSE_SORT_ORDER_NAME = 1;
     type AUCTION_HOUSE_SORT_ORDER_LEVEL = 2;
     type AUCTION_HOUSE_SORT_ORDER_BID = 3;
     type AUCTION_HOUSE_SORT_ORDER_BUYOUT = 4;
-    type AUCTION_HOUSE_SORT_ORDER = AUCTION_HOUSE_SORT_ORDER_PRICE | AUCTION_HOUSE_SORT_ORDER_NAME | AUCTION_HOUSE_SORT_ORDER_LEVEL | AUCTION_HOUSE_SORT_ORDER_BID | AUCTION_HOUSE_SORT_ORDER_BUYOUT;
+    type AUCTION_HOUSE_SORT_ORDER = AUCTION_HOUSE_SORT_ORDER_PRICE | AUCTION_HOUSE_SORT_ORDER_NAME | AUCTION_HOUSE_SORT_ORDER_LEVEL |
+        AUCTION_HOUSE_SORT_ORDER_BID | AUCTION_HOUSE_SORT_ORDER_BUYOUT;
+
     type ITEM_COMMODITY_STATUS_UNKNOWN = 0;
     type ITEM_COMMODITY_STATUS_ITEM = 1;
     type ITEM_COMMODITY_STATUS_COMMODITY = 2;
     type ITEM_COMMODITY_STATUS = ITEM_COMMODITY_STATUS_UNKNOWN | ITEM_COMMODITY_STATUS_ITEM | ITEM_COMMODITY_STATUS_COMMODITY;
+
     interface AuctionHouseBrowseQuery {
         searchString: string;
         sorts: AuctionHouseSortType[];
@@ -997,19 +1220,23 @@ declare namespace WoWAPI {
         filters?: AUCTION_HOUSE_FILTER[];
         itemClassFilters?: AuctionHouseItemClassFilter[];
     }
+
     interface AuctionHouseFilterGroup {
         category: AUCTION_HOUSE_FILTER_CATEGORY;
         filters: AUCTION_HOUSE_FILTER[];
     }
+
     interface AuctionHouseItemClassFilter {
         classID: number;
         subClassID?: number;
         inventoryType?: number;
     }
+
     interface AuctionHouseSortType {
         sortOrder: AUCTION_HOUSE_SORT_ORDER;
         reverseSort: boolean;
     }
+
     interface BidInfo {
         auctionID: number;
         itemKey: ItemKey;
@@ -1019,6 +1246,7 @@ declare namespace WoWAPI {
         buyoutAmount?: number;
         bidder?: string;
     }
+
     interface BrowseResultInfo {
         itemKey: ItemKey;
         appearanceLink?: string;
@@ -1026,6 +1254,7 @@ declare namespace WoWAPI {
         minPrice: number;
         containsOwnerItem: boolean;
     }
+
     interface CommoditySearchResultInfo {
         itemID: number;
         quantity: number;
@@ -1037,6 +1266,7 @@ declare namespace WoWAPI {
         containsOwnerItem: boolean;
         containsAccountItem: boolean;
     }
+
     interface ItemSearchResultInfo {
         itemKey: ItemKey;
         owners: string[];
@@ -1053,6 +1283,7 @@ declare namespace WoWAPI {
         buyoutAmount?: number;
         timeLeftSeconds?: number;
     }
+
     interface OwnedAutionInfo {
         auctionID: number;
         itemKey: ItemKey;
@@ -1065,7 +1296,9 @@ declare namespace WoWAPI {
         buyoutAmount?: number;
         bidder?: string;
     }
+
     interface C_AuctionHouse {
+
         /**
          *
          * @param itemId
@@ -1074,6 +1307,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CalculateCommodityDeposit
          */
         CalculateCommodityDeposit(itemId: number, duration: AUCTION_RUNTIME, quantity: number): number | null;
+
         /**
          *
          * @param table
@@ -1082,30 +1316,36 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CalculateItemDeposit
          */
         CalculateItemDeposit(table: ItemLocationMixin, duration: AUCTION_RUNTIME, quantity: number): number | null;
+
         /**
          *
          * @param ownedAuctionId
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CanCancelAuction
          */
         CanCancelAuction(ownedAuctionId: number): boolean;
+
         /**
          *
          * @param ownedAuctionId
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CancelAuction
          */
         CancelAuction(ownedAuctionId: number): void;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CancelCommoditiesPurchase
          */
         CancelCommoditiesPurchase(): void;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CancelSell
          */
         CancelSell(): void;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CloseAuctionHouse
          */
         CloseAuctionHouse(): void;
+
         /**
          *
          * @param itemId
@@ -1113,44 +1353,52 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.ConfirmCommoditiesPurchase
          */
         ConfirmCommoditiesPurchase(itemId: number, quantity: number): void;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.FavoritesAreAvailable
          */
         FavoritesAreAvailable(): boolean;
+
         /**
          *
          * @param classId
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetAuctionItemSubClasses
          */
         GetAuctionItemSubClasses(classId: number): number[];
+
         /**
          *
          * @param item
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetAvailablePostCount
          */
         GetAvailablePostCount(item: ItemLocationMixin): number;
+
         /**
          *
          * @param bidIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetBidInfo
          */
         GetBidInfo(bidIndex: number): BidInfo | null;
+
         /**
          *
          * @param bidTypeIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetBidType
          */
         GetBidType(bidTypeIndex: number): ItemKey | null;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetBrowseResults
          */
         GetBrowseResults(): BrowseResultInfo[];
+
         /**
          *
          * @param ownedAuctionID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetCancelCost
          */
         GetCancelCost(ownedAuctionId: number): number;
+
         /**
          *
          * @param itemId
@@ -1158,34 +1406,40 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetCommoditySearchResultInfo
          */
         GetCommoditySearchResultInfo(itemId: number, commoditySearchIndex: number): CommoditySearchResultInfo | null;
+
         /**
          *
          * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetCommoditySearchResultsQuantity
          */
         GetCommoditySearchResultsQuantity(itemID: number): number;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetExtraBrowseInfo
          */
         GetExtraBrowseInfo(itemKey: ItemKey): number;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetFilterGroups
          */
         GetFilterGroups(): AuctionHouseFilterGroup[];
+
         /**
          *
          * @param item
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemCommodityStatus
          */
         GetItemCommodityStatus(item: ItemLocationMixin): ITEM_COMMODITY_STATUS;
+
         /**
          *
          * @param item
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemKeyFromItem
          */
         GetItemKeyFromItem(item: ItemLocationMixin): ItemKey;
+
         /**
          *
          * @param itemKey
@@ -1193,6 +1447,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemKeyInfo
          */
         GetItemKeyInfo(itemKey: ItemKey, restrictQualityToFilter?: boolean): ItemKeyInfo | null;
+
         /**
          *
          * @param itemKey
@@ -1200,94 +1455,113 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemSearchResultInfo
          */
         GetItemSearchResultInfo(itemKey: ItemKey, itemSearchResultIndex: number): ItemSearchResultInfo | null;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemSearchResultsQuantity
          */
         GetItemSearchResultsQuantity(itemKey: ItemKey): number;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxBidItemBid
          */
         GetMaxBidItemBid(): number | null;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxBidItemBuyout
          */
         GetMaxBidItemBuyout(): number | null;
+
         /**
          *
          * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxCommoditySearchResultPrice
          */
         GetMaxCommoditySearchResultPrice(itemID: number): number | null;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxItemSearchResultBid
          */
         GetMaxItemSearchResultBid(itemKey: ItemKey): number | null;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxItemSearchResultBuyout
          */
         GetMaxItemSearchResultBuyout(itemKey: ItemKey): number | null;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxOwnedAuctionBid
          */
         GetMaxOwnedAuctionBid(): number | null;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxOwnedAuctionBuyout
          */
         GetMaxOwnedAuctionBuyout(): number | null;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumBidTypes
          */
         GetNumBidTypes(): number;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumBids
          */
         GetNumBids(): number;
+
         /**
          *
          * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumCommoditySearchResults
          */
         GetNumCommoditySearchResults(itemID: number): number;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumItemSearchResults
          */
         GetNumItemSearchResults(itemKey: ItemKey): number;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumOwnedAuctionTypes
          */
         GetNumOwnedAuctionTypes(): number;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumOwnedAuctions
          */
         GetNumOwnedAuctions(): number;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumReplicateItems
          */
         GetNumReplicateItems(): number;
+
         /**
          *
          * @param ownedAuctionIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetOwnedAuctionInfo
          */
         GetOwnedAuctionInfo(ownedAuctionIndex: number): OwnedAutionInfo | null;
+
         /**
          *
          * @param ownedAuctionTypeIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetOwnedAuctionType
          */
         GetOwnedAuctionType(ownedAuctionTypeIndex: number): ItemKey | null;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetQuoteDurationRemaining
          */
         GetQuoteDurationRemaining(): number;
+
         /**
          *
          * @param index
@@ -1297,6 +1571,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetReplicateItemBattlePetInfo
          */
         GetReplicateItemBattlePetInfo(index: number): [number, number];
+
         /**
          *
          * @param index
@@ -1321,38 +1596,23 @@ declare namespace WoWAPI {
          * - **hasAllInfo**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetReplicateItemInfo
          */
-        GetReplicateItemInfo(index: number): [
-            string | null,
-            number | null,
-            number,
-            number,
-            boolean | null,
-            number,
-            string | null,
-            number,
-            number,
-            number,
-            number,
-            string | null,
-            string | null,
-            string | null,
-            string | null,
-            number,
-            number,
-            boolean | null
-        ];
+        GetReplicateItemInfo(index: number): [string | null, number | null, number, number, boolean | null, number, string | null, number, number, number,
+            number, string | null, string | null, string | null, string | null, number, number, boolean | null];
+
         /**
          *
          * @param index
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetReplicateItemLink
          */
         GetReplicateItemLink(index: number): string | null;
+
         /**
          *
          * @param index
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetReplicateItemTimeLeft
          */
         GetReplicateItemTimeLeft(index: number): number;
+
         /**
          *
          * @param timeLeftBand
@@ -1362,50 +1622,60 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetTimeLeftBandInfo
          */
         GetTimeLeftBandInfo(timeLeftBand: AUCTION_TIMELEFT): [number, number];
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasFavorites
          */
         HasFavorites(): boolean;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasFullBidResults
          */
         HasFullBidResults(): boolean;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasFullBrowseResults
          */
         HasFullBrowseResults(): boolean;
+
         /**
          *
          * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasFullCommoditySearchResults
          */
         HasFullCommoditySearchResults(itemID: number): boolean;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasFullItemSearchResults
          */
         HasFullItemSearchResults(itemKey: ItemKey): boolean;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasFullOwnedAuctionResults
          */
         HasFullOwnedAuctionResults(): boolean;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasMaxFavorites
          */
         HasMaxFavorites(): boolean;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasSearchResults
          */
         HasSearchResults(itemKey: ItemKey): boolean;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.IsFavoriteItem
          */
         IsFavoriteItem(itemKey: ItemKey): boolean;
+
         /**
          *
          * @param item
@@ -1413,12 +1683,14 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.IsSellItemValid
          */
         IsSellItemValid(item: ItemLocationMixin, displayError?: boolean): boolean;
+
         /**
          *
          * @param specificSearch
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.IsThrottledMessageSystemReady
          */
         IsThrottledMessageSystemReady(specificSearch?: boolean): boolean;
+
         /**
          *
          * @param itemID
@@ -1428,6 +1700,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.MakeItemKey
          */
         MakeItemKey(itemID: number, itemLevel?: number, itemSuffix?: number, battlePetSpeciesID?: number): ItemKey;
+
         /**
          *
          * @param auctionID
@@ -1435,6 +1708,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.PlaceBid
          */
         PlaceBid(auctionID: number, bidAmount: number): void;
+
         /**
          *
          * @param item
@@ -1444,6 +1718,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.PostCommodity
          */
         PostCommodity(item: ItemLocationMixin, duration: AUCTION_RUNTIME, quantity: number, unitPrice: number): void;
+
         /**
          *
          * @param item
@@ -1454,6 +1729,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.PostItem
          */
         PostItem(item: ItemLocationMixin, duration: AUCTION_RUNTIME, quantity: number, bid?: number, buyout?: number): void;
+
         /**
          *
          * @param sorts
@@ -1461,32 +1737,38 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.QueryBids
          */
         QueryBids(sorts: AuctionHouseSortType[], auctionIDs: number[]): void;
+
         /**
          *
          * @param sorts
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.QueryOwnedAuctions
          */
         QueryOwnedAuctions(sorts: AuctionHouseSortType[]): void;
+
         /**
          *
          * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RefreshCommoditySearchResults
          */
         RefreshCommoditySearchResults(itemID: number): void;
+
         /**
          *
          * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RefreshItemSearchResults
          */
         RefreshItemSearchResults(itemKey: ItemKey): void;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.ReplicateItems
          */
         ReplicateItems(): void;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RequestMoreBrowseResults
          */
         RequestMoreBrowseResults(): void;
+
         /**
          *
          * @param itemID
@@ -1494,6 +1776,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RequestMoreCommoditySearchResults
          */
         RequestMoreCommoditySearchResults(itemID: number): boolean;
+
         /**
          *
          * @param itemKey
@@ -1501,12 +1784,14 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RequestMoreItemSearchResults
          */
         RequestMoreItemSearchResults(itemKey: ItemKey): boolean;
+
         /**
          *
          * @param sorts
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SearchForFavorites
          */
         SearchForFavorites(sorts: AuctionHouseSortType[]): void;
+
         /**
          *
          * @param itemKeys
@@ -1514,12 +1799,14 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SearchForItemKeys
          */
         SearchForItemKeys(itemKeys: ItemKey[], sorts: AuctionHouseSortType[]): void;
+
         /**
          *
          * @param query
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SendBrowseQuery
          */
         SendBrowseQuery(query: AuctionHouseBrowseQuery): void;
+
         /**
          *
          * @param itemKey
@@ -1528,6 +1815,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SendSearchQuery
          */
         SendSearchQuery(itemKey: ItemKey, sorts: AuctionHouseSortType[], separateOwnerItems: boolean): void;
+
         /**
          *
          * @param itemKey
@@ -1536,6 +1824,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SendSellSearchQuery
          */
         SendSellSearchQuery(itemKey: ItemKey, sorts: AuctionHouseSortType[], separateOwnerItems: boolean): void;
+
         /**
          *
          * @param itemKey
@@ -1543,6 +1832,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SetFavoriteItem
          */
         SetFavoriteItem(itemKey: ItemKey, setFavorite: boolean): void;
+
         /**
          *
          * @param itemID
@@ -1552,7 +1842,9 @@ declare namespace WoWAPI {
         StartCommoditiesPurchase(itemID: number, quantity: number): void;
     }
 }
+
 declare const C_AuctionHouse: WoWAPI.C_AuctionHouse;
+
 /**
  * Retrieves the itemLink of one item in the current retrieved list of items from the Auction House
  *
@@ -1561,6 +1853,8 @@ declare const C_AuctionHouse: WoWAPI.C_AuctionHouse;
  * @see https://wow.gamepedia.com/API_GetAuctionWowItemLink
  */
 declare function GetAuctionWowItemLink(type: WoWAPI.AUCTION_TYPE, index: number): WoWAPI.AuctionLink;
+
+
 /**
  * Map a bank item button or bag to an inventory slot button for use in inventory functions
  * @param buttodId bank item/bag ID.
@@ -1569,11 +1863,13 @@ declare function GetAuctionWowItemLink(type: WoWAPI.AUCTION_TYPE, index: number)
  * @see https://wow.gamepedia.com/API_BankButtonIDToInvSlotID
  */
 declare function BankButtonIDToInvSlotID(buttodId: number, isBag: WoWAPI.Flag): WoWAPI.INVENTORY_SLOT_ID;
+
 /**
  * Will Close the Bank Frame if opened
  * @see https://wow.gamepedia.com/API_CloseBankFrame
  */
 declare function CloseBankFrame(): void;
+
 /**
  * Returns the price of a particular bank slot
  * @param numSlot Number of slots already purchased
@@ -1581,58 +1877,71 @@ declare function CloseBankFrame(): void;
  * @see https://wow.gamepedia.com/API_GetBankSlotCost
  */
 declare function GetBankSlotCost(numSlot: number): number;
+
 /**
  * Returns information about the number of purchased bank bag slots
  * @see https://wow.gamepedia.com/API_GetNumBankSlots
  * @tupleReturn
  */
 declare function GetNumBankSlots(): [number, WoWAPI.Flag];
+
+
 declare namespace WoWAPI {
     type FacialHairCustomizationGlobalType = "EARRINGS" | "FEATURES" | "HAIR" | "HORNS" | "MARKINGS" | "NORMAL" | "PIERCINGS" | "TUSKS";
     type FacialHairCustomizationType = "HORNS" | "NORMAL";
 }
+
 /**
  * Purchases currently selected customizations from the barber shop
  * @see https://wow.gamepedia.com/API_ApplyBarberShopStyle
  */
 declare function ApplyBarberShopStyle(): void;
+
 /**
  * Resets all customization categories to original styles
  * @see https://wow.gamepedia.com/API_BarberShopReset
  */
 declare function BarberShopReset(): void;
+
 /**
  * Exits the barber shop without applying selected customizations
  * @see https://wow.gamepedia.com/API_CancelBarberShop
  */
 declare function CancelBarberShop(): void;
+
 /**
  * Returns information about the current selection for a barber shop customization
  * @see https://wow.gamepedia.com/API_GetBarberShopStyleInfo
  * @tupleReturn
  */
 declare function GetBarberShopStyleInfo(catId: number): [string, WoWAPI.Unknown, WoWAPI.Unknown, WoWAPI.Flag];
+
 /**
  * Returns the total costs of the cosmetic changes
  * @see https://wow.gamepedia.com/API_GetBarberShopTotalCost
  */
 declare function GetBarberShopTotalCost(): number;
+
 /**
  * Returns the type of facial hair customization available to the character
  * @see https://wow.gamepedia.com/API_GetFacialHairCustomization
  */
 declare function GetFacialHairCustomization(): WoWAPI.FacialHairCustomizationGlobalType;
+
 /**
  * https://wow.gamepedia.com/API_GetHairCustomization
  * @see https://wow.gamepedia.com/API_GetHairCustomization
  */
 declare function GetHairCustomization(): WoWAPI.FacialHairCustomizationType;
+
 /**
  * Alters style selection in a particular customization category
  * @param catId Ascending index of the customization category that should be changed to the next/previous style
  * @param reverse 1 if the selection should be changed to the previous style, nil if to the next
  */
 declare function SetNextBarberShopStyle(catId: number, reverse?: WoWAPI.Flag): void;
+
+
 declare namespace WoWAPI {
     type BattlefieldStatusType = "queued" | "confirm" | "active" | "none" | "error";
     type BattlefieldTeamSize = 0 | 2 | 3 | 5;
@@ -1641,11 +1950,13 @@ declare namespace WoWAPI {
     type BattlefieldUiStateType = 0 | 1 | 2;
     type BattlefieldFaction = null | undefined | void | 0 | 1;
 }
+
 /**
  * Acccept the area Spirit Healer's resurrection in battlegrounds
  * @see https://wow.gamepedia.com/API_AcceptAreaSpiritHeal
  */
 declare function AcceptAreaSpiritHeal(): void;
+
 /**
  * Confirms entry into a Battleground you are queued for that is ready
  * @param index The battlefield in queue to enter
@@ -1654,29 +1965,34 @@ declare function AcceptAreaSpiritHeal(): void;
  * @see https://wow.gamepedia.com/API_AcceptBattlefieldPort
  */
 declare function AcceptBattlefieldPort(index: number, accept: boolean): void;
+
 /**
  * Cancels the area Spirit Healer's resurrection in battlegrounds
  * @see https://wow.gamepedia.com/API_CancelAreaSpiritHeal
  */
 declare function CancelAreaSpiritHeal(): void;
+
 /**
  * Returns, whether the player can join a battlefield as group or not
  * @return returns true, if the player can join the battlefield as group
  * @see https://wow.gamepedia.com/API_CanJoinBattlefieldAsGroup
  */
 declare function CanJoinBattlefieldAsGroup(): boolean;
+
 /**
  * Gets the time left until the next resurrection cast.
  * @return Seconds until the Spirit Guide casts its next Area Resurrection. Returns 0 if player is not dead
  * @see https://wow.gamepedia.com/API_GetAreaSpiritHealerTime
  */
 declare function GetAreaSpiritHealerTime(): number;
+
 /**
  * Get estimated wait time for a Battlefield's availability
  * @returns Milliseconds until Battlefield opening is available (estimated)
  * @see https://wow.gamepedia.com/API_GetBattlefieldEstimatedWaitTime
  */
 declare function GetBattlefieldEstimatedWaitTime(): number;
+
 /**
  * Used to position the flag icon on the world map and the battlefield minimap
  * @param index Index to get the flag position from
@@ -1684,18 +2000,21 @@ declare function GetBattlefieldEstimatedWaitTime(): number;
  * @tupleReturn
  */
 declare function GetBattlefieldFlagPosition(index: number): [number, number, string];
+
 /**
  * Get shutdown timer for the battlefield instance
  * @returns the number of milliseconds before the Battlefield will close after a battle is finished. This is 0 before the battle is finished
  * @see https://wow.gamepedia.com/API_GetBattlefieldInstanceExpiration
  */
 declare function GetBattlefieldInstanceExpiration(): number;
+
 /**
  * Returns the time passed since the battleground started
  * @returns miliseconds passed since the battle started
  * @see https://wow.gamepedia.com/API_GetBattlefieldInstanceRunTime
  */
 declare function GetBattlefieldInstanceRunTime(): number;
+
 /**
  * Returns the remaining seconds of a battlefield port
  * @param index Index of queue to get the expiration from
@@ -1703,6 +2022,7 @@ declare function GetBattlefieldInstanceRunTime(): number;
  * @see https://wow.gamepedia.com/API_GetBattlefieldPortExpiration
  */
 declare function GetBattlefieldPortExpiration(index: number): number;
+
 /**
  * Returns information about a player's score in battlegrounds
  * @param playerIndex The characters index in battlegrounds, going from 1 to GetNumBattlefieldScores().
@@ -1710,6 +2030,7 @@ declare function GetBattlefieldPortExpiration(index: number): number;
  * @tupleReturn
  */
 declare function GetBattlefieldScore(playerIndex: number): [string, number, number, number, number, number, string, string, string, number, number, string];
+
 /**
  * Get data from the custom battlefield scoreboard columns
  * @param playerIndex Player you want to grab the data for
@@ -1719,6 +2040,7 @@ declare function GetBattlefieldScore(playerIndex: number): [string, number, numb
  * @see https://wow.gamepedia.com/API_GetBattlefieldStatData
  */
 declare function GetBattlefieldStatData(playerIndex: number, columnIndex: number): WoWAPI.Unknown;
+
 /**
  * Get list of battleground specific columns on the scoreboard
  * @param columnIndex Column to get data for
@@ -1726,19 +2048,23 @@ declare function GetBattlefieldStatData(playerIndex: number, columnIndex: number
  * @tupleReturn
  */
 declare function GetBattlefieldStatInfo(columnIndex: number): [string, string, string];
+
 /**
  * Get the status of the arena, battleground, or wargame that the player is either queued for or inside
  * @param battlefieldIndex Index of the battlefield you wish to view, in the range of 1 to GetMaxBattlefieldID()
  * @see https://wow.gamepedia.com/API_GetBattlefieldStatus
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetBattlefieldStatus(battlefieldIndex: number): [WoWAPI.BattlefieldStatusType, string, WoWAPI.BattlefieldTeamSize, number, WoWAPI.Unknown, WoWAPI.BattlefieldType, WoWAPI.Unknown, WoWAPI.UnitRoleType];
+
 /**
  * Get time this player's been in the queue in milliseconds
  * @param battlegroundQueuePosition The queue position
  * @see https://wow.gamepedia.com/API_GetBattlefieldTimeWaited
  */
 declare function GetBattlefieldTimeWaited(battlegroundQueuePosition: number): number;
+
 /**
  * Get the winner of the battlefield
  * @returns Faction/team that has won the battlefield. Results are: nil if nobody has won, 0 for Horde, 1 for Alliance and 255
@@ -1746,6 +2072,7 @@ declare function GetBattlefieldTimeWaited(battlegroundQueuePosition: number): nu
  * @see https://wow.gamepedia.com/API_GetBattlefieldWinner
  */
 declare function GetBattlefieldWinner(): WoWAPI.BattlefieldWinType;
+
 /**
  * Returns information about a battleground type
  * @param battlegroundTypeIndex battleground type index, 1 to GetNumBattlegroundTypes().
@@ -1753,29 +2080,35 @@ declare function GetBattlefieldWinner(): WoWAPI.BattlefieldWinType;
  * @tupleReturn
  */
 declare function GetBattlegroundInfo(battlegroundTypeIndex: number): [string, WoWAPI.Flag, WoWAPI.Flag, WoWAPI.Flag, number, string];
+
 /**
  * Appears to return the number of scores in the battleground/field scoreboard
  * @see https://wow.gamepedia.com/API_GetNumBattlefieldScores
  */
 declare function GetNumBattlefieldScores(): WoWAPI.Unknown;
+
 /**
  * Appears to return the number of columns in the battleground/field scoreboard, other than the common ones (Killing Blows, Kills, Deaths, Bonus Honour):
  * @returns Number of columns available for the battleground (2 for Warsong Gulch and Arathi Basin, 7 for Alterac Valley)
  * @see https://wow.gamepedia.com/API_GetNumBattlefieldStats
  */
 declare function GetNumBattlefieldStats(): number;
+
 /**
  * Returns the number of world state UI elements. These are displayed in the WorldStateFrame at the top center of the screen
  * @see https://wow.gamepedia.com/API_GetNumWorldStateUI
  */
 declare function GetNumWorldStateUI(): number;
+
 /**
  * Get score and flag status within a battlefield
  * @param worldUiStateIndex between 1 and GetNumWorldStateUI().
  * @see https://wow.gamepedia.com/API_GetWorldStateUIInfo
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetWorldStateUIInfo(worldUiStateIndex: number): [number, WoWAPI.BattlefieldUiStateType, boolean, string, string, string, string, string, string, number, number, number];
+
 /**
  * Queues the player, or the player's group, for a battlefield instance
  * @param battlefieldIndex Which battlefield instance to queue for (0 for first available), or which arena bracket to queue for
@@ -1785,6 +2118,7 @@ declare function GetWorldStateUIInfo(worldUiStateIndex: number): [number, WoWAPI
  * @protected Protected functions can only be called from a secure execution path.
  */
 declare function JoinBattlefield(battlefieldIndex: number, asGroup?: boolean, isRated?: boolean): void;
+
 /**
  * Leaves the current battlefield
  * @description Leaves the current battlefield the player is inside, pre-2.0.1 this would only leave the battlefield if it had been won or
@@ -1792,12 +2126,14 @@ declare function JoinBattlefield(battlefieldIndex: number, asGroup?: boolean, is
  * @see https://wow.gamepedia.com/API_LeaveBattlefield
  */
 declare function LeaveBattlefield(): void;
+
 /**
  * Requests the lastest battlefield score data from the server
  * @event UPDATE_BATTLEFIELD_SCORE
  * @see https://wow.gamepedia.com/API_RequestBattlefieldScoreData
  */
 declare function RequestBattlefieldScoreData(): void;
+
 /**
  * Requests information about the available instances of a particular battleground
  * @param instanceIndex Index of the battleground type to request instance information for; valid indices start from 1 and go up to GetNumBattlegroundTypes().
@@ -1807,16 +2143,20 @@ declare function RequestBattlefieldScoreData(): void;
  * @see https://wow.gamepedia.com/API_RequestBattlegroundInstanceInfo
  */
 declare function RequestBattlegroundInstanceInfo(instanceIndex: number): void;
+
 /**
  * Set the faction to show on the battlefield scoreboard
  * @param faction nil = All, 0 = Horde, 1 = Alliance
  * @see https://wow.gamepedia.com/API_SetBattlefieldScoreFaction
  */
 declare function SetBattlefieldScoreFaction(faction?: WoWAPI.BattlefieldFaction): void;
+
+
 declare namespace WoWAPI {
     type CurrentBindingWhich = 1 | 2;
     type BindingSetType = 0 | CurrentBindingWhich;
 }
+
 /**
  * Returns the command name and all keys currently bound to the specified binding
  * @param bindingIndex index of the binding to query, from 1 to GetNumBindings().
@@ -1825,6 +2165,7 @@ declare namespace WoWAPI {
  * @tupleReturn
  */
 declare function GetBinding(bindingIndex: number, mode?: WoWAPI.Unknown): [string, string, string];
+
 /**
  * Returns the name of the action performed by the specified binding
  * @param binding The name of the key (eg. "BUTTON1", "1", "CTRL-G")
@@ -1833,6 +2174,7 @@ declare function GetBinding(bindingIndex: number, mode?: WoWAPI.Unknown): [strin
  * @see https://wow.gamepedia.com/API_GetBindingAction
  */
 declare function GetBindingAction(binding: string, checkOverride?: boolean): string;
+
 /**
  * Returns all keys currently bound to the command specified by command. This function is almost identical to GetBinding(index)
  * except it takes the command name as an argument instead of the index and doesn't return the command name along with the key bindings
@@ -1842,6 +2184,7 @@ declare function GetBindingAction(binding: string, checkOverride?: boolean): str
  * @tupleReturn
  */
 declare function GetBindingKey(command: string): [...string[]];
+
 /**
  * Returns the localized string value for the given key and prefix. Essentially a glorified getglobal() function
  * @param key The name of the key (e.g. "UP", "SHIFT-PAGEDOWN")
@@ -1854,6 +2197,7 @@ declare function GetBindingKey(command: string): [...string[]];
  * @see https://wow.gamepedia.com/API_GetBindingText
  */
 declare function GetBindingText(key: string, prefix: string, abbreviate?: boolean): string;
+
 /**
  * Returns whether account- or character-specific bindings are active.
  * @returns ACCOUNT_BINDINGS = 1 (indicates that account-wide bindings are currently active), CHARACTER_BINDINGS = 2
@@ -1861,6 +2205,7 @@ declare function GetBindingText(key: string, prefix: string, abbreviate?: boolea
  * @see https://wow.gamepedia.com/API_GetCurrentBindingSet
  */
 declare function GetCurrentBindingSet(): WoWAPI.CurrentBindingWhich;
+
 /**
  * Returns the total number of key bindings listed in the key bindings window. This includes not only actions that can be bound,
  * but also the category headers in the window. This would generally be used in conjunction with GetBinding to loop through and set/get
@@ -1869,6 +2214,7 @@ declare function GetCurrentBindingSet(): WoWAPI.CurrentBindingWhich;
  * @see https://wow.gamepedia.com/API_GetNumBindings
  */
 declare function GetNumBindings(): WoWAPI.Unknown;
+
 /**
  * Loads a binding set into memory, activating those bindings
  * @param bindingSet Which binding set to load; one of the following three numeric constants: DEFAULT_BINDINGS (0), ACCOUNT_BINDINGS (1), CHARACTER_BINDINGS (2)
@@ -1876,6 +2222,7 @@ declare function GetNumBindings(): WoWAPI.Unknown;
  * @see https://wow.gamepedia.com/API_LoadBindings
  */
 declare function LoadBindings(bindingSet: WoWAPI.BindingSetType): void;
+
 /**
  * Executes a key binding as if a key was pressed
  * @param command Name of the key binding to be executed
@@ -1889,6 +2236,7 @@ declare function LoadBindings(bindingSet: WoWAPI.BindingSetType): void;
  * @see https://wow.gamepedia.com/API_RunBinding
  */
 declare function RunBinding(command: string, up?: string): void;
+
 /**
  * Writes the current in-memory key bindings to disk
  * @param bindingSafeType Can be the values 1 or 2. This value indicates whether the current key bindings set should be saved as account or character specific
@@ -1896,14 +2244,17 @@ declare function RunBinding(command: string, up?: string): void;
  * @see https://wow.gamepedia.com/API_SaveBindings
  */
 declare function SaveBindings(bindingSafeType: WoWAPI.CurrentBindingWhich): void;
+
 /**
  * @todo: SetBinding() ...
  */
+
 declare namespace WoWAPI {
     type BuffFilterType = "HELPFUL" | "HARMFUL" | "PLAYER" | "RAID" | "CANCELABLE" | "NOT_CANCELABLE";
     type BuffWeaponHandType = 1 | 2;
     type DebuffType = "Magic" | "Disease" | "Poison" | "Curse" | "";
 }
+
 /**
  * Removes a specific buff from the unit
  * @param unitId Unit to cancel the buff from, must be under the player's control
@@ -1913,6 +2264,7 @@ declare namespace WoWAPI {
  * @see https://wow.gamepedia.com/API_CancelUnitBuff
  */
 declare function CancelUnitBuff(unitId: WoWAPI.UnitId, spellName: string, spellRank?: string): void;
+
 /**
  * Removes a specific buff from the unit
  * @param unitId Unit to cancel the buff from, must be under the player's control
@@ -1922,6 +2274,7 @@ declare function CancelUnitBuff(unitId: WoWAPI.UnitId, spellName: string, spellR
  * @see https://wow.gamepedia.com/API_CancelUnitBuff
  */
 declare function CancelUnitBuff(unitId: WoWAPI.UnitId, buffIndex: number, filter?: WoWAPI.BuffFilterType & string): void;
+
 /**
  * Cancels a druid's shapeshift buff
  * @deprecated
@@ -1929,6 +2282,7 @@ declare function CancelUnitBuff(unitId: WoWAPI.UnitId, buffIndex: number, filter
  * @see https://wow.gamepedia.com/API_CancelShapeshiftForm
  */
 declare function CancelShapeshiftForm(): void;
+
 /**
  * Removes temporary item buffs, such as Rogue poisons, Shaman weapon buffs, and sharpening stones from either the Main Hand or Off Hand equipment slots
  * @param weaponHand 1 for Main Hand, 2 for Off Hand
@@ -1937,12 +2291,14 @@ declare function CancelShapeshiftForm(): void;
  * @see https://wow.gamepedia.com/API_CancelItemTempEnchantment
  */
 declare function CancelItemTempEnchantment(weaponHand: WoWAPI.BuffWeaponHandType): void;
+
 /**
  * Returns information about the player's current temporary enchants, such as fishing lures or sharpening stones and weightstones produced by blacksmiths
  * @see https://wow.gamepedia.com/API_GetWeaponEnchantInfo
  * @tupleReturn
  */
 declare function GetWeaponEnchantInfo(): [boolean, number, number, number, boolean, number, number, number];
+
 /**
  * Returns information about a buff or debuff on the specified unit
  * @param unitId unit whose auras to query
@@ -1951,7 +2307,9 @@ declare function GetWeaponEnchantInfo(): [boolean, number, number, number, boole
  * @see https://wow.gamepedia.com/API_UnitAura
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function UnitAura(unitId: WoWAPI.UnitId, index: number, filter?: WoWAPI.BuffFilterType & string): [string, WoWAPI.TexturePath, number, WoWAPI.DebuffType, number, number, WoWAPI.UnitId, boolean, boolean, number, boolean, boolean, boolean, boolean, number];
+
 /**
  * Retrieve info about a certain buff on a certain unit
  * @param unitId unit whose buffs to query
@@ -1960,7 +2318,9 @@ declare function UnitAura(unitId: WoWAPI.UnitId, index: number, filter?: WoWAPI.
  * @see https://wow.gamepedia.com/API_UnitBuff
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function UnitBuff(unitId: WoWAPI.UnitId, index: number, filter?: WoWAPI.BuffFilterType & string): [string, WoWAPI.TexturePath, number, WoWAPI.DebuffType, number, number, WoWAPI.UnitId, boolean, boolean, number, boolean, boolean, boolean, number, number, number, number];
+
 /**
  * Retrieve info about a specified debuff on a certain unit
  * @param unitId unit whose buffs to query
@@ -1969,10 +2329,15 @@ declare function UnitBuff(unitId: WoWAPI.UnitId, index: number, filter?: WoWAPI.
  * @see https://wow.gamepedia.com/API_UnitBuff
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function UnitDebuff(unitId: WoWAPI.UnitId, index: number, filter?: WoWAPI.BuffFilterType & string): [string, WoWAPI.TexturePath, number, WoWAPI.DebuffType, number, number, WoWAPI.UnitId, boolean, boolean, number, boolean, boolean, boolean, number, number, number, number];
+
+
 declare namespace WoWAPI {
     type CalendarEventType = "PLAYER" | "GUILD" | "ARENA" | "HOLIDAY" | "RAID_LOCKOUT";
 }
+
+
 /**
  * Begin "Left click" in the 3D world
  * @protected
@@ -1980,6 +2345,7 @@ declare namespace WoWAPI {
  * @see https://wow.gamepedia.com/API_CameraOrSelectOrMoveStart
  */
 declare function CameraOrSelectOrMoveStart(): void;
+
 /**
  * End "Left click" in the 3D game world
  * @param stickyFlag If present and set then any camera offset is 'sticky' and remains until explicitly cancelled
@@ -1988,6 +2354,7 @@ declare function CameraOrSelectOrMoveStart(): void;
  * @see https://wow.gamepedia.com/API_CameraOrSelectOrMoveStop
  */
 declare function CameraOrSelectOrMoveStop(stickyFlag?: boolean): void;
+
 /**
  * Zooms the camera into the viewplane
  * @param increment float increment
@@ -1997,6 +2364,7 @@ declare function CameraOrSelectOrMoveStop(stickyFlag?: boolean): void;
  * @see https://wow.gamepedia.com/API_CameraZoomIn
  */
 declare function CameraZoomIn(increment: number): void;
+
 /**
  * Zooms the camera out of the viewplane
  * @param increment float increment
@@ -2007,6 +2375,7 @@ declare function CameraZoomIn(increment: number): void;
  * @see https://wow.gamepedia.com/API_CameraZoomOut
  */
 declare function CameraZoomOut(increment: number): void;
+
 /**
  * Rotates the camera about the Z-axis
  * @param angle float angle
@@ -2014,6 +2383,7 @@ declare function CameraZoomOut(increment: number): void;
  * @see https://wow.gamepedia.com/API_FlipCameraYaw
  */
 declare function FlipCameraYaw(angle: number): void;
+
 /**
  * Gets the current zoom level of the camera
  * @returns float, the currently set zoom level
@@ -2022,22 +2392,26 @@ declare function FlipCameraYaw(angle: number): void;
  * @see https://wow.gamepedia.com/API_GetCameraZoom
  */
 declare function GetCameraZoom(): number;
+
 /**
  * For checking whether mouselook mode is currently active
  * @returns true if mouselook mode is active, false otherwise
  * @see https://wow.gamepedia.com/API_IsMouselooking
  */
 declare function IsMouselooking(): boolean;
+
 /**
  * Enters mouse look mode, during which mouse movement is used to alter the character's movement/facing direction
  * @see https://wow.gamepedia.com/API_MouselookStart
  */
 declare function MouselookStart(): void;
+
 /**
  * Exits mouse look mode; allows mouse input to move the mouse cursor
  * @see https://wow.gamepedia.com/API_MouselookStop
  */
 declare function MouselookStop(): void;
+
 /**
  * Begins rotating the camera down around your character
  * - Speed is a multiplier on the CVar 'cameraPitchMoveSpeed', which is in degrees/second
@@ -2050,11 +2424,13 @@ declare function MouselookStop(): void;
  * @see https://wow.gamepedia.com/API_MoveViewDownStart
  */
 declare function MoveViewDownStart(speed: number): void;
+
 /**
  * Stops rotating the camera Down
  * @see https://wow.gamepedia.com/API_MoveViewDownStop
  */
 declare function MoveViewDownStop(): void;
+
 /**
  * Begins zooming the camera in
  * - Speed is a multiplier on the CVar 'cameraZoomSpeed', which is in increments/second. A zoom increment appears to be about a yard from the character
@@ -2067,11 +2443,13 @@ declare function MoveViewDownStop(): void;
  * @see https://wow.gamepedia.com/API_MoveViewInStart
  */
 declare function MoveViewInStart(speed: number): void;
+
 /**
  * Stops moving the camera In
  * @see https://wow.gamepedia.com/API_MoveViewInStop
  */
 declare function MoveViewInStop(): void;
+
 /**
  * Begins rotating the camera to the left around your character
  * - Speed is a multiplier on the CVar 'cameraYawMoveSpeed', which is in degrees/second
@@ -2084,11 +2462,13 @@ declare function MoveViewInStop(): void;
  * @see https://wow.gamepedia.com/API_MoveViewLeftStart
  */
 declare function MoveViewLeftStart(speed: number): void;
+
 /**
  * Stops rotating the camera to the Left
  * @see https://wow.gamepedia.com/API_MoveViewLeftStop
  */
 declare function MoveViewLeftStop(): void;
+
 /**
  * Begins zooming the camera out
  * - Speed is a multiplier on the CVar 'cameraZoomSpeed', which is in increments/second. A zoom increment appears to be about a yard from the character
@@ -2101,11 +2481,13 @@ declare function MoveViewLeftStop(): void;
  * @see https://wow.gamepedia.com/API_MoveViewOutStart
  */
 declare function MoveViewOutStart(speed: number): void;
+
 /**
  * Stops moving the camera out
  * @see https://wow.gamepedia.com/API_MoveViewOutStop
  */
 declare function MoveViewOutStop(): void;
+
 /**
  * Begins rotating the camera to the right around your character
  * - Speed is a multiplier on the CVar 'cameraYawMoveSpeed', which is in degrees/second
@@ -2118,11 +2500,13 @@ declare function MoveViewOutStop(): void;
  * @see https://wow.gamepedia.com/API_MoveViewRightStart
  */
 declare function MoveViewRightStart(speed: number): void;
+
 /**
  * Stops rotating the camera to the Right
  * @see https://wow.gamepedia.com/API_MoveViewRightStop
  */
 declare function MoveViewRightStop(): void;
+
 /**
  * Begins rotating the camera up around your character
  * - Speed is a multiplier on the CVar 'cameraPitchMoveSpeed', which is in degrees/second
@@ -2135,11 +2519,13 @@ declare function MoveViewRightStop(): void;
  * @see https://wow.gamepedia.com/API_MoveViewUpStart
  */
 declare function MoveViewUpStart(speed: number): void;
+
 /**
  * Stops rotating the camera Up
  * @see https://wow.gamepedia.com/API_MoveViewUpStop
  */
 declare function MoveViewUpStop(): void;
+
 /**
  * unknown
  * @param args unknown
@@ -2147,6 +2533,7 @@ declare function MoveViewUpStop(): void;
  * @deprecated
  */
 declare function PitchDownStart(...args: WoWAPI.Unknown[]): void;
+
 /**
  * unknown
  * @param args unknown
@@ -2154,6 +2541,7 @@ declare function PitchDownStart(...args: WoWAPI.Unknown[]): void;
  * @deprecated
  */
 declare function PitchDownStop(...args: WoWAPI.Unknown[]): void;
+
 /**
  * unknown
  * @param args unknown
@@ -2161,6 +2549,7 @@ declare function PitchDownStop(...args: WoWAPI.Unknown[]): void;
  * @deprecated
  */
 declare function PitchUpStart(...args: WoWAPI.Unknown[]): void;
+
 /**
  * unknown
  * @param args unknown
@@ -2168,35 +2557,44 @@ declare function PitchUpStart(...args: WoWAPI.Unknown[]): void;
  * @deprecated
  */
 declare function PitchUpStop(...args: WoWAPI.Unknown[]): void;
+
 /**
  * Cycles forward through the five predefined camera positions
  */
 declare function NextView(): void;
+
 /**
  * Cycles backward through the five predefined camera positions
  */
 declare function PrevView(): void;
+
 /**
  * Resets the specified (1-5) predefined camera position to it's default if it was changed using SaveView(index)
  * @param index the index set to
  */
 declare function ResetView(index: 1 | 2 | 3 | 4 | 5): void;
+
 /**
  * Saves a camera angle for later retrieval with SetView. The last position loaded is stored in the CVar cameraView
  * @param viewIndex The index (2-5) to save the camera angle to. (1 is reserved for first person view)
  * @see https://wow.gamepedia.com/API_SaveView
  */
 declare function SaveView(viewIndex: 2 | 3 | 4 | 5): void;
+
 /**
  * Sets a camera perspective from one previously saved with SaveView. The last position loaded is stored in the CVar cameraView
  * @param viewIndex The view index (1-5) to return to (1 is always first person, and cannot be saved with SaveView)
  * @see https://wow.gamepedia.com/API_SetView
  */
 declare function SetView(viewIndex: 1 | 2 | 3 | 4 | 5): void;
+
+
 declare namespace WoWAPI {
-    type ChannelChatType = "SAY" | "EMOTE" | "YELL" | "PARTY" | "GUILD" | "OFFICER" | "RAID" | "RAID_WARNING" | "INSTANCE_CHAT" | "WHISPER" | "CHANNEL" | "AFK" | "DND";
+    type ChannelChatType = "SAY" | "EMOTE" | "YELL" | "PARTY" | "GUILD" | "OFFICER" | "RAID" | "RAID_WARNING" | "INSTANCE_CHAT" | "WHISPER" | "CHANNEL" |
+                           "AFK" | "DND";
     type ChannelLanguageId = 1 | 2 | 3 | 6 | 7 | 8 | 10 | 13 | 14 | 33 | 35 | 40 | 43 | 44;
 }
+
 /**
  * Makes messages from a specified chat channel output in a specific chat frame
  * - A single channel may be configured to display in multiple chat windows/frames
@@ -2207,6 +2605,7 @@ declare namespace WoWAPI {
  * @see https://wow.gamepedia.com/API_AddChatWindowChannel
  */
 declare function AddChatWindowChannel(windowId: number, channelName: string): void;
+
 /**
  * Bans a player from the specified channel
  * @param channelName The name of the channel to ban on
@@ -2214,6 +2613,7 @@ declare function AddChatWindowChannel(windowId: number, channelName: string): vo
  * @see https://wow.gamepedia.com/API_ChannelBan
  */
 declare function ChannelBan(channelName: string, playerName: string): void;
+
 /**
  * Invites the specified user to the channel
  * @param channelName The name of the channel to invite to
@@ -2221,6 +2621,7 @@ declare function ChannelBan(channelName: string, playerName: string): void;
  * @see https://wow.gamepedia.com/API_ChannelInvite
  */
 declare function ChannelInvite(channelName: string, playerName: string): void;
+
 /**
  * Kicks the specified user to the channel
  * @param channelName The name of the channel to kick from
@@ -2228,6 +2629,7 @@ declare function ChannelInvite(channelName: string, playerName: string): void;
  * @see https://wow.gamepedia.com/API_ChannelKick
  */
 declare function ChannelKick(channelName: string, playerName: string): void;
+
 /**
  * Sets the specified player as the channel moderator
  * @param channelName The name of the channel to set moderator status on
@@ -2235,6 +2637,7 @@ declare function ChannelKick(channelName: string, playerName: string): void;
  * @see https://wow.gamepedia.com/API_ChannelModerator
  */
 declare function ChannelModerator(channelName: string, playerName: string): void;
+
 /**
  * Turns off the specified player's ability to speak in a channel
  * @param channelName The name of the channel to mute on
@@ -2242,6 +2645,7 @@ declare function ChannelModerator(channelName: string, playerName: string): void
  * @see https://wow.gamepedia.com/API_ChannelMute
  */
 declare function ChannelMute(channelName: string, playerName: string): void;
+
 /**
  * Toggles the channel to display announcements either on or off
  * @param channelName The name of the channel to toggle announcements on
@@ -2249,6 +2653,7 @@ declare function ChannelMute(channelName: string, playerName: string): void;
  * @see https://wow.gamepedia.com/API_ChannelToggleAnnouncements
  */
 declare function ChannelToggleAnnouncements(channelName: string, name: string): void;
+
 /**
  * Unbans a player from the specified channel
  * @param channelName The name of the channel to remove the ban on
@@ -2256,6 +2661,7 @@ declare function ChannelToggleAnnouncements(channelName: string, name: string): 
  * @see https://wow.gamepedia.com/API_ChannelUnban
  */
 declare function ChannelUnban(channelName: string, playerName: string): void;
+
 /**
  * Takes the specified user away from the moderator status
  * @param channelName The name of the channel to remove moderator status on
@@ -2263,6 +2669,7 @@ declare function ChannelUnban(channelName: string, playerName: string): void;
  * @see https://wow.gamepedia.com/API_ChannelUnmoderator
  */
 declare function ChannelUnmoderator(channelName: string, playerName: string): void;
+
 /**
  * Unmutes the specified user on the channel
  * @param channelName The name of the channel to remove mute on
@@ -2270,12 +2677,14 @@ declare function ChannelUnmoderator(channelName: string, playerName: string): vo
  * @see https://wow.gamepedia.com/API_ChannelUnmute
  */
 declare function ChannelUnmute(channelName: string, playerName: string): void;
+
 /**
  * Displays the name of the owner of the specified channel in the Default Chat Frame. Same as typing "/owner <channel>" in chat
  * @param channelName The name of the channel
  * @see https://wow.gamepedia.com/API_DisplayChannelOwner
  */
 declare function DisplayChannelOwner(channelName: string): void;
+
 /**
  * Retrieves all available server channels (zone dependent).
  * @returns channel1, channel2, ...
@@ -2283,13 +2692,16 @@ declare function DisplayChannelOwner(channelName: string): void;
  * @tupleReturn
  */
 declare function EnumerateServerChannels(): [...string[]];
+
 /**
  * Retrieves joined channels
  * @returns id1, name1, disabled1, ...
  * @see https://wow.gamepedia.com/API_GetChannelList
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetChannelList(): [number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean];
+
 /**
  * Returns information about the specified channel
  * - **return1**: the id of the channel, or 0 if the channel is not found
@@ -2300,6 +2712,7 @@ declare function GetChannelList(): [number, string, boolean, number, string, boo
  * @tupleReturn
  */
 declare function GetChannelName(channelIdOrName: number | string): [number, string, number];
+
 /**
  * Get the channels received by a chat window
  * @param frameId The frame number of the chat frame to be queried (starts at 1).
@@ -2307,7 +2720,9 @@ declare function GetChannelName(channelIdOrName: number | string): [number, stri
  * @see https://wow.gamepedia.com/API_GetChatWindowChannels
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetChatWindowChannels(frameId: number): [string, number, string, number, string, number, string, number, string, number, string, number, string, number];
+
 /**
  * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinTemporaryChannel
  * the channel will be re-joined after relogging
@@ -2321,6 +2736,7 @@ declare function GetChatWindowChannels(frameId: number): [string, number, string
  * @see https://wow.gamepedia.com/API_JoinChannelByName
  */
 declare function JoinChannelByName(channelName: string, password?: string, frameId?: number, hasVoice?: boolean): [number, string];
+
 /**
  * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinTemporaryChannel
  * the channel will be re-joined after relogging
@@ -2335,6 +2751,7 @@ declare function JoinChannelByName(channelName: string, password?: string, frame
  * @tupleReturn
  */
 declare function JoinPermanentChannel(channelName: string, password?: string, frameId?: number, hasVoice?: boolean): [number, string];
+
 /**
  * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinPermanentChannel
  * the channel will be left at logout
@@ -2349,12 +2766,14 @@ declare function JoinPermanentChannel(channelName: string, password?: string, fr
  * @tupleReturn
  */
 declare function JoinTemporaryChannel(channelName: string, password?: string, frameId?: number, hasVoice?: boolean): [number, string];
+
 /**
  * Leaves the channel with the specified name
  * @param channelName The name of the channel to leave
  * @see https://wow.gamepedia.com/API_LeaveChannelByName
  */
 declare function LeaveChannelByName(channelName: string): void;
+
 /**
  * Lists members in the given channel to the chat window
  * @param channelName Case-insensitive channel name or channel number from which to list the members, e.g. "trade - city". If no argument
@@ -2362,11 +2781,13 @@ declare function LeaveChannelByName(channelName: string): void;
  * @see https://wow.gamepedia.com/API_ListChannelByName
  */
 declare function ListChannelByName(channelName?: string | number): WoWAPI.Unknown;
+
 /**
  * Lists all of the channels
  * @see https://wow.gamepedia.com/API_ListChannels
  */
 declare function ListChannels(): void;
+
 /**
  * Blocks further messages from a specified chat channel from appearing in a specific chat frame
  * @param windowId index of the chat window/frame (ascending from 1) to remove the channel from
@@ -2376,6 +2797,7 @@ declare function ListChannels(): void;
  * @see https://wow.gamepedia.com/API_RemoveChatWindowChannel
  */
 declare function RemoveChatWindowChannel(windowId: number, channelName: string): void;
+
 /**
  * Sends a chat message
  * @param message The message to be sent, maximum length of 255 characters. (Not all characters in this string are allowed: See list of valid
@@ -2389,6 +2811,7 @@ declare function RemoveChatWindowChannel(windowId: number, channelName: string):
  * @see https://wow.gamepedia.com/API_SendChatMessage
  */
 declare function SendChatMessage(message: string, chatType?: WoWAPI.ChannelChatType, languageId?: WoWAPI.ChannelLanguageId, channelOrName?: string): void;
+
 /**
  * Sets the channel owner
  * @param channelName channel name to be changed
@@ -2396,6 +2819,7 @@ declare function SendChatMessage(message: string, chatType?: WoWAPI.ChannelChatT
  * @see https://wow.gamepedia.com/API_SetChannelOwner
  */
 declare function SetChannelOwner(channelName: string, newOwner: string): void;
+
 /**
  * Changes the password of the current channel
  * @param channelName The name of the channel
@@ -2403,17 +2827,21 @@ declare function SetChannelOwner(channelName: string, newOwner: string): void;
  * @see https://wow.gamepedia.com/API_SetChannelPassword
  */
 declare function SetChannelPassword(channelName: string, password: string): void;
+
+
 declare namespace WoWAPI {
     type CharacterTotemElementType = 1 | 2 | 3 | 4;
     type CharacterRestState = 0 | 1;
     type CharacterDeathkightRuneType = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 }
+
 /**
  * Accepts a resurrection, returning the character to life
  * @description Most player-sponsored resurrection offers expire automatically after 60 seconds
  * @see https://wow.gamepedia.com/API_AcceptResurrect
  */
 declare function AcceptResurrect(): void;
+
 /**
  * Accept the durability loss / resurrection sickness when being resurrected by the spirit healer
  * @description Name is misleading: you no longer lose XP when you use the spirit healer. You're really accepting 25% durability penalty
@@ -2421,11 +2849,13 @@ declare function AcceptResurrect(): void;
  * @see https://wow.gamepedia.com/API_AcceptXPLoss
  */
 declare function AcceptXPLoss(): void;
+
 /**
  * Declines a resurrection offer
  * @see https://wow.gamepedia.com/API_DeclineResurrect
  */
 declare function DeclineResurrect(): void;
+
 /**
  * Destroys a totem/minion
  * @param slot The totem type to be destroyed, where Fire is 1, Earth is 2, Water is 3 and Air is 4.
@@ -2435,12 +2865,14 @@ declare function DeclineResurrect(): void;
  * @see https://wow.gamepedia.com/API_DestroyTotem
  */
 declare function DestroyTotem(slot: WoWAPI.CharacterTotemElementType): void;
+
 /**
  * Finds the subzone the player's Hearthstone is set to
  * @returns Returns the String name of the subzone the player's Hearthstone is set to, e.g. "Tarren Mill", "Crossroads", or "Brill".
  * @see https://wow.gamepedia.com/API_GetBindLocation
  */
 declare function GetBindLocation(): string;
+
 /**
  * Retrieves the number of combo points gained by a player
  * @param unitId Either "player" or "vehicle".
@@ -2450,11 +2882,13 @@ declare function GetBindLocation(): string;
  * @see https://wow.gamepedia.com/API_GetComboPoints
  */
 declare function GetComboPoints(unitId: WoWAPI.UnitId, target: WoWAPI.UnitId): number;
+
 /**
  * Returns the integer of the title currently selected by the player
  * @see https://wow.gamepedia.com/API_GetCurrentTitle
  */
 declare function GetCurrentTitle(): number;
+
 /**
  * Gives information about the mirror bar. (Spirit release, exhaustion/fatigue, etc)
  * @param timerIndex timer index, from 1 to MIRRORTIMER_NUMTIMERS (3 as of 3.2). In general, the following correspondence holds:
@@ -2463,6 +2897,7 @@ declare function GetCurrentTitle(): number;
  * @tupleReturn
  */
 declare function GetMirrorTimerInfo(timerIndex: number): [string, number, number, number, WoWAPI.Flag, string];
+
 /**
  * Returns the current value of a mirror timer (fatigue, breath, feign death etc).
  * @param timerIndex the first return value from GetMirrorTimerInfo, identifying the timer queried. Valid values include "EXHAUSTION", "BREATH"
@@ -2471,36 +2906,42 @@ declare function GetMirrorTimerInfo(timerIndex: number): [string, number, number
  * @see https://wow.gamepedia.com/API_GetMirrorTimerProgress
  */
 declare function GetMirrorTimerProgress(timerIndex: number): number;
+
 /**
  * Returns an integer value of your held money
  * @returns The amount of money the player's character has, in copper
  * @see https://wow.gamepedia.com/API_GetMoney
  */
 declare function GetMoney(): number;
+
 /**
  * Gets the highest number in the Title index
  * @returns The last number in the TitleId index
  * @see https://wow.gamepedia.com/API_GetNumTitles
  */
 declare function GetNumTitles(): number;
+
 /**
  * Checks to see if the player has enabled PvP ("Permaflagged")
  * @returns 1 if the player has selected to be PvP flagged, 0 otherwise
  * @see https://wow.gamepedia.com/API_GetPVPDesired
  */
 declare function GetPVPDesired(): WoWAPI.Flag;
+
 /**
  * retrieve the ranged crit chance as a two-decimal float
  * @returns The players critical strike chance with the currently equipped range weapon as a floating point figure
  * @see https://wow.gamepedia.com/API_GetRangedCritChance
  */
 declare function GetRangedCritChance(): number;
+
 /**
  * Returns whether the player is in a rested (earning double XP for kills) or normal state
  * @see https://wow.gamepedia.com/API_GetRestState
  * @tupleReturn
  */
 declare function GetRestState(): [WoWAPI.CharacterRestState, string, number];
+
 /**
  * Gets the cooldown information about a Death Knight's Rune
  * @param runeId A number between 1 and 6 denoting which rune to be queried
@@ -2508,6 +2949,7 @@ declare function GetRestState(): [WoWAPI.CharacterRestState, string, number];
  * @tupleReturn
  */
 declare function GetRuneCooldown(runeId: WoWAPI.CharacterDeathkightRuneType): [number, number, boolean];
+
 /**
  * Gets the name of the title associated with a title index
  * @param titleId Title ID to return the name of
@@ -2516,17 +2958,20 @@ declare function GetRuneCooldown(runeId: WoWAPI.CharacterDeathkightRuneType): [n
  * @tupleReturn
  */
 declare function GetTitleName(titleId: number): [string, boolean];
+
 /**
  * Returns the number of XP gained from killing mobs until "player" goes from rest state to normal state
  * @returns Number (if player is "rested"), null (if player is "normal")
  * @see https://wow.gamepedia.com/API_GetXPExhaustion
  */
 declare function GetXPExhaustion(): number | null;
+
 /**
  * Checks whether you have full control over your character (i.e. you are not feared, etc)
  * @see https://wow.gamepedia.com/API_HasFullControl
  */
 declare function HasFullControl(): boolean;
+
 /**
  * Returns whether or not, and how, your character can self-resurrect
  * @returns the type of self-resurrect available to your character (known values are "Use Soulstone", "Reincarnate", and "Twisting Nether")
@@ -2534,12 +2979,14 @@ declare function HasFullControl(): boolean;
  * @see https://wow.gamepedia.com/API_HasSoulstone
  */
 declare function HasSoulstone(): string | null;
+
 /**
  * Checks if the character is currently falling
  * @returns true if the character is currently falling, false otherwise
  * @see https://wow.gamepedia.com/API_IsFalling
  */
 declare function IsFalling(): boolean;
+
 /**
  * Checks whether the player is currently flying
  * @returns true if the character is currently flying, false otherwise
@@ -2547,30 +2994,35 @@ declare function IsFalling(): boolean;
  * @see https://wow.gamepedia.com/API_IsFlying
  */
 declare function IsFlying(): boolean;
+
 /**
  * Checks if the character's current location is classified as being a flyable area
  * @returns true if the area is classified as flyable, false otherwise
  * @see https://wow.gamepedia.com/API_IsFlyableArea
  */
 declare function IsFlyableArea(): boolean;
+
 /**
  * Returns whether the player's character is currently indoors. Most mounts are not usable indoors
  * @returns true if the character is currently indoors, false otherwise
  * @see https://wow.gamepedia.com/API_IsIndoors
  */
 declare function IsIndoors(): boolean;
+
 /**
  * Checks to see if the player is mounted or not
  * @returns true if the character is currently mounted, false otherwise
  * @see https://wow.gamepedia.com/API_IsMounted
  */
 declare function IsMounted(): boolean;
+
 /**
  * Returns whether the player's character is currently outdoors
  * @returns true if the character is currently outdoors, false otherwise.
  * @see https://wow.gamepedia.com/API_IsOutdoors
  */
 declare function IsOutdoors(): boolean;
+
 /**
  * Returns whether the player's character is currently outside of the map
  * @returns 1 if the player's character is currently outside of the map, nil otherwise
@@ -2579,35 +3031,41 @@ declare function IsOutdoors(): boolean;
  * @see https://wow.gamepedia.com/API_IsOutOfBounds
  */
 declare function IsOutOfBounds(): boolean;
+
 /**
  * Checks to see if Player is resting
  * @returns Whether the player is resting
  * @see https://wow.gamepedia.com/API_IsResting
  */
 declare function IsResting(): boolean;
+
 /**
  * Checks to see if Player is stealthed
  * @returns true if stealthed, otherwise false
  * @see  https://wow.gamepedia.com/API_IsStealthed
  */
 declare function IsStealthed(): boolean;
+
 /**
  * Returns whether the player character is swimming
  * @returns 1 if the player is swimming, nil otherwise.
  * @see https://wow.gamepedia.com/API_IsSwimming
  */
 declare function IsSwimming(): boolean;
+
 /**
  * Generates an error message saying you cannot do that while dead
  * @event UI_ERROR_MESSAGE
  * @see https://wow.gamepedia.com/API_NotWhileDeadError
  */
 declare function NotWhileDeadError(): void;
+
 /**
  * Resurrects when the player is standing near its corpse
  * @see https://wow.gamepedia.com/API_RetrieveCorpse
  */
 declare function RetrieveCorpse(): void;
+
 /**
  * Changes your character's displayed title
  * @param titleId ID of the title you want to set. The identifiers are global and therefore do not depend on which titles you have learned.
@@ -2616,6 +3074,8 @@ declare function RetrieveCorpse(): void;
  * @see https://wow.gamepedia.com/API_SetCurrentTitle
  */
 declare function SetCurrentTitle(titleId: number): void;
+
+
 declare const CR_DEFENSE_SKILL = 2;
 declare const CR_DODGE = 3;
 declare const CR_PARRY = 4;
@@ -2642,9 +3102,11 @@ declare const CR_ARMOR_PENETRATION = 25;
 declare const CR_MASTERY = 26;
 declare const CR_VERSATILITY_DAMAGE_DONE = 29;
 declare const CR_VERSATILITY_DAMAGE_TAKEN = 31;
+
 declare namespace WoWAPI {
     type CombatRatingIdentifier = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 23 | 24 | 25 | 26 | 29 | 31;
 }
+
 /**
  * Returns attack power granted by particular amount of a particular stat
  * @param statIndex Index of the stat (Strength, Agility, ...) to check the bonus AP of
@@ -2653,34 +3115,40 @@ declare namespace WoWAPI {
  * @see https://wow.gamepedia.com/API_GetAttackPowerForStat
  */
 declare function GetAttackPowerForStat(statIndex: number, amount: number): number;
+
 /**
  * Player's block chance in percentage
  * @see https://wow.gamepedia.com/API_GetBlockChance
  */
 declare function GetBlockChance(): number;
+
 /**
  * Returns the number of points of a specific combat rating the player has
  * @param combatRatingIdentifier A combat rating identifier from PaperDollFrame.lua
  * @see https://wow.gamepedia.com/API_GetCombatRating
  */
 declare function GetCombatRating(combatRatingIdentifier: WoWAPI.CombatRatingIdentifier): number;
+
 /**
  * Returns the bonus, in percent (or other converted units, such as skill points), of a specific combat rating for the player
  * @param combatRatingIdentifier A combat rating identifier from PaperDollFrame.lua
  * @see https://wow.gamepedia.com/API_GetCombatRatingBonus
  */
 declare function GetCombatRatingBonus(combatRatingIdentifier: WoWAPI.CombatRatingIdentifier): number;
+
 /**
  * Returns the player's critical hit chance
  * @returns The player's melee critical hit chance, as a percentage; e.g. 5.3783211 corresponding to a ~5.38% crit chance
  * @see https://wow.gamepedia.com/API_GetCritChance
  */
 declare function GetCritChance(): number;
+
 /**
  * Returns the player's dodge change
  * @see https://wow.gamepedia.com/API_GetDodgeChance
  */
 declare function GetDodgeChance(): number;
+
 /**
  * Returns the player's expertise percentage for main hand, offhand and ranged attacks
  * - **arg1**: Expertise percentage for swings with your main hand weapon
@@ -2693,16 +3161,19 @@ declare function GetDodgeChance(): number;
  * @tupleReturn
  */
 declare function GetExpertise(): [number, number, number];
+
 /**
  * Returns the player's haste
  */
 declare function GetHaste(): number;
+
 /**
  * Returns the amount of Melee Hit %, not from Melee Hit Rating, that your character has
  * @returns hit modifier (e.g. 16 for 16%)
  * @see https://wow.gamepedia.com/API_GetHitModifier
  */
 declare function GetHitModifier(): number;
+
 /**
  * Gets the player's current mana regeneration rates (in mana per 1 seconds).
  * - **arg1**: mana regeneration when not casting spells
@@ -2711,6 +3182,7 @@ declare function GetHitModifier(): number;
  * @tupleReturn
  */
 declare function GetManaRegen(): [number, number];
+
 /**
  * Returns the (raw) mastery of the player
  * @returns sum of player's base and rating bonus mastery
@@ -2720,44 +3192,54 @@ declare function GetManaRegen(): [number, number];
  * @see https://wow.gamepedia.com/API_GetMastery
  */
 declare function GetMastery(): number;
+
 /**
  * unknown
  * @param combatRatingIdentifier unknown
  */
 declare function GetMaxCombatRatingBonus(combatRatingIdentifier: WoWAPI.CombatRatingIdentifier): WoWAPI.Unknown;
+
 /**
  * Returns player's Melee attack haste
  */
 declare function GetMeleeHaste(): WoWAPI.Unknown;
+
 /**
  * unknown
  */
 declare function GetModResilienceDamageReduction(): WoWAPI.Unknown;
+
 /**
  * unknown
  */
 declare function GetOverrideAPBySpellPower(): WoWAPI.Unknown;
+
 /**
  * unknown
  */
 declare function GetOverrideSpellPowerByAP(...args: WoWAPI.Unknown[]): WoWAPI.Unknown;
+
 /**
  * Player's parry chance in percentage
  * @see https://wow.gamepedia.com/API_GetParryChance
  */
 declare function GetParryChance(): number;
+
 /**
  * unknown
  */
 declare function GetPetMeleeHaste(): WoWAPI.Unknown;
+
 /**
  * unknown
  */
 declare function GetPetSpellBonusDamage(): WoWAPI.Unknown;
+
 /**
  * unknown
  */
 declare function GetPowerRegenForPowerType(powerType: WoWAPI.UnitPowerType): WoWAPI.Unknown;
+
 /**
  * The players critical strike chance with the currently equipped range weapon as a floating point figure
  * @description If you are displaying this figure in a UI element and want it to update, hook to the UNIT_INVENTORY_CHANGED and
@@ -2765,12 +3247,14 @@ declare function GetPowerRegenForPowerType(powerType: WoWAPI.UnitPowerType): WoW
  * @see https://wow.gamepedia.com/API_GetRangedCritChance
  */
 declare function GetRangedCritChance(): number;
+
 /**
  * Returns the percentage of damage blocked by your shield
  * @returns the percentage of damage reduced your shield
  * @see https://wow.gamepedia.com/API_GetShieldBlock
  */
 declare function GetShieldBlock(): number;
+
 /**
  * Returns the raw spell damage bonus of the player for a given spell tree
  * @param spellTreeId the spell tree
@@ -2784,26 +3268,32 @@ declare function GetShieldBlock(): number;
  * @see https://wow.gamepedia.com/API_GetSpellBonusDamage
  */
 declare function GetSpellBonusDamage(spellTreeId: WoWAPI.SpellTreeId): number;
+
 /**
  * Returns the raw bonus healing of the player
  * @returns The raw bonus healing of the player
  * @see https://wow.gamepedia.com/API_GetSpellBonusHealing
  */
 declare function GetSpellBonusHealing(): number;
+
 /**
  * unknown
  */
 declare function GetSpellPenetration(): WoWAPI.Unknown;
-declare type AddonMessageType = "PARTY" | "RAID" | "GUILD" | "BATTLEGROUND" | "WHISPER" | "CHANNEL";
-declare type ChatFlag = "AFK" | "DND" | "GM";
-declare type ChatJoinLeftType = "YOU_JOINED" | "YOU_LEFT" | "THROTTLED";
-declare type ChatUserNoticeType = "ANNOUNCEMENTS_OFF" | "ANNOUNCEMENTS_ON" | "BANNED" | "OWNER_CHANGED" | "INVALID_NAME" | "INVITE" | "MODERATION_OFF" | "MODERATION_ON" | "MUTED" | "NOT_MEMBER" | "NOT_MODERATED" | "SET_MODERATOR" | "UNSET_MODERATOR";
+
+type AddonMessageType = "PARTY" | "RAID" | "GUILD" | "BATTLEGROUND" | "WHISPER" | "CHANNEL";
+type ChatFlag = "AFK" | "DND" | "GM";
+type ChatJoinLeftType = "YOU_JOINED" | "YOU_LEFT" | "THROTTLED";
+type ChatUserNoticeType = "ANNOUNCEMENTS_OFF" | "ANNOUNCEMENTS_ON" | "BANNED" |
+    "OWNER_CHANGED" | "INVALID_NAME" | "INVITE" | "MODERATION_OFF" | "MODERATION_ON" |
+    "MUTED" | "NOT_MEMBER" | "NOT_MODERATED" | "SET_MODERATOR" | "UNSET_MODERATOR";
 /**
  * Registers an addon message prefix, allowing messages sent over addon channels with that prefix to be received by the client
  * @param prefix The message prefix to register for delivery
  * @see https://wow.gamepedia.com/API_RegisterAddonMessagePrefix
  */
 declare function RegisterAddonMessagePrefix(prefix: string): void;
+
 /**
  * Sends a message to the hidden addon channel
  * @param prefix Message prefix, can be used as your addon identifier; at most 15 characters
@@ -2812,6 +3302,7 @@ declare function RegisterAddonMessagePrefix(prefix: string): void;
  * @since 1.12.0
  */
 declare function SendAddonMessage(prefix: string, text: string, type: Exclude<AddonMessageType, "WHISPER" | "CHANNEL">): void;
+
 /**
  * Sends a message to the hidden addon channel
  * @param prefix Message prefix, can be used as your addon identifier; at most 15 characters
@@ -2822,86 +3313,85 @@ declare function SendAddonMessage(prefix: string, text: string, type: Exclude<Ad
  * @since 2.1.0
  */
 declare function SendAddonMessage(prefix: string, text: string, type: "WHISPER" | "CHANNEL", target: string): void;
-declare const AUTOCOMPLETE_FLAG_NONE = 0;
-declare const AUTOCOMPLETE_FLAG_IN_GROUP = 1;
-declare const AUTOCOMPLETE_FLAG_IN_GUILD = 2;
-declare const AUTOCOMPLETE_FLAG_FRIEND = 4;
-declare const AUTOCOMPLETE_FLAG_INTERACTED_WITH = 16;
-declare const AUTOCOMPLETE_FLAG_ONLINE = 32;
-declare const AUTOCOMPLETE_FLAG_ALL = 4294967295;
+
+declare const AUTOCOMPLETE_FLAG_NONE = 0x00000000;
+declare const AUTOCOMPLETE_FLAG_IN_GROUP = 0x00000001;
+declare const AUTOCOMPLETE_FLAG_IN_GUILD = 0x00000002;
+declare const AUTOCOMPLETE_FLAG_FRIEND = 0x00000004;
+declare const AUTOCOMPLETE_FLAG_INTERACTED_WITH = 0x00000010;
+declare const AUTOCOMPLETE_FLAG_ONLINE = 0x00000020;
+declare const AUTOCOMPLETE_FLAG_ALL = 0xffffffff;
+
 declare namespace WoWAPI {
-    type ChatTypeInfoBody = {
-        r: number;
-        g: number;
-        b: number;
-        id: string;
-        sticky: boolean;
-    };
+    type ChatTypeInfoBody = { r: number, g: number, b: number, id: string, sticky: boolean };
+
     type ChatTypeInfo = {
-        SYSTEM: ChatTypeInfoBody;
-        SAY: ChatTypeInfoBody;
-        PARTY: ChatTypeInfoBody;
-        RAID: ChatTypeInfoBody;
-        GUILD: ChatTypeInfoBody;
-        OFFICER: ChatTypeInfoBody;
-        YELL: ChatTypeInfoBody;
-        WHISPER: ChatTypeInfoBody;
-        WHISPER_INFORM: ChatTypeInfoBody;
-        REPLY: ChatTypeInfoBody;
-        EMOTE: ChatTypeInfoBody;
-        TEXT_EMOTE: ChatTypeInfoBody;
-        MONSTER_SAY: ChatTypeInfoBody;
-        MONSTER_PARTY: ChatTypeInfoBody;
-        MONSTER_YELL: ChatTypeInfoBody;
-        MONSTER_WHISPER: ChatTypeInfoBody;
-        MONSTER_EMOTE: ChatTypeInfoBody;
-        CHANNEL: ChatTypeInfoBody;
-        CHANNEL_JOIN: ChatTypeInfoBody;
-        CHANNEL_LEAVE: ChatTypeInfoBody;
-        CHANNEL_LIST: ChatTypeInfoBody;
-        CHANNEL_NOTICE: ChatTypeInfoBody;
-        CHANNEL_NOTICE_USER: ChatTypeInfoBody;
-        AFK: ChatTypeInfoBody;
-        DND: ChatTypeInfoBody;
-        IGNORED: ChatTypeInfoBody;
-        SKILL: ChatTypeInfoBody;
-        LOOT: ChatTypeInfoBody;
-        MONEY: ChatTypeInfoBody;
-        OPENING: ChatTypeInfoBody;
-        TRADESKILLS: ChatTypeInfoBody;
-        PET_INFO: ChatTypeInfoBody;
-        COMBAT_MISC_INFO: ChatTypeInfoBody;
-        COMBAT_XP_GAIN: ChatTypeInfoBody;
-        COMBAT_HONOR_GAIN: ChatTypeInfoBody;
-        COMBAT_FACTION_CHANGE: ChatTypeInfoBody;
-        BG_SYSTEN_NEUTRAL: ChatTypeInfoBody;
-        BG_SYSTEM_ALLIANCE: ChatTypeInfoBody;
-        BG_SYSTEN_HORDE: ChatTypeInfoBody;
-        RAID_LEADER: ChatTypeInfoBody;
-        RAID_WARNING: ChatTypeInfoBody;
-        RAID_BOSS_WHISPER: ChatTypeInfoBody;
-        RAID_BOSS_EMOTE: ChatTypeInfoBody;
-        FILTERED: ChatTypeInfoBody;
-        BATTLEGROUND: ChatTypeInfoBody;
-        BATTLEGROUND_LEADER: ChatTypeInfoBody;
-        RESTRICTED: ChatTypeInfoBody;
-        CHANNEL1: ChatTypeInfoBody;
-        CHANNEL2: ChatTypeInfoBody;
-        CHANNEL3: ChatTypeInfoBody;
-        CHANNEL4: ChatTypeInfoBody;
-        CHANNEL5: ChatTypeInfoBody;
-        CHANNEL6: ChatTypeInfoBody;
-        CHANNEL7: ChatTypeInfoBody;
-        CHANNEL8: ChatTypeInfoBody;
-        CHANNEL9: ChatTypeInfoBody;
-        CHANNEL10: ChatTypeInfoBody;
-        ACHIVEMENT: ChatTypeInfoBody;
-        GUILD_ACHIVEMENT: ChatTypeInfoBody;
+        SYSTEM: ChatTypeInfoBody,
+        SAY: ChatTypeInfoBody,
+        PARTY: ChatTypeInfoBody,
+        RAID: ChatTypeInfoBody,
+        GUILD: ChatTypeInfoBody,
+        OFFICER: ChatTypeInfoBody,
+        YELL: ChatTypeInfoBody,
+        WHISPER: ChatTypeInfoBody,
+        WHISPER_INFORM: ChatTypeInfoBody,
+        REPLY: ChatTypeInfoBody,
+        EMOTE: ChatTypeInfoBody,
+        TEXT_EMOTE: ChatTypeInfoBody,
+        MONSTER_SAY: ChatTypeInfoBody,
+        MONSTER_PARTY: ChatTypeInfoBody,
+        MONSTER_YELL: ChatTypeInfoBody,
+        MONSTER_WHISPER: ChatTypeInfoBody,
+        MONSTER_EMOTE: ChatTypeInfoBody,
+        CHANNEL: ChatTypeInfoBody,
+        CHANNEL_JOIN: ChatTypeInfoBody,
+        CHANNEL_LEAVE: ChatTypeInfoBody,
+        CHANNEL_LIST: ChatTypeInfoBody,
+        CHANNEL_NOTICE: ChatTypeInfoBody,
+        CHANNEL_NOTICE_USER: ChatTypeInfoBody,
+        AFK: ChatTypeInfoBody,
+        DND: ChatTypeInfoBody,
+        IGNORED: ChatTypeInfoBody,
+        SKILL: ChatTypeInfoBody,
+        LOOT: ChatTypeInfoBody,
+        MONEY: ChatTypeInfoBody,
+        OPENING: ChatTypeInfoBody,
+        TRADESKILLS: ChatTypeInfoBody,
+        PET_INFO: ChatTypeInfoBody,
+        COMBAT_MISC_INFO: ChatTypeInfoBody,
+        COMBAT_XP_GAIN: ChatTypeInfoBody,
+        COMBAT_HONOR_GAIN: ChatTypeInfoBody,
+        COMBAT_FACTION_CHANGE: ChatTypeInfoBody,
+        BG_SYSTEN_NEUTRAL: ChatTypeInfoBody,
+        BG_SYSTEM_ALLIANCE: ChatTypeInfoBody,
+        BG_SYSTEN_HORDE: ChatTypeInfoBody,
+        RAID_LEADER: ChatTypeInfoBody,
+        RAID_WARNING: ChatTypeInfoBody,
+        RAID_BOSS_WHISPER: ChatTypeInfoBody,
+        RAID_BOSS_EMOTE: ChatTypeInfoBody,
+        FILTERED: ChatTypeInfoBody,
+        BATTLEGROUND: ChatTypeInfoBody,
+        BATTLEGROUND_LEADER: ChatTypeInfoBody,
+        RESTRICTED: ChatTypeInfoBody,
+        CHANNEL1: ChatTypeInfoBody,
+        CHANNEL2: ChatTypeInfoBody,
+        CHANNEL3: ChatTypeInfoBody,
+        CHANNEL4: ChatTypeInfoBody,
+        CHANNEL5: ChatTypeInfoBody,
+        CHANNEL6: ChatTypeInfoBody,
+        CHANNEL7: ChatTypeInfoBody,
+        CHANNEL8: ChatTypeInfoBody,
+        CHANNEL9: ChatTypeInfoBody,
+        CHANNEL10: ChatTypeInfoBody,
+        ACHIVEMENT: ChatTypeInfoBody,
+        GUILD_ACHIVEMENT: ChatTypeInfoBody
     };
+
     /**
      * the chat frame instance
      */
     interface ChatFrame {
+
         /**
          * add the given message to the frame
          * @param message the message to add
@@ -2909,7 +3399,9 @@ declare namespace WoWAPI {
         AddMessage(message: string): void;
     }
 }
+
 declare const ChatTypeInfo: WoWAPI.ChatTypeInfo;
+
 /**
  * Retrieves configuration information about a chat window
  * @param frameIndex The index of the chat window to get information for (starts at 1 to NUM_CHAT_WINDOWS).
@@ -2917,6 +3409,7 @@ declare const ChatTypeInfo: WoWAPI.ChatTypeInfo;
  * @tupleReturn
  */
 declare function GetChatWindowInfo(frameIndex: number): [string, number, number, number, number, WoWAPI.Flag, WoWAPI.Flag, number];
+
 /**
  * Get the channels received by a chat window.
  * @param frameIndex The frame number of the chat frame to be queried (starts at 1).
@@ -2924,6 +3417,7 @@ declare function GetChatWindowInfo(frameIndex: number): [string, number, number,
  * @tupleReturn
  */
 declare function GetChatWindowChannels(frameIndex: number): [string, number, string, number, string, number];
+
 /**
  * Blocks further messages from a specified chat channel from appearing in a specific chat frame
  * @param frameIndex index of the chat window/frame (ascending from 1) to remove the channel from
@@ -2931,6 +3425,7 @@ declare function GetChatWindowChannels(frameIndex: number): [string, number, str
  * @see https://wow.gamepedia.com/API_RemoveChatWindowChannel
  */
 declare function RemoveChatWindowChannel(frameIndex: number, channelName: string): void;
+
 /**
  * Returns chat types received by a chat window
  * @param frameIndex Chat window index, ascending from 1
@@ -2938,12 +3433,14 @@ declare function RemoveChatWindowChannel(frameIndex: number, channelName: string
  * @tupleReturn
  */
 declare function GetChatWindowMessages(frameIndex: number): [...string[]];
+
 /**
  * Stops the specified chat window from displaying a specified type of messages
  * @param frameIndex chat window index, ascending from 1.
  * @param messageGroup message type the chat window should no longer receive, e.g. "EMOTE", "SAY", "RAID".
  */
 declare function RemoveChatWindowMessages(frameIndex: number, messageGroup: string): void;
+
 /**
  * Changes the text color of the specified chat channel. The "color wheel" popup calls this function to do the actual work, once the user is done with the popup
  * @param channelName Name of the channel as given in chat-cache.txt files
@@ -2953,6 +3450,7 @@ declare function RemoveChatWindowMessages(frameIndex: number, messageGroup: stri
  * @see https://wow.gamepedia.com/API_ChangeChatColor
  */
 declare function ChangeChatColor(channelName: string, red: number, green: number, blue: number): void;
+
 /**
  * Returns possible player names matching a given prefix string and specified requirements
  * @param text first characters of the possible names to be autocompleted
@@ -2964,6 +3462,7 @@ declare function ChangeChatColor(channelName: string, red: number, green: number
  * @tupleReturn
  */
 declare function GetAutoCompleteResults(text: string, include: number, exclude: number, maxResults: number, cursorPosition?: number): [...string[]];
+
 /**
  * Return the numeric type index for a specific chat type
  * @param typeCode The type code for the chat type (One of the key values of the ChatTypeInfo table)
@@ -2971,6 +3470,7 @@ declare function GetAutoCompleteResults(text: string, include: number, exclude: 
  * @see https://wow.gamepedia.com/API_GetChatTypeIndex
  */
 declare function GetChatTypeIndex(typeCode: keyof WoWAPI.ChatTypeInfo): number;
+
 /**
  * Toggles the chat logging and returns the current state
  * @param newState toggles chat logging
@@ -2978,6 +3478,7 @@ declare function GetChatTypeIndex(typeCode: keyof WoWAPI.ChatTypeInfo): number;
  * @see https://wow.gamepedia.com/API_LoggingChat
  */
 declare function LoggingChat(newState?: boolean): boolean;
+
 /**
  * Toggles logging for the combat log and returns the current state
  * @param newState Toggles combat logging
@@ -2986,8 +3487,10 @@ declare function LoggingChat(newState?: boolean): boolean;
  */
 declare function LoggingCombat(newState?: boolean): boolean;
 declare namespace WoWAPI {
-    type CLASSES = "WARRIOR" | "DEATHKNIGHT" | "PALADIN" | "MONK" | "PRIEST" | "SHAMAN" | "DRUID" | "ROGUE" | "MAGE" | "WARLOCK" | "HUNTER" | "DEMONHUNTER";
+    type CLASSES = "WARRIOR" | "DEATHKNIGHT" | "PALADIN" | "MONK" | "PRIEST" | "SHAMAN" | "DRUID" |
+        "ROGUE" | "MAGE" | "WARLOCK" | "HUNTER" | "DEMONHUNTER";
 }
+
 /**
  * Returns the color value associated with a given class
  * @param englishClass  the localization-independent name of the class, e.g., 'WARLOCK'. See ClassId for the list of acceptable arguments
@@ -2998,9 +3501,24 @@ declare namespace WoWAPI {
  * @see https://wow.gamepedia.com/API_GetClassColor
  */
 declare function GetClassColor(englishClass: WoWAPI.CLASSES): [number, number, number, string];
+
+
 declare namespace WoWAPI {
-    type EmoteToken = "AGREE" | "AMAZE" | "ANGRY" | "APOLOGIZE" | "APPLAUD" | "ATTACKMYTARGET" | "BARK" | "BASHFUL" | "BECKON" | "BEG" | "BURP" | "BITE" | "BLEED" | "BLINK" | "KISS" | "BLUSH" | "BOGGLE" | "BONK" | "BORED" | "BOUNCE" | "BOW" | "BRB" | "BYE" | "CACKLE" | "CALM" | "SCRATCH" | "CHARGE" | "CHEER" | "EAT" | "CHICKEN" | "CHUCKLE" | "CLAP" | "COLD" | "COMFORT" | "COMMEND" | "CONFUSED" | "CONGRATULATE" | "COUGH" | "COWER" | "CRACK" | "CRINGE" | "CRY" | "CUDDLE" | "CURIOUS" | "CURTSEY" | "DANCE" | "FROWN" | "BONK" | "THREATEN" | "DRINK" | "DROOL" | "DUCK" | "EAT" | "TALKEX" | "EYE" | "FART" | "FIDGET" | "FLEE" | "FLEX" | "FLIRT" | "FLOP" | "FOLLOW" | "HUNGRY" | "GASP" | "GAZE" | "GIGGLE" | "HAPPY" | "GLARE" | "GLOAT" | "GOLFCAP" | "GREET" | "GRIN" | "GROAN" | "GROVEL" | "GROWL" | "GUFFAW" | "HAIL" | "HEALME" | "HELLO" | "HELPME" | "HUG" | "INCOMING" | "INSULT" | "INTRODUCE" | "JK" | "KNEEL" | "LAUGH" | "PRAISE" | "LAYDOWN" | "LICK" | "LISTEN" | "LOST" | "LOVE" | "MASSAGE" | "MOAN" | "MOCK" | "MOO" | "MOON" | "MOURN" | "NO" | "NOD" | "NOSEPICK" | "OOM" | "OPENFIRE" | "PANIC" | "PAT" | "PEER" | "SHOO" | "PITY" | "PLEAD" | "POINT" | "POKE" | "PONDER" | "POUNCE" | "PRAY" | "PURR" | "PUZZLE" | "TALKQ" | "RAISE" | "RASP" | "READY" | "SHAKE" | "ROAR" | "ROFL" | "RUDE" | "SALUTE" | "SCARED" | "SCRATCH" | "SEXY" | "SHAKE" | "SHIMMY" | "SHIVER" | "SHRUG" | "SHY" | "SIGH" | "JOKE" | "SLAP" | "SLEEP" | "STINK" | "SMILE" | "SMIRK" | "SNARL" | "SNICKER" | "SNIFF" | "SNUB" | "SOOTHE" | "SPIT" | "STARE" | "STAND" | "SURPRISED" | "SURRENDER" | "TAP" | "TALK" | "TAUNT" | "TEASE" | "THANK" | "THIRSTY" | "TICKLE" | "TIRED" | "TRAIN" | "VETO" | "VICTORY" | "VIOLIN" | "WAIT" | "WAVE" | "WELCOME" | "WHINE" | "WHISTLE" | "WINK" | "WORK" | "YAWN";
+    type EmoteToken = "AGREE" | "AMAZE" | "ANGRY" | "APOLOGIZE" | "APPLAUD" | "ATTACKMYTARGET" | "BARK" | "BASHFUL" | "BECKON" |
+        "BEG" | "BURP" | "BITE" | "BLEED" | "BLINK" | "KISS" | "BLUSH" | "BOGGLE" | "BONK" | "BORED" | "BOUNCE" | "BOW" | "BRB" | "BYE" | "CACKLE" |
+        "CALM" | "SCRATCH" | "CHARGE" | "CHEER" | "EAT" | "CHICKEN" | "CHUCKLE" | "CLAP" | "COLD" | "COMFORT" | "COMMEND" | "CONFUSED" |
+        "CONGRATULATE" | "COUGH" | "COWER" | "CRACK" | "CRINGE" | "CRY" | "CUDDLE" | "CURIOUS" | "CURTSEY" | "DANCE" | "FROWN" | "BONK" |
+        "THREATEN" | "DRINK" | "DROOL" | "DUCK" | "EAT" | "TALKEX" | "EYE" | "FART" | "FIDGET" | "FLEE" | "FLEX" | "FLIRT" | "FLOP" | "FOLLOW" |
+        "HUNGRY" | "GASP" | "GAZE" | "GIGGLE" | "HAPPY" | "GLARE" | "GLOAT" | "GOLFCAP" | "GREET" | "GRIN" | "GROAN" | "GROVEL" | "GROWL" |
+        "GUFFAW" | "HAIL" | "HEALME" | "HELLO" | "HELPME" | "HUG" | "INCOMING" | "INSULT" | "INTRODUCE" | "JK" | "KNEEL" | "LAUGH" | "PRAISE" |
+        "LAYDOWN" | "LICK" | "LISTEN" | "LOST" | "LOVE" | "MASSAGE" | "MOAN" | "MOCK" | "MOO" | "MOON" | "MOURN" | "NO" | "NOD" | "NOSEPICK" |
+        "OOM" | "OPENFIRE" | "PANIC" | "PAT" | "PEER" | "SHOO" | "PITY" | "PLEAD" | "POINT" | "POKE" | "PONDER" | "POUNCE" | "PRAY" | "PURR" |
+        "PUZZLE" | "TALKQ" | "RAISE" | "RASP" | "READY" | "SHAKE" | "ROAR" | "ROFL" | "RUDE" | "SALUTE" | "SCARED" | "SCRATCH" | "SEXY" | "SHAKE" |
+        "SHIMMY" | "SHIVER" | "SHRUG" | "SHY" | "SIGH" | "JOKE" | "SLAP" | "SLEEP" | "STINK" | "SMILE" | "SMIRK" | "SNARL" | "SNICKER" | "SNIFF" |
+        "SNUB" | "SOOTHE" | "SPIT" | "STARE" | "STAND" | "SURPRISED" | "SURRENDER" | "TAP" | "TALK" | "TAUNT" | "TEASE" | "THANK" | "THIRSTY" |
+        "TICKLE" | "TIRED" | "TRAIN" | "VETO" | "VICTORY" | "VIOLIN" | "WAIT" | "WAVE" | "WELCOME" | "WHINE" | "WHISTLE" | "WINK" | "WORK" | "YAWN";
 }
+
 /**
  * Executes one of the emotes based on the given token, including vocal emotes and animations. The list of currently valid emotes is
  * given in ChatFrame.lua, defined as one of the EMOTEx_TOKEN constants. x starts at 1 and goes up to ChatFrame.lua's local variable
@@ -3011,6 +3529,7 @@ declare namespace WoWAPI {
  * @see https://wow.gamepedia.com/API_DoEmote
  */
 declare function DoEmote(emote: WoWAPI.EmoteToken, target?: WoWAPI.UnitId): void;
+
 /**
  * Returns the Language used by the indicated Player
  * @param unit unit whose default language you wish to query
@@ -3018,6 +3537,7 @@ declare function DoEmote(emote: WoWAPI.EmoteToken, target?: WoWAPI.UnitId): void
  * @see https://wow.gamepedia.com/API_GetDefaultLanguage
  */
 declare function GetDefaultLanguage(unit: WoWAPI.UnitId): string;
+
 /**
  * Returns the language specified by the index that your character can speak
  * @param index The index starting at 1.
@@ -3025,12 +3545,14 @@ declare function GetDefaultLanguage(unit: WoWAPI.UnitId): string;
  * @see https://wow.gamepedia.com/API_GetLanguageByIndex
  */
 declare function GetLanguageByIndex(index: number): WoWAPI.ChannelLanguageId;
+
 /**
  * Returns the number of languages your character can speak
  * @returns Returns the number of languages your character can speak
  * @see https://wow.gamepedia.com/API_GetNumLanguages
  */
 declare function GetNumLanguages(): number;
+
 /**
  * Performs a random roll between two numbers
  * @param low lowest number (default 1)
@@ -3038,10 +3560,13 @@ declare function GetNumLanguages(): number;
  * @see https://wow.gamepedia.com/API_RandomRoll
  */
 declare function RandomRoll(low?: number, high?: number): void;
+
+
 declare namespace WoWAPI {
     type CompanionType = "CRITTER" | "MOUNT";
     type MountType = 0x1 | 0x2 | 0x4 | 0x8 | 0x10;
 }
+
 /**
  * Summons the specified companion
  * @param type The type of companion to summon or dismiss: "CRITTER" or "MOUNT"
@@ -3050,6 +3575,7 @@ declare namespace WoWAPI {
  * @since 3.0.2
  */
 declare function CallCompanion(type: WoWAPI.CompanionType, companionIndex: number): void;
+
 /**
  * Dismisses a currently-summoned mount or non-combat pet
  * @param type type of companion to dismiss, either "MOUNT" or "CRITTER".
@@ -3057,6 +3583,7 @@ declare function CallCompanion(type: WoWAPI.CompanionType, companionIndex: numbe
  * @since 3.0.2
  */
 declare function DismissCompanion(type: WoWAPI.CompanionType): void;
+
 /**
  * Returns information about the companions you have
  * @param type Companion type to query: "CRITTER" or "MOUNT".
@@ -3078,7 +3605,9 @@ declare function DismissCompanion(type: WoWAPI.CompanionType): void;
  * @since 3.0.2
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetCompanionInfo(type: WoWAPI.CompanionType, companionIndex: number): [number, string, number, WoWAPI.TexturePath, WoWAPI.Flag, WoWAPI.MountType];
+
 /**
  * Returns the number of companions you have
  * @param type Type of companions to count: "CRITTER", or "MOUNT".
@@ -3087,6 +3616,7 @@ declare function GetCompanionInfo(type: WoWAPI.CompanionType, companionIndex: nu
  * @since 3.0.2
  */
 declare function GetNumCompanions(type: WoWAPI.CompanionType): number;
+
 /**
  * Places a companion onto the mouse cursor
  * @param type companion type, either "MOUNT" or "CRITTER"
@@ -3096,6 +3626,7 @@ declare function GetNumCompanions(type: WoWAPI.CompanionType): number;
  * @since 3.0.2
  */
 declare function PickupCompanion(type: WoWAPI.CompanionType, companionIndex: number): void;
+
 /**
  * Summons a random non-combat pet companion
  * @description This function is part of the companions API that was deprecated for battle-pets with the introduction of the Pet Journal.
@@ -3105,20 +3636,24 @@ declare function PickupCompanion(type: WoWAPI.CompanionType, companionIndex: num
  * @see https://wow.gamepedia.com/API_SummonRandomCritter
  */
 declare function SummonRandomCritter(): void;
+
+
 declare const MAX_PLAYER_LEVEL_TABLE: {
-    LE_EXPANSION_CLASSIC: 60;
-    LE_EXPANSION_BURNING_CRUSADE: 70;
-    LE_EXPANSION_WRATH_OF_THE_LICH_KING: 80;
-    LE_EXPANSION_CATACLYSM: 85;
-    LE_EXPANSION_MISTS_OF_PANDARIA: 90;
-    LE_EXPANSION_WARLORDS_OF_DRAENOR: 100;
-    LE_EXPANSION_LEGION: 110;
-    LE_EXPANSION_BATTLE_FOR_AZEROTH: 120;
-    LE_EXPANSION_9_0: 120;
-    LE_EXPANSION_10_0: 120;
-    LE_EXPANSION_11_0: 120;
+    LE_EXPANSION_CLASSIC: 60,
+    LE_EXPANSION_BURNING_CRUSADE: 70,
+    LE_EXPANSION_WRATH_OF_THE_LICH_KING: 80,
+    LE_EXPANSION_CATACLYSM: 85,
+    LE_EXPANSION_MISTS_OF_PANDARIA: 90,
+    LE_EXPANSION_WARLORDS_OF_DRAENOR: 100,
+    LE_EXPANSION_LEGION: 110,
+    LE_EXPANSION_BATTLE_FOR_AZEROTH: 120,
+    LE_EXPANSION_9_0: 120,
+    LE_EXPANSION_10_0: 120,
+    LE_EXPANSION_11_0: 120
 };
+
 declare const NPE_TUTORIAL_COMPLETE_LEVEL = 10;
+
 declare const NORMAL_FONT_COLOR_CODE = "|cffffd200";
 declare const HIGHLIGHT_FONT_COLOR_CODE = "|cffffffff";
 declare const RED_FONT_COLOR_CODE = "|cffff2020";
@@ -3131,115 +3666,82 @@ declare const ACHIEVEMENT_COLOR_CODE = "|cffffff00";
 declare const BATTLENET_FONT_COLOR_CODE = "|cff82c5ff";
 declare const DISABLED_FONT_COLOR_CODE = "|cff7f7f7f";
 declare const FONT_COLOR_CODE_CLOSE = "|r";
+
 declare const FACTION_BAR_COLORS: {
-    1: {
-        r: .8;
-        g: .3;
-        b: .22;
-    };
-    2: {
-        r: .8;
-        g: .3;
-        b: .22;
-    };
-    3: {
-        r: .75;
-        g: .27;
-        b: 0;
-    };
-    4: {
-        r: .9;
-        g: .7;
-        b: 0;
-    };
-    5: {
-        r: 0;
-        g: .6;
-        b: .1;
-    };
-    6: {
-        r: 0;
-        g: .7;
-        b: .1;
-    };
-    7: {
-        r: 0;
-        g: .7;
-        b: .1;
-    };
-    8: {
-        r: 0;
-        g: .7;
-        b: .1;
-    };
+    1: { r: .8, g: .3, b: .22 },
+    2: { r: .8, g: .3, b: .22 },
+    3: { r: .75, g: .27, b: 0 },
+    4: { r: .9, g: .7, b: 0 },
+    5: { r: 0, g: .6, b: .1 },
+    6: { r: 0, g: .7, b: .1 },
+    7: { r: 0, g: .7, b: .1 },
+    8: { r: 0, g: .7, b: .1 }
 };
+
 declare const WORLD_QUEST_ICONS_BY_PROFESSION: {
-    129: "worldquest-icon-firstaid";
-    164: "worldquest-icon-blacksmithing";
-    165: "worldquest-icon-leatherworking";
-    171: "worldquest-icon-alchemy";
-    182: "worldquest-icon-herbalism";
-    186: "worldquest-icon-mining";
-    202: "worldquest-icon-engineering";
-    333: "worldquest-icon-enchanting";
-    755: "worldquest-icon-jewelcrafting";
-    773: "worldquest-icon-inscription";
-    794: "worldquest-icon-archaeology";
-    356: "worldquest-icon-fishing";
-    185: "worldquest-icon-cooking";
-    197: "worldquest-icon-tailoring";
-    393: "worldquest-icon-skinning";
+    129: "worldquest-icon-firstaid",
+    164: "worldquest-icon-blacksmithing",
+    165: "worldquest-icon-leatherworking",
+    171: "worldquest-icon-alchemy",
+    182: "worldquest-icon-herbalism",
+    186: "worldquest-icon-mining",
+    202: "worldquest-icon-engineering",
+    333: "worldquest-icon-enchanting",
+    755: "worldquest-icon-jewelcrafting",
+    773: "worldquest-icon-inscription",
+    794: "worldquest-icon-archaeology",
+    356: "worldquest-icon-fishing",
+    185: "worldquest-icon-cooking",
+    197: "worldquest-icon-tailoring",
+    393: "worldquest-icon-skinning"
 };
+
 declare const CHAT_FONT_HEIGHTS: {
-    1: 12;
-    2: 14;
-    3: 16;
-    4: 18;
+    1: 12,
+    2: 14,
+    3: 16,
+    4: 18
 };
+
 declare const MATERIAL_TEXT_COLOR_TABLE: {
-    "Default": [.18, .12, .06];
-    "Stone": [1, 1, 1];
-    "Parchment": [.18, .12, .06];
-    "Marble": [0, 0, 0];
-    "Silver": [.12, .12, .12];
-    "Bronze": [.18, .12, .06];
-    "ParchmentLarge": [.141, 0, 0];
+    "Default": [.18, .12, .06],
+    "Stone": [1, 1, 1],
+    "Parchment": [.18, .12, .06],
+    "Marble": [0, 0, 0],
+    "Silver": [.12, .12, .12],
+    "Bronze": [.18, .12, .06],
+    "ParchmentLarge": [.141, 0, 0]
 };
+
 declare const MATERIAL_TITLETEXT_COLOR_TABLE: {
-    "Default": [0, 0, 0];
-    "Stone": [.93, .82, 0];
-    "Parchment": [0, 0, 0];
-    "Marble": [.93, .82, 0];
-    "Silver": [.93, .82, 0];
-    "Bronze": [.93, .82, 0];
-    "ParchmentLarge": [.208, 0, 0];
+    "Default": [0, 0, 0],
+    "Stone": [.93, .82, 0],
+    "Parchment": [0, 0, 0],
+    "Marble": [.93, .82, 0],
+    "Silver": [.93, .82, 0],
+    "Bronze": [.93, .82, 0],
+    "ParchmentLarge": [.208, 0, 0]
 };
+
 declare const CLASS_SORT_ORDER: [
-    "WARRIOR",
-    "DEATHKNIGHT",
-    "PALADIN",
-    "MONK",
-    "PRIEST",
-    "SHAMAN",
-    "DRUID",
-    "ROGUE",
-    "MAGE",
-    "WARLOCK",
-    "HUNTER",
-    "DEMONHUNTER"
+    "WARRIOR", "DEATHKNIGHT", "PALADIN", "MONK", "PRIEST", "SHAMAN", "DRUID",
+    "ROGUE", "MAGE", "WARLOCK", "HUNTER", "DEMONHUNTER"
 ];
-declare const SCHOOL_MASK_NONE = 0;
-declare const SCHOOL_MASK_PHYSICAL = 1;
-declare const SCHOOL_MASK_HOLY = 2;
-declare const SCHOOL_MASK_FIRE = 4;
-declare const SCHOOL_MASK_NATURE = 8;
-declare const SCHOOL_MASK_FROST = 16;
-declare const SCHOOL_MASK_SHADOW = 32;
-declare const SCHOOL_MASK_ARCANE = 64;
+
+declare const SCHOOL_MASK_NONE = 0x00;
+declare const SCHOOL_MASK_PHYSICAL = 0x01;
+declare const SCHOOL_MASK_HOLY = 0x02;
+declare const SCHOOL_MASK_FIRE = 0x04;
+declare const SCHOOL_MASK_NATURE = 0x08;
+declare const SCHOOL_MASK_FROST = 0x10;
+declare const SCHOOL_MASK_SHADOW = 0x20;
+declare const SCHOOL_MASK_ARCANE = 0x40;
+
 declare const LOOT_ROLL_TYPE_PASS = 0;
 declare const LOOT_ROLL_TYPE_NEED = 1;
 declare const LOOT_ROLL_TYPE_GREED = 2;
 declare const LOOT_ROLL_TYPE_DISENCHANT = 3;
+
 declare const INVSLOT_AMMO = 0;
 declare type INVSLOT_AMMO = 0;
 declare const INVSLOT_HEAD = 1;
@@ -3280,6 +3782,7 @@ declare const INVSLOT_RANGED = 18;
 declare type INVSLOT_RANGED = 18;
 declare const INVSLOT_TABARD = 19;
 declare type INVSLOT_TABARD = 19;
+
 declare const DIFFICULTY_DUNGEON_NORMAL = 1;
 declare const DIFFICULTY_DUNGEON_HEROIC = 2;
 declare const DIFFICULTY_RAID10_NORMAL = 3;
@@ -3293,11 +3796,23 @@ declare const DIFFICULTY_PRIMARYRAID_NORMAL = 14;
 declare const DIFFICULTY_PRIMARYRAID_HEROIC = 15;
 declare const DIFFICULTY_PRIMARYRAID_MYTHIC = 16;
 declare const DIFFICULTY_PRIMARYRAID_LFR = 17;
+
 declare const NUM_CHAT_WINDOWS: number;
+
 declare namespace WoWAPI {
-    type InventoryId = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST | INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 | INVSLOT_TRINKET1 | INVSLOT_TRINKET2 | INVSLOT_BACK | INVSLOT_MAINHAND | INVSLOT_OFFHAND | INVSLOT_RANGED | INVSLOT_TABARD;
+    type InventoryId = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST |
+        INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 | INVSLOT_TRINKET1 |
+        INVSLOT_TRINKET2 | INVSLOT_BACK | INVSLOT_MAINHAND | INVSLOT_OFFHAND | INVSLOT_RANGED | INVSLOT_TABARD;
 }
+
+
+/// <reference path="global.d.ts" />
+/// <reference path="item.d.ts" />
+/// <reference path="ui/ui.d.ts" />
+/// <reference path="unit.d.ts" />
+
 declare namespace WoWAPI {
+
     type CONTAINER_ID_BACKPACK = 0;
     type CONTAINER_ID_BAG_1 = 1;
     type CONTAINER_ID_BAG_2 = 2;
@@ -3313,9 +3828,14 @@ declare namespace WoWAPI {
     type CONTAINER_ID_BANK_BAG_7 = 11;
     type CONTAINER_ID_REAGENTBANK = -3;
     type CONTAINER_ID_BANK_BAG_WRAPPER = -4;
-    type CONTAINER_ID_BANK = CONTAINER_ID_BANK_GLOBAL | CONTAINER_ID_BANK_BAG_1 | CONTAINER_ID_BANK_BAG_2 | CONTAINER_ID_BANK_BAG_3 | CONTAINER_ID_BANK_BAG_4 | CONTAINER_ID_BANK_BAG_5 | CONTAINER_ID_BANK_BAG_6 | CONTAINER_ID_BANK_BAG_7 | CONTAINER_ID_REAGENTBANK | CONTAINER_ID_BANK_BAG_WRAPPER;
-    type CONTAINER_ID_BAG = CONTAINER_ID_BACKPACK | CONTAINER_ID_BAG_1 | CONTAINER_ID_BAG_2 | CONTAINER_ID_BAG_3 | CONTAINER_ID_BAG_4;
+
+    type CONTAINER_ID_BANK = CONTAINER_ID_BANK_GLOBAL | CONTAINER_ID_BANK_BAG_1 | CONTAINER_ID_BANK_BAG_2 | CONTAINER_ID_BANK_BAG_3 |
+        CONTAINER_ID_BANK_BAG_4 | CONTAINER_ID_BANK_BAG_5 | CONTAINER_ID_BANK_BAG_6 | CONTAINER_ID_BANK_BAG_7 | CONTAINER_ID_REAGENTBANK |
+        CONTAINER_ID_BANK_BAG_WRAPPER;
+    type CONTAINER_ID_BAG = CONTAINER_ID_BACKPACK | CONTAINER_ID_BAG_1 | CONTAINER_ID_BAG_2 | CONTAINER_ID_BAG_3 |
+        CONTAINER_ID_BAG_4;
     type CONTAINER_ID = CONTAINER_ID_BAG | CONTAINER_ID_BANK;
+
     type BAG_TYPE_UNSPECIFIED = 0;
     type BAG_TYPE_QUIVER = 1;
     type BAG_TYPE_AMMO_POUCH = 2;
@@ -3330,18 +3850,31 @@ declare namespace WoWAPI {
     type BAG_TYPE_MINING = 1024;
     type BAG_TYPE_UNKNOWN = 2048;
     type BAG_TYPE_VANTY_PETS = 4096;
+
     type INVENTORY_SLOT_CONTAINER_1 = 20;
     type INVENTORY_SLOT_CONTAINER_2 = 21;
     type INVENTORY_SLOT_CONTAINER_3 = 22;
     type INVENTORY_SLOT_CONTAINER_4 = 23;
-    type INVENTORY_SLOT_CONTAINER = INVENTORY_SLOT_CONTAINER_1 | INVENTORY_SLOT_CONTAINER_2 | INVENTORY_SLOT_CONTAINER_3 | INVENTORY_SLOT_CONTAINER_4;
-    type INVENTORY_SLOT_ID_CONTAINERS = INVENTORY_SLOT_CONTAINER_1 | INVENTORY_SLOT_CONTAINER_2 | INVENTORY_SLOT_CONTAINER_3 | INVENTORY_SLOT_CONTAINER_4;
-    type INVENTORY_SLOT_ID = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST | INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 | INVSLOT_TRINKET1 | INVSLOT_TRINKET2 | INVSLOT_BACK | INVSLOT_MAINHAND | INVSLOT_OFFHAND | INVSLOT_RANGED | INVSLOT_TABARD | INVENTORY_SLOT_ID_CONTAINERS;
+
+    type INVENTORY_SLOT_CONTAINER = INVENTORY_SLOT_CONTAINER_1 | INVENTORY_SLOT_CONTAINER_2 |
+        INVENTORY_SLOT_CONTAINER_3 | INVENTORY_SLOT_CONTAINER_4;
+
+    type INVENTORY_SLOT_ID_CONTAINERS = INVENTORY_SLOT_CONTAINER_1 | INVENTORY_SLOT_CONTAINER_2 |
+        INVENTORY_SLOT_CONTAINER_3 | INVENTORY_SLOT_CONTAINER_4;
+    type INVENTORY_SLOT_ID = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST |
+        INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 |
+        INVSLOT_TRINKET1 | INVSLOT_TRINKET2 | INVSLOT_BACK | INVSLOT_MAINHAND | INVSLOT_OFFHAND | INVSLOT_RANGED | INVSLOT_TABARD |
+        INVENTORY_SLOT_ID_CONTAINERS;
+
     /**
      * all currently known bag types
      */
-    type BAG_TYPE = BAG_TYPE_UNSPECIFIED | BAG_TYPE_QUIVER | BAG_TYPE_AMMO_POUCH | BAG_TYPE_SOUL_BAG | BAG_TYPE_LEATHERWORKING_BAG | BAG_TYPE_INSCRIPTION_BAG | BAG_TYPE_HERB_BAG | BAG_TYPE_ENCHANTING_BAG | BAG_TYPE_ENGINEERING_BAG | BAG_TYPE_KEYRING | BAG_TYPE_GEM_BAG | BAG_TYPE_MINING | BAG_TYPE_UNKNOWN | BAG_TYPE_VANTY_PETS;
+    type BAG_TYPE = BAG_TYPE_UNSPECIFIED | BAG_TYPE_QUIVER | BAG_TYPE_AMMO_POUCH | BAG_TYPE_SOUL_BAG | BAG_TYPE_LEATHERWORKING_BAG |
+        BAG_TYPE_INSCRIPTION_BAG | BAG_TYPE_HERB_BAG | BAG_TYPE_ENCHANTING_BAG | BAG_TYPE_ENGINEERING_BAG | BAG_TYPE_KEYRING | BAG_TYPE_GEM_BAG |
+        BAG_TYPE_MINING | BAG_TYPE_UNKNOWN | BAG_TYPE_VANTY_PETS;
+
 }
+
 /**
  * convert a bagId to an inventoryId
  *
@@ -3350,6 +3883,7 @@ declare namespace WoWAPI {
  * @see https://wow.gamepedia.com/API_ContainerIDToInventoryID
  */
 declare function ContainerIDToInventoryID(bagId: WoWAPI.CONTAINER_ID): number;
+
 /**
  * bagName will contain the name of the specified bag if the bag number is 0-4 otherwise it will be nil, unless when the bank is opened,
  * in which case GetBagName(-1) (for the bank) is nil and GetBagName(6) will give the name of the first bank bag, GetBagName(7) the name of
@@ -3361,6 +3895,7 @@ declare function ContainerIDToInventoryID(bagId: WoWAPI.CONTAINER_ID): number;
  * @see https://wow.gamepedia.com/API_GetBagName
  */
 declare function GetBagName(bagId: WoWAPI.CONTAINER_ID): string;
+
 /**
  * Returns cooldown information for an item in your inventory
  *
@@ -3371,6 +3906,7 @@ declare function GetBagName(bagId: WoWAPI.CONTAINER_ID): string;
  * @tupleReturn
  */
 declare function GetContainerItemCooldown(bagId: WoWAPI.CONTAINER_ID, slot: number): [number, number, WoWAPI.Flag];
+
 /**
  * Returns current and maximum durability of an item in the character's bags
  *
@@ -3381,6 +3917,7 @@ declare function GetContainerItemCooldown(bagId: WoWAPI.CONTAINER_ID, slot: numb
  * @tupleReturn
  */
 declare function GetContainerItemDurability(bagId: WoWAPI.CONTAINER_ID, slot: number): [number, number];
+
 /**
  * Returns the item id of the item in a particular container slot.
  *
@@ -3390,6 +3927,7 @@ declare function GetContainerItemDurability(bagId: WoWAPI.CONTAINER_ID, slot: nu
  * @see https://wow.gamepedia.com/API_GetContainerItemID
  */
 declare function GetContainerItemID(bagId: WoWAPI.CONTAINER_ID, slot: number): number | null;
+
 /**
  * Get information about a specific item in your container
  *
@@ -3399,7 +3937,9 @@ declare function GetContainerItemID(bagId: WoWAPI.CONTAINER_ID, slot: number): n
  * @see https://wow.gamepedia.com/API_GetContainerItemInfo
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetContainerItemInfo(bagId: WoWAPI.CONTAINER_ID, slot: number): [WoWAPI.TexturePath, number, boolean, WoWAPI.ITEM_QUALITY, boolean, boolean, WoWAPI.ItemLink, boolean, boolean, number];
+
 /**
  * Returns a link of the object located in the specified slot of a specified bag
  *
@@ -3409,6 +3949,7 @@ declare function GetContainerItemInfo(bagId: WoWAPI.CONTAINER_ID, slot: number):
  * @see https://wow.gamepedia.com/API_GetContainerWowItemLink
  */
 declare function GetContainerWowItemLink(bagId: WoWAPI.CONTAINER_ID, slot: number): WoWAPI.ItemLink;
+
 /**
  * Returns the total number of slots in the bag specified by the index
  *
@@ -3417,6 +3958,7 @@ declare function GetContainerWowItemLink(bagId: WoWAPI.CONTAINER_ID, slot: numbe
  * @see https://wow.gamepedia.com/API_GetContainerNumSlots
  */
 declare function GetContainerNumSlots(bagId: WoWAPI.CONTAINER_ID): number;
+
 /**
  * Returns whether the item in the slot is a quest item
  *
@@ -3427,6 +3969,7 @@ declare function GetContainerNumSlots(bagId: WoWAPI.CONTAINER_ID): number;
  * @tupleReturn
  */
 declare function GetContainerItemQuestInfo(bagId: WoWAPI.CONTAINER_ID, slot: number): [WoWAPI.Flag, number | null, WoWAPI.Flag];
+
 /**
  * Returns the total number of free slots in the bag an the type of items that can go into it specified by the index
  *
@@ -3436,6 +3979,7 @@ declare function GetContainerItemQuestInfo(bagId: WoWAPI.CONTAINER_ID, slot: num
  * @tupleReturn
  */
 declare function GetContainerNumFreeSlots(bagId: WoWAPI.CONTAINER_ID): [number, WoWAPI.BAG_TYPE];
+
 /**
  * Open all bag frames
  *
@@ -3444,12 +3988,14 @@ declare function GetContainerNumFreeSlots(bagId: WoWAPI.CONTAINER_ID): [number, 
  * @see https://wow.gamepedia.com/API_OpenAllBags
  */
 declare function OpenAllBags(frame?: WoWAPI.Frame): void;
+
 /**
  * Closes all open bags
  *
  * @see https://wow.gamepedia.com/API_CloseAllBags
  */
 declare function CloseAllBags(): void;
+
 /**
  * Picks up the bag from the specified slot, placing it in the cursor
  *
@@ -3457,6 +4003,7 @@ declare function CloseAllBags(): void;
  * @see https://wow.gamepedia.com/API_PickupBagFromSlot
  */
 declare function PickupBagFromSlot(inventorySlotId: WoWAPI.INVENTORY_SLOT_ID_CONTAINERS): void;
+
 /**
  * The function behaves differently depending on what is currently on the cursor:
  * - If the cursor currently has nothing, calling this will pick up an item from your backpack.
@@ -3471,6 +4018,7 @@ declare function PickupBagFromSlot(inventorySlotId: WoWAPI.INVENTORY_SLOT_ID_CON
  * @see https://wow.gamepedia.com/API_PickupContainerItem
  */
 declare function PickupContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number): void;
+
 /**
  * Places the item currently on the cursor into the player's backpack otherwise it has no effect. If there is already a partial stack of
  * the item in the backpack, it will attempt to stack them together
@@ -3478,6 +4026,7 @@ declare function PickupContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number): 
  * @see https://wow.gamepedia.com/API_PutItemInBackpack
  */
 declare function PutItemInBackpack(): void;
+
 /**
  * Puts the item on the cursor into the specified bag slot on the main bar, if it's a bag. Otherwise, attempts to place the item inside the
  * bag in that slot. Note that to place an item in the backpack, you must use PutItemInBackpack.
@@ -3487,6 +4036,7 @@ declare function PutItemInBackpack(): void;
  * @see https://wow.gamepedia.com/API_PutItemInBag
  */
 declare function PutItemInBag(inventorySlotId: WoWAPI.INVENTORY_SLOT_ID_CONTAINERS): void;
+
 /**
  * Picks up part of a stack of items from a container, placing them on the cursor
  *
@@ -3496,18 +4046,21 @@ declare function PutItemInBag(inventorySlotId: WoWAPI.INVENTORY_SLOT_ID_CONTAINE
  * @see https://wow.gamepedia.com/API_SplitContainerItem
  */
 declare function SplitContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number, count: number): void;
+
 /**
  * Toggles your backpage open/closed
  *
  * @see https://wow.gamepedia.com/API_ToggleBackpack
  */
 declare function ToggleBackpack(): void;
+
 /**
  * Opens or closes the specified bag
  *
  * @param bagId the bagId you want to toggle open or close
  */
 declare function ToggleBag(bagId: WoWAPI.CONTAINER_ID): void;
+
 /**
  * Use an item from a container. If Merchant window is open, this will sell the item
  *
@@ -3520,9 +4073,12 @@ declare function ToggleBag(bagId: WoWAPI.CONTAINER_ID): void;
  * @protected PROTECTED (situational)
  */
 declare function UseContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number, target?: WoWAPI.UnitId, reagentBankAccessible?: boolean): void;
+
+
 declare namespace WoWAPI {
     type CurrencyLink = Hyperlink;
 }
+
 /**
  * Breaks down an amount of money into gold/silver/copper, inserts separator strings, and returns the resulting string
  *
@@ -3533,6 +4089,7 @@ declare namespace WoWAPI {
  * @since 3.0.2
  */
 declare function GetCoinText(amount: number, separator: string): string;
+
 /**
  * Breaks down an amount of money into gold/silver/copper, inserts appropriate "|T" texture strings for coin icons, and returns the resulting string
  *
@@ -3543,6 +4100,7 @@ declare function GetCoinText(amount: number, separator: string): string;
  * @since 3.0.2
  */
 declare function GetCoinTextureString(amount: number, fontHeight?: number): string;
+
 /**
  * Retrieve Information about a currency at index including it's amount
  *
@@ -3553,6 +4111,7 @@ declare function GetCoinTextureString(amount: number, fontHeight?: number): stri
  * @tupleReturn
  */
 declare function GetCurrencyInfo(currencyId: number): [string, number, WoWAPI.TexturePath, number, number, number, boolean, WoWAPI.ITEM_QUALITY];
+
 /**
  * Retrieve Information about a currency at index including it's amount
  *
@@ -3563,7 +4122,9 @@ declare function GetCurrencyInfo(currencyId: number): [string, number, WoWAPI.Te
  * @since 3.0.2
  * @tupleReturn
  */
+// tslint:disable-next-line unified-signatures max-line-length
 declare function GetCurrencyInfo(currencyLinkOrString: WoWAPI.CurrencyLink | string): [string, number, WoWAPI.TexturePath, number, number, number, boolean, WoWAPI.ITEM_QUALITY];
+
 /**
  * Get the currencyLink for the specified currencyID
  *
@@ -3575,6 +4136,7 @@ declare function GetCurrencyInfo(currencyLinkOrString: WoWAPI.CurrencyLink | str
  * @since 3.0.2
  */
 declare function GetCurrencyLink(currencyId: number, currencyAmount: number): WoWAPI.CurrencyLink;
+
 /**
  * Returns the number of entries in the currency list.
  *
@@ -3583,6 +4145,7 @@ declare function GetCurrencyLink(currencyId: number, currencyAmount: number): Wo
  * @since 3.0.2
  */
 declare function GetCurrencyListSize(): number;
+
 /**
  * Returns information about an entry in the currency list
  *
@@ -3592,7 +4155,9 @@ declare function GetCurrencyListSize(): number;
  * @since 3.0.2
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetCurrencyListInfo(currencyIndex: number): [string, boolean, boolean, boolean, boolean, number, WoWAPI.TexturePath, number, number, number, WoWAPI.Unknown, number];
+
 /**
  * Alters the expanded state of a currency list header.
  *
@@ -3602,6 +4167,7 @@ declare function GetCurrencyListInfo(currencyIndex: number): [string, boolean, b
  * @since 3.0.2
  */
 declare function ExpandCurrencyList(currencyHeaderIndex: number, expanded: WoWAPI.Flag): void;
+
 /**
  * Marks/unmarks a currency as unused
  *
@@ -3611,6 +4177,7 @@ declare function ExpandCurrencyList(currencyHeaderIndex: number, expanded: WoWAP
  * @since 3.0.2
  */
 declare function SetCurrencyUnused(currencyIndex: number, unused: WoWAPI.Flag): void;
+
 /**
  * Returns the number of currencies currently watched on the player's backpack
  *
@@ -3619,6 +4186,7 @@ declare function SetCurrencyUnused(currencyIndex: number, unused: WoWAPI.Flag): 
  * @since 3.0.2
  */
 declare function GetNumWatchedTokens(): number;
+
 /**
  * Returns information about a currency item currently being shown as part of the backpack
  *
@@ -3629,6 +4197,7 @@ declare function GetNumWatchedTokens(): number;
  * @tupleReturn
  */
 declare function GetBackpackCurrencyInfo(watchedIndex: number): [string, number, WoWAPI.TexturePath, number];
+
 /**
  * Alters the backpack tracking state of a currency
  *
@@ -3638,19 +4207,24 @@ declare function GetBackpackCurrencyInfo(watchedIndex: number): [string, number,
  * @since 3.0.2
  */
 declare function SetCurrencyBackpack(currencyIndex: number, track: WoWAPI.Flag): void;
+
+
 declare namespace WoWAPI {
     type CursorInfoType = "item" | "spell" | "macro" | "mount" | "money" | "merchant" | "battlepet";
 }
+
 /**
  * Automatically equips the item currently held on the cursor
  * @see https://wow.gamepedia.com/API_AutoEquipCursorItem
  */
 declare function AutoEquipCursorItem(): void;
+
 /**
  * Clears the in-game cursor, returning the object held to its original position (equivalent to right-clicking while holding something on the cursor).
  * @see https://wow.gamepedia.com/API_ClearCursor
  */
 declare function ClearCursor(): void;
+
 /**
  * Determines if the item in the cursor can be equipped in the specified inventory slot. Always returns 1 for bank bag slots
  * @param inventorySlot Inventory slot to query
@@ -3658,48 +4232,57 @@ declare function ClearCursor(): void;
  * @see https://wow.gamepedia.com/API_CursorCanGoInSlot
  */
 declare function CursorCanGoInSlot(inventorySlot: WoWAPI.INVENTORY_SLOT_ID): WoWAPI.Flag;
+
 /**
  * Returns 1 if the cursor currently holds an item, nil otherwise
  * @see https://wow.gamepedia.com/API_CursorHasItem
  */
 declare function CursorHasItem(): boolean;
+
 /**
  * Returns true if the cursor currently holds money
  */
 declare function CursorHasMoney(): boolean;
+
 /**
  * Returns true if the cursor currently holds a spell.
  */
 declare function CursorHasSpell(): boolean;
+
 /**
  * Destroys the item currently held by the cursor
  * @description This does not deselect the item, this destroys it. Use ClearCursor to drop an item from the cursor without destroying it.
  * @see https://wow.gamepedia.com/API_DeleteCursorItem
  */
 declare function DeleteCursorItem(): void;
+
 /**
  * Drops the money currently attached to your cursor back into your bag
  * @see https://wow.gamepedia.com/API_DropCursorMoney
  */
 declare function DropCursorMoney(): void;
+
 /**
  * Drops an item from the cursor onto the specified target. Can be used to initiate a trade session (though see Trade functions) or feeding pets
  * @param unit Unit to which you want to give the item on the cursor
  * @see https://wow.gamepedia.com/API_DropItemOnUnit
  */
 declare function DropItemOnUnit(unit: WoWAPI.UnitId): void;
+
 /**
  * Equips the currently picked up item to a specific inventory slot
  * @param inventorySlot The slot ID to place the item into. Use GetInventorySlotInfo(slotname) to resolve an inventory slot name to its ID
  * @see https://wow.gamepedia.com/API_EquipCursorItem
  */
 declare function EquipCursorItem(inventorySlot: WoWAPI.INVENTORY_SLOT_ID): void;
+
 /**
  * Returns information about what the mouse cursor is holding
  * @see https://wow.gamepedia.com/API_GetCursorInfo
  * @tupleReturn
  */
 declare function GetCursorInfo(): [WoWAPI.CursorInfoType, ...WoWAPI.Unknown[]];
+
 /**
  * @returns **item**
  * - **itemId**: Item ID of the item on the cursor
@@ -3707,6 +4290,7 @@ declare function GetCursorInfo(): [WoWAPI.CursorInfoType, ...WoWAPI.Unknown[]];
  * @tupleReturn
  */
 declare function GetCursorInfo(): ["item", number, WoWAPI.ItemLink];
+
 /**
  * @returns **spell**
  * - **spellIndex**: The index of the spell in the spell book
@@ -3715,18 +4299,21 @@ declare function GetCursorInfo(): ["item", number, WoWAPI.ItemLink];
  * @tupleReturn
  */
 declare function GetCursorInfo(): ["spell", number, string, number];
+
 /**
  * @returns **macro**
  * - **index**: The index of the macro on the cursor
  * @tupleReturn
  */
 declare function GetCursorInfo(): ["macro", number];
+
 /**
  * @returns **money**
  * - **amount**: The amount of money in copper
  * @tupleReturn
  */
 declare function GetCursorInfo(): ["money", number];
+
 /**
  * @returns **mount**
  * - **useless_index**: this index is not useful since no other API receives it as a parameter
@@ -3734,24 +4321,28 @@ declare function GetCursorInfo(): ["money", number];
  * @tupleReturn
  */
 declare function GetCursorInfo(): ["mount", number, number];
+
 /**
  * @returns **merchant**
  * - **index**: The index of the merchant item
  * @tupleReturn
  */
 declare function GetCursorInfo(): ["merchant", number];
+
 /**
  * @returns **battlepet**
  * - **petGUID**: GUID of a battle pet in your collection
  * @tupleReturn
  */
 declare function GetCursorInfo(): ["battlepet", WoWAPI.Guid];
+
 /**
  * Returns the amount of copper held on the cursor
  * @see https://wow.gamepedia.com/API_GetCursorMoney
  * @tupleReturn
  */
 declare function GetCursorMoney(): number;
+
 /**
  * Returns the cursor's position on the screen
  * @returns **position**
@@ -3764,17 +4355,20 @@ declare function GetCursorMoney(): number;
  * @tupleReturn
  */
 declare function GetCursorPosition(): [number, number];
+
 /**
  * Takes the cursor out of repair mode
  * @see https://wow.gamepedia.com/API_HideRepairCursor
  */
 declare function HideRepairCursor(): void;
+
 /**
  * Lets you know if your cursor is in repair mode. When your cursor is in repair mode, you can click on equipped items as well as items in your
  * inventory to repair them
  * @see https://wow.gamepedia.com/API_InRepairMode
  */
 declare function InRepairMode(): boolean;
+
 /**
  * Pick up an action for drag-and-drop
  * @param actionSlot The action slot to pick the action up from
@@ -3785,6 +4379,7 @@ declare function InRepairMode(): boolean;
  * @see https://wow.gamepedia.com/API_PickupAction
  */
 declare function PickupAction(actionSlot: ActionBarSlotId): void;
+
 /**
  * Picks up the bag from the specified slot, placing it in the cursor
  * @param inventorySlot the slot containing the bag
@@ -3793,6 +4388,7 @@ declare function PickupAction(actionSlot: ActionBarSlotId): void;
  * @see https://wow.gamepedia.com/API_PickupBagFromSlot
  */
 declare function PickupBagFromSlot(inventorySlot: WoWAPI.INVENTORY_SLOT_CONTAINER): void;
+
 /**
  * Wildcard function usually called when a player left clicks on a slot in their bags. Functionality includes picking up the item from a specific
  * bag slot, putting the item into a specific bag slot, and applying enchants (including poisons and sharpening stones) to the item in a specific
@@ -3815,6 +4411,7 @@ declare function PickupBagFromSlot(inventorySlot: WoWAPI.INVENTORY_SLOT_CONTAINE
  * @see https://wow.gamepedia.com/API_PickupContainerItem
  */
 declare function PickupContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number): void;
+
 /**
  * "Picks up" an item from the player's worn inventory. This appears to be a kind of catch-all "pick up/activate" function
  * @param inventorySlot the slot ID of the worn inventory slot
@@ -3826,6 +4423,7 @@ declare function PickupContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number): 
  * - You can use GetInventorySlotInfo to get the slotId
  */
 declare function PickupInventoryItem(inventorySlot: WoWAPI.INVENTORY_SLOT_ID): void;
+
 /**
  * Place the item on the cursor
  * @param itemIdentifier
@@ -3836,6 +4434,7 @@ declare function PickupInventoryItem(inventorySlot: WoWAPI.INVENTORY_SLOT_ID): v
  * @see https://wow.gamepedia.com/API_PickupItem
  */
 declare function PickupItem(itemIdentifier: number | string | WoWAPI.ItemLink): void;
+
 /**
  * Pick up a macro from the macro frame and place it on the cursor
  * @param macroNameOrId the name of the macro or the position of the macro in the macro frame
@@ -3843,6 +4442,7 @@ declare function PickupItem(itemIdentifier: number | string | WoWAPI.ItemLink): 
  * @see https://wow.gamepedia.com/API_PickupMacro
  */
 declare function PickupMacro(macroNameOrId: number | string): void;
+
 /**
  * Places the specified merchant item on the cursor
  * @param merchantIndex The index of the item in the merchant's inventory
@@ -3851,6 +4451,7 @@ declare function PickupMacro(macroNameOrId: number | string): void;
  * @see https://wow.gamepedia.com/API_PickupMerchantItem
  */
 declare function PickupMerchantItem(merchantIndex: number): void;
+
 /**
  * Pick up a pet action for drag-and-drop
  * @param petActionSlot The pet action slot to pick the action up from (1-10).
@@ -3861,12 +4462,14 @@ declare function PickupMerchantItem(merchantIndex: number): void;
  * @see https://wow.gamepedia.com/API_PickupPetAction
  */
 declare function PickupPetAction(petActionSlot: number): void;
+
 /**
  * Picks up an amount of money from the player's bags, placing it on the cursor
  * @param copper The amount of money, in copper, to place on the cursor
  * @see https://wow.gamepedia.com/API_PickupPlayerMoney
  */
 declare function PickupPlayerMoney(copper: number): void;
+
 /**
  * Puts the specified spell onto the mouse cursor
  * @param spell ID of the spell to pick up
@@ -3874,30 +4477,35 @@ declare function PickupPlayerMoney(copper: number): void;
  * @see https://wow.gamepedia.com/API_PickupSpell
  */
 declare function PickupSpell(spellId: number): void;
+
 /**
  * Attaches a pet in your stable to your cursor. 1 for the pet in the slot on the left, and 2 for the pet in the slot on the right
  * @param slotDirection 1 for left, 2 for right
  * @see https://wow.gamepedia.com/API_PickupStablePet
  */
 declare function PickupStablePet(slotDirection: 1 | 2): void;
+
 /**
  * Picks up an amount of money from the player's trading offer, placing it on the cursor
  * @param copper amount of money, in copper, to pick up
  * @see https://wow.gamepedia.com/API_PickupTradeMoney
  */
 declare function PickupTradeMoney(copper: number): void;
+
 /**
  * Place the drag-and-drop item as an action
  * @param actionSlot The action slot to place the action into.
  * @see https://wow.gamepedia.com/API_PlaceAction
  */
 declare function PlaceAction(actionSlot: number): void;
+
 /**
  * Places the item currently on the cursor into the player's backpack otherwise it has no effect. If there is already a partial stack of the
  * item in the backpack, it will attempt to stack them together
  * @see https://wow.gamepedia.com/API_PutItemInBackpack
  */
 declare function PutItemInBackpack(): void;
+
 /**
  * Puts the item on the cursor into the specified bag slot on the main bar, if it's a bag. Otherwise, attempts to place the item inside the bag
  * in that slot. Note that to place an item in the backpack, you must use PutItemInBackpack
@@ -3906,6 +4514,7 @@ declare function PutItemInBackpack(): void;
  * @see https://wow.gamepedia.com/API_PutItemInBag
  */
 declare function PutItemInBag(slotId: number): void;
+
 /**
  * Resets mouse cursor
  * @description Function resets mouse cursor into its default shape, if it has been previously altered by SetCursor(cursor).
@@ -3913,6 +4522,7 @@ declare function PutItemInBag(slotId: number): void;
  * @see https://wow.gamepedia.com/API_ResetCursor
  */
 declare function ResetCursor(): void;
+
 /**
  * Changes the current cursor graphic
  * @param cursor cursor to switch to; either a built-in cursor identifier (like "ATTACK_CURSOR"), path to a cursor texture
@@ -3922,27 +4532,32 @@ declare function ResetCursor(): void;
  * @see https://wow.gamepedia.com/API_SetCursor
  */
 declare function SetCursor(cursor: string | WoWAPI.TexturePath | null): boolean;
+
 /**
  * unknown
  * @param index unknown
  * @param slot unknown
  */
 declare function ShowContainerSellCursor(index: number, slot: number): WoWAPI.Unknown;
+
 /**
  * Change the cursor to the magnifying glass inventory inspection cursor
  * @see https://wow.gamepedia.com/API_ShowInspectCursor
  */
 declare function ShowInspectCursor(): void;
+
 /**
  * unknown
  * @param args unknown
  */
 declare function ShowInventorySellCursor(...args: WoWAPI.Unknown[]): WoWAPI.Unknown;
+
 /**
  * Puts the cursor in repair mode
  * @see https://wow.gamepedia.com/API_ShowRepairCursor
  */
 declare function ShowRepairCursor(): void;
+
 /**
  * Picks up part of a stack of items from a container, placing them on the cursor
  * @param bagId id of the bag the slot is located in
@@ -3954,6 +4569,8 @@ declare function ShowRepairCursor(): void;
  * @see https://wow.gamepedia.com/API_SplitContainerItem
  */
 declare function SplitContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number, count: number): void;
+
+
 /**
  * Passes its arguments to the current print output handler. By default, this will output them all to the default chat frame
  *
@@ -3961,6 +4578,7 @@ declare function SplitContainerItem(bagId: WoWAPI.CONTAINER_ID, slot: number, co
  * @see https://wow.gamepedia.com/API_print
  */
 declare function print(...args: any[]): void;
+
 /**
  * Returns the function currently handling print() output
  *
@@ -3968,6 +4586,7 @@ declare function print(...args: any[]): void;
  * @see https://wow.gamepedia.com/API_getprinthandler
  */
 declare function getprinthandler(): (...args: any[]) => any;
+
 /**
  * Sets a new print() output handler function
  *
@@ -3976,6 +4595,7 @@ declare function getprinthandler(): (...args: any[]) => any;
  * @see https://wow.gamepedia.com/API_setprinthandler
  */
 declare function setprinthandler(handler: (...args: any[]) => any): void;
+
 /**
  * Wipes a table of all contents
  *
@@ -3983,8 +4603,11 @@ declare function setprinthandler(handler: (...args: any[]) => any): void;
  * @see https://wow.gamepedia.com/API_wipe
  */
 declare function wipe<T extends object>(table: T): T;
+
+
 declare namespace WoWAPI {
     type TypedEvents = {
+
         /**
          * Fired when an achievement is gained
          * - **arg1**: The id of the achievement gained
@@ -3992,10 +4615,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ACHIEVEMENT_EARNED
          */
         ACHIEVEMENT_EARNED: [number];
+
         /**
          * unknown
          */
         ACHIEVEMENT_SEARCH_UPDATED: Unknown[];
+
         /**
          * Fired when the actionbar numbers disappear, typically when you finish dragging something to the actionbar
          * - **arg1**: the mouse button used to click the button. Known values: "LeftButton", "RightButton"
@@ -4003,6 +4628,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ACTIONBAR_HIDEGRID
          */
         ACTIONBAR_HIDEGRID: [MouseButton, boolean];
+
         /**
          * Fired when the actionbar page changes, typically when you press the pageup or pagedown button
          * - **arg1**: the mouse button used to click the button. Known values: "LeftButton", "RightButton"
@@ -4010,15 +4636,18 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ACTIONBAR_PAGE_CHANGED
          */
         ACTIONBAR_PAGE_CHANGED: [MouseButton, boolean];
+
         /**
          * Fired when the actionbar numbers appear, typically when you drag a spell to the actionbar
          * @see https://wow.gamepedia.com/ACTIONBAR_SHOWGRID
          */
         ACTIONBAR_SHOWGRID: null;
+
         /**
          * unknown
          */
         ACTIONBAR_SHOW_BOTTOMLEFT: Unknown[];
+
         /**
          * Fired when any actionbar slot's contents change; typically the picking up and dropping of buttons
          * - **arg1**: the number of the slot that changed
@@ -4026,6 +4655,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ACTIONBAR_SLOT_CHANGED
          */
         ACTIONBAR_SLOT_CHANGED: [number, boolean];
+
         /**
          * Fired when the cooldown for an actionbar or inventory slot starts or stops. Also fires when you log into a new area
          * - **arg1**: if the cooldown is starting, the mouse button used to click the button. Known values: "leftButton". if the cooldown
@@ -4033,26 +4663,31 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ACTIONBAR_UPDATE_COOLDOWN
          */
         ACTIONBAR_UPDATE_COOLDOWN: [MouseButton | null];
+
         /**
          * Fired when the state of anything on the actionbar changes. This includes cooldown and disabling
          * - **arg1**: the mouse button used to click the button. Known values: "LeftButton", "RightButton" can also be nil
          * @see https://wow.gamepedia.com/ACTIONBAR_UPDATE_STATE
          */
         ACTIONBAR_UPDATE_STATE: [MouseButton | null];
+
         /**
          * Fired when something in the actionbar or your inventory becomes usable (after eating or drinking a potion, or entering/leaving
          * stealth; for example). This is affected by rage/mana/energy available, but not by range
          * @see https://wow.gamepedia.com/ACTIONBAR_UPDATE_USABLE
          */
         ACTIONBAR_UPDATE_USABLE: null;
+
         /**
          * unknown
          */
         ACTION_WILL_BIND_ITEM: Unknown[];
+
         /**
          * unknown
          */
         ACTIVATE_GLYPH: Unknown[];
+
         /**
          * Fired when a player switches changes which talent group (dual specialization) is active
          * - **arg1**: Index of the talent group that is now active
@@ -4060,16 +4695,19 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ACTIVE_TALENT_GROUP_CHANGED
          */
         ACTIVE_TALENT_GROUP_CHANGED: [number, number];
+
         /**
          * Addon unload event with unknown payload
          */
         ADDONS_UNLOADING: Unknown[];
+
         /**
          * (this event doesn't seem to be used anymore, use ADDON_ACTION_FORBIDDEN instead)
          * @deprecated
          * @see https://wow.gamepedia.com/ADDON_ACTION_BLOCKED
          */
         ADDON_ACTION_BLOCKED: null;
+
         /**
          * Fires when an AddOn tries use actions that are always forbidden (movement, targeting, etc.)
          * - **arg1**: Name of the AddOn that was last involved in the execution path
@@ -4077,87 +4715,108 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ADDON_ACTION_FORBIDDEN
          */
         ADDON_ACTION_FORBIDDEN: [string, string];
+
         /**
          * Fires when one addon load
          * - **arg1**: addon name that has been loaded
          */
         ADDON_LOADED: [string];
+
         /**
          * unknown
          */
         ADVENTURE_MAP_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         ADVENTURE_MAP_OPEN: Unknown[];
+
         /**
          * unknown
          */
         ADVENTURE_MAP_QUEST_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         ADVENTURE_MAP_UPDATE_INSETS: Unknown[];
+
         /**
          * unknown
          */
         ADVENTURE_MAP_UPDATE_POIS: Unknown[];
+
         /**
          * unknown
          */
         AJ_DUNGEON_ACTION: Unknown[];
+
         /**
          * unknown
          */
         AJ_OPEN: Unknown[];
+
         /**
          * unknown
          */
         AJ_PVE_LFG_ACTION: Unknown[];
+
         /**
          * unknown
          */
         AJ_PVP_ACTION: Unknown[];
+
         /**
          * unknown
          */
         AJ_PVP_LFG_ACTION: Unknown[];
+
         /**
          * unknown
          */
         AJ_PVP_RBG_ACTION: Unknown[];
+
         /**
          * unknown
          */
         AJ_PVP_SKIRMISH_ACTION: Unknown[];
+
         /**
          * unknown
          */
         AJ_QUEST_LOG_OPEN: Unknown[];
+
         /**
          * unknown
          */
         AJ_RAID_ACTION: Unknown[];
+
         /**
          * unknown
          */
         AJ_REFRESH_DISPLAY: Unknown[];
+
         /**
          * unknown
          */
         AJ_REWARD_DATA_RECEIVED: Unknown[];
+
         /**
          * unknown
          */
         ALLIED_RACE_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         ALLIED_RACE_OPEN: Unknown[];
+
         /**
          * unknown
          */
         ALTERNATIVE_DEFAULT_LANGUAGE_CHANGED: Unknown[];
+
         /**
          * This event fires whenever the Archaeology window is closed, no matter
          * the method (Clicking on the X, pressing Esc, pressing the Archaeology
@@ -4165,177 +4824,218 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ARCHAEOLOGY_CLOSED
          */
         ARCHAEOLOGY_CLOSED: null;
+
         /**
          * unknown
          */
         ARCHAEOLOGY_FIND_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         ARCHAEOLOGY_SURVEY_CAST: Unknown[];
+
         /**
          * This event fires whenever the Archaeology button from the spellbook is used. This includes if closing the window by pressing the button again
          * @see https://wow.gamepedia.com/ARCHAEOLOGY_TOGGLE
          */
         ARCHAEOLOGY_TOGGLE: null;
+
         /**
          * unknown
          */
         AREA_SPIRIT_HEALER_IN_RANGE: Unknown[];
+
         /**
          * unknown
          */
         AREA_SPIRIT_HEALER_OUT_OF_RANGE: Unknown[];
+
         /**
          * unknown
          */
         ARENA_COOLDOWNS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         ARENA_CROWD_CONTROL_SPELL_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         ARENA_OPPONENT_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         ARENA_PREP_OPPONENT_SPECIALIZATIONS: Unknown[];
+
         /**
          * unknown
          */
         ARENA_SEASON_WORLD_STATE: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_DIGSITE_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_ENDGAME_REFUND: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_RELIC_FORGE_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_RELIC_FORGE_PREVIEW_RELIC_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_RELIC_FORGE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_RELIC_INFO_RECEIVED: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_RESPEC_PROMPT: Unknown[];
+
         /**
          * unknown
          */
         ARTIFACT_TIER_CHANGED: Unknown[];
+
         /**
          * This event fires whenever the data for an artifact has been updated, such as after completing a new one
          * @see https://wow.gamepedia.com/ARTIFACT_UPDATE
          */
         ARTIFACT_UPDATE: null;
+
         /**
          * Event fired when gaining artifact power for the current equipped artifact weapon
          * @see https://wow.gamepedia.com/ARTIFACT_XP_UPDATE
          */
         ARTIFACT_XP_UPDATE: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_CANCELED
          */
         AUCTION_CANCELED: [number];
+
         /**
          * unknown
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_AUCTION_CREATED
          */
         AUCTION_HOUSE_AUCTION_CREATED: [number];
+
         /**
          * unknown
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_BROWSE_FAILURE
          */
         AUCTION_HOUSE_BROWSE_FAILURE: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_BROWSE_RESULTS_ADDED
          */
         AUCTION_HOUSE_BROWSE_RESULTS_ADDED: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_BROWSE_RESULTS_UPDATED
          */
         AUCTION_HOUSE_BROWSE_RESULTS_UPDATED: null;
+
         /**
          * This event is fired when the auction interface is closed. It appears to fire twice, but the reason is unknown
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_CLOSED
          */
         AUCTION_HOUSE_CLOSED: null;
+
         /**
          * Fired when the auction house is not operational
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_DISABLED
          */
         AUCTION_HOUSE_DISABLED: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_FAVORITES_UPDATED
          */
         AUCTION_HOUSE_FAVORITES_UPDATED: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_NEW_BID_RECEIVED
          */
         AUCTION_HOUSE_NEW_BID_RECEIVED: [number];
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_NEW_RESULTS_RECEIVED
          */
         AUCTION_HOUSE_NEW_RESULTS_RECEIVED: Unknown[];
+
         /**
          * This event is fired when the auction interface is first displayed. This is generally done by right-clicking an auctioneer in a major city
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_SHOW
          */
         AUCTION_HOUSE_SHOW: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_MESSAGE_DROPPED
          */
         AUCTION_HOUSE_THROTTLED_MESSAGE_DROPPED: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_MESSAGE_QUEUED
          */
         AUCTION_HOUSE_THROTTLED_MESSAGE_QUEUED: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_MESSAGE_RESPONSE_RECEIVED
          */
         AUCTION_HOUSE_THROTTLED_MESSAGE_RESPONSE_RECEIVED: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_MESSAGE_SENT
          */
         AUCTION_HOUSE_THROTTLED_MESSAGE_SENT: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_SPECIFIC_SEARCH_READY
          */
         AUCTION_HOUSE_THROTTLED_SPECIFIC_SEARCH_READY: null;
+
         /**
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_SYSTEM_READY
          */
         AUCTION_HOUSE_THROTTLED_SYSTEM_READY: null;
+
         /**
          * Fired when listing of multiple stacks fails (or is aborted?).
          * @see https://wow.gamepedia.com/AUCTION_MULTISELL_FAILURE
          */
         AUCTION_MULTISELL_FAILURE: null;
+
         /**
          * Fired when the client begins listing of multiple stacks
          * - **arg1**: total number of stacks the client has to list
          * @see https://wow.gamepedia.com/AUCTION_MULTISELL_START
          */
         AUCTION_MULTISELL_START: [number];
+
         /**
          * Fired when the client lists a stack as part of listing multiple stacks
          * - **arg1**: number of stacks listed so far
@@ -4343,14 +5043,17 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/AUCTION_MULTISELL_UPDATE
          */
         AUCTION_MULTISELL_UPDATE: [number, number];
+
         /**
          * unknown
          */
         AUTH_CHALLENGE_FINISHED: Unknown[];
+
         /**
          * unknown
          */
         AUTH_CHALLENGE_UI_INVALID: Unknown[];
+
         /**
          * Fired when you begin automatically following an ally
          * - **arg1**: The unit you are following. Not necessarily your target
@@ -4359,39 +5062,47 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/AUTOFOLLOW_BEGIN
          */
         AUTOFOLLOW_BEGIN: [UnitId];
+
         /**
          * Fired when the player ceases following an ally
          * @see https://wow.gamepedia.com/AUTOFOLLOW_END
          */
         AUTOFOLLOW_END: null;
+
         /**
          * unknown
          */
         AVOIDANCE_UPDATE: Unknown[];
+
         /**
          * Fired when a bag is (re)moved from its bagslot. Fires both for player bags and bank bags
          * - **arg1**: container ID
          * @see https://wow.gamepedia.com/BAG_CLOSED
          */
         BAG_CLOSED: [number];
+
         /**
          * unknown
          */
         BAG_NEW_ITEMS_UPDATED: Unknown[];
+
         /**
          * Fired when a lootable container (not an equipped bag) is opened
          * - **arg1**: container ID
          * @see https://wow.gamepedia.com/BAG_OPEN
          */
         BAG_OPEN: [number];
+
         /**
          * unknown
          */
         BAG_OVERFLOW_WITH_FULL_INVENTORY: Unknown[];
+
         /**
          * unknown
          */
         BAG_SLOT_FLAGS_UPDATED: Unknown[];
+
         /**
          * Fired when a bags inventory changes. Bag zero, the sixteen slot default backpack, may not fire on login. Upon login (or reloading the console)
          * this event fires even for bank bags. When moving an item in your inventory, this fires multiple times: once each for the source and destination
@@ -4401,358 +5112,443 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/BAG_UPDATE
          */
         BAG_UPDATE: [number];
+
         /**
          * Fired when a cooldown update call is sent to a bag
          * - **arg1**: container ID (may also be nil)
          * @see https://wow.gamepedia.com/BAG_UPDATE_COOLDOWN
          */
         BAG_UPDATE_COOLDOWN: [number | null];
+
         /**
          * Fired after all applicable BAG_UPDATE events for a specific action have been fired
          * @see https://wow.gamepedia.com/BAG_UPDATE_DELAYED
          */
         BAG_UPDATE_DELAYED: null;
+
         /**
          * Fired twice when the bank window is closed. Only at the first one of them the bank data is still available (GetNumBankSlots(),
          * GetContainerItemLink(), ...)
          * @see https://wow.gamepedia.com/BANKFRAME_CLOSED
          */
         BANKFRAME_CLOSED: null;
+
         /**
          * Fired when the bank frame is opened
          * @see https://wow.gamepedia.com/BANKFRAME_OPENED
          */
         BANKFRAME_OPENED: null;
+
         /**
          * unknown
          */
         BANK_BAG_SLOT_FLAGS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         BARBER_SHOP_APPEARANCE_APPLIED: Unknown[];
+
         /**
          * unknown
          */
         BARBER_SHOP_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         BARBER_SHOP_COST_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         BARBER_SHOP_OPEN: Unknown[];
+
         /**
          * Fired when the battlegrounds signup window is closed
          * @see https://wow.gamepedia.com/BATTLEFIELDS_CLOSED
          */
         BATTLEFIELDS_CLOSED: null;
+
         /**
          * Fired when the battlegrounds signup window is opened
          * @see https://wow.gamepedia.com/BATTLEFIELDS_SHOW
          */
         BATTLEFIELDS_SHOW: null;
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_DROP_TIMER_CANCELED: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_DROP_TIMER_STARTED: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_EJECTED: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_EJECT_PENDING: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_ENTERED: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_ENTRY_INVITE: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_QUEUE_INVITE: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_QUEUE_REQUEST_RESPONSE: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_QUEUE_STATUS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         BATTLEFIELD_MGR_STATE_CHANGE: Unknown[];
+
         /**
          * unknown
          */
         BATTLEGROUND_OBJECTIVES_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         BATTLEGROUND_POINTS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         BATTLEPET_FORCE_NAME_DECLENSION: Unknown[];
+
         /**
          * unknown
          */
         BATTLETAG_INVITE_SHOW: Unknown[];
+
         /**
          * unknown
          */
         BATTLE_PET_CURSOR_CLEAR: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/BIDS_UPDATED
          */
         BIDS_UPDATED: null;
+
         /**
          * @see https://wow.gamepedia.com/BID_ADDED
          */
         BID_ADDED: [number];
+
         /**
          * unknown
          */
         BILLING_NAG_DIALOG: Unknown[];
+
         /**
          * Fired when Enchanting an unbound item
          * @see https://wow.gamepedia.com/BIND_ENCHANT
          */
         BIND_ENCHANT: null;
+
         /**
          * unknown
          */
         BLACK_MARKET_BID_RESULT: Unknown[];
+
         /**
          * unknown
          */
         BLACK_MARKET_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         BLACK_MARKET_ITEM_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         BLACK_MARKET_OPEN: Unknown[];
+
         /**
          * unknown
          */
         BLACK_MARKET_OUTBID: Unknown[];
+
         /**
          * unknown
          */
         BLACK_MARKET_UNAVAILABLE: Unknown[];
+
         /**
          * unknown
          */
         BLACK_MARKET_WON: Unknown[];
+
         /**
          * unknown
          */
         BN_BLOCK_LIST_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         BN_CHAT_MSG_ADDON: Unknown[];
+
         /**
          * unknown
          */
         BN_CHAT_WHISPER_UNDELIVERABLE: Unknown[];
+
         /**
          * unknown
          */
         BN_CONNECTED: Unknown[];
+
         /**
          * unknown
          */
         BN_CUSTOM_MESSAGE_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         BN_CUSTOM_MESSAGE_LOADED: Unknown[];
+
         /**
          * unknown
          */
         BN_DISCONNECTED: Unknown[];
+
         /**
          * unknown
          */
         BN_FRIEND_INFO_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         BN_FRIEND_INVITE_ADDED: Unknown[];
+
         /**
          * unknown
          */
         BN_FRIEND_INVITE_LIST_INITIALIZED: Unknown[];
+
         /**
          * unknown
          */
         BN_FRIEND_INVITE_REMOVED: Unknown[];
+
         /**
          * unknown
          */
         BN_FRIEND_INVITE_SEND_RESULT: Unknown[];
+
         /**
          * unknown
          */
         BN_FRIEND_LIST_SIZE_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         BN_INFO_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         BN_NEW_PRESENCE: Unknown[];
+
         /**
          * unknown
          */
         BN_REQUEST_FOF_FAILED: Unknown[];
+
         /**
          * unknown
          */
         BN_REQUEST_FOF_SUCCEEDED: Unknown[];
+
         /**
          * unknown
          */
         BN_SELF_OFFLINE: Unknown[];
+
         /**
          * unknown
          */
         BN_SELF_ONLINE: Unknown[];
+
         /**
          * unknown
          */
         BN_SYSTEM_MESSAGE: Unknown[];
+
         /**
          * unknown
          */
         BONUS_ROLL_ACTIVATE: Unknown[];
+
         /**
          * unknown
          */
         BONUS_ROLL_DEACTIVATE: Unknown[];
+
         /**
          * unknown
          */
         BONUS_ROLL_FAILED: Unknown[];
+
         /**
          * unknown
          */
         BONUS_ROLL_RESULT: Unknown[];
+
         /**
          * unknown
          */
         BONUS_ROLL_STARTED: Unknown[];
+
         /**
          * Fired when the calendar API is busy or free
          * - **arg1**: busyFlag
          * @see https://wow.gamepedia.com/CALENDAR_ACTION_PENDING
          */
         CALENDAR_ACTION_PENDING: [boolean];
+
         /**
          * unknown
          */
         CALENDAR_CLOSE_EVENT: Unknown[];
+
         /**
          * unknown
          */
         CALENDAR_EVENT_ALARM: Unknown[];
+
         /**
          * unknown
          */
         CALENDAR_NEW_EVENT: Unknown[];
+
         /**
          * Fired after calling CalendarOpenEvent once the event data has been retrieved from the server
          * - **arg1**: calendar event types ("PLAYER", "GUILD", "ARENA", "HOLIDAY", "RAID_LOCKOUT")
          * @see https://wow.gamepedia.com/CALENDAR_OPEN_EVENT
          */
         CALENDAR_OPEN_EVENT: [CalendarEventType];
+
         /**
          * unknown
          */
         CALENDAR_UPDATE_ERROR: Unknown[];
+
         /**
          * unknown
          */
         CALENDAR_UPDATE_EVENT: Unknown[];
+
         /**
          * unknown
          */
         CALENDAR_UPDATE_EVENT_LIST: Unknown[];
+
         /**
          * Fired after CalendarEventSortInvites once the invite list has been sorted
          * @see https://wow.gamepedia.com/CALENDAR_UPDATE_INVITE_LIST
          */
         CALENDAR_UPDATE_INVITE_LIST: null;
+
         /**
          * unknown
          */
         CALENDAR_UPDATE_PENDING_INVITES: Unknown[];
+
         /**
          * unknown
          */
         CANCEL_GLYPH_CAST: Unknown[];
+
         /**
          * Fired when a player cancels a roll on an item
          * - **arg1**: rollID
          * @see https://wow.gamepedia.com/CANCEL_LOOT_ROLL
          */
         CANCEL_LOOT_ROLL: [number];
+
         /**
          * unknown
          */
         CANCEL_SUMMON: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_COMPLETED: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_DEATH_COUNT_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_KEYSTONE_RECEPTABLE_OPEN: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_KEYSTONE_SLOTTED: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_LEADERS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_MAPS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_NEW_RECORD: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_RESET: Unknown[];
+
         /**
          * unknown
          */
         CHALLENGE_MODE_START: Unknown[];
+
         /**
          * Fired when number of players in a channel changes but only if this channel is visible in ChannelFrame (it mustn't be hidden by a
          * collapsed category header)
@@ -4761,22 +5557,26 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHANNEL_COUNT_UPDATE
          */
         CHANNEL_COUNT_UPDATE: [number, number];
+
         /**
          * Fired when user changes selected channel in Blizzards ChannelFrame
          * - **arg1**: channel id (item number in Blizzards ChannelFrame -> quod vide API GetChannelDisplayInfo)
          * @see https://wow.gamepedia.com/CHANNEL_FLAGS_UPDATED
          */
         CHANNEL_FLAGS_UPDATED: [number];
+
         /**
          * unknown
          */
         CHANNEL_INVITE_REQUEST: Unknown[];
+
         /**
          * Fired when user is asked for a password (normally after trying to join a channel without a password or with a wrong one)
          * - **arg1**: channel name
          * @see https://wow.gamepedia.com/CHANNEL_PASSWORD_REQUEST
          */
         CHANNEL_PASSWORD_REQUEST: [string];
+
         /**
          * Fired when user changes selected channel in Blizzards ChannelFrame or number of players in currently selected channel changes
          * - **arg1**: channel id (item number in Blizzards ChannelFrame -> quod vide API GetChannelDisplayInfo)
@@ -4784,33 +5584,40 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHANNEL_ROSTER_UPDATE
          */
         CHANNEL_ROSTER_UPDATE: [number, number];
+
         /**
          * Fired when Channel UI should change (e.g. joining / leaving a channel causes this event to fire)
          * @see https://wow.gamepedia.com/CHANNEL_UI_UPDATE
          */
         CHANNEL_UI_UPDATE: null;
+
         /**
          * unknown
          */
         CHANNEL_VOICE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         CHARACTER_ITEM_FIXUP_NOTIFICATION: Unknown[];
+
         /**
          * Fired when the player's available talent points change
          * - **arg1**: indicates number of talent points changed: -1 indicates one used (learning a talent), 1 indicates one gained (leveling)
          * @see https://wow.gamepedia.com/CHARACTER_POINTS_CHANGED
          */
         CHARACTER_POINTS_CHANGED: [number];
+
         /**
          * unknown
          */
         CHARACTER_UPGRADE_SPELL_TIER_SET: Unknown[];
+
         /**
          * unknown
          */
         CHAT_COMBAT_MSG_ARENA_POINTS_GAIN: Unknown[];
+
         /**
          * Fired when a player in your vicinity completes an achievement
          * - **arg1**: The full body of the broadcast message
@@ -4819,6 +5626,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_ACHIEVEMENT
          */
         CHAT_MSG_ACHIEVEMENT: [string, string, string, string, string, Unknown, ...number[]];
+
         /**
          * Fired when the client receives a message from SendAddonMessage
          * - **arg1**: prefix
@@ -4828,6 +5636,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_ADDON
          */
         CHAT_MSG_ADDON: [string, string, AddonMessageType, string];
+
         /**
          * Fired when the client receives an AFK auto-response
          * - **arg1**: AFK response message
@@ -4837,6 +5646,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_AFK
          */
         CHAT_MSG_AFK: [string, string, number, Guid];
+
         /**
          * Fired for battleground-event messages that are in blue by default because they are about Alliance actions, e.g. assaulting a
          * graveyard or capture point, or picking up a flag
@@ -4844,25 +5654,30 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_BG_SYSTEM_ALLIANCE
          */
         CHAT_MSG_BG_SYSTEM_ALLIANCE: [string];
+
         /**
          * Fired for battleground-event messages that are in red by default because they are about Horde actions
          * - **arg1**: Battleground Message (eg. "The Horde has taken the Blacksmith!")
          * @see https://wow.gamepedia.com/CHAT_MSG_BG_SYSTEM_HORDE
          */
         CHAT_MSG_BG_SYSTEM_HORDE: [string];
+
         /**
          * Fired for battleground-event messages that are displayed in a faction-neutral color by default
          * - **arg1**: Battleground Message (eg. "Let the battle for Warsong Gulch begin.")
          */
         CHAT_MSG_BG_SYSTEM_NEUTRAL: [string, ...Unknown[]];
+
         /**
          * unknown
          */
         CHAT_MSG_BN_INLINE_TOAST_ALERT: Unknown[];
+
         /**
          * unknown
          */
         CHAT_MSG_BN_INLINE_TOAST_BROADCAST: Unknown[];
+
         /**
          * Fired when the client receives a channel message
          *
@@ -4880,6 +5695,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_CHANNEL
          */
         CHAT_MSG_CHANNEL: [string, string, string, string, string, ChatFlag, number, number, string, Unknown, number, Guid];
+
         /**
          * Fired when someone joins a chat channel you are in
          *
@@ -4892,6 +5708,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_CHANNEL_JOIN
          */
         CHAT_MSG_CHANNEL_JOIN: [Unknown, string, Unknown, string, number, string];
+
         /**
          * Fired when a player leaves a channel that you are currently inside
          *
@@ -4904,6 +5721,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_CHANNEL_LEAVE
          */
         CHAT_MSG_CHANNEL_LEAVE: [Unknown, string, string, 0, number, string];
+
         /**
          * Fired when ListChannels() or ListChannelByName() is called, and the message is displayed in the chat frame
          * - **arg1**: The list of values displayed by ListChannels() or ListChannelByName() in one string
@@ -4911,6 +5729,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_CHANNEL_LIST
          */
         CHAT_MSG_CHANNEL_LIST: [string, Unknown, Unknown, string];
+
         /**
          * Fired when you enter or leave a chat channel (or a channel was recently throttled)
          * - **arg1**: type ( "YOU_JOINED" if you joined a channel, or "YOU_LEFT" if you left, or "THROTTLED" if channel was throttled )
@@ -4921,6 +5740,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_CHANNEL_NOTICE
          */
         CHAT_MSG_CHANNEL_NOTICE: [ChatJoinLeftType, Unknown, Unknown, string, Unknown, Unknown, number, number, string];
+
         /**
          * Fired when something changes in the channel like moderation enabled, user is kicked, announcements changed and so on. CHAT_*_NOTICE in
          * GlobalStrings.lua has a full list of available types
@@ -4933,6 +5753,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_CHANNEL_NOTICE_USER
          */
         CHAT_MSG_CHANNEL_NOTICE_USER: [ChatUserNoticeType, string, Unknown, string, string];
+
         /**
          * Fires when player's faction changes. i.e.: "Your reputation with Timbermaw Hold has very slightly increased."
          * - **arg1**: chat message
@@ -4940,29 +5761,34 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_COMBAT_FACTION_CHANGE
          */
         CHAT_MSG_COMBAT_FACTION_CHANGE: [string, ...Unknown[]];
+
         /**
          * Fires when the player gains any amount of honor, anything from an honorable kill to bonus honor awarded
          * - **arg1**: chat message (format: "%s dies, honorable kill Rank: %s (Estimated Honor Points: %d)" or "You have been awarded %d honor.")
          * @see https://wow.gamepedia.com/CHAT_MSG_COMBAT_HONOR_GAIN
          */
         CHAT_MSG_COMBAT_HONOR_GAIN: [string];
+
         /**
          * Fires when your equipment takes durability loss from death, and likely other situations as well.(no longer fires on reputation changes as of 1.9)
          * @see https://wow.gamepedia.com/CHAT_MSG_COMBAT_MISC_INFO
          */
         CHAT_MSG_COMBAT_MISC_INFO: null;
+
         /**
          * Fires when you gain XP from killing a creature or finishing a quest. Does not fire if you gain no XP from killing a creature
          * - **arg1**: chat message
          * @see https://wow.gamepedia.com/CHAT_MSG_COMBAT_XP_GAIN
          */
         CHAT_MSG_COMBAT_XP_GAIN: [string];
+
         /**
          * Fires when you gain currency other than money (for example Chef's Awards or Champion's Seals).
          * - **arg1**: chat message (for example, "You receive currency: Chef's Award x1.").
          * @see https://wow.gamepedia.com/CHAT_MSG_CURRENCY
          */
         CHAT_MSG_CURRENCY: [string];
+
         /**
          * Fired when the client receives a Do-Not-Disturb auto-response
          * - **arg1**: DND response message
@@ -4970,6 +5796,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_DND
          */
         CHAT_MSG_DND: [string, string, ...Unknown[]];
+
         /**
          * Fired on sending or receiving a custom emote (one used by /e, /emote or a send chat message command with the emote flag)
          * - **arg1**: Message that was sent/received
@@ -4977,10 +5804,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_DND
          */
         CHAT_MSG_EMOTE: [string, string, ...Unknown[]];
+
         /**
          * unknown
          */
         CHAT_MSG_FILTERED: Unknown[];
+
         /**
          * Fired when a message is sent or received in the Guild channel
          * - **arg1**: Message that was sent
@@ -4989,6 +5818,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_GUILD
          */
         CHAT_MSG_GUILD: [string, string, string, ...Unknown[]];
+
         /**
          * Fired when a guild member completes an achievement
          * - **arg1**: The full body of the achievement broadcast message
@@ -4996,10 +5826,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_GUILD_ACHIEVEMENT
          */
         CHAT_MSG_GUILD_ACHIEVEMENT: [string, string, Unknown, Unknown, string, ...Unknown[]];
+
         /**
          * unknown
          */
         CHAT_MSG_GUILD_ITEM_LOOTED: Unknown[];
+
         /**
          * Fired when you whisper a player that is ignoring you When testing this event the character name is sent twice as arg1 and arg2,
          * Blizzard appears to use arg2 and ignores arg1.
@@ -5008,14 +5840,17 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_IGNORED
          */
         CHAT_MSG_IGNORED: [string, string];
+
         /**
          * unknown
          */
         CHAT_MSG_INSTANCE_CHAT: Unknown[];
+
         /**
          * unknown
          */
         CHAT_MSG_INSTANCE_CHAT_LEADER: Unknown[];
+
         /**
          * Fired when loot text is sent to the chat window (someone selects need, greed, passes, rolls, receives). This also fires messages like
          * "Person creates <item>" via tradeskills, and "Person receives <item>" via a trade window. Does not fire for receiving currency
@@ -5025,12 +5860,14 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_LOOT
          */
         CHAT_MSG_LOOT: [string, Unknown, Unknown, Unknown, string, ...Unknown[]];
+
         /**
          * Fired when a unit loots money
          * - **arg1**: chat message
          * @see https://wow.gamepedia.com/CHAT_MSG_MONEY
          */
         CHAT_MSG_MONEY: [string];
+
         /**
          * Fired for emotes from a monster, such as 'Murloc Forager attempts to run away in fear!'
          * - **arg1**: The body of the emote: '%s attempts to run away in fear!'
@@ -5038,10 +5875,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_MONSTER_EMOTE
          */
         CHAT_MSG_MONSTER_EMOTE: [string, string];
+
         /**
          * unknown
          */
         CHAT_MSG_MONSTER_PARTY: Unknown[];
+
         /**
          * Fired when a NPC says something
          * - **arg1**: message
@@ -5052,11 +5891,13 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_MONSTER_SAY
          */
         CHAT_MSG_MONSTER_SAY: [string, string, string, Unknown, string];
+
         /**
          * Fired when a NPC whispers you something
          * @see https://wow.gamepedia.com/CHAT_MSG_MONSTER_WHISPER
          */
         CHAT_MSG_MONSTER_WHISPER: null;
+
         /**
          * Fired when a NPC yells, example would be the yells during an Alterac Valley from the Herald or a raid boss
          * - **arg1**: message
@@ -5064,6 +5905,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_MONSTER_YELL
          */
         CHAT_MSG_MONSTER_YELL: [string, string];
+
         /**
          * Fired when a message is sent or received in the Guild Officer channel
          * - **arg1**: Message that was received
@@ -5072,10 +5914,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_OFFICER
          */
         CHAT_MSG_OFFICER: [string, string, string, ...Unknown[]];
+
         /**
          * unknown
          */
         CHAT_MSG_OPENING: Unknown[];
+
         /**
          * Fired when a message is sent or received in the Party channel
          * - **arg1**: Message that was received
@@ -5084,6 +5928,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_PARTY
          */
         CHAT_MSG_PARTY: [string, string, string, ...Unknown[]];
+
         /**
          * Fired when a message is sent or received by the party leader
          * - **arg1**: The message that was received
@@ -5092,18 +5937,22 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_PARTY_LEADER
          */
         CHAT_MSG_PARTY_LEADER: [string, string, string, ...Unknown[]];
+
         /**
          * unknown
          */
         CHAT_MSG_PET_BATTLE_COMBAT_LOG: Unknown[];
+
         /**
          * unknown
          */
         CHAT_MSG_PET_BATTLE_INFO: Unknown[];
+
         /**
          * unknown
          */
         CHAT_MSG_PET_INFO: Unknown[];
+
         /**
          * Fired when a message is sent or received in the Raid
          * - **arg1**: message
@@ -5112,6 +5961,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_RAID
          */
         CHAT_MSG_RAID: [string, string, string, ...Unknown[]];
+
         /**
          * Emote message
          * - **arg2**: name of the boss
@@ -5119,10 +5969,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_RAID_BOSS_EMOTE
          */
         CHAT_MSG_RAID_BOSS_EMOTE: [Unknown, string, Unknown, Unknown, string, ...Unknown[]];
+
         /**
          * unknown
          */
         CHAT_MSG_RAID_BOSS_WHISPER: Unknown[];
+
         /**
          * Fired when a message is sent or received from the raid leader
          * - **arg1**: message
@@ -5131,6 +5983,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_RAID_LEADER
          */
         CHAT_MSG_RAID_LEADER: [string, string, string, ...Unknown[]];
+
         /**
          * Fired when a warning message is sent or received from the raid leader
          * - **arg1**: message
@@ -5139,10 +5992,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_RAID_WARNING
          */
         CHAT_MSG_RAID_WARNING: [string, string, string, ...Unknown[]];
+
         /**
          * unknown
          */
         CHAT_MSG_RESTRICTED: Unknown[];
+
         /**
          * Fired when a message is sent or received in the Say channel
          * - **arg1**: message
@@ -5151,18 +6006,21 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_SAY
          */
         CHAT_MSG_SAY: [string, string, string, ...Unknown[]];
+
         /**
          * Fired when some chat messages about skills are displayed
          * - **arg1**: The content of the chat message
          * @see https://wow.gamepedia.com/CHAT_MSG_SKILL
          */
         CHAT_MSG_SKILL: [string];
+
         /**
          * Fired when a system chat message (they are displayed in yellow) is received
          * - **arg1**: The content of the chat message
          * @see https://wow.gamepedia.com/CHAT_MSG_SYSTEM
          */
         CHAT_MSG_SYSTEM: [string];
+
         /**
          * Fired when a raid target icon is set. This is used by the chat filter, if the player is watching raid icons in chat output
          * (in the Filters right-click menu, under Other, look for Target Icons).
@@ -5172,6 +6030,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_SYSTEM
          */
         CHAT_MSG_TARGETICONS: [string, ...Unknown[]];
+
         /**
          * Fired for emotes with an emote token. /dance, /healme, etc
          * - **arg1**: Emote Message
@@ -5179,10 +6038,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_TEXT_EMOTE
          */
         CHAT_MSG_TEXT_EMOTE: [string, string, ...Unknown[]];
+
         /**
          * unknown
          */
         CHAT_MSG_TRADESKILLS: Unknown[];
+
         /**
          * Fired when a whisper is received from another player
          *
@@ -5196,6 +6057,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_WHISPER
          */
         CHAT_MSG_WHISPER: [string, string, string, Unknown, Unknown, ChatFlag, number, number, ...Unknown[]];
+
         /**
          * Fired when the player sends a whisper to another player
          * - **arg1**: Message sent
@@ -5204,6 +6066,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CHAT_MSG_WHISPER_INFORM
          */
         CHAT_MSG_WHISPER_INFORM: [string, string, string, ...Unknown[]];
+
         /**
          * Fired when a message is sent or received in the Yell channel
          * - **arg1**: Message that was received
@@ -5212,49 +6075,59 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/https://wow.gamepedia.com/CHAT_MSG_YELL
          */
         CHAT_MSG_YELL: [string, string, string, ...Unknown[]];
+
         /**
          * unknown
          */
         CINEMATIC_START: Unknown[];
+
         /**
          * unknown
          */
         CINEMATIC_STOP: Unknown[];
+
         /**
          * unknown
          */
         CLEAR_BOSS_EMOTES: Unknown[];
+
         /**
          * unknown
          */
         CLOSE_INBOX_ITEM: Unknown[];
+
         /**
          * Fired when the guild dress frame is closed
          * @see https://wow.gamepedia.com/CLOSE_TABARD_FRAME
          */
         CLOSE_TABARD_FRAME: null;
+
         /**
          * Supposed to fire whenever the world map is closed/hidden, though it doesn't. A workaround for this is to use "WORLD_MAP_UPDATE" to
          * set a global variable to use elsewhere with an OnUpdate function
          * @see https://wow.gamepedia.com/CLOSE_WORLD_MAP
          */
         CLOSE_WORLD_MAP: null;
+
         /**
          * COMBAT_LOG_EVENT and COMBAT_LOG_EVENT_UNFILTERED no longer have any payload. To retrieve the information previously carried in the payload,
          * use CombatLogGetCurrentEventInfo(). The data structure is unchanged
          * @see https://wow.gamepedia.com/COMBAT_LOG_EVENT
          */
         COMBAT_LOG_EVENT: null;
+
         /**
          * COMBAT_LOG_EVENT and COMBAT_LOG_EVENT_UNFILTERED no longer have any payload. To retrieve the information previously carried in the payload,
          * use CombatLogGetCurrentEventInfo(). The data structure is unchanged
          * @see https://wow.gamepedia.com/COMBAT_LOG_EVENT_UNFILTERED
          */
         COMBAT_LOG_EVENT_UNFILTERED: null;
+
         /**
          * unknown
          */
         COMBAT_RATING_UPDATE: Unknown[];
+
         /**
          * Fired when the currently watched entity (as set by the CombatTextSetActiveUnit function) takes or avoids damage, receives heals, gains
          * mana/energy/rage, etc. This event is used by Blizzard's floating combat text addon
@@ -5268,76 +6141,93 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/COMBAT_TEXT_UPDATE
          */
         COMBAT_TEXT_UPDATE: [CombatTextType, number | string, number | string];
+
         /**
          * Fired when the character logs in and the server sends the greeting text. (Currently "Scammers are trying harder than ever to phish for your
          * account information!...") This is not fired when reloading the UI
          * @see https://wow.gamepedia.com/COMMENTATOR_ENTER_WORLD
          */
         COMMENTATOR_ENTER_WORLD: null;
+
         /**
          * @see https://wow.gamepedia.com/COMMENTATOR_IMMEDIATE_FOV_UPDATE
          */
         COMMENTATOR_IMMEDIATE_FOV_UPDATE: [number];
+
         /**
          * unknown
          */
         COMMENTATOR_MAP_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         COMMENTATOR_PARTY_INFO_REQUEST: Unknown[];
+
         /**
          * unknown
          */
         COMMENTATOR_PLAYER_NAME_OVERRIDE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         COMMENTATOR_PLAYER_UPDATE: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/COMMODITY_PRICE_UNAVAILABLE
          */
         COMMODITY_PRICE_UNAVAILABLE: null;
+
         /**
          * - **arg1**: Updated unit price
          * - **arg2**: Updated total price
          * @see https://wow.gamepedia.com/COMMODITY_PRICE_UPDATED
          */
         COMMODITY_PRICE_UPDATED: [number, number];
+
         /**
          * - **arg1**: Item ID
          * - **arg2**: Quantity
          * @see https://wow.gamepedia.com/COMMODITY_PURCHASED
          */
         COMMODITY_PURCHASED: [number, number];
+
         /**
          * @see https://wow.gamepedia.com/COMMODITY_PURCHASE_FAILED
          */
         COMMODITY_PURCHASE_FAILED: null;
+
         /**
          * @see https://wow.gamepedia.com/COMMODITY_PURCHASE_SUCCEEDED
          */
         COMMODITY_PURCHASE_SUCCEEDED: null;
+
         /**
          * @see https://wow.gamepedia.com/COMMODITY_SEARCH_RESULTS_ADDED
          */
         COMMODITY_SEARCH_RESULTS_ADDED: [number];
+
         /**
          * @see https://wow.gamepedia.com/COMMODITY_SEARCH_RESULTS_UPDATED
          */
         COMMODITY_SEARCH_RESULTS_UPDATED: [number];
+
         /**
          * unknown
          */
         COMPACT_UNIT_FRAME_PROFILES_LOADED: Unknown[];
+
         /**
          * unknown
          */
         COMPANION_LEARNED: Unknown[];
+
         /**
          * unknown
          */
         COMPANION_UNLEARNED: Unknown[];
+
         /**
          * If the type is nil, the UI should update if it's visible, regardless of which type it's managing. If the type is non-nil, then it will be
          * either "CRITTER" or "MOUNT" and that signifies that the active companion has changed and the UI should update if it's currently showing
@@ -5346,14 +6236,17 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/COMPANION_UPDATE
          */
         COMPANION_UPDATE: null;
+
         /**
          * unknown
          */
         CONFIRM_BEFORE_USE: Unknown[];
+
         /**
          * unknown
          */
         CONFIRM_BINDER: Unknown[];
+
         /**
          * Fires when you try to roll "disenchant" for and item which Binds on Pickup
          * - **arg1**: RollId
@@ -5362,6 +6255,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CONFIRM_DISENCHANT_ROLL
          */
         CONFIRM_DISENCHANT_ROLL: [number, DisenchantRollType];
+
         /**
          * Fires when you try to roll "need" or "greed" for and item which Binds on Pickup
          * - **arg1**: RollId
@@ -5369,10 +6263,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CONFIRM_LOOT_ROLL
          */
         CONFIRM_LOOT_ROLL: [number, DisenchantRollType];
+
         /**
          * unknown
          */
         CONFIRM_SUMMON: Unknown[];
+
         /**
          * Fires when the user selects the "Yes, I do." confirmation prompt after speaking to a class trainer and choosing to unlearn their talents
          * - **arg1**: Cost (260000 is equivalent to 26g). This value is then passed to different frames, depending on where the event is
@@ -5381,76 +6277,93 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CONFIRM_TALENT_WIPE
          */
         CONFIRM_TALENT_WIPE: [number];
+
         /**
          * Accept durability(!) loss in exchange for his body back
          * @description History: Way back before WoW was released, you lost experience rather than durability when you resurrected at a spirit healer
          * @see https://wow.gamepedia.com/CONFIRM_XP_LOSS
          */
         CONFIRM_XP_LOSS: null;
+
         /**
          * unknown
          */
         CONSOLE_CLEAR: Unknown[];
+
         /**
          * unknown
          */
         CONSOLE_COLORS_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         CONSOLE_FONT_SIZE_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         CONSOLE_MESSAGE: Unknown[];
+
         /**
          * unknown
          */
         CONTRIBUTION_COLLECTOR_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         CONTRIBUTION_COLLECTOR_OPEN: Unknown[];
+
         /**
          * unknown
          */
         CONTRIBUTION_COLLECTOR_PENDING: Unknown[];
+
         /**
          * unknown
          */
         CONTRIBUTION_COLLECTOR_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         CONTRIBUTION_COLLECTOR_UPDATE_SINGLE: Unknown[];
+
         /**
          * unknown
          */
         CORPSE_IN_INSTANCE: Unknown[];
+
         /**
          * Fired when the player is in range of his body
          * @see https://wow.gamepedia.com/CORPSE_IN_RANGE
          */
         CORPSE_IN_RANGE: null;
+
         /**
          * Fired when the player is out of range of his body
          * @see https://wow.gamepedia.com/CORPSE_OUT_OF_RANGE
          */
         CORPSE_OUT_OF_RANGE: null;
+
         /**
          * unknown
          */
         CRITERIA_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         CRITERIA_EARNED: Unknown[];
+
         /**
          * Fired when the criteria for an achievement has changed. Fires several times at once, presumably for different levels of achievements
          * and yet-unknown feats of strength, but this has yet to be confirmed and there may be another use for this Event
          * @see https://wow.gamepedia.com/CRITERIA_UPDATE
          */
         CRITERIA_UPDATE: null;
+
         /**
          * Fired every time the UI need to draw the currencies list. So it fire on login, on every loading screen and on reloadui, this is usefull
          * to be sure that currencies informations are available after login, even on a crowded server in the evening with a lot of addons loaded
@@ -5459,17 +6372,20 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CURRENCY_DISPLAY_UPDATE
          */
         CURRENCY_DISPLAY_UPDATE: null;
+
         /**
          * Fired when the spell being cast is changed
          * @see https://wow.gamepedia.com/CURRENT_SPELL_CAST_CHANGED
          */
         CURRENT_SPELL_CAST_CHANGED: null;
+
         /**
          * Fired when the player right-clicks terrain, and on mouseover before UPDATE_MOUSEOVER_UNIT and on mouseout after UPDATE_MOUSEOVER_UNIT.
          * This excludes doodads, player characters, and NPCs that lack interaction
          * @see https://wow.gamepedia.com/CURSOR_UPDATE
          */
         CURSOR_UPDATE: null;
+
         /**
          * Fired when a CVar is changed
          * - **arg1**: cvarname
@@ -5477,83 +6393,100 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/CVAR_UPDATE
          */
         CVAR_UPDATE: [string, any];
+
         /**
          * unknown
          */
         DEBUG_MENU_TOGGLED: Unknown[];
+
         /**
          * Fired when the player attempts to destroy an item
          * - **arg1**: item name
          * @see https://wow.gamepedia.com/DELETE_ITEM_CONFIRM
          */
         DELETE_ITEM_CONFIRM: [string];
+
         /**
          * Fired when SetAllowLowLevelRaid is used to disable low-level raids on the character
          * @see https://wow.gamepedia.com/DISABLE_LOW_LEVEL_RAID
          */
         DISABLE_LOW_LEVEL_RAID: null;
+
         /**
          * unknown
          */
         DISABLE_TAXI_BENCHMARK: Unknown[];
+
         /**
          * unknown
          */
         DISABLE_XP_GAIN: Unknown[];
+
         /**
          * unknown
          */
         DISPLAY_SIZE_CHANGED: Unknown[];
+
         /**
          * Fired when a duel is finished
          * @see https://wow.gamepedia.com/DUEL_FINISHED
          */
         DUEL_FINISHED: null;
+
         /**
          * Fired when the player returns in bounds after being out of bounds during a duel
          * @see https://wow.gamepedia.com/DUEL_INBOUNDS
          */
         DUEL_INBOUNDS: null;
+
         /**
          * Fired when the player leaves the bounds of the duel
          * @see https://wow.gamepedia.com/DUEL_OUTOFBOUNDS
          */
         DUEL_OUTOFBOUNDS: null;
+
         /**
          * Fired when the player is challenged to a duel
          * - **arg1**: opponent name
          * @see https://wow.gamepedia.com/DUEL_REQUESTED
          */
         DUEL_REQUESTED: [string];
+
         /**
          * Encounter Journal: Fires when the Difficulty Index changes
          * - **arg1**: newDifficulty
          * @see https://wow.gamepedia.com/EJ_DIFFICULTY_UPDATE
          */
         EJ_DIFFICULTY_UPDATE: [Difficulty];
+
         /**
          * Encounter Journal: Fires when Item Loot Data is available
          * - **arg1**: itemId
          * @see https://wow.gamepedia.com/EJ_LOOT_DATA_RECIEVED
          */
         EJ_LOOT_DATA_RECIEVED: [number];
+
         /**
          * unknown
          */
         ENABLE_DECLINE_GUILD_INVITE: Unknown[];
+
         /**
          * Fired when SetAllowLowLevelRaid is used to enable low-level raids on the character
          * @see https://wow.gamepedia.com/ENABLE_LOW_LEVEL_RAID
          */
         ENABLE_LOW_LEVEL_RAID: null;
+
         /**
          * unknown
          */
         ENABLE_TAXI_BENCHMARK: Unknown[];
+
         /**
          * unknown
          */
         ENABLE_XP_GAIN: Unknown[];
+
         /**
          * Fires at the end of an instanced encounter
          * - **arg1**: ID for the specific encounter that ended (Does not match the encounterIDs used in the Encounter Journal)
@@ -5565,10 +6498,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ENCOUNTER_END
          */
         ENCOUNTER_END: [number, string, Difficulty, number, Flag];
+
         /**
          * unknown
          */
         ENCOUNTER_LOOT_RECEIVED: Unknown[];
+
         /**
          * Fires at the start of an instanced encounter
          * - **arg1**: ID for the specific encounter started (Does not match the encounterIDs used in the Encounter Journal)
@@ -5579,80 +6514,98 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ENCOUNTER_START
          */
         ENCOUNTER_START: [number, string, Difficulty, number];
+
         /**
          * unknown
          */
         END_BOUND_TRADEABLE: Unknown[];
+
         /**
          * unknown
          */
         ENTERED_DIFFERENT_INSTANCE_FROM_PARTY: Unknown[];
+
         /**
          * Fired when a new equipment set is created, an equipment set is deleted or an equipment set has changed
          * @see https://wow.gamepedia.com/EQUIPMENT_SETS_CHANGED
          */
         EQUIPMENT_SETS_CHANGED: null;
+
         /**
          * Fired when an equipment set has finished equipping
          * - **arg1**: True if the set change was successful
          * - **arg2**: The name of the set that was changed
          */
         EQUIPMENT_SWAP_FINISHED: [boolean, string];
+
         /**
          * unknown
          */
         EQUIPMENT_SWAP_PENDING: Unknown[];
+
         /**
          * Fired when the player attempts to equip bind on equip loot
          * @see https://wow.gamepedia.com/EQUIP_BIND_CONFIRM
          */
         EQUIP_BIND_CONFIRM: null;
+
         /**
          * unknown
          */
         EQUIP_BIND_TRADEABLE_CONFIRM: Unknown[];
+
         /**
          * unknown
          */
         EVENT_CLASS_TRIAL_TIMER_START: Unknown[];
+
         /**
          * unknown
          */
         EVENT_CLASS_TRIAL_UPGRADE_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         EVENT_TUTORIAL_HIGHLIGHT_SPELL: Unknown[];
+
         /**
          * unknown
          */
         EVENT_TUTORIAL_UNHIGHLIGHT_SPELL: Unknown[];
+
         /**
          * Fired to execute macro commands
          * - **arg1**: The "chat line" (macro command line) to execute
          * @see https://wow.gamepedia.com/EXECUTE_CHAT_LINE
          */
         EXECUTE_CHAT_LINE: [string];
+
         /**
          * unknown
          */
         EXPERIMENTAL_CVAR_CONFIRMATION_NEEDED: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/EXTRA_BROWSE_INFO_RECEIVED
          */
         EXTRA_BROWSE_INFO_RECEIVED: [number];
+
         /**
          * unknown
          */
         FORBIDDEN_NAME_PLATE_CREATED: Unknown[];
+
         /**
          * unknown
          */
         FORBIDDEN_NAME_PLATE_UNIT_ADDED: Unknown[];
+
         /**
          * unknown
          */
         FORBIDDEN_NAME_PLATE_UNIT_REMOVED: Unknown[];
+
         /**
          * Fired when, You log in
          * - Open the friends window (twice)
@@ -5664,198 +6617,247 @@ declare namespace WoWAPI {
          * - Friend goes offline
          */
         FRIENDLIST_UPDATE: null;
+
         /**
          * unknown
          */
         GARRISON_BUILDINGS_SWAPPED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_BUILDING_ACTIVATABLE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_BUILDING_ACTIVATED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_BUILDING_ERROR: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_BUILDING_LIST_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_BUILDING_PLACED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_BUILDING_REMOVED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_BUILDING_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_FOLLOWER_ADDED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_FOLLOWER_CATEGORIES_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_FOLLOWER_DURABILITY_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_FOLLOWER_LIST_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_FOLLOWER_REMOVED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_FOLLOWER_UPGRADED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_FOLLOWER_XP_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_HIDE_LANDING_PAGE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_INVASION_AVAILABLE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_INVASION_UNAVAILABLE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_LANDINGPAGE_SHIPMENTS: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MISSION_AREA_BONUS_ADDED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MISSION_FINISHED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MISSION_LIST_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MISSION_REWARD_INFO: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MONUMENT_CLOSE_UI: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MONUMENT_LIST_LOADED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MONUMENT_REPLACED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MONUMENT_SELECTED_TROPHY_ID_LOADED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_MONUMENT_SHOW_UI: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_RANDOM_MISSION_ADDED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_RECALL_PORTAL_LAST_USED_TIME: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_RECALL_PORTAL_USED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_RECRUITMENT_FOLLOWERS_GENERATED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_RECRUITMENT_NPC_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_RECRUITMENT_NPC_OPENED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_RECRUITMENT_READY: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_RECRUIT_FOLLOWER_RESULT: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_SHIPMENT_RECEIVED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_SHIPYARD_NPC_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_SHIPYARD_NPC_OPENED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_SHOW_LANDING_PAGE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_TALENT_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_TALENT_NPC_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_TALENT_NPC_OPENED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_TALENT_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_TRADESKILL_NPC_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_UPGRADEABLE_RESULT: Unknown[];
+
         /**
          * unknown
          */
         GARRISON_USE_PARTY_GARRISON_CHANGED: Unknown[];
+
         /**
          * Fired when a GetItemInfo call causes the client to query the server for data about an item and that data has arrived.
          * (May or may not fire for item data that is queried automatically by client when seen in world, auction house, chat link etc)
@@ -5863,34 +6865,40 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/GET_ITEM_INFO_RECEIVED
          */
         GET_ITEM_INFO_RECEIVED: [number];
+
         /**
          * Fires whenever you press a mouse button.
          * - **arg1**: The mouse button pressed
          * @see https://wow.gamepedia.com/GLOBAL_MOUSE_DOWN
          */
         GLOBAL_MOUSE_DOWN: [MouseButton];
+
         /**
          * Fires whenever a mouse button gets released.
          * - **arg1**: The mouse button pressed
          * @see https://wow.gamepedia.com/GLOBAL_MOUSE_DOWN
          */
         GLOBAL_MOUSE_UP: [MouseButton];
+
         /**
          * Fired when a glyph is added to a socket. Also fires for a socket when changing the talent group causes that socket to change from an
          * empty to a used state
          * @see https://wow.gamepedia.com/GLYPH_ADDED
          */
         GLYPH_ADDED: null;
+
         /**
          * ? Probably fired when a glyph slot becomes locked? ?? (How exactly would this happen, anyway?)
          * @see https://wow.gamepedia.com/GLYPH_DISABLED
          */
         GLYPH_DISABLED: null;
+
         /**
          * ? Probably fired when a glyph slot becomes unlocked?
          * @see https://wow.gamepedia.com/GLYPH_ENABLED
          */
         GLYPH_ENABLED: null;
+
         /**
          * Fired when a glyph is removed from a socket. This can be done with either shift-right-clicking the socket, or by repalcing it with another
          * glyph. If another glyph replaces this one, this is fired at the start of (before) the cast. Also fired when changing the active talent group
@@ -5898,41 +6906,50 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/GLYPH_REMOVED
          */
         GLYPH_REMOVED: null;
+
         /**
          * Fired for each slot that changes when the active talent group changes. Does not fire when a glyph slot retains the same glyph in the same slot
          * @see https://wow.gamepedia.com/GLYPH_UPDATED
          */
         GLYPH_UPDATED: null;
+
         /**
          * unknown
          */
         GMRESPONSE_RECEIVED: Unknown[];
+
         /**
          * unknown
          */
         GMSURVEY_DISPLAY: Unknown[];
+
         /**
          * unknown
          */
         GM_PLAYER_INFO: Unknown[];
+
         /**
          * Fired when you close the talk window for an npc
          * - **arg1**: The mouse button used to close the window (nil if closed when you go out of range)
          * @see https://wow.gamepedia.com/GOSSIP_CLOSED
          */
         GOSSIP_CLOSED: [MouseButton | null];
+
         /**
          * unknown
          */
         GOSSIP_CONFIRM: Unknown[];
+
         /**
          * unknown
          */
         GOSSIP_CONFIRM_CANCEL: Unknown[];
+
         /**
          * unknown
          */
         GOSSIP_ENTER_CODE: Unknown[];
+
         /**
          * Fired when you talk to an npc
          * @description This event typically fires when you are given several choices, including choosing to sell item, select available and active
@@ -5941,75 +6958,92 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/GOSSIP_SHOW
          */
         GOSSIP_SHOW: null;
+
         /**
          * unknown
          */
         GROUP_INVITE_CONFIRMATION: Unknown[];
+
         /**
          * unknown
          */
         GROUP_JOINED: Unknown[];
+
         /**
          * unknown
          */
         GROUP_LEFT: Unknown[];
+
         /**
          * Fired when the guild-bank contents change
          * @see https://wow.gamepedia.com/GUILDBANKBAGSLOTS_CHANGED
          */
         GUILDBANKBAGSLOTS_CHANGED: null;
+
         /**
          * Fired when the guild-bank frame is closed
          * @see https://wow.gamepedia.com/GUILDBANKFRAME_CLOSED
          */
         GUILDBANKFRAME_CLOSED: null;
+
         /**
          * Fired when the guild-bank frame is opened
          * @see https://wow.gamepedia.com/GUILDBANKFRAME_OPENED
          */
         GUILDBANKFRAME_OPENED: null;
+
         /**
          * Fired when the guild-bank log is updated
          * @see https://wow.gamepedia.com/GUILDBANKLOG_UPDATE
          */
         GUILDBANKLOG_UPDATE: null;
+
         /**
          * unknown
          */
         GUILDBANK_ITEM_LOCK_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         GUILDBANK_TEXT_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         GUILDBANK_UPDATE_MONEY: Unknown[];
+
         /**
          * unknown
          */
         GUILDBANK_UPDATE_TABS: Unknown[];
+
         /**
          * unknown
          */
         GUILDBANK_UPDATE_TEXT: Unknown[];
+
         /**
          * unknown
          */
         GUILDBANK_UPDATE_WITHDRAWMONEY: Unknown[];
+
         /**
          * unknown
          */
         GUILDTABARD_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GUILD_EVENT_LOG_UPDATE: Unknown[];
+
         /**
          * Fired when the guild invitation is declined
          * @see https://wow.gamepedia.com/GUILD_INVITE_CANCEL
          */
         GUILD_INVITE_CANCEL: null;
+
         /**
          * Fired when you are invited to join a guild
          * - **arg1**: guild inviter
@@ -6017,41 +7051,50 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/GUILD_INVITE_REQUEST
          */
         GUILD_INVITE_REQUEST: [string, string];
+
         /**
          * Fired when the guild messages of the day is shown
          * - **arg1**: guild message of the day
          * @see https://wow.gamepedia.com/GUILD_MOTD
          */
         GUILD_MOTD: [string];
+
         /**
          * unknown
          */
         GUILD_NEWS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GUILD_PARTY_STATE_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         GUILD_PERK_UPDATE: Unknown[];
+
         /**
          * Fired when any changes are made to ranks or rank permission flags
          * @see https://wow.gamepedia.com/GUILD_RANKS_UPDATE
          */
         GUILD_RANKS_UPDATE: null;
+
         /**
          * unknown
          */
         GUILD_RECIPE_KNOWN_BY_MEMBERS: Unknown[];
+
         /**
          * unknown
          */
         GUILD_REGISTRAR_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         GUILD_REGISTRAR_SHOW: Unknown[];
+
         /**
          * unknown
          */
@@ -6060,10 +7103,12 @@ declare namespace WoWAPI {
          * unknown
          */
         GUILD_REP_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         GUILD_REWARDS_LIST: Unknown[];
+
         /**
          * Fired when the client's guild info cache has been updated after a call to GuildRoster() or after any data change in any of the guild's
          * data, excluding the Guild Information window
@@ -6072,116 +7117,143 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/GUILD_ROSTER_UPDATE
          */
         GUILD_ROSTER_UPDATE: [Flag | null];
+
         /**
          * unknown
          */
         GUILD_TRADESKILL_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         GUILD_XP_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         HEARTHSTONE_BOUND: Unknown[];
+
         /**
          * unknown
          */
         HEIRLOOMS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         HEIRLOOM_UPGRADE_TARGETING_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         HONOR_LEVEL_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         HONOR_PRESTIGE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         HONOR_XP_UPDATE: Unknown[];
+
         /**
          * Fired when a player is added or removed from the ignore list. Event is called twice. Not certain why it is called twice
          * @see https://wow.gamepedia.com/IGNORELIST_UPDATE
          */
         IGNORELIST_UPDATE: null;
+
         /**
          * unknown
          */
         IGR_BILLING_NAG_DIALOG: Unknown[];
+
         /**
          * unknown
          */
         INCOMING_RESURRECT_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         INITIAL_HOTFIXES_APPLIED: Unknown[];
+
         /**
          * unknown
          */
         INSPECT_ACHIEVEMENT_READ: Unknown[];
+
         /**
          * unknown
          */
         INSPECT_HONOR_UPDATE: Unknown[];
+
         /**
          * After a NotifyInspect(unit) is called, this is fired, indicating the Inspected player's information has been loaded
          * - **arg1**: Unit GUID
          * @see https://wow.gamepedia.com/INSPECT_READY
          */
         INSPECT_READY: [Guid];
+
         /**
          * Fired when the countdown to boot a player from an instance starts
          * @see https://wow.gamepedia.com/INSTANCE_BOOT_START
          */
         INSTANCE_BOOT_START: null;
+
         /**
          * Fired when the countdown to boot a player from an instance stops
          * @see https://wow.gamepedia.com/INSTANCE_BOOT_STOP
          */
         INSTANCE_BOOT_STOP: null;
+
         /**
          * unknown
          */
         INSTANCE_ENCOUNTER_ENGAGE_UNIT: Unknown[];
+
         /**
          * unknown
          */
         INSTANCE_GROUP_SIZE_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         INSTANCE_LOCK_START: Unknown[];
+
         /**
          * Fired when quitting the game
          * @see https://wow.gamepedia.com/INSTANCE_LOCK_STOP
          */
         INSTANCE_LOCK_STOP: null;
+
         /**
          * unknown
          */
         INSTANCE_LOCK_WARNING: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/ITEM_INTERACTION_CLOSE
          */
         ITEM_INTERACTION_CLOSE: null;
+
         /**
          * @see https://wow.gamepedia.com/ITEM_INTERACTION_ITEM_SELECTION_UPDATED
          */
         ITEM_INTERACTION_ITEM_SELECTION_UPDATED: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/ITEM_INTERACTION_OPEN
          */
         ITEM_INTERACTION_OPEN: null;
+
         /**
          * @see https://wow.gamepedia.com/ITEM_KEY_ITEM_INFO_RECEIVED
          */
         ITEM_KEY_ITEM_INFO_RECEIVED: [number];
+
         /**
          * Fires when an item gets "locked" in the inventory or a container
          * - **arg1**: Bag of item
@@ -6189,6 +7261,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ITEM_LOCKED
          */
         ITEM_LOCKED: [CONTAINER_ID, INVENTORY_SLOT_ID];
+
         /**
          * Fires when the "locked" status on a container or inventory item changes, usually from but not limited to Pickup functions to move items
          * - If arg2 is non-nil
@@ -6200,10 +7273,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ITEM_LOCK_CHANGED
          */
         ITEM_LOCK_CHANGED: [CONTAINER_ID | INVENTORY_SLOT_ID, INVENTORY_SLOT_ID?];
+
         /**
          * @see https://wow.gamepedia.com/ITEM_PURCHASED
          */
         ITEM_PURCHASED: [number];
+
         /**
          * Fired when an item is pushed onto the "inventory-stack". For instance when you manufacture something with your trade skills or picks something up
          * - **arg1**: the bag that has received the new item
@@ -6211,98 +7286,121 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ITEM_PUSH
          */
         ITEM_PUSH: [CONTAINER_ID, TexturePath];
+
         /**
          * unknown
          */
         ITEM_RESTORATION_BUTTON_STATUS: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/ITEM_SEARCH_RESULTS_ADDED
          */
         ITEM_SEARCH_RESULTS_ADDED: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/ITEM_SEARCH_RESULTS_UPDATED
          */
         ITEM_SEARCH_RESULTS_UPDATED: Unknown[];
+
         /**
          * Fired when an items text begins displaying
          * @see https://wow.gamepedia.com/ITEM_TEXT_BEGIN
          */
         ITEM_TEXT_BEGIN: null;
+
         /**
          * Fired when the items text has completed its viewing and is done
          * @see https://wow.gamepedia.com/ITEM_TEXT_CLOSED
          */
         ITEM_TEXT_CLOSED: null;
+
         /**
          * Fired when the item's text can continue and is ready to be scrolled
          * @see https://wow.gamepedia.com/ITEM_TEXT_READY
          */
         ITEM_TEXT_READY: null;
+
         /**
          * Fired when an item is in the process of being translated
          * @see https://wow.gamepedia.com/ITEM_TEXT_TRANSLATION
          */
         ITEM_TEXT_TRANSLATION: null;
+
         /**
          * unknown
          */
         ITEM_UNLOCKED: Unknown[];
+
         /**
          * unknown
          */
         ITEM_UPGRADE_MASTER_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         ITEM_UPGRADE_MASTER_OPENED: Unknown[];
+
         /**
          * unknown
          */
         ITEM_UPGRADE_MASTER_SET_ITEM: Unknown[];
+
         /**
          * unknown
          */
         ITEM_UPGRADE_MASTER_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         KNOWLEDGE_BASE_ARTICLE_LOAD_FAILURE: Unknown[];
+
         /**
          * unknown
          */
         KNOWLEDGE_BASE_ARTICLE_LOAD_SUCCESS: Unknown[];
+
         /**
          * unknown
          */
         KNOWLEDGE_BASE_QUERY_LOAD_FAILURE: Unknown[];
+
         /**
          * unknown
          */
         KNOWLEDGE_BASE_QUERY_LOAD_SUCCESS: Unknown[];
+
         /**
          * unknown
          */
         KNOWLEDGE_BASE_SERVER_MESSAGE: Unknown[];
+
         /**
          * unknown
          */
         KNOWLEDGE_BASE_SETUP_LOAD_FAILURE: Unknown[];
+
         /**
          * unknown
          */
         KNOWLEDGE_BASE_SETUP_LOAD_SUCCESS: Unknown[];
+
         /**
          * unknown
          */
         KNOWLEDGE_BASE_SYSTEM_MOTD_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         KNOWN_TITLES_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LANGUAGE_LIST_CHANGED: Unknown[];
+
         /**
          * Fired when a new spell/ability is added to the spellbook. e.g. When training a new or a higher level spell/ability
          * - **arg1**: Spell ID
@@ -6310,308 +7408,379 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/LEARNED_SPELL_IN_TAB
          */
         LEARNED_SPELL_IN_TAB: [number, number];
+
         /**
          * unknown
          */
         LEVEL_GRANT_PROPOSED: Unknown[];
+
         /**
          * unknown
          */
         LFG_BOOT_PROPOSAL_UPDATE: Unknown[];
+
         /**
          * Fired when a random dungeon (picked by the Dungeon Finder) is completed. This event causes a window similar to the achievement alert to
          * appear, with the details of your Dungeon Finder rewards
          * @see https://wow.gamepedia.com/LFG_COMPLETION_REWARD
          */
         LFG_COMPLETION_REWARD: null;
+
         /**
          * unknown
          */
         LFG_INVALID_ERROR_MESSAGE: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_ACTIVE_ENTRY_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_APPLICANT_LIST_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_APPLICANT_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_APPLICATION_STATUS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_AVAILABILITY_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_ENTRY_CREATION_FAILED: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_ENTRY_EXPIRED_TIMEOUT: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_ENTRY_EXPIRED_TOO_MANY_PLAYERS: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_JOINED_GROUP: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_SEARCH_FAILED: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_SEARCH_RESULTS_RECEIVED: Unknown[];
+
         /**
          * unknown
          */
         LFG_LIST_SEARCH_RESULT_UPDATED: Unknown[];
+
         /**
          * Fired when Dungeon Lock info is received
          * @see https://wow.gamepedia.com/LFG_LOCK_INFO_RECEIVED
          */
         LFG_LOCK_INFO_RECEIVED: null;
+
         /**
          * unknown
          */
         LFG_OFFER_CONTINUE: Unknown[];
+
         /**
          * Fired when a gossip option is used to initiate a Looking-for-Dungeon interaction
          * - **arg1**: index of the dungeon the NPC wants us to queue for (index to GetLFGDungeonInfo(id)).
          * @see https://wow.gamepedia.com/LFG_OPEN_FROM_GOSSIP
          */
         LFG_OPEN_FROM_GOSSIP: [number];
+
         /**
          * unknown
          */
         LFG_PROPOSAL_DONE: Unknown[];
+
         /**
          * Fired when someone decline or don't make a choice within time in the dungeon queue invite
          * @see https://wow.gamepedia.com/LFG_PROPOSAL_FAILED
          */
         LFG_PROPOSAL_FAILED: null;
+
         /**
          * Fired when a dungeon group was found and the dialog to accept or decline it appears
          * @see https://wow.gamepedia.com/LFG_PROPOSAL_SHOW
          */
         LFG_PROPOSAL_SHOW: null;
+
         /**
          * Fired when everyone in the dungeon queue accepted the invite
          * @see https://wow.gamepedia.com/LFG_PROPOSAL_SUCCEEDED
          */
         LFG_PROPOSAL_SUCCEEDED: null;
+
         /**
          * Fired when someone either accept or decline the dungeon queue invite
          * @see https://wow.gamepedia.com/LFG_PROPOSAL_UPDATE
          */
         LFG_PROPOSAL_UPDATE: null;
+
         /**
          * unknown
          */
         LFG_QUEUE_STATUS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LFG_READY_CHECK_DECLINED: Unknown[];
+
         /**
          * unknown
          */
         LFG_READY_CHECK_HIDE: Unknown[];
+
         /**
          * unknown
          */
         LFG_READY_CHECK_PLAYER_IS_READY: Unknown[];
+
         /**
          * unknown
          */
         LFG_READY_CHECK_SHOW: Unknown[];
+
         /**
          * unknown
          */
         LFG_READY_CHECK_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LFG_ROLE_CHECK_DECLINED: Unknown[];
+
         /**
          * unknown
          */
         LFG_ROLE_CHECK_HIDE: Unknown[];
+
         /**
          * unknown
          */
         LFG_ROLE_CHECK_ROLE_CHOSEN: Unknown[];
+
         /**
          * unknown
          */
         LFG_ROLE_CHECK_SHOW: Unknown[];
+
         /**
          * unknown
          */
         LFG_ROLE_CHECK_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LFG_ROLE_UPDATE: Unknown[];
+
         /**
          * When fired prompts the LFG UI to update the list of available LFG categories and objectives (i.e. new quests, zones, instances available
          * to LFG). See API GetLFGTypes
          * @see https://wow.gamepedia.com/LFG_UPDATE
          */
         LFG_UPDATE: null;
+
         /**
          * unknown
          */
         LFG_UPDATE_RANDOM_INFO: Unknown[];
+
         /**
          * unknown
          */
         LF_GUILD_BROWSE_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         LF_GUILD_MEMBERSHIP_LIST_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         LF_GUILD_MEMBERSHIP_LIST_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         LF_GUILD_POST_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         LF_GUILD_RECRUITS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         LF_GUILD_RECRUIT_LIST_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         LIFESTEAL_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LOADING_SCREEN_DISABLED: Unknown[];
+
         /**
          * unknown
          */
         LOADING_SCREEN_ENABLED: Unknown[];
+
         /**
          * unknown
          */
         LOCALPLAYER_PET_RENAMED: Unknown[];
+
         /**
          * unknown
          */
         LOGOUT_CANCEL: Unknown[];
+
         /**
          * Fired when the player attempts to take 'bind-on-pickup' loot
          * @see https://wow.gamepedia.com/LOOT_BIND_CONFIRM
          */
         LOOT_BIND_CONFIRM: null;
+
         /**
          * Fired when a player ceases looting a corpse. Note that this will fire before the last CHAT_MSG_LOOT event for that loot
          * @see https://wow.gamepedia.com/LOOT_CLOSED
          */
         LOOT_CLOSED: null;
+
         /**
          * unknown
          */
         LOOT_HISTORY_AUTO_SHOW: Unknown[];
+
         /**
          * unknown
          */
         LOOT_HISTORY_FULL_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LOOT_HISTORY_ROLL_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         LOOT_HISTORY_ROLL_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         LOOT_ITEM_AVAILABLE: Unknown[];
+
         /**
          * unknown
          */
         LOOT_ITEM_ROLL_WON: Unknown[];
+
         /**
          * unknown
          */
         LOOT_JOURNAL_LIST_UPDATE: Unknown[];
+
         /**
          * Fired when a corpse is looted
          * - **arg1**: 1 if autolooting, otherwise 0 (not nil!)
          * @see https://wow.gamepedia.com/LOOT_OPENED
          */
         LOOT_OPENED: [Flag];
+
         /**
          * unknown
          */
         LOOT_READY: Unknown[];
+
         /**
          * unknown
          */
         LOOT_ROLLS_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         LOOT_SLOT_CHANGED: Unknown[];
+
         /**
          * Fired when loot is removed from a corpse
          * - **arg1**: Slot number
          * @see https://wow.gamepedia.com/LOOT_SLOT_CLEARED
          */
         LOOT_SLOT_CLEARED: [number];
+
         /**
          * unknown
          */
         LOSS_OF_CONTROL_ADDED: Unknown[];
+
         /**
          * unknown
          */
         LOSS_OF_CONTROL_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         LUA_WARNING: Unknown[];
+
         /**
          * (this event doesn't seem to be used anymore, use MACRO_ACTION_FORBIDDEN)
          * @deprecated
          * @see https://wow.gamepedia.com/MACRO_ACTION_BLOCKED
          */
         MACRO_ACTION_BLOCKED: null;
+
         /**
          * Sent when a macro tries use actions that are always forbidden (movement, targeting, etc.).
          * - **arg1**: As of 3.0.2 (possibly sooner) this argument appears to always be "UNKNOWN()"
          * @see https://wow.gamepedia.com/MACRO_ACTION_FORBIDDEN
          */
         MACRO_ACTION_FORBIDDEN: [string];
+
         /**
          * Fired when the mailbox window is closed
          * @see https://wow.gamepedia.com/MAIL_CLOSED
          */
         MAIL_CLOSED: null;
+
         /**
          * unknown
          */
         MAIL_FAILED: Unknown[];
+
         /**
          * This event is fired when the inbox changes in any way, including
          * - when the inbox list is loaded while the frame is open
@@ -6623,6 +7792,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/MAIL_INBOX_UPDATE
          */
         MAIL_INBOX_UPDATE: [MouseButton | null, false];
+
         /**
          * Fired when you send an item that needs a confirmation (e.g. Heirlooms that are still refundable)
          * - **arg1**: Mail Slot
@@ -6630,71 +7800,86 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/MAIL_LOCK_SEND_ITEMS
          */
         MAIL_LOCK_SEND_ITEMS: [number, ItemLink];
+
         /**
          * Fired when an item is dragged to or from the Send Item box in an outgoing mail message
          * @see https://wow.gamepedia.com/MAIL_SEND_INFO_UPDATE
          */
         MAIL_SEND_INFO_UPDATE: null;
+
         /**
          * Fired when a mail has been successfully sent to the mailbox of the recipient, it is also called when the mailbox is opened for some reason ... bug?
          * @see https://wow.gamepedia.com/MAIL_SEND_SUCCESS
          */
         MAIL_SEND_SUCCESS: null;
+
         /**
          * Fired when the mailbox is first opened
          * - **arg1**: returns "up"
          * @see https://wow.gamepedia.com/MAIL_SHOW
          */
         MAIL_SHOW: [string];
+
         /**
          * unknown
          */
         MAIL_SUCCESS: Unknown[];
+
         /**
          * Fires when the mail confirmation is cancelled and the concerned item(s) need to be unlocked
          * @see https://wow.gamepedia.com/MAIL_UNLOCK_SEND_ITEMS
          */
         MAIL_UNLOCK_SEND_ITEMS: null;
+
         /**
          * unknown
          */
         MAP_BAR_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         MASTERY_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         MAX_EXPANSION_LEVEL_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         MAX_SPELL_START_RECOVERY_OFFSET_CHANGED: Unknown[];
+
         /**
          * Fired when a merchant frame closes. (Called twice)
          * - **arg1**: button used to close the window
          * @see https://wow.gamepedia.com/MERCHANT_CLOSED
          */
         MERCHANT_CLOSED: [MouseButton | null];
+
         /**
          * unknown
          */
         MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL: Unknown[];
+
         /**
          * unknown
          */
         MERCHANT_FILTER_ITEM_UPDATE: Unknown[];
+
         /**
          * Fired when the merchant frame is shown
          * @see https://wow.gamepedia.com/MERCHANT_SHOW
          */
         MERCHANT_SHOW: null;
+
         /**
          * Fired when a merchant updates
          * @see https://wow.gamepedia.com/MERCHANT_UPDATE
          */
         MERCHANT_UPDATE: null;
+
         /**
          * Fired when the minimap is pinged
          * - **arg1**: UnitId of the one that created the ping (ie "player" or any of the group members)
@@ -6703,6 +7888,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/MINIMAP_PING
          */
         MINIMAP_PING: [UnitId, number, number];
+
         /**
          * Fired when the player selects a different tracking type from the menu attached to the mini map. There seems to be no useful arguments
          * as of the time of this writing
@@ -6711,6 +7897,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/MINIMAP_UPDATE_TRACKING
          */
         MINIMAP_UPDATE_TRACKING: [MouseButton];
+
         /**
          * Fired when the minimap scaling factor is changed. This happens, generally, whenever the player moves indoors from outside, or vice versa.
          * There are no arguments to this event. To test the player's location, compare the minimapZoom and minimapInsideZoom CVars with the current
@@ -6719,16 +7906,19 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/MINIMAP_UPDATE_ZOOM
          */
         MINIMAP_UPDATE_ZOOM: null;
+
         /**
          * unknown
          */
         MIN_EXPANSION_LEVEL_UPDATED: Unknown[];
+
         /**
          * Fired when the mirror timer is paused.
          * - **arg1**: pause duration
          * @see https://wow.gamepedia.com/MIRROR_TIMER_PAUSE
          */
         MIRROR_TIMER_PAUSE: [number];
+
         /**
          * Fired when some sort of timer starts
          * - **arg1**: timer ( for ex. "BREATH" )
@@ -6739,12 +7929,14 @@ declare namespace WoWAPI {
          * - **arg6**: label ( for ex. "Breath" )
          */
         MIRROR_TIMER_START: [string, number, number, number, boolean, string];
+
         /**
          * Fired when a mirror timer is stopped
          * - **arg1**: timer ( for ex. "BREATH" )
          * @see https://wow.gamepedia.com/MIRROR_TIMER_STOP
          */
         MIRROR_TIMER_STOP: [string];
+
         /**
          * Fired when shift/ctrl/alt keys are pressed or released. Does not fire when an EditBox has keyboard focus
          * - **arg1**: "LSHIFT", "RSHIFT", "LCTRL", "RCTRL", "LALT", "RALT"
@@ -6752,115 +7944,143 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/MODIFIER_STATE_CHANGED
          */
         MODIFIER_STATE_CHANGED: [string, Flag];
+
         /**
          * unknown
          */
         MOUNT_CURSOR_CLEAR: Unknown[];
+
         /**
          * unknown
          */
         MOUNT_JOURNAL_SEARCH_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         MOUNT_JOURNAL_USABILITY_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         MOVIE_COMPRESSING_PROGRESS: Unknown[];
+
         /**
          * unknown
          */
         MOVIE_RECORDING_PROGRESS: Unknown[];
+
         /**
          * unknown
          */
         MOVIE_UNCOMPRESSED_MOVIE: Unknown[];
+
         /**
          * unknown
          */
         MUTELIST_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         NAME_PLATE_CREATED: Unknown[];
+
         /**
          * unknown
          */
         NAME_PLATE_UNIT_ADDED: Unknown[];
+
         /**
          * unknown
          */
         NAME_PLATE_UNIT_REMOVED: Unknown[];
+
         /**
          * unknown
          */
         NEUTRAL_FACTION_SELECT_RESULT: Unknown[];
+
         /**
          * unknown
          */
         NEW_MOUNT_ADDED: Unknown[];
+
         /**
          * unknown
          */
         NEW_PET_ADDED: Unknown[];
+
         /**
          * unknown
          */
         NEW_RECIPE_LEARNED: Unknown[];
+
         /**
          * unknown
          */
         NEW_TITLE_EARNED: Unknown[];
+
         /**
          * unknown
          */
         NEW_WMO_CHUNK: Unknown[];
+
         /**
          * unknown
          */
         NPC_PVPQUEUE_ANYWHERE: Unknown[];
+
         /**
          * unknown
          */
         NPE_TUTORIAL_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         OBLITERUM_FORGE_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         OBLITERUM_FORGE_PENDING_ITEM_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         OBLITERUM_FORGE_SHOW: Unknown[];
+
         /**
          * unknown
          */
         OLD_TITLE_LOST: Unknown[];
+
         /**
          * unknown
          */
         OPEN_MASTER_LOOT_LIST: Unknown[];
+
         /**
          * Fired when interacting with an NPC allowing guild tabard customization
          */
         OPEN_TABARD_FRAME: null;
+
         /**
          * @see https://wow.gamepedia.com/OWNED_AUCTIONS_UPDATED
          */
         OWNED_AUCTIONS_UPDATED: null;
+
         /**
          * unknown
          */
         PARTY_CONVERTED_TO_RAID: Unknown[];
+
         /**
          * Fired when you decline a party invite
          * @see https://wow.gamepedia.com/PARTY_INVITE_CANCEL
          */
         PARTY_INVITE_CANCEL: null;
+
         /**
          * Fired when a player invite you to party
          * - **arg1**: player that invited you
@@ -6872,124 +8092,150 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PARTY_INVITE_REQUEST
          */
         PARTY_INVITE_REQUEST: [string, boolean, boolean, boolean, boolean, Unknown];
+
         /**
          * Fired when the player's leadership changed
          * @see https://wow.gamepedia.com/PARTY_LEADER_CHANGED
          */
         PARTY_LEADER_CHANGED: null;
+
         /**
          * unknown
          */
         PARTY_LFG_RESTRICTED: Unknown[];
+
         /**
          * Fired when the party's loot method changes
          * @see https://wow.gamepedia.com/PARTY_LOOT_METHOD_CHANGED
          */
         PARTY_LOOT_METHOD_CHANGED: null;
+
         /**
          * In Mists of Pandaria, this event is no longer generated. It has been replaced by GROUP_ROSTER_UPDATE
          * @deprecated
          * @see https://wow.gamepedia.com/PARTY_MEMBERS_CHANGED
          */
         PARTY_MEMBERS_CHANGED: null;
+
         /**
          * Fired when a specific party member is offline or dead
          * - **arg1**: Player Name
          * @see https://wow.gamepedia.com/PARTY_MEMBER_DISABLE
          */
         PARTY_MEMBER_DISABLE: [string];
+
         /**
          * Fired when a specific party member is still connected
          * - **arg1**: Player Name
          * @see https://wow.gamepedia.com/PARTY_MEMBER_ENABLE
          */
         PARTY_MEMBER_ENABLE: [string];
+
         /**
          * unknown
          */
         PARTY_REFER_A_FRIEND_UPDATED: Unknown[];
+
         /**
          * Fired when a petition is closed, e.g. by you signing it. See PETITION_SHOW
          * @see https://wow.gamepedia.com/PETITION_CLOSED
          */
         PETITION_CLOSED: null;
+
         /**
          * Fired when you are shown a petition to create a guild or arena team. This can be due to someone offering you to sign it, or because of
          * you clicking your own charter in your inventory. GetPetitionInfo() will tell you more
          * @see https://wow.gamepedia.com/PETITION_SHOW
          */
         PETITION_SHOW: null;
+
         /**
          * unknown
          */
         PETITION_VENDOR_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         PETITION_VENDOR_SHOW: Unknown[];
+
         /**
          * unknown
          */
         PETITION_VENDOR_UPDATE: Unknown[];
+
         /**
          * Fired when the player's pet begins attacking
          * @see https://wow.gamepedia.com/PET_ATTACK_START
          */
         PET_ATTACK_START: null;
+
         /**
          * Fired when the player's pet ceases attack
          * @see https://wow.gamepedia.com/PET_ATTACK_STOP
          */
         PET_ATTACK_STOP: null;
+
         /**
          * unknown
          */
         PET_BAR_HIDE: Unknown[];
+
         /**
          * Fired when pet spells are dropped into the PetActionBar
          * @see https://wow.gamepedia.com/PET_BAR_HIDEGRID
          */
         PET_BAR_HIDEGRID: null;
+
         /**
          * Fired when pet spells are dragged from the pet spellbook or the PetActionBar
          * - **arg1**: MouseButton used (e.g. "LeftButton","RightButton")
          * @see https://wow.gamepedia.com/PET_BAR_SHOWGRID
          */
         PET_BAR_SHOWGRID: [MouseButton];
+
         /**
          * Fired when the pet bar is updates
          * @see https://wow.gamepedia.com/PET_BAR_UPDATE
          */
         PET_BAR_UPDATE: null;
+
         /**
          * Fired when a pet spell cooldown starts. It is not called when cooldown ends
          * @see https://wow.gamepedia.com/PET_BAR_UPDATE_COOLDOWN
          */
         PET_BAR_UPDATE_COOLDOWN: null;
+
         /**
          * unknown
          */
         PET_BAR_UPDATE_USABLE: null;
+
         /**
          * unknown
          */
         PET_BATTLE_ABILITY_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_ACTION_SELECTED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_AURA_APPLIED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_AURA_CANCELED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_AURA_CHANGED: Unknown[];
+
         /**
          * Fired when a pet battle ends, if the player successfully captured a battle pet
          * - **arg1**: fromPlayer
@@ -6999,10 +8245,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PET_BATTLE_CAPTURED
          */
         PET_BATTLE_CAPTURED: [number, number];
+
         /**
          * unknown
          */
         PET_BATTLE_HEALTH_CHANGED: Unknown[];
+
         /**
          * Fired when a battle pet levels
          * - **arg1**: Active player the battle pet belongs to
@@ -7011,82 +8259,101 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PET_BATTLE_LEVEL_CHANGED
          */
         PET_BATTLE_LEVEL_CHANGED: [string, number, number];
+
         /**
          * unknown
          */
         PET_BATTLE_LOOT_RECEIVED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_MAX_HEALTH_CHANGED: Unknown[];
+
         /**
          * Event fired at the end of camera transitioning for the pet battle
          * @description The transition is started with PET_BATTLE_OPENING_START. After this event the player is able to pet fight
          * @see https://wow.gamepedia.com/PET_BATTLE_OPENING_DONE
          */
         PET_BATTLE_OPENING_DONE: null;
+
         /**
          * Begins the transition between the current UI to the Pet Battle one
          * @description The payer is able to battle after PET_BATTLE_OPENING_DONE
          * @see https://wow.gamepedia.com/PET_BATTLE_OPENING_START
          */
         PET_BATTLE_OPENING_START: null;
+
         /**
          * unknown
          */
         PET_BATTLE_PET_ROUND_PLAYBACK_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_PET_ROUND_RESULTS: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_PET_TYPE_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_PVP_DUEL_REQUESTED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_PVP_DUEL_REQUEST_CANCEL: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_QUEUE_PROPOSAL_ACCEPTED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_QUEUE_PROPOSAL_DECLINED: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_QUEUE_PROPOSE_MATCH: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_QUEUE_STATUS: Unknown[];
+
         /**
          * unknown
          */
         PET_BATTLE_TURN_STARTED: Unknown[];
+
         /**
          * unknown
          */
         PET_DISMISS_START: Unknown[];
+
         /**
          * unknown
          */
         PET_FORCE_NAME_DECLENSION: Unknown[];
+
         /**
          * unknown
          */
         PET_JOURNAL_AUTO_SLOTTED_PET: Unknown[];
+
         /**
          * unknown
          */
         PET_JOURNAL_CAGE_FAILED: Unknown[];
+
         /**
          * Fired when the pet journal is updated
          * @description Fired whenever the information returned by C_PetJournal.GetPetInfoByIndex might have been updated, for instance by the
@@ -7095,14 +8362,17 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PET_JOURNAL_LIST_UPDATE
          */
         PET_JOURNAL_LIST_UPDATE: null;
+
         /**
          * unknown
          */
         PET_JOURNAL_NEW_BATTLE_SLOT: Unknown[];
+
         /**
          * unknown
          */
         PET_JOURNAL_PETS_HEALED: Unknown[];
+
         /**
          * Fired when a pet in the journal is caged
          * - **arg1**: GUID of the pet removed from the journal
@@ -7110,61 +8380,75 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PET_JOURNAL_PET_DELETED
          */
         PET_JOURNAL_PET_DELETED: [Guid];
+
         /**
          * unknown
          */
         PET_JOURNAL_PET_RESTORED: Unknown[];
+
         /**
          * unknown
          */
         PET_JOURNAL_PET_REVOKED: Unknown[];
+
         /**
          * unknown
          */
         PET_JOURNAL_TRAP_LEVEL_SET: Unknown[];
+
         /**
          * unknown
          */
         PET_RENAMEABLE: Unknown[];
+
         /**
          * unknown
          */
         PET_SPECIALIZATION_CHANGED: Unknown[];
+
         /**
          * Fires when the pet's spell power bonus changes. Use GetPetSpellBonusDamage() to retrieve the new value
          * @see https://wow.gamepedia.com/PET_SPELL_POWER_UPDATE
          */
         PET_SPELL_POWER_UPDATE: null;
+
         /**
          * unknown
          */
         PET_STABLE_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         PET_STABLE_SHOW: Unknown[];
+
         /**
          * unknown
          */
         PET_STABLE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         PET_STABLE_UPDATE_PAPERDOLL: Unknown[];
+
         /**
          * unknown
          */
         PET_UI_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         PET_UI_UPDATE: Unknown[];
+
         /**
          * This event only fires when bank bags slots are purchased. It no longer fires when bags in the slots are changed. Instead, when the
          * bags are changed, PLAYERBANKSLOTS_CHANGED will fire, and arg1 will be NUM_BANKGENERIC_SLOTS + BagIndex
          * @see https://wow.gamepedia.com/PLAYERBANKBAGSLOTS_CHANGED
          */
         PLAYERBANKBAGSLOTS_CHANGED: null;
+
         /**
          * Fired when the One of the slots in the player's 24 bank slots has changed, or when any of the equipped bank bags have changed. Does not
          * fire when an item is added to or removed from a bank bag
@@ -7173,10 +8457,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PLAYERBANKSLOTS_CHANGED
          */
         PLAYERBANKSLOTS_CHANGED: [number];
+
         /**
          * unknown
          */
         PLAYERREAGENTBANKSLOTS_CHANGED: Unknown[];
+
         /**
          * Fired when the player
          * - Releases from death to a graveyard
@@ -7185,47 +8471,57 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PLAYER_ALIVE
          */
         PLAYER_ALIVE: null;
+
         /**
          * unknown
          */
         PLAYER_AVG_ITEM_LEVEL_UPDATE: Unknown[];
+
         /**
          * Fired when the player is camping
          * @see https://wow.gamepedia.com/PLAYER_CAMPING
          */
         PLAYER_CAMPING: null;
+
         /**
          * unknown
          */
         PLAYER_CHARACTER_UPGRADE_TALENT_COUNT_CHANGED: Unknown[];
+
         /**
          * Fires after the PLAYER_CONTROL_LOST event, when control has been restored to the player
          * @see https://wow.gamepedia.com/PLAYER_CONTROL_GAINED
          */
         PLAYER_CONTROL_GAINED: null;
+
         /**
          * Fires whenever the player is unable to control the character. Examples are when afflicted by fear, mind controlled, or when using a taxi
          * @see https://wow.gamepedia.com/PLAYER_CONTROL_LOST
          */
         PLAYER_CONTROL_LOST: null;
+
         /**
          * Known to fire when Spell Healing (e.g. Earthliving Weapon effect) changes (4.3.4)
          * @see https://wow.gamepedia.com/PLAYER_DAMAGE_DONE_MODS
          */
         PLAYER_DAMAGE_DONE_MODS: null;
+
         /**
          * Fired when the player has died
          * @see https://wow.gamepedia.com/PLAYER_DEAD
          */
         PLAYER_DEAD: null;
+
         /**
          * unknown
          */
         PLAYER_DIFFICULTY_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         PLAYER_ENTERING_BATTLEGROUND: Unknown[];
+
         /**
          * Fired when the player enters the world, enters/leaves an instance, or respawns at a graveyard. Also fires any other time the player sees a loading
          * screen.  To check if the player is entering an instance, check GetPlayerMapPosition to see if both X and Y are zero.  Correction on the above
@@ -7243,53 +8539,64 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PLAYER_ENTERING_WORLD
          */
         PLAYER_ENTERING_WORLD: null;
+
         /**
          * Fired when a player engages auto-attack. Note that firing a gun or a spell, or getting aggro, does NOT trigger this event
          * @see https://wow.gamepedia.com/PLAYER_ENTER_COMBAT
          */
         PLAYER_ENTER_COMBAT: null;
+
         /**
          * unknown
          */
         PLAYER_FARSIGHT_FOCUS_CHANGED: Unknown[];
+
         /**
          * This event fires when a Unit's flags change (eg: due to /afk, /dnd, etc.)
          * - **arg1**: The UnitId affected, eg: "player"
          * @see https://wow.gamepedia.com/PLAYER_FLAGS_CHANGED
          */
         PLAYER_FLAGS_CHANGED: [UnitId];
+
         /**
          * This event is fired whenever the player's focus target (/focus) is changed, including when the focus target is lost or cleared
          * @see https://wow.gamepedia.com/PLAYER_FOCUS_CHANGED
          */
         PLAYER_FOCUS_CHANGED: null;
+
         /**
          * unknown
          */
         PLAYER_GAINS_VEHICLE_DATA: Unknown[];
+
         /**
          * This appears to be fired when a player is gkicked, gquits, etc
          * @see https://wow.gamepedia.com/PLAYER_GUILD_UPDATE
          */
         PLAYER_GUILD_UPDATE: null;
+
         /**
          * unknown
          */
         PLAYER_LEARN_PVP_TALENT_FAILED: Unknown[];
+
         /**
          * unknown
          */
         PLAYER_LEARN_TALENT_FAILED: Unknown[];
+
         /**
          * Fired when the player leaves combat through death, defeat of opponents, or an ability. Does not fire if a player flees from combat on foot
          * @see https://wow.gamepedia.com/PLAYER_LEAVE_COMBAT
          */
         PLAYER_LEAVE_COMBAT: null;
+
         /**
          * Fired when a player logs out and possibly at other situations as well
          * @see https://wow.gamepedia.com/PLAYER_LEAVING_WORLD
          */
         PLAYER_LEAVING_WORLD: null;
+
         /**
          * Fired when a player levels up.
          * - **arg1**: New player level. Note that UnitLevel("player") will most likely return an incorrect value when called in this event handler
@@ -7301,114 +8608,138 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PLAYER_LEVEL_UP
          */
         PLAYER_LEVEL_UP: [number, number, number, number, number, number, number, number, number];
+
         /**
          * Triggered immediately before PLAYER_ENTERING_WORLD on login and UI Reload, but NOT when entering/leaving instances
          * @see https://wow.gamepedia.com/PLAYER_LOGIN
          */
         PLAYER_LOGIN: null;
+
         /**
          * Sent when the player logs out or the UI is reloaded, just before SavedVariables are saved. The event fires after PLAYER_LEAVING_WORLD
          * @see https://wow.gamepedia.com/PLAYER_LOGOUT
          */
         PLAYER_LOGOUT: null;
+
         /**
          * unknown
          */
         PLAYER_LOOT_SPEC_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         PLAYER_LOSES_VEHICLE_DATA: Unknown[];
+
         /**
          * Fired whenever the player gains or loses money
          * @see https://wow.gamepedia.com/PLAYER_MONEY
          */
         PLAYER_MONEY: null;
+
         /**
          * unknown
          */
         PLAYER_MOUNT_DISPLAY_CHANGED: Unknown[];
+
         /**
          * Fired when you get credit for killing an enemy player. According to wowprogramming.com, only honorable kills will trigger this event
          * @see https://wow.gamepedia.com/PLAYER_PVP_KILLS_CHANGED
          */
         PLAYER_PVP_KILLS_CHANGED: null;
+
         /**
          * unknown
          */
         PLAYER_PVP_RANK_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         PLAYER_PVP_TALENT_UPDATE: Unknown[];
+
         /**
          * Fired when the player tries to quit, as opposed to logout, while outside an inn. This event does not indicate that the "player has quit",
          * but instead that the "player has the quitting option"
          * @see https://wow.gamepedia.com/PLAYER_QUITING
          */
         PLAYER_QUITING: null;
+
         /**
          * Fired whenever you enter combat, as normal regen rates are disabled during combat. This means that either you are in the hate list of a NPC
          * or that you've been taking part in a pvp action (either as attacker or victim).
          * @see https://wow.gamepedia.com/PLAYER_REGEN_DISABLED
          */
         PLAYER_REGEN_DISABLED: null;
+
         /**
          * Fired after ending combat, as regen rates return to normal. Useful for determining when a player has left combat. This occurs when you are
          * not on the hate list of any NPC, or a few seconds after the latest pvp attack that you were involved with
          * @see https://wow.gamepedia.com/PLAYER_REGEN_ENABLED
          */
         PLAYER_REGEN_ENABLED: null;
+
         /**
          * unknown
          */
         PLAYER_REPORT_SUBMITTED: Unknown[];
+
         /**
          * unknown
          */
         PLAYER_ROLES_ASSIGNED: Unknown[];
+
         /**
          * Fired when the player's insignia is removed in a Battleground
          * @see https://wow.gamepedia.com/PLAYER_SKINNED
          */
         PLAYER_SKINNED: null;
+
         /**
          * Fired after unlearning a profession, learning a talent
          * @see https://wow.gamepedia.com/PLAYER_SPECIALIZATION_CHANGED
          */
         PLAYER_SPECIALIZATION_CHANGED: null;
+
         /**
          * unknown
          */
         PLAYER_STARTED_MOVING: Unknown[];
+
         /**
          * unknown
          */
         PLAYER_STOPPED_MOVING: Unknown[];
+
         /**
          * Fired when the player changes between dual talent specs, and possibly when learning or unlearning talents(?). The event is also fired when
          * a player levels up, before PLAYER_LEVEL_UP is fired
          * @see https://wow.gamepedia.com/PLAYER_TALENT_UPDATE
          */
         PLAYER_TALENT_UPDATE: null;
+
         /**
          * This event fires whenever a totem is dropped (cast) or destroyed (either recalled or killed)
          * - **arg1**: The number of the totem slot (1-4) affected by the update. See for example GetTotemInfo() for the uses of the totem slot number
          * @see https://wow.gamepedia.com/PLAYER_TOTEM_UPDATE
          */
         PLAYER_TOTEM_UPDATE: [number];
+
         /**
          * unknown
          */
         PLAYER_TRADE_CURRENCY: Unknown[];
+
         /**
          * Fired when the player trades money
          */
         PLAYER_TRADE_MONEY: null;
+
         /**
          * unknown
          */
         PLAYER_TRIAL_XP_UPDATE: Unknown[];
+
         /**
          * Fired when the player is alive after being a ghost. Called after one of
          * - Performing a successful corpse run and the player accepts the 'Resurrect Now' box
@@ -7420,22 +8751,26 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PLAYER_UNGHOST
          */
         PLAYER_UNGHOST: null;
+
         /**
          * Fired when the player starts or stops resting, i.e. when entering/leaving inns/major towns
          * @see https://wow.gamepedia.com/PLAYER_UPDATE_RESTING
          */
         PLAYER_UPDATE_RESTING: null;
+
         /**
          * Fired when the player's XP is updated (due quest completion or killing)
          * - **arg1**: The UnitId affected, eg: "player"
          * @see https://wow.gamepedia.com/PLAYER_XP_UPDATE
          */
         PLAYER_XP_UPDATE: [UnitId];
+
         /**
          * Fired when the playtime state changes
          * @see https://wow.gamepedia.com/PLAYTIME_CHANGED
          */
         PLAYTIME_CHANGED: null;
+
         /**
          * movie plays
          * - **arg1**: File name (without extension) & path, eg: "INTERFACE\CINEMATICS\FOTLK_1024"
@@ -7443,78 +8778,97 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/PLAY_MOVIE
          */
         PLAY_MOVIE: [string, number];
+
         /**
          * unknown
          */
         PRESTIGE_AND_HONOR_INVOLUNTARILY_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         PREVIEW_TALENT_POINTS_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         PREVIEW_TALENT_PRIMARY_TREE_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         PRODUCT_ASSIGN_TO_TARGET_FAILED: Unknown[];
+
         /**
          * unknown
          */
         PRODUCT_CHOICE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         PRODUCT_DISTRIBUTIONS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         PROVING_GROUNDS_SCORE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         PVPQUEUE_ANYWHERE_SHOW: Unknown[];
+
         /**
          * unknown
          */
         PVPQUEUE_ANYWHERE_UPDATE_AVAILABLE: Unknown[];
+
         /**
          * unknown
          */
         PVP_BRAWL_INFO_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         PVP_POWER_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         PVP_RATED_STATS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         PVP_REWARDS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         PVP_ROLE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         PVP_TIMER_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         PVP_TYPES_ENABLED: Unknown[];
+
         /**
          * unknown
          */
         PVP_WORLDSTATE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         QUESTLINE_UPDATE: Unknown[];
+
         /**
          * This event fires whenever the player accepts a quest
          * - **arg1**: Quest log index. You may pass this to GetQuestLogTitle() for information about the accepted quest
@@ -7522,6 +8876,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/QUEST_ACCEPTED
          */
         QUEST_ACCEPTED: [number, number];
+
         /**
          * This event fires when an escort quest is started by another player. A dialog appears asking if the player also wants to start the quest
          * - **arg1**: Name of player who is starting escort quest
@@ -7529,49 +8884,59 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/QUEST_ACCEPT_CONFIRM
          */
         QUEST_ACCEPT_CONFIRM: [string, string];
+
         /**
          * unknown
          */
         QUEST_BOSS_EMOTE: Unknown[];
+
         /**
          * unknown
          */
         QUEST_CHOICE_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         QUEST_CHOICE_UPDATE: Unknown[];
+
         /**
          * Fired after the player hits the "Continue" button in the quest-information page, before the "Complete Quest" button. In other words it
          * fires when you are given the option to complete a quest, but just before you actually complete the quest (as stated above).
          * @see https://wow.gamepedia.com/QUEST_COMPLETE
          */
         QUEST_COMPLETE: null;
+
         /**
          * Fired when the player is given a more detailed view of his quest
          * - **arg1**: questStartItemID. If not nil or zero, the ItemID of the item which begins the quest displayed in the quest detail view
          * @see https://wow.gamepedia.com/QUEST_DETAIL
          */
         QUEST_DETAIL: [number];
+
         /**
          * Fired whenever the quest frame changes (Detail to Progress to Reward, etc.) or is closed
          * @see https://wow.gamepedia.com/QUEST_FINISHED
          */
         QUEST_FINISHED: null;
+
         /**
          * Fired when talking to an NPC that offers or accepts more than one quest, i.e. has more than one active or available quest
          * @see https://wow.gamepedia.com/QUEST_GREETING
          */
         QUEST_GREETING: null;
+
         /**
          * Fired when the quest items are updated
          * @see https://wow.gamepedia.com/QUEST_ITEM_UPDATE
          */
         QUEST_ITEM_UPDATE: null;
+
         /**
          * unknown
          */
         QUEST_LOG_CRITERIA_UPDATE: Unknown[];
+
         /**
          * This event is fired very often. This includes, but is not limited to: viewing a quest for the first time in a session in the Quest Log;
          * (once for each quest?) every time the player changes zones across an instance boundary; every time the player picks up a non-grey item;
@@ -7580,30 +8945,36 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/QUEST_LOG_UPDATE
          */
         QUEST_LOG_UPDATE: null;
+
         /**
          * Fired whenever Quest POIs change. For example after accepting an quest
          * @see https://wow.gamepedia.com/QUEST_POI_UPDATE
          */
         QUEST_POI_UPDATE: null;
+
         /**
          * Fired when a player is talking to an NPC about the status of a quest and has not yet clicked the complete button
          * @see https://wow.gamepedia.com/QUEST_PROGRESS
          */
         QUEST_PROGRESS: null;
+
         /**
          * Fired when a quest is removed from your quest log by abandoning it.
          * - **arg1**: QuestID of the quest accepted
          * @see https://wow.gamepedia.com/QUEST_REMOVED
          */
         QUEST_REMOVED: [number];
+
         /**
          * unknown
          */
         QUEST_WATCH_LIST_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         QUEST_WATCH_OBJECTIVES_CHANGED: Unknown[];
+
         /**
          * Fired just before a quest goal was completed. At this point the game client's quest data is not yet updated, but will be after a subsequent
          * QUEST_LOG_UPDATE event
@@ -7611,22 +8982,27 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/QUEST_WATCH_UPDATE
          */
         QUEST_WATCH_UPDATE: [number];
+
         /**
          * unknown
          */
         QUICK_TICKET_SYSTEM_STATUS: Unknown[];
+
         /**
          * unknown
          */
         QUICK_TICKET_THROTTLE_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         RAID_BOSS_EMOTE: Unknown[];
+
         /**
          * unknown
          */
         RAID_BOSS_WHISPER: Unknown[];
+
         /**
          * Fired when the player enters an instance that saves raid members after a boss is killed
          * - **arg1**: instance name
@@ -7634,22 +9010,26 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/RAID_INSTANCE_WELCOME
          */
         RAID_INSTANCE_WELCOME: [string, number];
+
         /**
          * Fired whenever a raid is formed or disbanded, players are leaving or joining a raid (unsure if rejected join requests also fire the event),
          * or when looting rules are changed (regardless of being in raid or party!)
          * @see https://wow.gamepedia.com/RAID_ROSTER_UPDATE
          */
         RAID_ROSTER_UPDATE: null;
+
         /**
          * Fired when a raid target icon is changed or removed. Also fired when player join or leave a party or raid. arg1 is who gets updated
          * @since 1.11
          * @see https://wow.gamepedia.com/RAID_TARGET_UPDATE
          */
         RAID_TARGET_UPDATE: null;
+
         /**
          * unknown
          */
         RAISED_AS_GHOUL: Unknown[];
+
         /**
          * Fired when a Ready Check is performed by the raid (or party) leader
          * - **arg1**: name of character requesting ready check (ie., "Ansu")
@@ -7657,6 +9037,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/READY_CHECK
          */
         READY_CHECK: [string, number];
+
         /**
          * Fired when a player confirms ready status
          * - **arg1**: UnitID (raid1, party1). Fires twice if the confirming player is in your raid sub-group
@@ -7664,43 +9045,53 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/READY_CHECK_CONFIRM
          */
         READY_CHECK_CONFIRM: [UnitId, 1 | 0];
+
         /**
          * Fired when the ready check completes
          * @see https://wow.gamepedia.com/READY_CHECK_FINISHED
          */
         READY_CHECK_FINISHED: null;
+
         /**
          * unknown
          */
         REAGENTBANK_PURCHASED: Unknown[];
+
         /**
          * unknown
          */
         REAGENTBANK_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         RECEIVED_ACHIEVEMENT_LIST: Unknown[];
+
         /**
          * unknown
          */
         RECEIVED_ACHIEVEMENT_MEMBER_LIST: Unknown[];
+
         /**
          * unknown
          */
         RECRUIT_A_FRIEND_CAN_EMAIL: Unknown[];
+
         /**
          * unknown
          */
         RECRUIT_A_FRIEND_INVITATION_FAILED: Unknown[];
+
         /**
          * unknown
          */
         RECRUIT_A_FRIEND_INVITER_FRIEND_ADDED: Unknown[];
+
         /**
          * unknown
          */
         RECRUIT_A_FRIEND_SYSTEM_STATUS: Unknown[];
+
         /**
          * Fired when the player must confirm an enchantment replacement
          * - **arg1**: new enchantment
@@ -7708,46 +9099,56 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/REPLACE_ENCHANT
          */
         REPLACE_ENCHANT: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/REPLICATE_ITEM_LIST_UPDATE
          */
         REPLICATE_ITEM_LIST_UPDATE: null;
+
         /**
          * unknown
          */
         REQUEST_CEMETERY_LIST_RESPONSE: Unknown[];
+
         /**
          * unknown
          */
         REQUIRED_GUILD_RENAME_RESULT: Unknown[];
+
         /**
          * Fired when an item is solved via Archaeology
          * - **arg1**: the name of the completed artifact
          * @see https://wow.gamepedia.com/RESEARCH_ARTIFACT_COMPLETE
          */
         RESEARCH_ARTIFACT_COMPLETE: [string];
+
         /**
          * unknown
          */
         RESEARCH_ARTIFACT_DIG_SITE_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         RESEARCH_ARTIFACT_HISTORY_READY: Unknown[];
+
         /**
          * unknown
          */
         RESEARCH_ARTIFACT_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         RESTRICTED_ACCOUNT_WARNING: Unknown[];
+
         /**
          * Fired when another player resurrects you
          * - **arg1**: player name
          * @see https://wow.gamepedia.com/RESURRECT_REQUEST
          */
         RESURRECT_REQUEST: [string];
+
         /**
          * triggered when the role chanes
          * - **arg1**: player name
@@ -7757,10 +9158,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ROLE_CHANGED_INFORM
          */
         ROLE_CHANGED_INFORM: [string, string, string, string];
+
         /**
          * unknown
          */
         ROLE_POLL_BEGIN: Unknown[];
+
         /**
          * Fired when a rune's state switches from usable to un-usable or visa-versa
          * - **arg1**: the rune that it's referencing to
@@ -7769,6 +9172,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/RUNE_POWER_UPDATE
          */
         RUNE_POWER_UPDATE: [string, boolean];
+
         /**
          * Fired when a rune's type is changed / updated
          * - **arg1**: the rune that it's referencing to
@@ -7776,6 +9180,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/RUNE_TYPE_UPDATE
          */
         RUNE_TYPE_UPDATE: [string];
+
         /**
          * Fired immediately after ADDON_LOADED if either its Account or Character SavedVariables file failed to load due to an out-of-memory error.
          * See Saved Variables Loading for more details
@@ -7783,104 +9188,129 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/SAVED_VARIABLES_TOO_LARGE
          */
         SAVED_VARIABLES_TOO_LARGE: [string];
+
         /**
          * unknown
          */
         SCENARIO_COMPLETED: Unknown[];
+
         /**
          * unknown
          */
         SCENARIO_CRITERIA_SHOW_STATE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SCENARIO_CRITERIA_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SCENARIO_POI_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SCENARIO_SPELL_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SCENARIO_UPDATE: Unknown[];
+
         /**
          * Fired when a screenshot fails
          * @see https://wow.gamepedia.com/SCREENSHOT_FAILED
          */
         SCREENSHOT_FAILED: null;
+
         /**
          * unknown
          */
         SCREENSHOT_STARTED: Unknown[];
+
         /**
          * Fired when a screenshot is successfully taken
          * @see https://wow.gamepedia.com/SCREENSHOT_SUCCEEDED
          */
         SCREENSHOT_SUCCEEDED: null;
+
         /**
          * unknown
          */
         SCRIPT_ACHIEVEMENT_PLAYER_NAME: Unknown[];
+
         /**
          * unknown
          */
         SEARCH_DB_LOADED: Unknown[];
+
         /**
          * unknown
          */
         SECURE_TRANSFER_CANCEL: Unknown[];
+
         /**
          * unknown
          */
         SECURE_TRANSFER_CONFIRM_SEND_MAIL: Unknown[];
+
         /**
          * unknown
          */
         SECURE_TRANSFER_CONFIRM_TRADE_ACCEPT: Unknown[];
+
         /**
          * unknown
          */
         SELF_RES_SPELL_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         SEND_MAIL_COD_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         SEND_MAIL_MONEY_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         SESSION_TIME_ALERT: Unknown[];
+
         /**
          * unknown
          */
         SHIPMENT_CRAFTER_CLOSED: Unknown[];
+
         /**
          * unknown
          */
         SHIPMENT_CRAFTER_INFO: Unknown[];
+
         /**
          * unknown
          */
         SHIPMENT_CRAFTER_OPENED: Unknown[];
+
         /**
          * unknown
          */
         SHIPMENT_CRAFTER_REAGENT_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SHIPMENT_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SHOW_FACTION_SELECT_UI: Unknown[];
+
         /**
          * Fired upon receiving fancy loot (LFR, bonus rolls, certain containers like pet battle supplies in 5.3).
          * - **arg1**: either "item" or "money"
@@ -7889,34 +9319,42 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/SHOW_LOOT_TOAST
          */
         SHOW_LOOT_TOAST: [string, ItemLink, number, 0];
+
         /**
          * unknown
          */
         SHOW_LOOT_TOAST_LEGENDARY_LOOTED: Unknown[];
+
         /**
          * unknown
          */
         SHOW_LOOT_TOAST_UPGRADE: Unknown[];
+
         /**
          * unknown
          */
         SHOW_PVP_FACTION_LOOT_TOAST: Unknown[];
+
         /**
          * unknown
          */
         SHOW_RATED_PVP_REWARD_TOAST: Unknown[];
+
         /**
          * unknown
          */
         SIMPLE_BROWSER_WEB_ERROR: Unknown[];
+
         /**
          * unknown
          */
         SIMPLE_BROWSER_WEB_PROXY_FAILED: Unknown[];
+
         /**
          * unknown
          */
         SIMPLE_CHECKOUT_CLOSED: Unknown[];
+
         /**
          * Fired when the content of the player's skill list changes. It only fires for major changes to the list, such as learning or unlearning a
          * skill or raising one's level from Journeyman to Master. It doesn't fire for skill rank increases. Using 'RegisterUnitEvent' to register for
@@ -7924,85 +9362,105 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/SKILL_LINES_CHANGED
          */
         SKILL_LINES_CHANGED: null;
+
         /**
          * unknown
          */
         SOCIAL_ITEM_RECEIVED: Unknown[];
+
         /**
          * unknown
          */
         SOCIAL_QUEUE_CONFIG_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         SOCIAL_QUEUE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SOCKET_INFO_ACCEPT: Unknown[];
+
         /**
          * unknown
          */
         SOCKET_INFO_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         SOCKET_INFO_FAILURE: Unknown[];
+
         /**
          * unknown
          */
         SOCKET_INFO_SUCCESS: Unknown[];
+
         /**
          * unknown
          */
         SOCKET_INFO_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SOR_BY_TEXT_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         SOR_COUNTS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         SOR_START_EXPERIENCE_INCOMPLETE: Unknown[];
+
         /**
          * unknown
          */
         SOUNDKIT_FINISHED: Unknown[];
+
         /**
          * unknown
          */
         SOUND_DEVICE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SPEC_INVOLUNTARILY_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         SPEED_UPDATE: Unknown[];
+
         /**
          * No arguments. Fires when spells in the spellbook change in any way. Can be trivial (eg: icon changes only)
          * @see https://wow.gamepedia.com/SPELLS_CHANGED
          */
         SPELLS_CHANGED: null;
+
         /**
          * unknown
          */
         SPELL_ACTIVATION_OVERLAY_GLOW_HIDE: Unknown[];
+
         /**
          * unknown
          */
         SPELL_ACTIVATION_OVERLAY_GLOW_SHOW: Unknown[];
+
         /**
          * Added in 4.0 for the Spell Alert overlay feature
          * - **arg1**: spellId
          * @see https://wow.gamepedia.com/SPELL_ACTIVATION_OVERLAY_HIDE
          */
         SPELL_ACTIVATION_OVERLAY_HIDE: [number];
+
         /**
          * Added in 4.0 for the Spell Alert overlay feature
          * - **arg1**: spellID
@@ -8016,6 +9474,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/SPELL_ACTIVATION_OVERLAY_SHOW
          */
         SPELL_ACTIVATION_OVERLAY_SHOW: [number, TexturePath, string, number, number, number, number];
+
         /**
          * Fires when a spell confirmation prompt might be presented to the player. After this event has fired, the client can respond with the functions
          * AcceptSpellConfirmationPrompt and DeclineSpellConfirmationPrompt. Notably, the event does not guarantee that the player can actually cast the
@@ -8029,33 +9488,40 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/SPELL_CONFIRMATION_PROMPT
          */
         SPELL_CONFIRMATION_PROMPT: [number, number, string, number, number];
+
         /**
          * Fires when a spell confirmation prompt was not accepted via AcceptSpellConfirmationPrompt or declined via DeclineSpellConfirmationPrompt within
          * the allotted time (usually 3 minutes).
          * @see https://wow.gamepedia.com/SPELL_CONFIRMATION_TIMEOUT
          */
         SPELL_CONFIRMATION_TIMEOUT: null;
+
         /**
          * unknown
          */
         SPELL_FLYOUT_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SPELL_PUSHED_TO_ACTIONBAR: Unknown[];
+
         /**
          * unknown
          */
         SPELL_UPDATE_CHARGES: Unknown[];
+
         /**
          * This event is fired every three seconds for no apparent reason (correct as of patch 3.3.3).
          * @see https://wow.gamepedia.com/SPELL_UPDATE_COOLDOWN
          */
         SPELL_UPDATE_COOLDOWN: null;
+
         /**
          * unknown
          */
         SPELL_UPDATE_ICON: Unknown[];
+
         /**
          * This event is fired when a spell becomes useable or unusable. However the definition of useable and unusable is somewhat confusing. Firstly, range is
          * not taken into account. Secondly if a spell requires a valid target and doesn't have one it gets marked as useable. If it requires mana or rage and
@@ -8073,10 +9539,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/SPELL_UPDATE_USABLE
          */
         SPELL_UPDATE_USABLE: null;
+
         /**
          * unknown
          */
         START_AUTOREPEAT_SPELL: Unknown[];
+
         /**
          * Fired when a group loot item is being rolled on
          * - **arg1**: The rollID of the item being rolled on.
@@ -8084,86 +9552,107 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/START_LOOT_ROLL
          */
         START_LOOT_ROLL: [number, number];
+
         /**
          * unknown
          */
         START_TIMER: Unknown[];
+
         /**
          * unknown
          */
         STOP_AUTOREPEAT_SPELL: Unknown[];
+
         /**
          * unknown
          */
         STORE_BOOST_AUTO_CONSUMED: Unknown[];
+
         /**
          * unknown
          */
         STORE_CHARACTER_LIST_RECEIVED: Unknown[];
+
         /**
          * unknown
          */
         STORE_CLOSE_SIMPLE_CHECKOUT: Unknown[];
+
         /**
          * unknown
          */
         STORE_CONFIRM_PURCHASE: Unknown[];
+
         /**
          * unknown
          */
         STORE_OPEN_SIMPLE_CHECKOUT: Unknown[];
+
         /**
          * unknown
          */
         STORE_ORDER_INITIATION_FAILED: Unknown[];
+
         /**
          * unknown
          */
         STORE_PRODUCTS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         STORE_PRODUCT_DELIVERED: Unknown[];
+
         /**
          * unknown
          */
         STORE_PURCHASE_ERROR: Unknown[];
+
         /**
          * unknown
          */
         STORE_PURCHASE_LIST_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         STORE_REFRESH: Unknown[];
+
         /**
          * unknown
          */
         STORE_STATUS_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         STORE_VAS_PURCHASE_COMPLETE: Unknown[];
+
         /**
          * unknown
          */
         STORE_VAS_PURCHASE_ERROR: Unknown[];
+
         /**
          * unknown
          */
         STURDINESS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         SUBSCRIPTION_CHANGED_KICK_IMMINENT: Unknown[];
+
         /**
          * unknown
          */
         SUPER_TRACKED_QUEST_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         SYNCHRONIZE_SETTINGS: Unknown[];
+
         /**
          * Fired when a system message occurs. Gets displayed in the UI error frame (the default red text in the top half of the screen) in the default UI
          * - **arg1**: message
@@ -8173,41 +9662,50 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/SYSMSG
          */
         SYSMSG: null;
+
         /**
          * Fired when it is possible to save a tabard
          * @see https://wow.gamepedia.com/TABARD_CANSAVE_CHANGED
          */
         TABARD_CANSAVE_CHANGED: null;
+
         /**
          * unknown
          */
         TABARD_SAVE_PENDING: Unknown[];
+
         /**
          * unknown
          */
         TALENTS_INVOLUNTARILY_RESET: Unknown[];
+
         /**
          * unknown
          */
         TALKINGHEAD_CLOSE: Unknown[];
+
         /**
          * unknown
          */
         TALKINGHEAD_REQUESTED: Unknown[];
+
         /**
          * unknown
          */
         TASK_PROGRESS_UPDATE: Unknown[];
+
         /**
          * Fired when the taxi frame is closed
          * @see https://wow.gamepedia.com/TAXIMAP_CLOSED
          */
         TAXIMAP_CLOSED: null;
+
         /**
          * Fired when the taxi viewer is opened
          * @see https://wow.gamepedia.com/TAXIMAP_OPENED
          */
         TAXIMAP_OPENED: null;
+
         /**
          * Fired when the client received a time played message
          * - **arg1**: total time
@@ -8215,74 +9713,92 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/TIME_PLAYED_MSG
          */
         TIME_PLAYED_MSG: [number, number];
+
         /**
          * unknown
          */
         TOGGLE_CONSOLE: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_AUCTION_SOLD: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_BUY_CONFIRM_REQUIRED: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_BUY_RESULT: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_DISTRIBUTIONS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_MARKET_PRICE_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_REDEEM_BALANCE_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_REDEEM_CONFIRM_REQUIRED: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_REDEEM_FRAME_SHOW: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_REDEEM_GAME_TIME_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_REDEEM_RESULT: Unknown[];
+
         /**
          * @see https://wow.gamepedia.com/TOKEN_SELL_CONFIRMED
          */
         TOKEN_SELL_CONFIRMED: null;
+
         /**
          * unknown
          */
         TOKEN_SELL_CONFIRM_REQUIRED: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_SELL_RESULT: Unknown[];
+
         /**
          * unknown
          */
         TOKEN_STATUS_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         TOYS_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         TRACKED_ACHIEVEMENT_LIST_CHANGED: Unknown[];
+
         /**
          * Fired when a timed event for an achievement begins or ends. The achievement does not have to be actively tracked for this to trigger
          * - **arg1**: achievmentID
@@ -8292,6 +9808,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/TRACKED_ACHIEVEMENT_UPDATE
          */
         TRACKED_ACHIEVEMENT_UPDATE: [number, number, number, number];
+
         /**
          * Fired when the status of the player and target accept buttons has changed. Target agree status only shown when he has done it first.
          * By this, player and target agree status is only shown together (arg1 == 1 and arg2 == 1), when player agreed after target
@@ -8300,20 +9817,24 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/TRADE_ACCEPT_UPDATE
          */
         TRADE_ACCEPT_UPDATE: [Flag, Flag];
+
         /**
          * Fired when the trade window is closed by the trade being accepted, or the player or target closes the window
          * @see https://wow.gamepedia.com/TRADE_CLOSED
          */
         TRADE_CLOSED: null;
+
         /**
          * unknown
          */
         TRADE_CURRENCY_CHANGED: Unknown[];
+
         /**
          * Fired when the trade window's money value is changed
          * @see https://wow.gamepedia.com/TRADE_MONEY_CHANGED
          */
         TRADE_MONEY_CHANGED: null;
+
         /**
          * Fired when an item in the target's trade window is changed (items added or removed from trade). First call not fired when start trading
          * by dropping item on target
@@ -8321,14 +9842,17 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/TRADE_PLAYER_ITEM_CHANGED
          */
         TRADE_PLAYER_ITEM_CHANGED: [number];
+
         /**
          * unknown
          */
         TRADE_POTENTIAL_BIND_ENCHANT: Unknown[];
+
         /**
          * unknown
          */
         TRADE_POTENTIAL_REMOVE_TRANSMOG: Unknown[];
+
         /**
          * Fired when the player must confirm an enchantment replacement in the trade window
          * - **arg1**: new enchantment
@@ -8336,6 +9860,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/TRADE_REPLACE_ENCHANT
          */
         TRADE_REPLACE_ENCHANT: [Unknown, Unknown];
+
         /**
          * It appears that this event was removed from the game. It was once used to ask you if you wanted to accept or reject a trade. It no longer
          * triggers, not even when "Block Trades" is enabled. Fired when another player wishes to trade with you
@@ -8343,175 +9868,214 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/TRADE_REQUEST
          */
         TRADE_REQUEST: [string];
+
         /**
          * Fired when a trade attempt is cancelled. Fired after TRADE_CLOSE when aborted by player, before TRADE_CLOSE when done by target
          * @see https://wow.gamepedia.com/TRADE_REQUEST_CANCEL
          */
         TRADE_REQUEST_CANCEL: null;
+
         /**
          * Fired when the Trade window appears after a trade request has been accepted or auto-accepted
          * @see https://wow.gamepedia.com/TRADE_SHOW
          */
         TRADE_SHOW: null;
+
         /**
          * Fired when a trade skill window is closed
          * @see https://wow.gamepedia.com/TRADE_SKILL_CLOSE
          */
         TRADE_SKILL_CLOSE: null;
+
         /**
          * unknown
          */
         TRADE_SKILL_DATA_SOURCE_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         TRADE_SKILL_DATA_SOURCE_CHANGING: Unknown[];
+
         /**
          * unknown
          */
         TRADE_SKILL_DETAILS_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         TRADE_SKILL_FILTER_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         TRADE_SKILL_LIST_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         TRADE_SKILL_NAME_UPDATE: Unknown[];
+
         /**
          * Fired when a trade skill window is opened
          * @see https://wow.gamepedia.com/TRADE_SKILL_SHOW
          */
         TRADE_SKILL_SHOW: null;
+
         /**
          * Fired when an item in the target's trade window is changed (items added or removed from trade).
          * - **arg1**: index of the trade slot changed
          * @see https://wow.gamepedia.com/TRADE_TARGET_ITEM_CHANGED
          */
         TRADE_TARGET_ITEM_CHANGED: [number];
+
         /**
          * Fired when the trade window is changed
          * @see https://wow.gamepedia.com/TRADE_UPDATE
          */
         TRADE_UPDATE: null;
+
         /**
          * Fired when the trainer is closed
          * @see https://wow.gamepedia.com/TRAINER_CLOSED
          */
         TRAINER_CLOSED: null;
+
         /**
          * unknown
          */
         TRAINER_DESCRIPTION_UPDATE: Unknown[];
+
         /**
          * Fired when the class trainer frame is shown
          * @see https://wow.gamepedia.com/TRAINER_SHOW
          */
         TRAINER_SHOW: null;
+
         /**
          * Fired when the trainer window needs to update
          * @see https://wow.gamepedia.com/TRAINER_UPDATE
          */
         TRAINER_UPDATE: null;
+
         /**
          * Fired when the TransmogrifyFrame is closed
          * @see https://wow.gamepedia.com/TRANSMOGRIFY_CLOSE
          */
         TRANSMOGRIFY_CLOSE: null;
+
         /**
          * unknown
          */
         TRANSMOGRIFY_ITEM_UPDATE: Unknown[];
+
         /**
          * Fired when the TransmogrifyFrame is opened
          * @see https://wow.gamepedia.com/TRANSMOGRIFY_OPEN
          */
         TRANSMOGRIFY_OPEN: null;
+
         /**
          * Fired when an item has been successfully tranmogrified
          * - **arg1**: slotId
          * @see https://wow.gamepedia.com/TRANSMOGRIFY_SUCCESS
          */
         TRANSMOGRIFY_SUCCESS: [INVENTORY_SLOT_ID];
+
         /**
          * Fired when an item is set for (de)transmogrification
          * - **arg1**: slotId
          * @see https://wow.gamepedia.com/TRANSMOGRIFY_UPDATE
          */
         TRANSMOGRIFY_UPDATE: [INVENTORY_SLOT_ID];
+
         /**
          * unknown
          */
         TRANSMOG_COLLECTION_CAMERA_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_COLLECTION_ITEM_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_COLLECTION_LOADED: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_COLLECTION_SOURCE_ADDED: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_COLLECTION_SOURCE_REMOVED: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_COLLECTION_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_OUTFITS_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_SEARCH_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_SETS_UPDATE_FAVORITE: Unknown[];
+
         /**
          * unknown
          */
         TRANSMOG_SOURCE_COLLECTABILITY_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         TRIAL_CAP_REACHED_LEVEL: Unknown[];
+
         /**
          * unknown
          */
         TRIAL_CAP_REACHED_MONEY: Unknown[];
+
         /**
          * unknown
          */
         TRIAL_STATUS_UPDATE: Unknown[];
+
         /**
          * Fired when the tutorial/tips are shown. Will not fire if tutorials are turned off
          * @see https://wow.gamepedia.com/TUTORIAL_TRIGGER
          */
         TUTORIAL_TRIGGER: null;
+
         /**
          * unknown
          */
         TWITTER_LINK_RESULT: Unknown[];
+
         /**
          * unknown
          */
         TWITTER_POST_RESULT: Unknown[];
+
         /**
          * unknown
          */
         TWITTER_STATUS_UPDATE: Unknown[];
+
         /**
          * Fired when the interface creates an error message. These are the red messages that show in the top middle of the screen.
          * "Your inventory is full." is one example
@@ -8521,6 +10085,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UI_ERROR_MESSAGE
          */
         UI_ERROR_MESSAGE: [string, string, string];
+
         /**
          * Fired when the interface generates a message. These are the yellow messages in the top middle of the window. "No fish are hooked." is one example
          * - **arg1**: message_string
@@ -8529,14 +10094,17 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UI_INFO_MESSAGE
          */
         UI_INFO_MESSAGE: [string, string, string];
+
         /**
          * unknown
          */
         UI_MODEL_SCENE_INFO_UPDATED: Unknown[];
+
         /**
          * unknown
          */
         UI_SCALE_CHANGED: Unknown[];
+
         /**
          * Fired when a unit's absorb amount changes (for example, when he gains/loses an absorb effect such as Power Word: Shield, or when he
          * gains/loses some of his absorb via getting hit or through an ability).Will only fire for existing units, and not for targets of units
@@ -8544,32 +10112,38 @@ declare namespace WoWAPI {
          * @see  https://wow.gamepedia.com/UNIT_ABSORB_AMOUNT_CHANGED
          */
         UNIT_ABSORB_AMOUNT_CHANGED: null;
+
         /**
          * Fired when a units attack is affected (such as the weapon being swung). First argument returned appears to be which unit this event applies
          * to (for example, 'player')
          * @see https://wow.gamepedia.com/UNIT_ATTACK
          */
         UNIT_ATTACK: null;
+
         /**
          * Fired when a unit's attack power changes
          * @see https://wow.gamepedia.com/UNIT_ATTACK_POWER
          */
         UNIT_ATTACK_POWER: null;
+
         /**
          * Fired when your attack speed is being listed or affected
          * @see https://wow.gamepedia.com/UNIT_ATTACK_SPEED
          */
         UNIT_ATTACK_SPEED: null;
+
         /**
          * Fired when a buff, debuff, status, or item bonus was gained by or faded from an entity (player, pet, NPC, or mob.)
          * - **arg1**: the UnitID of the entity
          * @see https://wow.gamepedia.com/UNIT_AURA
          */
         UNIT_AURA: [UnitId];
+
         /**
          * unknown
          */
         UNIT_CLASSIFICATION_CHANGED: Unknown[];
+
         /**
          * Fired when an npc or player participates in combat and takes damage
          * - **arg1**: the UnitID of the entity
@@ -8580,26 +10154,31 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_COMBAT
          */
         UNIT_COMBAT: [UnitId, CombatTextType, CombatCriticalIndicator, number, CombatDamageType];
+
         /**
          * unknown
          */
         UNIT_CONNECTION: Unknown[];
+
         /**
          * Fired when the units melee damage changes. Be warned that this often gets fired multiple times, for example when you change weapons
          * @see https://wow.gamepedia.com/UNIT_DAMAGE
          */
         UNIT_DAMAGE: null;
+
         /**
          * Fired when a units defense is affected
          * @see https://wow.gamepedia.com/UNIT_DEFENSE
          */
         UNIT_DEFENSE: null;
+
         /**
          * Fired when the unit's mana stype is changed. Occurs when a druid shapeshifts as well as in certain other cases
          * - **arg1**: unitId
          * @see https://wow.gamepedia.com/UNIT_DISPLAYPOWER
          */
         UNIT_DISPLAYPOWER: [UnitId];
+
         /**
          * Fired when a unit enters a vehicle
          * - **arg1**: the UnitID of the entity entering a vehicle
@@ -8614,30 +10193,36 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_ENTERED_VEHICLE
          */
         UNIT_ENTERED_VEHICLE: [UnitId, boolean, string, VehicleType, boolean, number, Guid, boolean, boolean];
+
         /**
          * unknown
          */
         UNIT_ENTERING_VEHICLE: Unknown[];
+
         /**
          * Fired when a unit exited a vehicle
          * - **arg1**: the UnitID of the entity exited a vehicle
          * @see https://wow.gamepedia.com/UNIT_EXITED_VEHICLE
          */
         UNIT_EXITED_VEHICLE: [UnitId];
+
         /**
          * unknown
          */
         UNIT_EXITING_VEHICLE: Unknown[];
+
         /**
          * Fired when a target's faction is announced
          * - **arg1**: the name of the unit whose faction changed
          * @see https://wow.gamepedia.com/UNIT_FACTION
          */
         UNIT_FACTION: [string];
+
         /**
          * unknown
          */
         UNIT_FLAGS: Unknown[];
+
         /**
          * Fired whenever a units health is affected. This event may be sent more than once to represent the same change if the affected entity
          * can be accessed through multiple UnitIDs. For example, two UNIT_HEALTH events will be sent for raid party members who are also in your party
@@ -8647,14 +10232,17 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_HEALTH
          */
         UNIT_HEALTH: [UnitId];
+
         /**
          * unknown
          */
         UNIT_HEAL_ABSORB_AMOUNT_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         UNIT_HEAL_PREDICTION: Unknown[];
+
         /**
          * Fired when the player equips or unequips an item. This can also be called if your target, mouseover or party member changes equipment
          * (untested for hostile targets).
@@ -8670,60 +10258,71 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_INVENTORY_CHANGED
          */
         UNIT_INVENTORY_CHANGED: [UnitId];
+
         /**
          * Fired whenever the level of a unit is submitted (e.g. when clicking a unit or someone joins the party)
          * - **arg1**: the UnitID of the entity whose level is submitted
          * @see https://wow.gamepedia.com/UNIT_LEVEL
          */
         UNIT_LEVEL: [UnitId];
+
         /**
          * Fired whenever a unit's mana changes. Removed in Patch 4.0, use UNIT_POWER instead
          * @deprecated
          * @see https://wow.gamepedia.com/UNIT_MANA
          */
         UNIT_MANA: [UnitId];
+
         /**
          * Fired when a unit's maximum health changes
          * - **arg1**: unitID of the unit whose health is affected
          * @see https://wow.gamepedia.com/UNIT_MAXHEALTH
          */
         UNIT_MAXHEALTH: [UnitId];
+
         /**
          * Fired when the unit's 3d model changes
          * @see https://wow.gamepedia.com/UNIT_MODEL_CHANGED
          */
         UNIT_MODEL_CHANGED: null;
+
         /**
          * Fired when a unit's name changes
          * - **arg1**: the UnitID of the entity whose name changed
          * @see https://wow.gamepedia.com/UNIT_NAME_UPDATE
          */
         UNIT_NAME_UPDATE: [UnitId];
+
         /**
          * unknown
          */
         UNIT_OTHER_PARTY_CHANGED: Unknown[];
+
         /**
          * Fired when a unit's pet changes
          * - **arg1**: The UnitID of the entity whose pet changed
          * @see https://wow.gamepedia.com/UNIT_PET
          */
         UNIT_PET: [UnitId];
+
         /**
          * Fired when the pet's experience changes
          * @see https://wow.gamepedia.com/UNIT_PET_EXPERIENCE
          */
         UNIT_PET_EXPERIENCE: null;
+
         /**
          * unknown
          */
         UNIT_PHASE: Unknown[];
+
         /**
          * Fired when a units portrait changes
          * - **arg1**: Unit name
          * @see https://wow.gamepedia.com/UNIT_PORTRAIT_UPDATE
          */
         UNIT_PORTRAIT_UPDATE: [string];
+
         /**
          * Fired when a unit's current power (mana, rage, focus, energy, runic power, holy power, ...) changes
          * - **arg1**: UnitId whose resource value changed
@@ -8732,43 +10331,52 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_POWER
          */
         UNIT_POWER: [UnitId, UnitPowerType];
+
         /**
          * unknown
          */
         UNIT_POWER_BAR_HIDE: Unknown[];
+
         /**
          * unknown
          */
         UNIT_POWER_BAR_SHOW: Unknown[];
+
         /**
          * unknown
          */
         UNIT_POWER_BAR_TIMER_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         UNIT_POWER_FREQUENT: Unknown[];
+
         /**
          * Fired whenever the quest log changes. (Frequently, but not as frequently as QUEST_LOG_UPDATE)
          * - **arg1**: unit name
          * @see https://wow.gamepedia.com/UNIT_QUEST_LOG_CHANGED
          */
         UNIT_QUEST_LOG_CHANGED: [string];
+
         /**
          * Fired when a unit's ranged damage changes
          * @see https://wow.gamepedia.com/UNIT_RANGEDDAMAGE
          */
         UNIT_RANGEDDAMAGE: null;
+
         /**
          * Fired when a unit's ranged attack power changes
          * @see https://wow.gamepedia.com/UNIT_RANGED_ATTACK_POWER
          */
         UNIT_RANGED_ATTACK_POWER: null;
+
         /**
          * Fired when the units resistance changes
          * @see https://wow.gamepedia.com/UNIT_RESISTANCES
          */
         UNIT_RESISTANCES: null;
+
         /**
          * Fired when a unit begins channeling in the course of casting a spell. Received for party/raid members as well as the player
          * - **arg1**: Unit casting the spell
@@ -8778,6 +10386,7 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_SPELLCAST_CHANNEL_START
          */
         UNIT_SPELLCAST_CHANNEL_START: [UnitId, number, number];
+
         /**
          * Fired when a unit stops channeling. Received for party/raid members as well as the player
          * - **arg1**: Unit casting the spell
@@ -8786,6 +10395,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_CHANNEL_STOP: [UnitId, number, number];
+
         /**
          * Received for party/raid members, as well as the player
          * - **arg1**: Unit casting the spell
@@ -8794,6 +10404,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_CHANNEL_UPDATE: [UnitId, number, number];
+
         /**
          * Fired when a unit's spellcast is delayed, including party/raid members or the player
          * - **arg1**: Unit casting the spell
@@ -8802,6 +10413,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_DELAYED: [UnitId, number, number];
+
         /**
          * Fired when a unit's spellcast fails, including party/raid members or the player
          * - **arg1**: Unit casting the spell
@@ -8810,6 +10422,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_FAILED: [UnitId, number, number];
+
         /**
          * - **arg1**: Unit casting the spell
          * - **arg2**: Spell lineID counter
@@ -8817,6 +10430,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_FAILED_QUIET: [UnitId, number, number];
+
         /**
          * Fired when a unit's spellcast is interrupted, including party/raid members or the player
          * - **arg1**: Unit casting the spell
@@ -8825,6 +10439,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_INTERRUPTED: [UnitId, number, number];
+
         /**
          * - **arg1**: Unit casting the spell
          * - **arg2**: Spell lineID counter
@@ -8832,6 +10447,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_INTERRUPTIBLE: [UnitId, number, number];
+
         /**
          * - **arg1**: Unit casting the spell
          * - **arg2**: Spell lineID counter
@@ -8839,6 +10455,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_NOT_INTERRUPTIBLE: [UnitId, number, number];
+
         /**
          * Fired when a unit attempts to cast a spell regardless of the success of the cast. Fired when a unit tries to cast an instant, non-instant,
          * or channeling spell even if out of range or out of line-of-sight (unless the unit is attempting to cast a non-instant spell while already
@@ -8851,6 +10468,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_SENT: [UnitId, Unknown, string, number | UnitId];
+
         /**
          * Fired when a unit begins casting a non-instant cast spell, including party/raid members or the player
          * - **arg1**: Unit casting the spell
@@ -8859,6 +10477,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_START: [UnitId, number, number];
+
         /**
          * Fired when a unit begins casting a non-instant cast spell, including party/raid members or the player
          * - **arg1**: Unit casting the spell
@@ -8867,6 +10486,7 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_STOP: [UnitId, number, number];
+
         /**
          * Fired when a spell is cast successfully. Event is received even if spell is resisted
          * - **arg1**: Unit casting the spell
@@ -8875,16 +10495,19 @@ declare namespace WoWAPI {
          * @since 2.0.1
          */
         UNIT_SPELLCAST_SUCCEEDED: [UnitId, number, number];
+
         /**
          * unknown
          */
         UNIT_SPELL_HASTE: Unknown[];
+
         /**
          * Fired when a units stats are being passed to the player/thing
          * - **arg1**: Unit Name
          * @see https://wow.gamepedia.com/UNIT_STATS
          */
         UNIT_STATS: [string];
+
         /**
          * Fired when the target of yourself, raid, and party members change: 'target', 'party1target', 'raid1target', etc.. Should also work for
          * 'pet' and 'focus'. This event only fires when the triggering unit is within the player's visual range
@@ -8892,10 +10515,12 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_TARGET
          */
         UNIT_TARGET: [UnitId];
+
         /**
          * unknown
          */
         UNIT_TARGETABLE_CHANGED: Unknown[];
+
         /**
          * Fired when the client receives updated threat information from the server, if an available mob's threat list has changed at all
          * (ie anybody in combat with it has done anything).
@@ -8903,36 +10528,43 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_THREAT_LIST_UPDATE
          */
         UNIT_THREAT_LIST_UPDATE: [UnitId];
+
         /**
          * Fired when an available unit on an available mob's threat list moves past another unit on that list
          * - **arg1**: unitId of the unit whose threat situation changed
          * @see https://wow.gamepedia.com/UNIT_THREAT_SITUATION_UPDATE
          */
         UNIT_THREAT_SITUATION_UPDATE: [UnitId];
+
         /**
          * unknown
          */
         UPDATE_ACTIVE_BATTLEFIELD: Unknown[];
+
         /**
          * Fired whenever new battlefield score data has been recieved, this is usually fired after RequestBattlefieldScoreData() is called
          * @see https://wow.gamepedia.com/UPDATE_BATTLEFIELD_SCORE
          */
         UPDATE_BATTLEFIELD_SCORE: null;
+
         /**
          * Fired whenever joining a queue, leaving a queue, battlefield to join is changed, when you can join a battlefield, or if somebody wins the
          * battleground
          * @see https://wow.gamepedia.com/UPDATE_BATTLEFIELD_STATUS
          */
         UPDATE_BATTLEFIELD_STATUS: null;
+
         /**
          * Fired when the keybindings are changed. Fired after completion of LoadBindings(), SaveBindings(), and SetBinding() (and its derivatives)
          * @see https://wow.gamepedia.com/UPDATE_BINDINGS
          */
         UPDATE_BINDINGS: null;
+
         /**
          * unknown
          */
         UPDATE_BONUS_ACTIONBAR: Unknown[];
+
         /**
          * Fired when the chat colour needs to be updated. Refer to the ChangeChatColor API call for details on the parameters
          * - **arg1**: chat type
@@ -8942,94 +10574,114 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UPDATE_CHAT_COLOR
          */
         UPDATE_CHAT_COLOR: [string, number, number, number];
+
         /**
          * unknown
          */
         UPDATE_CHAT_COLOR_NAME_BY_CLASS: Unknown[];
+
         /**
          * Fired on load when chat settings are available for chat windows
          * @see https://wow.gamepedia.com/UPDATE_CHAT_WINDOWS
          */
         UPDATE_CHAT_WINDOWS: null;
+
         /**
          * Fired when your character's XP exhaustion (i.e. the amount of your character's rested bonus) changes. Use GetXPExhaustion() to query the current
          * value
          * @see https://wow.gamepedia.com/UPDATE_EXHAUSTION
          */
         UPDATE_EXHAUSTION: null;
+
         /**
          * unknown
          */
         UPDATE_EXPANSION_LEVEL: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_EXTRA_ACTIONBAR: Unknown[];
+
         /**
          * Fired when your character's reputation of some faction has changed
          * @see https://wow.gamepedia.com/UPDATE_FACTION
          */
         UPDATE_FACTION: null;
+
         /**
          * Fired on load when chat settings are available for a certain chat window
          * @see https://wow.gamepedia.com/UPDATE_FLOATING_CHAT_WINDOWS
          */
         UPDATE_FLOATING_CHAT_WINDOWS: null;
+
         /**
          * unknown
          */
         UPDATE_GM_STATUS: Unknown[];
+
         /**
          * Fired when data from RequestRaidInfo() is available
          * @see https://wow.gamepedia.com/UPDATE_INSTANCE_INFO
          */
         UPDATE_INSTANCE_INFO: null;
+
         /**
          * Fires whenever an item's durability status becomes yellow (low) or red (broken). Signals that the durability frame needs to be updated.
          * May also fire on any durability status change, even if that change doesn't require an update to the durability frame
          * @see https://wow.gamepedia.com/UPDATE_INVENTORY_ALERTS
          */
         UPDATE_INVENTORY_ALERTS: null;
+
         /**
          * Should fire whenever the durability of an item in the character's possession changes
          * @see https://wow.gamepedia.com/UPDATE_INVENTORY_DURABILITY
          */
         UPDATE_INVENTORY_DURABILITY: null;
+
         /**
          * When fired prompts the LFG UI to update the list of LFG players. Signals LFG query results are available. See API LFGQuery
          * @see https://wow.gamepedia.com/UPDATE_LFG_LIST
          */
         UPDATE_LFG_LIST: null;
+
         /**
          * unknown
          */
         UPDATE_LFG_LIST_INCREMENTAL: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_LFG_TYPES: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_MACROS: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_MASTER_LOOT_LIST: Unknown[];
+
         /**
          * Fired when the mouseover object needs to be updated
          * @see https://wow.gamepedia.com/UPDATE_MOUSEOVER_UNIT
          */
         UPDATE_MOUSEOVER_UNIT: null;
+
         /**
          * Fired when the shaman totem multicast bar needs an update
          * @see https://wow.gamepedia.com/UPDATE_MULTI_CAST_ACTIONBAR
          */
         UPDATE_MULTI_CAST_ACTIONBAR: null;
+
         /**
          * unknown
          */
         UPDATE_OVERRIDE_ACTIONBAR: Unknown[];
+
         /**
          * - Fired when the player enters the world and enters/leaves an instance, if there is mail in the player's mailbox
          * - Fired when new mail is received
@@ -9038,32 +10690,39 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UPDATE_PENDING_MAIL
          */
         UPDATE_PENDING_MAIL: null;
+
         /**
          * unknown
          */
         UPDATE_POSSESS_BAR: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_SHAPESHIFT_COOLDOWN: Unknown[];
+
         /**
          * Fired when the current form changes
          * @see https://wow.gamepedia.com/UPDATE_SHAPESHIFT_FORM
          */
         UPDATE_SHAPESHIFT_FORM: null;
+
         /**
          * Fired when the available set of forms changes (i.e. on skill gain)
          * @see https://wow.gamepedia.com/UPDATE_SHAPESHIFT_FORMS
          */
         UPDATE_SHAPESHIFT_FORMS: null;
+
         /**
          * unknown
          */
         UPDATE_SHAPESHIFT_USABLE: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_STEALTH: Unknown[];
+
         /**
          * Fired when a battle pet-summoning action might need to be updated
          * - Fired when the player learns a new battle pet
@@ -9071,39 +10730,48 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UPDATE_SUMMONPETS_ACTION
          */
         UPDATE_SUMMONPETS_ACTION: null;
+
         /**
          * unknown
          */
         UPDATE_TICKET: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_TRADESKILL_RECAST: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_VEHICLE_ACTIONBAR: Unknown[];
+
         /**
          * unknown
          */
         UPDATE_WEB_TICKET: Unknown[];
+
         /**
          * Fired within Battlefields when certain things occur such as a flag being captured
          * @see https://wow.gamepedia.com/UPDATE_WORLD_STATES
          */
         UPDATE_WORLD_STATES: null;
+
         /**
          * unknown
          */
         USE_BIND_CONFIRM: Unknown[];
+
         /**
          * unknown
          */
         USE_GLYPH: Unknown[];
+
         /**
          * unknown
          */
         USE_NO_REFUND_CONFIRM: Unknown[];
+
         /**
          * Fired in response to the CVars, Keybindings and other associated "Blizzard" variables being loaded. Since key bindings and macros in
          * particular may be stored on the server they event may be delayed a bit beyond the original loading sequence
@@ -9115,82 +10783,100 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/VARIABLES_LOADED
          */
         VARIABLES_LOADED: null;
+
         /**
          * unknown
          */
         VEHICLE_ANGLE_SHOW: Unknown[];
+
         /**
          * unknown
          */
         VEHICLE_ANGLE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         VEHICLE_PASSENGERS_CHANGED: Unknown[];
+
         /**
          * unknown
          */
         VEHICLE_POWER_SHOW: Unknown[];
+
         /**
          * unknown
          */
         VEHICLE_UPDATE: Unknown[];
+
         /**
          * unknown
          */
         VOICE_CHANNEL_STATUS_UPDATE: Unknown[];
+
         /**
          * Fired when you enable or disable voice chat
          * @see https://wow.gamepedia.com/VOICE_CHAT_ENABLED_UPDATE
          */
         VOICE_CHAT_ENABLED_UPDATE: null;
+
         /**
          * unknown
          */
         VOICE_LEFT_SESSION: Unknown[];
+
         /**
          * unknown
          */
         VOICE_PLATE_START: Unknown[];
+
         /**
          * unknown
          */
         VOICE_PLATE_STOP: Unknown[];
+
         /**
          * Fired when you click the Push-To-Talk hotkey to activate voice chat
          * @see https://wow.gamepedia.com/VOICE_PUSH_TO_TALK_START
          */
         VOICE_PUSH_TO_TALK_START: null;
+
         /**
          * Fired when you release the Push-To-Talk hotkey
          * @see https://wow.gamepedia.com/VOICE_PUSH_TO_TALK_STOP
          */
         VOICE_PUSH_TO_TALK_STOP: null;
+
         /**
          * unknown
          */
         VOICE_SELF_MUTE: Unknown[];
+
         /**
          * unknown
          */
         VOICE_SESSIONS_UPDATE: Unknown[];
+
         /**
          * Fired when someone starts using Voice Chat
          * - **arg1**: The UnitId of the person who started talking
          * @see https://wow.gamepedia.com/VOICE_START
          */
         VOICE_START: [UnitId];
+
         /**
          * Fired when someone in your group or raid updates their voice status. Triggers extremely frequently
          * @see https://wow.gamepedia.com/VOICE_STATUS_UPDATE
          */
         VOICE_STATUS_UPDATE: null;
+
         /**
          * Fired when someone stops using Voice Chat
          * - **arg1**: The UnitId of the person who stopped talking
          * @see https://wow.gamepedia.com/VOICE_STOP
          */
         VOICE_STOP: [UnitId];
+
         /**
          * Fired when attempting to deposit an item with enchants/gems/reforges/etc into the Void Storage
          * - **arg1**: slotIndex
@@ -9198,53 +10884,64 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/VOID_DEPOSIT_WARNING
          */
         VOID_DEPOSIT_WARNING: [number, ItemLink];
+
         /**
          * unknown
          */
         VOID_STORAGE_CLOSE: Unknown[];
+
         /**
          * Fired when one the Void Storage slots is changed
          * @see https://wow.gamepedia.com/VOID_STORAGE_CONTENTS_UPDATE
          */
         VOID_STORAGE_CONTENTS_UPDATE: null;
+
         /**
          * Fired when one the Void Transfer deposit slots is changed
          * - **arg1**: slotIndex
          * @see https://wow.gamepedia.com/VOID_STORAGE_DEPOSIT_UPDATE
          */
         VOID_STORAGE_DEPOSIT_UPDATE: [number];
+
         /**
          * unknown
          */
         VOID_STORAGE_OPEN: Unknown[];
+
         /**
          * Fired when the Void Storage "tutorial" is progressed, or when the Void Storage hasn't been activated yet
          * @see https://wow.gamepedia.com/VOID_STORAGE_UPDATE
          */
         VOID_STORAGE_UPDATE: null;
+
         /**
          * Fired when an item has been successfully deposited or withdrawn from the Void Storage
          * @see https://wow.gamepedia.com/VOID_TRANSFER_DONE
          */
         VOID_TRANSFER_DONE: null;
+
         /**
          * Fires when you need to supply a reason for the kick vote you wish to initiate. Use UninviteUnit("name", "reason") to provide the reason
          * - **arg1**: name of the player you wanted to initiate a kick vote for
          * @see https://wow.gamepedia.com/VOTE_KICK_REASON_NEEDED
          */
         VOTE_KICK_REASON_NEEDED: [string];
+
         /**
          * unknown
          */
         WARGAME_REQUESTED: Unknown[];
+
         /**
          * unknown
          */
         WEAR_EQUIPMENT_SET: Unknown[];
+
         /**
          * unknown
          */
         WEIGHTED_SPELL_UPDATED: Unknown[];
+
         /**
          * Fired when the client receives the result of a SendWho() request from the server. use API SetWhoToUI to manipulate this functionality.
          * This event is only triggered if the Who panel was open at the time the Who data was received (this includes the case where the Blizzard
@@ -9252,52 +10949,63 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/WHO_LIST_UPDATE
          */
         WHO_LIST_UPDATE: null;
+
         /**
          * @see https://wow.gamepedia.com/WORLD_MAP_CLOSE
          */
         WORLD_MAP_CLOSE: null;
+
         /**
          * @see https://wow.gamepedia.com/WORLD_MAP_OPEN
          */
         WORLD_MAP_OPEN: [number];
+
         /**
          * Fired when the world map should be updated. When entering a battleground, this event won't fire until the zone is changed (i.e. in
          *  WSG when you walk outside of Warsong Lumber Mill or Silverwing Hold
          * @see https://wow.gamepedia.com/WORLD_MAP_UPDATE
          */
         WORLD_MAP_UPDATE: null;
+
         /**
          * unknown
          */
         WORLD_QUEST_COMPLETED_BY_SPELL: Unknown[];
+
         /**
          * unknown
          */
         WORLD_STATE_TIMER_START: Unknown[];
+
         /**
          * unknown
          */
         WORLD_STATE_TIMER_STOP: Unknown[];
+
         /**
          * unknown
          */
         WORLD_STATE_UI_TIMER_UPDATE: Unknown[];
+
         /**
          * Possibly fired after failing to DetectWowMouse()
          * @see https://wow.gamepedia.com/MOUSE_NOT_FOUND
          */
         MOUSE_NOT_FOUND: null;
+
         /**
          * Fired when the player enters a new subzone. e.g. While in Vale of Eternal Blossoms, moving from "The Summer Fields" to "The Golden Padoga"
          * @see https://wow.gamepedia.com/ZONE_CHANGED
          */
         ZONE_CHANGED: null;
+
         /**
          * Fired when a player enters a new zone within a city. e.g. While in Shrine of the Two Moons, moving from "Hall of the Crescent Moon" to "Summer's
          * Rest"
          * @see https://wow.gamepedia.com/ZONE_CHANGED_INDOORS
          */
         ZONE_CHANGED_INDOORS: null;
+
         /**
          * Fired when the user enters a new zone or city. e.g. moving from Duskwood to Stranglethorn Vale or Durotar into Orgrimmar. In interface
          * terms, this is anytime you get a new set of channels
@@ -9306,9 +11014,13 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/ZONE_CHANGED_NEW_AREA
          */
         ZONE_CHANGED_NEW_AREA: null;
+
     };
+
     type Event = keyof TypedEvents;
 }
+
+
 declare type EXPANSION_CLASSIC = 0;
 declare type EXPANSION_BURNING_CRUSADE = 1;
 declare type EXPANSION_WRATH_OF_THE_LICH_KING = 2;
@@ -9317,36 +11029,50 @@ declare type EXPANSION_MISTS_OF_PANDARIA = 4;
 declare type EXPANSION_WARLORDS_OF_DRAENOR = 5;
 declare type EXPANSION_LEGION = 6;
 declare type EXPANSION_BATTLE_FOR_AZEROTH = 7;
+
 declare namespace WoWAPI {
     type Unknown = any;
-    type UnknownStringKeyTable = {
-        [anyKey: string]: any;
-    };
-    type UnknownNumberKeyTable = {
-        [anyKey: number]: any;
-    };
+    type UnknownStringKeyTable = { [anyKey: string]: any };
+    type UnknownNumberKeyTable = { [anyKey: number]: any };
+
     type Flag = 0 | 1;
+
     /**
      * a texture can be a path to a blp file or a number as fileID
      */
     type TexturePath = string | number;
+
     /**
      * the base type for all clickable ingame links in the chat
      */
     type Hyperlink = string;
+
     /**
      * TYPES THAT SHOULD BE STORED SEPERATLY!!!!
      */
-    type CombatTextType = "DAMAGE" | "SPELL_DAMAGE" | "DAMAGE_CRIT" | "HEAL" | "PERIODIC_HEAL" | "HEAL_CRIT" | "MISS" | "DODGE" | "PARRY" | "BLOCK" | "RESIST" | "SPELL_RESISTED" | "ABSORB" | "SPELL_ABSORBED" | "MANA" | "ENERGY" | "RAGE" | "FOCUS" | "SPELL_ACTIVE" | "COMBO_POINTS" | "AURA_START" | "AURA_END" | "AURA_START_HARMFUL" | "AURA_END_HARMFUL" | "HONOR_GAINED" | "FACTION";
+
+    type CombatTextType = "DAMAGE" | "SPELL_DAMAGE" | "DAMAGE_CRIT" | "HEAL" | "PERIODIC_HEAL" | "HEAL_CRIT" | "MISS" |
+        "DODGE" | "PARRY" | "BLOCK" | "RESIST" | "SPELL_RESISTED" | "ABSORB" | "SPELL_ABSORBED" | "MANA" | "ENERGY" | "RAGE" | "FOCUS" |
+        "SPELL_ACTIVE" | "COMBO_POINTS" | "AURA_START" | "AURA_END" | "AURA_START_HARMFUL" | "AURA_END_HARMFUL" | "HONOR_GAINED" | "FACTION";
+
     type CombatCriticalIndicator = "CRITICAL" | "CRUSHING" | "GLANCING";
+
     type CombatDamageType = 1 | 2 | 4 | 8 | 16 | 32 | 64;
+
     type DisenchantRollType = 1 | 2 | 3;
-    type Difficulty = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34;
+
+    type Difficulty = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22
+        | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34;
+
     type StreamingState = 0 | 1 | 2 | 3;
+
     type VehicleType = "Natural" | "Mechanical" | "VehicleMount" | "VehicleMount_Organic" | "";
+
     type UnitPowerType = "MANA" | "RAGE" | "ENERGY" | "FOCUS" | "HAPPINESS" | "RUNIC_POWER" | "HOLY_POWER";
+
     type SpellTreeId = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 }
+
 declare type ActionBarPage1 = 1;
 declare type ActionBarPage2 = 2;
 declare type ActionBarPage3 = 3;
@@ -9354,6 +11080,7 @@ declare type ActionBarPage4 = 4;
 declare type ActionBarPage5 = 5;
 declare type ActionBarPage6 = 6;
 declare type ActionBarPage = ActionBarPage1 | ActionBarPage2 | ActionBarPage3 | ActionBarPage4 | ActionBarPage5 | ActionBarPage6;
+
 declare type SlotActionBarPet = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 declare type SlotActionBarPage1 = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 declare type SlotActionBarPage2 = 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
@@ -9361,13 +11088,19 @@ declare type SlotActionBarPage3 = 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 3
 declare type SlotActionBarPage4 = 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48;
 declare type SlotActionBarPage5 = 49 | 50 | 51 | 52 | 53 | 54 | 55 | 56 | 57 | 58 | 59 | 60;
 declare type SlotActionBarPage6 = 61 | 62 | 63 | 64 | 65 | 66 | 67 | 68 | 69 | 70 | 71 | 72;
-declare type SlotActionBarMisc = 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90 | 91 | 92 | 93 | 94 | 95 | 96 | 97 | 98 | 99 | 100 | 101 | 102 | 103 | 104 | 105 | 106 | 107 | 108 | 109 | 110 | 111 | 112 | 113 | 114 | 115 | 116 | 117 | 118 | 119 | 120;
+declare type SlotActionBarMisc = 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90 |
+                                 91 | 92 | 93 | 94 | 95 | 96 | 97 | 98 | 99 | 100 | 101 | 102 | 103 | 104 | 105 | 106 | 107 | 108 | 109 | 110 | 111 |
+                                 112 | 113 | 114 | 115 | 116 | 117 | 118 | 119 | 120;
 declare type SlotActionBarPossess = 121 | 122 | 123 | 124 | 125 | 126 | 127 | 128 | 129 | 130 | 131 | 132;
-declare type ActionBarSlotId = SlotActionBarPage1 | SlotActionBarPage2 | SlotActionBarPage3 | SlotActionBarPage4 | SlotActionBarPage5 | SlotActionBarPage6 | SlotActionBarMisc | SlotActionBarPossess;
+declare type ActionBarSlotId = SlotActionBarPage1 | SlotActionBarPage2 | SlotActionBarPage3 | SlotActionBarPage4 |
+                               SlotActionBarPage5 | SlotActionBarPage6 | SlotActionBarMisc | SlotActionBarPossess;
+
+
 declare type QUEST_FREQUENCY_NORMAL = 1;
 declare type QUEST_FREQUENCY_DAILY = 2;
 declare type QUEST_FREQUENCY_WEEKLY = 3;
 declare type QUEST_FREQUENCY = QUEST_FREQUENCY_NORMAL | QUEST_FREQUENCY_DAILY | QUEST_FREQUENCY_WEEKLY;
+
 declare type GOSSIP_TYPE_BANKER = "banker";
 declare type GOSSIP_TYPE_BATTLEMASTER = "battlemaster";
 declare type GOSSIP_TYPE_BINDER = "binder";
@@ -9380,16 +11113,21 @@ declare type GOSSIP_TYPE_TRAINER = "trainer";
 declare type GOSSIP_TYPE_UNLEARN = "unlearn";
 declare type GOSSIP_TYPE_VENDOR = "vendor";
 declare type GOSSIP_TYPE_WORKORDER = "workorder";
+
 /**
  * all currently known gossip types
  */
-declare type GOSSIP_TYPE = GOSSIP_TYPE_BANKER | GOSSIP_TYPE_BATTLEMASTER | GOSSIP_TYPE_BINDER | GOSSIP_TYPE_GOSSIP | GOSSIP_TYPE_HEALER | GOSSIP_TYPE_PETITION | GOSSIP_TYPE_TABARD | GOSSIP_TYPE_TAXI | GOSSIP_TYPE_TRAINER | GOSSIP_TYPE_UNLEARN | GOSSIP_TYPE_VENDOR | GOSSIP_TYPE_WORKORDER;
+declare type GOSSIP_TYPE = GOSSIP_TYPE_BANKER | GOSSIP_TYPE_BATTLEMASTER | GOSSIP_TYPE_BINDER | GOSSIP_TYPE_GOSSIP | GOSSIP_TYPE_HEALER |
+    GOSSIP_TYPE_PETITION | GOSSIP_TYPE_TABARD | GOSSIP_TYPE_TAXI | GOSSIP_TYPE_TRAINER | GOSSIP_TYPE_UNLEARN | GOSSIP_TYPE_VENDOR |
+    GOSSIP_TYPE_WORKORDER;
+
 /**
  * Dismiss the gossip dialog
  *
  * @see https://wow.gamepedia.com/API_CloseGossip
  */
 declare function CloseGossip(): void;
+
 /**
  * Returns whether the gossip text must be displayed
  *
@@ -9397,6 +11135,7 @@ declare function CloseGossip(): void;
  * @see https://wow.gamepedia.com/API_ForceGossip
  */
 declare function ForceGossip(): WoWAPI.Flag;
+
 /**
  * Get the list of active quests from an NPC.
  *
@@ -9406,6 +11145,7 @@ declare function ForceGossip(): WoWAPI.Flag;
  * @tupleReturn
  */
 declare function GetGossipActiveQuests(): [string, string, boolean, boolean, boolean];
+
 /**
  * Returns a list of available quests from an NPC
  *
@@ -9414,6 +11154,7 @@ declare function GetGossipActiveQuests(): [string, string, boolean, boolean, boo
  * @tupleReturn
  */
 declare function GetGossipAvailableQuests(): [string, number, boolean, QUEST_FREQUENCY, boolean, boolean, boolean];
+
 /**
  * Get the available gossip items on an NPC (possibly stuff like the BWL and MC orbs too).
  *
@@ -9422,6 +11163,7 @@ declare function GetGossipAvailableQuests(): [string, number, boolean, QUEST_FRE
  * @tupleReturn
  */
 declare function GetGossipOptions(): [string, GOSSIP_TYPE];
+
 /**
  * Get the gossip text
  *
@@ -9429,6 +11171,7 @@ declare function GetGossipOptions(): [string, GOSSIP_TYPE];
  * @see https://wow.gamepedia.com/API_GetGossipText
  */
 declare function GetGossipText(): string;
+
 /**
  * Returns the number of active quests that you should eventually turn in to this NPC
  *
@@ -9436,6 +11179,7 @@ declare function GetGossipText(): string;
  * @see https://wow.gamepedia.com/API_GetNumGossipActiveQuests
  */
 declare function GetNumGossipActiveQuests(): number;
+
 /**
  * Returns the number of quests (that you are not already on) offered by this NPC
  *
@@ -9443,6 +11187,7 @@ declare function GetNumGossipActiveQuests(): number;
  * @see https://wow.gamepedia.com/API_GetNumGossipAvailableQuests
  */
 declare function GetNumGossipAvailableQuests(): number;
+
 /**
  * Returns the number of conversation options available with this NPC
  *
@@ -9450,6 +11195,7 @@ declare function GetNumGossipAvailableQuests(): number;
  * @see https://wow.gamepedia.com/API_GetNumGossipOptions
  */
 declare function GetNumGossipOptions(): number;
+
 /**
  * Selects an active quest from a gossip list
  *
@@ -9459,6 +11205,7 @@ declare function GetNumGossipOptions(): number;
  * @see https://wow.gamepedia.com/API_SelectGossipActiveQuest
  */
 declare function SelectGossipActiveQuest(gossipIndex: number): void;
+
 /**
  * Selects an available quest from a gossip list.
  *
@@ -9468,6 +11215,7 @@ declare function SelectGossipActiveQuest(gossipIndex: number): void;
  * @see https://wow.gamepedia.com/API_SelectGossipAvailableQuest
  */
 declare function SelectGossipAvailableQuest(gossipIndex: number): void;
+
 /**
  * Selects a gossip (conversation) option
  *
@@ -9476,6 +11224,7 @@ declare function SelectGossipAvailableQuest(gossipIndex: number): void;
  * @see https://wow.gamepedia.com/API_SelectGossipOption
  */
 declare function SelectGossipOption(gossipIndex: number): void;
+
 /**
  * Get cooldown information for an inventory item.
  *
@@ -9484,6 +11233,7 @@ declare function SelectGossipOption(gossipIndex: number): void;
  * @tupleReturn
  */
 declare function GetInventoryItemCooldown(unit: WoWAPI.UnitId, slotId: number): [number, number, WoWAPI.Flag];
+
 /**
  * Return the texture for an inventory item.
  *
@@ -9491,6 +11241,7 @@ declare function GetInventoryItemCooldown(unit: WoWAPI.UnitId, slotId: number): 
  * @returns The texture path for the item in the specified slot, or nil if the slot is empty.
  */
 declare function GetInventoryItemTexture(unit: WoWAPI.UnitId, slotId: number): WoWAPI.TexturePath;
+
 /**
  * Return information about a specific inventory slot
  *
@@ -9499,6 +11250,10 @@ declare function GetInventoryItemTexture(unit: WoWAPI.UnitId, slotId: number): W
  * @tupleReturn
  */
 declare function GetInventorySlotInfo(slotName: string): [number, WoWAPI.TexturePath];
+
+
+/// <reference path="auction.d.ts" />
+
 declare namespace WoWAPI {
     type ITEM_QUALITY_GENERIC = -1;
     type ITEM_QUALITY_POOR = 0;
@@ -9510,34 +11265,43 @@ declare namespace WoWAPI {
     type ITEM_QUALITY_ARTIFACT = 6;
     type ITEM_QUALITY_HEIRLOOM = 7;
     type ITEM_QUALITY_WOW_TOKEN = 8;
+
     /**
      * all currently known item qualities
      */
-    type ITEM_QUALITY = ITEM_QUALITY_GENERIC | ITEM_QUALITY_POOR | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON | ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_ARTIFACT | ITEM_QUALITY_HEIRLOOM | ITEM_QUALITY_WOW_TOKEN;
+    type ITEM_QUALITY = ITEM_QUALITY_GENERIC | ITEM_QUALITY_POOR | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON |
+        ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_ARTIFACT | ITEM_QUALITY_HEIRLOOM | ITEM_QUALITY_WOW_TOKEN;
+
     type BIND_TYPE_NONE = 0;
     type BIND_TYPE_PICKUP = 1;
     type BIND_TYPE_EQUIP = 2;
     type BIND_TYPE_USE = 3;
     type BIND_TYPE_QUEST = 4;
+
     /**
      * all currently known bind types
      */
     type BIND_TYPE = BIND_TYPE_NONE | BIND_TYPE_PICKUP | BIND_TYPE_EQUIP | BIND_TYPE_USE | BIND_TYPE_QUEST;
+
     type EquippableItemType = "Miscellaneous" | "Cloth" | "Leather" | "Mail" | "Plate" | "Shields" | "Librams" | "Idols" | "Totems" | "Sigils";
+
     /**
      * a clickable ingame item link
      */
     type ItemLink = Hyperlink;
+
     interface CorruptionEffectInfo {
         name: string;
         description: string;
         minCorruption: number;
     }
+
     interface ItemLocationMixin {
         bagID: number | null;
         slotIndex: number | null;
         equipmentSlotIndex: number | null;
         IsValid: boolean;
+
         Clear(): void;
         GetBagAndSlot(): [number | null, number | null];
         SetEquipmentSlot(equipmentSlotIndex: number | null): void;
@@ -9549,6 +11313,7 @@ declare namespace WoWAPI {
         IsEqualToEquipmentSlot(otherEquipmentSlotIndex: number): boolean;
         IsEqualTo(otherItemLocation: ItemLocationMixin): boolean;
     }
+
     /**
      * Output table for the AuctionHouse system.
      */
@@ -9558,20 +11323,23 @@ declare namespace WoWAPI {
         itemSuffix: number;
         battlePetSpeciesID: number;
     }
+
     interface ItemKeyInfo {
         itemName: string;
         battlePetLink: string | null;
         quality: ITEM_QUALITY;
-        iconFileID: number;
+        iconFileID: number; // FileID
         isPet: boolean;
         isCommodity: boolean;
         isEquipment: boolean;
     }
+
     interface C_AzeriteItem {
         /**
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.FindActiveAzeriteItem
          */
         FindActiveAzeriteItem(): ItemLocationMixin;
+
         /**
          *
          * @param azeriteItemLocation
@@ -9581,32 +11349,38 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetAzeriteItemXPInfo
          */
         GetAzeriteItemXPInfo(azeriteItemLocation: ItemLocationMixin): [number, number];
+
         /**
          *
          * @param azeriteItemLocation
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetPowerLevel
          */
         GetPowerLevel(azeriteItemLocation: ItemLocationMixin): number;
+
         /**
          *
          * @param azeriteItemLocation
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetUnlimitedPowerLevel
          */
         GetUnlimitedPowerLevel(azeriteItemLocation: ItemLocationMixin): number;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.HasActiveAzeriteItem
          */
         HasActiveAzeriteItem(): boolean;
+
         /**
          *
          * @param itemLocation
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItem
          */
         IsAzeriteItem(itemLocation: ItemLocationMixin): boolean;
+
         /**
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItemAtMaxLevel
          */
         IsAzeriteItemAtMaxLevel(): boolean;
+
         /**
          *
          * @param itemInfo
@@ -9615,7 +11389,9 @@ declare namespace WoWAPI {
         IsAzeriteItemByID(itemInfo: string): boolean;
     }
 }
+
 declare const C_AzeriteItem: WoWAPI.C_AzeriteItem;
+
 /**
  * Equips an item, optionally into a specified slot
  * @param itemIdentifier itemId or "itemName" or "itemLink"
@@ -9629,6 +11405,7 @@ declare const C_AzeriteItem: WoWAPI.C_AzeriteItem;
  * @see https://wow.gamepedia.com/API_EquipItemByName
  */
 declare function EquipItemByName(itemIdentifier: string | number | WoWAPI.ItemLink, slot?: WoWAPI.INVENTORY_SLOT_ID): void;
+
 /**
  * Returns a link of the object located in the specified slot of a specified bag.
  * @param bagId Bag index (bagID). Valid indices are integers -2 through 11. 0 is the backpack
@@ -9637,18 +11414,21 @@ declare function EquipItemByName(itemIdentifier: string | number | WoWAPI.ItemLi
  * @see https://wow.gamepedia.com/API_GetContainerItemLink
  */
 declare function GetContainerItemLink(bagId: WoWAPI.CONTAINER_ID, slotIndex: number): WoWAPI.ItemLink | null;
+
 /**
  * Tracks the extent to which a player is wearing items touched by N'Zoth's influence.
  * @returns the amount of corruption independent of any resistances
  * @see https://wow.gamepedia.com/API_GetCorruption
  */
 declare function GetCorruption(): number;
+
 /**
  * Tracks how much the player has offset their exposure to dangers that result from wearing items touched by N'Zoth's influence.
  * @returns Amount of corruption resistance, independent of how much corruption is actually present
  * @see https://wow.gamepedia.com/API_GetCorruptionResistance
  */
 declare function GetCorruptionResistance(): number;
+
 /**
  * Returns cooldown information for the item
  * @param itemId The numeric ID of the item. ie. 12345
@@ -9660,6 +11440,7 @@ declare function GetCorruptionResistance(): number;
  * @tupleReturn
  */
 declare function GetItemCooldown(itemId: number): [number, number, WoWAPI.Flag];
+
 /**
  * Returns count information for the item
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
@@ -9669,6 +11450,7 @@ declare function GetItemCooldown(itemId: number): [number, number, WoWAPI.Flag];
  * @see https://wow.gamepedia.com/API_GetItemCount
  */
 declare function GetItemCount(itemIdentifier: string | number | WoWAPI.ItemLink, includeBank?: boolean, includeCharges?: boolean): number;
+
 /**
  * Gets the bitfield of what types of bags an item can go into or contain
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
@@ -9676,6 +11458,7 @@ declare function GetItemCount(itemIdentifier: string | number | WoWAPI.ItemLink,
  * @see https://wow.gamepedia.com/API_GetItemFamily
  */
 declare function GetItemFamily(itemIdentifier: string | number | WoWAPI.ItemLink): WoWAPI.BAG_TYPE;
+
 /**
  * Returns an item's icon texture
  * @param itemId The numeric ID of the item to query e.g. 23405 for  [Farstrider's Tunic].
@@ -9683,6 +11466,7 @@ declare function GetItemFamily(itemIdentifier: string | number | WoWAPI.ItemLink
  * @see https://wow.gamepedia.com/API_GetItemIcon
  */
 declare function GetItemIcon(itemId: number): WoWAPI.TexturePath;
+
 /**
  * Return information about a specific item
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
@@ -9710,7 +11494,9 @@ declare function GetItemIcon(itemId: number): WoWAPI.TexturePath;
  * @see https://wow.gamepedia.com/API_GetItemInfo
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetItemInfo(itemIdentifier: string | number | WoWAPI.ItemLink): [string, WoWAPI.ItemLink, WoWAPI.ITEM_QUALITY, number, number, string, string, number, WoWAPI.INVENTORY_SLOT_ID, WoWAPI.TexturePath, number, number, number, WoWAPI.BIND_TYPE, number, number, boolean];
+
 /**
  * Returns RGB color codes for an item quality
  * @param quality The numeric ID of the quality from 0 (Poor) to 7 (Heirloom)
@@ -9723,6 +11509,7 @@ declare function GetItemInfo(itemIdentifier: string | number | WoWAPI.ItemLink):
  * @tupleReturn
  */
 declare function GetItemQualityColor(quality: WoWAPI.ITEM_QUALITY): [number, number, number, string];
+
 /**
  * Return spell information about a specific item
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
@@ -9733,15 +11520,15 @@ declare function GetItemQualityColor(quality: WoWAPI.ITEM_QUALITY): [number, num
  * @see https://wow.gamepedia.com/API_GetItemSpell
  */
 declare function GetItemSpell(itemIdentifier: string | number | WoWAPI.ItemLink): [string, string, number];
+
 /**
  * Returns a table of stats for an item
  * @param itemLink An item link for which to get stats
  * @param statTable An optional, empty table that will be filled with stats and returned. If this parameter is omitted, a new table is returned
  * @see https://wow.gamepedia.com/API_GetItemStats
  */
-declare function GetItemStats(itemLink: WoWAPI.ItemLink, statTable?: {}): {
-    [index: string]: number;
-};
+declare function GetItemStats(itemLink: WoWAPI.ItemLink, statTable?: {}): { [index: string]: number };
+
 /**
  * Returns a link to the indexed item in the merchant's inventory
  * @param merchantIndex The index of the item in the merchant's inventory
@@ -9749,10 +11536,12 @@ declare function GetItemStats(itemLink: WoWAPI.ItemLink, statTable?: {}): {
  * @see https://wow.gamepedia.com/API_GetMerchantWoWAPI.ItemLink
  */
 declare function GetMerchantItemLink(merchantIndex: number): WoWAPI.ItemLink;
+
 /**
  * @see https://wow.gamepedia.com/API_GetNegativeCorruptionEffectInfo
  */
 declare function GetNegativeCorruptionEffectInfo(): WoWAPI.CorruptionEffectInfo[];
+
 /**
  * Returns link to the quest item
  * @param type "required", "reward" or "choice"
@@ -9761,6 +11550,7 @@ declare function GetNegativeCorruptionEffectInfo(): WoWAPI.CorruptionEffectInfo[
  * @see https://wow.gamepedia.com/API_GetQuestWoWAPI.ItemLink
  */
 declare function GetQuestItemLink(type: WoWAPI.QuestType, index: number): WoWAPI.ItemLink;
+
 /**
  * Returns link to the quest item
  * @param type  "required", "reward" or "choice"
@@ -9770,6 +11560,7 @@ declare function GetQuestItemLink(type: WoWAPI.QuestType, index: number): WoWAPI
  * @see https://wow.gamepedia.com/API_GetQuestLogWoWAPI.ItemLink
  */
 declare function GetQuestLogItemLink(type: WoWAPI.QuestType, index: number): WoWAPI.ItemLink;
+
 /**
  * Returns a single value: chat-ready item link
  * @param tradeSlotIndex index value of the "player's" (your character) trade slots (starts at 1 and proceeds to 6. 7 may be used for the
@@ -9778,6 +11569,7 @@ declare function GetQuestLogItemLink(type: WoWAPI.QuestType, index: number): WoW
  * @see https://wow.gamepedia.com/API_GetTradePlayerWoWAPI.ItemLink
  */
 declare function GetTradePlayerItemLink(tradeSlotIndex: number): WoWAPI.ItemLink;
+
 /**
  * Gets the link string for a trade skill item
  * @param skillId The Id specifying which trade skill's link to get. Trade Skill window must be open for this to work. Indexes start at 1 which
@@ -9785,6 +11577,7 @@ declare function GetTradePlayerItemLink(tradeSlotIndex: number): WoWAPI.ItemLink
  * @see https://wow.gamepedia.com/API_GetTradeSkillWoWAPI.ItemLink
  */
 declare function GetTradeSkillItemLink(skillId: number): WoWAPI.ItemLink;
+
 /**
  * Gets the link string for a trade skill reagent
  * @param skillId The Id specifying which trade skill's reagent to link
@@ -9792,17 +11585,20 @@ declare function GetTradeSkillItemLink(skillId: number): WoWAPI.ItemLink;
  * @see https://wow.gamepedia.com/API_GetTradeSkillReagentWoWAPI.ItemLink
  */
 declare function GetTradeSkillReagentItemLink(skillId: number, reagentId: number): WoWAPI.ItemLink;
+
 /**
  * Simply view, except this function is for your trading partner, ie, the other side of the trade window
  * @param tradeIndex index value of the "player's" (your character) trade slots (starts at 1 and proceeds to 6. 7 may be used for the will-not-be-traded-slot.)
  * @see https://wow.gamepedia.com/API_GetTradeTargetWoWAPI.ItemLink
  */
 declare function GetTradeTargetItemLink(tradeIndex: number): WoWAPI.ItemLink;
+
 /**
  * Returns usable, noMana
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
  */
 declare function IsUsableItem(itemIdentifier: string | number | WoWAPI.ItemLink): [boolean, boolean];
+
 /**
  * Returns whether an item is consumed when used
  * @param itemIdentifier An item ID (number), item link or item name (string) to query
@@ -9810,35 +11606,41 @@ declare function IsUsableItem(itemIdentifier: string | number | WoWAPI.ItemLink)
  * @see https://wow.gamepedia.com/API_IsConsumableItem
  */
 declare function IsConsumableItem(itemIdentifier: string | number | WoWAPI.ItemLink): WoWAPI.Flag;
+
 /**
  *
  * @param itemIdentifier An item ID (number), item link or item name (string) to query
  * @see https://wow.gamepedia.com/API_IsCorruptedItem
  */
 declare function IsCorruptedItem(itemIdentifier: string | number | WoWAPI.ItemLink): boolean;
+
 /**
  * unknown
  * @param itemIdentifier An item ID (number), item link or item name (string) to query
  */
 declare function IsCurrentItem(itemIdentifier: string | number | WoWAPI.ItemLink): WoWAPI.Flag;
+
 /**
  * Determines if an item is equipped
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
  * @see https://wow.gamepedia.com/API_IsEquippedItem
  */
 declare function IsEquippedItem(itemIdentifier: string | number | WoWAPI.ItemLink): boolean;
+
 /**
  * Returns 1 if item is an equip-able one at all, your character notwithstanding, or nil if not
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
  * @see https://wow.gamepedia.com/API_IsEquippableItem
  */
 declare function IsEquippableItem(itemIdentifier: string | number | WoWAPI.ItemLink): boolean;
+
 /**
  * Determines if an item of a given type is equipped
  * @param itemType any valid inventory type, item class, or item subclass
  * @see https://wow.gamepedia.com/API_IsEquippedItemType
  */
 declare function IsEquippedItemType(itemType: WoWAPI.EquippableItemType): boolean;
+
 /**
  * Returns if you are in range of the specified unit to use the specified item
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
@@ -9849,11 +11651,13 @@ declare function IsEquippedItemType(itemType: WoWAPI.EquippableItemType): boolea
  * @see https://wow.gamepedia.com/API_IsItemInRange
  */
 declare function IsItemInRange(itemIdentifier: string | number | WoWAPI.ItemLink, unit?: WoWAPI.UnitId): [boolean, WoWAPI.Flag];
+
 /**
  * unknown
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
  */
 declare function ItemHasRange(itemIdentifier: string | number | WoWAPI.ItemLink): boolean;
+
 /**
  * Called to handle clicks on Blizzard hyperlinks in chat
  * @param link Link to Use, (eg 'item:3577:0:0:0:0:0:0:276308480' is a [Gold Bar], 'player:Kaso' is [Kaso]).
@@ -9868,6 +11672,7 @@ declare function ItemHasRange(itemIdentifier: string | number | WoWAPI.ItemLink)
  * @see https://wow.gamepedia.com/API_SetItemRef
  */
 declare function SetItemRef(link: WoWAPI.ItemLink, text: string, button: WoWAPI.MouseButton): void;
+
 /**
  * Uses an item, optionally on a specified target
  * @param itemName name of the item to use
@@ -9876,21 +11681,26 @@ declare function SetItemRef(link: WoWAPI.ItemLink, text: string, button: WoWAPI.
  * @see https://wow.gamepedia.com/API_UseItemByName
  */
 declare function UseItemByName(itemName: string, target?: WoWAPI.UnitId): void;
+
+
 declare namespace WoWAPI {
     type QuestType = "required" | "reward" | "choice";
     type QuestState = "OFFER" | "COMPLETE";
 }
+
 /**
  * Abandons the quest specified by SetAbandonQuest
  * @see https://wow.gamepedia.com/API_AbandonQuest
  */
 declare function AbandonQuest(): void;
+
 /**
  * Accepts the currently offered quest
  * @description You can call this function once the QUEST_DETAIL event fires
  * @see https://wow.gamepedia.com/API_AcceptQuest
  */
 declare function AcceptQuest(): void;
+
 /**
  * Adds a popup notification to the objectives tracker, showing that a quest is available or completed
  * @param questId the quest id
@@ -9898,6 +11708,7 @@ declare function AcceptQuest(): void;
  * @see https://wow.gamepedia.com/API_AddAutoQuestPopUp
  */
 declare function AddAutoQuestPopUp(questId: number, type: WoWAPI.QuestState): void;
+
 /**
  * Adds a quest to the list of quests being watched with an optional time to watch it
  * @param questIndex The index of the quest in the quest log
@@ -9905,11 +11716,13 @@ declare function AddAutoQuestPopUp(questId: number, type: WoWAPI.QuestState): vo
  * @see https://wow.gamepedia.com/API_AddQuestWatch
  */
 declare function AddQuestWatch(questIndex: number, watchTime: number): void;
+
 /**
  * Unknown
  * @param questId the quest id
  */
 declare function AddWorldQuestWatch(questId: number): WoWAPI.Unknown;
+
 /**
  * Returns whether the player can abandon a specific quest
  * @param questId quest ID of the quest to query, e.g. 5944 for N [60G] In Dreams
@@ -9917,20 +11730,24 @@ declare function AddWorldQuestWatch(questId: number): WoWAPI.Unknown;
  * @see https://wow.gamepedia.com/API_CanAbandonQuest
  */
 declare function CanAbandonQuest(questId: number): WoWAPI.Flag;
+
 /**
  * Unknown
  */
 declare function ClearAutoAcceptQuestSound(): WoWAPI.Unknown;
+
 /**
  * Closes the shown quest
  */
 declare function CloseQuest(): WoWAPI.Unknown;
+
 /**
  * Collapses the quest header
  * @param questId The quest ID of the header you wish to collapse - 0 to collapse all quest headers
  * @see https://wow.gamepedia.com/API_CollapseQuestHeader
  */
 declare function CollapseQuestHeader(questId: number): void;
+
 /**
  * Advances the quest completion dialog to the reward selection step
  * - Unlike the name would suggest, this does not finalize the completion of a quest. Instead it is called when you press the continue button,
@@ -9940,18 +11757,21 @@ declare function CollapseQuestHeader(questId: number): void;
  * @see https://wow.gamepedia.com/API_CompleteQuest
  */
 declare function CompleteQuest(): void;
+
 /**
  * Accept an escort quest being started by a player nearby
  * - Can be used after the QUEST_ACCEPT_CONFIRM event has fired
  * @see https://wow.gamepedia.com/API_ConfirmAcceptQuest
  */
 declare function ConfirmAcceptQuest(): void;
+
 /**
  * Declines the currently offered quest.
  * - You can call this function once the QUEST_DETAIL event fires
  * @see https://wow.gamepedia.com/API_DeclineQuest
  */
 declare function DeclineQuest(): void;
+
 /**
  * Expands the quest header
  * - Expands the first quest header (questID = 1 is always yields a header if you have quests) if it was collapsed; if not, does nothing.
@@ -9960,10 +11780,12 @@ declare function DeclineQuest(): void;
  * @see https://wow.gamepedia.com/API_ExpandQuestHeader
  */
 declare function ExpandQuestHeader(questId: number): void;
+
 /**
  * Unknown
  */
 declare function GetAbandonQuestItems(): WoWAPI.Unknown;
+
 /**
  * Returns the name of a quest that will be abandoned if AbandonQuest is called
  * - The FrameXML-provided quest log calls SetAbandonQuest whenever a quest entry is selected, so this function will usually return the name of
@@ -9972,16 +11794,22 @@ declare function GetAbandonQuestItems(): WoWAPI.Unknown;
  * @see https://wow.gamepedia.com/API_GetAbandonQuestName
  */
 declare function GetAbandonQuestName(): string;
+
 /**
  * Returns true if a quest is possible to complete
  * @see https://wow.gamepedia.com/API_IsQuestCompletable
  */
 declare function IsQuestCompletable(): boolean;
+
 /**
  * Returns the number of items nessecary to complete a particular quest
  * @see https://wow.gamepedia.com/API_GetNumQuestItems
  */
 declare function GetNumQuestItems(): number;
+
+
+/// <reference path="global.d.ts" />
+
 /**
  * Determines whether the current execution path is secure
  *
@@ -9989,6 +11817,7 @@ declare function GetNumQuestItems(): number;
  * @see https://wow.gamepedia.com/API_issecure
  */
 declare function issecure(): WoWAPI.Flag;
+
 /**
  * Taints the current execution path.
  *
@@ -9996,6 +11825,7 @@ declare function issecure(): WoWAPI.Flag;
  * @since 3.0.2
  */
 declare function forceinsecure(): void;
+
 /**
  * Determines whether the given table key is secure
  *
@@ -10006,6 +11836,7 @@ declare function forceinsecure(): void;
  * @tupleReturn
  */
 declare function issecurevariable(table?: object, variableName?: string): [boolean, string];
+
 /**
  * Calls the specified function without propagating taint to the caller
  *
@@ -10015,6 +11846,7 @@ declare function issecurevariable(table?: object, variableName?: string): [boole
  * @see https://wow.gamepedia.com/API_securecall
  */
 declare function securecall(call: string | ((...args: any[]) => any), ...args: any[]): any;
+
 /**
  * Creates a secure "post hook" for the specified function. Your hook will be called with the same arguments after the original call is performed
  *
@@ -10024,6 +11856,7 @@ declare function securecall(call: string | ((...args: any[]) => any), ...args: a
  * @see https://wow.gamepedia.com/API_hooksecurefunc
  */
 declare function hooksecurefunc(table?: object, functionName?: string, handler?: (...args: any[]) => any): void;
+
 /**
  * Determines whether in-combat lockdown restrictions are active
  *
@@ -10031,11 +11864,15 @@ declare function hooksecurefunc(table?: object, functionName?: string, handler?:
  * @see https://wow.gamepedia.com/API_InCombatLockdown
  */
 declare function InCombatLockdown(): boolean;
+
+
 declare const BOOKTYPE_SPELL = "spell";
 declare const BOOKTYPE_PET = "pet";
+
 declare namespace WoWAPI {
     type BookType = typeof BOOKTYPE_SPELL | typeof BOOKTYPE_PET;
 }
+
 /**
  * Retrieves the cooldown data of the spell specified.
  *
@@ -10044,12 +11881,15 @@ declare namespace WoWAPI {
  * @tupleReturn
  */
 declare function GetSpellCooldown(spellId: number, type: WoWAPI.BookType): [number, number, WoWAPI.Flag, number];
+
 /**
  * Returns the icon of the specified spell.
  *
  * @see https://wow.gamepedia.com/API_GetSpellTexture
  */
 declare function GetSpellTexture(spellId: number, type: WoWAPI.BookType): WoWAPI.TexturePath;
+
+
 /**
  * Execute a console command
  *
@@ -10057,12 +11897,14 @@ declare function GetSpellTexture(spellId: number, type: WoWAPI.BookType): WoWAPI
  * @see https://wow.gamepedia.com/API_ConsoleExec
  */
 declare function ConsoleExec(command: string): WoWAPI.Unknown;
+
 /**
  * Attempts to detect the world of warcraft MMO mouse.
  *
  * @see https://wow.gamepedia.com/API_DetectWowMouse
  */
 declare function DetectWowMouse(): WoWAPI.Unknown;
+
 /**
  * Returns information about current client build
  *
@@ -10071,6 +11913,7 @@ declare function DetectWowMouse(): WoWAPI.Unknown;
  * @tupleReturn
  */
 declare function GetBuildInfo(): [string, string, string, number];
+
 /**
  * Returns the currently set error handler
  *
@@ -10078,6 +11921,7 @@ declare function GetBuildInfo(): [string, string, string, number];
  * @see https://wow.gamepedia.com/API_geterrorhandler
  */
 declare function geterrorhandler(): (...args: any[]) => any | null;
+
 /**
  * Retrieve the current framerate (frames / second).
  *
@@ -10085,6 +11929,7 @@ declare function geterrorhandler(): (...args: any[]) => any | null;
  * @see https://wow.gamepedia.com/API_GetFramerate
  */
 declare function GetFramerate(): number;
+
 /**
  * Returns the current server time in hours and minutes
  *
@@ -10093,6 +11938,7 @@ declare function GetFramerate(): number;
  * @tupleReturn
  */
 declare function GetGameTime(): [number, number];
+
 /**
  * Returns the system uptime of your computer in seconds, with millisecond
  * precision.
@@ -10101,6 +11947,7 @@ declare function GetGameTime(): [number, number];
  * @see https://wow.gamepedia.com/API_GetTime
  */
 declare function GetTime(): number;
+
 /**
  * Returns information about the client locale
  *
@@ -10120,13 +11967,18 @@ declare function GetTime(): number;
  * - zhTW: Chinese (Traditional, Taiwan)
  */
 declare function GetLocale(): string;
+
 /**
  * Returns the name of the character's realm
  * @see https://wow.gamepedia.com/API_GetRealmName
  */
 declare function GetRealmName(): string;
+/// <reference path="ui.d.ts" />
+/// <reference path="../auction.d.ts" />
+
 declare namespace WoWAPI {
     interface GameTooltip {
+
         /**
          * Adds Line to tooltip with textLeft on left side of line and textRight on right side
          * @param textLeft string which will show on left
@@ -10139,17 +11991,21 @@ declare namespace WoWAPI {
          * @param textRightBlue range 0 to 1 - blue color value for right string
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_AddDoubleLine
          */
+        // tslint:disable-next-line max-line-length
         AddDoubleLine(textLeft: string, textRight: string, textLeftRed: number, textLeftGreen: number, textLeftBlue: number, textRightRed: number, textRightGreen: number, textRightBlue: number): void;
+
         /**
          * Hides this tooltip
          */
         Hide(): void;
+
         /**
          * Dynamically expands the size of a tooltip
          * @param leftString unknown
          * @param rightString unknown
          */
         AddFontStrings(leftString: Unknown, rightString: Unknown): Unknown;
+
         /**
          * Appends a line of text to tooltip
          * @param text text which will appear in new tooltip line
@@ -10160,6 +12016,7 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_AddLine
          */
         AddLine(text: string, red?: number, green?: number, blue?: number, wrapText?: boolean): void;
+
         /**
          * Adds a texture (icon) to the beginning of the last line added by AddLine(), AddDoubleLine(), etc
          * @param texturePath the texture to add
@@ -10167,25 +12024,30 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_AddTexture
          */
         AddTexture(texturePath: TexturePath): void;
+
         /**
          * Append text to the end of the first line of the tooltip
          * @param text the text to add
          */
         AppendText(text: string): void;
+
         /**
          * Clear all 30 lines of tooltip (both left and right ones)
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_ClearLines
          */
         ClearLines(): void;
+
         /**
          * Initiates fading out of the GameTooltip over the next few seconds
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_FadeOut
          */
         FadeOut(): void;
+
         /**
          * Returns the current anchoring type
          */
         GetAnchorType(): Point;
+
         /**
          * Returns the name and link of the item displayed on a GameTooltip
          * @returns **itemName, ItemLink**
@@ -10195,10 +12057,12 @@ declare namespace WoWAPI {
          * @tupleReturn
          */
         GetItem(): [string, ItemLink];
+
         /**
          * unknown
          */
         GetMinimumWidth(): Unknown;
+
         /**
          * Returns the name and link of the spell displayed on a GameTooltip
          * @returns **itemName, spellId**
@@ -10208,34 +12072,40 @@ declare namespace WoWAPI {
          * @tupleReturn
          */
         GetSpell(): [string, number];
+
         /**
          * Returns owner frame, anchor
          *
          * @tupleReturn
          */
         GetOwner(): [UIObject, Point];
+
         /**
          * Returns unit name, unit id
          *
          * @tupleReturn
          */
         GetUnit(): [string, UnitId];
+
         /**
          * unknown
          * @param unit unknown
          */
         IsUnit(unit: UnitId): boolean;
+
         /**
          * Return the number of text lines which comprise a tooltip object
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_NumLines
          */
         NumLines(): number;
+
         /**
          * Shows the tooltip for the specified action button
          * @param slot id of the action button to load the tooltip for
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetAction
          */
         SetAction(slot: ActionBarSlotId): void;
+
         /**
          * unknown
          * @param type unknown
@@ -10243,11 +12113,13 @@ declare namespace WoWAPI {
          * @param offset unknown
          */
         SetAuctionCompareItem(type: AUCTION_TYPE, index: number, offset: number): Unknown;
+
         /**
          * unknown
          * @param id unknown
          */
         SetBackpackToken(id: Unknown): Unknown;
+
         /**
          * Sets the GameTooltip to contain text information about the specified item,
          * as well as returning whether the item is "cooling down" and the cost to repair the item (which may be 0 (or nil?) if non-applicable).
@@ -10260,16 +12132,19 @@ declare namespace WoWAPI {
          * @tupleReturn
          */
         SetBagItem(bag: WoWAPI.CONTAINER_ID, slot: number): [boolean, number];
+
         /**
          * unknown
          */
         SetBuybackItem(): Unknown;
+
         /**
          * Shows the tooltip for the specified token type
          * @param tokenId id of the token type to load the tooltip for
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetCurrencyToken
          */
         SetCurrencyToken(tokenId: number): void;
+
         /**
          * Displays the frame stack of the mouse cursor's current position on the tooltip.
          * This is not intended to be used in typical addons, but is part of the Blizzard_DebugTools "builtin addon" inspired by DevTools
@@ -10277,28 +12152,33 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetFrameStack
          */
         SetFrameStack(showHidden?: boolean): void;
+
         /**
          * unknown
          * @param glyphId unknown
          */
         SetGlyph(glyphId: Unknown): Unknown;
+
         /**
          * Shows the tooltip for the specified guild bank item
          * @param tabId the tab id
          * @param slot the slot id
          */
         SetGuildBankItem(tabId: WoWAPI.CONTAINER_ID_BANK, slot: number): void;
+
         /**
          * Changes the item which is displayed in the tooltip according to the passed argument
          * @param itemIdentifier Representing an in-game item, enchant or spell or A clickable string of an in-game item
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetHyperlink
          */
         SetHyperlink(itemIdentifier: string | ItemLink): void;
+
         /**
          * unknown
          * @param args unknown
          */
         SetHyperlinkCompareItem(...args: Unknown[]): Unknown;
+
         /**
          * Shows the tooltip for the specified mail inbox item
          * @param index The index of the message to get information from
@@ -10306,6 +12186,7 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetInboxItem
          */
         SetInboxItem(index: number, attachmentIndex: number): Unknown;
+
         /**
          * This function sets a tooltip widget to display information for the given unit's given inventory slot
          * @param unit the unit whose inventory should be searched
@@ -10319,33 +12200,39 @@ declare namespace WoWAPI {
          * @tupleReturn
          */
         SetInventoryItem(unit: UnitId, slot: number, nameOnly?: Unknown): [boolean, boolean, number];
+
         /**
          * Sets the GameTooltip to show a loot item
          * @param lootIndex The index of the loot item to show (from 1 to GetNumLootItems())
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetLootItem
          */
         SetLootItem(lootIndex: number): void;
+
         /**
          * Shows the tooltip for the specified loot roll item
          * @param rollId the roll id for the item
          */
         SetLootRollItem(rollId: number): void;
+
         /**
          * unknown
          * @param slot unknown
          * @param offset unknown
          */
         SetMerchantCompareItem(slot: number, offset?: number): Unknown;
+
         /**
          * unknown
          * @param args unknown
          */
         SetMerchantItem(...args: Unknown[]): Unknown;
+
         /**
          * unknown
          * @param width unknown
          */
         SetMinimumWidth(width: number): void;
+
         /**
          * Moves the game tooltip to a location based on the "owner" frame
          * @param owner Owner frame, which defines the element where the tooltip is centered on.
@@ -10358,47 +12245,56 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetOwner
          */
         SetOwner(owner: UIObject, anchor: Point, offsetX?: number, offsetY?: number): void;
+
         /**
          * Sets the amount of padding on the righthand side of the GameTooltip
          * @param amount The amount of padding (black space) to put on the right hand side of the tooltip
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetPadding
          */
         SetPadding(amount: number): void;
+
         /**
          * Shows the tooltip for the specified pet action
          * @param slot the pet action slot id
          */
         SetPetAction(slot: number): Unknown;
+
         /**
          * unknown
          * @param args unknown
          */
         SetQuestItem(...args: Unknown[]): Unknown;
+
         /**
          * unknown
          * @param args unknown
          */
         SetQuestLogItem(...args: Unknown[]): Unknown;
+
         /**
          * Shows the tooltip for the spell reward of the currently selected quest
          * @param args unknown
          */
         SetQuestLogRewardSpell(...args: Unknown[]): Unknown;
+
         /**
          * unknown
          * @param args unknown
          */
         SetQuestRewardSpell(...args: Unknown[]): Unknown;
+
         /**
          * unknown
          * @param args unknown
          */
         SetSendMailItem(...args: Unknown[]): Unknown;
+
         /**
          * Shows the tooltip for the specified shapeshift form
          * @param slot the slot id
          */
         SetShapeshift(slot: number): Unknown;
+
         /**
          * Shows the tooltip for the specified spell
          * @param spellBookId the id of the spell on the tab from the spellbook - not the same as SpellId
@@ -10406,6 +12302,7 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetSpell
          */
         SetSpell(spellBookId: number, bookType: "pet" | "spell"): void;
+
         /**
          * Shows the tooltip for the specified talent
          * @param tabIndex the index of the talent tab
@@ -10413,6 +12310,7 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetTalent
          */
         SetTalent(tabIndex: number, talentIndex: number): Unknown;
+
         /**
          * Sets the text of the tooltip
          * @param text The text of the new tooltip. Variable can be used inplace of a string
@@ -10424,16 +12322,19 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetText
          */
         SetText(text: string, red?: number, green?: number, blue?: number, alpha?: number, textWrap?: boolean): void;
+
         /**
          * unknown
          * @param args unknown
          */
         SetTracking(...args: Unknown[]): Unknown;
+
         /**
          * unknown
          * @param args unknown
          */
         SetTradePlayerItem(...args: Unknown[]): Unknown;
+
         /**
          * This method opens the tooltip window when you hover over objects in the tradeskill window
          * @param tradeItemIndex The index of the selected item in the recipe list
@@ -10441,22 +12342,26 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetTradeSkillItem
          */
         SetTradeSkillItem(tradeItemIndex: number, reagentIndex?: number): void;
+
         /**
          * unknown
          * @param args unknown
          */
         SetTradeTargetItem(...args: Unknown[]): Unknown;
+
         /**
          * unknown
          * @param args unknown
          */
         SetTrainerService(...args: Unknown[]): Unknown;
+
         /**
          * Sets the UnitID for the tooltip
          * @param unitId the unit id
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetUnit
          */
         SetUnit(unitId: UnitId): void;
+
         /**
          * shows the tooltip for a unit's aura
          * @param unitId the unitId of the unit whose aura is to be shown
@@ -10465,6 +12370,7 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetUnitAura
          */
         SetUnitAura(unitId: UnitId, auraIndex: number, filter?: BuffFilterType): Unknown;
+
         /**
          * Shows the tooltip for a unit's buff
          * @param unitId the unitId of the unit whose buff is to be shown
@@ -10473,6 +12379,7 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetUnitBuff
          */
         SetUnitBuff(unitId: UnitId, buffIndex: number, filter?: BuffFilterType): Unknown;
+
         /**
          * shows the tooltip for a unit's debuff
          * @param unitId the unitId of the unit whose debuff is to be shown
@@ -10481,14 +12388,21 @@ declare namespace WoWAPI {
          * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetUnitAura
          */
         SetUnitDebuff(unitId: UnitId, buffIndex: number, filter?: BuffFilterType): Unknown;
+
         /**
          * shows the configured tooltip
          */
         Show(): void;
     }
 }
+
 declare const GameTooltip: WoWAPI.GameTooltip;
+
+
+/// <reference path="../global.d.ts" />
+
 declare namespace WoWAPI {
+
     type HorizontalAlign = "LEFT" | "CENTER" | "RIGHT";
     type VerticalAlign = "TOP" | "MIDDLE" | "BUTTOM";
     type Point = "TOP" | "RIGHT" | "BOTTOM" | "LEFT" | "TOPRIGHT" | "TOPLEFT" | "BOTTOMLEFT" | "BOTTOMRIGHT" | "CENTER";
@@ -10499,6 +12413,7 @@ declare namespace WoWAPI {
     type FilterMode = "LINEAR" | "BILINEAR" | "TRILINEAR" | "NEAREST";
     type MouseWheelDelta = 1 | -1;
     type Align = "HORIZONTAL" | "VERTICAL";
+
     namespace Event {
         type OnEvent = "OnEvent";
         type OnLoad = "OnLoad";
@@ -10513,6 +12428,7 @@ declare namespace WoWAPI {
         type OnMouseWheel = "OnMouseWheel";
         type OnValueChanged = "OnValueChanged";
         type OnTextChanged = "OnTextChanged";
+
         type PlayerLogin = "PLAYER_LOGIN";
         type PlayerLogout = "PLAYER_LOGOUT";
         type UnitHealth = "UNIT_HEALTH";
@@ -10526,26 +12442,37 @@ declare namespace WoWAPI {
         type PlayerFocusChanged = "PLAYER_FOCUS_CHANGED";
         type UnitEnteredVehicle = "UNIT_ENTERED_VEHICLE";
         type UnitExitedVehicle = "UNIT_EXITED_VEHICLE";
-        type OnAny = OnEvent | OnLoad | OnUpdate | OnClick | OnEnter | OnLeave | OnHide | OnShow | OnMouseDown | OnMouseUp | OnMouseWheel | OnValueChanged | OnTextChanged;
+
+        type OnAny = OnEvent | OnLoad | OnUpdate | OnClick | OnEnter |
+            OnLeave | OnHide | OnShow | OnMouseDown | OnMouseUp | OnMouseWheel |
+            OnValueChanged | OnTextChanged;
     }
+
     type UIDropdownInfo = {
-        text: string;
-        func?: () => void;
-        checked: boolean;
+        text: string,
+        func?: () => void,
+        checked: boolean
     };
+
     /**
      * The Frame type
      */
-    type FrameType = "Frame" | "Button" | "Cooldown" | "ColorSelect" | "EditBox" | "GameTooltip" | "MessageFrame" | "Minimap" | "Model" | "ScrollFrame" | "ScrollingMessageFrame" | "SimpleHTML" | "Slider" | "StatusBar";
+    type FrameType = "Frame" | "Button" | "Cooldown"
+        | "ColorSelect" | "EditBox" | "GameTooltip" | "MessageFrame"
+        | "Minimap" | "Model" | "ScrollFrame" | "ScrollingMessageFrame"
+        | "SimpleHTML" | "Slider" | "StatusBar";
+
     interface Object {
         /**
          * get the type of this object
          */
         GetObjectType(): FrameType;
+
         /**
          * Return the name of the object.
          */
         GetName(): string;
+
         /**
          * Determine if this object is of the specified type, or a subclass of that type.
          *
@@ -10553,6 +12480,7 @@ declare namespace WoWAPI {
          */
         IsObjectType(type: FrameType): boolean;
     }
+
     /**
      * the generic UIObject type
      */
@@ -10561,16 +12489,19 @@ declare namespace WoWAPI {
          * get the parent UIObject
          */
         GetParent(): UIObject;
+
         /**
          * Returns whether insecure interaction with a widget is forbidden.
          */
         IsForbidden(): boolean;
     }
+
     /**
      * This is another abstract object type that groups together a number of font related methods that are used by multiple other widget types.
      * This doesn't have a direct correlation to a UI object. See FontInstance object information for details.
      */
     interface FontInstance extends UIObject {
+
         /**
          * Returns detailed information on a font object.
          * @returns MultipleReturnValues:
@@ -10581,6 +12512,7 @@ declare namespace WoWAPI {
          * @tupleReturn
          */
         GetFont(): [string, number, string];
+
         /**
          * Gets the text color of of a Font Instance.
          * @return MultipleReturnValues:
@@ -10591,6 +12523,7 @@ declare namespace WoWAPI {
          * @tupleReturn
          */
         GetTextColor(): [number, number, number, number?];
+
         /**
          * The function is used to set the font to use for displaying text.
          *
@@ -10599,18 +12532,21 @@ declare namespace WoWAPI {
          * @param flags any comma-delimited combination of "OUTLINE", "THICKOUTLINE" and "MONOCHROME".
          */
         SetFont(font: string, size: number, flags?: FontInstanceFlags): void;
+
         /**
          * Sets horizontal text justification
          *
          * @param align the new align
          */
         SetJustifyH(align: HorizontalAlign): void;
+
         /**
          * Sets vertical text justification
          *
          * @param align the new align
          */
         SetJustifyV(align: VerticalAlign): void;
+
         /**
          * Sets the default text color.
          *
@@ -10621,6 +12557,7 @@ declare namespace WoWAPI {
          */
         SetTextColor(r: number, g: number, b: number, a?: number): void;
     }
+
     /**
      * This is an abstract object type which cannot actually be created.
      * It gathers together a number of common methods which have identical behaviours across all widget types.
@@ -10628,50 +12565,62 @@ declare namespace WoWAPI {
      * Note that it is not directly related to Frame:GetRegions() et al. See Region object information for details.
      */
     interface Region extends UIObject {
+
         /**
          * Clear all attachment points for this object.
          */
         ClearAllPoints(): void;
+
         /**
          * Set this object to hidden (it and all of its children will disappear).
          */
         Hide(): void;
+
         /**
          * Set this object to shown (it will appear if its parent is visible).
          */
         Show(): void;
+
         /**
          * Get the current alpha value
          */
         GetAlpha(): number;
+
         /**
          * Returns the distance from the bottom/left edge of the screen to the requested edge of an object, scaled with the objects's effective scale.
          */
         GetBottom(): number;
+
         /**
          * Get the coordinates of the center of this frame - Moved in 1.10.
          */
         GetCenter(): number;
+
         /**
          * Returns the distance from the bottom/left edge of the screen to the requested edge of an object, scaled with the objects's effective scale.
          */
         GetTop(): number;
+
         /**
          * Returns the distance from the bottom/left edge of the screen to the requested edge of an object, scaled with the objects's effective scale.
          */
         GetLeft(): number;
+
         /**
          * Returns the distance from the bottom/left edge of the screen to the requested edge of an object, scaled with the objects's effective scale.
          */
         GetRight(): number;
+
         /**
          * Get the width of this object.
          */
         GetWidth(): number;
+
         /**
          * Get the height of this object.
          */
         GetHeight(): number;
+
         /**
          * Returns information about the anchor point for a region.
          *
@@ -10680,16 +12629,19 @@ declare namespace WoWAPI {
          * @returns point, relativeTo, relativePoint, xOfs, yOfs
          */
         GetPoint(index?: number): [Point, Region, Point, number, number];
+
         /**
          * Set the object's alpha (opacity) value.
          *
          * @param alpha the new alpha value
          */
         SetAlpha(alpha: number): void;
+
         /**
          * Set the parent UIObject
          */
         SetParent(parent: UIObject | null): void;
+
         /**
          * Sets an attachment point of an UI component.
          *
@@ -10706,10 +12658,12 @@ declare namespace WoWAPI {
         SetPoint(point: Point): void;
         SetPoint(point: Point, offsetX: number, offsetY: number): void;
         SetPoint(point: Point, relativeTo: Region | string, relativePoint: Point): void;
+
         /**
          * Sets an object to be positioned and sized exactly the same as another object.
          */
         SetAllPoints(relativeRegion?: Region | string): void;
+
         /**
          * Sets the desired height of a frame-based object.
          *
@@ -10717,6 +12671,7 @@ declare namespace WoWAPI {
          * Note that a frame whose height is determined based on its anchors will not use this height.
          */
         SetHeight(height: number): void;
+
         /**
          * Sets the width of a frame-based object.
          *
@@ -10724,6 +12679,7 @@ declare namespace WoWAPI {
          * Note that a frame whose width is determined based on its anchors will not use this width.
          */
         SetWidth(width: number): void;
+
         /**
          * Set the size (width and height) of the object with one function
          *
@@ -10731,6 +12687,7 @@ declare namespace WoWAPI {
          * @param height The new height
          */
         SetSize(width: number, height: number): void;
+
         /**
          * Checks if mouse is over a given region.
          *
@@ -10738,28 +12695,34 @@ declare namespace WoWAPI {
          */
         IsMouseOver(): boolean;
         IsMouseOver(top: number, bottom: number, left: number, right: number): boolean;
+
         /**
          * Determine if this object can be manipulated in certain ways by tainted code in combat or not
          */
         IsProtected(): boolean;
+
         /**
          * Determine if this object is shown (would be visible if its parent was visible).
          */
         IsShown(): boolean;
+
         /**
          * Get whether the object is visible on screen (logically (IsShown() and GetParent():IsVisible()));
          */
         IsVisible(): boolean;
     }
+
     /**
      * Another abstract type, for objects that represent only a rendering process onto the screen, rather than a full blown frame.
      * (See LayeredRegion object information for details)
      */
     interface LayeredRegion extends Region {
+
         /**
          * Returns the draw layer for the Region.
          */
         GetDrawLayer(): number;
+
         /**
          * Sets the layer in which the LayeredRegion is drawn.
          *
@@ -10768,6 +12731,7 @@ declare namespace WoWAPI {
          * Regions with lower sublevel values are drawn below those with higher ones.
          */
         SetDrawLayer(layer: Layer, sublevel?: number): void;
+
         /**
          * Sets the color of an object.
          *
@@ -10778,16 +12742,19 @@ declare namespace WoWAPI {
          */
         SetVertexColor(r: number, g: number, b: number, a?: number): void;
     }
+
     /**
      * See Texture object information for details.
      */
     interface Texture extends LayeredRegion {
+
         /**
          * Returns the texture string from any Texture object.
          *
          * @returns The path/filename without extension of the texture
          */
         GetTexture(): string;
+
         /**
          * Applies a counter-clockwise rotation to the texture.
          *
@@ -10797,11 +12764,13 @@ declare namespace WoWAPI {
          */
         SetRotation(angle: number, cx: number, cy: number): void;
         SetRotation(angle: number): void;
+
         /**
          * Modifies the region of a texture drawn by the Texture widget.
          */
         SetTextCoord(left: number, right: number, top: number, bottom: number): void;
         SetTextCoord(ULx: number, ULy: number, LLx: number, LLy: number, URx: number, URy: number, LRx: number, LRy: number): void;
+
         /**
          * Changes the texture of a Texture widget.
          *
@@ -10813,6 +12782,7 @@ declare namespace WoWAPI {
          * @param filterMode Texture filtering mode to use
          */
         SetTexture(file: string | number, horizWrap?: Wrap, vertWrap?: Wrap, filterMode?: FilterMode): void;
+
         /**
          * Changes the color of a texture.
          *
@@ -10823,16 +12793,19 @@ declare namespace WoWAPI {
          */
         SetColorTexture(r: number, g: number, b: number, a?: number): void;
     }
+
     /**
      * a font string object
      */
     interface FontString extends FontInstance, LayeredRegion {
+
         /**
          * Returns the text from any FontString UI object.
          *
          * @returns The text of the FontString. Returns nil if the FontString is an empty string.
          */
         GetText(): string;
+
         /**
          * Sets the text to be displayed in the fontstring. The text will have the color given to it via the fontinstance definition
          * (or a FontString:SetTextColor call). You may however use escape sequences to modify the string's appearance.
@@ -10840,16 +12813,19 @@ declare namespace WoWAPI {
          * @param text The text to set
          */
         SetText(text: string): void;
+
         /**
          * Returns how wide the string would be, in pixels, without wrapping
          * @see https://wow.gamepedia.com/API_FontString_GetStringWidth
          */
         GetStringWidth(): number;
     }
+
     /**
      * a generic hook script interface for reuse in other objects
      */
     interface ObjectHookScript<T extends UIObject> {
+
         /**
          * Securely post-hooks a script handler.
          *
@@ -10868,10 +12844,12 @@ declare namespace WoWAPI {
         HookScript(event: "OnTextChanged", handler: (frame: T, text: string) => void): void;
         HookScript(event: Event.OnAny, handler?: (frame: T, ...args: any[]) => void): void;
     }
+
     /**
      * a generoc set script interface for reuse in other objects
      */
     interface ObjectSetScript<T extends UIObject> {
+
         /**
          * Changes the specified widget script handler.
          *
@@ -10890,27 +12868,33 @@ declare namespace WoWAPI {
         SetScript(event: "OnTextChanged", handler: (frame: T, isUserInput: boolean) => void): void;
         SetScript(event: Event.OnAny, handler?: (frame: T, ...args: any[]) => void): void;
     }
+
     interface Backdrop {
         /**
          * Which texture file to use as frame background (.blp or .tga format)
          */
         bgFile?: string;
+
         /**
          * Which texture file to use as frame edge blp or .tga format)
          */
         edgeFile?: string;
+
         /**
          * whether background texture is tiled or streched
          */
         tile?: boolean;
+
         /**
          * Control how large each copy of the bgFile becomes on-screen
          */
         tileSize?: number;
+
         /**
          * Control how large each copy of the edgeFile becomes on-screen (i.e. border thickness and corner size)
          */
         edgeSize?: number;
+
         /**
          * Controls how far into the frame the background will be drawn (use higher values the thicker the edges are)
          */
@@ -10921,10 +12905,12 @@ declare namespace WoWAPI {
             bottom: number;
         };
     }
+
     /**
      * The main wow frame object
      */
     interface Frame extends Region, ObjectHookScript<Frame>, ObjectSetScript<Frame> {
+
         /**
          * Creates a new FontString as a child of a frame.
          *
@@ -10934,6 +12920,7 @@ declare namespace WoWAPI {
          * @param inheritsFrom The name of a virtual font string, created in XML, to inherit from. if nil, the font string does not inherit any properties.
          */
         CreateFontString(name?: string, layer?: Layer, inheritsFrom?: string): FontString;
+
         /**
          * Creates a Texture object within the specified widget.
          *
@@ -10945,63 +12932,75 @@ declare namespace WoWAPI {
          * @param subLayer The order in which the texture should be drawn, within the same layer.
          */
         CreateTexture(name?: string, layer?: Layer, inheritsFrom?: string, subLayer?: number): Texture;
+
         /**
          * Allows this frame to receive keyboard input via OnKeyUp and OnKeyDown script handlers.
          *
          * @param enableFlag Whether to enable (true, default) or disable (false).
          */
         EnableKeyboard(enableFlag: boolean): void;
+
         /**
          * Allows a frame to receive mouse input via OnMouseDown, OnMouseUp or OnClick. The frame must be shown to receive mouse events.
          *
          * @param enableFlag Whether to enable (true, default) or disable (false).
          */
         EnableMouse(enableFlag: boolean): void;
+
         /**
          * Allows a frame to receive mouse wheel input.
          *
          * @param enableFlag Whether to enable (true, default) or disable (false).
          */
         EnableMouseWheel(enableFlag: boolean): void;
+
         /**
          * Gets the children of a frame
          * @tupleReturn
          */
         GetChildren(): [...UIObject[]];
+
         /**
          * Returns the Frame Strata the frame is in.
          */
         GetFrameStrata(): FrameStrata;
+
         /**
          * returns whether the flag is enabled or not
          */
         IsKeyboardEnabled(): boolean;
+
         /**
          * returns whether the flag is enabled or not
          */
         IsMouseEnabled(): boolean;
+
         /**
          * returns whether the flag is enabled or not
          */
         IsMouseWheelEnabled(): boolean;
+
         /**
          * Registers which events the object would like to monitor.
          *
          * @param eventName The name of the event to register the object as monitoring.
          */
         RegisterEvent(eventName: Event): void;
+
         /**
          * Sets the Frame Strata of the frame.
          *
          * @param frameStrata The Frame Strata the frame will be put in
          */
         SetFrameStrata(frameStrata: FrameStrata): void;
+
         /**
          * Specified a size scaling to be applied to the object (and its children).
          *
          * @param scale New scale applied to this object and its children; must be greater than 0, 1 indicates no additional scaling.
          */
         SetScale(scale: number): void;
+
         /**
          * set an attribute on the frame
          *
@@ -11009,16 +13008,19 @@ declare namespace WoWAPI {
          * @param value the value of the attribute
          */
         SetAttribute(name: string, value: any): void;
+
         /**
          * Unregisters the widget from receiving OnEvent notifications for a particular event.
          *
          * @param eventName The name of the event the object wishes to no longer monitor. See Events.
          */
         UnregisterEvent(eventName: Event): void;
+
         /**
          * Unregisters all events that the object is currently monitoring.
          */
         UnregisterAllEvents(): void;
+
         /**
          * Applies a tint to the background component of a frame's backdrop
          * @param red red tint component, from 0 to 1 (red)
@@ -11028,27 +13030,32 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_Frame_SetBackdropColor
          */
         SetBackdropColor(red: number, green: number, blue: number, alpha: number): void;
+
         /**
          * Using 'nil' as the only parameter will remove the backdrop on the indicated frame
          * @param options
          */
         SetBackdrop(options: Backdrop | void): void;
+
         /**
          * Sets whether a frame widget can be moved
          * @param movable true to allow the frame to be moved using Frame:StartMoving(), false to disallow
          * @see https://wow.gamepedia.com/API_Frame_SetMovable
          */
         SetMovable(movable: boolean): void;
+
         /**
          * Starts moving the frame-inheriting widget as the user moves the mouse cursor
          * @see https://wow.gamepedia.com/API_Frame_StartMoving
          */
         StartMoving(): void;
+
         /**
          * Stops moving or resizing the widget
          * @see https://wow.gamepedia.com/API_Frame_StopMovingOrSizing
          */
         StopMovingOrSizing(): void;
+
         /**
          * Sets the Frame Level of the frame, within its Frame Strata
          * @param level the new strata level
@@ -11056,12 +13063,15 @@ declare namespace WoWAPI {
          */
         SetFrameLevel(level: number): void;
     }
+
     /**
      * a normal WoWAPI.Frame but with all given E properties
      */
     type AdvancedFrame<F extends UIObject, E extends object> = {
-        [P in keyof (E & F)]: (E & F)[P];
+
+        [P in keyof (E & F)]: (E & F)[P]
     };
+
     /**
      * The InterfaceOptions framework requires an addon to supply its own configuration frame (panel).
      * The supplied panel will be repositioned by FrameXML and displayed when the addon's configuration category is selected.
@@ -11069,57 +13079,70 @@ declare namespace WoWAPI {
      * calling specific functions in the supplied frame table.
      */
     interface FrameInterfaceCategory extends Frame {
+
         /**
          * name displayed in the Interface Options category list (your addon name, or a panel-specific name)
          */
         name: string;
+
         /**
          * the panel.name value of the parent configuration panel, used to display a hierarchical category tree.
          * If the parent panel is not specified or does not exist, the panel is displayed as a top-level panel.
          */
         parent?: string;
+
         /**
          * called when the frame is initially displayed, and after requesting the default values to be restored.
          */
         refresh?: () => void;
+
         /**
          * called when the player presses the Okay button, indicating that settings should be saved.
          */
         okay?: () => void;
+
         /**
          * called when the player presses the Cancel button, indicating that changes made should be discarded.
          */
         cancel?: () => void;
+
         /**
          * called when the player presses the Defaults button, indicating that default settings for the addon should be restored.
          */
         default?: () => void;
     }
+
     /**
      * A slider for wow
      */
     interface Slider extends Frame {
+
         /**
          * Disables the slider
          */
         Disable(): void;
+
         /**
          * Enables the slider
          */
         Enable(): void;
+
         /**
          * Returns the minimum and maximum values of a slider
          * @tupleReturn
          */
         GetMinMaxValues(): [number, number];
+
         /**
          * Get the current value of the slider
          */
         GetValue(): number;
+
         /**
          * Get the current step size of the slider
          */
         GetValueStep(): number;
+
         /**
          * set the minimun and maximum value of the slider
          *
@@ -11127,18 +13150,21 @@ declare namespace WoWAPI {
          * @param max the max value
          */
         SetMinMaxValues(min: number, max: number): void;
+
         /**
          * set the current value of the slider
          *
          * @param value the new value
          */
         SetValue(value: number): void;
+
         /**
          * set the new step value for the slider
          *
          * @param stepValue the new step value
          */
         SetValueStep(stepValue: number): void;
+
         /**
          * set the orientation of the slider
          *
@@ -11146,84 +13172,219 @@ declare namespace WoWAPI {
          */
         SetOrientation(orientation: Align): void;
     }
-    /**
-     * a textbox like object
-     */
+
     interface EditBox extends Frame, FontInstance {
         /**
          * Clears the input text focus out of the EditBox. After this call EditBox will no longer receive input from keyboard.
          */
         ClearFocus(): void;
+    
         /**
          * Returns the position of the editbox cursor.
          */
         GetCursorPosition(): number;
+    
         /**
          * This function reads text entered into the editBox, tries to convert it into a number, and returns corresponding numerical value,
          * or 0 if text didn't look like a number.
          */
         GetNumber(): number;
+    
         /**
          * Returns the String that is currently entered in the EditBox.
          */
         GetText(): string;
+    
         /**
          * Inserts text at the current cursor position.
          *
          * @param text text to insert at the current cursor position.
          */
         Insert(text: string): void;
+    
         /**
          * Sets the position of the cursor in the edit box.
          *
          * @param position New editing cursor position; the cursor is set after position'th character of the string
          */
         SetCursorPosition(position: number): void;
+    
         /**
          * Sets editBox's text to the specified string
          *
          * @param text the string you want to appear in the EditBox
          */
         SetText(text: string): void;
+    
         /**
          * Sets whether the cursor should automatically focus on the EditBox when it is shown
          *
          * @param state Whether autofocus should be enabled
          */
+
+        AddHistoryLine(text: string): void;
+
+        /**
+         * Returns value of ignoreArrows attribute, 1/nil format
+         */
+        GetAltArrowKeyMode(): number;
+
+        /**
+         * Returns value of blinkSpeed attribute
+         */
+        GetBlinkSpeed(): number;
+    
+        /**
+         * Get the number of history lines for this edit box
+         */
+        GetHistoryLines(): number;
+    
+        /**
+         * Get the input language (the locale, not the in-game language)
+         */
+        GetInputLanguage(): string;
+    
+        /**
+         * Returns the value of bytes attribute
+         */
+        GetMaxBytes(): number;
+    
+        /**
+         * GetsReturns the value of letters attribute
+         */
+        GetMaxLetters(): number;
+    
+        /**
+         * Gets the number of letters in the box
+         */
+        GetNumLetters(): number;
+    
+        /**
+         * Returns list of left, right, top, bottom text insets
+         * @returns ?
+         */
+        GetTextInsets(): any[];
+    
+        /**
+         * Returns true if the edit box has the focus
+         */
+        HasFocus(): boolean;
+    
+        /**
+         * Set the highlight to all or some of the edit box text
+         * @param startPos 
+         * @param endPos 
+         */
+        HighlightText(startPos: number, endPos: number);
+    
+        /**
+         * Returns value of autoFocus attribute, in 1/nil format
+         */
+        IsAutoFocus(): number;
+    
+        /**
+         * Returns value of multiline attribute, in 1/nil format
+         */
+        IsMultiLine(): number;
+    
+        /**
+         * Returns value of numeric attribute, in 1/nil format.
+         */
+        IsNumeric(): number;
+    
+        /**
+         * Returns value of password attribute, in 1/nil format.
+         */
+        IsPassword(): number;
+    
         SetAutoFocus(state: boolean): void;
+    
+        SetAltArrowKeyMode();
+    
+        SetBlinkSpeed(speed: number): void;
+    
+        SetFocus();
+    
+        /**
+         * Sets the number of history lines to remember
+         * @param lines 
+         */
+        SetHistoryLines(lines: number);
+    
+        /**
+         * Sets the maximum byte size for entered text
+         * @param bytes 
+         */
+        SetMaxBytes(bytes: number);
+    
+        /**
+         * Sets the maximum number of letters for entered text
+         * @param letters 
+         */
+        SetMaxLetters(letters: number);
+    
+        SetNumber(num: number);
+    
+        SetNumeric();
+    
+        SetPassword();
+    
+        /**
+         * Sets the spacing between multiple lines
+         * @param spacing 
+         */
+        SetSpacing(spacing: number);
+    
+        ToggleInputLanguage();
+    
+        SetMultiLine(state: boolean): void;
+    
+        SetFontObject(fontObject: string): void;
+    
+        SetTextInsets(l: any, r: any, t: any, b: any);
     }
+    
+
     /**
      * a wow button
      */
     interface Button extends Frame {
+
         /**
          * Execute the click action of the button.
          */
         Click(): void;
+
         /**
          * Disable the Button so that it cannot be clicked
          */
         Disable(): void;
+
         /**
          * Enable to the Button so that it may be clicked
          */
         Enable(): void;
+
         /**
          * Get the text label for the Button
          */
         GetText(): string;
+
         /**
          * Get the height of the Button's text
          */
         GetTextHeight(): number;
+
         /**
          * Get the width of the Button's text
          */
         GetTextWidth(): number;
+
         /**
          * Determine whether the Button is enabled
          */
         IsEnabled(): boolean;
+
         /**
          * Sets the Button's text to the specified string
          *
@@ -11232,19 +13393,22 @@ declare namespace WoWAPI {
         SetText(text: string): void;
     }
 }
+
 /**
  * global lua namespace
  */
-declare const _G: {
-    [prop: string]: any;
-};
+declare const _G: { [prop: string]: any };
 declare const InterfaceOptionsFramePanelContainer: WoWAPI.Region;
 declare const UIParent: WoWAPI.Frame;
+
 /**
  * ##################################
  * FRAME MANAGEMENT
  * ##################################
  */
+
+// global frame related functions
+
 /**
  * set the width for the given dropdown frame
  *
@@ -11252,6 +13416,7 @@ declare const UIParent: WoWAPI.Frame;
  * @param width the new width
  */
 declare function UIDropDownMenu_SetWidth(dropdown: WoWAPI.Frame, width: number): void;
+
 /**
  * set the text for the given dropdown frame
  *
@@ -11259,6 +13424,7 @@ declare function UIDropDownMenu_SetWidth(dropdown: WoWAPI.Frame, width: number):
  * @param text the text to set
  */
 declare function UIDropDownMenu_SetText(dropdown: WoWAPI.Frame, text: string): void;
+
 /**
  * initialize the given dropdown frame
  *
@@ -11266,20 +13432,24 @@ declare function UIDropDownMenu_SetText(dropdown: WoWAPI.Frame, text: string): v
  * @param callback the initializer function
  */
 declare function UIDropDownMenu_Initialize(dropdown: WoWAPI.Frame, callback: (self: WoWAPI.Frame, level: number, menuList: number) => void): void;
+
 /**
  * create an info object for a dropdown element
  */
 declare function UIDropDownMenu_CreateInfo(): WoWAPI.UIDropdownInfo;
+
 /**
  * add the given info object to the current inizialized dropdown frame
  *
  * @param info the info to add
  */
 declare function UIDropDownMenu_AddButton(info: WoWAPI.UIDropdownInfo): void;
+
 /**
  * comma separated list of enabled flags
  */
 declare type FontInstanceFlags = "OUTLINE" | "MONOCHROME" | "THICKOUTLINE";
+
 /**
  * Creates a new UI frame.
  *
@@ -11292,12 +13462,15 @@ declare type FontInstanceFlags = "OUTLINE" | "MONOCHROME" | "THICKOUTLINE";
  * they must be created using XML with virtual="true" in the tag.
  * @param id ID to assign to the frame. See API Frame SetID
  */
-declare function CreateFrame(frameType: WoWAPI.FrameType, frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.UIObject;
+declare function CreateFrame(
+  frameType: WoWAPI.FrameType, frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number,
+): WoWAPI.UIObject;
 declare function CreateFrame(frameType: "Frame", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Frame;
 declare function CreateFrame(frameType: "Slider", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Slider;
 declare function CreateFrame(frameType: "EditBox", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.EditBox;
 declare function CreateFrame(frameType: "Button", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Button;
 declare function CreateFrame(frameType: "GameTooltip", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.GameTooltip;
+
 /**
  * Adds a configuration panel (with the fields described in #Panel fields below set) to the category list.
  * The optional position argument (number) allows addons to insert top-level panels at arbitrary positions in the category list.
@@ -11305,17 +13478,29 @@ declare function CreateFrame(frameType: "GameTooltip", frameName?: string, paren
  * @param panel the panel to add
  */
 declare function InterfaceOptions_AddCategory(panel: WoWAPI.FrameInterfaceCategory): void;
+
+
 declare namespace WoWAPI {
     type UnitIdArena = "arena1" | "arena2" | "arena3" | "arena4" | "arena5";
-    type UnitIdRaidPlayer = "raid1" | "raid2" | "raid3" | "raid4" | "raid5" | "raid6" | "raid7" | "raid8" | "raid9" | "raid10" | "raid11" | "raid12" | "raid13" | "raid14" | "raid15" | "raid16" | "raid17" | "raid18" | "raid19" | "raid20" | "raid21" | "raid22" | "raid23" | "raid24" | "raid25" | "raid26" | "raid27" | "raid28" | "raid29" | "raid30" | "raid31" | "raid32" | "raid33" | "raid34" | "raid35" | "raid36" | "raid37" | "raid38" | "raid39" | "raid40";
-    type UnitIdRaidPlayerPet = "raidpet1" | "raidpet2" | "raidpet3" | "raidpet4" | "raidpet5" | "raidpet6" | "raidpet7" | "raidpet8" | "raidpet9" | "raidpet10" | "raidpet11" | "raidpet12" | "raidpet13" | "raidpet14" | "raidpet15" | "raidpet16" | "raidpet17" | "raidpet18" | "raidpet19" | "raidpet20" | "raidpet21" | "raidpet22" | "raidpet23" | "raidpet24" | "raidpet25" | "raidpet26" | "raidpet27" | "raidpet28" | "raidpet29" | "raidpet30" | "raidpet31" | "raidpet32" | "raidpet33" | "raidpet34" | "raidpet35" | "raidpet36" | "raidpet37" | "raidpet38" | "raidpet39" | "raidpet40";
+    type UnitIdRaidPlayer = "raid1" | "raid2" | "raid3" | "raid4" | "raid5" | "raid6" | "raid7" | "raid8" | "raid9" |
+        "raid10" | "raid11" | "raid12" | "raid13" | "raid14" | "raid15" | "raid16" | "raid17" | "raid18" | "raid19" | "raid20" |
+        "raid21" | "raid22" | "raid23" | "raid24" | "raid25" | "raid26" | "raid27" | "raid28" | "raid29" | "raid30" | "raid31" |
+        "raid32" | "raid33" | "raid34" | "raid35" | "raid36" | "raid37" | "raid38" | "raid39" | "raid40";
+    type UnitIdRaidPlayerPet = "raidpet1" | "raidpet2" | "raidpet3" | "raidpet4" | "raidpet5" | "raidpet6" | "raidpet7" | "raidpet8" | "raidpet9" |
+                               "raidpet10" | "raidpet11" | "raidpet12" | "raidpet13" | "raidpet14" | "raidpet15" | "raidpet16" | "raidpet17" | "raidpet18" |
+                               "raidpet19" | "raidpet20" | "raidpet21" | "raidpet22" | "raidpet23" | "raidpet24" | "raidpet25" | "raidpet26" | "raidpet27" |
+                               "raidpet28" | "raidpet29" | "raidpet30" | "raidpet31" | "raidpet32" | "raidpet33" | "raidpet34" | "raidpet35" | "raidpet36" |
+                               "raidpet37" | "raidpet38" | "raidpet39" | "raidpet40";
     type UnitIdParty = "party1" | "party2" | "party3" | "party4";
     type UnitIdPartyPet = "partypet1" | "partypet2" | "partypet3" | "partypet4";
     type UnitIdOther = "player" | "pet" | "focus" | "mouseover" | "vehicle" | "target" | "none" | "npc" | "targettarget";
     type UnitId = UnitIdOther | UnitIdArena | UnitIdRaidPlayer | UnitIdRaidPlayerPet | UnitIdParty | UnitIdPartyPet;
+
     type UnitRoleType = "TANK" | "DAMAGER" | "HEALER";
+
     type Guid = string;
 }
+
 /**
  * Returns the GUID of the specified unit
  * @param unitId unit to look up the GUID of
@@ -11323,6 +13508,7 @@ declare namespace WoWAPI {
  * @since 2.4.0
  */
 declare function UnitGUID(unitId: WoWAPI.UnitId): WoWAPI.Guid;
+
 /**
  * Returns basic information about another player from their GUID
  * @param unitGUID The GUID of the player you're querying about
@@ -11331,24 +13517,28 @@ declare function UnitGUID(unitId: WoWAPI.UnitId): WoWAPI.Guid;
  * @tupleReturn
  */
 declare function GetPlayerInfoByGUID(unitGUID: WoWAPI.Guid): [string, number, string, number, number, string, string];
+
 /**
  * Returns the name and realm of the specified unit
  * @param unitId The UnitId to query (e.g. "player", "party2", "pet", "target" etc.)
  * @see https://wow.gamepedia.com/API_GetUnitName
  */
 declare function GetUnitName(unitId: WoWAPI.UnitId, showServerName: boolean): string;
+
 /**
  * Determines if the unit exists
  * @param unitId The unit to query (e.g. "player", "party2", "pet", "target" etc.)
  * @see https://wow.gamepedia.com/API_UnitExists
  */
 declare function UnitExists(unitId: WoWAPI.UnitId): 1 | null;
+
 /**
  * Checks if a specified unit is a player
  * @param unitId UnitId of the unit to check.
  * @see https://wow.gamepedia.com/API_UnitIsPlayer
  */
 declare function UnitIsPlayer(unitId: WoWAPI.UnitId): boolean;
+
 /**
  * Returns the unit's level
  * @param unitId The unitId to get information from. (e.g. "player", "target")
@@ -11356,6 +13546,7 @@ declare function UnitIsPlayer(unitId: WoWAPI.UnitId): boolean;
  * @see https://wow.gamepedia.com/API_UnitEffectiveLevel
  */
 declare function UnitLevel(unitId: WoWAPI.UnitId): number;
+
 /**
  * Get the name of the faction (Horde/Alliance) a unit belongs to
  * @param unitId unit you want to get the faction for
@@ -11363,6 +13554,7 @@ declare function UnitLevel(unitId: WoWAPI.UnitId): number;
  * @tupleReturn
  */
 declare function UnitFactionGroup(unitId: WoWAPI.UnitId): [string, string];
+
 /**
  * Returns the class of the specified unit
  * @param unitId unit to query, e.g. "player"
@@ -11370,18 +13562,21 @@ declare function UnitFactionGroup(unitId: WoWAPI.UnitId): [string, string];
  * @tupleReturn
  */
 declare function UnitClass(unitId: WoWAPI.UnitId): [string, string, number];
+
 /**
  * Returns the current health of the specified unit
  * @param unitId identifies the unit to query health for
  * @see https://wow.gamepedia.com/API_UnitHealth
  */
 declare function UnitHealth(unitId: WoWAPI.UnitId): number;
+
 /**
  * Returns the maximum health of the specified unit
  * @param unitId the unit whose max health to query
  * @see https://wow.gamepedia.com/API_UnitHealthMax
  */
 declare function UnitHealthMax(unitId: WoWAPI.UnitId): number;
+
 /**
  * Returns 1 if the unit is a player in your party, nil otherwise
  * @param unitId unitId who should be checked
