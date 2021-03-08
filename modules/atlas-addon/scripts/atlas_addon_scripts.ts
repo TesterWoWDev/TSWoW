@@ -9,14 +9,19 @@ export function Main(events: TSEventHandlers) {
                 entry = query1.GetString(0)
             }
         }
-        let query = QueryWorld('SELECT * FROM creature_loot_template WHERE entry=' + msg.entry + ';');
-        let i=0;
+        let query = QueryWorld('SELECT * FROM creature_loot_template WHERE item=' + msg.entry + ';');
+        let i=false;
         while(query.GetRow()) {
             let pkt = new itemLootPacket()
+            pkt.itemID = ToUInt32(msg.entry);
+            pkt.dropChance = query.GetInt8(2);
+            pkt.itemCountMin = query.GetInt8(4);
+            pkt.itemCountMax = query.GetInt8(5);
+            
             player.SendData(pkt)
-            i = i+1;
+            i = true;
         }
-        if(i > 0){
+        if(i){
         player.SendData(new itemLootFinishPacket())
         }else{
             player.SendData(new creatureNoExistPacket())
