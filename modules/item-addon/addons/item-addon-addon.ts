@@ -3,19 +3,19 @@ import { Events, SendToServer } from "./events";
 let itemsInFrame = [];
 let buttons = [];
 let gossip = true
-const mframe = CreateFrame('Frame','UniqueName',UIParent);
+const mframe = CreateFrame('Frame','',UIParent);
 mframe.SetWidth(500)
 mframe.SetHeight(700)
-const texture = mframe.CreateTexture("texture1",'BACKGROUND')
+const texture = mframe.CreateTexture('','BACKGROUND')
 texture.SetTexture("Interface\\BUTTONS\\BLUEGRAD64.blp")
 texture.SetAllPoints(mframe)
 mframe.SetPoint("CENTER",0,0)
 
-let exitbutn = CreateFrame("Button", "CLOSE", mframe)
+let exitbutn = CreateFrame("Button", '', mframe)
     exitbutn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",0,0)
     exitbutn.SetWidth(50)
     exitbutn.SetHeight(50)
-    let extex = exitbutn.CreateTexture("EXITTEXTURE",'BACKGROUND')
+    let extex = exitbutn.CreateTexture('','BACKGROUND')
         extex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
         extex.SetAllPoints(exitbutn)
         extex.SetPoint("CENTER",0,0)
@@ -27,11 +27,11 @@ let exitbutn = CreateFrame("Button", "CLOSE", mframe)
         mframe.Hide()
     })
 
-let scrapButn = CreateFrame("Button", "SCRAP", mframe)
+let scrapButn = CreateFrame("Button", '', mframe)
     scrapButn.SetPoint("CENTER", mframe, "CENTER",0,-100)
     scrapButn.SetWidth(250)
     scrapButn.SetHeight(50)
-    let scraptex = exitbutn.CreateTexture("SCRAPTEXTURE",'BACKGROUND')
+    let scraptex = exitbutn.CreateTexture('','BACKGROUND')
         scraptex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
         scraptex.SetAllPoints(scrapButn)
         scraptex.SetPoint("CENTER",0,0)
@@ -75,12 +75,12 @@ function makeButtons(){
     removeButtons()
     for (let i=0;i<itemsInFrame.length;i++){
         let icon = GetItemIcon(itemsInFrame[i])
-        let button = CreateFrame("Button", i.toString(), mframe)
+        let button = CreateFrame("Button", '', mframe)
         let x = i+1
             button.SetPoint("TOPLEFT", mframe, "TOPLEFT",60*i-(Math.floor(i/4)*240),60-(60*Math.ceil(x/4)))
             button.SetWidth(50)
             button.SetHeight(50)
-            let tex = button.CreateTexture("texture"+i,'BACKGROUND')
+            let tex = button.CreateTexture('','BACKGROUND')
                 tex.SetTexture(icon)
                 tex.SetAllPoints(button)
                 tex.SetPoint("CENTER",0,0)
