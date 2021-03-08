@@ -15,6 +15,7 @@
     "@types/terminal-kit": "^1.28.2",
     "@types/xml2js": "^0.4.5",
     "adm-zip": "^0.4.16",
+    "atlas-addon": "file:modules/atlas-addon/data/build",
     "canvas": "^2.6.1",
     "chokidar": "^3.4.3",
     "classes-mod": "file:modules/classes-mod/data/build",
