@@ -4,13 +4,13 @@ let itemsInFrame = [];
 let buttons = [];
 let gossip = true
 const mframe = CreateFrame('Frame','',UIParent);
-mframe.SetWidth(500)
-mframe.SetHeight(700)
-const texture = mframe.CreateTexture('','BACKGROUND')
-texture.SetTexture("Interface\\BUTTONS\\BLUEGRAD64.blp")
-texture.SetAllPoints(mframe)
-mframe.SetPoint("CENTER",0,0)
-
+    mframe.SetWidth(500)
+    mframe.SetHeight(700)
+    const texture = mframe.CreateTexture('','BACKGROUND')
+        texture.SetTexture("Interface\\BUTTONS\\BLUEGRAD64.blp")
+        texture.SetAllPoints(mframe)
+        mframe.SetPoint("CENTER",0,0)
+        //mframe.Hide()
 let exitbutn = CreateFrame("Button", '', mframe)
     exitbutn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",0,0)
     exitbutn.SetWidth(50)

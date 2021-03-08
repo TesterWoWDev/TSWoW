@@ -9,7 +9,8 @@ let mframe = CreateFrame('Frame','',UIParent);
     let texture = mframe.CreateTexture('','BACKGROUND')
         texture.SetTexture("Interface\\BUTTONS\\BLUEGRAD64.blp")
         texture.SetAllPoints(mframe)
-    
+    mframe.Hide() //make some button that makes this show/hide, possibly tied to the minimap
+
 let searchButn = CreateFrame("Button", '', mframe)
     searchButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",0,0)
     searchButn.SetWidth(50)
@@ -21,7 +22,7 @@ let searchButn = CreateFrame("Button", '', mframe)
     searchButn.HookScript("OnClick",(frame,evName,btnDown)=>{
         let entryCheckbox = 1;//add some toggle in the UI
         let pkt = new creatureNamePacket()
-            pkt.entry = "entry";//change for an edit box get text
+            pkt.entry = "3100";//change for an edit box get text
             if(entryCheckbox == 1){
                 pkt.isName = 0;
             }
@@ -30,26 +31,31 @@ let searchButn = CreateFrame("Button", '', mframe)
     })
 
 Events.AddOns.OnMessage(mframe,itemLootPacket,(msg)=>{
+    console.log(msg.itemID)
+    print(msg.itemID)
     itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
 });
 
 Events.AddOns.OnMessage(mframe,itemLootFinishPacket,(msg)=>{
+    console.log("got all data")
     createButtons()
 });
 
 Events.AddOns.OnMessage(mframe,creatureNoExistPacket,(msg)=>{
-    //set text of "cannot find creature, check your spelling"
+    print("FUUUUK")
+    console.log("DOES NOT EXIST!!!")
 });
 
 function createButtons(){
     for(let i=1;i<itemArray.length;i++){
         let item = itemArray[i]
+        let icon = GetItemIcon(item[0])
         let button = CreateFrame("Button", '', mframe)
             button.SetPoint("TOPLEFT", mframe, "TOPLEFT", 70+(((i-1)%5)*200), -75+(-115*(Math.floor((i-1)/5)+1)))
             button.SetWidth(55)
             button.SetHeight(55)
             let tex = button.CreateTexture('','BACKGROUND')
-                tex.SetTexture(GetItemIcon(item[0]) +".blp")
+                tex.SetTexture(icon)
                 tex.SetAllPoints(button)
                 tex.SetPoint("CENTER",0,0)
             let text1 = button.CreateFontString('','OVERLAY','GameTooltipText')
