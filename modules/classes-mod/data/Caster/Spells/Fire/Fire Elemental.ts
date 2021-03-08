@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib";
 import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
-import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
+import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 
 
 const entity = std.CreatureTemplates.create(MODNAME,'Fire-Elemental',30416)
@@ -25,7 +25,7 @@ entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(40,0).Action.setC
 entity.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(40,0).Action.setCast(6725,2,7)
 
 const FIREELEMENTAL = std.Spells.create(MODNAME,'Fire-Elemental-Spell',688).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
-FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(FIREELEMENTAL.ID,10,69)//CHANGE LATER
+CASTER_SKILL_TRAINER_HORDE.Trainer.addSpell(FIREELEMENTAL.ID,10,69)//CHANGE LATER
 FIREELEMENTAL.Name.enGB.set('Summon Fire Elemental')
 FIREELEMENTAL.Description.enGB.set('Summons a Fire Elemental to fight for the caster for $d seconds.')
 FIREELEMENTAL.Icon.set('Interface\\Icons\\spell_fire_elemental_totem.blp')

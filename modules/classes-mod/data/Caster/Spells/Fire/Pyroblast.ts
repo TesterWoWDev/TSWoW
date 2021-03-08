@@ -1,10 +1,10 @@
 import { std } from "tswow-stdlib";
 import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
-import { FIRE_SKILL_TRAINER_HORDE } from "./FireTrainer";
+import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 
 const PYROBLAST = std.Spells.create (MODNAME,'Pyroblast',11366).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
-FIRE_SKILL_TRAINER_HORDE.Trainer.addSpell(PYROBLAST.ID,10,20)//CHANGE LATER
+    CASTER_SKILL_TRAINER_HORDE.Trainer.addSpell(PYROBLAST.ID,10,20)//CHANGE LATER
 PYROBLAST.Name.enGB.set('Pyroblast')
 PYROBLAST.Subtext.enGB.set('')
 PYROBLAST.Description.enGB.set('Hurls an immense fiery boulder that causes $s1 Fire damage and an additional $o2 Fire damage over $d.') 
