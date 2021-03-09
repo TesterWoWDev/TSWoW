@@ -11,10 +11,11 @@ let mframe = CreateFrame('Frame','atlas',UIParent);
     mframe.SetWidth(1024)
     mframe.SetHeight(768)
     mframe.SetPoint("CENTER",0,0)
-    let texture = mframe.CreateTexture('','BACKGROUND')
-        texture.SetTexture("Interface\\BUTTONS\\BLUEGRAD64.blp")
-        texture.SetAllPoints(mframe)
-    //mframe.Hide() //make some button that makes this show/hide, possibly tied to the minimap
+    mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
+    edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
+    tile : true, tileSize : 16, edgeSize : 16, 
+    insets : { left : 4, right : 4, top : 4, bottom : 4 }});
+    mframe.SetBackdropColor(0,0,0,1);
     let pageCt = mframe.CreateFontString('','OVERLAY','GameTooltipText')
         pageCt.SetPoint("TOP",0,-65)
         pageCt.SetText("Page " + (page+1) + "/"+1)
@@ -89,11 +90,15 @@ let nextPageButn = CreateFrame("Button", '', mframe)
     })
 
     let searchBox = CreateFrame('EditBox','',UIParent)
-        searchBox.SetSize(300,50)
+        searchBox.SetSize(115,30)
         searchBox.SetPoint('TOP',mframe,'TOP',0,0)
         searchBox.SetFont('Fonts\\ARIALN.TTF',14)
         searchBox.SetMaxLetters(30)
         searchBox.SetMultiLine(false)
+        let searchtexBox = searchBox.CreateTexture('','BACKGROUND')
+            searchtexBox.SetTexture("Interface\\COMMON\\Common-Input-Border.blp")
+            searchtexBox.SetPoint('CENTER',searchBox,'CENTER',-5,-5)
+            searchtexBox.SetSize(115,30)
         searchBox.SetScript('OnEnterPressed',(frame)=>{
             searchBox.ClearFocus()
             searchLoot()
@@ -104,13 +109,16 @@ let nextPageButn = CreateFrame("Button", '', mframe)
         searchBox.Hide()
 
 let searchButn = CreateFrame("Button", '', mframe)
-    searchButn.SetPoint("CENTER", mframe, "CENTER",0,350)
-    searchButn.SetWidth(50)
-    searchButn.SetHeight(50)
+    searchButn.SetPoint("LEFT", searchBox, "RIGHT",0,-5)
+    searchButn.SetWidth(60)
+    searchButn.SetHeight(35)
     let searchtex = searchButn.CreateTexture('','BACKGROUND')
-        searchtex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
+        searchtex.SetTexture("Interface\\BUTTONS\\UI-DialogBox-Button-Up.blp")
         searchtex.SetAllPoints(searchButn)
         searchtex.SetPoint("CENTER",0,0)
+    let searchText = searchButn.CreateFontString('','OVERLAY','GameTooltipText')
+        searchText.SetPoint("CENTER",0, 6)
+        searchText.SetText("Search")
     searchButn.HookScript("OnClick",(frame,evName,btnDown)=>{
         searchLoot()
     })

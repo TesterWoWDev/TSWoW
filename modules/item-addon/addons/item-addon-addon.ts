@@ -6,9 +6,11 @@ let gossip = true
 const mframe = CreateFrame('Frame','',UIParent);
     mframe.SetWidth(500)
     mframe.SetHeight(700)
-    const texture = mframe.CreateTexture('scrapper','BACKGROUND')
-        texture.SetTexture("Interface\\BUTTONS\\BLUEGRAD64.blp")
-        texture.SetAllPoints(mframe)
+    mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
+    edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
+    tile : true, tileSize : 16, edgeSize : 16, 
+    insets : { left : 4, right : 4, top : 4, bottom : 4 }});
+    mframe.SetBackdropColor(0,0,0,1);
         mframe.SetPoint("CENTER",0,0)
         mframe.Hide()
 let exitbutn = CreateFrame("Button", '', mframe)
