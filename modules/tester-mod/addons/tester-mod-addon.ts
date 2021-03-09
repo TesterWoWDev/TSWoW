@@ -12,7 +12,7 @@ const mframe = CreateFrame('Frame','store',UIParent);
     mframe.SetHeight(800)
     mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
         edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
-        tile : true, tileSize : 16, edgeSize : 16, 
+        tile : true, tileSize : 22, edgeSize : 22, 
         insets : { left : 4, right : 4, top : 4, bottom : 4 }});
         mframe.SetBackdropColor(0,0,0,1);
     mframe.SetPoint("CENTER",0,0)

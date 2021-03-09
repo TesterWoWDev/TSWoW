@@ -11,10 +11,9 @@ let mframe = CreateFrame('Frame','atlas',UIParent);
     mframe.SetWidth(1024)
     mframe.SetHeight(768)
     mframe.SetPoint("CENTER",0,0)
-    mframe.SetMovable(true)
     mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
     edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
-    tile : true, tileSize : 16, edgeSize : 16, 
+    tile : true, tileSize : 22, edgeSize : 22, 
     insets : { left : 4, right : 4, top : 4, bottom : 4 }});
     mframe.SetBackdropColor(0,0,0,1);
     let pageCt = mframe.CreateFontString('','OVERLAY','GameTooltipText')
