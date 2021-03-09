@@ -24,17 +24,17 @@ entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(40,0).Action.setC
 entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(40,0).Action.setCast(55362,2,7)
 entity.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(40,0).Action.setCast(6725,2,7)
 
-const FIREELEMENTAL = std.Spells.create(MODNAME,'Fire-Elemental-Spell',688).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
-CASTER_SKILL_TRAINER_HORDE.Trainer.addSpell(FIREELEMENTAL.ID,10,69)//CHANGE LATER
-FIREELEMENTAL.Name.enGB.set('Summon Fire Elemental')
-FIREELEMENTAL.Description.enGB.set('Summons a Fire Elemental to fight for the caster for $d seconds.')
-FIREELEMENTAL.Icon.set('Interface\\Icons\\spell_fire_elemental_totem.blp')
-FIREELEMENTAL.Duration.set(20000,0,45000)
-FIREELEMENTAL.Power.setMana(0,16)
-FIREELEMENTAL.Cooldown.set(180000,0,0,0)
-FIREELEMENTAL.CastTime.set(0,0,0)
-FIREELEMENTAL.Effects.get(0).EffectType.set(28)
-FIREELEMENTAL.Effects.get(0).MiscValueA.set(entity.ID)
-FIREELEMENTAL.Effects.get(0).MiscValueB.set(61)
-FIREELEMENTAL.Effects.get(0).Radius.set(5,0,5)
-FIREELEMENTAL.Effects.get(0).ImplicitTargetA.setDestCasterSummon
+const FIREELEMENTALSPELL = std.Spells.create(MODNAME,'Fire-Elemental-Spell',688).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
+CASTER_SKILL_TRAINER_HORDE.Trainer.addSpell(FIREELEMENTALSPELL.ID,10,69)//CHANGE LATER
+FIREELEMENTALSPELL.Name.enGB.set('Summon Fire Elemental')
+FIREELEMENTALSPELL.Description.enGB.set('Summons a Fire Elemental to fight for the caster for $d seconds.')
+FIREELEMENTALSPELL.Icon.set('Interface\\Icons\\spell_fire_elemental_totem.blp')
+FIREELEMENTALSPELL.Duration.set(20000,0,45000)
+FIREELEMENTALSPELL.Power.setMana(0,16)
+FIREELEMENTALSPELL.Cooldown.set(180000,0,0,0)
+FIREELEMENTALSPELL.CastTime.set(0,0,0)
+FIREELEMENTALSPELL.Effects.get(0).EffectType.set(28)
+FIREELEMENTALSPELL.Effects.get(0).MiscValueA.set(entity.ID)
+FIREELEMENTALSPELL.Effects.get(0).MiscValueB.set(61)
+FIREELEMENTALSPELL.Effects.get(0).Radius.set(5,0,5)
+FIREELEMENTALSPELL.Effects.get(0).ImplicitTargetA.setDestCasterSummon
