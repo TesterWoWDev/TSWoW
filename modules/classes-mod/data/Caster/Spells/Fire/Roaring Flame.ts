@@ -13,7 +13,7 @@ ROARINGFLAME.AuraDescription.enGB.set('Dragon Fire bathes this target, dealing $
 ROARINGFLAME.Icon.set('Interface\\Icons\\ability_warlock_fireandbrimstone.blp')
 ROARINGFLAME.Visual.cloneFrom(6161,true)
 ROARINGFLAME.Duration.set(4000,0,4000)
-ROARINGFLAME.Range.set(30,30,0,0)
+ROARINGFLAME.Range.set(0,30,0,0)
 ROARINGFLAME.Power.setMana(20,5)
 ROARINGFLAME.Cooldown.set(60000,0,0,0)
 
@@ -24,3 +24,12 @@ ROARINGFLAME.Effects.add()
     ROARINGFLAME.Effects.get(0).ImplicitTargetA.setUnitConeEnemy24()
     ROARINGFLAME.Effects.get(0).Radius.set(30,0,30)
     ROARINGFLAME.Effects.get(0).ClassMask.A.set(12582935)
+
+ROARINGFLAME.Effects.add()
+    ROARINGFLAME.Effects.get(1).EffectType.setApplyAura
+    ROARINGFLAME.Effects.get(1).BasePoints.set(120)
+    ROARINGFLAME.Effects.get(1).DieSides.set(1)
+    ROARINGFLAME.Effects.get(1).AuraType.setPeriodicDamage()
+    ROARINGFLAME.Effects.get(1).MiscValueA.set(10)
+    ROARINGFLAME.Effects.get(1).ImplicitTargetA.setDestTargetEnemy()
+    ROARINGFLAME.Effects.get(1).ClassMask.A.set(12582935)
