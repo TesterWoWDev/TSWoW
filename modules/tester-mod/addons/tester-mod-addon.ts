@@ -37,7 +37,7 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
         }
         for(let i=1;i<arrayOButtonStuff.length;i++){
             let x = i-1
-            let button = CreateFrame("Button", '', mframe)
+            let button = CreateFrame("Button", arrayOButtonStuff[i][3], mframe)
                 button.SetPoint("TOPLEFT", mframe, "TOPLEFT", 70+((x%5)*200), -75+(-115*(Math.floor(x/5)+1)))
                 button.SetWidth(55)
                 button.SetHeight(55)
@@ -103,9 +103,8 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                 }) 
                 button.HookScript("OnEnter",(self)=>{
                     GameTooltip.ClearLines()
-                    let index = parseInt(self.GetName())
                     GameTooltip.SetOwner(button,'CENTER')
-                    GameTooltip.SetHyperlink("item:"+ arrayOButtonStuff[index][3])
+                    GameTooltip.SetHyperlink("item:"+ self.GetName())
                     GameTooltip.Show()
                 })            
                 button.HookScript("OnLeave",()=>{
