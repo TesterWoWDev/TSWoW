@@ -11,13 +11,14 @@ let mframe = CreateFrame('Frame','atlas',UIParent);
     mframe.SetWidth(1024)
     mframe.SetHeight(768)
     mframe.SetPoint("CENTER",0,0)
+    mframe.SetMovable(true)
     mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
     edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
     tile : true, tileSize : 16, edgeSize : 16, 
     insets : { left : 4, right : 4, top : 4, bottom : 4 }});
     mframe.SetBackdropColor(0,0,0,1);
     let pageCt = mframe.CreateFontString('','OVERLAY','GameTooltipText')
-        pageCt.SetPoint("TOP",0,-65)
+        pageCt.SetPoint("TOP",0,-30)
         pageCt.SetText("Page " + (page+1) + "/"+1)
     mframe.Hide()
 let showBtn = CreateFrame('Button','show',UIParent)
@@ -56,9 +57,9 @@ let exitButn = CreateFrame("Button", '', mframe)
     })
 
 let lastPageButn = CreateFrame("Button", '', mframe)
-    lastPageButn.SetPoint("TOP", mframe, "TOP",-60,-50)
-    lastPageButn.SetWidth(50)
-    lastPageButn.SetHeight(50)
+    lastPageButn.SetPoint("TOP", mframe, "TOP",-50,-20)
+    lastPageButn.SetWidth(35)
+    lastPageButn.SetHeight(35)
     let lasttex = lastPageButn.CreateTexture('','BACKGROUND')
         lasttex.SetTexture("Interface\\BUTTONS\\UI-SpellbookIcon-PrevPage-Up.blp")
         lasttex.SetAllPoints(lastPageButn)
@@ -73,9 +74,9 @@ let lastPageButn = CreateFrame("Button", '', mframe)
     })
 
 let nextPageButn = CreateFrame("Button", '', mframe)
-    nextPageButn.SetPoint("TOP", mframe, "TOP",60,-50)
-    nextPageButn.SetWidth(50)
-    nextPageButn.SetHeight(50)
+    nextPageButn.SetPoint("TOP", mframe, "TOP",50,-20)
+    nextPageButn.SetWidth(35)
+    nextPageButn.SetHeight(35)
     let nexttex = nextPageButn.CreateTexture('','BACKGROUND')
         nexttex.SetTexture("Interface\\BUTTONS\\UI-SpellbookIcon-NextPage-Up.blp")
         nexttex.SetAllPoints(nextPageButn)
@@ -91,7 +92,7 @@ let nextPageButn = CreateFrame("Button", '', mframe)
 
     let searchBox = CreateFrame('EditBox','',UIParent)
         searchBox.SetSize(115,30)
-        searchBox.SetPoint('TOP',mframe,'TOP',0,0)
+        searchBox.SetPoint('TOP',mframe,'TOP',-25,-60)
         searchBox.SetFont('Fonts\\ARIALN.TTF',14)
         searchBox.SetMaxLetters(30)
         searchBox.SetMultiLine(false)
@@ -172,9 +173,9 @@ function createButtons(){
             let text1 = button.CreateFontString('','OVERLAY','GameTooltipText')
                 text1.SetPoint("CENTER",0,30)
                 if(item[2] == item[3]){
-                    text1.SetText("Drop Amt: "+item[2])
+                    text1.SetText("Drop #: "+item[2])
                 }else{
-                    text1.SetText("Drop Amt: "+item[2]+"-"+item[3])
+                    text1.SetText("Drop #: "+item[2]+"-"+item[3])
                 }
             let text2 = button.CreateFontString('','OVERLAY','GameTooltipText')
                 text2.SetPoint("CENTER",0,-30)
