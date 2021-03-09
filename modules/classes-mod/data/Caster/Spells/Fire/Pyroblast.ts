@@ -21,7 +21,6 @@ PYROBLAST.Effects.add()
     PYROBLAST.Effects.get(0).PointsPerLevel.set(1.9)
     PYROBLAST.Effects.get(0).ImplicitTargetA.setDestTargetEnemy()
     PYROBLAST.Effects.get(0).ClassMask.A.set(12582935)
-    PYROBLAST.Effects.get(0).MultipleValue.set(1)
     PYROBLAST.Effects.get(0).BonusMultiplier.set(1.15)
 PYROBLAST.Effects.add()
     PYROBLAST.Effects.get(1).EffectType.setApplyAura
@@ -31,4 +30,5 @@ PYROBLAST.Effects.add()
     PYROBLAST.Effects.get(1).MiscValueA.set(10)
     PYROBLAST.Effects.get(1).ImplicitTargetA.setDestTargetEnemy()
     PYROBLAST.Effects.get(1).ClassMask.A.set(12582935)
+    PYROBLAST.Effects.get(1).MultipleValue
     PYROBLAST.Effects.get(1).BonusMultiplier.set(0.05)
