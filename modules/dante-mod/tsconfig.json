@@ -1,0 +1,1 @@
+{"compilerOptions":{"target":"es5","module":"commonjs","outDir":"./scripts/build/cpp","rootDir":"./scripts","strict":true,"esModuleInterop":true,"skipLibCheck":true,"forceConsistentCasingInFileNames":true},"include":["./"],"exclude":["./data","./data_lib","./addons"]}
