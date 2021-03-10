@@ -40,7 +40,7 @@ let scrapButn = CreateFrame("Button", '', mframe)
     let searchText = scrapButn.CreateFontString('','OVERLAY','GameFontNormalHuge')
         searchText.SetPoint("CENTER",0, 10)
         searchText.SetText("Scrap")
-        scrapButn.HookScript("OnClick",(frame,evName,btnDown)=>{
+        scrapButn.HookScript("OnClick",(frame,evName,btnDown)=>{//comment
             SendToServer(new scrapMessage())
             removeButtons()
             itemsInFrame = [];
