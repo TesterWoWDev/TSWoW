@@ -8,3 +8,5 @@ export const CASTER_TOTEM = std.Items.create(MODNAME, 'caster-totem-item',46978)
 	CASTER_TOTEM.DisplayID.set(std.Items.load(19816).DisplayID.get())
 	CASTER_TOTEM.Flags.set(CASTER_TOTEM.Flags.get()+32)
 	CASTER_CLASS.Inventory.add(CASTER_TOTEM.ID,1)
+	//penis
+	
