@@ -138,7 +138,7 @@ Events.AddOns.OnMessage(mframe,creatureNoExistPacket,(msg)=>{
 function searchLoot(){
     let pkt = new creatureNamePacket()
         pkt.entry = searchBox.GetText();
-    if(searchBox.GetText().length > 0){
+    if(pkt.entry.length > 0){
         if(Number(pkt.entry) > 0){
             pkt.isName = 0;
             pkt.entry = Number(pkt.entry).toString()

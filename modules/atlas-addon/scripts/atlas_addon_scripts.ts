@@ -3,6 +3,7 @@ import { creatureNamePacket, creatureNoExistPacket, itemLootFinishPacket, itemLo
 export function Main(events: TSEventHandlers) {
     events.Addon.OnMessageID(creatureNamePacket,(player,msg)=>{ 
         let entry = msg.entry.replace("\\\\",'').replace(';','').replace("'",'\'').replace('/','').replace('"','')
+        console.log("Text:"+msg.entry+" Flag: "+msg.isName)
         if(entry.length > 0){
             if(msg.isName == 1){
                 let query1 = QueryWorld('SELECT COUNT(*) FROM creature_template WHERE name="' + entry + '";');
