@@ -64,6 +64,6 @@ SHATTER.Effects.clearAll()
         SHATTER.Effects.get(0).EffectType.setSchoolDamage()
         SHATTER.Effects.get(0).BasePoints.set(25)
         SHATTER.Effects.get(0).DieSides.set(5)
-        SHATTER.Effects.get(0).ImplicitTargetA.setUnitDestAreaEnemy()
+        SHATTER.Effects.get(0).ImplicitTargetA.setUnitDestAreaAlly()
         SHATTER.Effects.get(0).Radius.set(10,0,10)
 
