@@ -39,3 +39,4 @@
 modules/*/*/build
 modules/tswow-stdlib
 *.pdb
+/client
