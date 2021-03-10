@@ -22,7 +22,7 @@ FROSTBOMB.Name.enGB.set('Frostbomb')
 FROSTBOMB.Subtext.enGB.set('Passive')
 FROSTBOLT.AuraDescription.enGB.set('Damage taken increased by $s1%.')
 FROSTBOMB.Description.enGB.set('This target has become frozen, shards of ice shatter and deal damage to surrounding allies whenever they are hit by a frostbolt.')
-FROSTBOMB.Icon.set('Interface\\Icons\\spell_frostward.blp')
+FROSTBOMB.Icon.set('Interface\\Icons\\spell_frost_frostward.blp')
 
 const SHATTER = std.Spells.create (MODNAME,'Shatter',11).SkillLines.add(FROST_SKILL.ID).end; //Shatter is the explosion from Frostbomb at 4 stacks that does mass AoE Damage.
 SHATTER.Name.enGB.set('Shatter')
@@ -31,6 +31,8 @@ SHATTER.Description.enGB.set('A shard of ice fractured from a frostbomb, this de
 SHATTER.Icon.set('Interface\\Icons\\spell_frost_icefloes.blp')
 
 FROSTBOLT.Effects.clearAll()
+FROSTBOLT.CastTime.set(1250,0,1250)
+FROSTBOLT.Range.set(0,35,0,0)
 FROSTBOLT.Effects.add()
     FROSTBOLT.Effects.get(0).EffectType.setSchoolDamage()
     FROSTBOLT.Effects.get(0).BasePoints.set(100)
