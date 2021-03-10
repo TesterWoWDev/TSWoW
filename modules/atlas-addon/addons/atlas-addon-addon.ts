@@ -3,12 +3,12 @@ import { Events, SendToServer } from "./events";
 let itemArray = [];
 let allButtons = [];
 let page = 0;
-let columns = 8
-let rows = 6
+let columns = 4
+let rows = 7
 let shown = false;
 
 let mframe = CreateFrame('Frame','atlas',UIParent);
-    mframe.SetWidth(1024)
+    mframe.SetWidth(512)
     mframe.SetHeight(768)
     mframe.SetPoint("CENTER",0,0)
     mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
@@ -17,9 +17,18 @@ let mframe = CreateFrame('Frame','atlas',UIParent);
     insets : { left : 4, right : 4, top : 4, bottom : 4 }});
     mframe.SetBackdropColor(0,0,0,1);
     let pageCt = mframe.CreateFontString('','OVERLAY','GameTooltipText')
-        pageCt.SetPoint("TOP",0,-30)
+        pageCt.SetPoint("TOPLEFT",110,-82)
         pageCt.SetText("Page " + (page+1) + "/"+1)
     mframe.Hide()
+
+let frameLine = CreateFrame('Frame','',mframe)
+    frameLine.SetWidth(567)
+    frameLine.SetHeight(8)
+    frameLine.SetPoint("LEFT",mframe,'TOPLEFT',5,-115)
+    let lineTex = frameLine.CreateTexture('','BACKGROUND')
+        lineTex.SetTexture("Interface\\AchievementFrame\\UI-Achievement-MetalBorder-Top.blp")
+        lineTex.SetAllPoints(frameLine)
+        
 let showBtn = CreateFrame('Button','show',UIParent)
     showBtn.SetWidth(22)
     showBtn.SetHeight(22)
@@ -56,7 +65,7 @@ let exitButn = CreateFrame("Button", '', mframe)
     })
 
 let lastPageButn = CreateFrame("Button", '', mframe)
-    lastPageButn.SetPoint("TOP", mframe, "TOP",-50,-20)
+    lastPageButn.SetPoint("LEFT", mframe, "TOPLEFT",70,-90)
     lastPageButn.SetWidth(35)
     lastPageButn.SetHeight(35)
     let lasttex = lastPageButn.CreateTexture('','BACKGROUND')
@@ -73,7 +82,7 @@ let lastPageButn = CreateFrame("Button", '', mframe)
     })
 
 let nextPageButn = CreateFrame("Button", '', mframe)
-    nextPageButn.SetPoint("TOP", mframe, "TOP",50,-20)
+    nextPageButn.SetPoint("LEFT", mframe, "TOPLEFT",170,-90)
     nextPageButn.SetWidth(35)
     nextPageButn.SetHeight(35)
     let nexttex = nextPageButn.CreateTexture('','BACKGROUND')
@@ -91,7 +100,7 @@ let nextPageButn = CreateFrame("Button", '', mframe)
 
     let searchBox = CreateFrame('EditBox','',UIParent)
         searchBox.SetSize(115,30)
-        searchBox.SetPoint('TOP',mframe,'TOP',-25,-60)
+        searchBox.SetPoint('RIGHT',mframe,'TOPRIGHT',-100,-90)
         searchBox.SetFont('Fonts\\ARIALN.TTF',14)
         searchBox.SetMaxLetters(30)
         searchBox.SetMultiLine(false)
@@ -158,13 +167,13 @@ function resetFrames(){
 function createButtons(){
     let length = columns*rows;
     if(itemArray.length < (columns*rows)*(page+1)){
-        length = itemArray.length%48
+        length = itemArray.length%(columns*rows)
     }
     for(let i=0;i<length;i++){
         let item = itemArray[i+((columns*rows)*page)]
         let icon = GetItemIcon(item[1])
         let button = CreateFrame("Button", item[1], mframe)
-            button.SetPoint("TOPLEFT", mframe, "TOPLEFT", 70+(((i)%columns)*120), (-115*(Math.floor((i)/columns)+1)))
+            button.SetPoint("TOPLEFT", mframe, "TOPLEFT", 55+(((i)%columns)*120), -50+(-90*(Math.floor((i)/columns)+1)))
             button.SetWidth(40)
             button.SetHeight(40)
             let tex = button.CreateTexture('tex1','BACKGROUND')
