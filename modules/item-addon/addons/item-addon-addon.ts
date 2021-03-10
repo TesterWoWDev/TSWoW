@@ -4,8 +4,8 @@ let itemsInFrame = [];
 let buttons = [];
 let gossip = true
 const mframe = CreateFrame('Frame','Scrapper',UIParent);
-    mframe.SetWidth(500)
-    mframe.SetHeight(700)
+    mframe.SetWidth(350)
+    mframe.SetHeight(400)
     mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
     edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
     tile : true, tileSize : 22, edgeSize : 22, 
@@ -31,12 +31,15 @@ let exitbutn = CreateFrame("Button", '', mframe)
 
 let scrapButn = CreateFrame("Button", '', mframe)
     scrapButn.SetPoint("CENTER", mframe, "CENTER",0,-100)
-    scrapButn.SetWidth(250)
-    scrapButn.SetHeight(50)
-    let scraptex = exitbutn.CreateTexture('','BACKGROUND')
-        scraptex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
+    scrapButn.SetWidth(150)
+    scrapButn.SetHeight(60)
+    let scraptex = scrapButn.CreateTexture('','BACKGROUND')
+        scraptex.SetTexture("Interface\\BUTTONS\\UI-DialogBox-Button-Up.blp")
         scraptex.SetAllPoints(scrapButn)
         scraptex.SetPoint("CENTER",0,0)
+    let searchText = scrapButn.CreateFontString('','OVERLAY','GameFontNormalHuge')
+        searchText.SetPoint("CENTER",0, 10)
+        searchText.SetText("Scrap")
         scrapButn.HookScript("OnClick",(frame,evName,btnDown)=>{
             SendToServer(new scrapMessage())
             removeButtons()
@@ -77,15 +80,33 @@ function makeButtons(){
     removeButtons()
     for (let i=0;i<itemsInFrame.length;i++){
         let icon = GetItemIcon(itemsInFrame[i])
-        let button = CreateFrame("Button", '', mframe)
+        let button = CreateFrame("Button", itemsInFrame[i], mframe)
         let x = i+1
-            button.SetPoint("TOPLEFT", mframe, "TOPLEFT",60*i-(Math.floor(i/4)*240),60-(60*Math.ceil(x/4)))
+            button.SetPoint("CENTER", mframe, "CENTER",-90+(60*i-(Math.floor(i/4)*240)),100+(60-(60*Math.ceil(x/4))))
             button.SetWidth(50)
             button.SetHeight(50)
             let tex = button.CreateTexture('','BACKGROUND')
                 tex.SetTexture(icon)
                 tex.SetAllPoints(button)
                 tex.SetPoint("CENTER",0,0)
+                        button.HookScript("OnEnter",(self)=>{
+                GameTooltip.ClearLines()
+                GameTooltip.SetOwner(button,'CENTER')
+                GameTooltip.SetHyperlink("item:"+  parseInt(self.GetName()))
+                GameTooltip.Show()
+            })            
+            button.HookScript("OnLeave",()=>{
+                GameTooltip.Hide()
+            })
+            button.HookScript("OnEnter",(self)=>{
+                GameTooltip.ClearLines()
+                GameTooltip.SetOwner(button,'CENTER')
+                GameTooltip.SetHyperlink("item:"+  parseInt(self.GetName()))
+                GameTooltip.Show()
+            })            
+            button.HookScript("OnLeave",()=>{
+                GameTooltip.Hide()
+            })
         buttons.push(button)
     }
 }
