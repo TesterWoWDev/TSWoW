@@ -3,7 +3,7 @@ import { Events, SendToServer } from "./events";
 let itemsInFrame = [];
 let buttons = [];
 let gossip = true
-const mframe = CreateFrame('Frame','',UIParent);
+const mframe = CreateFrame('Frame','Scrapper',UIParent);
     mframe.SetWidth(500)
     mframe.SetHeight(700)
     mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
