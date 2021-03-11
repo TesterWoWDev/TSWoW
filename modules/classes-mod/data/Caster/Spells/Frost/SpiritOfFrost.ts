@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 
-const SPIRITFROST = std.Spells.create (MODNAME,'SpiritFrost',69090).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frozen skin deals aoe damage when attacked by an enemy. Lasts 60 minutes.
+const SPIRITFROST = std.Spells.create (MODNAME,'SpiritFrost',12544).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frozen skin deals aoe damage when attacked by an enemy. Lasts 60 minutes.
 SPIRITFROST.Name.enGB.set('Spirit of Frost')
 SPIRITFROST.Subtext.enGB.set('Defensive Ultimate Ability')
 SPIRITFROST.AuraDescription.enGB.set('Channeling the full power of the Spirit of Frost. This target is godly.')
@@ -12,7 +12,6 @@ SPIRITFROST.Icon.set('Interface\\Icons\\ability_mage_coldasice.blp')
 
 SPIRITFROST.Effects.clearAll()
 SPIRITFROST.Duration.set(10000,0,10000)
-SPIRITFROST.CastTime.set(1500,0,1500)
 SPIRITFROST.Effects.add()
 SPIRITFROST.Visual.cloneFrom(69090,true)
     SPIRITFROST.Effects.get(0).EffectType.setApplyAura()
