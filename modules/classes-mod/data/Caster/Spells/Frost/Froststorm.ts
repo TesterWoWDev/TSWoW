@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 
-const FROSTSTORM = std.Spells.create (MODNAME,'Froststorm',73061).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Froststorm summons periodic frostbolt volleys to pelt enemies, dealing massive damage.
+const FROSTSTORM = std.Spells.create (MODNAME,'Froststorm',205).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Froststorm summons periodic frostbolt volleys to pelt enemies, dealing massive damage.
 FROSTSTORM.Name.enGB.set('Froststorm')
 FROSTSTORM.Subtext.enGB.set('Basic Spell')
 FROSTSTORM.AuraDescription.enGB.set('Freezing to death.')
