@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 
-const FRACTURE = std.Spells.create (MODNAME,'Fracture',11).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
+const FRACTURE = std.Spells.create (MODNAME,'Fracture',50597).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
 FRACTURE.Name.enGB.set('Fracture')
 FRACTURE.Subtext.enGB.set('Crowd Control')
 FRACTURE.AuraDescription.enGB.set('Suffering from the effects of Fracture, slowly freezing solid.')
@@ -12,9 +12,9 @@ FRACTURE.Icon.set('Interface\\Icons\\spell_fire_bluehellfire.blp')
 
 FRACTURE.Effects.clearAll()
 FRACTURE.CastTime.set(1500,0,1500)
-FRACTURE.Range.set(0,35,0,35)
+//FRACTURE.Range.set(0,35,0,35)
+FRACTURE.row.RangeIndex.set(4)
 FRACTURE.Effects.add()
-    FRACTURE.Visual.cloneFrom(50597,true)
     FRACTURE.Effects.get(0).EffectType.setSchoolDamage()
     FRACTURE.Effects.get(0).BasePoints.set(80)
     FRACTURE.Effects.get(0).DieSides.set(15)
