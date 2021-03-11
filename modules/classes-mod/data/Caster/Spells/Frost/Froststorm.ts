@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 
-const FROSTSTORM = std.Spells.create (MODNAME,'Froststorm',11).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Froststorm summons periodic frostbolt volleys to pelt enemies, dealing massive damage.
+const FROSTSTORM = std.Spells.create (MODNAME,'Froststorm',73061).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Froststorm summons periodic frostbolt volleys to pelt enemies, dealing massive damage.
 FROSTSTORM.Name.enGB.set('Froststorm')
 FROSTSTORM.Subtext.enGB.set('Basic Spell')
 FROSTSTORM.AuraDescription.enGB.set('Freezing to death.')
@@ -12,8 +12,9 @@ FROSTSTORM.Icon.set('Interface\\Icons\\inv_datacrystal09.blp')
 
 FROSTSTORM.Effects.clearAll()
 FROSTSTORM.Effects.add()
+FROSTSTORM.Range.set(0,25,0,25) //this literally does nothing, it's still melee range.
 FROSTSTORM.Duration.set(10000,0,10000)
-FROSTSTORM.Visual.cloneFrom(10187,true)
+FROSTSTORM.Visual.cloneFrom(73061,true)
     FROSTSTORM.Effects.get(0).EffectType.setSchoolDamage()
     FROSTSTORM.Effects.get(0).BasePoints.set(75)
     FROSTSTORM.Effects.get(0).DieSides.set(35)
@@ -21,9 +22,6 @@ FROSTSTORM.Visual.cloneFrom(10187,true)
     FROSTSTORM.Effects.get(0).ImplicitTargetA.setUnitDestAreaEnemy()
     FROSTSTORM.Effects.get(0).BonusMultiplier.set(1)
     FROSTSTORM.Effects.get(0).Radius.set(10,0,10)
-    FROSTSTORM.Effects.get(0).BonusMultiplier.set(1)
-    FROSTSTORM.Effects.get(0).AuraType.setPeriodicDamage()
-    FROSTSTORM.Effects.get(0).ChainAmplitude.set(1000)
 
 FROSTSTORM.Effects.add()
     FROSTSTORM.Effects.get(1).EffectType.setApplyAura()
@@ -38,3 +36,4 @@ FROSTSTORM.Effects.add()
     FROSTSTORM.Effects.get(2).AuraType.setPeriodicDamage()
     FROSTSTORM.Effects.get(2).ImplicitTargetA.setUnitDestAreaEnemy()
     FROSTSTORM.Effects.get(2).BonusMultiplier.set(1)
+    FROSTSTORM.Effects.get(2).AuraPeriod.set(1000)
