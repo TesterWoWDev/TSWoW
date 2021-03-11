@@ -8,10 +8,11 @@ SPIRITFROST.Name.enGB.set('Spirit of Frost')
 SPIRITFROST.Subtext.enGB.set('Defensive Ultimate Ability')
 SPIRITFROST.AuraDescription.enGB.set('Channeling the full power of the Spirit of Frost. This target is godly.')
 SPIRITFROST.Description.enGB.set('Allow the power of the Spirit of Frost to flow through you, reducing damage taken by 50%, increasing movement speed by 25%, and increasing damage dealt by 45%.')
-SPIRITFROST.Icon.set('Interface\\Icons\\spell_unused2.blp')
+SPIRITFROST.Icon.set('Interface\\Icons\\ability_mage_coldasice.blp')
 
 SPIRITFROST.Effects.clearAll()
 SPIRITFROST.Duration.set(10000,0,10000)
+SPIRITFROST.CastTime.set(1500,0,1500)
 SPIRITFROST.Effects.add()
 SPIRITFROST.Visual.cloneFrom(69090,true)
     SPIRITFROST.Effects.get(0).EffectType.setApplyAura()
@@ -31,4 +32,6 @@ SPIRITFROST.Effects.add()
     SPIRITFROST.Effects.get(2).BasePoints.set(44)
     SPIRITFROST.Effects.get(2).DieSides.set(1)
     SPIRITFROST.Effects.get(2).ImplicitTargetA.setUnitCaster()
-        
+SPIRITFROST.InterruptFlags.OnMovement
+SPIRITFROST.InterruptFlags.OnInterruptCast
+SPIRITFROST.InterruptFlags.OnPushback

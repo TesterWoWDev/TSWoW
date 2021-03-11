@@ -46,3 +46,4 @@ FROSTORB.Effects.add()
     FROSTORB.Effects.get(0).PointsPerLevel.set(1)
     FROSTORB.Effects.get(0).ImplicitTargetA.setDestTargetEnemy()
     FROSTORB.Effects.get(0).BonusMultiplier.set(1)
+    

@@ -26,6 +26,9 @@ ICEBOMB.Effects.add()
     ICEBOMB.Effects.get(1).BasePoints.set(200)
     ICEBOMB.Effects.get(1).DieSides.set(10)
     ICEBOMB.Effects.get(1).AuraType.setPeriodicDamage()
-    ICEBOMB.Effects.get(1).ImplicitTargetA.setUnitDestAreaEnemy()
+    ICEBOMB.Effects.get(1).ImplicitTargetA.setDestTargetEnemy()
     ICEBOMB.Effects.get(1).BonusMultiplier.set(1)
     ICEBOMB.Effects.get(1).AuraPeriod.set(1000)
+    ICEBOMB.InterruptFlags.OnMovement
+    ICEBOMB.InterruptFlags.OnInterruptCast
+    ICEBOMB.InterruptFlags.OnPushback
