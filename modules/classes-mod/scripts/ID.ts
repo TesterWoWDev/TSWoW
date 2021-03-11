@@ -84,6 +84,11 @@ export namespace ID {
     export const CLASSES_MOD_PERMAFROSST : uint32 = GetID("Spell","classes-mod","Permafrosst");
     export const CLASSES_MOD_PERMAFROST : uint32 = GetID("Spell","classes-mod","Permafrost");
     export const CLASSES_MOD_FROSTORB : uint32 = GetID("Spell","classes-mod","Frostorb");
+    export const CLASSES_MOD_COVOKE_FIRE : uint32 = GetID("Spell","classes-mod","Covoke Fire");
+    export const CLASSES_MOD_FRACTURE : uint32 = GetID("Spell","classes-mod","Fracture");
+    export const CLASSES_MOD_HOARFROST : uint32 = GetID("Spell","classes-mod","Hoarfrost");
+    export const CLASSES_MOD_ICEBOMB : uint32 = GetID("Spell","classes-mod","Icebomb");
+    export const CLASSES_MOD_SPIRITOFFROST : uint32 = GetID("Spell","classes-mod","SpiritOfFrost");
     export const CLASSES_MOD_CASTER_SKILL_TRAINER : uint32 = GetID("creature_template","classes-mod","Caster-skill-trainer");
     export const CLASSES_MOD_ARCANE_TRAINER : uint32 = GetID("creature_template","classes-mod","arcane-trainer");
     export const CLASSES_MOD_WARRIOR_0 : uint32 = GetID("creature_template","classes-mod","warrior-0");
