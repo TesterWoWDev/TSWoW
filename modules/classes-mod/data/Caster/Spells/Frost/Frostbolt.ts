@@ -28,7 +28,7 @@ const SHATTER = std.Spells.create (MODNAME,'Shatter',11).SkillLines.add(FROST_SK
 SHATTER.Name.enGB.set('Shatter')
 SHATTER.Subtext.enGB.set('Passive')
 SHATTER.Description.enGB.set('A shard of ice fractured from a frostbomb, this deals substantial aoe damage.')
-SHATTER.Icon.set('Interface\\Icons\\spell_frost_icefloes.blp')
+SHATTER.Icon.set('Interface\\Icons\\spell_fire_blueflamebolt.blp')
 
 FROSTBOLT.Effects.clearAll()
 FROSTBOLT.CastTime.set(1250,0,1250)

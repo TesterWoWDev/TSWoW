@@ -8,7 +8,7 @@ HOARFROST.Name.enGB.set('Hoarfrost')
 HOARFROST.Subtext.enGB.set('Ultimate Ability')
 HOARFROST.AuraDescription.enGB.set('Suffering from the effects of Hoarfrost, slowly freezing solid.')
 HOARFROST.Description.enGB.set('Hurls a massive bolt of frost at your enemy causing $s1 damage and leaving a lingering layer of frost, dealing $s2 damage per second.')
-HOARFROST.Icon.set('Interface\\Icons\\spell_fire_bluerainoffire.blp')
+HOARFROST.Icon.set('Interface\\Icons\\spell_fire_bluepyroblast.blp')
 
 HOARFROST.Effects.clearAll()
 HOARFROST.CastTime.set(3500,0,3500)

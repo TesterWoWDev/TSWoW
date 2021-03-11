@@ -8,7 +8,7 @@ ICEBOMB.Name.enGB.set('Ice Bomb')
 ICEBOMB.Subtext.enGB.set('Offensive Ultimate Ability')
 ICEBOMB.AuraDescription.enGB.set('Victim of Ice Bomb.')
 ICEBOMB.Description.enGB.set('Launch a massive storm of frost into the sky, the orb will pursue your target and crash down with a titanic force dealing $s1 damage plus an additional $s2 damage per second.')
-ICEBOMB.Icon.set('Interface\\Icons\\spell_fire_bluerainoffire.blp')
+ICEBOMB.Icon.set('Interface\\Icons\\spell_fire_blueflamering.blp')
 
 ICEBOMB.Effects.clearAll()
 ICEBOMB.CastTime.set(4000,0,4000)
