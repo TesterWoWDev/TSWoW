@@ -1,5 +1,5 @@
 @Message
-export class creatureNamePacket {
+export class creatureNameMessage {
 	@MsgString(30) 
 		entry: string = "name";
     @MsgPrimitive 
@@ -19,13 +19,13 @@ export class itemLootPacket {
 }
 
 @Message
-export class itemLootFinishPacket {
+export class itemLootFinishMessage {
     @MsgPrimitive
         finish: uint32 = 0;
 }
 
 @Message
-export class creatureNoExistPacket {
+export class creatureNoExistMessage {
     @MsgPrimitive
         finish: uint32 = 0;
 }

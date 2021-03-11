@@ -1,4 +1,4 @@
-import { creatureNamePacket, creatureNoExistPacket, itemLootFinishPacket, itemLootPacket } from "../shared/Messages";
+import { creatureNameMessage, creatureNoExistMessage, itemLootFinishMessage, itemLootPacket } from "../shared/Messages";
 import { Events, SendToServer } from "./events";
 let itemArray = [];
 let allButtons = [];
@@ -93,7 +93,7 @@ let nextPageButn = CreateFrame("Button", '', mframe)
         if(itemArray.length  > columns*rows*(page+1)){
             page = page + 1
             pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
-        }
+        } 
         clearButtons()
         createButtons()
     })
@@ -135,17 +135,17 @@ Events.AddOns.OnMessage(mframe,itemLootPacket,(msg)=>{
     itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
 });
 
-Events.AddOns.OnMessage(mframe,itemLootFinishPacket,(msg)=>{
+Events.AddOns.OnMessage(mframe,itemLootFinishMessage,(msg)=>{
     pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
     createButtons()
 });
 
-Events.AddOns.OnMessage(mframe,creatureNoExistPacket,(msg)=>{
+Events.AddOns.OnMessage(mframe,creatureNoExistMessage,(msg)=>{
     console.log("DOES NOT EXIST!!!")
 });
 
 function searchLoot(){
-    let pkt = new creatureNamePacket()
+    let pkt = new creatureNameMessage()
         pkt.entry = searchBox.GetText();
     if(pkt.entry.length > 0){
         if(Number(pkt.entry) > 0){
