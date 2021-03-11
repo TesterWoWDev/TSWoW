@@ -1,4 +1,4 @@
-import { creatureNameMessage, creatureNoExistMessage, itemLootFinishMessage, itemLootPacket } from "../shared/Messages";
+import { creatureNameMessage, creatureNoExistMessage, itemLootFinishMessage, itemLootMessage } from "../shared/Messages";
 import { Events, SendToServer } from "./events";
 let itemArray = [];
 let allButtons = [];
@@ -131,7 +131,7 @@ let searchButn = CreateFrame("Button", '', mframe)
     searchButn.HookScript("OnClick",(frame,evName,btnDown)=>{
         searchLoot()
     })
-Events.AddOns.OnMessage(mframe,itemLootPacket,(msg)=>{
+Events.AddOns.OnMessage(mframe,itemLootMessage,(msg)=>{
     itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
 });
 
