@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER_HORDE } from "../CasterTrainer";
 
-const PERMAFROST = std.Spells.create (MODNAME,'Permafrost',72081).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Permafrost shoots icicles out of the caster to all nearby enemies.
+const PERMAFROST = std.Spells.create (MODNAME,'Permafrost',72094).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Permafrost shoots icicles out of the caster to all nearby enemies.
 PERMAFROST.Name.enGB.set('Permafrost')
 PERMAFROST.Subtext.enGB.set('Basic Spell')
 PERMAFROST.AuraDescription.enGB.set('Being pelted with Permafrost by a nearby conduit.')
