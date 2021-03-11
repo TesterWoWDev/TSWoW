@@ -4,7 +4,7 @@ import { ARCANE_SKILL } from "../../Caster";
 
 const MANASKIN = std.Spells.create(MODNAME,'manaskin',69910)
 	MANASKIN.Name.enGB.set('Mana Skin')
-	MANASKIN.SkillLines.add(ARCANE_SKILL.ID)
+	MANASKIN.SkillLines.add(ARCANE_SKILL.ID).setAutolearn()
 	MANASKIN.Description.enGB.set('Envelops the caster in their own mana, reducing damage taken by $s1% and causing them to lose $s2% less casting or channeling time when damaged for 30 min.')
 	MANASKIN.AuraDescription.enGB.set('Shrouded in mana, reducing damage taken by $s1% and cast or channel time lost when damaged by $s2%.')
 	MANASKIN.Attributes.singleTargetSpell
