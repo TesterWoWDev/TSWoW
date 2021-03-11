@@ -7,7 +7,7 @@ export class creatureNameMessage {
 }
 
 @Message
-export class itemLootPacket {
+export class itemLootMessage {
     @MsgPrimitive
         itemID: uint32 = 0;
     @MsgPrimitive
