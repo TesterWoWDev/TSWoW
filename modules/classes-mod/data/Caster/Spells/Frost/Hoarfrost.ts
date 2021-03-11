@@ -27,6 +27,9 @@ HOARFROST.Effects.add()
     HOARFROST.Effects.get(1).BasePoints.set(105)
     HOARFROST.Effects.get(1).DieSides.set(10)
     HOARFROST.Effects.get(1).AuraType.setPeriodicDamage()
-    HOARFROST.Effects.get(1).ImplicitTargetA.setUnitDestAreaEnemy()
+    HOARFROST.Effects.get(1).ImplicitTargetA.setDestTargetEnemy()
     HOARFROST.Effects.get(1).BonusMultiplier.set(1)
     HOARFROST.Effects.get(1).AuraPeriod.set(1000)
+    HOARFROST.InterruptFlags.OnMovement
+    HOARFROST.InterruptFlags.OnInterruptCast
+    HOARFROST.InterruptFlags.OnPushback

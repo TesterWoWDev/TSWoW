@@ -27,3 +27,7 @@ JAWSFROST.Range.set(0,40,0,40)
 JAWSFROST.Effects.add()
     JAWSFROST.Effects.get(1).EffectType.setApplyAura()
     JAWSFROST.Effects.get(1).AuraType.setModRoot()
+
+    JAWSFROST.InterruptFlags.OnMovement
+    JAWSFROST.InterruptFlags.OnInterruptCast
+    JAWSFROST.InterruptFlags.OnPushback

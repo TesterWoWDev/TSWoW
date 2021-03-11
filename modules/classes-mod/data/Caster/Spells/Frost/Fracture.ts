@@ -27,6 +27,9 @@ FRACTURE.Effects.add()
     FRACTURE.Effects.get(1).BasePoints.set(150)
     FRACTURE.Effects.get(1).DieSides.set(10)
     FRACTURE.Effects.get(1).AuraType.setPeriodicDamage()
-    FRACTURE.Effects.get(1).ImplicitTargetA.setUnitDestAreaEnemy()
+    FRACTURE.Effects.get(1).ImplicitTargetA.setDestTargetEnemy()
     FRACTURE.Effects.get(1).BonusMultiplier.set(1)
     FRACTURE.Effects.get(1).AuraPeriod.set(1000)
+    FRACTURE.InterruptFlags.OnMovement
+    FRACTURE.InterruptFlags.OnInterruptCast
+    FRACTURE.InterruptFlags.OnPushback
