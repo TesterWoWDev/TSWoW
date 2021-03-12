@@ -22,9 +22,13 @@ export function rangeLoot(events: TSEventHandlers) {
                 let cItem = corpseLoot.GetItem(j)
                 if(cItem.GetCount() > 0){
                     if(curItem.GetItemID() == cItem.GetItemID() ){
-                        console.log(CreateItem(curItem.GetItemID(),1).GetInt32Value(24))
-                            curItem.SetCount(curItem.GetCount() + cItem.GetCount())
-                            cItem.SetCount(0)
+                        let query = QueryWorld('SELECT maxcount FROM item_template WHERE entry = '+ curItem.GetItemID())
+                        while(query.GetRow()){
+                            if(query.GetUInt16(0) > 1){
+                                curItem.SetCount(curItem.GetCount() + cItem.GetCount())
+                                cItem.SetCount(0)
+                            }
+                        }
                     }
                 }
             }
