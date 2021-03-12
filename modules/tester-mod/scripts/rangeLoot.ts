@@ -22,10 +22,9 @@ export function rangeLoot(events: TSEventHandlers) {
                 let cItem = corpseLoot.GetItem(j)
                 if(cItem.GetCount() > 0){
                     if(curItem.GetItemID() == cItem.GetItemID() ){
-                        if(CreateItem(curItem.GetItemID(),1).GetMaxStackCount() > 1){
+                        console.log(CreateItem(curItem.GetItemID(),1).GetInt32Value(24))
                             curItem.SetCount(curItem.GetCount() + cItem.GetCount())
                             cItem.SetCount(0)
-                        }
                     }
                 }
             }
