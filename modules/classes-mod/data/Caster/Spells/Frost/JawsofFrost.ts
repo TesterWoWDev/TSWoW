@@ -23,7 +23,6 @@ JAWSFROST.Range.set(0,40,0,40)
     JAWSFROST.Effects.get(0).PointsPerLevel.set(1)
     JAWSFROST.Effects.get(0).ImplicitTargetA.setDestTargetEnemy()
     JAWSFROST.Effects.get(0).BonusMultiplier.set(1)
-    JAWSFROST.Effects.get(0).BonusMultiplier.set(1)
 
 JAWSFROST.Effects.add()
     JAWSFROST.Effects.get(1).EffectType.setApplyAura()
