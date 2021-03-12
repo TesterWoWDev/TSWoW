@@ -12,8 +12,10 @@ export function rangeLoot(events: TSEventHandlers) {
                     let count = item.GetCount()
                     corpseLoot.AddItem(ID,count,count)
                 }
-                curCorpse.Clear()  
+                curCorpse.Clear()
+                //make curCorpse unlootable  
             }
         }
+        //merge loot in corpseLoot
     })
 }
