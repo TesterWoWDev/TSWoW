@@ -21,9 +21,11 @@ export function rangeLoot(events: TSEventHandlers) {
             for(let j=i+1;j<corpseLoot.GetItemCount();j++){
                 let cItem = corpseLoot.GetItem(j)
                 if(cItem.GetCount() > 0){
-                    if(curItem.GetItemID() == cItem.GetItemID()){
-                        curItem.SetCount(curItem.GetCount() + cItem.GetCount())
-                        cItem.SetCount(0)
+                    if(curItem.GetItemID() == cItem.GetItemID() ){
+                        if(CreateItem(curItem.GetItemID(),1).GetMaxStackCount() > 1){
+                            curItem.SetCount(curItem.GetCount() + cItem.GetCount())
+                            cItem.SetCount(0)
+                        }
                     }
                 }
             }
