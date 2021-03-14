@@ -3,13 +3,13 @@ import { Events, SendToServer } from "./events";
 let itemsInFrame = [];
 let buttons = [];
 let gossip = true
-const mframe = CreateFrame('Frame','Scrapper',UIParent);
+let mframe = CreateFrame('Frame','Scrapper',UIParent);
     mframe.SetWidth(350)
     mframe.SetHeight(400)
-    mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
-    edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
-    tile : true, tileSize : 22, edgeSize : 22, 
-    insets : { left : 4, right : 4, top : 4, bottom : 4 }});
+    mframe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
+        edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
+        tile : true, tileSize : 22, edgeSize : 22, 
+        insets : { left : 4, right : 4, top : 4, bottom : 4 }});
     mframe.SetBackdropColor(0,0,0,1);
         mframe.SetPoint("CENTER",0,0)
         mframe.Hide()
@@ -46,6 +46,7 @@ let scrapButn = CreateFrame("Button", '', mframe)
             itemsInFrame = [];
             buttons = [];
         })
+
 Events.Container.OnBagUpdate(mframe,(bagID)=>{
     SendToServer(new frameCloseMessage())
     removeButtons()
@@ -53,6 +54,7 @@ Events.Container.OnBagUpdate(mframe,(bagID)=>{
     buttons = [];
     mframe.Hide()
 })
+
 if(gossip){//add a server packet that makes this true on gossip and false on gossipExitm
     Events.Container.OnItemLocked(mframe,(bag,slot)=>{
         let pkt = new bagSlotMessage()
@@ -76,6 +78,7 @@ function removeButtons(){
         buttons[i].Hide()
     }
 }
+
 function makeButtons(){
     removeButtons()
     for (let i=0;i<itemsInFrame.length;i++){
@@ -89,21 +92,25 @@ function makeButtons(){
                 tex.SetTexture(icon)
                 tex.SetAllPoints(button)
                 tex.SetPoint("CENTER",0,0)
-                        button.HookScript("OnEnter",(self)=>{
-                GameTooltip.ClearLines()
-                GameTooltip.SetOwner(button,'CENTER')
-                GameTooltip.SetHyperlink("item:"+  parseInt(self.GetName()))
-                GameTooltip.Show()
-            })            
-            button.HookScript("OnLeave",()=>{
-                GameTooltip.Hide()
-            })
+
             button.HookScript("OnEnter",(self)=>{
                 GameTooltip.ClearLines()
                 GameTooltip.SetOwner(button,'CENTER')
                 GameTooltip.SetHyperlink("item:"+  parseInt(self.GetName()))
                 GameTooltip.Show()
-            })            
+            })     
+
+            button.HookScript("OnLeave",()=>{
+                GameTooltip.Hide()
+            })
+
+            button.HookScript("OnEnter",(self)=>{
+                GameTooltip.ClearLines()
+                GameTooltip.SetOwner(button,'CENTER')
+                GameTooltip.SetHyperlink("item:"+  parseInt(self.GetName()))
+                GameTooltip.Show()
+            }) 
+                       
             button.HookScript("OnLeave",()=>{
                 GameTooltip.Hide()
             })

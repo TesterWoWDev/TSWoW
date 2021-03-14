@@ -11,20 +11,21 @@ let mframe = CreateFrame('Frame','atlas',UIParent);
     mframe.SetWidth(512)
     mframe.SetHeight(768)
     mframe.SetPoint("CENTER",0,0)
-    mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
-    edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
-    tile : true, tileSize : 22, edgeSize : 22, 
-    insets : { left : 4, right : 4, top : 4, bottom : 4 }});
+    mframe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
+        edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
+        tile : true, tileSize : 22, edgeSize : 22, 
+        insets : { left : 4, right : 4, top : 4, bottom : 4 }});
     mframe.SetBackdropColor(0,0,0,1);
-    let pageCt = mframe.CreateFontString('','OVERLAY','GameTooltipText')
-        pageCt.SetPoint("TOPLEFT",110,-82)
-        pageCt.SetText("Page " + (page+1) + "/"+1)
-    mframe.Hide()
+mframe.Hide()
+
+let pageCt = mframe.CreateFontString('','OVERLAY','GameTooltipText')
+    pageCt.SetPoint("TOPLEFT",110,-82)
+    pageCt.SetText("Page " + (page+1) + "/"+1)
 
 let frameLine = CreateFrame('Frame','',mframe)
-    frameLine.SetWidth(567)
+    frameLine.SetWidth(560)
     frameLine.SetHeight(8)
-    frameLine.SetPoint("LEFT",mframe,'TOPLEFT',5,-115)
+    frameLine.SetPoint("LEFT",mframe,'TOPLEFT',8,-115)
     let lineTex = frameLine.CreateTexture('','BACKGROUND')
         lineTex.SetTexture("Interface\\AchievementFrame\\UI-Achievement-MetalBorder-Top.blp")
         lineTex.SetAllPoints(frameLine)
@@ -98,24 +99,24 @@ let nextPageButn = CreateFrame("Button", '', mframe)
         createButtons()
     })
 
-    let searchBox = CreateFrame('EditBox','',UIParent)
-        searchBox.SetSize(115,30)
-        searchBox.SetPoint('RIGHT',mframe,'TOPRIGHT',-100,-90)
-        searchBox.SetFont('Fonts\\ARIALN.TTF',14)
-        searchBox.SetMaxLetters(30)
-        searchBox.SetMultiLine(false)
-        let searchtexBox = searchBox.CreateTexture('','BACKGROUND')
-            searchtexBox.SetTexture("Interface\\COMMON\\Common-Input-Border.blp")
-            searchtexBox.SetPoint('CENTER',searchBox,'CENTER',-5,-5)
-            searchtexBox.SetSize(115,30)
-        searchBox.SetScript('OnEnterPressed',(frame)=>{
-            searchBox.ClearFocus()
-            searchLoot()
-        })
-        searchBox.SetScript('OnEscapePressed',(frame)=>{
-            searchBox.ClearFocus()
-        })
-        searchBox.Hide()
+let searchBox = CreateFrame('EditBox','',UIParent)
+    searchBox.SetSize(115,30)
+    searchBox.SetPoint('RIGHT',mframe,'TOPRIGHT',-100,-90)
+    searchBox.SetFont('Fonts\\ARIALN.TTF',14)
+    searchBox.SetMaxLetters(30)
+    searchBox.SetMultiLine(false)
+    let searchtexBox = searchBox.CreateTexture('','BACKGROUND')
+        searchtexBox.SetTexture("Interface\\COMMON\\Common-Input-Border.blp")
+        searchtexBox.SetPoint('CENTER',searchBox,'CENTER',-5,-5)
+        searchtexBox.SetSize(115,30)
+    searchBox.SetScript('OnEnterPressed',(frame)=>{
+        searchBox.ClearFocus()
+        searchLoot()
+    })
+    searchBox.SetScript('OnEscapePressed',(frame)=>{
+        searchBox.ClearFocus()
+    })
+searchBox.Hide()
 
 let searchButn = CreateFrame("Button", '', mframe)
     searchButn.SetPoint("LEFT", searchBox, "RIGHT",0,-5)
@@ -131,6 +132,7 @@ let searchButn = CreateFrame("Button", '', mframe)
     searchButn.HookScript("OnClick",(frame,evName,btnDown)=>{
         searchLoot()
     })
+    
 Events.AddOns.OnMessage(mframe,itemLootMessage,(msg)=>{
     itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
 });

@@ -7,14 +7,14 @@ let currencyAmount = 1
 let del = []
 let yesnobtn = []
 // All we need to set up an event listener is a frame with a unique name.
-const mframe = CreateFrame('Frame','store',UIParent);
+let mframe = CreateFrame('Frame','store',UIParent);
     mframe.SetWidth(1024)
     mframe.SetHeight(800)
-    mframe.SetBackdrop({bgFile : "Interface/Tooltips/UI-Tooltip-Background", 
-        edgeFile : "Interface/Tooltips/UI-Tooltip-Border", 
+    mframe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
+        edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
         tile : true, tileSize : 22, edgeSize : 22, 
         insets : { left : 4, right : 4, top : 4, bottom : 4 }});
-        mframe.SetBackdropColor(0,0,0,1);
+    mframe.SetBackdropColor(0,0,0,1);
     mframe.SetPoint("CENTER",0,0)
 mframe.Hide()
 
@@ -81,25 +81,24 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                                 sure.Hide()
                             })
                     let buttonn = CreateFrame("Button", frame.GetName(), mframe)
-                            buttonn.SetPoint("TOP", mframe, "TOP",50,-100)
-                            buttonn.SetWidth(40)
-                            buttonn.SetHeight(40)
-                            let texn = buttonn.CreateTexture('','BACKGROUND')
-                                texn.SetTexture("Interface\\Icons\\Ability_Creature_Cursed_04.blp")
-                                texn.SetAllPoints(buttonn)
-                                texn.SetPoint("CENTER",0,0)
-                            let text1n = buttonn.CreateFontString('','OVERLAY','GameTooltipText')
-                                text1n.SetPoint("CENTER",0,0)
-                                text1n.SetText("no")
-                                buttonn.HookScript("OnClick",(frame,enName,btnDown)=>{
-                                    button.Hide()
-                                    buttonn.Hide()
-                                    sure.Hide()
-                                })
-                                yesnobtn.push(button)
-                                yesnobtn.push(buttonn)
-                                yesnobtn.push(sure)
-
+                        buttonn.SetPoint("TOP", mframe, "TOP",50,-100)
+                        buttonn.SetWidth(40)
+                        buttonn.SetHeight(40)
+                        let texn = buttonn.CreateTexture('','BACKGROUND')
+                            texn.SetTexture("Interface\\Icons\\Ability_Creature_Cursed_04.blp")
+                            texn.SetAllPoints(buttonn)
+                            texn.SetPoint("CENTER",0,0)
+                        let text1n = buttonn.CreateFontString('','OVERLAY','GameTooltipText')
+                            text1n.SetPoint("CENTER",0,0)
+                            text1n.SetText("no")
+                        buttonn.HookScript("OnClick",(frame,enName,btnDown)=>{
+                                button.Hide()
+                                buttonn.Hide()
+                                sure.Hide()
+                            })
+                    yesnobtn.push(button)
+                    yesnobtn.push(buttonn)
+                    yesnobtn.push(sure)
                 }) 
                 button.HookScript("OnEnter",(self)=>{
                     GameTooltip.ClearLines()
@@ -112,7 +111,6 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
                 })
         del.push(button)
     }
-
     let amtFrame = CreateFrame("Button", '', mframe)
         amtFrame.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",-100,-50)
         amtFrame.SetWidth(20)
@@ -140,6 +138,7 @@ Events.AddOns.OnMessage(mframe,showFrameMessage,(msg)=>{
         mframe.Hide()
     }
 });
+
 Events.AddOns.OnMessage(mframe,itemMessage,(msg)=>{
     arrayOButtonStuff.push([msg.icon,msg.name,msg.price,msg.itemID,msg.amount])
 });
@@ -149,4 +148,3 @@ Events.AddOns.OnMessage(mframe,currencyMessage,(msg)=>{
     currencyIcon = msg.icon
     currencyAmount = msg.curAmt
 });
-
