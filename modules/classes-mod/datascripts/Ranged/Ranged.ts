@@ -1,5 +1,4 @@
 import { std } from 'tswow-stdlib';
-import { SQL } from 'wotlkdata';
 import { MODNAME } from '../moduleName';
 
 export const RANGED_CLASS = std.Classes.create(MODNAME,'ranged','RANGED','HUNTER');
@@ -17,8 +16,7 @@ export const RANGED_CLASS = std.Classes.create(MODNAME,'ranged','RANGED','HUNTER
 		RANGED_CLASS.EquipSkills.Leather.setAuto();
 		RANGED_CLASS.EquipSkills.Mail.setAuto();
 		RANGED_CLASS.DisplayPower.set(3)
-		RANGED_CLASS.Stats.BaseMana.set((x,y)=>0)
-		//SQL.player_classlevelstats.find({class:14}).basemana.set(0)
+
 // RANGED_CLASS.StartGear.Mainhand.set(41821)
 // RANGED_CLASS.UI.TCoords.set(0.5,0.75,0.5,0.75);
 
@@ -30,10 +28,10 @@ RANGED_CLASS.UI.Info.add('- pokey boi')
 RANGED_CLASS.UI.Info.add('- Uses energy as a resource')
 RANGED_CLASS.UI.Description.set("I handle all the poke")
 
-// Spell Crit = 0.1*level
+
 RANGED_CLASS.Stats.SpellCrit.set((x,level)=>0.000005*level)
-// Melee crit = 0.1*level
 RANGED_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
+RANGED_CLASS.Stats.BaseMana.set((x,y)=>0)
 
 
 export const BEAST_SKILL = std.SkillLines.createClass(MODNAME,'beast-skill',RANGED_CLASS.ID)
