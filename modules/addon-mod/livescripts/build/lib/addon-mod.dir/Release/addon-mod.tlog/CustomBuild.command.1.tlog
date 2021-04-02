@@ -1,0 +1,10 @@
+^C:\TSWOW\TSWOW\MODULES\ADDON-MOD\LIVESCRIPTS\BUILD\CPP\CMAKELISTS.TXT
+setlocal
+C:\TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/TSWoW/TSWoW/modules/addon-mod/livescripts/build/cpp -BC:/TSWoW/TSWoW/modules/addon-mod/livescripts/build/lib --check-stamp-file C:/TSWoW/TSWoW/modules/addon-mod/livescripts/build/lib/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
