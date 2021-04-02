@@ -1,7 +1,0 @@
-node_modules
-/bin
-/coredata
-/node_modules
-/log.txt
-/bin/trinitycore/Debug
-.vscode

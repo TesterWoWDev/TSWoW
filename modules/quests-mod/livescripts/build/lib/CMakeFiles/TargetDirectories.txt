@@ -1,3 +1,0 @@
-C:/TSWoW/TSWoW/modules/quests-mod/livescripts/build/lib/CMakeFiles/quests-mod.dir
-C:/TSWoW/TSWoW/modules/quests-mod/livescripts/build/lib/CMakeFiles/ALL_BUILD.dir
-C:/TSWoW/TSWoW/modules/quests-mod/livescripts/build/lib/CMakeFiles/ZERO_CHECK.dir

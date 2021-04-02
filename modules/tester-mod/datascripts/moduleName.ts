@@ -1,1 +1,0 @@
-export const MODNAME = "tester-mod"
