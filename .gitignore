@@ -18,3 +18,4 @@ vscode
 .vscode
 coredata/datasets/default/default.dataset.yaml
 modules/*/*/build/*
+modules/tswow-stdlib
