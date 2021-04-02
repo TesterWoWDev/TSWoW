@@ -1,0 +1,10 @@
+^C:\TSWOW\TSWOW\MODULES\QUESTS-MOD\LIVESCRIPTS\BUILD\LIB\CMAKEFILES\39CD6D6EA2C69C511D5E363D3DE101EC\GENERATE.STAMP.RULE
+setlocal
+C:\TSWoW\TSWoW\bin\cmake\bin\cmake.exe -SC:/TSWoW/TSWoW/modules/quests-mod/livescripts/build/cpp -BC:/TSWoW/TSWoW/modules/quests-mod/livescripts/build/lib --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/TSWoW/TSWoW/modules/quests-mod/livescripts/build/lib/quests-mod.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
