@@ -1,8 +1,8 @@
-Messages|addon-mod:creatureNameMessage|1|1|
-Messages|addon-mod:itemLootMessage|2|2|
-Messages|addon-mod:itemLootFinishMessage|3|3|
-Messages|addon-mod:creatureNoExistMessage|4|4|
-Messages|addon-mod:bagSlotMessage|5|5|
-Messages|addon-mod:frameCloseMessage|6|6|
-Messages|addon-mod:scrapMessage|7|7|
+Messages|addn-mod:creatureNameMessage|1|1|
+Messages|addn-mod:itemLootMessage|2|2|
+Messages|addn-mod:itemLootFinishMessage|3|3|
+Messages|addn-mod:creatureNoExistMessage|4|4|
+Messages|addn-mod:bagSlotMessage|5|5|
+Messages|addn-mod:frameCloseMessage|6|6|
+Messages|addn-mod:scrapMessage|7|7|
 Messages|classes-mod:powerUpdate|8|8|
