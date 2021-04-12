@@ -103,6 +103,10 @@ Spell|classes-mod:Tough Skin|200076|200076|
 Spell|classes-mod:Watchers-Guard|200077|200077|
 Spell|tester-mod:skillshot-proc|200078|200078|
 Spell|tester-mod:skillshot-cast|200079|200079|
+Spell|classes-mod:frost-spear|200080|200080|
+Spell|classes-mod:exploding-shot|200081|200081|
+Spell|classes-mod:eruption|200082|200082|
+Spell|classes-mod:frost-grenade|200083|200083|
 creature_template|classes-mod:Caster-skill-trainer|1000000|1000000|
 creature_template|classes-mod:warrior-0|1000002|1000002|
 creature_template|classes-mod:tank-0|1000003|1000003|
