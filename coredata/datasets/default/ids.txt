@@ -112,6 +112,7 @@ Spell|classes-mod:void-strike|200085|200085|
 Spell|classes-mod:bludgeon|200086|200086|
 Spell|classes-mod:ferocity|200087|200087|
 Spell|classes-mod:heroic-leap|200088|200088|
+Spell|classes-mod:shield-charge|200089|200089|
 creature_template|classes-mod:Caster-skill-trainer|1000000|1000000|
 creature_template|classes-mod:warrior-0|1000002|1000002|
 creature_template|classes-mod:tank-0|1000003|1000003|
