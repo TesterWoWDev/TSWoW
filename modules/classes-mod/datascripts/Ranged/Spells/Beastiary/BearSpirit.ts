@@ -6,4 +6,5 @@ const BEARFORM = std.Spells.create (MODNAME,'bear-form',4948).SkillLines.add(BEA
 BEARFORM.Name.enGB.set('Bear Spirit')
 BEARFORM.Subtext.enGB.set('')
 BEARFORM.Duration.set(30000,0,30000)
+BEARFORM.Cooldown.set(45000,0,0,0)
 BEARFORM.Description.enGB.set('Take up the Spirit of the Bear, shapeshifting for 30 seconds increasing armor and health. Also protects the caster from Polymorph effects and allows use of various bear abilities.')
