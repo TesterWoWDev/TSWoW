@@ -117,6 +117,8 @@ Spell|classes-mod:cat-form|200090|200090|
 Spell|classes-mod:harsh-claw|200091|200091|
 Spell|classes-mod:rake|200092|200092|
 Spell|classes-mod:bear-form|200093|200093|
+Spell|classes-mod:lacerate|200094|200094|
+Spell|classes-mod:swipe|200095|200095|
 creature_template|classes-mod:Caster-skill-trainer|1000000|1000000|
 creature_template|classes-mod:warrior-0|1000002|1000002|
 creature_template|classes-mod:tank-0|1000003|1000003|
