@@ -119,6 +119,7 @@ Spell|classes-mod:rake|200092|200092|
 Spell|classes-mod:bear-form|200093|200093|
 Spell|classes-mod:lacerate|200094|200094|
 Spell|classes-mod:swipe|200095|200095|
+Spell|classes-mod:angered-affinity|200096|200096|
 creature_template|classes-mod:Caster-skill-trainer|1000000|1000000|
 creature_template|classes-mod:warrior-0|1000002|1000002|
 creature_template|classes-mod:tank-0|1000003|1000003|
