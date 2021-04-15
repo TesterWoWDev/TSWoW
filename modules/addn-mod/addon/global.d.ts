@@ -13407,6 +13407,46 @@ declare namespace WoWAPI {
          */
         SetText(text: string): void;
     }
+	
+	interface Model extends Frame {
+		AdvanceTime(): void;	
+		ClearFog(): void;
+		ClearModel(): void;
+		GetFacing(): number;
+		GetFogColor():[number, number, number, number]
+		GetFogFar(): number;
+		GetFogNear(): number;
+		GetLight():[boolean, boolean, number, number, number, number, number, number, number, number, number, number, number];
+		GetModel(): string;
+		GetModelScale(): number;
+		GetPosition(): number;
+		ReplaceIconTexture(texture: string): void;
+		SetCamera(index: number): void;
+		SetFacing(facing: number): void;
+		SetFogColor(r:number, g:number, b:number,a:number): void;
+		SetFogFar(value:number): void;
+		SetFogNear(value:number): void;
+		//SetGlow(..): void;
+		SetLight(enabled:boolean, omni:boolean, dirX:number, dirY:number, dirZ:number, ambIntensity:number, ambR:number, ambG:number, ambB:number, dirIntensity:number, dirR:number, dirG:number, dirB:number): void;
+		SetModel(file:string): void;
+		SetModelScale(scale:number): void;
+		SetPosition(x:number, y:number, z:number) : void;
+		SetSequence(sequence:number): void;
+		SetSequenceTime(sequence:number, time:number): void;
+	}
+
+    interface PlayerModel extends Model {
+        RefreshUnit(): void;
+        SetCreature(creatureID:number): void;
+        SetRotation(roationradians:number): void;
+        SetUnit(unitid:string): void;
+    }
+
+    interface DressUpModel extends PlayerModel {
+        Dress(): void;
+        TryOn(item:string): void;
+        Undress(): void;
+    }
 }
 
 /**
@@ -13485,7 +13525,9 @@ declare function CreateFrame(frameType: "Slider", frameName?: string, parentFram
 declare function CreateFrame(frameType: "EditBox", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.EditBox;
 declare function CreateFrame(frameType: "Button", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Button;
 declare function CreateFrame(frameType: "GameTooltip", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.GameTooltip;
-
+declare function CreateFrame(frameType: "Model", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Model;
+declare function CreateFrame(frameType: "PlayerModel", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.PlayerModel;
+declare function CreateFrame(frameType: "DressUpModel", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.DressUpModel;
 /**
  * Adds a configuration panel (with the fields described in #Panel fields below set) to the category list.
  * The optional position argument (number) allows addons to insert top-level panels at arbitrary positions in the category list.
