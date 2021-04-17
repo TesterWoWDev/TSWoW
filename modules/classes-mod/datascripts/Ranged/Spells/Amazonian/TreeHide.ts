@@ -7,4 +7,4 @@ const TREEHIDE = std.Spells.create (MODNAME,'tree-hide',42943).SkillLines.add(AM
 TREEHIDE.Name.enGB.set('Hidden Amongst Trees')
 TREEHIDE.Subtext.enGB.set('')
 TREEHIDE.Cooldown.set(25000,0,0,0)
-TREEHIDE.Description.enGB.set('Blend into your surrounding for %d sec.')
+TREEHIDE.Description.enGB.set('Blend into your surrounding for $d sec.')
