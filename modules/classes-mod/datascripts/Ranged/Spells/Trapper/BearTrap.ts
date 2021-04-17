@@ -2,7 +2,7 @@ import { std } from "tswow-stdlib";
 import { MODNAME } from "../../../moduleName";
 import { TRAPPER_SKILL } from "../../Ranged";
 
-const ERUPTION = std.Spells.create (MODNAME,'bear-trap',61385).SkillLines.add(TRAPPER_SKILL.ID).setAutolearn().end;
+const ERUPTION = std.Spells.create (MODNAME,'bear-trap',53432).SkillLines.add(TRAPPER_SKILL.ID).setAutolearn().end;
 ERUPTION.Name.enGB.set('Bear Trao')
 ERUPTION.Subtext.enGB.set('')
 ERUPTION.Cooldown.set(25000,0,0,0)
