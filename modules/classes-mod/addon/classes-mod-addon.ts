@@ -94,11 +94,12 @@ function makeDeathFrame(){
         frame.SetStatusBarTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
         frame.SetStatusBarColor(0, 0.65, 0,1)
         frame.SetMinMaxValues(0,maxDeathResource)
-        let t = CreateFrame("Frame", "dd", frame)
-		t.SetPoint("CENTER",frame,"CENTER")
-		t.SetWidth(120)
-		t.SetHeight(20)
-        t.SetBackdrop({bgFile : "", 
+
+        let border = CreateFrame("Frame", "dd", frame)
+		border.SetPoint("CENTER",frame,"CENTER")
+		border.SetWidth(120)
+		border.SetHeight(20)
+        border.SetBackdrop({bgFile : "", 
             edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
             tile : true, tileSize : 5, edgeSize : 10, 
             insets : { left : 1, right : 1, top : 1, bottom : 1 }});
@@ -111,10 +112,11 @@ function makeDeathFrame(){
         let value = frame.CreateFontString(null, "OVERLAY")
         value.SetPoint("CENTER", frame, "CENTER")
         value.SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
-
         value.SetShadowOffset(1, -1)
         value.SetTextColor(1, 1, 1)
+
         value.SetText(0+"/"+maxDeathResource)
+        frame.SetValue(0)
         frame.Show()
         setup = true
         frames.push(frame)
