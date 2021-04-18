@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { DEFENDER_SKILL } from "../../Melee";
 import { MELEE_SKILL_TRAINER } from "../MeleeTrainer";
 
-export const TANKSTANCE = std.Spells.create(MODNAME, 'Watchers-Guard', 71).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
+export const TANKSTANCE = std.Spells.create(MODNAME, 'Watchers-Guard').SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
     MELEE_SKILL_TRAINER.Trainer.addSpell(TANKSTANCE.ID,10,21)//CHANGE LATER
 TANKSTANCE.Name.enGB.set('Watcher\'s Guard')
 TANKSTANCE.Subtext.enGB.set("")
@@ -13,8 +13,19 @@ TANKSTANCE.Icon.set('Interface\\Icons\\inv_shield_06.blp')
 TANKSTANCE.row.DurationIndex.set(21)
 TANKSTANCE.Effects.add()
     TANKSTANCE.Effects.get(0).EffectType.setApplyAura()
-    TANKSTANCE.Effects.get(0).BasePoints.set(-1)
+    TANKSTANCE.Effects.get(0).BasePoints.set(4)
     TANKSTANCE.Effects.get(0).DieSides.set(1)
     TANKSTANCE.Effects.get(0).ImplicitTargetA.setUnitCaster()
-    TANKSTANCE.Effects.get(0).AuraType.setModShapeshift
-    TANKSTANCE.Effects.get(0).MiscValueA.set(18)
+    TANKSTANCE.Effects.get(0).AuraType.setModDamagePercentTaken
+TANKSTANCE.Effects.add()
+    TANKSTANCE.Effects.get(1).EffectType.setApplyAura()
+    TANKSTANCE.Effects.get(1).BasePoints.set(-4)
+    TANKSTANCE.Effects.get(1).DieSides.set(1)
+    TANKSTANCE.Effects.get(1).ImplicitTargetA.setUnitCaster()
+    TANKSTANCE.Effects.get(1).AuraType.setModDamageDone
+TANKSTANCE.Effects.add()
+    TANKSTANCE.Effects.get(2).EffectType.setApplyAura()
+    TANKSTANCE.Effects.get(2).BasePoints.set(10)
+    TANKSTANCE.Effects.get(2).DieSides.set(1)
+    TANKSTANCE.Effects.get(2).ImplicitTargetA.setUnitCaster()
+    TANKSTANCE.Effects.get(2).AuraType.setModThreat
