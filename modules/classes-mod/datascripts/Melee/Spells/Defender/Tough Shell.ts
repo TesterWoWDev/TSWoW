@@ -25,10 +25,10 @@ TOUGHSKIN.Description.enGB.set('Has a chance to grant the Defender temporary arm
 TOUGHSKIN.AuraDescription.enGB.set('The Defender has gritted their teeth, and now will withstand more hits')
 TOUGHSKIN.Icon.set('Interface\\Icons\\ability_defend.blp')
 TOUGHSKIN.row.DurationIndex.set(21) //perma passive duration
-TOUGHSKIN.Proc.TypeMask.set(40)//pull these from dbc itself -- col 35
+TOUGHSKIN.Proc.TypeMask.set(8)//pull these from dbc itself -- col 35
 TOUGHSKIN.Proc.Chance.set(100) // change this to balance it
 TOUGHSKIN.SchoolMask.set(1)
-TOUGHSKIN.Attributes.isPassive
+TOUGHSKIN.Attributes.isPassive.check()
 TOUGHSKIN.Effects.add()
     TOUGHSKIN.Effects.get(0).EffectType.setApplyAura()
     TOUGHSKIN.Effects.get(0).BasePoints.set(0)
