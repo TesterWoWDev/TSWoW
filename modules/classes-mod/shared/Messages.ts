@@ -4,6 +4,7 @@ export class powerUpdate {
         powerCnt: uint32 = 0;
 }
 
+@Message
 export class resetFrame {
     @MsgPrimitive
         powerCnt: uint32 = 0;

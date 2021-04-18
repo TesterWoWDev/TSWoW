@@ -5,13 +5,13 @@ import { powerUpdate, resetFrame } from "../shared/Messages";
 const lifeItem = 100001
 const maxLifeResource = 5
 //death
-const deathItem = 1
+const deathItem = 20880
 const maxDeathResource = 5
 let frames = []
 let allButtons = []
 let setup = false
 let mframe = CreateFrame('Frame','test',UIParent);
-    mframe.Hide()
+    //mframe.Hide()
     // mframe.RegisterForDrag("LeftButton")
     // mframe.SetScript("OnDragStart", mframe.StartMoving)
 	// mframe.SetScript("OnHide", mframe.StopMovingOrSizing)
@@ -23,56 +23,53 @@ Events.AddOns.OnMessage(mframe,powerUpdate,(msg)=>{
 
 Events.AddOns.OnMessage(mframe,resetFrame,(msg)=>{
     setup = false
-    for (let i=0;i<frames.length;i++){
+    for(let i=0;i<frames.length;i++){
         frames[i].Hide()
     }
     frames = []
 })
 
 function chooseUpdateFunction(msg){
-    for(let i=0;i<allButtons.length;i++){
-        allButtons[i].Hide()
-    }
-    allButtons = []
     if(GetItemCount(lifeItem,true,false) > 0){//life
         makeLifeFrame()
         updateLeaves(msg.powerCnt)
     }else if(GetItemCount(deathItem,true,false) > 0){//death
         makeDeathFrame()
         updateSouls(msg.powerCnt)
-    }else{
-        mframe.Hide()
     }
 }
 
 //life
 function makeLifeFrame(){
     if(!setup){
-        let lifeFrame = CreateFrame('Frame','life',mframe)
-        lifeFrame.SetWidth(240)
-        lifeFrame.SetHeight(70)
-        lifeFrame.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
+        let frame = CreateFrame('Frame','life',mframe)
+        frame.SetWidth(240)
+        frame.SetHeight(70)
+        frame.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
             edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
             tile : true, tileSize : 22, edgeSize : 22, 
             insets : { left : 4, right : 4, top : 4, bottom : 4 }});
-        lifeFrame.SetBackdropColor(0,0,0,1);
-        lifeFrame.SetPoint("TOPLEFT",50,-100)
+            frame.SetBackdropColor(0,0,0,1);
+            frame.SetPoint("TOPLEFT",50,-100)
 
-        lifeFrame.SetMovable(true)
-        lifeFrame.EnableMouse(true)
+            frame.SetMovable(true)
+            frame.EnableMouse(true)
+            frame.Show()
         setup = true
-        frames.push(lifeFrame)
+        frames.push(frame)
     }
 }
 
 function updateLeaves(count){
-    mframe.SetWidth(130)
-    mframe.SetHeight(35)
-    mframe.SetPoint("TOPLEFT",80,-70)
-    mframe.Show()
+    for(let i=0;i<allButtons.length;i++){
+        allButtons[i].Hide()
+    }
+    allButtons = []
+
     for(let i=1;i<=maxLifeResource;i++){
-        let button = CreateFrame("Button", "leaf"+i, mframe)
-            button.SetPoint("TOPLEFT", mframe, "TOPLEFT", -13+(i*23),-8)
+        let lifeFrame: WoWAPI.Frame = frames[1]
+        let button = CreateFrame("Button", "leaf"+i, lifeFrame)
+            button.SetPoint("TOPLEFT", lifeFrame, "TOPLEFT", -13+(i*23),-8)
             button.SetWidth(20)
             button.SetHeight(20)
             let tex = button.CreateTexture('','BACKGROUND')
@@ -90,54 +87,46 @@ function updateLeaves(count){
 
 function makeDeathFrame(){
     if(!setup){
-        let deathFrame = CreateFrame('StatusBar','death',mframe)
-        deathFrame.SetPoint("CENTER", UIParent, "CENTER", 0, 100)
-        deathFrame.SetWidth(200)
-        deathFrame.SetHeight(20)
-        deathFrame.SetStatusBarTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
-        deathFrame.GetStatusBarTexture()
-        deathFrame.GetStatusBarTexture()
-        deathFrame.SetStatusBarColor(0, 0.65, 0,1)
+        let frame = CreateFrame('StatusBar','death',mframe)
+        frame.SetPoint("TOPLEFT", UIParent, "TOPLEFT", 90, -75)
+        frame.SetWidth(115)
+        frame.SetHeight(15)
+        frame.SetStatusBarTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
+        frame.SetStatusBarColor(0, 0.65, 0,1)
+        frame.SetMinMaxValues(0,maxDeathResource)
+        let t = CreateFrame("Frame", "dd", frame)
+		t.SetPoint("CENTER",frame,"CENTER")
+		t.SetWidth(120)
+		t.SetHeight(20)
+        t.SetBackdrop({bgFile : "", 
+            edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
+            tile : true, tileSize : 5, edgeSize : 10, 
+            insets : { left : 1, right : 1, top : 1, bottom : 1 }});
         
-        let bg = deathFrame.CreateTexture(null, "BACKGROUND")
-        bg.SetTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
-        bg.SetAllPoints()
-        bg.SetVertexColor(0, 0.35, 0)
-        
-        let value = deathFrame.CreateFontString(null, "OVERLAY")
-        value.SetPoint("LEFT", deathFrame, "LEFT", 4, 0)
-        value.SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
-        value.SetJustifyH("LEFT")
+        let bg = frame.CreateTexture(null, "BACKGROUND")
+		bg.SetTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
+		bg.SetAllPoints()
+		bg.SetVertexColor(0, 0.35, 0, 1)
+
+        let value = frame.CreateFontString(null, "OVERLAY")
+        value.SetPoint("CENTER", frame, "CENTER")
+        value.SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
+
         value.SetShadowOffset(1, -1)
-        value.SetTextColor(0, 1, 0)
-        value.SetText("100%")
+        value.SetTextColor(1, 1, 1)
+        value.SetText(0+"/"+maxDeathResource)
+        frame.Show()
         setup = true
-        frames.push(deathFrame)
+        frames.push(frame)
+        frames.push(value)
     }
 }
-
 function updateSouls(count){
-    mframe.SetWidth(240)
-    mframe.SetHeight(70)
-    mframe.SetPoint("TOPLEFT",50,-100)
-    mframe.Show()
-    for(let i=1;i<=maxDeathResource;i++){
-        let button = CreateFrame("Button", "leaf"+i, mframe)
-            button.SetPoint("TOPLEFT", mframe, "TOPLEFT", -25+(i*42),-15)
-            button.SetWidth(40)
-            button.SetHeight(40)
-            let tex = button.CreateTexture('','BACKGROUND')
-                tex.SetAllPoints(button)
-                tex.SetPoint("CENTER",0,0)
-            if(count > 0){
-                tex.SetTexture("Interface\\BUTTONS\\UI-CheckBox-Check.blp")
-                count--
-            }else{
-                tex.SetTexture("Interface\\BUTTONS\\UI-CheckBox-Check-Disabled.blp")
-            }
-                
-        allButtons.push(button)
-    }
+   let frame: WoWAPI.StatusBar = frames[1]
+   let value: WoWAPI.FontString = frames[2]
+   frame.SetValue(30)
+   value.SetText(count + "/" + maxDeathResource)
+   
 }
 
 //test setup for greying out spells 
