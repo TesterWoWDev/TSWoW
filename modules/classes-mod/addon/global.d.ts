@@ -12556,6 +12556,8 @@ declare namespace WoWAPI {
          * @param a alpha (opacity)
          */
         SetTextColor(r: number, g: number, b: number, a?: number): void;
+		
+		SetShadowOffset(x: number, y: number): void;
     }
 
     /**
@@ -13447,6 +13449,19 @@ declare namespace WoWAPI {
         TryOn(item:string): void;
         Undress(): void;
     }
+	
+	interface StatusBar extends Frame, UIObject, Region {
+		GetMinMaxValues(): [number,number];
+		GetOrientation: Align;
+		GetStatusBarColor: number;
+		GetStatusBarTexture(): Texture;
+		GetValue(): number;
+		SetMinMaxValues(min:number, max:number): void;
+		SetOrientation(orientation: Align): void;
+		SetStatusBarColor(r:number, g:number, b:number, alpha:number): void;
+		SetStatusBarTexture(file:string): void;
+		SetValue(value:number): void;
+	}
 }
 
 /**
@@ -13528,6 +13543,8 @@ declare function CreateFrame(frameType: "GameTooltip", frameName?: string, paren
 declare function CreateFrame(frameType: "Model", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Model;
 declare function CreateFrame(frameType: "PlayerModel", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.PlayerModel;
 declare function CreateFrame(frameType: "DressUpModel", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.DressUpModel;
+declare function CreateFrame(frameType: "StatusBar", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.StatusBar;
+
 /**
  * Adds a configuration panel (with the fields described in #Panel fields below set) to the category list.
  * The optional position argument (number) allows addons to insert top-level panels at arbitrary positions in the category list.
