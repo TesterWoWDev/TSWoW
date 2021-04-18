@@ -1,11 +1,6 @@
 import { std } from "tswow-stdlib";
 import { MODNAME } from "../../../moduleName";
 import {DEATH_SKILL} from "../../Caster"
-export const DEATH_BOLT = std.Spells.create(MODNAME,'death-bolt',686)
-	DEATH_BOLT.Name.enGB.set('Death Bolt')
-	DEATH_BOLT.Description.enGB.set('A bolt of death!');
-	DEATH_BOLT.SkillLines.add(DEATH_SKILL.ID).setAutolearn();
-	//DEATH_BOLT.SkillLines.add(DEATH_SKILL.ID).AcquireMethod.set(0)//learn by trainer
 
 export const MINION_SUMMON = std.Spells.create(MODNAME,'minion-summon',66842)
 	MINION_SUMMON.Name.enGB.set('Mass Reanimation')
