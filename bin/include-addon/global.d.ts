@@ -12428,6 +12428,8 @@ declare namespace WoWAPI {
         type OnMouseWheel = "OnMouseWheel";
         type OnValueChanged = "OnValueChanged";
         type OnTextChanged = "OnTextChanged";
+		type OnDragStart = "OnDragStart";
+        type OnDragStop = "OnDragStop"
 
         type PlayerLogin = "PLAYER_LOGIN";
         type PlayerLogout = "PLAYER_LOGOUT";
@@ -12445,7 +12447,7 @@ declare namespace WoWAPI {
 
         type OnAny = OnEvent | OnLoad | OnUpdate | OnClick | OnEnter |
             OnLeave | OnHide | OnShow | OnMouseDown | OnMouseUp | OnMouseWheel |
-            OnValueChanged | OnTextChanged;
+            OnValueChanged | OnTextChanged | OnDragStart | OnDragStop;
     }
 
     type UIDropdownInfo = {
@@ -12844,6 +12846,8 @@ declare namespace WoWAPI {
         HookScript(event: "OnUpdate", handler: (frame: T, elapsed: number) => void): void;
         HookScript(event: "OnValueChanged", handler: (frame: T, changed: any) => void): void;
         HookScript(event: "OnTextChanged", handler: (frame: T, text: string) => void): void;
+		HookScript(event: "OnDragStart", handler: (frame: T, button: MouseButton) => void): void;
+        HookScript(event: "OnDragStop", handler: (frame: T) => void): void;
         HookScript(event: Event.OnAny, handler?: (frame: T, ...args: any[]) => void): void;
     }
 
@@ -12868,6 +12872,8 @@ declare namespace WoWAPI {
         SetScript(event: "OnUpdate", handler: (frame: T, elapsed: number) => void): void;
         SetScript(event: "OnValueChanged", handler: (frame: T, changed: any) => void): void;
         SetScript(event: "OnTextChanged", handler: (frame: T, isUserInput: boolean) => void): void;
+		SetScript(event: "OnDragStart", handler: (frame: T, button: MouseButton) => void): void;
+        SetScript(event: "OnDragStop", handler: (frame: T) => void): void;
         SetScript(event: Event.OnAny, handler?: (frame: T, ...args: any[]) => void): void;
     }
 
@@ -13064,6 +13070,8 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/API_Frame_SetFrameLevel
          */
         SetFrameLevel(level: number): void;
+		
+		RegisterForDrag(button: WoWAPI.MouseButton): void;
     }
 
     /**

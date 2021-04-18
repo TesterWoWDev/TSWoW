@@ -12,10 +12,6 @@ let allButtons = []
 let setup = false
 let mframe = CreateFrame('Frame','test',UIParent);
     //mframe.Hide()
-    // mframe.RegisterForDrag("LeftButton")
-    // mframe.SetScript("OnDragStart", mframe.StartMoving)
-	// mframe.SetScript("OnHide", mframe.StopMovingOrSizing)
-	// mframe.SetScript("OnDragStop", mframe.StopMovingOrSizing)
 
 Events.AddOns.OnMessage(mframe,powerUpdate,(msg)=>{
     chooseUpdateFunction(msg)
@@ -95,6 +91,12 @@ function makeDeathFrame(){
         frame.SetStatusBarColor(0, 0.65, 0,1)
         frame.SetMinMaxValues(0,maxDeathResource)
 
+        // frame.RegisterForDrag("LeftButton")
+        // frame.SetMovable(true)
+        // frame.SetScript("OnDragStart",(frame,button)=>{
+        //     frame.StartMoving()
+        // })
+
         let border = CreateFrame("Frame", "dd", frame)
 		border.SetPoint("CENTER",frame,"CENTER")
 		border.SetWidth(120)
@@ -126,7 +128,7 @@ function makeDeathFrame(){
 function updateSouls(count){
    let frame: WoWAPI.StatusBar = frames[1]
    let value: WoWAPI.FontString = frames[2]
-   frame.SetValue(30)
+   frame.SetValue(count)
    value.SetText(count + "/" + maxDeathResource)
    
 }
