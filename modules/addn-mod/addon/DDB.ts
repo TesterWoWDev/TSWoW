@@ -18,7 +18,9 @@ export function DDB(){
     const columns = 11
     const rows = mapTemplate.length/columns
     let playerPosition = 12
+    let enemyPositions = [18,20,46]
     let currentMap: WoWAPI.Texture[] = []
+    let playerLastPosition = 0
 
     let mframe = CreateFrame('Frame','DDB',UIParent);
         mframe.SetWidth(tileSize*columns)
@@ -50,31 +52,27 @@ export function DDB(){
     function movement(key:string){
         if(key == "W" || key == "UP"){
             if(mapTemplate[playerPosition-columns] != null)
-                if(mapTemplate[playerPosition-columns] == 0)
+                if(mapTemplate[playerPosition-columns] == 0){
+                    playerLastPosition = playerPosition
                     playerPosition = playerPosition-columns
-                else if(mapTemplate[playerPosition-columns] == 2){
-                    //fight
                 }
         }else if(key == "A" || key == "LEFT"){
             if(mapTemplate[playerPosition-1] != null)
-                if(mapTemplate[playerPosition-1] == 0)
+                if(mapTemplate[playerPosition-1] == 0){
+                    playerLastPosition = playerPosition
                     playerPosition = playerPosition-1
-                else if(mapTemplate[playerPosition-columns] == 2){
-                    //fight
                 }
         }else if(key == "S" || key == "DOWN"){
             if(mapTemplate[playerPosition+columns] != null)
-                if(mapTemplate[playerPosition+columns] == 0)
+                if(mapTemplate[playerPosition+columns] == 0){
+                    playerLastPosition = playerPosition
                     playerPosition = playerPosition+columns
-                else if(mapTemplate[playerPosition-columns] == 2){
-                    //fight
                 }
         }else if(key == "D" || key == "RIGHT"){
             if(mapTemplate[playerPosition+1] != null)
-                if(mapTemplate[playerPosition+1] == 0)
+                if(mapTemplate[playerPosition+1] == 0){
+                    playerLastPosition = playerPosition
                     playerPosition = playerPosition+1
-                else if(mapTemplate[playerPosition-columns] == 2){
-                    //fight
                 }
         }
         updateMap()
@@ -96,11 +94,6 @@ export function DDB(){
         }
         else if(mapTemplate[i] == 1){
             tex.SetTexture("dungeons\\textures\\argent crusade\\northrend_human_wall_snow.blp")
-        }else if(mapTemplate[i] == 2){
-            tex.SetTexture("dungeons\\textures\\argent crusade\\northrend_human_wall_snow.blp")
-        }
-        if(i == playerPosition){
-            tex.SetTexture("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp")
         }
         return tex
     }
@@ -109,6 +102,16 @@ export function DDB(){
         for (let i=0;i<currentMap.length;i++){
             currentMap[i] = chooseTexture(currentMap[i],i)
         }
+        for (let i=0;i<enemyPositions.length;i++){
+            if(playerPosition == enemyPositions[i]){
+                playerPosition = playerLastPosition//freeze player in place
+                print("you killed a dude")//add damage/health etc here
+                enemyPositions.splice(i,1)
+                updateMap()//clean
+            }else{
+                currentMap[enemyPositions[i]].SetTexture("Interface\\Icons\\Ability_BullRush.blp")
+            }
+        }
+        currentMap[playerPosition].SetTexture("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp")
     }
-    
 }
