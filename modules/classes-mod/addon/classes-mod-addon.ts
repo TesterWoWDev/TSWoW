@@ -91,6 +91,12 @@ function makeDeathFrame(){
         frame.SetStatusBarColor(0, 0.65, 0,1)
         frame.SetMinMaxValues(0,maxDeathResource)
 
+        // frame.RegisterForDrag("LeftButton")
+        // frame.SetMovable(true)
+        // frame.SetScript("OnDragStart",(frame,button)=>{
+        //     frame.StartMoving()
+        // })
+
         let border = CreateFrame("Frame", "dd", frame)
 		border.SetPoint("CENTER",frame,"CENTER")
 		border.SetWidth(120)
