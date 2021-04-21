@@ -1,5 +1,3 @@
-import { Events, SendToServer } from "./lib/Events";
-import {bagSlotMessage, frameCloseMessage, scrapMessage} from "../shared/Messages";
 export function DDB(){
     const tileSize = 32
     
@@ -85,7 +83,6 @@ let Enemies: Entity[] = []
 
         let statsText = statsFrame.CreateFontString('','OVERLAY','GameTooltipText')
             statsText.SetPoint("LEFT",10,0)
-            statsText.SetText("Str: "+Player.stats.str + " Stam: " + Player.stats.stam + " Agi: "+Player.stats.agi + " Int: "+ Player.stats.int + " Spi: "+Player.stats.spi + " Cur HP: "+ Player.stats.health)
 
     let showBtn = CreateFrame('Button','showddb',UIParent)
         showBtn.SetWidth(22)
