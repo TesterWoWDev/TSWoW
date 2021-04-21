@@ -7,10 +7,12 @@ export function DDB(){
         icon: string;
         stats: Stats;
         location: number;
-        constructor(icon:string, stats:number[],location:number) {
+        name: string;
+        constructor(icon:string, stats:number[],location:number,name:string) {
             this.icon = icon
             this.stats = new Stats(stats)
             this.location = location
+            this.name = name
         }
     }
 
@@ -38,12 +40,9 @@ export function DDB(){
         1,0,0,0,0,0,0,0,0,0,1,
         1,1,1,1,1,1,1,1,1,1,1
     ]
-    //str,stam,agi,int,spi
-    //melee damage bonus, health,dodge/small damage bonus,spell damage/mana size,mana regen
-    let stats = [1,1,1,1,1]
     const columns = 11
     const rows = mapTemplate.length/columns
-    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[3,10,2,4,2],12)
+    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[3,10,2,4,2],12,"Player")
     let Enemies: Entity[] = []
     let currentMap: WoWAPI.Texture[] = []
     let playerLastPosition = 0
@@ -64,9 +63,6 @@ export function DDB(){
             }
             else if(key == "ESCAPE"){
                 mframe.Hide()
-            }else if (key == "SPACE"){
-                generateEnemy(5)
-                updateMap()
             }
         })
         
@@ -79,7 +75,6 @@ export function DDB(){
             showTex.SetAllPoints(showBtn)
             showBtn.HookScript("OnClick",(frame,evName,btnDown)=>{
                 mframe.Show()
-                updateMap()
             })
             
     function movement(key:string){
@@ -146,10 +141,12 @@ export function DDB(){
                 if(didNotDodge(Enemies[i],Player))
                 Player.stats.health = Player.stats.health - (Enemies[i].stats.str + (Enemies[i].stats.agi/2)) 
 
-                if(Enemies[i].stats.health <=0)
-                Enemies.splice(i,1)
+                if(Enemies[i].stats.health <=0){
+                    Enemies.splice(i,1)
+                    print("You Killed " + Enemies[i].name)
+                }
                 if(Player.stats.health <=0)
-                //lose game
+                print("you died! but like... yeah. nothing in")
 
 
 
@@ -180,7 +177,7 @@ export function DDB(){
                 }
             }
             if(notFound)
-            Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat)],place))
+            Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat)],place,"Enemy"))
         }else{
             generateEnemy(maxStat)
         }
