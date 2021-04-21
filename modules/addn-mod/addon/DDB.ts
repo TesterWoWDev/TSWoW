@@ -250,7 +250,7 @@ let Enemies: Entity[] = []
         let frame = CreateFrame('StatusBar','playerhp',mframe)
             frame.SetPoint("TOP", currentMapTextures[location], "TOP", 0, 0)
             frame.SetWidth(32)
-            frame.SetHeight(8)
+            frame.SetHeight(6)
             frame.SetStatusBarTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
             frame.SetStatusBarColor(0, 0.65, 0,1)
             frame.SetMinMaxValues(0,max)
