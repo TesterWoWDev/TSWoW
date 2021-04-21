@@ -75,6 +75,7 @@ export function DDB(){
             showTex.SetAllPoints(showBtn)
             showBtn.HookScript("OnClick",(frame,evName,btnDown)=>{
                 mframe.Show()
+                updateMap()
             })
             
     function movement(key:string){
@@ -136,23 +137,28 @@ export function DDB(){
         for (let i=0;i<Enemies.length;i++){
             if(Player.location == Enemies[i].location){
                 Player.location = playerLastPosition//freeze player in place
-                if(didNotDodge(Player,Enemies[i]))
-                Enemies[i].stats.health = Enemies[i].stats.health - (Player.stats.str+(Player.stats.agi/2))
-                if(didNotDodge(Enemies[i],Player))
-                Player.stats.health = Player.stats.health - (Enemies[i].stats.str + (Enemies[i].stats.agi/2)) 
-
+                if(didNotDodge(Player,Enemies[i])){
+                    Enemies[i].stats.health = Enemies[i].stats.health - (Player.stats.str+(Player.stats.agi/2))
+                }
+                else{
+                    print("Enemy dodged!")
+                }
+                if(didNotDodge(Enemies[i],Player)){
+                    Player.stats.health = Player.stats.health - (Enemies[i].stats.str + (Enemies[i].stats.agi/2))
+                }
+                else{
+                    print("you dodged!")
+                }
                 if(Enemies[i].stats.health <=0){
                     Enemies.splice(i,1)
-                    print("You Killed " + Enemies[i].name)
+                    print("You Killed an enemy!")
                 }
-                if(Player.stats.health <=0)
-                print("you died! but like... yeah. nothing in")
-
-
-
+                if(Player.stats.health <=0){
+                    print("you died! but like... yeah. nothing in")
+                }
                 updateMap()//clean
             }else{
-                currentMap[Enemies[i].location+1].SetTexture(Enemies[i].icon)
+                currentMap[Enemies[i].location].SetTexture(Enemies[i].icon)
             }
         }
         currentMap[Player.location].SetTexture(Player.icon)
@@ -178,8 +184,6 @@ export function DDB(){
             }
             if(notFound)
             Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat)],place,"Enemy"))
-        }else{
-            generateEnemy(maxStat)
         }
     }
 
