@@ -44,6 +44,7 @@ export function DDB(){
         1,0,0,0,0,0,0,0,0,0,1,
         1,1,1,1,1,1,1,1,1,1,1
     ]
+    let playerStartingLocation = 12
     const columns = 11
     const rows = mapTemplate.length/columns
     let healthCnt = rand(7)+7
@@ -70,7 +71,7 @@ let Enemies: Entity[] = []
             }
         })
         generateMap()
-        let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[rand(7),healthCnt,rand(7),rand(7),rand(7),healthCnt],12,"Player",createStatusBar(12,healthCnt))
+        let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[rand(7),healthCnt,rand(7),rand(7),rand(7),healthCnt],playerStartingLocation,"Player",createStatusBar(12,healthCnt))
     
     let statsFrame = CreateFrame('Frame','Stats',mframe)
         statsFrame.SetWidth(mframe.GetWidth())
@@ -210,8 +211,11 @@ let Enemies: Entity[] = []
     }
     function playerDeath(){
         print("YOU DIED")
+        for(let i=0;i<Enemies.length;i++){
+            Enemies[i].healthBar.Hide()
+        }
         Enemies = [];
-        Player.location = 12
+        Player.location = playerStartingLocation
         Player.stats.health = Player.stats.stam
     }
 
