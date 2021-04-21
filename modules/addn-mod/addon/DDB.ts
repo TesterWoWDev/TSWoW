@@ -44,7 +44,7 @@ export function DDB(){
     ]
     const columns = 11
     const rows = mapTemplate.length/columns
-    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[3,10,2,4,2,10],12,"Player")
+    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[rand(7),rand(7)+7,rand(7),rand(7),rand(7),10],7,"Player")
     let Enemies: Entity[] = []
     let currentMap: WoWAPI.Texture[] = []
     let playerLastPosition = 0
@@ -183,7 +183,7 @@ export function DDB(){
         if(refresh)
             updateMap()
         else{
-            Player.stats.health = Player.stats.health + 1
+            Player.stats.health = Player.stats.health + (Player.stats.spi/2)
             if(Player.stats.health > Player.stats.stam){
                 Player.stats.health = Player.stats.stam
             }
