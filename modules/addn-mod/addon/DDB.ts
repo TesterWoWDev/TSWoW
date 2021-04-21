@@ -44,9 +44,9 @@ export function DDB(){
     ]
     const columns = 11
     const rows = mapTemplate.length/columns
-    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[rand(7),rand(7)+7,rand(7),rand(7),rand(7),10],7,"Player")
+    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[rand(7),rand(7)+7,rand(7),rand(7),rand(7),10],12,"Player")
     let Enemies: Entity[] = []
-    let currentMap: WoWAPI.Texture[] = []
+    let currentMapTextures: WoWAPI.Texture[] = []
     let playerLastPosition = 0
     let turnCounter = 0
     let turnsToEnemy = 6
@@ -129,7 +129,7 @@ export function DDB(){
                 tex.SetSize(tileSize,tileSize)
                 tex.SetPoint("TOPLEFT",0+((i%columns)*tileSize),0-(Math.floor(i/columns)*tileSize))
             tex = chooseTexture(tex,i)
-            currentMap.push(tex)
+            currentMapTextures.push(tex)
         }
     }
     generateMap()
@@ -148,8 +148,8 @@ export function DDB(){
         if(turnCounter%turnsToEnemy == 0){
             generateEnemy(5)
         }
-        for (let i=0;i<currentMap.length;i++){
-            currentMap[i] = chooseTexture(currentMap[i],i)
+        for (let i=0;i<currentMapTextures.length;i++){
+            currentMapTextures[i] = chooseTexture(currentMapTextures[i],i)
         }
         let refresh = false
         for (let i=0;i<Enemies.length;i++){
@@ -176,10 +176,10 @@ export function DDB(){
                 }
                 refresh = true
             }else{
-                currentMap[Enemies[i].location].SetTexture(Enemies[i].icon)
+                currentMapTextures[Enemies[i].location].SetTexture(Enemies[i].icon)
             }
         }
-        currentMap[Player.location].SetTexture(Player.icon)
+        currentMapTextures[Player.location].SetTexture(Player.icon)
         if(refresh)
             updateMap()
         else{
