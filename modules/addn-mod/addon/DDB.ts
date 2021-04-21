@@ -66,6 +66,18 @@ export function DDB(){
             }
         })
         
+    let statsFrame = CreateFrame('Frame','Stats',mframe)
+        statsFrame.SetWidth(mframe.GetWidth())
+        statsFrame.SetHeight(40)
+        statsFrame.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
+            edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
+            tile : true, tileSize : 22, edgeSize : 22, 
+            insets : { left : 4, right : 4, top : 4, bottom : 4 }});
+        statsFrame.SetBackdropColor(0,0,0,1);
+        statsFrame.SetPoint('TOP',mframe,'BOTTOM')
+
+        
+
     let showBtn = CreateFrame('Button','showddb',UIParent)
         showBtn.SetWidth(22)
         showBtn.SetHeight(22)
@@ -175,7 +187,7 @@ export function DDB(){
         return true
     }
     function generateEnemy(maxStat){
-        let place = Math.floor(Math.random()*mapTemplate.length)
+        let place = rand(mapTemplate.length)
         if(mapTemplate[place] == 0){
             let notFound = true
             for(let i=0;i<Enemies.length;i++){
@@ -192,4 +204,6 @@ export function DDB(){
     function rand(max){
         return Math.floor(Math.random()*max)
     }
+
+
 }
