@@ -156,10 +156,7 @@ export function DDB(){
             if(Player.location == Enemies[i].location){
                 Player.location = playerLastPosition//freeze player in place
                 if(didNotDodge(Player,Enemies[i])){
-                    print(Enemies[i].stats.health)
-                    print((Player.stats.str+(Player.stats.agi/2)))
                     Enemies[i].stats.health = Enemies[i].stats.health - (Player.stats.str+(Player.stats.agi/2))
-                    print(Enemies[i].stats.health)
                 }
                 else{
                     print("Enemy dodged!")
