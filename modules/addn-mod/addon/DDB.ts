@@ -3,6 +3,32 @@ import {bagSlotMessage, frameCloseMessage, scrapMessage} from "../shared/Message
 export function DDB(){
     const tileSize = 32
     
+    class Entity {
+        icon: string;
+        stats: Stats;
+        location: number;
+        constructor(icon:string, stats:number[],location:number) {
+            this.icon = icon
+            this.stats = new Stats(stats)
+            this.location = location
+        }
+    }
+
+    class Stats {
+        str:number
+        health:number
+        agi:number
+        int:number
+        spi:number
+        constructor(stats:number[]){
+            this.str = stats[0]
+            this.health = stats[1]
+            this.agi = stats[2]
+            this.int = stats[3]
+            this.spi = stats[4]
+        }
+    }
+
     const mapTemplate = [
         1,1,1,1,1,1,1,1,1,1,1,
         1,0,0,0,0,0,0,0,0,0,1,
@@ -17,10 +43,12 @@ export function DDB(){
     let stats = [1,1,1,1,1]
     const columns = 11
     const rows = mapTemplate.length/columns
-    let playerPosition = 12
-    let enemyPositions = [18,20,46]
+    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[3,10,2,4,2],12)
+    let Enemies: Entity[] = []
     let currentMap: WoWAPI.Texture[] = []
     let playerLastPosition = 0
+    let turnCounter = 0
+    let turnsToEnemy = 10
 
     let mframe = CreateFrame('Frame','DDB',UIParent);
         mframe.SetWidth(tileSize*columns)
@@ -31,10 +59,15 @@ export function DDB(){
         mframe.SetScript("OnKeyDown",(self,key)=>{
             if(key == "W" || key == "A" || key == "S" || key == "D" || key == "UP" || key == "LEFT" || key == "DOWN" || key == "RIGHT"){
                 movement(key)
+            }else if(key == "C"){
+                //show char frame
             }
             else if(key == "ESCAPE"){
                 mframe.Hide()
-            }   
+            }else if (key == "SPACE"){
+                generateEnemy(5)
+                updateMap()
+            }
         })
         
     let showBtn = CreateFrame('Button','showddb',UIParent)
@@ -51,28 +84,28 @@ export function DDB(){
             
     function movement(key:string){
         if(key == "W" || key == "UP"){
-            if(mapTemplate[playerPosition-columns] != null)
-                if(mapTemplate[playerPosition-columns] == 0){
-                    playerLastPosition = playerPosition
-                    playerPosition = playerPosition-columns
+            if(mapTemplate[Player.location-columns] != null)
+                if(mapTemplate[Player.location-columns] == 0){
+                    playerLastPosition = Player.location
+                    Player.location = Player.location-columns
                 }
         }else if(key == "A" || key == "LEFT"){
-            if(mapTemplate[playerPosition-1] != null)
-                if(mapTemplate[playerPosition-1] == 0){
-                    playerLastPosition = playerPosition
-                    playerPosition = playerPosition-1
+            if(mapTemplate[Player.location-1] != null)
+                if(mapTemplate[Player.location-1] == 0){
+                    playerLastPosition = Player.location
+                    Player.location = Player.location-1
                 }
         }else if(key == "S" || key == "DOWN"){
-            if(mapTemplate[playerPosition+columns] != null)
-                if(mapTemplate[playerPosition+columns] == 0){
-                    playerLastPosition = playerPosition
-                    playerPosition = playerPosition+columns
+            if(mapTemplate[Player.location+columns] != null)
+                if(mapTemplate[Player.location+columns] == 0){
+                    playerLastPosition = Player.location
+                    Player.location = Player.location+columns
                 }
         }else if(key == "D" || key == "RIGHT"){
-            if(mapTemplate[playerPosition+1] != null)
-                if(mapTemplate[playerPosition+1] == 0){
-                    playerLastPosition = playerPosition
-                    playerPosition = playerPosition+1
+            if(mapTemplate[Player.location+1] != null)
+                if(mapTemplate[Player.location+1] == 0){
+                    playerLastPosition = Player.location
+                    Player.location = Player.location+1
                 }
         }
         updateMap()
@@ -99,19 +132,61 @@ export function DDB(){
     }
 
     function updateMap(){
+        if(turnCounter%turnsToEnemy == 0){
+            generateEnemy(5)
+        }
         for (let i=0;i<currentMap.length;i++){
             currentMap[i] = chooseTexture(currentMap[i],i)
         }
-        for (let i=0;i<enemyPositions.length;i++){
-            if(playerPosition == enemyPositions[i]){
-                playerPosition = playerLastPosition//freeze player in place
-                print("you killed a dude")//add damage/health etc here
-                enemyPositions.splice(i,1)
+        for (let i=0;i<Enemies.length;i++){
+            if(Player.location == Enemies[i].location){
+                Player.location = playerLastPosition//freeze player in place
+                if(didNotDodge(Player,Enemies[i]))
+                Enemies[i].stats.health = Enemies[i].stats.health - (Player.stats.str+(Player.stats.agi/2))
+                if(didNotDodge(Enemies[i],Player))
+                Player.stats.health = Player.stats.health - (Enemies[i].stats.str + (Enemies[i].stats.agi/2)) 
+
+                if(Enemies[i].stats.health <=0)
+                Enemies.splice(i,1)
+                if(Player.stats.health <=0)
+                //lose game
+
+
+
                 updateMap()//clean
             }else{
-                currentMap[enemyPositions[i]].SetTexture("Interface\\Icons\\Ability_BullRush.blp")
+                currentMap[Enemies[i].location+1].SetTexture(Enemies[i].icon)
             }
         }
-        currentMap[playerPosition].SetTexture("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp")
+        currentMap[Player.location].SetTexture(Player.icon)
+        turnCounter++
+    }
+
+    function didNotDodge(attacker, attacked){
+        let odds = attacker.stats.agi - attacked.stats.agi
+        if(odds > 0){
+            return false
+        }
+        return true
+    }
+    function generateEnemy(maxStat){
+        let place = Math.floor(Math.random()*mapTemplate.length)
+        if(mapTemplate[place] == 0){
+            let notFound = true
+            for(let i=0;i<Enemies.length;i++){
+                if(place == Enemies[i].location){
+                    notFound = false
+                    break
+                }
+            }
+            if(notFound)
+            Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat)],place))
+        }else{
+            generateEnemy(maxStat)
+        }
+    }
+
+    function rand(max){
+        return Math.floor(Math.random()*max)
     }
 }
