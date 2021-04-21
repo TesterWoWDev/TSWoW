@@ -8,11 +8,13 @@ export function DDB(){
         stats: Stats;
         location: number;
         name: string;
-        constructor(icon:string, stats:number[],location:number,name:string) {
+        healthBar:WoWAPI.StatusBar;
+        constructor(icon:string, stats:number[],location:number,name:string, healthBar:WoWAPI.StatusBar) {
             this.icon = icon
             this.stats = new Stats(stats)
             this.location = location
             this.name = name
+            this.healthBar = healthBar
         }
     }
 
@@ -44,8 +46,8 @@ export function DDB(){
     ]
     const columns = 11
     const rows = mapTemplate.length/columns
-    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[rand(7),rand(7)+7,rand(7),rand(7),rand(7),10],12,"Player")
-    let Enemies: Entity[] = []
+    let healthCnt = rand(7)+7
+let Enemies: Entity[] = []
     let currentMapTextures: WoWAPI.Texture[] = []
     let playerLastPosition = 0
     let turnCounter = 0
@@ -67,7 +69,9 @@ export function DDB(){
                 mframe.Hide()
             }
         })
-        
+        generateMap()
+        let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[rand(7),healthCnt,rand(7),rand(7),rand(7),healthCnt],12,"Player",createStatusBar(12,healthCnt))
+    
     let statsFrame = CreateFrame('Frame','Stats',mframe)
         statsFrame.SetWidth(mframe.GetWidth())
         statsFrame.SetHeight(40)
@@ -132,7 +136,7 @@ export function DDB(){
             currentMapTextures.push(tex)
         }
     }
-    generateMap()
+    
 
     function chooseTexture(tex: WoWAPI.Texture,i:number): WoWAPI.Texture{
         if(mapTemplate[i] == 0){
@@ -168,11 +172,12 @@ export function DDB(){
                     print("you dodged!")
                 }
                 if(Enemies[i].stats.health <=0){
+                    Enemies[i].healthBar.Hide()
                     Enemies.splice(i,1)
                     print("You Killed an enemy!")
                 }
                 if(Player.stats.health <=0){
-                    print("you died! but like... yeah. nothing in")
+                    playerDeath()
                 }
                 refresh = true
             }else{
@@ -188,8 +193,26 @@ export function DDB(){
                 Player.stats.health = Player.stats.stam
             }
         }
+        updateHealthBars()
         statsText.SetText("Str: "+Player.stats.str + " Stam: " + Player.stats.stam + " Agi: "+Player.stats.agi + " Int: "+ Player.stats.int + " Spi: "+Player.stats.spi + " Cur HP: "+ Player.stats.health)
         turnCounter++    
+    }
+
+    function updateHealthBars(){
+        for(let i=0;i<Enemies.length;i++){
+            Enemies[i].healthBar.SetMinMaxValues(0,Enemies[i].stats.stam)
+            Enemies[i].healthBar.SetValue(Enemies[i].stats.health)
+            Enemies[i].healthBar.SetPoint("TOP", currentMapTextures[Enemies[i].location], "BOTTOM", 0, 0)
+        }
+        Player.healthBar.SetMinMaxValues(0,Player.stats.stam)
+        Player.healthBar.SetValue(Player.stats.health)
+        Player.healthBar.SetPoint("TOP", currentMapTextures[Player.location], "BOTTOM", 0, 0)
+    }
+    function playerDeath(){
+        print("YOU DIED")
+        Enemies = [];
+        Player.location = 12
+        Player.stats.health = Player.stats.stam
     }
 
     function didNotDodge(attacker, attacked){
@@ -211,12 +234,31 @@ export function DDB(){
                     break
                 }
             }
-            if(notFound)
-            Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),rand(maxStat*3),rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat*3)],place,"Enemy"))
+            if(notFound){
+                let healthCnt = rand(maxStat*3)
+                Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),healthCnt,rand(maxStat),rand(maxStat),rand(maxStat),healthCnt],place,"Enemy",createStatusBar(place,healthCnt)))
+            }
         }
     }
 
     function rand(max){
         return Math.floor(Math.random()*max)
+    }
+
+    function createStatusBar(location:number,max:number):WoWAPI.StatusBar{
+        let frame = CreateFrame('StatusBar','playerhp',mframe)
+            frame.SetPoint("TOP", currentMapTextures[location], "TOP", 0, 0)
+            frame.SetWidth(32)
+            frame.SetHeight(8)
+            frame.SetStatusBarTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
+            frame.SetStatusBarColor(0, 0.65, 0,1)
+            frame.SetMinMaxValues(0,max)
+        let bg = frame.CreateTexture(null, "BACKGROUND")
+            bg.SetTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
+            bg.SetAllPoints()
+            bg.SetVertexColor(0, 0.35, 0, 1)
+        frame.SetValue(0)
+        frame.Show()
+        return frame
     }
 }
