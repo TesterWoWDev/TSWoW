@@ -18,16 +18,18 @@ export function DDB(){
 
     class Stats {
         str:number
-        health:number
+        stam:number
         agi:number
         int:number
         spi:number
+        health:number
         constructor(stats:number[]){
             this.str = stats[0]
-            this.health = stats[1]
+            this.stam = stats[1]
             this.agi = stats[2]
             this.int = stats[3]
             this.spi = stats[4]
+            this.health = stats[5]
         }
     }
 
@@ -42,12 +44,12 @@ export function DDB(){
     ]
     const columns = 11
     const rows = mapTemplate.length/columns
-    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[3,10,2,4,2],12,"Player")
+    let Player = new Entity("tileset\\BURNINGSTEPPS\\BurningSteppsLava01.blp",[3,10,2,4,2,10],12,"Player")
     let Enemies: Entity[] = []
     let currentMap: WoWAPI.Texture[] = []
     let playerLastPosition = 0
     let turnCounter = 0
-    let turnsToEnemy = 10
+    let turnsToEnemy = 6
 
     let mframe = CreateFrame('Frame','DDB',UIParent);
         mframe.SetWidth(tileSize*columns)
@@ -76,7 +78,9 @@ export function DDB(){
         statsFrame.SetBackdropColor(0,0,0,1);
         statsFrame.SetPoint('TOP',mframe,'BOTTOM')
 
-        
+        let statsText = statsFrame.CreateFontString('','OVERLAY','GameTooltipText')
+            statsText.SetPoint("LEFT",10,0)
+            statsText.SetText("Str: "+Player.stats.str + " Stam: " + Player.stats.stam + " Agi: "+Player.stats.agi + " Int: "+ Player.stats.int + " Spi: "+Player.stats.spi + " Cur HP: "+ Player.stats.health)
 
     let showBtn = CreateFrame('Button','showddb',UIParent)
         showBtn.SetWidth(22)
@@ -118,6 +122,7 @@ export function DDB(){
         }
         updateMap()
     }
+
     function generateMap(){
         for(let i=0;i<mapTemplate.length;i++){
             let tex = mframe.CreateTexture('tex'+i,'BACKGROUND')
@@ -146,11 +151,15 @@ export function DDB(){
         for (let i=0;i<currentMap.length;i++){
             currentMap[i] = chooseTexture(currentMap[i],i)
         }
+        let refresh = false
         for (let i=0;i<Enemies.length;i++){
             if(Player.location == Enemies[i].location){
                 Player.location = playerLastPosition//freeze player in place
                 if(didNotDodge(Player,Enemies[i])){
+                    print(Enemies[i].stats.health)
+                    print((Player.stats.str+(Player.stats.agi/2)))
                     Enemies[i].stats.health = Enemies[i].stats.health - (Player.stats.str+(Player.stats.agi/2))
+                    print(Enemies[i].stats.health)
                 }
                 else{
                     print("Enemy dodged!")
@@ -168,14 +177,22 @@ export function DDB(){
                 if(Player.stats.health <=0){
                     print("you died! but like... yeah. nothing in")
                 }
-                updateMap()//clean up icons
+                refresh = true
             }else{
                 currentMap[Enemies[i].location].SetTexture(Enemies[i].icon)
             }
         }
         currentMap[Player.location].SetTexture(Player.icon)
-        Player.stats.health = Player.stats.health + Player.stats.spi
-        turnCounter++
+        if(refresh)
+            updateMap()
+        else{
+            Player.stats.health = Player.stats.health + 1
+            if(Player.stats.health > Player.stats.stam){
+                Player.stats.health = Player.stats.stam
+            }
+        }
+        statsText.SetText("Str: "+Player.stats.str + " Stam: " + Player.stats.stam + " Agi: "+Player.stats.agi + " Int: "+ Player.stats.int + " Spi: "+Player.stats.spi + " Cur HP: "+ Player.stats.health)
+        turnCounter++    
     }
 
     function didNotDodge(attacker, attacked){
@@ -186,6 +203,7 @@ export function DDB(){
         }
         return true
     }
+
     function generateEnemy(maxStat){
         let place = rand(mapTemplate.length)
         if(mapTemplate[place] == 0){
@@ -197,13 +215,11 @@ export function DDB(){
                 }
             }
             if(notFound)
-            Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat)],place,"Enemy"))
+            Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),rand(maxStat*3),rand(maxStat),rand(maxStat),rand(maxStat),rand(maxStat*3)],place,"Enemy"))
         }
     }
 
     function rand(max){
         return Math.floor(Math.random()*max)
     }
-
-
 }
