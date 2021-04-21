@@ -156,19 +156,21 @@ export function DDB(){
                 if(Player.stats.health <=0){
                     print("you died! but like... yeah. nothing in")
                 }
-                updateMap()//clean
+                updateMap()//clean up icons
             }else{
                 currentMap[Enemies[i].location].SetTexture(Enemies[i].icon)
             }
         }
         currentMap[Player.location].SetTexture(Player.icon)
+        Player.stats.health = Player.stats.health + Player.stats.spi
         turnCounter++
     }
 
     function didNotDodge(attacker, attacked){
         let odds = attacker.stats.agi - attacked.stats.agi
         if(odds > 0){
-            return false
+            if(Math.random()*10 > 9)
+                return false
         }
         return true
     }
