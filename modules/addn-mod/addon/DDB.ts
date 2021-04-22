@@ -88,7 +88,7 @@ export function DDB(){
         statsFrame.SetPoint('TOP',mframe,'BOTTOM')
 
         let statsText = statsFrame.CreateFontString('','OVERLAY','GameTooltipText')
-            statsText.SetPoint("LEFT",10,0)
+            statsText.SetPoint("CENTER",10,0)
 
     let showBtn = CreateFrame('Button','showddb',UIParent)
         showBtn.SetWidth(22)
