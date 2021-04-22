@@ -34,16 +34,16 @@ export function DDB(){
     }
     const mapTemplate = [
         1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,
+        1,0,0,0,0,1,0,0,0,0,1,1,1,0,1,
+        1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+		1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,
+        1,0,0,0,0,0,0,0,0,1,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
         1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -178,6 +178,7 @@ export function DDB(){
                 if(Enemies[i].stats.health <=0){
                     Enemies[i].healthBar.Hide()
                     Enemies.splice(i,1)
+                    if(Enemies[i].name != null)
                     print("You Killed " + Enemies[i].name + "!")
                 }
                 if(Player.stats.health <=0){
@@ -198,7 +199,7 @@ export function DDB(){
             }
         }
         updateHealthBars()
-        statsText.SetText("Str: "+Player.stats.str + " Stam: " + Player.stats.stam + " Agi: "+Player.stats.agi + " Int: "+ Player.stats.int + " Spi: "+Player.stats.spi + " Cur HP: "+ Player.stats.health)
+        statsText.SetText("Str: "+Player.stats.str + " Stam: " + Player.stats.stam + " Agi: "+Player.stats.agi + " Int: "+ Player.stats.int + " Spi: "+Player.stats.spi)
         turnCounter++    
     }
 
@@ -244,8 +245,10 @@ export function DDB(){
             if(notFound){
                 let healthCnt = rand(maxStat*3)
                 Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),healthCnt,rand(maxStat),rand(maxStat),rand(Math.ceil(maxStat/2)),healthCnt],place,"Enemy",createStatusBar(place,healthCnt)))
+                return
             }
         }
+        generateEnemy(maxStat)
     }
 
     function rand(max){//cannot be 0
