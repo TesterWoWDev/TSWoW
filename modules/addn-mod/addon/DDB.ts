@@ -32,21 +32,27 @@ export function DDB(){
             this.health = stats[5]
         }
     }
-
     const mapTemplate = [
-        1,1,1,1,1,1,1,1,1,1,1,
-        1,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,0,1,
-        1,1,1,1,1,1,1,1,1,1,1
+        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+		1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
     ]
-    let playerStartingLocation = 12
-    const columns = 11
+    let playerStartingLocation = 17
+    const columns = 15
     const rows = mapTemplate.length/columns
     let healthCnt = rand(7)+7
-let Enemies: Entity[] = []
+    let Enemies: Entity[] = []
     let currentMapTextures: WoWAPI.Texture[] = []
     let playerLastPosition = 0
     let turnCounter = 0
@@ -242,8 +248,8 @@ let Enemies: Entity[] = []
         }
     }
 
-    function rand(max){
-        return Math.floor(Math.random()*max)
+    function rand(max){//cannot be 0
+        return Math.floor(Math.random()*max)+1
     }
 
     function createStatusBar(location:number,max:number):WoWAPI.StatusBar{
