@@ -167,7 +167,7 @@ export function DDB(){
                     Enemies[i].stats.health = Enemies[i].stats.health - (Player.stats.str+(Player.stats.agi/2))
                 }
                 else{
-                    print("Enemy dodged!")
+                    print(Enemies[i].name + " dodged!")
                 }
                 if(didNotDodge(Enemies[i],Player)){
                     Player.stats.health = Player.stats.health - (Enemies[i].stats.str + (Enemies[i].stats.agi/2))
@@ -178,7 +178,7 @@ export function DDB(){
                 if(Enemies[i].stats.health <=0){
                     Enemies[i].healthBar.Hide()
                     Enemies.splice(i,1)
-                    print("You Killed an enemy!")
+                    print("You Killed " + Enemies[i].name + "!")
                 }
                 if(Player.stats.health <=0){
                     playerDeath()
@@ -206,11 +206,11 @@ export function DDB(){
         for(let i=0;i<Enemies.length;i++){
             Enemies[i].healthBar.SetMinMaxValues(0,Enemies[i].stats.stam)
             Enemies[i].healthBar.SetValue(Enemies[i].stats.health)
-            Enemies[i].healthBar.SetPoint("TOP", currentMapTextures[Enemies[i].location], "BOTTOM", 0, 0)
+            Enemies[i].healthBar.SetPoint("TOP", currentMapTextures[Enemies[i].location], "TOP", 0, 0)
         }
         Player.healthBar.SetMinMaxValues(0,Player.stats.stam)
         Player.healthBar.SetValue(Player.stats.health)
-        Player.healthBar.SetPoint("TOP", currentMapTextures[Player.location], "BOTTOM", 0, 0)
+        Player.healthBar.SetPoint("TOP", currentMapTextures[Player.location], "TOP", 0, 0)
     }
     function playerDeath(){
         print("YOU DIED")
@@ -243,7 +243,7 @@ export function DDB(){
             }
             if(notFound){
                 let healthCnt = rand(maxStat*3)
-                Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),healthCnt,rand(maxStat),rand(maxStat),rand(maxStat),healthCnt],place,"Enemy",createStatusBar(place,healthCnt)))
+                Enemies.push(new Entity("Interface\\Icons\\Ability_BullRush.blp",[rand(maxStat),healthCnt,rand(maxStat),rand(maxStat),rand(Math.ceil(maxStat/2)),healthCnt],place,"Enemy",createStatusBar(place,healthCnt)))
             }
         }
     }
