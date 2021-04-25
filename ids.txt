@@ -1,9 +1,0 @@
-Messages|addn-mod:creatureNameMessage|1|1|
-Messages|addn-mod:itemLootMessage|2|2|
-Messages|addn-mod:itemLootFinishMessage|3|3|
-Messages|addn-mod:creatureNoExistMessage|4|4|
-Messages|addn-mod:bagSlotMessage|5|5|
-Messages|addn-mod:frameCloseMessage|6|6|
-Messages|addn-mod:scrapMessage|7|7|
-Messages|classes-mod:powerUpdate|8|8|
-Messages|classes-mod:resetFrame|9|9|

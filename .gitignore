@@ -24,7 +24,7 @@
 /coredata/datasets/default/vmaps
 /coredata/datasets/default/mmaps
 /coredata/datasets/default/Auth.log
-vscode
+/coredata/datasets/default/ids.txt
 /node_modules
 /log.txt
 /bin/trinitycore/Debug
@@ -33,3 +33,4 @@ coredata/datasets/default/default.dataset.yaml
 modules/*/*/build/*
 modules/tswow-stdlib
 node.yaml
+ids.txt
