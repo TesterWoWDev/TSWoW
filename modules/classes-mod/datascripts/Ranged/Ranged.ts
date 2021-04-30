@@ -31,7 +31,7 @@ RANGED_CLASS.UI.Description.set("I handle all the poke")
 
 RANGED_CLASS.Stats.SpellCrit.set((x,level)=>0.000005*level)
 RANGED_CLASS.Stats.MeleeCrit.set((x,level)=>0.00008*level)
-RANGED_CLASS.Stats.BaseMana.set((x,y)=>0)
+RANGED_CLASS.Stats.BaseMana.set((x,level)=>0)
 
 
 export const BEAST_SKILL = std.SkillLines.createClass(MODNAME,'beast-skill',RANGED_CLASS.ID)
