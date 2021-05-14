@@ -14,7 +14,7 @@ FROSTSTORM.Effects.clearAll()
 FROSTSTORM.Effects.add()
 FROSTSTORM.Range.set(0,25,0,25) //this literally does nothing, it's still melee range.
 FROSTSTORM.Duration.set(10000,0,10000)
-FROSTSTORM.Visual.cloneFrom(73061,true)
+FROSTSTORM.Visual.cloneFromSpell(73061)
     FROSTSTORM.Effects.get(0).EffectType.setSchoolDamage()
     FROSTSTORM.Effects.get(0).BasePoints.set(75)
     FROSTSTORM.Effects.get(0).DieSides.set(35)

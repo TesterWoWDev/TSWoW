@@ -26,6 +26,7 @@
 #include "TSLoot.h"
 #include "TSMail.h"
 #include "TSAuction.h"
+#include "TSDamageInfo.h"
 #include "BinReader.h"
 #include <cstdint>
 
@@ -47,13 +48,36 @@ EVENT_TYPE(FormulaOnZeroDifferenceCalculation,TSMutable<uint8>,uint8)
 EVENT_TYPE(FormulaOnBaseGainCalculation,TSMutable<uint32>,uint8,uint8,uint32)
 EVENT_TYPE(FormulaOnGainCalculation,TSMutable<uint32>,TSPlayer,TSUnit)
 EVENT_TYPE(FormulaOnGroupRateCalculation,TSMutable<float>,uint32,bool)
+EVENT_TYPE(FormulaOnMeleeDamageEarly,TSMeleeDamageInfo,uint32,uint32,TSMutable<uint32>)
+EVENT_TYPE(FormulaOnMeleeDamageLate,TSMeleeDamageInfo,uint32,uint32,TSMutable<uint32>)
+EVENT_TYPE(FormulaOnSpellDamageEarly,TSSpellDamageInfo,TSSpell,uint32,bool,TSMutable<int32>)
+EVENT_TYPE(FormulaOnSpellDamageLate,TSSpellDamageInfo,TSSpell,uint32,bool,TSMutable<uint32>)
+EVENT_TYPE(FormulaOnPeriodicDamage,TSAuraEffect,TSMutable<uint32>)
+EVENT_TYPE(FormulaOnSpellCrit,TSSpell,TSMutable<float>)
+EVENT_TYPE(FormulaOnSpellAuraCrit,TSAuraEffect,TSMutable<float>)
+EVENT_TYPE(FormulaOnMeleeCrit,TSUnit,TSUnit,uint32,TSMutable<float>)
+EVENT_TYPE(FormulaOnSpellReflect,TSWorldObject,TSUnit,TSSpellInfo,TSMutable<int32>)
+EVENT_TYPE(FormulaOnSpellHit,TSWorldObject,TSUnit,TSSpellInfo,TSMutable<int32>)
+EVENT_TYPE(FormulaOnSpellResist,TSWorldObject,TSUnit,TSSpellInfo,TSMutable<int32>)
+EVENT_TYPE(FormulaOnSpellDeflect,TSWorldObject,TSUnit,TSSpellInfo,TSMutable<int32>)
+EVENT_TYPE(FormulaOnHeal,TSUnit,TSUnit,TSMutable<uint32>)
+EVENT_TYPE(FormulaOnMeleeOutcome
+     , TSUnit
+     , TSUnit
+     , uint32
+     , TSMutable<float>
+     , TSMutable<float>
+     , TSMutable<float>
+     , TSMutable<float>
+     , TSMutable<float>);
+
+EVENT_TYPE(FormulaOnStaminaHealthBonus,TSPlayer,float,float,TSMutable<float>);
+EVENT_TYPE(FormulaOnIntellectManaBonus,TSPlayer,float,float,TSMutable<float>);
+EVENT_TYPE(FormulaOnMaxHealth,TSPlayer,TSMutable<float>);
+EVENT_TYPE(FormulaOnMaxPower,TSPlayer,uint32,float,TSMutable<float>);
+EVENT_TYPE(FormulaOnManaRegen,TSPlayer,TSMutable<float>,TSMutable<float>,TSMutable<int32>);
 
 // UnitScript
-EVENT_TYPE(UnitOnHeal,TSUnit,TSUnit,TSMutable<uint32>)
-EVENT_TYPE(UnitOnDamage,TSUnit,TSUnit,TSMutable<uint32>)
-EVENT_TYPE(UnitModifyPeriodicDamageAurasTick,TSUnit,TSUnit,TSMutable<uint32>)
-EVENT_TYPE(UnitModifyMeleeDamage,TSUnit,TSUnit,TSMutable<uint32>)
-EVENT_TYPE(UnitModifySpellDamageTaken,TSUnit,TSUnit,TSMutable<int32>)
 //EVENT_TYPE(UnitModifyVehiclePassengerExitPos,TSUnit,TSVehicle,TSMutable<Position>)
 
 
@@ -393,6 +417,19 @@ struct TSEvents
     EVENT(FormulaOnBaseGainCalculation)
     EVENT(FormulaOnGainCalculation)
     EVENT(FormulaOnGroupRateCalculation)
+    EVENT(FormulaOnMeleeDamageEarly)
+    EVENT(FormulaOnMeleeDamageLate)
+    EVENT(FormulaOnSpellDamageEarly)
+    EVENT(FormulaOnSpellDamageLate)
+    EVENT(FormulaOnPeriodicDamage)
+    EVENT(FormulaOnSpellCrit)
+    EVENT(FormulaOnSpellAuraCrit)
+    EVENT(FormulaOnMeleeCrit)
+    EVENT(FormulaOnSpellHit)
+    EVENT(FormulaOnSpellResist)
+    EVENT(FormulaOnSpellReflect)
+    EVENT(FormulaOnSpellDeflect)
+    EVENT(FormulaOnMeleeOutcome)
 
     // ItemScript
     EVENT(ItemOnUse)
@@ -407,11 +444,12 @@ struct TSEvents
     EVENT(ItemOnGossipSelectCode)
 
     // UnitScript
-    EVENT(UnitOnHeal)
-    EVENT(UnitOnDamage)
-    EVENT(UnitModifyPeriodicDamageAurasTick)
-    EVENT(UnitModifyMeleeDamage)
-    EVENT(UnitModifySpellDamageTaken)
+    EVENT(FormulaOnHeal);
+    EVENT(FormulaOnStaminaHealthBonus);
+    EVENT(FormulaOnIntellectManaBonus);
+    EVENT(FormulaOnMaxHealth);
+    EVENT(FormulaOnMaxPower);
+    EVENT(FormulaOnManaRegen);
     //EVENT(UnitModifyVehiclePassengerExitPos)
 
     // AreaTriggerScript
@@ -622,17 +660,30 @@ public:
          EVENT_HANDLE(Formula,OnBaseGainCalculation)
          EVENT_HANDLE(Formula,OnGainCalculation)
          EVENT_HANDLE(Formula,OnGroupRateCalculation)
+         EVENT_HANDLE(Formula,OnMeleeDamageEarly)
+         EVENT_HANDLE(Formula,OnMeleeDamageLate)
+         EVENT_HANDLE(Formula,OnSpellDamageEarly)
+         EVENT_HANDLE(Formula,OnSpellDamageLate)
+         EVENT_HANDLE(Formula,OnPeriodicDamage)
+         EVENT_HANDLE(Formula,OnSpellCrit)
+         EVENT_HANDLE(Formula,OnSpellAuraCrit)
+         EVENT_HANDLE(Formula,OnMeleeCrit)
+         EVENT_HANDLE(Formula,OnSpellReflect)
+         EVENT_HANDLE(Formula,OnSpellHit)
+         EVENT_HANDLE(Formula,OnSpellResist)
+         EVENT_HANDLE(Formula,OnSpellDeflect)
+         EVENT_HANDLE(Formula,OnMeleeOutcome)
+         EVENT_HANDLE(Formula,OnHeal)
+         EVENT_HANDLE(Formula,OnStaminaHealthBonus);
+         EVENT_HANDLE(Formula,OnIntellectManaBonus);
+         EVENT_HANDLE(Formula,OnMaxHealth);
+         EVENT_HANDLE(Formula,OnMaxPower);
+         EVENT_HANDLE(Formula,OnManaRegen);
     } Formula;
 
     struct UnitEvents: public EventHandler
     {
          UnitEvents* operator->() { return this;}
-         EVENT_HANDLE(Unit,OnHeal)
-         EVENT_HANDLE(Unit,OnDamage)
-         EVENT_HANDLE(Unit,ModifyPeriodicDamageAurasTick)
-         EVENT_HANDLE(Unit,ModifyMeleeDamage)
-         EVENT_HANDLE(Unit,ModifySpellDamageTaken)
-         //EVENT_HANDLE(Unit,ModifyVehiclePassengerExitPos)
     } Unit;
 
     struct AreaTriggerEvents: public EventHandler

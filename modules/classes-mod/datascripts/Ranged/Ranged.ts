@@ -1,7 +1,7 @@
 import { std } from 'tswow-stdlib';
 import { MODNAME } from '../moduleName';
 
-export const RANGED_CLASS = std.Classes.create(MODNAME,'ranged','RANGED','HUNTER');
+export const RANGED_CLASS = std.Classes.create(MODNAME,'ranged','HUNTER');
 		RANGED_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
 		RANGED_CLASS.Name.enGB.set('Ranged');
 		RANGED_CLASS.RequiredExpansion.set(1)

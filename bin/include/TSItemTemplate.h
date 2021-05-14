@@ -17,18 +17,29 @@
 #pragma once
 
 #include "TSClasses.h"
+#include "TSStorage.h"
+#include "TSEntity.h"
 
 class ItemTemplate;
 
 class TC_GAME_API TSItemTemplate {
 private:
-    ItemTemplate const* info;
+    ItemTemplate * info;
 public:
     bool IsNull() { return info == nullptr; };
     TSItemTemplate(ItemTemplate const* info);
     TSItemTemplate();
     TSItemTemplate* operator->() { return this;}
     uint32 ID();
+
+    float DamageMinA();
+    float DamageMinB();
+
+    float DamageMaxA();
+    float DamageMaxB();
+
+    uint32 DamageTypeA();
+    uint32 DamageTypeB();
 
     uint32 Class();
     uint32 SubClass();
@@ -114,4 +125,7 @@ public:
     bool IsArmorVellum();
     bool IsConjuredConsumable();
     bool HasSignature();
+
+    TSStorage * GetData();
+    TS_ENTITY_DATA_DECL(TSItemTemplate);
 };
