@@ -12,7 +12,7 @@ JAWSFROST.Icon.set('Interface\\Icons\\spell_fire_blueimmolation.blp')
 
 JAWSFROST.Effects.clearAll()
 JAWSFROST.Effects.add()
-JAWSFROST.Visual.cloneFrom(49333,true)
+JAWSFROST.Visual.cloneFromSpell(49333)
 //JAWSFROST.Visual.cloneFrom(6131,true)
 JAWSFROST.CastTime.set(2000,0,2000)
 JAWSFROST.Range.set(0,40,0,40)

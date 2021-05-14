@@ -1,9 +1,9 @@
 import { std } from 'tswow-stdlib';
 import { MODNAME } from '../moduleName';
 
-export const CASTER_CLASS = std.Classes.create(MODNAME,'caster','CASTER','MAGE');
+export const CASTER_CLASS = std.Classes.create(MODNAME,'caster','MAGE');
 
-export const NECROMANCER_ROBE = std.Items.create(MODNAME,'cls',56).Visual.row.Texture.set
+export const NECROMANCER_ROBE = std.Items.create(MODNAME,'cls',56)
 CASTER_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
 CASTER_CLASS.Name.enGB.set('Caster');
 CASTER_CLASS.UI.ClassButton.setPos(-52,-460)

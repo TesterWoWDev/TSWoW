@@ -17,8 +17,7 @@ function makeSummon(index: number, name: string, displayName: string, modelId: n
         summon_spell.Icon.set(icon);
         summon_spell.Cooldown.Time.set(5000)
         summon_spell.Description.enGB.set(`Summon and control a ${displayName} for ${summon_spell.Duration.Duration.get()/1000} seconds.`)
-
-	entity.Models.set([modelId]);
+    entity.Models.addIds(modelId)
 	entity.Name.enGB.set(`${displayName}`);
 	entity.Scale.set(scale);
 	switch(name) { 

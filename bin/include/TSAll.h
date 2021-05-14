@@ -55,3 +55,5 @@
 #include "TSChannel.h"
 #include "BinReader.h"
 #include "TSStringConvert.h"
+#include "TSDBDict.h"
+#include "TSCreatureTemplate.h"

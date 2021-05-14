@@ -1,7 +1,7 @@
 import { std } from 'tswow-stdlib';
 import { MODNAME } from '../moduleName';
 
-export const MELEE_CLASS = std.Classes.create(MODNAME,'melee','MELEE','WARRIOR');
+export const MELEE_CLASS = std.Classes.create(MODNAME,'melee','WARRIOR');
 		MELEE_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
 		MELEE_CLASS.Name.enGB.set('Melee');
 		MELEE_CLASS.UI.ClassButton.setPos(40,-460)

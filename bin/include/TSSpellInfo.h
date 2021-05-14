@@ -16,10 +16,11 @@
  */
 #pragma once
 #include "TSClasses.h"
+#include "TSStorage.h"
 
 class TC_GAME_API TSSpellInfo {
 public:
-    SpellInfo const* info;
+    SpellInfo * info;
     TSSpellInfo(SpellInfo const* info);
     TSSpellInfo();
     TSSpellInfo* operator->() { return this;}
@@ -88,4 +89,8 @@ public:
     uint32 TargetAuraStateNot();
     uint32 TargetCreatureType();
     uint32 Targets();
+    TSStorage * GetData();
+    TS_ENTITY_DATA_DECL(TSSpellInfo);
 };
+
+TC_GAME_API TSSpellInfo GetSpellInfo(uint32 entry);

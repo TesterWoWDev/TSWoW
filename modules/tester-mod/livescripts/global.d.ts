@@ -1840,8 +1840,133 @@ declare class TSCorpse extends TSWorldObject {
     SaveToDB() : void    
 }
 
+declare class StorageClass {
+    GetData(): TSStorage;
+    SetObject<T>(key: string, obj: T): T;
+    HasObject(modid: uint32, key: string): boolean;
+    GetObject<T>(key: string, value: T): T;
+    GetDBObject<T>(key: string, sql: string, value: T): T;
+
+    SetInt(key: string, value: int32): int32;
+    HasInt(key: string): boolean;
+    GetInt(key: string, def?: int32): int32;
+
+    SetUInt(key: string, value: uint32): uint32;
+    HasUInt(key: string): boolean;
+    GetUInt(key: string, def?: uint32): uint32;
+
+    SetFloat(key: string, value: double): double;
+    HasFloat(key: string): boolean;
+    GetFloat(key: string, def?: float): double;
+
+    SetString(key: string, value: string): string;
+    HasString(key: string): boolean;
+    GetString(key: string, def?: string): string;    
+}
+
+declare class TSCreatureTemplate extends StorageClass {
+    GetEntry(): uint32;
+    GetDifficultyEntryA(): uint32;
+    GetDifficultyEntryB(): uint32;
+    GetDifficultyEntryC(): uint32;
+    GetDifficultyEntryD(): uint32;
+
+    GetKillCreditA(): uint32;
+    GetKillCreditB(): uint32;
+    GetModelID1(): uint32;
+    GetModelID2(): uint32;
+    GetModelID3(): uint32;
+    GetModelID4(): uint32;
+    GetName(): string;
+    GetTitle(): string;
+    GetIconName(): string;
+    GetGossipMenuID(): uint32;
+    GetMinLevel(): uint8;
+    GetMaxLevel(): uint8;
+    GetExpansion(): uint32;
+    GetFaction(): uint32;
+    GetNPCFlag(): uint32;
+    GetSpeedWalk(): float;
+    GetSpeedRun(): float;
+    GetScale(): float;
+    GetRank(): uint32;
+    GetDamageSchool(): uint32;
+    GetBaseAttackTime(): uint32;
+    GetRangeAttackTime(): uint32;
+    GetBaseVariance(): float;
+    GetRangeVariance(): float;
+    GetUnitClass(): uint32;
+    GetUnitFlags(): uint32;
+    GetUnitFlags2(): uint32;
+    GetDynamicFlags(): uint32;
+    GetFamily(): uint32;
+    GetType(): uint32;
+    GetTypeFlags(): uint32;
+    GetLootID(): uint32;
+    GetPickpocketLootID(): uint32;
+    GetSkinLootID(): uint32;
+
+    GetNormalResistance(): int32;
+    GetHolyResistance(): int32;
+    GetFireResistance(): int32;
+    GetNatureResistance(): int32;
+    GetFrostResistance(): int32;
+    GetShadowResistance(): int32;
+    GetArcaneResistance(): int32;
+
+    GetSpellA(): uint32;
+    GetSpellB(): uint32;
+    GetSpellC(): uint32;
+    GetSpellD(): uint32;
+    GetSpellE(): uint32;
+    GetSpellF(): uint32;
+    GetSpellG(): uint32;
+    GetSpellH(): uint32;
+    GetPetSpellDataID(): uint32;
+    GetVehicleID(): uint32;
+    GetMinGold(): uint32;
+    GetMaxGold(): uint32;
+    GetAIName(): string;
+    GetMovementType(): uint32;
+
+    GetHoverHeight(): float;
+    GetModHealth(): float;
+    GetModMana(): float;
+    GetModArmor(): float;
+    GetModDamage(): float;
+    GetModExperience(): float;
+    GetRacialLeader(): bool;
+    GetMovementID(): uint32;
+    GetRegenHealth(): bool;
+    GetMechanicImmuneMask(): uint32;
+    GetSpellSchoolImmuneMask(): uint32;
+    GetFlagsExtra(): uint32;
+    GetScriptID(): uint32;
+    GetRandomValidModelID(): uint32;
+    GetFirstValidModelID(): uint32;
+    GetFirstInvisibleModel(): uint32;
+    GetFirstVisibleModel(): uint32;
+    GetRequiredLootSkill(): uint32;
+    GetIsExotic(): bool;
+    GetIsTameable(canTameExotic: bool): bool;
+
+    // CreatureMovementData
+    GetGroundMovement(): uint32;
+    GetFlightMovement(): uint32;
+    GetSwims(): bool;
+    GetRooted(): bool;
+    GetChaseMovement(): uint32;
+    GetRandomMovement(): uint32;
+    GetInteractionPauseTimer(): uint32;
+    GetIsGroundAllowed(): bool;
+    GetIsSwimAllowed(): bool;
+    GetIsFlightAllowed(): bool;
+    GetIsRooted(): bool; 
+}
+
 declare class TSCreature extends TSUnit {
     GetLoot(): TSLoot;
+    GetTemplate(): TSCreatureTemplate;
 
     IsNull() : bool
 
@@ -3178,33 +3303,10 @@ declare class TSQuest {
     GetType() : uint32    
 }
 
-declare class TSMap {
+declare class TSMap extends StorageClass {
     IsNull() : bool
 
     GetTasks(): TSTasks<TSMap>;
-    GetData(): TSStorage;
-
-    SetObject<T>(key: string, obj: T): T;
-    HasObject(modid: uint32, key: string): boolean;
-    GetObject<T>(key: string, value: T): T;
-    GetDBObject<T>(key: string, sql: string, value: T): T;
-
-    SetInt(key: string, value: int32): int32;
-    HasInt(key: string): boolean;
-    GetInt(key: string, def?: int32): int32;
-
-    SetUInt(key: string, value: uint32): uint32;
-    HasUInt(key: string): boolean;
-    GetUInt(key: string, def?: uint32): uint32;
-
-    SetFloat(key: string, value: double): double;
-    HasFloat(key: string): boolean;
-    GetFloat(key: string, def?: float): double;
-
-    SetString(key: string, value: string): string;
-    HasString(key: string): boolean;
-    GetString(key: string, def?: string): string;
-
     AddTimer(name: string, time: uint32, repeats: uint32, callback: TimerCallback<TSMap>)
     RemoveTimer(name: string);
 
@@ -3480,6 +3582,8 @@ declare class TSItem extends TSObject {
      */
     IsConjuredConsumable() : bool
     //GetItemLink(locale : uint8) : string
+
+    GetTemplate(): TSItemTemplate
     GetOwnerGUID() : uint64
 
     /**
@@ -4825,6 +4929,10 @@ declare class TSObject {
 
 declare class TSUnit extends TSWorldObject {
     IsNull() : bool
+    GetResistance(school: uint32): uint32;
+    GetArmor(): uint32;
+    SetResistance(school: uint32, val: int32): uint32;
+    SetArmor(val: int32): uint32;
 
     /**
      * The [Unit] tries to attack a given target
@@ -6132,9 +6240,17 @@ declare class TSUnit extends TSWorldObject {
     AddThreat(victim : TSUnit,threat : float,spell : uint32,schoolMask : uint32) : void    
 }
 
-declare class TSItemTemplate {
+declare class TSItemTemplate extends StorageClass {
     IsNull() : bool
     ID() : uint32;
+    DamageMinA(): float;
+    DamageMinB(): float;
+
+    DamageMaxA(): float;
+    DamageMaxB(): float;
+
+    DamageTypeA(): uint32;
+    DamageTypeB(): uint32;
     Class(): uint32;
     SubClass(): uint32;
     SoundOverrideSubclass(): int32;
@@ -6220,7 +6336,7 @@ declare class TSItemTemplate {
     HasSignature(): bool;
 }
 
-declare class TSSpellInfo {
+declare class TSSpellInfo extends StorageClass {
 	IsNull() : bool
     ID() : uint32
 	School() : uint32
@@ -6310,6 +6426,63 @@ declare namespace _hidden {
         OnBaseGainCalculation(callback: (gain : TSMutable<uint32>,playerLevel : uint8,mobLevel : uint8,content : uint32)=>void);
         OnGainCalculation(callback: (gain : TSMutable<uint32>,player : TSPlayer,unit : TSUnit)=>void);
         OnGroupRateCalculation(callback: (rate : TSMutable<float>,count : uint32,isRaid : bool)=>void);
+        OnMeleeDamageEarly(callback: (melee: TSMeleeDamageInfo, type: uint32, index: uint32, damage: TSMutable<uint32>)=>void);
+        OnMeleeDamageLate(callback: (melee: TSMeleeDamageInfo, type: uint32, index: uint32, damage: TSMutable<uint32>)=>void);
+        OnSpellDamageEarly(callback: (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<int32>)=>void);
+        OnSpellDamageLate(callback: (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<uint32>)=>void);
+        OnPeriodicDamage(callback: (aura: TSAuraEffect, damage: TSMutable<uint32>)=>void);
+
+        /**
+         * critChance should be between 0 and 1
+         */
+        OnSpellCrit(callback: (spell: TSSpell, critChance: TSMutable<float>)=>void);
+        /**
+         * critChance should be between 0 and 1
+         */
+        OnSpellAuraCrit(callback: (spell: TSAuraEffect, critChance: TSMutable<float>)=>void);
+
+        /**
+         * reflectChance should be an integer between 0 and 10000
+         */
+        OnSpellReflect(callback: (attacker: TSWorldObject, victim: TSUnit, info: TSSpellInfo, reflectChance: TSMutable<int32>)=>void)
+
+        /**
+         * hitChance should be an integer between 0 and 10000
+         */
+        OnSpellHit(callback: (attacker: TSWorldObject, victim: TSUnit, info: TSSpellInfo, hitChance: TSMutable<int32>)=>void)
+
+        /**
+         * resistChance should be an integer between 0 and 10000
+         */
+        OnSpellResist(callback: (attacker: TSWorldObject, victim: TSUnit, info: TSSpellInfo, resistChance: TSMutable<int32>)=>void)
+
+        /**
+         * deflectChance should be an integer between 0 and 10000
+         */
+        OnSpellDeflect(callback: (attacker: TSWorldObject, victim: TSUnit, info: TSSpellInfo, deflectChance: TSMutable<int32>)=>void)
+
+        /**
+         * - missChance should be between 0 and 1
+         * - critChance should be between 0 and 100
+         * - dodgeChance should be between 0 and 100
+         * - parryChance should be between 0 and 100
+         */
+        OnMeleeOutcome(callback: (
+              attacker: TSUnit
+            , victim: TSUnit
+            , attackType: uint32
+            , missChance: TSMutable<float>
+            , critChance: TSMutable<float>
+            , dodgeChance: TSMutable<float>
+            , blockChance : TSMutable<float>
+            , parryChance: TSMutable<float>
+            )=>void)
+
+        OnStaminaHealthBonus(callback: (player: TSPlayer,baseStam: float,bonusStam: float,maxhp: TSMutable<float>)=>void);
+        OnIntellectManaBonus(callback: (player: TSPlayer,baseInt: float,bonusInt: float,maxMana: TSMutable<float>)=>void);
+        OnMaxHealth(callback: (player: TSPlayer,health: TSMutable<float>)=>void);
+        OnMaxPower(callback: (player: TSPlayer,power:uint32,bonus: float, value: TSMutable<float>)=>void);
+        OnManaRegen(callback: (player: TSPlayer,power_regen: TSMutable<float>,power_regen_mp5: TSMutable<float>,manaRegenInterrupt: TSMutable<int32>)=>void); 
     }
 
     export class Item {
@@ -6322,11 +6495,6 @@ declare namespace _hidden {
 
     export class Unit {
         OnHeal(callback: (healer : TSUnit,reciever : TSUnit,gain : TSMutable<uint32>)=>void);
-        OnDamage(callback: (attacker : TSUnit,victim : TSUnit,damage : TSMutable<uint32>)=>void);
-        ModifyPeriodicDamageAurasTick(callback: (target : TSUnit,attacker : TSUnit,damage : TSMutable<uint32>)=>void);
-        ModifyMeleeDamage(callback: (target : TSUnit,attacker : TSUnit,damage : TSMutable<uint32>)=>void);
-        ModifySpellDamageTaken(callback: (target : TSUnit,attacker : TSUnit,damage : TSMutable<int32>)=>void);
-        //ModifyVehiclePassengerExitPos(callback: (passenger : TSUnit,vehicle : TSVehicle,pos : TSMutable<Position>)=>void);
     }
 
     export class AreaTrigger {
@@ -6664,6 +6832,14 @@ declare class TSDictionary<K,V> {
     filter(callback: (key: K, value: V)=>boolean): TSDictionary<K,V>
 }
 
+declare class TSDBDict<K,V> {
+    set(key: K, value: V);
+    contains(key: K): boolean;
+    get(key: K): V;
+}
+
+declare function MakeDBDict<K,V>(): TSDBDict<K,V>;
+
 declare class TSLootItem {
     GetItemID(): uint32;
     GetRandomSuffix(): uint32;
@@ -6875,6 +7051,43 @@ declare class TSDatabaseConnectionInfo {
     PortOrSocket(): string
 }
 
+declare class TSMeleeDamageInfo {
+    GetAttacker(): TSUnit;
+    GetTarget(): TSUnit;
+    GetSchool1(): uint32;
+    GetSchool2(): uint32;
+    GetDamage1(): uint32;
+    GetDamage2(): uint32;
+    GetAbsorb1(): uint32;
+    GetAbsorb2(): uint32;
+    GetResist1(): uint32;
+    GetResist2(): uint32;
+    GetBlocked(): uint32;
+    GetHitInfo(): uint32;
+    GetAttackType(): uint32;
+    GetProcAttacker(): uint32;
+    GetProcVictim(): uint32;
+    GetCleanDamage(): uint32;
+    GetMeleeHitOutcome(): uint8;
+}
+
+declare class TSSpellDamageInfo {
+    GetAttacker(): TSUnit;
+    GetTarget(): TSUnit;
+    GetSpellID(): uint32;
+    GetDamage(): uint32;
+    GetOverkill(): uint32;
+    GetSchoolMask(): uint32;
+    GetAbsorb(): uint32;
+    GetResist(): uint32;
+    GetPeriodicLog(): bool;
+    GetUnused(): bool;
+    GetBlocked(): uint32;
+    GetHitInfo(): uint32;
+    GetCleanDamage(): uint32;
+    GetFullBlock(): bool;
+}
+
 declare function WorldDatabaseInfo(): TSDatabaseConnectionInfo
 declare function CharacterDatabaseInfo(): TSDatabaseConnectionInfo
 declare function AuthDatabaseInfo(): TSDatabaseConnectionInfo
@@ -6915,3 +7128,6 @@ declare function GetTimers() : TSTasks<void>
 declare function ModID(): uint32;
 declare function LoadRows<T extends DBTable>(cls: {new (...args: any[]): T}, query: string): TSArray<T>
 
+declare function GetSpellInfo(entry: uint32): TSSpellInfo
+declare function GetItemTemplate(entry: uint32): TSItemTemplate
+declare function GetCreatureTemplate(entry: uint32): TSCreatureTemplate

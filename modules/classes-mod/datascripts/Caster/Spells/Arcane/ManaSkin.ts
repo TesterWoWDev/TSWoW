@@ -12,7 +12,7 @@ const MANASKIN = std.Spells.create(MODNAME,'manaskin',69910)
 	MANASKIN.Attributes.onlyTargetPlayers
 	MANASKIN.Attributes.notStealable
 	MANASKIN.Attributes.noPushbackOnDamage
-	MANASKIN.Visual.cloneFrom(1463)
+	MANASKIN.Visual.cloneFromVisual(1463)
 	MANASKIN.TargetType.set(0)
 	MANASKIN.Cooldown.set(15000,0,0,0)
 	MANASKIN.Power.setMana(75,50,0,0,0)
@@ -26,7 +26,7 @@ const MANASKIN = std.Spells.create(MODNAME,'manaskin',69910)
 	MANASKIN.Proc.Chance.set(101)
 	MANASKIN.Icon.set('Interface\\Icons\\Spell_arcane_prismaticcloak')
 	MANASKIN.Effects.get(0).BasePoints.set(-6)
-	MANASKIN.Effects.add().AuraType.setReducePushback().BasePoints.set(19).DieSides.set(1)
+	MANASKIN.Effects.add().AuraType.setReducePushback().BasePoints.set(19)
 
 
 
