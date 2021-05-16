@@ -1,5 +1,5 @@
 ## Interface: 30300
 ## Title: addon-mod
 ## Version: 1.0
-## Notes: Something
-## Author: Someone
+## Notes: Tester
+## Author: Tester
