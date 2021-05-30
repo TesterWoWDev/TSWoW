@@ -141,6 +141,8 @@ export function atlas(){
         Portrait.SetPoint('LEFT',mframe,'RIGHT',-5,0)
         Portrait.SetPosition(0,0,0)
         Portrait.EnableMouse(true)
+        Portrait.EnableMouseWheel(true)
+        Portrait.SetAttribute("rot",0)
         Portrait.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
             tile : true, tileSize : 22, edgeSize : 22, 
             insets : { left : 0, right : 0, top : 0, bottom : 0 }});
@@ -152,22 +154,31 @@ export function atlas(){
             portraitEdge.SetBackdrop({
                 edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
                 tile : true, tileSize : 22, edgeSize : 22, 
-                insets : { left : -4, right : -4, top : -4, bottom : -4 }});
+                insets : { left : -4, right : -4, top : -4, bottom : -4 }})
+
+        Portrait.SetScript('OnMouseDown', function(self,button){
+            let StartX = GetCursorPosition()[0]
+            if (button == 'LeftButton'){
+                Portrait.SetScript('OnUpdate', function(self){
+                    let curX = GetCursorPosition()[0]
+                    Portrait.SetFacing((curX - StartX) / 34 + Portrait.GetFacing())
+                    StartX = curX
+                })
+            }
+        })
         Portrait.SetScript('OnMouseUp', function(self,button){
             Portrait.SetScript('OnUpdate', null)
         })
-    let rotation = 0
-    Portrait.SetScript('OnMouseDown', function(self,button){
-        let StartX = GetCursorPosition()[0]
-        if (button == 'LeftButton'){
-            Portrait.SetScript('OnUpdate', function(self){
-                let cursorX = GetCursorPosition()[0]
-                rotation = (cursorX - StartX) / 34 + Portrait.GetFacing()
-                Portrait.SetFacing(rotation)
-                StartX = cursorX
-            })
-        }
-    })
+        Portrait.SetScript('OnMouseWheel', function(self, zoom){
+            let z = Portrait.GetPosition()//should return 3 values, but its acting wierd
+            if(zoom == 1){
+                z = z + 0.5
+            }else{
+                z = z - 0.5
+            }
+            Portrait.SetPosition(z,0,0)
+        })
+
     Events.AddOns.OnMessage(mframe,itemLootMessage,(msg)=>{
         itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
     });
@@ -175,6 +186,7 @@ export function atlas(){
     Events.AddOns.OnMessage(mframe,itemLootFinishMessage,(msg)=>{
         pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
         Portrait.SetCreature(msg.entry)
+        Portrait.SetPosition(0,0,0)
         Portrait.Show()
         createButtons()
     });
