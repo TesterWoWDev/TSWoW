@@ -21,7 +21,7 @@ export class itemLootMessage {
 @Message
 export class itemLootFinishMessage {
     @MsgPrimitive
-        finish: uint32 = 0;
+        entry: uint32 = 0;
 }
 
 @Message
