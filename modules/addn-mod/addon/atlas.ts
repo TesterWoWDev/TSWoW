@@ -133,7 +133,6 @@ export function atlas(){
         searchButn.HookScript("OnClick",(frame,evName,btnDown)=>{
             searchLoot()
         })
-        
 
     let Portrait = CreateFrame('DressUpModel','shownModel',mframe)
         Portrait.SetSize(mframe.GetWidth()*(3/4),mframe.GetHeight()-10)
@@ -146,7 +145,6 @@ export function atlas(){
             tile : true, tileSize : 22, edgeSize : 22, 
             insets : { left : 0, right : 0, top : 0, bottom : 0 }});
             Portrait.SetBackdropColor(0,0,0,1);
-
         let portraitEdge = CreateFrame('Frame','portraitCover',Portrait)
             portraitEdge.SetWidth(Portrait.GetWidth() + 10)
             portraitEdge.SetHeight(Portrait.GetHeight() + 10)
@@ -155,8 +153,6 @@ export function atlas(){
                 edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
                 tile : true, tileSize : 22, edgeSize : 22, 
                 insets : { left : -4, right : -4, top : -4, bottom : -4 }});
-
-
         Portrait.SetScript('OnMouseUp', function(self,button){
             Portrait.SetScript('OnUpdate', null)
         })
