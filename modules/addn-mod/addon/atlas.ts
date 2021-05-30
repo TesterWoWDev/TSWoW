@@ -136,7 +136,7 @@ export function atlas(){
         
 
     let Portrait = CreateFrame('DressUpModel','shownModel',mframe)
-        Portrait.SetSize(500,mframe.GetHeight()-10)
+        Portrait.SetSize(mframe.GetWidth()*(3/4),mframe.GetHeight()-10)
         Portrait.SetCreature(0)
         Portrait.SetCamera(0)
         Portrait.SetPoint('LEFT',mframe,'RIGHT',-5,0)
