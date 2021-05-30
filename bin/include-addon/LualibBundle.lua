@@ -116,10 +116,12 @@ end
 function __TS__ArrayForEach(arr, callbackFn)
     do
         local i = 0
-        while i < #arr do
-            callbackFn(_G, arr[i + 1], i, arr)
-            i = i + 1
-        end
+		if(arr ~= nil)then
+			while i < #arr do
+				callbackFn(_G, arr[i + 1], i, arr)
+				i = i + 1
+			end
+		end
     end
 end
 

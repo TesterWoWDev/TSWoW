@@ -11,7 +11,7 @@ export function atlas(){
     let mframe = CreateFrame('Frame','atlas',UIParent);
         mframe.SetWidth(512)
         mframe.SetHeight(768)
-        mframe.SetPoint("CENTER",0,0)
+        mframe.SetPoint("CENTER",-100,0)
         mframe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
             edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
             tile : true, tileSize : 22, edgeSize : 22, 
@@ -134,17 +134,58 @@ export function atlas(){
             searchLoot()
         })
         
+
+    let Portrait = CreateFrame('DressUpModel','shownModel',mframe)
+        Portrait.SetSize(500,mframe.GetHeight()-10)
+        Portrait.SetCreature(0)
+        Portrait.SetCamera(0)
+        Portrait.SetPoint('LEFT',mframe,'RIGHT',-5,0)
+        Portrait.SetPosition(0,0,0)
+        Portrait.EnableMouse(true)
+        Portrait.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
+            tile : true, tileSize : 22, edgeSize : 22, 
+            insets : { left : 0, right : 0, top : 0, bottom : 0 }});
+            Portrait.SetBackdropColor(0,0,0,1);
+
+        let portraitEdge = CreateFrame('Frame','portraitCover',Portrait)
+            portraitEdge.SetWidth(Portrait.GetWidth() + 10)
+            portraitEdge.SetHeight(Portrait.GetHeight() + 10)
+            portraitEdge.SetPoint("CENTER",Portrait,"CENTER")
+            portraitEdge.SetBackdrop({
+                edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
+                tile : true, tileSize : 22, edgeSize : 22, 
+                insets : { left : -4, right : -4, top : -4, bottom : -4 }});
+
+
+        Portrait.SetScript('OnMouseUp', function(self,button){
+            Portrait.SetScript('OnUpdate', null)
+        })
+    let rotation = 0
+    Portrait.SetScript('OnMouseDown', function(self,button){
+        let StartX = GetCursorPosition()[0]
+        if (button == 'LeftButton'){
+            Portrait.SetScript('OnUpdate', function(self){
+                let cursorX = GetCursorPosition()[0]
+                rotation = (cursorX - StartX) / 34 + Portrait.GetFacing()
+                Portrait.SetFacing(rotation)
+                StartX = cursorX
+            })
+        }
+    })
     Events.AddOns.OnMessage(mframe,itemLootMessage,(msg)=>{
         itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
     });
 
     Events.AddOns.OnMessage(mframe,itemLootFinishMessage,(msg)=>{
         pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
+        Portrait.SetCreature(msg.entry)
+        Portrait.Show()
         createButtons()
     });
 
     Events.AddOns.OnMessage(mframe,creatureNoExistMessage,(msg)=>{
         console.log("DOES NOT EXIST!!!")
+        Portrait.Hide()
     });
 
     function searchLoot(){

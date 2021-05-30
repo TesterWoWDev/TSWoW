@@ -1987,6 +1987,11 @@ declare function CanJoinBattlefieldAsGroup(): boolean;
 declare function GetAreaSpiritHealerTime(): number;
 
 /**
+ * Returns the unix time
+ */
+declare function time(): number
+
+/**
  * Get estimated wait time for a Battlefield's availability
  * @returns Milliseconds until Battlefield opening is available (estimated)
  * @see https://wow.gamepedia.com/API_GetBattlefieldEstimatedWaitTime
@@ -13429,7 +13434,7 @@ declare namespace WoWAPI {
 		GetLight():[boolean, boolean, number, number, number, number, number, number, number, number, number, number, number];
 		GetModel(): string;
 		GetModelScale(): number;
-		GetPosition(): [number,number,number];
+		GetPosition(): number;
 		ReplaceIconTexture(texture: string): void;
 		SetCamera(index: number): void;
 		SetFacing(facing: number): void;

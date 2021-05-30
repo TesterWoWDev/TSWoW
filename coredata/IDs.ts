@@ -136,6 +136,7 @@ export const CLASSES_MOD_BACKSTAB : uint32 = GetID("Spell","classes-mod","backst
 export const CLASSES_MOD_ROCK_TOSS : uint32 = GetID("Spell","classes-mod","rock-toss");
 export const CLASSES_MOD_STEALTH : uint32 = GetID("Spell","classes-mod","stealth");
 export const CLASSES_MOD_THROWN_TOSS : uint32 = GetID("Spell","classes-mod","thrown-toss");
+export const CLASSES_MOD_JUGGERNAUTS_RAGE : uint32 = GetID("Spell","classes-mod","Juggernaut's Rage");
 export const CLASSES_MOD_CASTER_SKILL_TRAINER : uint32 = GetID("creature_template","classes-mod","Caster-skill-trainer");
 export const CLASSES_MOD_WARRIOR_0 : uint32 = GetID("creature_template","classes-mod","warrior-0");
 export const CLASSES_MOD_TANK_0 : uint32 = GetID("creature_template","classes-mod","tank-0");

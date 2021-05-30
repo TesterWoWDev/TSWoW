@@ -89,6 +89,10 @@ public:
     uint32 TargetAuraStateNot();
     uint32 TargetCreatureType();
     uint32 Targets();
+    uint32 EffectBasePoints(uint32 effectID);
+    uint32 EffectAuraName(uint32 effectID);
+    uint32 EffectEffect(uint32 effectID);
+    uint32 EffectMiscValueA(uint32 effectID);
     TSStorage * GetData();
     TS_ENTITY_DATA_DECL(TSSpellInfo);
 };
