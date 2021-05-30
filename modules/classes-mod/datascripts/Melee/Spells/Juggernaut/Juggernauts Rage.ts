@@ -2,7 +2,7 @@ import { std } from "tswow-stdlib";
 import { MODNAME } from "../../../moduleName";
 import { JUGGERNAUT_SKILL } from "../../Melee";
 
-const JUGGRAGE = std.Spells.create (MODNAME,'Juggernaut\'s Rage').SkillLines.add(JUGGERNAUT_SKILL.ID).setAutolearn().end;
+const JUGGRAGE = std.Spells.create (MODNAME,'Juggernauts Rage').SkillLines.add(JUGGERNAUT_SKILL.ID).setAutolearn().end;
 JUGGRAGE.Name.enGB.set('Juggernaut\'s Rage')
 JUGGRAGE.Subtext.enGB.set("")
 JUGGRAGE.Description.enGB.set('When you are below 50% health, you deal $s1% more damage and your attacks ignore up to $s2% of your opponents armor.')
