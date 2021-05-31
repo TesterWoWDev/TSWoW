@@ -12434,7 +12434,9 @@ declare namespace WoWAPI {
         type OnValueChanged = "OnValueChanged";
         type OnTextChanged = "OnTextChanged";
 		type OnDragStart = "OnDragStart";
-        type OnDragStop = "OnDragStop"
+        type OnDragStop = "OnDragStop";
+		type OnKeyDown = "OnKeyDown";
+		type OnKeyUp = "OnKeyUp";
 
         type PlayerLogin = "PLAYER_LOGIN";
         type PlayerLogout = "PLAYER_LOGOUT";
@@ -12452,7 +12454,7 @@ declare namespace WoWAPI {
 
         type OnAny = OnEvent | OnLoad | OnUpdate | OnClick | OnEnter |
             OnLeave | OnHide | OnShow | OnMouseDown | OnMouseUp | OnMouseWheel |
-            OnValueChanged | OnTextChanged | OnDragStart | OnDragStop;
+            OnValueChanged | OnTextChanged | OnDragStart | OnDragStop | OnKeyDown | OnKeyUp;
     }
 
     type UIDropdownInfo = {
@@ -12853,6 +12855,8 @@ declare namespace WoWAPI {
         HookScript(event: "OnTextChanged", handler: (frame: T, text: string) => void): void;
 		HookScript(event: "OnDragStart", handler: (frame: T, button: MouseButton) => void): void;
         HookScript(event: "OnDragStop", handler: (frame: T) => void): void;
+		HookScript(event: "OnKeyDown", handler: (frame: T, key: string) => void): void;
+		HookScript(event: "OnKeyUp", handler: (frame: T, key: string) => void): void;
         HookScript(event: Event.OnAny, handler?: (frame: T, ...args: any[]) => void): void;
     }
 
@@ -12879,6 +12883,8 @@ declare namespace WoWAPI {
         SetScript(event: "OnTextChanged", handler: (frame: T, isUserInput: boolean) => void): void;
 		SetScript(event: "OnDragStart", handler: (frame: T, button: MouseButton) => void): void;
         SetScript(event: "OnDragStop", handler: (frame: T) => void): void;
+		SetScript(event: "OnKeyDown", handler: (frame: T, key: string) => void): void;
+		SetScript(event: "OnKeyUp", handler: (frame: T, key: string) => void): void;
         SetScript(event: Event.OnAny, handler?: (frame: T, ...args: any[]) => void): void;
     }
 

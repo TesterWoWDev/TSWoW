@@ -12,6 +12,15 @@ export function atlas(){
         mframe.SetWidth(512)
         mframe.SetHeight(768)
         mframe.SetPoint("CENTER",-100,0)
+        mframe.EnableMouse(true)
+        mframe.RegisterForDrag('LeftButton')
+        mframe.SetMovable(true)
+        mframe.SetScript("OnDragStart",(self)=>{
+            self.StartMoving()
+        })
+        mframe.SetScript("OnDragStop",(self)=>{
+            self.StopMovingOrSizing()
+        })
         mframe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
             edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
             tile : true, tileSize : 22, edgeSize : 22, 
@@ -53,7 +62,7 @@ export function atlas(){
             })
 
     let exitButn = CreateFrame("Button", '', mframe)
-        exitButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT",0,0)
+        exitButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT")
         exitButn.SetWidth(50)
         exitButn.SetHeight(50)
         let exittex = exitButn.CreateTexture('','BACKGROUND')
@@ -106,19 +115,20 @@ export function atlas(){
         searchBox.SetFont('Fonts\\ARIALN.TTF',14)
         searchBox.SetMaxLetters(30)
         searchBox.SetMultiLine(false)
+        searchBox.Hide()
         let searchtexBox = searchBox.CreateTexture('','BACKGROUND')
             searchtexBox.SetTexture("Interface\\COMMON\\Common-Input-Border.blp")
             searchtexBox.SetPoint('CENTER',searchBox,'CENTER',-5,-5)
             searchtexBox.SetSize(115,30)
         searchBox.SetScript('OnEnterPressed',(frame)=>{
-            searchBox.ClearFocus()
             searchLoot()
         })
         searchBox.SetScript('OnEscapePressed',(frame)=>{
-            searchBox.ClearFocus()
+            shown = false;
+            mframe.Hide()
+            searchBox.Hide()
         })
-    searchBox.Hide()
-
+    
     let searchButn = CreateFrame("Button", '', mframe)
         searchButn.SetPoint("LEFT", searchBox, "RIGHT",0,-5)
         searchButn.SetWidth(60)
@@ -142,7 +152,6 @@ export function atlas(){
         Portrait.SetPosition(-10,0,0)
         Portrait.EnableMouse(true)
         Portrait.EnableMouseWheel(true)
-        Portrait.SetAttribute("rot",0)
         Portrait.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
             tile : true, tileSize : 22, edgeSize : 22, 
             insets : { left : 0, right : 0, top : 0, bottom : 0 }});
