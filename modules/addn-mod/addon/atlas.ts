@@ -135,11 +135,11 @@ export function atlas(){
         })
 
     let Portrait = CreateFrame('DressUpModel','shownModel',mframe)
-        Portrait.SetSize(mframe.GetWidth()*(3/4),mframe.GetHeight()-10)
+        Portrait.SetSize(mframe.GetWidth()/2,mframe.GetHeight()-10)
         Portrait.SetCreature(0)
         Portrait.SetCamera(0)
         Portrait.SetPoint('LEFT',mframe,'RIGHT',-5,0)
-        Portrait.SetPosition(0,0,0)
+        Portrait.SetPosition(-10,0,0)
         Portrait.EnableMouse(true)
         Portrait.EnableMouseWheel(true)
         Portrait.SetAttribute("rot",0)
@@ -186,7 +186,7 @@ export function atlas(){
     Events.AddOns.OnMessage(mframe,itemLootFinishMessage,(msg)=>{
         pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
         Portrait.SetCreature(msg.entry)
-        Portrait.SetPosition(0,0,0)
+        Portrait.SetPosition(-10,0,0)
         Portrait.Show()
         createButtons()
     });
