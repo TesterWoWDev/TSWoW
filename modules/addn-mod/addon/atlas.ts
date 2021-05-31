@@ -149,7 +149,7 @@ export function atlas(){
         Portrait.SetCreature(0)
         Portrait.SetCamera(0)
         Portrait.SetPoint('LEFT',mframe,'RIGHT',-5,0)
-        Portrait.SetPosition(-10,0,0)
+        Portrait.SetPosition(0,0,0)
         Portrait.EnableMouse(true)
         Portrait.EnableMouseWheel(true)
         Portrait.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
@@ -194,8 +194,8 @@ export function atlas(){
 
     Events.AddOns.OnMessage(mframe,itemLootFinishMessage,(msg)=>{
         pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
+        Portrait.SetPosition(0,0,0)
         Portrait.SetCreature(msg.entry)
-        Portrait.SetPosition(-10,0,0)
         Portrait.Show()
         createButtons()
     });
