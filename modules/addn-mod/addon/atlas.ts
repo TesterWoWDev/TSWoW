@@ -1,6 +1,6 @@
 import {  creatureNameMessage, creatureNoExistMessage, itemLootFinishMessage, itemLootMessage } from "../shared/Messages";
 import { Events, SendToServer } from "./lib/Events";
-
+import {SetupModelZoomDragRotation} from "./CustomAddonFunctions"
 export function atlas(){
     let itemArray = [];
     let allButtons = [];
@@ -149,9 +149,7 @@ export function atlas(){
         Portrait.SetCreature(0)
         Portrait.SetCamera(0)
         Portrait.SetPoint('LEFT',mframe,'RIGHT',-5,0)
-        Portrait.SetPosition(0,0,0)
-        Portrait.EnableMouse(true)
-        Portrait.EnableMouseWheel(true)
+        SetupModelZoomDragRotation(Portrait)
         Portrait.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
             tile : true, tileSize : 22, edgeSize : 22, 
             insets : { left : 0, right : 0, top : 0, bottom : 0 }});
@@ -164,50 +162,7 @@ export function atlas(){
                 edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
                 tile : true, tileSize : 22, edgeSize : 22, 
                 insets : { left : -4, right : -4, top : -4, bottom : -4 }})
-
-        Portrait.SetScript('OnMouseDown', function(self,button){
-            let StartX = GetCursorPosition()[0]
-            let StartY = GetCursorPosition()[1]
-            if (button == 'LeftButton'){
-                Portrait.SetScript('OnUpdate', function(self){
-                    let curX = GetCursorPosition()[0]
-                    Portrait.SetFacing((curX - StartX) / 34 + Portrait.GetFacing())
-                    StartX = curX
-                })
-            }
-            else if (button == 'RightButton') {
-                Portrait.SetScript('OnUpdate', function(self){
-                    let curX = GetCursorPosition()[0]
-                    let curY = GetCursorPosition()[1]
-                    let pos = Portrait.GetPosition()
-                    let z = Number(pos[0])
-                    let x = Number(pos[1])
-                    let y = Number(pos[2])
-
-                    x = (curX - StartX) / 150 + x
-                    y = (curY - StartY) / 150 + y
-
-                    Portrait.SetPosition(z,x,y)
-                    StartX = GetCursorPosition()[0]
-                    StartY = GetCursorPosition()[1]
-                })
-            }   
-        })
-        Portrait.SetScript('OnMouseUp', function(self,button){
-            Portrait.SetScript('OnUpdate', null)
-        })
-        Portrait.SetScript('OnMouseWheel', function(self, zoom){
-            let pos = Portrait.GetPosition()
-            let z = Number(pos[0])
-            let x = Number(pos[1])
-            let y = Number(pos[2])
-            if(zoom == 1){
-                z = z + 0.5
-            }else{
-                z = z - 0.5
-            }
-            Portrait.SetPosition(z,x,y)
-        })
+        
 
     Events.AddOns.OnMessage(mframe,itemLootMessage,(msg)=>{
         itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
@@ -292,3 +247,5 @@ export function atlas(){
         allButtons = []
     }
 }
+
+
