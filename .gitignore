@@ -31,7 +31,7 @@
 /bin/trinitycore/Debug
 .vscode
 coredata/datasets/default/default.dataset.yaml
-modules/*/*/build/*
+modules/*/*/build
 modules/tswow-stdlib
 node.yaml
 ids.txt
