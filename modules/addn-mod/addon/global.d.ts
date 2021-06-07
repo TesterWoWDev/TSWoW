@@ -13482,6 +13482,109 @@ declare namespace WoWAPI {
 		SetStatusBarTexture(file:string): void;
 		SetValue(value:number): void;
 	}
+	
+	interface ScrollFrame extends Frame {
+		GetHorizontalScroll(): number;
+		GetHorizontalScrollRange(): number;
+		GetScrollChild(): frame;
+		GetVerticalScroll(): number;
+		GetVerticalScrollRange(): number;
+		SetHorizontalScroll(offset:number): void;
+		SetScrollChild(frame:frame):void;
+		SetVerticalScroll(offset:number): void;
+	}
+	
+	interface MessageFrame extends FontInstance {
+		AddMessage(text:string, r:number, g:number, b:number, id:number, addToStart:boolean)
+		Clear():void;
+		GetFadeDuration():number;
+		GetFading():boolean;
+		GetInsertMode():string;
+		GetTimeVisible():number;
+		SetFadeDuration(seconds:number):void;
+		SetFading(isEnabled:boolean):void;
+		SetInsertMode(mode:string):void;
+		SetTimeVisible(seconds:number):void;
+	}
+	interface ScrollingMessageFrame extends FontInstance {
+		AddMessage(text:string, r:number, g:number, b:number, id:number, addToStart:boolean)
+		AtBottom():boolean;
+		AtTop():boolean;
+		Clear():void;
+		GetCurrentLine():number;
+		GetCurrentScroll():number;
+		GetFadeDuration():number;
+		GetFading():boolean;
+		GetHyperlinksEnabled():boolean;
+		GetInsertMode():string;
+		GetMaxLines():number;
+		GetNumLinesDisplayed():number;
+		GetNumMessages():number;
+		GetScrollOffset():number;
+		GetTimeVisible():number;
+		PageDown():void;
+		PageUp():void;
+		ScrollDown():void;
+		ScrollToBottom():void;
+		ScrollToTop():void;
+		ScrollUp():void;
+		SetFadeDuration(seconds:number):void;
+		SetFading(isEnabled:boolean):void;
+		SetHyperlinksEnabled(enableFlag:boolean):void;
+		SetInsertMode(mode:string):void;
+		SetMaxLines(lines:number):void;
+		SetScrollOffset(offset:number):void;
+		SetTimeVisible(seconds:number):void;
+		UpdateColorByID(id:number, r:number, g:number, b:number):void;
+	}
+
+	interface Cooldown {
+		GetReverse():boolean
+		SetCooldown(Start:number, Duration:number)
+		SetReverse(bool:boolean)
+	}
+	
+	interface Minimap{
+		GetPingPosition():number;
+		GetZoom():number;
+		GetZoomLevels():number;
+		PingLocation(x:number, y:number):void;
+		SetArrowModel(file:string):void;
+		SetBlipTexture(file:string):void;
+		SetIconTexture(file:string):void;
+		SetMaskTexture(file:string):void;
+		SetPlayerModel(file:string):void;
+		SetZoom(level):void;
+	}
+	
+	interface ColorSelect {
+		/** @tupleReturn */
+		GetColorHSV():[number,number,number]
+		/** @tupleReturn */
+		GetColorRGB():[number,number,number]
+		GetColorValueTexture():WoWAPI.Texture
+		GetColorValueThumbTexture():WoWAPI.Texture
+		GetColorWheelTexture():WoWAPI.Texture
+		GetColorWheelThumbTexture():WoWAPI.Texture
+		SetColorHSV(h:number, s:number, v:number)
+		SetColorRGB(r:number, g:number, b:number)
+		SetColorValueTexture(texture:string)
+		SetColorValueThumbTexture(texture:string)
+		SetColorWheelTexture(ttexture:string)
+		SetColorWheelThumbTexture(texture:string)
+		SetColorValueTexture(texture:WoWAPI.Texture)
+		SetColorValueThumbTexture(texture:WoWAPI.Texture)
+		SetColorWheelTexture(ttexture:WoWAPI.Texture)
+		SetColorWheelThumbTexture(texture:WoWAPI.Texture)
+	}
+	
+	interface SimpleHTML extends Frame,FontInstance {
+		GetContentHeight():number;
+		GetHyperlinkFormat(): string;
+		GetTextData(): string;
+		SetHyperlinkFormat(format:string): void;
+		SetText(text:string): void;
+	}
 }
 
 /**
@@ -13564,6 +13667,12 @@ declare function CreateFrame(frameType: "Model", frameName?: string, parentFrame
 declare function CreateFrame(frameType: "PlayerModel", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.PlayerModel;
 declare function CreateFrame(frameType: "DressUpModel", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.DressUpModel;
 declare function CreateFrame(frameType: "StatusBar", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.StatusBar;
+declare function CreateFrame(frameType: "ScrollFrame", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.ScrollFrame;
+declare function CreateFrame(frameType: "ScrollingMessageFrame", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.ScrollingMessageFrame;
+declare function CreateFrame(frameType: "Minimap", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Minimap;
+declare function CreateFrame(frameType: "MessageFrame", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.MessageFrame;
+declare function CreateFrame(frameType: "Cooldown", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Cooldown;
+declare function CreateFrame(frameType: "ColorSelect", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.ColorSelect;
 
 /**
  * Adds a configuration panel (with the fields described in #Panel fields below set) to the category list.

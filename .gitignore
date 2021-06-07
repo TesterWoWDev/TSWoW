@@ -15,6 +15,7 @@
 /coredata/authserver
 /coredata/database
 /coredata/realms
+/coredata/datasets/default/Buildings
 /coredata/datasets/default/database
 /coredata/datasets/default/luaxml
 /coredata/datasets/default/luaxml_source
@@ -34,3 +35,4 @@ modules/*/*/build/*
 modules/tswow-stdlib
 node.yaml
 ids.txt
+coredata/terminal-history.txt
