@@ -4,7 +4,7 @@ import { FIRE_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
 
-const FLAMEVOCATION = std.Spells.create (MODNAME,'Covoke Fire',12051).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
+const FLAMEVOCATION = std.Spells.create (MODNAME,'Covoke-Fire',12051).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
     CASTER_SKILL_TRAINER.Trainer.addSpell(FLAMEVOCATION.ID,10,69)//CHANGE LATER
 FLAMEVOCATION.Name.enGB.set('Convoke Fire')
 FLAMEVOCATION.Subtext.enGB.set('')

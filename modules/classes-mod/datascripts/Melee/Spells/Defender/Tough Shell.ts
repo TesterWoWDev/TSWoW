@@ -17,7 +17,7 @@ TOUGHSKINPROC.Effects.add()
     TOUGHSKINPROC.Effects.get(0).AuraType.setModResistance()
     
     
-const TOUGHSKIN = std.Spells.create (MODNAME,'Tough Skin',4114).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
+const TOUGHSKIN = std.Spells.create (MODNAME,'Tough-Skin',4114).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
     MELEE_SKILL_TRAINER.Trainer.addSpell(TOUGHSKIN.ID,10,11)//CHANGE LATER
 TOUGHSKIN.Name.enGB.set("Tough Skin")
 TOUGHSKIN.Subtext.enGB.set("Passive")
