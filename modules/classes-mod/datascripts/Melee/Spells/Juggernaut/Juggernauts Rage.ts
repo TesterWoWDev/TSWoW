@@ -4,11 +4,14 @@ import { JUGGERNAUT_SKILL } from "../../Melee";
 
 export const JUGGRAGE = std.Spells.create (MODNAME,'juggernauts-rage').SkillLines.add(JUGGERNAUT_SKILL.ID).setAutolearn().end;
 JUGGRAGE.Name.enGB.set('Juggernaut\'s Rage')
-JUGGRAGE.Subtext.enGB.set("")
-JUGGRAGE.Description.enGB.set('When you are below 50% health, you deal $s1% more damage and your attacks ignore up to $s2% of your opponents armor.')
-JUGGRAGE.AuraDescription.enGB.set('When you are below 50% health, you deal $s1% more damage.  In addition, your attacks ignore up to $s2% of your opponent\'s armor at all times..')
+JUGGRAGE.Subtext.enGB.set("Passive")
+JUGGRAGE.Description.enGB.set('When you are below 50% health, you deal more damage and your attacks ignore some of your opponents armor.')
+JUGGRAGE.AuraDescription.enGB.set('When you are below 50% health, you deal more damage.  In addition, your attacks ignore some of your opponent\'s armor at all times..')
 JUGGRAGE.Icon.set('Interface\\Icons\\spell_nature_reincarnation.blp')
-JUGGRAGE.Range.set(0,0,0,0)
+JUGGRAGE.Duration.set(5000,0,5000)
+JUGGRAGE.Proc.TypeMask.set(8)
+JUGGRAGE.Proc.Chance.set(100)
+JUGGRAGE.Attributes.isPassive.mark() //makes spell passive
 //JUGGRAGE.CasterAuraState.Include.set()  //Need to look at this
 JUGGRAGE.Effects.add()
     JUGGRAGE.Effects.get(0).EffectType.setApplyAura()
