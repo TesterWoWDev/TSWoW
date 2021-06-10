@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-const ICEBOMB = std.Spells.create (MODNAME,'Icebomb',11).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
+const ICEBOMB = std.Spells.create (MODNAME,'ice-bomb',11).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
 ICEBOMB.Name.enGB.set('Ice Bomb')
 ICEBOMB.Subtext.enGB.set('Offensive Ultimate Ability')
 ICEBOMB.AuraDescription.enGB.set('Victim of Ice Bomb.')

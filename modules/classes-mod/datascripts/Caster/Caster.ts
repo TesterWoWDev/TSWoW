@@ -3,7 +3,7 @@ import { MODNAME } from '../moduleName';
 
 export const CASTER_CLASS = std.Classes.create(MODNAME,'caster','MAGE');
 
-export const NECROMANCER_ROBE = std.Items.create(MODNAME,'cls',56)
+export const NECROMANCER_ROBE = std.Items.create(MODNAME,'caster-class-robe',56)
 CASTER_CLASS.addRaces(['HUMAN','ORC','DWARF','GNOME','BLOODELF','DRAENEI','NIGHTELF','TAUREN','TROLL','UNDEAD']);
 CASTER_CLASS.Name.enGB.set('Caster');
 CASTER_CLASS.UI.ClassButton.setPos(-52,-460)

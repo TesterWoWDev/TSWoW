@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-const FRACTURE = std.Spells.create (MODNAME,'Fracture',50597).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
+const FRACTURE = std.Spells.create (MODNAME,'fracture',50597).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
 FRACTURE.Name.enGB.set('Fracture')
 FRACTURE.Subtext.enGB.set('Crowd Control')
 FRACTURE.AuraDescription.enGB.set('Suffering from the effects of Fracture, slowly freezing solid.')

@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { DEFENDER_SKILL } from "../../Melee";
 import { MELEE_SKILL_TRAINER } from "../MeleeTrainer";
 
-const ROCKSKIN = std.Spells.create(MODNAME, 'Rock-Skin', 3574).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
+const ROCKSKIN = std.Spells.create(MODNAME, 'rock-skin', 3574).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
     MELEE_SKILL_TRAINER.Trainer.addSpell(ROCKSKIN.ID,10,19)//CHANGE LATER
 ROCKSKIN.Name.enGB.set('Rock Skin')
 ROCKSKIN.Subtext.enGB.set("")

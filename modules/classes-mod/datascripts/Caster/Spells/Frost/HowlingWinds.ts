@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-const HOWLINGWINDS = std.Spells.create (MODNAME,'HowlingWinds',205).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
+const HOWLINGWINDS = std.Spells.create (MODNAME,'howling-winds',205).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
 HOWLINGWINDS.Name.enGB.set('Howling Winds')
 HOWLINGWINDS.Subtext.enGB.set('Special Ability')
 HOWLINGWINDS.AuraDescription.enGB.set('Confused...')

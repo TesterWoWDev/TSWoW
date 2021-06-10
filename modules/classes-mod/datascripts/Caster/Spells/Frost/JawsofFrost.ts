@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-const JAWSFROST = std.Spells.create (MODNAME,'JawsofFrost',11).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Jaws of Frost is a targeted freezing attack, aimed to freeze the enemy and deal minor damage.
+const JAWSFROST = std.Spells.create (MODNAME,'jaws-of-frost',11).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Jaws of Frost is a targeted freezing attack, aimed to freeze the enemy and deal minor damage.
 JAWSFROST.Name.enGB.set('Jaws of Frost')
 JAWSFROST.Subtext.enGB.set('Basic Spell')
 JAWSFROST.AuraDescription.enGB.set('Frozen in place by jaws of Frost.')

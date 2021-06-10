@@ -4,7 +4,7 @@ import { FIRE_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
 
-const entity = std.CreatureTemplates.create(MODNAME,'Fire-Elemental',30416)
+const entity = std.CreatureTemplates.create(MODNAME,'fire-elemental',30416)
 entity.UnitClass.setMage();
 //fix mana
 entity.Scripts.onJustSummoned().Target.setSelf().Action.setCast(29166,0,0)
@@ -24,7 +24,7 @@ entity.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(40,0).Action.setC
 entity.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(40,0).Action.setCast(55362,2,7)
 entity.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(40,0).Action.setCast(6725,2,7)
 
-const FIREELEMENTALSPELL = std.Spells.create(MODNAME,'Fire-Elemental-Spell',688).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
+const FIREELEMENTALSPELL = std.Spells.create(MODNAME,'fire-elemental-spell',688).SkillLines.add(FIRE_SKILL.ID).setAutolearn().end;
 CASTER_SKILL_TRAINER.Trainer.addSpell(FIREELEMENTALSPELL.ID,10,69)//CHANGE LATER
 FIREELEMENTALSPELL.Name.enGB.set('Summon Fire Elemental')
 FIREELEMENTALSPELL.Description.enGB.set('Summons a Fire Elemental to fight for the caster for $d seconds.')

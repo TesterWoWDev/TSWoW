@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-const PYROBLAST = std.Spells.create (MODNAME,'Pyroblast',11366).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
+const PYROBLAST = std.Spells.create (MODNAME,'pyroblast',11366).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
     CASTER_SKILL_TRAINER.Trainer.addSpell(PYROBLAST.ID,10,20)//CHANGE LATER
 PYROBLAST.Name.enGB.set('Pyroblast')
 PYROBLAST.Subtext.enGB.set('')

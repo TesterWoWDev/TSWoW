@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { DEFENDER_SKILL } from "../../Melee";
 import { MELEE_SKILL_TRAINER } from "../MeleeTrainer";
 
-const SHIELDWALL = std.Spells.create(MODNAME, 'Shield-Wall', 871).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
+const SHIELDWALL = std.Spells.create(MODNAME, 'shield-wall', 871).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
     MELEE_SKILL_TRAINER.Trainer.addSpell(SHIELDWALL.ID,10,21)//CHANGE LATER
 SHIELDWALL.Name.enGB.set('Shield Wall')
 SHIELDWALL.Subtext.enGB.set("")

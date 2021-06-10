@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FIRE_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-export const ROARINGFLAME = std.Spells.create(MODNAME,'Roaring-Flame',6161).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
+export const ROARINGFLAME = std.Spells.create(MODNAME,'roaring-flame',6161).SkillLines.add(FIRE_SKILL.ID).AcquireMethod.set(0).end;
     CASTER_SKILL_TRAINER.Trainer.addSpell(ROARINGFLAME.ID,10,69)//CHANGE LATER
 
 ROARINGFLAME.Name.enGB.set('Roaring Flame')

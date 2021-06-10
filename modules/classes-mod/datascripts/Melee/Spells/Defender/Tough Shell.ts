@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { DEFENDER_SKILL } from "../../Melee";
 import { MELEE_SKILL_TRAINER } from "../MeleeTrainer";
 
-const TOUGHSKINPROC = std.Spells.create(MODNAME, 'Tough-Skin-Proc', 4111).SkillLines.add(DEFENDER_SKILL.ID).end;
+const TOUGHSKINPROC = std.Spells.create(MODNAME, 'tough-skin-proc', 4111).SkillLines.add(DEFENDER_SKILL.ID).end;
 TOUGHSKINPROC.Duration.set(12000,0,12000)
 TOUGHSKINPROC.AuraDescription.enGB.set('Increased the Defender\'s armor by $s1')
 TOUGHSKINPROC.Icon.set('Interface\\Icons\\ability_defend.blp')
@@ -17,7 +17,7 @@ TOUGHSKINPROC.Effects.add()
     TOUGHSKINPROC.Effects.get(0).AuraType.setModResistance()
     
     
-const TOUGHSKIN = std.Spells.create (MODNAME,'Tough-Skin',4114).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
+const TOUGHSKIN = std.Spells.create (MODNAME,'tough-skin',4114).SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
     MELEE_SKILL_TRAINER.Trainer.addSpell(TOUGHSKIN.ID,10,11)//CHANGE LATER
 TOUGHSKIN.Name.enGB.set("Tough Skin")
 TOUGHSKIN.Subtext.enGB.set("Passive")

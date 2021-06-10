@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { DEFENDER_SKILL } from "../../Melee";
 import { MELEE_SKILL_TRAINER } from "../MeleeTrainer";
 
-export const TANKSTANCE = std.Spells.create(MODNAME, 'Watchers-Guard').SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
+export const TANKSTANCE = std.Spells.create(MODNAME, 'watchers-guard').SkillLines.add(DEFENDER_SKILL.ID).AcquireMethod.set(0).end;
     MELEE_SKILL_TRAINER.Trainer.addSpell(TANKSTANCE.ID,10,21)//CHANGE LATER
 TANKSTANCE.Name.enGB.set('Watcher\'s Guard')
 TANKSTANCE.Subtext.enGB.set("")

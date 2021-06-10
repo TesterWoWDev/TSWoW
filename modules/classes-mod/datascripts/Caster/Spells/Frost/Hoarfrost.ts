@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-const HOARFROST = std.Spells.create (MODNAME,'Hoarfrost',11).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
+const HOARFROST = std.Spells.create (MODNAME,'hoarfrost',11).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frostbolt casts will add stacks of frostbite.
 HOARFROST.Name.enGB.set('Hoarfrost')
 HOARFROST.Subtext.enGB.set('Ultimate Ability')
 HOARFROST.AuraDescription.enGB.set('Suffering from the effects of Hoarfrost, slowly freezing solid.')

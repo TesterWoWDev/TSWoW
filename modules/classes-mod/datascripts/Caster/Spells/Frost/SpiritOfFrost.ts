@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-const SPIRITFROST = std.Spells.create (MODNAME,'SpiritFrost',12544).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frozen skin deals aoe damage when attacked by an enemy. Lasts 60 minutes.
+const SPIRITFROST = std.Spells.create (MODNAME,'spirit-frost',12544).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frozen skin deals aoe damage when attacked by an enemy. Lasts 60 minutes.
 SPIRITFROST.Name.enGB.set('Spirit of Frost')
 SPIRITFROST.Subtext.enGB.set('Defensive Ultimate Ability')
 SPIRITFROST.AuraDescription.enGB.set('Channeling the full power of the Spirit of Frost. This target is godly.')

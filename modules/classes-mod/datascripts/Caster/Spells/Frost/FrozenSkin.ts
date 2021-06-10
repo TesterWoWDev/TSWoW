@@ -3,7 +3,7 @@ import { MODNAME } from "../../../moduleName";
 import { FROST_SKILL } from "../../Caster";
 import { CASTER_SKILL_TRAINER } from "../CasterTrainer";
 
-const FROZENSKIN = std.Spells.create (MODNAME,'FrozenSkin',12544).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frozen skin deals aoe damage when attacked by an enemy. Lasts 60 minutes.
+const FROZENSKIN = std.Spells.create (MODNAME,'frozen-skin',12544).SkillLines.add(FROST_SKILL.ID).setAutolearn().end; //Frozen skin deals aoe damage when attacked by an enemy. Lasts 60 minutes.
 FROZENSKIN.Name.enGB.set('Frozen Skin')
 FROZENSKIN.Subtext.enGB.set('Basic Spell')
 FROZENSKIN.AuraDescription.enGB.set('Skin is frozen, causing shards of ice to break off as damage is caused.')

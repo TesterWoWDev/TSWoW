@@ -3,7 +3,7 @@ import { Pos } from "tswow-stdlib/Misc/Position"
 import { MODNAME } from "../../moduleName"
 import { RANGED_CLASS } from "../Ranged"
 
-export const RANGED_SKILL_TRAINER_HORDE = std.CreatureTemplates.create(MODNAME, 'Ranged-skill-trainer', 3049)
+export const RANGED_SKILL_TRAINER_HORDE = std.CreatureTemplates.create(MODNAME, 'ranged-skill-trainer', 3049)
 	RANGED_SKILL_TRAINER_HORDE.Name.enGB.set('Ghost')
 	RANGED_SKILL_TRAINER_HORDE.Subname.enGB.set('Ranged Trainer') // can be changed as with greeting
 	RANGED_SKILL_TRAINER_HORDE.Trainer.Greeting.enGB.set('Welcome Young Ranger')
