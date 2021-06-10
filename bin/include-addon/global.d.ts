@@ -12518,7 +12518,11 @@ declare namespace WoWAPI {
 		SetLooping(loopType:LoopType):void;
 		GetLooping():LoopType;
 		GetLoopState():loopState;
-		CreateAnimation(animationType:string, name?:string,inheritsFrom?:string):Animation;
+        CreateAnimation(frameType: "Alpha", frameName?: string, inheritFrom?: WoWAPI.UIObject): WoWAPI.Alpha;
+		CreateAnimation(frameType: "Path", frameName?: string, inheritFrom?: WoWAPI.UIObject): WoWAPI.Path;
+        CreateAnimation(frameType: "Rotation", frameName?: string, inheritFrom?: WoWAPI.UIObject): WoWAPI.Rotation;
+        CreateAnimation(frameType: "Scale", frameName?: string, inheritFrom?: WoWAPI.UIObject): WoWAPI.Scale;
+        CreateAnimation(frameType: "Translation", frameName?: string, inheritFrom?: WoWAPI.UIObject): WoWAPI.Translation;
 	}
 	
 	interface Animation extends UIObject {
@@ -13750,9 +13754,7 @@ declare type CurveType = "SMOOTH" | "NONE";
  * they must be created using XML with virtual="true" in the tag.
  * @param id ID to assign to the frame. See API Frame SetID
  */
-declare function CreateFrame(
-  frameType: WoWAPI.FrameType, frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number,
-): WoWAPI.UIObject;
+declare function CreateFrame(frameType: WoWAPI.FrameType, frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number,): WoWAPI.UIObject;
 declare function CreateFrame(frameType: "Frame", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Frame;
 declare function CreateFrame(frameType: "Slider", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.Slider;
 declare function CreateFrame(frameType: "EditBox", frameName?: string, parentFrame?: WoWAPI.UIObject, inheritsFrame?: string, id?: number): WoWAPI.EditBox;
