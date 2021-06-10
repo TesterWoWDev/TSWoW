@@ -12504,6 +12504,88 @@ declare namespace WoWAPI {
          */
         IsForbidden(): boolean;
     }
+	
+	interface AnimationGroup extends UIObject {
+		Play(): void;
+		Pause(): void;
+		Stop(): void;
+		Finish(): void;
+		GetProgress(): number;
+		IsDone(): boolean;
+		IsPlaying(): boolean;
+		IsPaused(): boolean;
+		GetDuration(): number;
+		SetLooping(loopType:LoopType):void;
+		GetLooping():LoopType;
+		GetLoopState():loopState;
+		CreateAnimation(animationType:string, name?:string,inheritsFrom?:string):Animation;
+	}
+	
+	interface Animation extends UIObject {
+		Play(): void;
+		Pause(): void;
+		Stop(): void;
+		IsDone(): boolean;
+		IsPlaying(): boolean;
+		IsPaused(): boolean;
+		IsStopped(): boolean;
+		IsDelaying(): boolean;
+		GetElapsed(): number;
+		SetStartDelay(delaySec: number): boolean;
+		GetStartDelay():number;
+		SetEndDelay(delaySec:number): void;
+		GetEndDelay():number;
+		SetDuration(durationSec: number): void;
+		GetDuration(): number;
+		GetProgress(): number;
+		GetSmoothProgress(): number;
+		GetProgressWithDelay(): number;
+		SetMaxFramerate(framerate: number): void;
+		GetMaxFramerate(): number;
+		SetOrder(order: number): void;
+		GetOrder(): number;
+		SetSmoothing(smoothType:SmoothType)
+		GetSmoothing(): SmoothType;
+		SetParent(animGroup:AnimationGroup):void;
+		GetRegionParent():Region;
+	}
+	
+	interface Alpha extends UIObject, Animation {
+		SetChange(change: number): void;
+		GetChange(): number;
+	}
+	
+	interface Path extends UIObject, Animation {
+		CreateControlPoint(name?: string, template?: string, order?:number):void;
+		GetCurve():CurveType;
+		GetMaxOrder(): number;
+		SetCurve(curveType:CurveType): void;
+	}
+	
+	interface Rotation extends UIObject, Animation {
+		SetDegrees(degrees): void;
+		GetDegrees(): number;
+		SetRadians(radians: number): void;
+		GetRadians(): number;
+		SetOrigin(point:Point, offsetX:number, offsetY:number): void;
+		/** @tupleReturn */
+		GetOrigin():[Point,number,number]
+	}
+	
+	interface Scale extends UIObject, Animation {
+		SetScale(x:number, y:number)
+		/** @tupleReturn */
+		GetScale():[number,number]
+		SetOrigin(point:Point, offsetX:number, offsetY:number): void;
+		/** @tupleReturn */
+		GetOrigin():[Point,number,number]
+	}
+	
+	interface Translation extends UIObject, Animation {
+		SetOffset(x:number, y:number)
+		/** @tupleReturn */
+		GetOffset():[number,number]
+	}
 
     /**
      * This is another abstract object type that groups together a number of font related methods that are used by multiple other widget types.
@@ -12721,6 +12803,15 @@ declare namespace WoWAPI {
          * Get whether the object is visible on screen (logically (IsShown() and GetParent():IsVisible()));
          */
         IsVisible(): boolean;
+		
+		CreateAnimationGroup(name?:string, inheritsFrom?:string): AnimationGroup;
+		
+		/**
+		*this 1 probably isn't done right...idk how this 1 works.
+		*/
+		GetAnimationGroups(): AnimationGroup;
+		
+		StopAnimating(): void;
     }
 
     /**
@@ -13642,6 +13733,10 @@ declare function UIDropDownMenu_AddButton(info: WoWAPI.UIDropdownInfo): void;
  * comma separated list of enabled flags
  */
 declare type FontInstanceFlags = "OUTLINE" | "MONOCHROME" | "THICKOUTLINE";
+declare type LoopType = "NONE"|"REPEAT"|"BOUNCE";
+declare type LoopState = "NONE" | "FORWARD" | "REVERSE";
+declare type SmoothType = "IN" | "OUT" | "IN_OUT" | "OUT_IN";
+declare type CurveType = "SMOOTH" | "NONE";
 
 /**
  * Creates a new UI frame.
