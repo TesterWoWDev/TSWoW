@@ -20,13 +20,13 @@ export function SetupModelZoomDragRotation(model: WoWAPI.DressUpModel) {
                 let pos = model.GetPosition()
                 pos[1] = (cursorPos[0] - startPos[0]) / dragSpeed + pos[1]
                 pos[2] = (cursorPos[1] - startPos[1]) / dragSpeed + pos[2]
-                model.SetPosition(pos[0],pos[1],pos[2])
+                model.SetPosition(pos[0], pos[1], pos[2])
                 startPos[0] = cursorPos[0]
                 startPos[1] = cursorPos[1]
             })
         }   
     })
-    model.SetScript('OnMouseUp', function(self,button){
+    model.SetScript('OnMouseUp', function(self, button){
         model.SetScript('OnUpdate', null)
     })
     model.SetScript('OnMouseWheel', function(self, zoom){
@@ -36,6 +36,6 @@ export function SetupModelZoomDragRotation(model: WoWAPI.DressUpModel) {
         }else{
             pos[0] -= zoomSpeed
         }
-        model.SetPosition(pos[0],pos[1],pos[2])
+        model.SetPosition(pos[0], pos[1] ,pos[2])
     })
 }
