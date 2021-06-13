@@ -169,7 +169,11 @@ export function atlas(){
     });
 
     Events.AddOns.OnMessage(mframe,itemLootFinishMessage,(msg)=>{
-        pageCt.SetText("Page " + (page+1) + "/"+Math.ceil(itemArray.length/(columns*rows)))
+        let max = Math.ceil(itemArray.length/(columns*rows))
+        if(max == 0){
+            max=1
+        }
+        pageCt.SetText("Page " + (page+1) + "/"+max)
         Portrait.SetPosition(0,0,0)
         Portrait.SetCreature(msg.entry)
         Portrait.Show()
