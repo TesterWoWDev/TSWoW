@@ -31,14 +31,11 @@ export function SetupModelZoomDragRotation(model: WoWAPI.DressUpModel) {
     })
     model.SetScript('OnMouseWheel', function(self, zoom){
         let pos = model.GetPosition()
-        let z = pos[0]
-        let x = pos[1]
-        let y = pos[2]
         if(zoom == 1){
-            z = z + zoomSpeed
+            pos[0] += zoomSpeed
         }else{
-            z = z - zoomSpeed
+            pos[0] -= zoomSpeed
         }
-        model.SetPosition(z,x,y)
+        model.SetPosition(pos[0],pos[1],pos[2])
     })
 }
