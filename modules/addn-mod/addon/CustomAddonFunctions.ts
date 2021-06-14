@@ -8,34 +8,34 @@ export function SetupModelZoomDragRotation(model: WoWAPI.DressUpModel) {
     model.SetScript('OnMouseDown', function(self,button){
         let startPos = GetCursorPosition()
         if (button == 'LeftButton'){
-            model.SetScript('OnUpdate', function(self){
+            model.SetScript('OnUpdate', function(self: WoWAPI.DressUpModel){
                 let curX = GetCursorPosition()[0]
-                model.SetFacing((curX - startPos[0]) / turnSpeed + model.GetFacing())
+                self.SetFacing((curX - startPos[0]) / turnSpeed + self.GetFacing())
                 startPos[0] = curX
             })
         }
         else if (button == 'RightButton') {
-            model.SetScript('OnUpdate', function(self){
+            model.SetScript('OnUpdate', function(self: WoWAPI.DressUpModel){
                 let cursorPos = GetCursorPosition()
-                let pos = model.GetPosition()
+                let pos = self.GetPosition()
                 pos[1] = (cursorPos[0] - startPos[0]) / dragSpeed + pos[1]
                 pos[2] = (cursorPos[1] - startPos[1]) / dragSpeed + pos[2]
-                model.SetPosition(pos[0], pos[1], pos[2])
+                self.SetPosition(pos[0], pos[1], pos[2])
                 startPos[0] = cursorPos[0]
                 startPos[1] = cursorPos[1]
             })
         }   
     })
-    model.SetScript('OnMouseUp', function(self, button){
-        model.SetScript('OnUpdate', null)
+    model.SetScript('OnMouseUp', function(self: WoWAPI.DressUpModel, button){
+        self.SetScript('OnUpdate', null)
     })
-    model.SetScript('OnMouseWheel', function(self, zoom){
+    model.SetScript('OnMouseWheel', function(self: WoWAPI.DressUpModel, zoom){
         let pos = model.GetPosition()
         if(zoom == 1){
             pos[0] += zoomSpeed
         }else{
             pos[0] -= zoomSpeed
         }
-        model.SetPosition(pos[0], pos[1] ,pos[2])
+        self.SetPosition(pos[0], pos[1] ,pos[2])
     })
 }
