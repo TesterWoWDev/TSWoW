@@ -105,17 +105,6 @@ export function scrapper(){
                 button.HookScript("OnLeave",()=>{
                     GameTooltip.Hide()
                 })
-
-                button.HookScript("OnEnter",(self)=>{
-                    GameTooltip.ClearLines()
-                    GameTooltip.SetOwner(button,'CENTER')
-                    GameTooltip.SetHyperlink("item:"+  parseInt(self.GetName()))
-                    GameTooltip.Show()
-                }) 
-                        
-                button.HookScript("OnLeave",()=>{
-                    GameTooltip.Hide()
-                })
             buttons.push(button)
         }
     }
