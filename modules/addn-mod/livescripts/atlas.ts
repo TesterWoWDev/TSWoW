@@ -17,13 +17,15 @@ export function Atlas(events: TSEventHandlers) {
             if(check == 0){
                 let query = QueryWorld('SELECT * FROM creature_loot_template WHERE Entry="' + entry + '";');
                 while(query.GetRow()) {
-                    let pkt = new itemLootMessage()
-                        pkt.itemID = query.GetUInt32(1);
-                        pkt.itemCountMin = query.GetInt8(7);
-                        pkt.itemCountMax = query.GetInt8(8);
-                        pkt.dropChance = query.GetDouble(3);
-                    player.SendData(pkt)
-                    check = 1
+                    if(query.GetUInt32(2) == 0){
+                        let pkt = new itemLootMessage()
+                            pkt.itemID = query.GetUInt32(1);
+                            pkt.itemCountMin = query.GetInt8(7);
+                            pkt.itemCountMax = query.GetInt8(8);
+                            pkt.dropChance = query.GetDouble(3);
+                        player.SendData(pkt)
+                        check = 1
+                    }
                 }
             
                 if(check = 0){
