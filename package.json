@@ -27,6 +27,7 @@
     "js-yaml": "^3.14.0",
     "md5": "^2.3.0",
     "md5-file": "^5.0.0",
+    "minecraft-mod": "file:modules/minecraft-mod/datascripts/build",
     "mocha": "^8.1.3",
     "mysql": "^2.18.1",
     "ncp": "^2.0.0",
