@@ -70,8 +70,8 @@ import { Events, SendToServer } from "./lib/Events"
             showText.SetText("")
 
     let frameToggle = CreateFrame('Button','toggleframe',UIParent)
-        frameToggle.SetSize(32,32)
-        frameToggle.SetPoint('CENTER',UIParent,'TOPRIGHT',-150,-150)
+        frameToggle.SetSize(25,25)
+        frameToggle.SetPoint('CENTER',UIParent,'TOPRIGHT',-150,-50)
         let frameTex = frameToggle.CreateTexture('','BACKGROUND')
             frameTex.SetTexture("Interface/PAPERDOLLINFOFRAME/UI-EquipmentManager-Toggle")
             frameTex.SetAllPoints()
