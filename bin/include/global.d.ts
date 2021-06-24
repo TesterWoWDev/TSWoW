@@ -77,6 +77,7 @@ declare class TSChatChannel {
 }
 
 declare class TSPlayer extends TSUnit {
+    LearnClassSpells(trainer: boolean, quests: boolean);
     SendData(data: any)
     SetBankBagSlotCount(count: uint8)
     AddItemToSlotRaw(bag: uint8, slot: uint8, itemId: uint32, count: uint32)
@@ -1179,12 +1180,19 @@ declare class TSPlayer extends TSUnit {
      */
     SendCreatureQueryPacket(entry : number) : void
 	
-	    /**
+	/**
      * Sends a [GameObject] cache packet to the [Player] from the [GameObject] entry specified
      *
      * @param [Number] entry
      */
     SendGameObjectQueryPacket(entry : number) : void
+	
+    /**
+     * Sends a [Item] cache packet to the [Player] from the [Item] entry specified
+     *
+     * @param [Number] entry
+     */
+    SendItemQueryPacket(entry : number) : void
     
     /**
      * Sends a spirit resurrection request to the [Player]
@@ -2614,6 +2622,11 @@ declare class TSCreature extends TSUnit {
      * @return [CreatureFamily] creatureFamily
      */
     GetCreatureFamily() : uint32    
+
+    /**
+     * Updates max hp, hp, and stats
+     */
+    UpdateLevelDependantStats(): void;
 }
 
 declare class TSAura {
@@ -6465,6 +6478,7 @@ declare namespace _hidden {
         OnSpellDamageEarly(callback: (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<int32>)=>void);
         OnSpellDamageLate(callback: (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<uint32>)=>void);
         OnPeriodicDamage(callback: (aura: TSAuraEffect, damage: TSMutable<uint32>)=>void);
+        OnHeal(callback: (healer : TSUnit,reciever : TSUnit,gain : TSMutable<uint32>)=>void);
 
         /**
          * critChance should be between 0 and 1
@@ -6549,10 +6563,6 @@ declare namespace _hidden {
         OnExpire(callback: (player : TSPlayer,proto : TSItemTemplate)=>void);
         OnRemove(callback: (player : TSPlayer,item : TSItem)=>void);
         OnCastItemCombatSpell(callback: (player : TSPlayer,victim : TSUnit,spellInfo : TSSpellInfo,item : TSItem)=>void);
-    }
-
-    export class Unit {
-        OnHeal(callback: (healer : TSUnit,reciever : TSUnit,gain : TSMutable<uint32>)=>void);
     }
 
     export class AreaTrigger {
@@ -7051,6 +7061,7 @@ declare function GetCurrTime(): uint32;
 declare function GetUnixTime(): uint64;
 declare function SendMail(senderType: uint8, from: uint64, subject: string, body: string, money?: uint32, cod?: uint32, delay?: uint32, items?: TSArray<TSItem>);
 declare function SendWorldMessage(message: string);
+declare function SyncHttpGet(url: string): string;
 // end of Global.h
 
 declare function MakeDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V>

@@ -13034,6 +13034,8 @@ declare namespace WoWAPI {
          * @param inheritsFrom The name of a virtual font string, created in XML, to inherit from. if nil, the font string does not inherit any properties.
          */
         CreateFontString(name?: string, layer?: Layer, inheritsFrom?: string): FontString;
+		
+        RegisterForClicks(clickType:ClickType): void;	
 
         /**
          * Creates a Texture object within the specified widget.
@@ -13741,6 +13743,7 @@ declare type LoopType = "NONE" | "REPEAT" | "BOUNCE";
 declare type LoopState = "NONE" | "FORWARD" | "REVERSE";
 declare type SmoothType = "IN" | "OUT" | "IN_OUT" | "OUT_IN";
 declare type CurveType = "SMOOTH" | "NONE";
+declare type ClickType = "LeftButtonUp" | "RightButtonUp" | "MiddleButtonUp" | "Button4Up" | "Button5Up" | "LeftButtonDown" | "RightButtonDown" | "MiddleButtonDown" | "Button4Down" | "Button5Down" | "AnyUp" | "AnyDown";
 
 /**
  * Creates a new UI frame.
