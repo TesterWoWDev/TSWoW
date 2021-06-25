@@ -114,6 +114,17 @@ import { Events, SendToServer } from "./lib/Events"
             if(info != null){
                 buttons[Number(frame.GetName())][2].SetTexture(info[9])
                 choices[Number(frame.GetName())] = Number(itemid)
+
+                buttons[Number(frame.GetName())][1].SetScript("OnEnter",(self)=>{
+                    GameTooltip.ClearLines()
+                    GameTooltip.SetOwner(self,'CENTER')
+                    GameTooltip.SetHyperlink("item:"+ itemid)
+                    GameTooltip.Show()
+                })     
+                buttons[Number(frame.GetName())][1].SetScript("OnLeave",()=>{
+                    GameTooltip.Hide()
+                })
+
             }
         }
     }
@@ -121,6 +132,9 @@ import { Events, SendToServer } from "./lib/Events"
     function deselect(frame:WoWAPI.Frame){
         buttons[Number(frame.GetName())][2].SetTexture("")
         choices[Number(frame.GetName())] = 0
+        buttons[Number(frame.GetName())][1].SetScript("OnEnter",null)
+        buttons[Number(frame.GetName())][1].SetScript("OnLeave",null)
+        GameTooltip.Hide()
      }
 
     function updateProduct(purchase:uint32) {

@@ -10,12 +10,14 @@ import { MODNAME } from "./recipe-creation";
 //generateWeaponRecipes(returnItems[0],returnItems[1],returnItems[4],returnItems[5],returnItems[6],[39,39,39,39,39,39,39,39,39,39,39,39,39,39])
 
 
-export function createBaseResources(tierPrefix:string,parentItem:number,prefix:string,itemNames:string[]):number[]{
+export function createBaseResources(tierPrefix:string,parentItem:number,prefix:string,description:string,itemNames:string[],displayInfoIDs:number[]):number[]{
     let test = ['gem','material','epulet','chain','metal','reinforced','string']
     let allItemIDs = []
     for(let i=0;i<test.length;i++){
-        let item = std.Items.create(MODNAME, tierPrefix + '-' + test[0], parentItem)
-        item.Name.enGB.set(prefix + ' ' + itemNames[0])
+        let item = std.Items.create(MODNAME, tierPrefix + '-' + test[i], parentItem)
+        item.Name.enGB.set(prefix + ' ' + itemNames[i])
+        item.DisplayInfo.setID(displayInfoIDs[i])
+        item.Description.enGB.set(description)
         allItemIDs.push(item.ID)
     }
     return allItemIDs
