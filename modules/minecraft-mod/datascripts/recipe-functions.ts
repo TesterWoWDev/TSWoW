@@ -4,10 +4,16 @@ import { MODNAME } from "./recipe-creation";
 
 //tiername,parent,prefix,[itemnames]
 //let returnItems = createBaseResources('tier1',2934,'prefix',['moonstone','leather','epulet','chain','steel','reinforced steel','string'])
+
+//statType = 0-str,1-agi,2-int,materialType = 1-cloth,2-leather,3-mail,4-plate
+//prefix,quality,statType,statMult,stamMult,matType,names
+//let allGear = createGear('prefix',1,0,1,1.5,3,['head','neck','shoulder','back','chest','bracer','hand','belt','leg','boot','ring','trink','ohs','ohm','oha','dag','ths','thm','tha','book','pole','bow','staff','wand','shield','fist'])
+
 //gem,material,epulet,chain[head,neck,shoulder,back,chest,bracer,hand,belt,leg,boot,ring,trink]
-//generateGearRecipes(returnItems[0],returnItems[1],returnItems[2],returnItems[3],[39,39,39,39,39,39,39,39,39,39,39,39])
+//generateGearRecipes(returnItems[0],returnItems[1],returnItems[2],returnItems[3],[allGear[0],allGear[1],allGear[2],allGear[3],allGear[4],allGear[5],allGear[6],allGear[7],allGear[8],allGear[9],allGear[10],allGear[11]])
+
 //material,metal,reinforced,string,chain,[ohs,ohm,oha,dag,ths,thm,tha,book,pole,bow,staff,wand,shield,fist]
-//generateWeaponRecipes(returnItems[0],returnItems[1],returnItems[4],returnItems[5],returnItems[6],[39,39,39,39,39,39,39,39,39,39,39,39,39,39])
+//generateWeaponRecipes(returnItems[0],returnItems[1],returnItems[4],returnItems[5],returnItems[6],[allGear[12],allGear[13],allGear[14],allGear[15],allGear[16],allGear[17],allGear[18],allGear[19],allGear[20],allGear[21],allGear[22],allGear[23],allGear[24],allGear[25]])
 
 
 export function createBaseResources(tierPrefix:string,parentItem:number,prefix:string,description:string,itemNames:string[],displayInfoIDs:number[]):number[]{
@@ -21,6 +27,52 @@ export function createBaseResources(tierPrefix:string,parentItem:number,prefix:s
         allItemIDs.push(item.ID)
     }
     return allItemIDs
+}
+//
+
+
+export function createGear(modfix:string,prefix:string,quality:number,statType:number,statMultiplier:number,stamMult:number,materialType:number,names:string[],display:number[]):number[]{
+    let ids = [[4,materialType,1],[4,0,2],[4,materialType,3],[4,1,16],[4,materialType,5],[4,materialType,9],[4,materialType,10],[4,materialType,6],[4,materialType,7],[4,materialType,8],[4,0,11],[4,0,12],[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
+    let cost:number[] = [5,9,6,6,8,4,4,3,7,4,6,7,7,7,7,4,15,15,15,7,15,4,6,5,11,7]
+
+    let allItems = []
+    for(let i=0;i<names.length;i++){
+        let item = std.Items.create(MODNAME,modfix + ' ' + names[i],38)
+        item.Class.set(ids[i][0],ids[i][1])
+        item.InventoryType.set(ids[i][2])
+        item.Quality.set(quality)
+        item.Description.enGB.set('')
+        item.Name.enGB.set(prefix + ' ' + names[i])
+        item.row.displayid.set(display[i])
+
+        let costval = (cost[i]/2)*statMultiplier
+        if(statType == 0){//str
+            item.Stats.addStrength(costval)
+        }if(statType == 1){//agi
+            item.Stats.addAgility(costval)
+        }if(statType == 2){//int
+            item.Stats.addIntellect(costval)
+        }
+        item.Stats.addStamina(costval*stamMult)
+
+        costval = costval*3
+        if(ids[i][0] == 2){//weapon need dps
+            if(ids[i][2] == 17){//2h
+                item.Damage.addPhysical(costval*2,costval*3)
+                item.row.delay.set(2800)
+            }if(ids[i][1] == 15){//dagger
+                item.Damage.addPhysical(costval/1.5,costval)
+                item.row.delay.set(1600)
+            }else{//1h
+                item.Damage.addPhysical(costval,costval*1.5)
+                item.Delay.set(1900)
+            }
+        }else{
+            item.Armor.set(costval*5)
+        }
+        allItems.push(item.ID)
+    }
+    return allItems
 }
 
 export function generateGearRecipes(gem: Number, material: Number, epulet: Number, chain: Number,itemID: Number[]) {
