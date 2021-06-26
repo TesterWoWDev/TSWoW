@@ -1,4 +1,4 @@
-import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
+import { craftMessage, returnCraftItemMessage } from "../shared/Messages"
 
 export function Main(events: TSEventHandlers) {
     events.Addon.OnMessageID(craftMessage,(player,message)=>{
@@ -9,6 +9,7 @@ export function Main(events: TSEventHandlers) {
             pkt.craftItem = result.GetUInt32(0)
             pkt.craftItemCount = result.GetUInt32(1)
             check = 1
+            
             if(message.purchase == 1){
                 let checkItems = 1
                 for(let i=2;i<23;i++){
@@ -24,12 +25,19 @@ export function Main(events: TSEventHandlers) {
                 if(checkItems == 1){
                     RemoveAllItems(player,message)
                     player.AddItem(pkt.craftItem,pkt.craftItemCount)
+                }else{
+                    player.SendAreaTriggerMessage('You do not have the required materials!')
+                player.SendBroadcastMessage('You do not have the required materials!')
                 }
             }
             player.SendItemQueryPacket(pkt.craftItem)
         }
         if(check == 0){
             pkt.craftItem = 0
+            if(message.purchase == 1){
+                player.SendAreaTriggerMessage('That wasn\'t a valid pattern!')
+                player.SendBroadcastMessage('That wasn\'t a valid pattern!')
+            }
         }
         player.SendData(pkt)
     })

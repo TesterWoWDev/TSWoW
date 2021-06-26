@@ -1,6 +1,6 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata/sql/SQLFiles";
-import { MODNAME } from "./recipe-creation";
+import { std } from "tswow-stdlib"
+import { SQL } from "wotlkdata/sql/SQLFiles"
+import { MODNAME } from "./recipe-creation"
 
 //tiername,parent,prefix,[itemnames]
 //let returnItems = createBaseResources('tier1',2934,'prefix',['moonstone','leather','epulet','chain','steel','reinforced steel','string'])
@@ -44,6 +44,7 @@ export function createGear(modfix:string,quality:number,statType:number,statMult
         item.DisplayInfo.setID(display[i])
 
         let costval = (cost[i]/2)*statMultiplier
+        item.ItemLevel.set(costval)
         if(statType == 0){//str
             item.Stats.addStrength(costval)
         }if(statType == 1){//agi
@@ -53,7 +54,7 @@ export function createGear(modfix:string,quality:number,statType:number,statMult
         }
         item.Stats.addStamina(costval*stamMult)
 
-        costval = costval*3
+        costval = costval*2
         if(ids[i][0] == 2){//weapon need dps
             if(ids[i][2] == 17){//2h
                 item.Damage.addPhysical(costval*1.5,costval*2.2)

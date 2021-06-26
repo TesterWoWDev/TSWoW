@@ -52,6 +52,10 @@ import { Events, SendToServer } from "./lib/Events"
             craftText.SetText("Craft")
             craftBtn.HookScript("OnClick",(frame,evName,btnDown)=>{
                 updateProduct(1)
+                choices = [0,0,0,0,0,0,0,0,0]
+                for(let i=0;i<btnCount;i++){
+                    buttons[i][2].SetTexture('')
+                }
             })
     let showBtn = CreateFrame('Button','showframe',mframe)
         showBtn.SetSize(64,64)
