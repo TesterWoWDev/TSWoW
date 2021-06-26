@@ -1,5 +1,4 @@
 addn-mod
-classes-mod
 minecraft-mod
 quests-mod
 tester-mod
