@@ -15,9 +15,11 @@ import { MODNAME } from "./recipe-creation"
 //material,metal,reinforced,string,chain,[ohs,ohm,oha,dag,ths,thm,tha,book,pole,bow,staff,wand,shield,fist]
 //generateWeaponRecipes(returnItems[0],returnItems[1],returnItems[4],returnItems[5],returnItems[6],[allGear[12],allGear[13],allGear[14],allGear[15],allGear[16],allGear[17],allGear[18],allGear[19],allGear[20],allGear[21],allGear[22],allGear[23],allGear[24],allGear[25]])
 
+
+
 export function createBaseResources(tierPrefix:string,prefix:string,description:string,itemNames:string[],displayInfoIDs:number[]):number[]{
     let parentItem = 2934
-    let test = ['gem','material','epulet','chain','metal','reinforced','string']
+    let test = ['gem','material','epulet','chain','metal','reinforced']
     let allItemIDs = []
     for(let i=0;i<test.length;i++){
         let item = std.Items.create(MODNAME, tierPrefix + '-' + test[i], parentItem)
