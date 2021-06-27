@@ -191,3 +191,9 @@ export function generateWeaponRecipes(gem: number,material: number,metal: number
     '' + material + ',' + 1 + ',' + metal + ',' + 2 + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' + zero + ',' +
     '' + itemID[13] + ',' + 1 + ')')
 }
+
+export function createRecipe(positions:Number[],reqs:Number[],reqCounts:Number[],craftID:number,craftCnt:number){
+    SQL.Databases.world_dest.write('INSERT INTO `minecraft_recipes` VALUES(' + positions[0] + ',' + positions[1] + ',' + positions[2] + ',' + positions[3] + ',' + positions[4] + ',' + positions[5] + ',' + positions[6] + ',' + positions[7] + ',' + positions[8] + ',' +
+    '' + reqs[0] + ',' + reqCounts[0] + ',' + reqs[1] + ',' + reqCounts[1] + ',' + reqs[2] + ',' + reqCounts[2] + ',' + reqs[3] + ',' + reqCounts[3] + ',' + reqs[4] + ',' + reqCounts[4] + ',' + reqs[5] + ',' + reqCounts[5] + ',' + reqs[6] + ',' + reqCounts[6] + ',' + reqs[7] + ',' + reqCounts[7] + ',' + reqs[8] + ',' + reqCounts[8] + ',' +
+    '' + craftID + ',' + craftCnt + ')')
+}
