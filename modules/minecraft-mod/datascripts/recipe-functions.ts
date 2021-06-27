@@ -1,5 +1,6 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { DBC } from "wotlkdata/dbc/DBCFiles"
 import { MODNAME } from "./recipe-creation"
 
 //tiername,parent,prefix,[itemnames]
@@ -44,7 +45,8 @@ export function createGear(modfix:string,quality:number,statType:number,statMult
         item.Description.enGB.set('')
         item.Name.enGB.set(names[i])
         item.DisplayInfo.setID(display[i])
-
+        item.Durability.set(20)
+        
         let costval = (cost[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
         if(statType == 0){//str
@@ -58,20 +60,44 @@ export function createGear(modfix:string,quality:number,statType:number,statMult
 
         costval = costval*2
         if(ids[i][0] == 2){//weapon need dps
+            item.Material.setMetal()
             if(ids[i][2] == 17){//2h
                 item.Damage.addPhysical(costval*1.5,costval*2.2)
                 item.Delay.set(2800)
-            }if(ids[i][1] == 15){//dagger
+                item.Sheath.set(1)
+                DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
+                    value.SheatheType.set(1)
+                })
+            }else if(ids[i][1] == 15){//dagger
                 item.Damage.addPhysical(costval/1.5,costval)
                 item.row.delay.set(1600)
-            }if(ids[i][2] == 26){//bow
+                item.Sheath.set(6)
+                DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
+                    value.SheatheType.set(6)
+                })
+            }else if(ids[i][2] == 26){//bow
                 item.Damage.addPhysical(costval*2,costval*3)
                 item.Delay.set(2200)
+                item.Sheath.set(2)
+                DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
+                    value.SheatheType.set(2)
+                })
             }else{//1h
                 item.Damage.addPhysical(costval,costval*1.5)
                 item.Delay.set(1900)
+                item.Sheath.set(3)
+                DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
+                    value.SheatheType.set(3)
+                })
             }
         }else{
+            if(ids[i][2] == 14){//shield
+                item.Stats.addBlockValue(costval)
+                item.Sheath.set(4)
+                DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
+                    value.SheatheType.set(4)
+                })
+            }
             item.Armor.set(costval*5*stamMult)
         }
         allItems.push(item.ID)
