@@ -27,6 +27,7 @@ export function createBaseResources(tierPrefix:string,prefix:string,description:
         item.Name.enGB.set(prefix + ' ' + itemNames[i])
         item.DisplayInfo.setID(displayInfoIDs[i])
         item.Description.enGB.set(description)
+        item.ItemLevel.set(0)
         allItemIDs.push(item.ID)
     }
     return allItemIDs

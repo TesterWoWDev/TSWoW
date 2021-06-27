@@ -56,6 +56,8 @@ import { Events, SendToServer } from "./lib/Events"
                 for(let i=0;i<btnCount;i++){
                     buttons[i][2].SetTexture('')
                 }
+                showTex.SetTexture('')
+                showText.SetText('')
             })
     let showBtn = CreateFrame('Button','showframe',mframe)
         showBtn.SetSize(64,64)
@@ -143,6 +145,11 @@ import { Events, SendToServer } from "./lib/Events"
 
     function updateProduct(purchase:uint32) {
         let pkt = new craftMessage()
+        if(choices[4] != 0){
+            if(GetItemInfo(choices[4])[5] == 'Armor' || GetItemInfo(choices[4])[5] == 'Weapon'){//only enchant certain stuff
+                pkt.isEnchant = 1
+            }        
+        }
             pkt.pos1 = choices[0]
             pkt.pos2 = choices[1]
             pkt.pos3 = choices[2] 
@@ -159,12 +166,17 @@ import { Events, SendToServer } from "./lib/Events"
     Events.AddOns.OnMessage(mframe,returnCraftItemMessage,message=>{
         if(message.craftItem != 0){
             showTex.SetTexture(GetItemInfo(message.craftItem)[9])
-            showText.SetText(message.craftItemCount.toString())
+            if(message.craftItemCount == 0){
+                showText.SetText('')
+            }else{
+                showText.SetText(message.craftItemCount.toString())
+            }
+            
 
             showBtn.SetScript("OnEnter",(self)=>{
                 GameTooltip.ClearLines()
                 GameTooltip.SetOwner(showBtn,'CENTER')
-                GameTooltip.SetHyperlink("item:"+ message.craftItem)
+                GameTooltip.SetHyperlink("item:"+ message.craftItem + ":" + message.enchantNum + ":0:0:0:0:0:0")
                 GameTooltip.Show()
             })     
             showBtn.SetScript("OnLeave",()=>{

@@ -1,6 +1,8 @@
 @Message
 export class craftMessage {
     @MsgPrimitive
+        isEnchant:int8 = 0
+    @MsgPrimitive
         pos1:uint32 = 0
     @MsgPrimitive
         pos2:uint32 = 0
@@ -28,4 +30,6 @@ export class returnCraftItemMessage {
         craftItem:uint32 = 0
     @MsgPrimitive
     craftItemCount:uint32 = 0
+    @MsgPrimitive
+        enchantNum:uint32 = 0
 }
