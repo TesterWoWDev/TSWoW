@@ -92,7 +92,7 @@ export function createGear(modfix:string,quality:number,statType:number,statMult
             }
         }else{
             if(ids[i][2] == 14){//shield
-                item.Stats.addBlockValue(costval)
+                item.Stats.addBlockRating(costval)
                 item.Sheath.set(4)
                 DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
                     value.SheatheType.set(4)
