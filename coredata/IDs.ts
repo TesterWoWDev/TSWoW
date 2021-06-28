@@ -98,6 +98,7 @@ export const MINECRAFT_MOD_TIER1_INT_WORN_STAFF : uint32 = GetID("item_template"
 export const MINECRAFT_MOD_TIER1_INT_WORN_WAND : uint32 = GetID("item_template","minecraft-mod","tier1-int Worn wand");
 export const MINECRAFT_MOD_TIER1_INT_WORN_SHIELD : uint32 = GetID("item_template","minecraft-mod","tier1-int Worn shield");
 export const MINECRAFT_MOD_TIER1_INT_WORN_FIST : uint32 = GetID("item_template","minecraft-mod","tier1-int Worn fist");
+export const MINECRAFT_MOD_MULTITOOL : uint32 = GetID("item_template","minecraft-mod","multitool");
 export const MINECRAFT_MOD_CACHEME : uint32 = GetID("creature_template","minecraft-mod","cacheme");
 export const TESTER_MOD_SKILLSHOT_CREATURE : uint32 = GetID("creature_template","tester-mod","skillshot-creature");
 export const TESTER_MOD_SKILLSHOT_PROC : uint32 = GetID("Spell","tester-mod","skillshot-proc");
