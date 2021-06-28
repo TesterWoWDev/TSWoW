@@ -9,10 +9,12 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
         for(let i=0;i<message.positions.length;i++){
             let fillVal = message.positions[i]
             if(message.positions[i] != 0){
-                let item = player.GetItemByEntry(message.positions[i])
-                if(item.GetClass() == 2 || item.GetClass() == 4){
-                    isEnchant = true
-                    fillVal = -1
+                if(i == 4){
+                    let item = player.GetItemByEntry(message.positions[i])
+                    if(item.GetClass() == 2 || item.GetClass() == 4){
+                        isEnchant = true
+                        fillVal = -1
+                    }
                 }
             }
             posString = posString + "pos"+(i+1)+" = " + fillVal + " AND "                
@@ -24,7 +26,19 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
             check = 1    
             if(isEnchant){
                 pkt.craftItem = message.positions[4]
-                pkt.enchantNum = result.GetUInt32(0)
+                let enchSet = 0
+                for(let i=0;i<4;i++){
+                    if(message.enchants[i] == 0){
+                        message.enchants[i] = result.GetUInt32(0)
+                        enchSet = 1
+                        break
+                    }
+                }
+                if(enchSet == 0){
+                    player.SendAreaTriggerMessage('You do not have the open enchant slots!')
+                    player.SendBroadcastMessage('You do not have the open enchant slots')
+                    return
+                }
             }else{
                 pkt.craftItem = result.GetUInt32(0)
                 
@@ -50,7 +64,12 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
                             player.RemoveItem(item,1,itemID)
                         }
                     }
-                    player.AddItem(pkt.craftItem,pkt.craftItemCount).SetEnchantment(pkt.enchantNum,0)  
+                    let item = player.AddItem(pkt.craftItem,pkt.craftItemCount)
+                    item.SetEnchantment(message.enchants[0],0)  
+                    item.SetEnchantment(message.enchants[1],2)  
+                    item.SetEnchantment(message.enchants[2],3)  
+                    item.SetEnchantment(message.enchants[3],4)
+                    
                     pkt.craftItem = 0                  
                 }else{
                     player.SendAreaTriggerMessage('You do not have the required materials!')
@@ -63,6 +82,7 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
             player.SendAreaTriggerMessage('That wasn\'t a valid pattern!')
             player.SendBroadcastMessage('That wasn\'t a valid pattern!')
         }
+        pkt.enchantNum = message.enchants
         player.SendData(pkt)
     })
 }

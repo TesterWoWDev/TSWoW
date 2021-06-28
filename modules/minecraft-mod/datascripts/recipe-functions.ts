@@ -34,7 +34,7 @@ export function createBaseResources(tierPrefix:string,prefix:string,description:
     return allItemIDs
 }
 
-export function createGear(modfix:string,quality:number,statType:number,statMultiplier:number,stamMult:number,materialType:number,names:string[],display:number[]):number[]{
+export function createGear(modfix:string,quality:number,statMultiplier:number,materialType:number,names:string[],display:number[]):number[]{
     let ids = [[4,materialType,1],[4,0,2],[4,materialType,3],[4,1,16],[4,materialType,5],[4,materialType,9],[4,materialType,10],[4,materialType,6],[4,materialType,7],[4,materialType,8],[4,0,11],[4,0,12],[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let cost:number[] = [5,9,6,6,8,4,4,3,7,4,6,7,7,7,7,4,15,15,15,7,15,5,6,5,11,7]
 
@@ -51,14 +51,7 @@ export function createGear(modfix:string,quality:number,statType:number,statMult
         
         let costval = (cost[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
-        if(statType == 0){//str
-            item.Stats.addStrength(costval)
-        }if(statType == 1){//agi
-            item.Stats.addAgility(costval)
-        }if(statType == 2){//int
-            item.Stats.addIntellect(costval)
-        }
-        item.Stats.addStamina(costval*stamMult)
+        //item.Stats.addStamina(costval*stamMult)
 
         costval = costval*2
         if(ids[i][0] == 2){//weapon need dps
@@ -100,7 +93,7 @@ export function createGear(modfix:string,quality:number,statType:number,statMult
                     value.SheatheType.set(4)
                 })
             }
-            item.Armor.set(costval*5*stamMult)
+            item.Armor.set(costval*5)
         }
         allItems.push(item.ID)
     }

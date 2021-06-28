@@ -1,6 +1,7 @@
 console.log("classmod")
 import { std } from "tswow-stdlib"
-import { ClassType } from "../../tswow-stdlib/datascripts/build/Class/ClassType"
+import { ClassType } from "tswow-stdlib/Class/ClassType"
+import { SQL } from "../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles"
 let classes:ClassType[] = ['WARRIOR','PALADIN','HUNTER','ROGUE','PRIEST','DEATH_KNIGHT','SHAMAN','MAGE','WARLOCK','DRUID']
 classes.forEach((value,index,array)=>{
     let curClass = std.Classes.load(value)
@@ -19,4 +20,9 @@ classes.forEach((value,index,array)=>{
         curClass.EquipSkills.TwoHandedMaces.setAuto()
         curClass.EquipSkills.TwoHandedSwords.setAuto()
         curClass.EquipSkills.Wand.setAuto()
+})
+
+SQL.player_xp_for_level.filter({}).forEach((value,index,array)=>{
+    if(index <= 20)
+    value.Experience.set(value.Experience.get() * 6.25)
 })
