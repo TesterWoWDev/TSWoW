@@ -17,9 +17,7 @@ export function Main(events: TSEventHandlers) {
                 }
             }else{
                 posString = posString + "pos"+(i+1)+" = " + message.positions[i] + " AND "
-            }
-                
-                        
+            }                  
         }
         posString = posString.substring(0,posString.length-4)
         let result = QueryWorld(queryString + posString)
