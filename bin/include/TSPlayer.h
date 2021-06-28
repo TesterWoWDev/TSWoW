@@ -22,7 +22,7 @@
 #include "TSString.h"
 #include "TSClasses.h"
 #include "TSUnit.h"
-#include "Base64.h"
+#include "base64.h"
 
 struct TSMail;
 class TC_GAME_API TSPlayer : public TSUnit {
@@ -121,6 +121,7 @@ public:
 	TSItem  GetEquippedItemBySlot(uint8 slot);
 	float GetRestBonus();
 	uint8 GetChatTag();
+	void SetBankBagSlotCount(uint8 count);
 	TSItem GetItemByPos(uint8 bag, uint8 slot);
 	TSItem GetItemByGUID(uint64 guid);
 	TSItem GetItemByEntry(uint32 entry);
@@ -177,6 +178,9 @@ public:
 	void RewardQuest(uint32 entry);
 	void SendAuctionMenu(TSUnit unit);
 	void SendTaxiMenu(TSCreature creature);
+	void SendCreatureQueryPacket(uint32 entry);
+	void SendGameObjectQueryPacket(uint32 entry);
+	void SendItemQueryPacket(uint32 entry);
 	void SendSpiritResurrect();
 	void SendTabardVendorActivate(TSWorldObject obj);
 	void SendShowBank(TSWorldObject obj);
@@ -230,6 +234,7 @@ public:
 	bool Teleport(uint32 mapId, float x, float y, float z, float o);
 	void AddLifetimeKills(uint32 val);
 	TSItem AddItem(uint32 itemId, uint32 itemCount);
+	void AddItemToSlotRaw(uint8 bag, uint8 slot, uint32 itemId, uint32 count);
 	void RemoveItem(TSItem item, uint32 itemCount, uint32 itemId);
 	void RemoveLifetimeKills(uint32 val);
 	void ResetSpellCooldown(uint32 spellId, bool update);
@@ -239,6 +244,7 @@ public:
 	void SendAreaTriggerMessage(TSString msg);
 	void SendNotification(TSString msg);
 	void SendPacketPlayer(TSWorldPacket data, bool selfOnly);
+	void SendPacketPlayer(std::shared_ptr<TSWorldPacket> data, bool selfOnly);
 	void SendAddonMessage(TSString prefix, TSString message, uint8 channel, TSPlayer receiver);
 	void KickPlayer();
 	void ModifyMoney(int32 amt);

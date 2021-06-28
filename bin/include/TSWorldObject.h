@@ -23,11 +23,15 @@
 #include "TSPosition.h"
 #include "TSTask.h"
 #include "TSStorage.h"
+#include "TSEntity.h"
+#include "TSDictionary.h"
 #include <chrono>
 #include <vector>
 
 struct TSCollisions;
 struct TSCollisionEntry;
+
+#define CollisionCallback std::function<void(TSCollisionEntry*,TSWorldObject,TSWorldObject,TSMutable<uint32_t>)>
 
 class TC_GAME_API TSWorldObject : public TSObject {
 public:
@@ -51,6 +55,7 @@ public:
     TSCreature  SpawnCreature(uint32 entry, float x, float y, float z, float o, uint32 spawnType, uint32 despawnTimer);
 
     void SendPacket(TSWorldPacket data);
+    void SendPacket(std::shared_ptr<TSWorldPacket> data);
     bool IsWithinLoS(TSWorldObject target, float x, float y, float z);
     bool IsInMap(TSWorldObject target);
 
@@ -94,10 +99,16 @@ public:
 
     TSTasks<TSWorldObject> * GetTasks();
     TSStorage * GetData();
-    TSCollisions * GetCollisions();
-};
 
-#define CollisionCallback std::function<void(TSCollisionEntry*,TSWorldObject,TSWorldObject,TSMutable<uint32_t>)> 
+    TS_ENTITY_DATA_DECL(TSWorldObject)
+    TS_ENTITY_TIMER_DECL(TSWorldObject)
+
+    bool HasCollision(TSString id) ;
+    void AddCollision(uint32_t modid, TSString id, float range, uint32_t minDelay, uint32_t maxHits, CollisionCallback callback);
+    TSCollisionEntry * GetCollision(TSString id);
+
+    TSCollisions* GetCollisions();
+};
 
 class TC_GAME_API TSCollisionEntry {
 public:

@@ -44,9 +44,12 @@ public:
     uint8 GetMemberGroup(uint64 guid);
     void SetLeader(uint64 guid);
     void SendPacket(TSWorldPacket data, bool ignorePlayersInBg, uint64 ignore);
+    void SendPacket(std::shared_ptr<TSWorldPacket> data, bool ignorePlayersInBg, uint64 ignore);
     bool RemoveMember(uint64 guid, uint32 method);
     void Disband();
     void ConvertToRaid();
     void SetMembersGroup(uint64 guid, uint8 subGroup);
     void SetTargetIcon(uint8 icon, uint64 target, uint64 setter);
+    bool IsLFGGroup();
+    bool IsBFGroup();
 };
