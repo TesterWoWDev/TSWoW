@@ -1,15 +1,9 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { MODNAME } from "./database-setup"
 import { createBaseResources, createGear, generateGearRecipes, generateWeaponRecipes } from "./recipe-functions"
-export const MODNAME = 'minecraft-mod'
+import { SQL } from "wotlkdata/sql/SQLFiles"
+import { stringItem } from "./string"
 
-export let stringItem = std.Items.create(MODNAME,'string', 2934)
-    stringItem.Name.enGB.set('String')
-    stringItem.DisplayInfo.setID(58198)
-    stringItem.Description.enGB.set('A unique piece of string.')
-
-SQL.Databases.world_dest.write('DROP TABLE IF EXISTS `minecraft_recipes`')
-SQL.Databases.world_dest.write('CREATE TABLE `minecraft_recipes` (`pos1` int(11) DEFAULT NULL,`pos2` int(11) DEFAULT NULL,`pos3` int(11) DEFAULT NULL,`pos4` int(11) DEFAULT NULL,`pos5` int(11) DEFAULT NULL,`pos6` int(11) DEFAULT NULL,`pos7` int(11) DEFAULT NULL,`pos8` int(11) DEFAULT NULL,`pos9` int(11) DEFAULT NULL,`req1` int(11) DEFAULT NULL,`cnt1` int(11) DEFAULT NULL,`req2` int(11) DEFAULT NULL,`cnt2` int(11) DEFAULT NULL,`req3` int(11) DEFAULT NULL,`cnt3` int(11) DEFAULT NULL,`req4` int(11) DEFAULT NULL,`cnt4` int(11) DEFAULT NULL,`req5` int(11) DEFAULT NULL,`cnt5` int(11) DEFAULT NULL,`req6` int(11) DEFAULT NULL,`cnt6` int(11) DEFAULT NULL,`req7` int(11) DEFAULT NULL,`cnt7` int(11) DEFAULT NULL,`req8` int(11) DEFAULT NULL,`cnt8` int(11) DEFAULT NULL,`req9` int(11) DEFAULT NULL,`cnt9` int(11) DEFAULT NULL,`craftID` int(11) DEFAULT NULL, `craftCount` int(11) DEFAULT NULL)')
 
 let tierOneStrResources = createBaseResources('tier1-str','Worn','Strength',['Moss Agate','Metal Scraps','Epulets','chain','Metal','Reinforced Metal',],[35916,22924,35338,39340,7355,7389])
 let tierOneStrGear = createGear('tier1-str',1,0,1,1.8,3,['Worn Helm','Worn Necklace','Worn Spaulders','Worn Cloak','Worn Chestguard','Worn Bracers','Worn Gloves','Worn Belt','Worn Legguards','Worn Greaves','Worn Ring','Worn Trinket','Worn ohs','Worn ohm','Worn oha','Worn dag','Worn ths','Worn thm','Worn tha','Worn book','Worn pole','Worn bow','Worn staff','Worn wand','Worn shield','Worn fist'],[16115,9854,9407,23068,32157,32158,9406,24514,4333,9404,9836,9637,5153,5211,8496,6434,20196,16146,8528,31805,40409,8104,28699,40146,26234,3007])

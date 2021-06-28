@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { DBC } from "wotlkdata/dbc/DBCFiles"
-import { MODNAME } from "./recipe-creation"
+import { MODNAME } from "./database-setup"
 
 //tiername,parent,prefix,[itemnames]
 //let returnItems = createBaseResources('tier1',2934,'prefix',['moonstone','leather','epulet','chain','steel','reinforced steel','string'])
