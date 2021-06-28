@@ -1,25 +1,7 @@
 @Message
 export class craftMessage {
-    @MsgPrimitive
-        isEnchant:int8 = 0
-    @MsgPrimitive
-        pos1:uint32 = 0
-    @MsgPrimitive
-        pos2:uint32 = 0
-    @MsgPrimitive
-        pos3:uint32 = 0
-    @MsgPrimitive
-        pos4:uint32 = 0
-    @MsgPrimitive
-        pos5:uint32 = 0
-    @MsgPrimitive
-        pos6:uint32 = 0
-    @MsgPrimitive
-        pos7:uint32 = 0
-    @MsgPrimitive
-        pos8:uint32 = 0
-    @MsgPrimitive
-        pos9:uint32 = 0
+    @MsgPrimitiveArray(9)
+        positions: TSArray<int32> = [0,0,0,0,0,0,0,0,0]
     @MsgPrimitive
         purchase:uint32 = 0
 }

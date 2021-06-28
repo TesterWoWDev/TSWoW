@@ -145,21 +145,8 @@ import { Events, SendToServer } from "./lib/Events"
 
     function updateProduct(purchase:uint32) {
         let pkt = new craftMessage()
-        if(choices[4] != 0){
-            if(GetItemInfo(choices[4])[5] == 'Armor' || GetItemInfo(choices[4])[5] == 'Weapon'){//only enchant certain stuff
-                pkt.isEnchant = 1
-            }        
-        }
-            pkt.pos1 = choices[0]
-            pkt.pos2 = choices[1]
-            pkt.pos3 = choices[2] 
-            pkt.pos4 = choices[3]
-            pkt.pos5 = choices[4] 
-            pkt.pos6 = choices[5] 
-            pkt.pos7 = choices[6] 
-            pkt.pos8 = choices[7] 
-            pkt.pos9 = choices[8]
-            pkt.purchase = purchase//not looking to buy
+            pkt.positions = choices
+            pkt.purchase = purchase
         SendToServer(pkt)
     }
 
