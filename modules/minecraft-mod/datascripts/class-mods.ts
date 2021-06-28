@@ -1,3 +1,4 @@
+console.log("classmod")
 import { std } from "tswow-stdlib"
 import { ClassType } from "../../tswow-stdlib/datascripts/build/Class/ClassType"
 let classes:ClassType[] = ['WARRIOR','PALADIN','HUNTER','ROGUE','PRIEST','DEATH_KNIGHT','SHAMAN','MAGE','WARLOCK','DRUID']

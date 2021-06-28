@@ -11,7 +11,7 @@ export function Main(events: TSEventHandlers) {
 	Skillshot(events)
 	onDeath(events)
     manaSystem(events)
-    rangeLoot(events)
+    //rangeLoot(events)
 
     events.Player.OnSay((player,type,lang,msg)=>{
         player.SendCreatureQueryPacket(299)
