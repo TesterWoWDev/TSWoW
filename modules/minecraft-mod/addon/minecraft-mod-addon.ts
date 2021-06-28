@@ -7,6 +7,7 @@ import { Events, SendToServer } from "./lib/Events"
 
     let choices = [0,0,0,0,0,0,0,0,0]
     let buttons = []
+    let enchants = [0,0,0,0]
 
     let mframe = CreateFrame('Frame','minecraftMframe',UIParent)
         mframe.SetWidth(300)
@@ -130,7 +131,11 @@ import { Events, SendToServer } from "./lib/Events"
                 buttons[Number(frame.GetName())][1].SetScript("OnLeave",()=>{
                     GameTooltip.Hide()
                 })
-
+                let itemstring:string = GetCursorInfo()[2]
+                let arr = itemstring.split(":")
+                if(frame.GetName() == '4'){
+                    enchants = [Number(arr[2]),Number(arr[3]),Number(arr[4]),Number(arr[5])]
+                }
             }
         }
     }
@@ -147,6 +152,7 @@ import { Events, SendToServer } from "./lib/Events"
         let pkt = new craftMessage()
             pkt.positions = choices
             pkt.purchase = purchase
+            pkt.enchants = enchants
         SendToServer(pkt)
     }
 
@@ -158,12 +164,10 @@ import { Events, SendToServer } from "./lib/Events"
             }else{
                 showText.SetText(message.craftItemCount.toString())
             }
-            
-
             showBtn.SetScript("OnEnter",(self)=>{
                 GameTooltip.ClearLines()
                 GameTooltip.SetOwner(showBtn,'CENTER')
-                GameTooltip.SetHyperlink("item:"+ message.craftItem + ":" + message.enchantNum + ":0:0:0:0:0:0")
+                GameTooltip.SetHyperlink("item:"+ message.craftItem + ":" + message.enchantNum[0] + ":0:" + message.enchantNum[1] + ":" + message.enchantNum[2] + ":" + message.enchantNum[3] + ":0:0")
                 GameTooltip.Show()
             })     
             showBtn.SetScript("OnLeave",()=>{

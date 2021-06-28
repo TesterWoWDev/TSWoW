@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { ClassType } from "../../tswow-stdlib/datascripts/build/Class/ClassType"
+import { ClassType } from "tswow-stdlib/Class/ClassType"
 let classes:ClassType[] = ['WARRIOR','PALADIN','HUNTER','ROGUE','PRIEST','DEATH_KNIGHT','SHAMAN','MAGE','WARLOCK','DRUID']
 classes.forEach((value,index,array)=>{
     let curClass = std.Classes.load(value)
