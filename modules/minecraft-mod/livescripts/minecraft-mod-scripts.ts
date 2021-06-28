@@ -7,17 +7,15 @@ export function Main(events: TSEventHandlers) {
         let posString = ""
         let isEnchant = false
         for(let i=0;i<message.positions.length;i++){
+            let fillVal = message.positions[i]
             if(message.positions[i] != 0){
                 let item = player.GetItemByEntry(message.positions[i])
                 if(item.GetClass() == 2 || item.GetClass() == 4){
                     isEnchant = true
-                    posString = posString + "pos"+(i+1)+" = " + -1 + " AND "
-                }else{
-                    posString = posString + "pos"+(i+1)+" = " + message.positions[i] + " AND "
+                    fillVal = -1
                 }
-            }else{
-                posString = posString + "pos"+(i+1)+" = " + message.positions[i] + " AND "
-            }                  
+            }
+            posString = posString + "pos"+(i+1)+" = " + fillVal + " AND "                
         }
         posString = posString.substring(0,posString.length-4)
         let result = QueryWorld(queryString + posString)
@@ -26,12 +24,12 @@ export function Main(events: TSEventHandlers) {
             check = 1    
             if(isEnchant){
                 pkt.craftItem = message.positions[4]
-                pkt.craftItemCount = result.GetUInt32(1)
                 pkt.enchantNum = result.GetUInt32(0)
             }else{
                 pkt.craftItem = result.GetUInt32(0)
-                pkt.craftItemCount = result.GetUInt32(1)
+                
             }
+            pkt.craftItemCount = result.GetUInt32(1)
             if(message.purchase == 1){
                 let checkItems = 1
                 for(let i=2;i<23;i++){
