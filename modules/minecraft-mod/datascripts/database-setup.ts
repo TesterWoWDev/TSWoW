@@ -1,4 +1,3 @@
-import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 
 export const MODNAME = 'minecraft-mod'

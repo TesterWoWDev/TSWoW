@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "./database-setup"
+import { MODNAME } from "../database-setup"
 
 export let stringItem = std.Items.create(MODNAME,'string', 2934)
     stringItem.Name.enGB.set('String')
