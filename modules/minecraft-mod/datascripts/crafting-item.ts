@@ -7,4 +7,4 @@ item.Spells.clearAll()
 item.row.SellPrice.set(0)
 
 std.Items.load(20880).MaxStack.set(200)
-std.Items.load(20880).Price.set(100000,1)
+std.Items.load(20880).Price.set(100000,100001)

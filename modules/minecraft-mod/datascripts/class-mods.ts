@@ -1,7 +1,7 @@
 console.log("classmod")
 import { std } from "tswow-stdlib"
 import { ClassType } from "tswow-stdlib/Class/ClassType"
-import { SQL } from "../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata/sql/SQLFiles"
 let classes:ClassType[] = ['WARRIOR','PALADIN','HUNTER','ROGUE','PRIEST','DEATH_KNIGHT','SHAMAN','MAGE','WARLOCK','DRUID']
 classes.forEach((value,index,array)=>{
     let curClass = std.Classes.load(value)
