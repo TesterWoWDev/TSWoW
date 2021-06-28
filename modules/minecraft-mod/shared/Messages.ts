@@ -11,7 +11,7 @@ export class returnCraftItemMessage {
     @MsgPrimitive
         craftItem:uint32 = 0
     @MsgPrimitive
-    craftItemCount:uint32 = 0
+        craftItemCount:uint32 = 0
     @MsgPrimitive
         enchantNum:uint32 = 0
 }

@@ -22,7 +22,6 @@ export function Main(events: TSEventHandlers) {
                         
         }
         posString = posString.substring(0,posString.length-4)
-        console.log(posString)
         let result = QueryWorld(queryString + posString)
         let pkt = new returnCraftItemMessage()
         while(result.GetRow()){
@@ -55,7 +54,8 @@ export function Main(events: TSEventHandlers) {
                             player.RemoveItem(item,1,itemID)
                         }
                     }
-                    player.AddItem(pkt.craftItem,pkt.craftItemCount).SetEnchantment(pkt.enchantNum,0)                    
+                    player.AddItem(pkt.craftItem,pkt.craftItemCount).SetEnchantment(pkt.enchantNum,0)  
+                    pkt.craftItem = 0                  
                 }else{
                     player.SendAreaTriggerMessage('You do not have the required materials!')
                     player.SendBroadcastMessage('You do not have the required materials!')
