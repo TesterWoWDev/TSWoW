@@ -23,7 +23,7 @@ export function createBaseResources(tierPrefix:string,prefix:string,description:
     let test = ['gem','material','epulet','chain','metal','reinforced']
     let allItemIDs = []
     for(let i=0;i<test.length;i++){
-        let item = std.Items.create(MODNAME, tierPrefix + '-' + test[i], parentItem)
+        let item = std.Items.create(MODNAME, tierPrefix + '-' + test[i].replace("'",""), parentItem)
         item.Name.enGB.set(prefix + ' ' + itemNames[i])
         item.DisplayInfo.setID(displayInfoIDs[i])
         item.Description.enGB.set(description)
@@ -40,7 +40,7 @@ export function createGear(modfix:string,quality:number,statMultiplier:number,ma
 
     let allItems = []
     for(let i=0;i<names.length;i++){
-        let item = std.Items.create(MODNAME,modfix + ' ' + names[i],38)
+        let item = std.Items.create(MODNAME,modfix + ' ' + names[i].replace("'",""),38)
         item.Class.set(ids[i][0],ids[i][1])
         item.InventoryType.set(ids[i][2])
         item.Quality.set(quality)
