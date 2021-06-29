@@ -184,3 +184,16 @@ import { Events, SendToServer } from "./lib/Events"
         }
     })
 
+    Events.Container.OnBagUpdate(mframe,(bagID)=>{
+        for(let i=0;i<buttons.length;i++){
+            buttons[i][1].Hide()
+        }
+        showTex.SetTexture("")
+        showText.SetText("")
+        showBtn.SetScript("OnEnter",null)
+        showBtn.SetScript("OnLeave",null)
+        buttons = []
+        choices = [0,0,0,0,0,0,0,0,0]
+        mframe.Hide()
+    })
+
