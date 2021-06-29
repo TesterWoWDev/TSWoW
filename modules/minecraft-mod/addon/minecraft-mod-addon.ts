@@ -114,18 +114,19 @@ import { Events, SendToServer } from "./lib/Events"
             if(info != null){
                 buttons[Number(frame.GetName())][2].SetTexture(info[9])
                 choices[Number(frame.GetName())] = Number(itemid)
-
+                let itemstring:string = GetCursorInfo()[2]
+                let arr = itemstring.split(":")
+                
                 buttons[Number(frame.GetName())][1].SetScript("OnEnter",(self)=>{
                     GameTooltip.ClearLines()
                     GameTooltip.SetOwner(self,'CENTER')
-                    GameTooltip.SetHyperlink("item:"+ itemid)
+                    GameTooltip.SetHyperlink("item:"+ itemid + ":" + arr[2] + ":0:" + arr[3] + ":" + arr[4] + ":" + arr[5] + ":0:0")
                     GameTooltip.Show()
                 })     
                 buttons[Number(frame.GetName())][1].SetScript("OnLeave",()=>{
                     GameTooltip.Hide()
                 })
-                let itemstring:string = GetCursorInfo()[2]
-                let arr = itemstring.split(":")
+                
                 if(frame.GetName() == '4'){
                     enchants = [Number(arr[2]),Number(arr[3]),Number(arr[4]),Number(arr[5])]
                 }
