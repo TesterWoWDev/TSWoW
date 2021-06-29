@@ -1,10 +1,6 @@
 import { craftMessage, returnCraftItemMessage } from "../shared/Messages"
 import { Events, SendToServer } from "./lib/Events"
 
-    let btnCount = 9
-    let xoffset = 5
-    let yoffset = 5
-
     let choices = [0,0,0,0,0,0,0,0,0]
     let buttons = []
     let enchants = [0,0,0,0]
@@ -45,7 +41,7 @@ import { Events, SendToServer } from "./lib/Events"
             craftBtn.HookScript("OnClick",(frame,evName,btnDown)=>{
                 updateProduct(1)
                 choices = [0,0,0,0,0,0,0,0,0]
-                for(let i=0;i<btnCount;i++){
+                for(let i=0;i<9;i++){
                     buttons[i][2].SetTexture('')
                     buttons[i][1].SetScript("OnEnter",null)
                     buttons[i][1].SetScript("OnLeave",null)
@@ -81,10 +77,10 @@ import { Events, SendToServer } from "./lib/Events"
             })
     
     function buttonCreate(){
-        for(let i=0;i<btnCount;i++){
+        for(let i=0;i<9;i++){
             let slot = CreateFrame('Button',i.toString(),mframe)
             slot.SetSize(64,64)
-            slot.SetPoint('TOPLEFT',mframe,'TOPLEFT',40+((slot.GetWidth()+xoffset)*(Math.floor(i%3))),-30-((slot.GetHeight()+yoffset)*(Math.floor(i/3))))
+            slot.SetPoint('TOPLEFT',mframe,'TOPLEFT',40+((slot.GetWidth()+5)*(Math.floor(i%3))),-30-((slot.GetHeight()+5)*(Math.floor(i/3))))
             slot.RegisterForClicks("AnyDown")
             slot.SetBackdrop({ edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
                 tile : true, tileSize : 22, edgeSize : 22, 
@@ -175,15 +171,16 @@ import { Events, SendToServer } from "./lib/Events"
             showBtn.SetScript("OnLeave",null)
         }
     })
+
     Events.Item.OnDeleteItemConfirm(mframe,(itemname,qual,bond,questWarn)=>{
         closeAll()
     })
-Events.MerchantFrame.OnMerchantShow(mframe,()=>{
-    closeAll()
-})
-Events.MerchantFrame.OnMerchantUpdate(mframe,()=>{
-    closeAll()
-})
+    Events.MerchantFrame.OnMerchantShow(mframe,()=>{
+        closeAll()
+    })
+    Events.MerchantFrame.OnMerchantUpdate(mframe,()=>{
+        closeAll()
+    })
 
 function closeAll() {
     for(let i=0;i<buttons.length;i++){
