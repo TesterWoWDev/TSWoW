@@ -8,6 +8,16 @@ import { Events, SendToServer } from "./lib/Events"
     let mframe = CreateFrame('Frame','minecraftMframe',UIParent)
         mframe.SetWidth(300)
         mframe.SetHeight(400)
+        mframe.EnableMouse(true)
+        mframe.SetMovable(true)
+        mframe.RegisterForDrag("LeftButton")
+        mframe.SetScript("OnDragStart",(self,button)=>{
+            self.StartMoving()
+        })
+        mframe.SetScript('OnDragStop',(self,button)=>{
+            self.StopMovingOrSizing()
+        })
+        
         mframe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
             edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
             tile : true, tileSize : 22, edgeSize : 22, 
