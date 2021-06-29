@@ -1,4 +1,3 @@
-console.log("classmod")
 import { std } from "tswow-stdlib"
 import { ClassType } from "tswow-stdlib/Class/ClassType"
 import { SQL } from "wotlkdata/sql/SQLFiles"
