@@ -26,6 +26,7 @@ coredata/datasets/default/maps
 coredata/datasets/default/mmaps
 coredata/datasets/default/mysql
 coredata/datasets/default/mysql_plain
+coredata/datasets/default/dbc
 coredata/datasets/default/vmaps
 coredata/realms
 coredata/terminal-history.txt
