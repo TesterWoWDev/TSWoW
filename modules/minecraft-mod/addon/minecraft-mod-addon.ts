@@ -56,6 +56,8 @@ import { Events, SendToServer } from "./lib/Events"
                 choices = [0,0,0,0,0,0,0,0,0]
                 for(let i=0;i<btnCount;i++){
                     buttons[i][2].SetTexture('')
+                    buttons[i][1].SetScript("OnEnter",null)
+                    buttons[i][1].SetScript("OnLeave",null)
                 }
                 showTex.SetTexture('')
                 showText.SetText('')
