@@ -29,6 +29,7 @@ coredata/datasets/default/mysql_plain
 coredata/datasets/default/dbc
 coredata/datasets/default/vmaps
 coredata/realms
+coredata/IDs.ts
 coredata/terminal-history.txt
 ids.txt
 log.txt
