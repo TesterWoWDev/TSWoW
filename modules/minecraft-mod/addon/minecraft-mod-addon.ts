@@ -116,7 +116,7 @@ import { Events, SendToServer } from "./lib/Events"
                 choices[Number(frame.GetName())] = Number(itemid)
                 let itemstring:string = GetCursorInfo()[2]
                 let arr = itemstring.split(":")
-                
+
                 buttons[Number(frame.GetName())][1].SetScript("OnEnter",(self)=>{
                     GameTooltip.ClearLines()
                     GameTooltip.SetOwner(self,'CENTER')
@@ -179,6 +179,9 @@ import { Events, SendToServer } from "./lib/Events"
         closeAll()
     })
 Events.MerchantFrame.OnMerchantShow(mframe,()=>{
+    closeAll()
+})
+Events.MerchantFrame.OnMerchantUpdate(mframe,()=>{
     closeAll()
 })
 
