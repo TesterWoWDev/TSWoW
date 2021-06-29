@@ -183,8 +183,7 @@ import { Events, SendToServer } from "./lib/Events"
             showBtn.SetScript("OnLeave",null)
         }
     })
-
-    Events.Container.OnBagUpdate(mframe,(bagID)=>{
+    Events.Item.OnDeleteItemConfirm(mframe,(itemname,qual,bond,questWarn)=>{
         for(let i=0;i<buttons.length;i++){
             buttons[i][1].Hide()
         }
@@ -196,4 +195,15 @@ import { Events, SendToServer } from "./lib/Events"
         choices = [0,0,0,0,0,0,0,0,0]
         mframe.Hide()
     })
-
+Events.MerchantFrame.OnMerchantShow(mframe,()=>{
+    for(let i=0;i<buttons.length;i++){
+        buttons[i][1].Hide()
+    }
+    showTex.SetTexture("")
+    showText.SetText("")
+    showBtn.SetScript("OnEnter",null)
+    showBtn.SetScript("OnLeave",null)
+    buttons = []
+    choices = [0,0,0,0,0,0,0,0,0]
+    mframe.Hide()
+})
