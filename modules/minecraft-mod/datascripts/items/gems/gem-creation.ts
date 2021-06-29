@@ -99,37 +99,37 @@ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).E
 let purple1 = createGem('purple1','Shifting Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,purple1,0,0,-1,0,0,0,0],[purple1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,31).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff278916+2 Agility and +8 Hit Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,31).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff8802CA+2 Agility and +8 Hit Rating').ItemVisual.set(0)
 
 let purple2 = createGem('purple2','Sovereign Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,purple2,0,0,-1,0,0,0,0],[purple2,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,31).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff278916+2 Strength and +8 Hit Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,31).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff8802CA+2 Strength and +8 Hit Rating').ItemVisual.set(0)
 
 let purple3 = createGem('purple3','Infused Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,purple3,0,0,-1,0,0,0,0],[purple3,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff278916+2 Intellect and +8 Haste Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff8802CA+2 Intellect and +8 Haste Rating').ItemVisual.set(0)
 
 let purple4 = createGem('purple4','Glowing Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,purple4,0,0,-1,0,0,0,0],[purple4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,6).EffectPointsMin.setIndex(0,6).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff278916+5 Haste Rating and +6 Spirit').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,6).EffectPointsMin.setIndex(0,6).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff8802CA+5 Haste Rating and +6 Spirit').ItemVisual.set(0)
 
 let purple5 = createGem('purple5','Royal Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,purple5,0,0,-1,0,0,0,0],[purple5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,15).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Name.enGB.set('|cff278916+15 Block Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,15).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Name.enGB.set('|cff8802CA+15 Block Rating').ItemVisual.set(0)
 
 let purple6 = createGem('purple6','Balanced Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,purple6,0,0,-1,0,0,0,0],[purple6,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,36).EffectPointsMax.setIndex(0,3).EffectPointsMin.setIndex(0,3).Effect.setIndex(1,5).EffectArg.setIndex(1,43).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff278916+3 Haste Rating and +5 Mana Per Second').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,36).EffectPointsMax.setIndex(0,3).EffectPointsMin.setIndex(0,3).Effect.setIndex(1,5).EffectArg.setIndex(1,43).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff8802CA+3 Haste Rating and +5 Mana Per Second').ItemVisual.set(0)
 
 let purple7 = createGem('purple7','Enthralled Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,purple7,0,0,-1,0,0,0,0],[purple7,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff278916+10 Critical Strike Rating and +5 Expertise Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff8802CA+10 Critical Strike Rating and +5 Expertise Rating').ItemVisual.set(0)
 
 
 
@@ -138,27 +138,27 @@ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).E
 let yellow1 = createGem('yellow1','Brilliant Golden Draenite',35848,'',GemPropertyIndex,10)
 createRecipe([0,yellow1,0,0,-1,0,0,0,0],[yellow1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff278916+2 Agility and +8 Critical Strike Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cffB9AC09+2 Agility and +8 Critical Strike Rating').ItemVisual.set(0)
 
 let yellow2 = createGem('yellow2','Gleaming Golden Draenite',35848,'',GemPropertyIndex,10)
 createRecipe([0,yellow2,0,0,-1,0,0,0,0],[yellow2,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff278916+2 Strength and +8 Critical Strike Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cffB9AC09+2 Strength and +8 Critical Strike Rating').ItemVisual.set(0)
 
 let yellow3 = createGem('yellow3','Thick Golden Draenite',35848,'',GemPropertyIndex,10)
 createRecipe([0,yellow3,0,0,-1,0,0,0,0],[yellow3,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cff278916+2 Intellect and +8 Critical Strike Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('|cffB9AC09+2 Intellect and +8 Critical Strike Rating').ItemVisual.set(0)
 
 let yellow4 = createGem('yellow4','Rigid Golden Draenite',35848,'',GemPropertyIndex,10)
 createRecipe([0,yellow4,0,0,-1,0,0,0,0],[yellow4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,6).EffectPointsMin.setIndex(0,6).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff278916+5 Critical Strike Rating and +6 Spirit').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,6).EffectPointsMin.setIndex(0,6).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cffB9AC09+5 Critical Strike Rating and +6 Spirit').ItemVisual.set(0)
 
 let yellow5 = createGem('yellow5','Great Golden Draenite',35848,'',GemPropertyIndex,10)
 createRecipe([0,yellow5,0,0,-1,0,0,0,0],[yellow5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++).Enchant_Id.set(SpellItemEnchantmentIndex).Maxcount_Inv.set(0).Maxcount_Item.set(0).Type.set(1)
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Name.enGB.set('|cff278916+15 Critical Strike Rating').ItemVisual.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Name.enGB.set('|cffB9AC09+15 Critical Strike Rating').ItemVisual.set(0)
 
 
 additems(vendor2,[red1,red2,red3,red4,red5,red6,red7,red8,green1,green2,green3,green4,green5,green6,green7,purple1,purple2,purple3,purple4,purple5,purple6,purple7,yellow1,yellow2,yellow3,yellow4,yellow5])
