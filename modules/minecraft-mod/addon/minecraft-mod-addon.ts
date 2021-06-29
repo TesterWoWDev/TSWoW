@@ -28,16 +28,7 @@ import { Events, SendToServer } from "./lib/Events"
             extex.SetAllPoints(exitbutn)
             extex.SetPoint("CENTER",0,0)
         exitbutn.HookScript("OnClick",(frame,evName,btnDown)=>{
-            for(let i=0;i<buttons.length;i++){
-                buttons[i][1].Hide()
-            }
-            showTex.SetTexture("")
-            showText.SetText("")
-            showBtn.SetScript("OnEnter",null)
-            showBtn.SetScript("OnLeave",null)
-            buttons = []
-            choices = [0,0,0,0,0,0,0,0,0]
-            mframe.Hide()
+            closeAll()
         })
 
     let craftBtn = CreateFrame("Button", 'craftbtn', mframe)
@@ -184,20 +175,18 @@ import { Events, SendToServer } from "./lib/Events"
         }
     })
     Events.Item.OnDeleteItemConfirm(mframe,(itemname,qual,bond,questWarn)=>{
-        for(let i=0;i<buttons.length;i++){
-            buttons[i][1].Hide()
-        }
-        showTex.SetTexture("")
-        showText.SetText("")
-        showBtn.SetScript("OnEnter",null)
-        showBtn.SetScript("OnLeave",null)
-        buttons = []
-        choices = [0,0,0,0,0,0,0,0,0]
-        mframe.Hide()
+        closeAll()
     })
 Events.MerchantFrame.OnMerchantShow(mframe,()=>{
+    closeAll()
+})
+
+function closeAll() {
     for(let i=0;i<buttons.length;i++){
         buttons[i][1].Hide()
+        buttons[i][1].SetScript("OnEnter",null)
+        buttons[i][1].SetScript("OnLeave",null)
+        buttons[i][2].SetTexture('')
     }
     showTex.SetTexture("")
     showText.SetText("")
@@ -206,4 +195,4 @@ Events.MerchantFrame.OnMerchantShow(mframe,()=>{
     buttons = []
     choices = [0,0,0,0,0,0,0,0,0]
     mframe.Hide()
-})
+}
