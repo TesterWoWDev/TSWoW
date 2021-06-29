@@ -28,16 +28,7 @@ import { Events, SendToServer } from "./lib/Events"
             extex.SetAllPoints(exitbutn)
             extex.SetPoint("CENTER",0,0)
         exitbutn.HookScript("OnClick",(frame,evName,btnDown)=>{
-            for(let i=0;i<buttons.length;i++){
-                buttons[i][1].Hide()
-            }
-            showTex.SetTexture("")
-            showText.SetText("")
-            showBtn.SetScript("OnEnter",null)
-            showBtn.SetScript("OnLeave",null)
-            buttons = []
-            choices = [0,0,0,0,0,0,0,0,0]
-            mframe.Hide()
+            closeAll()
         })
 
     let craftBtn = CreateFrame("Button", 'craftbtn', mframe)
@@ -56,6 +47,8 @@ import { Events, SendToServer } from "./lib/Events"
                 choices = [0,0,0,0,0,0,0,0,0]
                 for(let i=0;i<btnCount;i++){
                     buttons[i][2].SetTexture('')
+                    buttons[i][1].SetScript("OnEnter",null)
+                    buttons[i][1].SetScript("OnLeave",null)
                 }
                 showTex.SetTexture('')
                 showText.SetText('')
@@ -121,18 +114,19 @@ import { Events, SendToServer } from "./lib/Events"
             if(info != null){
                 buttons[Number(frame.GetName())][2].SetTexture(info[9])
                 choices[Number(frame.GetName())] = Number(itemid)
+                let itemstring:string = GetCursorInfo()[2]
+                let arr = itemstring.split(":")
 
                 buttons[Number(frame.GetName())][1].SetScript("OnEnter",(self)=>{
                     GameTooltip.ClearLines()
                     GameTooltip.SetOwner(self,'CENTER')
-                    GameTooltip.SetHyperlink("item:"+ itemid)
+                    GameTooltip.SetHyperlink("item:"+ itemid + ":" + arr[2] + ":0:" + arr[3] + ":" + arr[4] + ":" + arr[5] + ":0:0")
                     GameTooltip.Show()
                 })     
                 buttons[Number(frame.GetName())][1].SetScript("OnLeave",()=>{
                     GameTooltip.Hide()
                 })
-                let itemstring:string = GetCursorInfo()[2]
-                let arr = itemstring.split(":")
+                
                 if(frame.GetName() == '4'){
                     enchants = [Number(arr[2]),Number(arr[3]),Number(arr[4]),Number(arr[5])]
                 }
@@ -181,4 +175,28 @@ import { Events, SendToServer } from "./lib/Events"
             showBtn.SetScript("OnLeave",null)
         }
     })
+    Events.Item.OnDeleteItemConfirm(mframe,(itemname,qual,bond,questWarn)=>{
+        closeAll()
+    })
+Events.MerchantFrame.OnMerchantShow(mframe,()=>{
+    closeAll()
+})
+Events.MerchantFrame.OnMerchantUpdate(mframe,()=>{
+    closeAll()
+})
 
+function closeAll() {
+    for(let i=0;i<buttons.length;i++){
+        buttons[i][1].Hide()
+        buttons[i][1].SetScript("OnEnter",null)
+        buttons[i][1].SetScript("OnLeave",null)
+        buttons[i][2].SetTexture('')
+    }
+    showTex.SetTexture("")
+    showText.SetText("")
+    showBtn.SetScript("OnEnter",null)
+    showBtn.SetScript("OnLeave",null)
+    buttons = []
+    choices = [0,0,0,0,0,0,0,0,0]
+    mframe.Hide()
+}
