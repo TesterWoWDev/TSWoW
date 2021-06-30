@@ -51,8 +51,8 @@ export function createGear(modfix:string,quality:number,statMultiplier:number,ma
         
         let costval = (cost[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
-        //item.Stats.addStamina(costval*stamMult)
-
+        item.Stats.addStamina(costval*quality)
+        item.Stats.addHitRating(costval)
         costval = costval*2
         if(ids[i][0] == 2){//weapon need dps
             item.Material.setMetal()
