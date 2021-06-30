@@ -1,1 +1,1 @@
-//export const MODNAME = "quests-mod"
+export const MODNAME = "quests-mod"
