@@ -1,4 +1,4 @@
-import { MODNAME } from "quests-mod"
+import { MODNAME } from "./quests-mod-data"
 import { std } from "tswow-stdlib"
 let quest = std.Quests.create(MODNAME,'quest1')
 //option 1
