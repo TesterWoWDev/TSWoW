@@ -26,10 +26,10 @@ quest.QuestLevel.set(1)
 quest.Objectives.Entity.add(mob.ID,1)//kill quest
 quest.Objectives.Item.add(item.ID,1)//return item quest
 //option 1
-quest.Questgiver.addStarter(131)
-quest.Questgiver.addEnder(122)
+quest.Questgiver.addStarter(mob.ID)
+quest.Questgiver.addEnder(mob.ID)
 //option 2
-quest.Questgiver.addBoth(122)
+quest.Questgiver.addBoth(mob.ID)
 
 quest.Rewards.ChoiceItem.add(133,1)
 quest.Rewards.Item.add(133,1)
