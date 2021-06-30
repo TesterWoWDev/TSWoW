@@ -9,7 +9,7 @@ mob.Level.set(1,3)
 let item = std.Items.create(MODNAME,'quest1-item',2934)//replace 2934 with parentItem
 item.Name.enGB.set('eej')
 item.Description.enGB.set('asdasd')
-item.Bonding.setQuestItem()
+item.Bonding.setQuestItem()//not need if your parent item is a quest item as well
 
 let quest = std.Quests.create(MODNAME,'quest1-quest')
 //option 1
