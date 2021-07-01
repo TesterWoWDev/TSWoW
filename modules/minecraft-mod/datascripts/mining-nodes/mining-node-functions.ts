@@ -21,7 +21,7 @@ import { MODNAME } from "../database-setup"
 
 //setupMiningNode(makeMiningNode(name,displayID,lockID,modPrefix),metalID,refinedMetalID,[gem1,gem2,gem3])
 
-function makeMiningNode(name:string,displayID:number,lockID:number,modPrefix:string):GameObjectChest{
+export function makeMiningNode(name:string,displayID:number,lockID:number,modPrefix:string):GameObjectChest{
     let miningNode = std.GameObjectTemplates.create(MODNAME,modPrefix,1731).setChest()
     miningNode.Name.enGB.set(name)
     miningNode.Display.setID(displayID)//currently copper vein
@@ -29,7 +29,7 @@ function makeMiningNode(name:string,displayID:number,lockID:number,modPrefix:str
     return miningNode
 }
 
-function setupMiningNode(miningNode: GameObjectChest, metalID: number, refinedMetalID: number, gemIDArray: number[]):number {
+export function setupMiningNode(miningNode: GameObjectChest, metalID: number, refinedMetalID: number, gemIDArray: number[]):number {
     miningNode.Loot.addItem(metalID,100,1,2)
     miningNode.Loot.addItem(refinedMetalID,50,1,2)
     gemIDArray.forEach((value,index,arr)=>{
