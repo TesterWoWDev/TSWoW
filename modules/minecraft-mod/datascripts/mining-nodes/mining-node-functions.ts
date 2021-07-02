@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
 import { MODNAME } from "../database-setup"
+
 //lockID-mining skill required
 // 38-0
 // 18-25
@@ -19,21 +20,33 @@ import { MODNAME } from "../database-setup"
 // 1652-350
 // 1651-375
 
-//setupMiningNode(makeMiningNode(name,displayID,lockID,modPrefix),metalID,refinedMetalID,[gem1,gem2,gem3])
-
 export function makeMiningNode(name:string,displayID:number,lockID:number,modPrefix:string):GameObjectChest{
-    let miningNode = std.GameObjectTemplates.create(MODNAME,modPrefix,1731).setChest()
+    let miningNode = std.GameObjectTemplates.create(MODNAME,modPrefix + name.toLowerCase().replace(' ','-'),1731).setChest()
     miningNode.Name.enGB.set(name)
     miningNode.Display.setID(displayID)//currently copper vein
     miningNode.Lock.setID(lockID)
     return miningNode
 }
 
-export function setupMiningNode(miningNode: GameObjectChest, metalID: number, refinedMetalID: number, gemIDArray: number[]):number {
+export function setupMiningNode(miningNode: GameObjectChest, metalID: number, refinedMetalID: number, armorGem:number, gemIDArray: number[][]):number {
     miningNode.Loot.addItem(metalID,100,1,2)
     miningNode.Loot.addItem(refinedMetalID,50,1,2)
-    gemIDArray.forEach((value,index,arr)=>{
-        miningNode.Loot.addItem(value,10,1,1)
+    miningNode.Loot.addItem(armorGem,10,1,1)
+    gemIDArray.forEach((value: number[],index,arr)=>{//all gem colors
+        value.forEach(element => {//specific gem colors
+            miningNode.Loot.addItem(element,1,1,1)//specific gems
+        });
     })
     return miningNode.ID
 }   
+
+export function createAllUndiscoverGems(gemCount: number, gemName: string, gemDisplayID: any):number[] {
+    let allGemIDs = []
+    for(let i=0;i<gemCount;i++){
+        let gem = std.Items.create(MODNAME,gemName.toLowerCase().replace(' ','-') + '-'+i,2934)
+        gem.Name.enGB.set('Unrefined '+gemName)
+        gem.DisplayInfo.setID(gemDisplayID)
+        allGemIDs.push(gem.ID)
+    }
+    return allGemIDs
+}
