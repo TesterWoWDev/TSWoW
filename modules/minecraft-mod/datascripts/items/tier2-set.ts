@@ -4,11 +4,11 @@ import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes,
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { stickItem, stringItem } from "./string"
 
-export let tierTwoBaseResources = createBaseResources('tier2','|cff0CD21ERusty',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal'],[35916,35338,39340,7355,7389])
+export let tierTwoBaseResources = createBaseResources(2,'tier2','Rusty',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal'],[35916,35338,39340,7355,7389])
 
-export let tierTwoMailMaterial = createMaterial('tier2','|cff0CD21ERusty Mail Scraps','mail armor pieces',22924)
-export let tierTwoLeatherMaterial = createMaterial('tier2','|cff0CD21ERusty Leather Scraps','leather armor pieces',29468)
-export let tierTwoClothMaterial = createMaterial('tier2','|cff0CD21ERusty Cloth Scraps','cloth armor pieces',7383)
+export let tierTwoMailMaterial = createMaterial(2,'tier2','Rusty Mail Scraps','mail armor pieces',22924)
+export let tierTwoLeatherMaterial = createMaterial(2,'tier2','Rusty Leather Scraps','leather armor pieces',29468)
+export let tierTwoClothMaterial = createMaterial(2,'tier2','Rusty Cloth Scraps','cloth armor pieces',7383)
 
 export let tierTwoMailGear = createGear('tier2-mail',1,1,3,61,['Initiate\'s Rusty Helm','Initiate\'s Rusty Necklace','Initiate\'s Rusty Spaulders','Initiate\'s Rusty Cloak','Initiate\'s Rusty Chestguard','Initiate\'s Rusty Bracers','Initiate\'s Rusty Gloves','Initiate\'s Rusty Belt','Initiate\'s Rusty Legguards','Initiate\'s Rusty Greaves','Initiate\'s Rusty Ring','Initiate\'s Rusty Trinket'],[22908,34034,28725,26278,28819,28844,15816,27951,28623,28383,18365,6337])
 export let tierTwoLeatherGear = createGear('tier2-leather',1,1,2,61,['Initiate\'s Rusty Hat','Initiate\'s Rusty Necklace','Initiate\'s Rusty Shoulderpads','Initiate\'s Rusty Cloak','Initiate\'s Rusty Chestpad','Initiate\'s Rusty Bracers','Initiate\'s Rusty Gloves','Initiate\'s Rusty Belt','Initiate\'s Rusty Pants','Initiate\'s Rusty Boots','Initiate\'s Rusty Ring','Initiate\'s Rusty Trinket'],[24933,34034,19113,26278,8721,28844,13681,24978,16764,25233,9837,18725])

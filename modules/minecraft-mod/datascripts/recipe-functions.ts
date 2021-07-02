@@ -18,9 +18,10 @@ import { MODNAME } from "./database-setup"
 
 
 
-export function createMaterial(tier:string,itemName:string,description:string,displayInfoID:number):number{
+export function createMaterial(QualityValue:number,tier:string,itemName:string,description:string,displayInfoID:number):number{
     let parentItem = 2934
     let item = std.Items.create(MODNAME, tier + '-' + itemName.toLowerCase().replace(' ','-'), parentItem)
+        item.Quality.set(QualityValue)
         item.Name.enGB.set(itemName)
         item.DisplayInfo.setID(displayInfoID)
         item.Description.enGB.set(description)
@@ -29,10 +30,11 @@ export function createMaterial(tier:string,itemName:string,description:string,di
         return item.ID
 }
 
-export function createBaseResources(tier:string,itemPrefix:string,Names:string[],displayIDs:number[]):number[]{
+export function createBaseResources(QualityValue:number,tier:string,itemPrefix:string,Names:string[],displayIDs:number[]):number[]{
     let returnIDs = []
     for(let i=0;i<Names.length;i++){
         let item = std.Items.create(MODNAME, tier + '-' + Names[i].toLowerCase().replace(' ','-'), 2934)
+        item.Quality.set(QualityValue)
         item.Name.enGB.set(itemPrefix + ' ' + Names[i])
         item.DisplayInfo.setID(displayIDs[i])
         //item.Description.enGB.set(description)
