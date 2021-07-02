@@ -18,29 +18,38 @@ import { MODNAME } from "./database-setup"
 
 
 
-export function createBaseResources(tierPrefix:string,prefix:string,description:string,itemNames:string[],displayInfoIDs:number[]):number[]{
+export function createMaterial(tier:string,itemName:string,description:string,displayInfoID:number):number{
     let parentItem = 2934
-    let test = ['gem','material','epulet','chain','metal','reinforced']
-    let allItemIDs = []
-    for(let i=0;i<test.length;i++){
-        let item = std.Items.create(MODNAME, tierPrefix + '-' + test[i].replace("'",""), parentItem)
-        item.Name.enGB.set(prefix + ' ' + itemNames[i])
-        item.DisplayInfo.setID(displayInfoIDs[i])
+    let item = std.Items.create(MODNAME, tier + '-' + itemName.toLowerCase().replace(' ','-'), parentItem)
+        item.Name.enGB.set(itemName)
+        item.DisplayInfo.setID(displayInfoID)
         item.Description.enGB.set(description)
         item.ItemLevel.set(0)
         item.MaxStack.set(200)
-        allItemIDs.push(item.ID)
-    }
-    return allItemIDs
+        return item.ID
 }
 
-export function createGear(modfix:string,quality:number,statMultiplier:number,materialType:number,names:string[],display:number[]):number[]{
-    let ids = [[4,materialType,1],[4,0,2],[4,materialType,3],[4,1,16],[4,materialType,5],[4,materialType,9],[4,materialType,10],[4,materialType,6],[4,materialType,7],[4,materialType,8],[4,0,11],[4,0,12],[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
-    let cost:number[] = [5,9,6,6,8,4,4,3,7,4,6,7,7,7,7,4,15,15,15,7,15,5,6,5,11,7]
+export function createBaseResources(tier:string,itemPrefix:string,Names:string[],displayIDs:number[]):number[]{
+    let returnIDs = []
+    for(let i=0;i<Names.length;i++){
+        let item = std.Items.create(MODNAME, tier + '-' + Names[i].toLowerCase().replace(' ','-'), 2934)
+        item.Name.enGB.set(itemPrefix + ' ' + Names[i])
+        item.DisplayInfo.setID(displayIDs[i])
+        //item.Description.enGB.set(description)
+        item.ItemLevel.set(0)
+        item.MaxStack.set(200)
+        returnIDs.push(item.ID)
+    }
+    return returnIDs
+}
 
-    let allItems = []
+export function createGear(tier:string,quality:number,statMultiplier:number,materialType:number,names:string[],display:number[]):number[]{
+    let ids = [[4,materialType,1],[4,0,2],[4,materialType,3],[4,1,16],[4,materialType,5],[4,materialType,9],[4,materialType,10],[4,materialType,6],[4,materialType,7],[4,materialType,8],[4,0,11],[4,0,12]]
+    let costs = [5,9,6,6,8,4,4,3,7,4,6,7]
+    let returnIDs = []
+
     for(let i=0;i<names.length;i++){
-        let item = std.Items.create(MODNAME,modfix + ' ' + names[i].replace("'",""),38)
+        let item = std.Items.create(MODNAME,tier + ' ' + names[i].toLowerCase().replace(" ","-"),38)
         item.Class.set(ids[i][0],ids[i][1])
         item.InventoryType.set(ids[i][2])
         item.Quality.set(quality)
@@ -49,12 +58,38 @@ export function createGear(modfix:string,quality:number,statMultiplier:number,ma
         item.DisplayInfo.setID(display[i])
         item.Durability.set(20)
         
-        let costval = (cost[i]/2)*statMultiplier
+        let costval = (costs[i]/2)*statMultiplier
+        item.ItemLevel.set(costval)
+        item.Stats.addStamina(costval*quality)
+        item.Stats.addHitRating(costval)
+        item.Armor.set(costval*10)
+
+        returnIDs.push(item.ID)
+    }
+    return returnIDs
+}
+
+export function createWeapons(tier:string,quality:number,statMultiplier:number,names:string[],display:number[]):number[]{
+    let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
+    let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
+    let returnIDs = []
+
+    for(let i=0;i<names.length;i++){
+        let item = std.Items.create(MODNAME,tier + ' ' + names[i].toLowerCase().replace(" ","-"),38)
+        item.Class.set(ids[i][0],ids[i][1])
+        item.InventoryType.set(ids[i][2])
+        item.Quality.set(quality)
+        item.Description.enGB.set('')
+        item.Name.enGB.set(names[i])
+        item.DisplayInfo.setID(display[i])
+        item.Durability.set(20)
+        
+        let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
         item.Stats.addStamina(costval*quality)
         item.Stats.addHitRating(costval)
         costval = costval*2
-        if(ids[i][0] == 2){//weapon need dps
+        if(ids[i][0] == 2){//weapon
             item.Material.setMetal()
             if(ids[i][2] == 17){//2h
                 item.Damage.addPhysical(costval*1.5,costval*2.2)
@@ -85,21 +120,18 @@ export function createGear(modfix:string,quality:number,statMultiplier:number,ma
                     value.SheatheType.set(3)
                 })
             }
-        }else{
-            if(ids[i][2] == 14){//shield
-                item.Stats.addBlockRating(costval)
-                item.Sheath.set(4)
-                DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
-                    value.SheatheType.set(4)
-                })
-            }
+        }else{//shield
             item.Armor.set(costval*5)
+            item.Stats.addBlockRating(costval)
+            item.Sheath.set(4)
+            DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
+                value.SheatheType.set(4)
+            })
         }
-        allItems.push(item.ID)
+        returnIDs.push(item.ID)
     }
-    return allItems
+    return returnIDs
 }
-
 export function generateGearRecipes(gem: Number, material: Number, epulet: Number, chain: Number,itemID: Number[]) {
     let zero = 0
     SQL.Databases.world_dest.write('INSERT INTO `minecraft_recipes` VALUES(' + material + ',' + material + ',' + material + ',' + material + ',' + zero + ',' + material + ',' + zero + ',' + zero + ',' + zero + ',' +

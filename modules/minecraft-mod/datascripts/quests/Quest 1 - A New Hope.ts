@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../database-setup"
-import { tierOneClothResources, tierOneLeatherResources, tierOneMailResources } from "../items/tier1-set"
+import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/tier1-set"
 
 let mob = std.CreatureTemplates.create(MODNAME,'quest1-mob',2934)//replace 2934 with parentCreature of a questgiver
 mob.Name.enGB.set('eh')
@@ -31,9 +31,9 @@ quest.Questgiver.addEnder(mob.ID)
 //option 2
 quest.Questgiver.addBoth(mob.ID)
 
-quest.Rewards.ChoiceItem.add(tierOneMailResources[1],2)//[1] is the material for each set
-quest.Rewards.ChoiceItem.add(tierOneLeatherResources[1],2)
-quest.Rewards.ChoiceItem.add(tierOneClothResources[1],2)
+quest.Rewards.ChoiceItem.add(tierOneMailMaterial,2)//[1] is the material for each set
+quest.Rewards.ChoiceItem.add(tierOneLeatherMaterial,2)
+quest.Rewards.ChoiceItem.add(tierOneClothMaterial,2)
 quest.Rewards.Money.set(156)
 
 quest.Text.Title.enGB.set('A New Hope')
