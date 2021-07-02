@@ -2,9 +2,9 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../database-setup"
 import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { stickItem, stringItem } from "./string"
+import { stringItem } from "./string"
 
-export let tierFourBaseResources = createBaseResources(4,'tier4','Pristine',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal'],[35916,35338,39340,7355,7389])
+export let tierFourBaseResources = createBaseResources(4,'tier4','Pristine',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick'],[35916,35338,39340,7355,7389,2618])
 
 export let tierFourMailMaterial = createMaterial(4,'tier4','Pristine Mail Scraps','mail armor pieces',22924)
 export let tierFourLeatherMaterial = createMaterial(4,'tier4','Pristine Leather Scraps','leather armor pieces',29468)
@@ -20,7 +20,7 @@ generateGearRecipes(tierFourBaseResources[0],tierFourMailMaterial,tierFourBaseRe
 generateGearRecipes(tierFourBaseResources[0],tierFourLeatherMaterial,tierFourBaseResources[1],tierFourBaseResources[2],tierFourLeatherGear)
 generateGearRecipes(tierFourBaseResources[0],tierFourClothMaterial,tierFourBaseResources[1],tierFourBaseResources[2],tierFourClothGear)
 
-generateWeaponRecipes(tierFourBaseResources[0],stickItem.ID,tierFourBaseResources[3],tierFourBaseResources[4],stringItem.ID,tierFourWeapons)
+generateWeaponRecipes(tierFourBaseResources[0],tierFourBaseResources[5],tierFourBaseResources[3],tierFourBaseResources[4],stringItem.ID,tierFourWeapons)
 
 //remove below
 let vendor = std.CreatureTemplates.create(MODNAME,'cacheme4',3482)
@@ -31,7 +31,6 @@ vendor.FactionTemplate.set(35)
 SQL.Databases.world_dest.writeEarly('DELETE FROM npc_vendor WHERE entry = ' + vendor.ID + '')
 
 vendor.Vendor.addItem(stringItem.ID)
-vendor.Vendor.addItem(stickItem.ID)
 vendor.Vendor.addItem(tierFourMailMaterial)
 vendor.Vendor.addItem(tierFourLeatherMaterial)
 vendor.Vendor.addItem(tierFourClothMaterial)

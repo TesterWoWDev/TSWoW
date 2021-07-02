@@ -2,9 +2,9 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../database-setup"
 import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { stickItem, stringItem } from "./string"
+import { stringItem } from "./string"
 
-export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal'],[35916,35338,39340,7355,7389])
+export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick'],[35916,35338,39340,7355,7389,2618])
 
 export let tierThreeMailMaterial = createMaterial(3,'tier3','Polished Mail Scraps','mail armor pieces',22924)
 export let tierThreeLeatherMaterial = createMaterial(3,'tier3','Polished Leather Scraps','leather armor pieces',29468)
@@ -20,7 +20,7 @@ generateGearRecipes(tierThreeBaseResources[0],tierThreeMailMaterial,tierThreeBas
 generateGearRecipes(tierThreeBaseResources[0],tierThreeLeatherMaterial,tierThreeBaseResources[1],tierThreeBaseResources[2],tierThreeLeatherGear)
 generateGearRecipes(tierThreeBaseResources[0],tierThreeClothMaterial,tierThreeBaseResources[1],tierThreeBaseResources[2],tierThreeClothGear)
 
-generateWeaponRecipes(tierThreeBaseResources[0],stickItem.ID,tierThreeBaseResources[3],tierThreeBaseResources[4],stringItem.ID,tierThreeWeapons)
+generateWeaponRecipes(tierThreeBaseResources[0],tierThreeBaseResources[5],tierThreeBaseResources[3],tierThreeBaseResources[4],stringItem.ID,tierThreeWeapons)
 
 //remove below
 let vendor = std.CreatureTemplates.create(MODNAME,'cacheme3',3482)
@@ -31,7 +31,6 @@ vendor.FactionTemplate.set(35)
 SQL.Databases.world_dest.writeEarly('DELETE FROM npc_vendor WHERE entry = ' + vendor.ID + '')
 
 vendor.Vendor.addItem(stringItem.ID)
-vendor.Vendor.addItem(stickItem.ID)
 vendor.Vendor.addItem(tierThreeMailMaterial)
 vendor.Vendor.addItem(tierThreeLeatherMaterial)
 vendor.Vendor.addItem(tierThreeClothMaterial)

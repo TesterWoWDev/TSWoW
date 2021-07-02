@@ -2,9 +2,9 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../database-setup"
 import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { stickItem, stringItem } from "./string"
+import { stringItem } from "./string"
 
-export let tierTwoBaseResources = createBaseResources(2,'tier2','Rusty',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal'],[35916,35338,39340,7355,7389])
+export let tierTwoBaseResources = createBaseResources(2,'tier2','Rusty',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick'],[35916,35338,39340,7355,7389,2618])
 
 export let tierTwoMailMaterial = createMaterial(2,'tier2','Rusty Mail Scraps','mail armor pieces',22924)
 export let tierTwoLeatherMaterial = createMaterial(2,'tier2','Rusty Leather Scraps','leather armor pieces',29468)
@@ -20,7 +20,7 @@ generateGearRecipes(tierTwoBaseResources[0],tierTwoMailMaterial,tierTwoBaseResou
 generateGearRecipes(tierTwoBaseResources[0],tierTwoLeatherMaterial,tierTwoBaseResources[1],tierTwoBaseResources[2],tierTwoLeatherGear)
 generateGearRecipes(tierTwoBaseResources[0],tierTwoClothMaterial,tierTwoBaseResources[1],tierTwoBaseResources[2],tierTwoClothGear)
 
-generateWeaponRecipes(tierTwoBaseResources[0],stickItem.ID,tierTwoBaseResources[3],tierTwoBaseResources[4],stringItem.ID,tierTwoWeapons)
+generateWeaponRecipes(tierTwoBaseResources[0],tierTwoBaseResources[5],tierTwoBaseResources[3],tierTwoBaseResources[4],stringItem.ID,tierTwoWeapons)
 
 //remove below
 let vendor = std.CreatureTemplates.create(MODNAME,'cacheme2',3482)
@@ -31,7 +31,6 @@ vendor.FactionTemplate.set(35)
 SQL.Databases.world_dest.writeEarly('DELETE FROM npc_vendor WHERE entry = ' + vendor.ID + '')
 
 vendor.Vendor.addItem(stringItem.ID)
-vendor.Vendor.addItem(stickItem.ID)
 vendor.Vendor.addItem(tierTwoMailMaterial)
 vendor.Vendor.addItem(tierTwoLeatherMaterial)
 vendor.Vendor.addItem(tierTwoClothMaterial)
