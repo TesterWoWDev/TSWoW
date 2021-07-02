@@ -61,8 +61,8 @@ export function createGear(tier:string,quality:number,statMultiplier:number,mate
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
         item.Stats.addStamina(costval*quality)
-        item.Stats.addHitRating(costval)
-        item.Armor.set(costval*10)
+        item.Stats.addHitRating(costval/2)
+        item.Armor.set(costval*materialType*3)
 
         returnIDs.push(item.ID)
     }
