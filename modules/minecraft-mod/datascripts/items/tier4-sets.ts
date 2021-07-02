@@ -4,11 +4,11 @@ import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes,
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { stickItem, stringItem } from "./string"
 
-export let tierFourBaseResources = createBaseResources('tier4','Rusty',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal'],[35916,35338,39340,7355,7389])
+export let tierFourBaseResources = createBaseResources('tier4','Pristine',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal'],[35916,35338,39340,7355,7389])
 
-export let tierFourMailMaterial = createMaterial('tier4','Rusty Mail Scraps','mail armor pieces',22924)
-export let tierFourLeatherMaterial = createMaterial('tier4','Rusty Leather Scraps','leather armor pieces',29468)
-export let tierFourClothMaterial = createMaterial('tier4','Rusty Cloth Scraps','cloth armor pieces',7383)
+export let tierFourMailMaterial = createMaterial('tier4','Pristine Mail Scraps','mail armor pieces',22924)
+export let tierFourLeatherMaterial = createMaterial('tier4','Pristine Leather Scraps','leather armor pieces',29468)
+export let tierFourClothMaterial = createMaterial('tier4','Pristine Cloth Scraps','cloth armor pieces',7383)
 
 export let tierFourMailGear = createGear('tier4-mail',4,1,3,61,['General\'s Relinquished Helm','General\'s Relinquished Necklace','General\'s Relinquished Spaulders','General\'s Relinquished Cloak','General\'s Relinquished Chestguard','General\'s Relinquished Bracers','General\'s Relinquished Gloves','General\'s Relinquished Belt','General\'s Relinquished Legguards','General\'s Relinquished Greaves','General\'s Relinquished Ring','General\'s Relinquished Trinket'],[42353,32008,42351,23422,42352,35044,42355,42603,42354,42604,39126,39917])
 export let tierFourLeatherGear = createGear('tier4-leather',4,1,1,61,['General\'s Relinquished Headress','General\'s Relinquished Necklace','General\'s Relinquished Shoulders','General\'s Relinquished Cloak','General\'s Relinquished Chestpiece','General\'s Relinquished Bracers','General\'s Relinquished Gloves','General\'s Relinquished Belt','General\'s Relinquished Leggings','General\'s Relinquished Mocassins','General\'s Relinquished Ring','General\'s Relinquished Trinket'],[43759,45351,42443,23422,43075,35044,43073,43078,43076,43082,39124,48971])
