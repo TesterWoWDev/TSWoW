@@ -55,8 +55,9 @@ createRecipe([0,red8,0,0,-1,0,0,0,0],[red8,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('|cffDC9415+7 Spell Power').ItemVisual.set(0)
 
+export let tier1RedGems = [red1,red2,red3,red4,red5,red6,red7,red8]
 export let undiscoveredReds = createAllUndiscoverGems(8,'Blood Garnet',39911)
-gemLevelUpPattern(tierOneBaseResources[6],undiscoveredReds,[red1,red2,red3,red4,red5,red6,red7,red8])
+gemLevelUpPattern(tierOneBaseResources[6],undiscoveredReds,tier1RedGems)
 
 // Green Gems
 let green1 = createGem('green1','Radiant Deep Peridot',35843,'',GemPropertyIndex,10)
@@ -94,8 +95,9 @@ createRecipe([0,green7,0,0,-1,0,0,0,0],[green7,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,31).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,37).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff278916+8 Hit Rating and +5 Expertise Rating').ItemVisual.set(0)
 
+export let tier1GreenGems = [green1,green2,green3,green4,green5,green6,green7]
 export let undiscoveredGreens = createAllUndiscoverGems(7,'Deep Peridot',44729)
-gemLevelUpPattern(tierOneBaseResources[6],undiscoveredGreens,[green1,green2,green3,green4,green5,green6,green7])
+gemLevelUpPattern(tierOneBaseResources[6],undiscoveredGreens,tier1GreenGems)
 
 // Purple Gems
 let purple1 = createGem('purple1','Shifting Shadow Draenite',35847,'',GemPropertyIndex,10)
@@ -133,8 +135,9 @@ createRecipe([0,purple7,0,0,-1,0,0,0,0],[purple7,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set('|cff8802CA+10 Critical Strike Rating and +5 Expertise Rating').ItemVisual.set(0)
 
+export let tier1PurpleGems = [purple1,purple2,purple3,purple4,purple5,purple6,purple7]
 export let undiscoveredPurples = createAllUndiscoverGems(7,'Shadow Draenite',39933)
-gemLevelUpPattern(tierOneBaseResources[6],undiscoveredPurples,[purple1,purple2,purple3,purple4,purple5,purple6,purple7])
+gemLevelUpPattern(tierOneBaseResources[6],undiscoveredPurples,tier1PurpleGems)
 
 // Yellow Gems - Critical Strike Gems
 let yellow1 = createGem('yellow1','Brilliant Golden Draenite',35848,'',GemPropertyIndex,10)
@@ -162,7 +165,8 @@ createRecipe([0,yellow5,0,0,-1,0,0,0,0],[yellow5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Name.enGB.set('|cffB9AC09+15 Critical Strike Rating').ItemVisual.set(0)
 
+export let tier1YellowGems = [yellow1,yellow2,yellow3,yellow4,yellow5]
 export let undiscoveredYellows = createAllUndiscoverGems(5,'Shadow Draenite',39938)
-gemLevelUpPattern(tierOneBaseResources[6],undiscoveredYellows,[yellow1,yellow2,yellow3,yellow4,yellow5])
+gemLevelUpPattern(tierOneBaseResources[6],undiscoveredYellows,tier1YellowGems)
 
 additems(vendor2,[red1,red2,red3,red4,red5,red6,red7,red8,green1,green2,green3,green4,green5,green6,green7,purple1,purple2,purple3,purple4,purple5,purple6,purple7,yellow1,yellow2,yellow3,yellow4,yellow5])
