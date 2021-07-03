@@ -1,7 +1,7 @@
 import { CreatureTemplate } from "tswow-stdlib/Creature/CreatureTemplate"
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
-import { createRecipe } from "../../general-functions/recipe-functions"
+import { createRecipe } from "../../functions/recipe-functions"
 
 export function createGem(modprefix:string,name:string,displayinfo:number,description:string,gemProp:number,itemlevel:number):number{
     let gem = std.Items.create(MODNAME,modprefix,2934)
