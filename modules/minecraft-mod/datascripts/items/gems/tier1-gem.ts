@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../../database-setup"
+import { MODNAME } from "../../modname"
 import { createRecipe } from "../../recipe-functions"
 import { DBC_GemProperties } from "wotlkdata/dbc/types/GemProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"

@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../database-setup"
+import { MODNAME } from "../modname"
 import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { stringItem } from "./string"

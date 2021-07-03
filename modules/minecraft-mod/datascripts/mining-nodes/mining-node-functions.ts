@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib"
 import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
-import { MODNAME } from "../database-setup"
+import { MODNAME } from "../modname"
 
 //lockID-mining skill required
 // 38-0
