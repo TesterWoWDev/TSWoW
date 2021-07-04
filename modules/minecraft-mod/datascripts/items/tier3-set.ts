@@ -6,9 +6,9 @@ import { stringItem } from "./string"
 
 export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20614])
 
-export let tierThreeMailMaterial = createMaterial(3,'tier3','Polished Mail Scraps','mail armor pieces',22924)
-export let tierThreeLeatherMaterial = createMaterial(3,'tier3','Polished Leather Scraps','leather armor pieces',29468)
-export let tierThreeClothMaterial = createMaterial(3,'tier3','Polished Cloth Scraps','cloth armor pieces',7383)
+export let tierThreeMailMaterial = createMaterial(3,'tier3','Polished Mail Scraps','mail armor pieces',22924,'|CFFFFFFFF')
+export let tierThreeLeatherMaterial = createMaterial(3,'tier3','Polished Leather Scraps','leather armor pieces',29468,'|CFFFFFFFF')
+export let tierThreeClothMaterial = createMaterial(3,'tier3','Polished Cloth Scraps','cloth armor pieces',7383,'|CFFFFFFFF')
 
 export let tierThreeMailGear = createGear('tier3-mail',3,3.5,3,6273,102,['Officer\'s Polished Helm','Officer\'s Polished Necklace','Officer\'s Polished Spaulders','Officer\'s Polished Cloak','Officer\'s Polished Chestguard','Officer\'s Polished Bracers','Officer\'s Polished Gloves','Officer\'s Polished Belt','Officer\'s Polished Legguards','Officer\'s Polished Greaves','Officer\'s Polished Ring','Officer\'s Polished Trinket'],[22886,15420,26894,15273,25746,35044,26888,33633,22882,43734,28830,31287])
 export let tierThreeLeatherGear = createGear('tier3-leather',3,3.2,2,6273,102,['Officer\'s Polished Headress','Officer\'s Polished Necklace','Officer\'s Polished Shoulders','Officer\'s Polished Cloak','Officer\'s Polished Chestpiece','Officer\'s Polished Bracers','Officer\'s Polished Gloves','Officer\'s Polished Belt','Officer\'s Polished Leggings','Officer\'s Polished Mocassins','Officer\'s Polished Ring','Officer\'s Polished Trinket'],[43883,32008,43319,45480,38920,45400,48920,43300,43304,45787,44086,53454])

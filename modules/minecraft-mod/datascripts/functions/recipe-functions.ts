@@ -18,11 +18,11 @@ import { MODNAME } from "../modname"
 
 
 
-export function createMaterial(QualityValue:number,tier:string,itemName:string,description:string,displayInfoID:number):number{
+export function createMaterial(QualityValue:number,tier:string,itemName:string,description:string,displayInfoID:number,colorCode:string):number{
     let parentItem = 2934
     let item = std.Items.create(MODNAME, tier + '-' + itemName.toLowerCase().replace(' ','-'), parentItem)
         item.Quality.set(QualityValue)
-        item.Name.enGB.set(itemName)
+        item.Name.enGB.set(colorCode + itemName + "|r")
         item.DisplayInfo.setID(displayInfoID)
         item.Description.enGB.set(description)
         item.ItemLevel.set(0)
