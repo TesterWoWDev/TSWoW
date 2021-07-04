@@ -61,6 +61,8 @@ export function createGear(tier:string,quality:number,statMultiplier:number,mate
         item.Durability.set(20)
         item.RandomProperty.set(randomPropID)
         item.DisenchantID.set(disenchantID)
+        item.RequiredDisenchantSkill.set(1)
+        item.Flags.set(0)
         
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
@@ -89,6 +91,8 @@ export function createWeapons(tier:string,quality:number,statMultiplier:number,r
         item.Durability.set(20)
         item.RandomProperty.set(randomPropID)
         item.DisenchantID.set(disenchantID)
+        item.RequiredDisenchantSkill.set(1)
+        item.Flags.set(0)
 
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
