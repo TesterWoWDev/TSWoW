@@ -4,7 +4,7 @@ import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes,
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { stringItem } from "./string"
 
-export let tierOneBaseResources = createBaseResources(1,'tier1','Worn',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20611])
+export let tierOneBaseResources = createBaseResources(1,'tier1','Worn','|CFFFFFFFF',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20611])
 
 export let tierOneMailMaterial = createMaterial(1,'tier1','Worn Mail Scraps','mail armor pieces',22924,'|CFFFFFFFF')
 export let tierOneLeatherMaterial = createMaterial(1,'tier1','Worn Leather Scraps','leather armor pieces',29468,'|CFFFFFFFF')

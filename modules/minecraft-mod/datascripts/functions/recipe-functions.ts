@@ -30,12 +30,12 @@ export function createMaterial(QualityValue:number,tier:string,itemName:string,d
         return item.ID
 }
 
-export function createBaseResources(QualityValue:number,tier:string,itemPrefix:string,Names:string[],displayIDs:number[]):number[]{
+export function createBaseResources(QualityValue:number,tier:string,itemPrefix:string,colorCode:string,Names:string[],displayIDs:number[]):number[]{
     let returnIDs = []
     for(let i=0;i<Names.length;i++){
         let item = std.Items.create(MODNAME, tier + '-' + Names[i].toLowerCase().replace(' ','-'), 2934)
         item.Quality.set(QualityValue)
-        item.Name.enGB.set(itemPrefix + ' ' + Names[i])
+        item.Name.enGB.set(colorCode + itemPrefix + ' ' + Names[i]+'|r')
         item.DisplayInfo.setID(displayIDs[i])
         //item.Description.enGB.set(description)
         item.ItemLevel.set(0)
