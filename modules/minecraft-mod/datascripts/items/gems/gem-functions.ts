@@ -20,9 +20,11 @@ export function createGem(modprefix:string,name:string,displayinfo:number,descri
         return gem.ID
 }
 
-export function additems(vendor: CreatureTemplate, arg1: number[]) {
-    arg1.forEach((value,index,arr)=>{
-        vendor.Vendor.addItem(value)
+export function additems(vendor: CreatureTemplate, allGems: number[][]) {
+    allGems.forEach((value,index,arr)=>{
+        value.forEach((gem)=>{
+            vendor.Vendor.addItem(gem)
+        })
     })
 }
 

@@ -169,4 +169,4 @@ export let tier1YellowGems = [yellow1,yellow2,yellow3,yellow4,yellow5]
 export let undiscoveredYellows = createAllUndiscoverGems(5,'Shadow Draenite',39938)
 gemLevelUpPattern(tierOneBaseResources[6],undiscoveredYellows,tier1YellowGems)
 
-additems(vendor2,[red1,red2,red3,red4,red5,red6,red7,red8,green1,green2,green3,green4,green5,green6,green7,purple1,purple2,purple3,purple4,purple5,purple6,purple7,yellow1,yellow2,yellow3,yellow4,yellow5])
+additems(vendor2,[tier1RedGems,tier1GreenGems,tier1PurpleGems,tier1YellowGems])
