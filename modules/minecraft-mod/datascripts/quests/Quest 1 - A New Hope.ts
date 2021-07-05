@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../modname"
-import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/tier1-set"
+import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/armor/tier1-set"
 
 let mob = std.CreatureTemplates.create(MODNAME,'quest1-mob',2934)//replace 2934 with parentCreature of a questgiver
 mob.Name.enGB.set('eh')

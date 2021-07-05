@@ -1,8 +1,8 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../modname"
-import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../functions/recipe-functions"
+import { MODNAME } from "../../modname"
+import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../../functions/recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { stringItem } from "./string"
+import { stringItem } from "../string"
 
 export let tierFourBaseResources = createBaseResources(4,'tier4','Pristine','|CFFFFFFFF',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20614])
 

@@ -4,7 +4,7 @@ import { createRecipe } from "../../functions/recipe-functions"
 import { DBC_GemProperties } from "wotlkdata/dbc/types/GemProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
 import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "./gem-functions"
-import { tierThreeBaseResources } from "../tier3-set"
+import { tierThreeBaseResources } from "../armor/tier3-set"
 import { tier2blueGems, tier2GreenGems, tier2orangeGems, tier2PurpleGems, tier2RedGems, tier2YellowGems } from "./tier2-gems"
 let vendor2 = std.CreatureTemplates.create(MODNAME,'gemdude3',3482)
 vendor2.Name.enGB.set('Test Gems 3')
@@ -13,44 +13,45 @@ vendor2.FactionTemplate.set(35)
 let GemPropertyIndex = 2300
 let SpellItemEnchantmentIndex = 5300
 let GemQuality3 = 3
+let BagFamily = 512
 
 // Red Gems 
-let Tier3red1 = createGem(GemQuality3,'Tier3red1','|cff0975C1Teardrop Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier3red1 = createGem(GemQuality3,'Tier3red1','|cff0975C1Teardrop Blood Garnet',35930,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3red1,0,0,-1,0,0,0,0],[Tier3red1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Name.enGB.set(redColorCode + '+10 Agility').ItemVisual.set(0).Flags.set(0)
 
-let Tier3red2 = createGem(GemQuality3,'Tier3red2','|cff0975C1Bold Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier3red2 = createGem(GemQuality3,'Tier3red2','|cff0975C1Bold Blood Garnet',35930,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3red2,0,0,-1,0,0,0,0],[Tier3red2,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Name.enGB.set(redColorCode + '+10 Intellect').ItemVisual.set(0).Flags.set(0)
 
-let Tier3red3 = createGem(GemQuality3,'Tier3red3','|cff0975C1Runed Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier3red3 = createGem(GemQuality3,'Tier3red3','|cff0975C1Runed Blood Garnet',35930,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3red3,0,0,-1,0,0,0,0],[Tier3red3,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,12).EffectPointsMin.setIndex(0,12).Name.enGB.set(redColorCode + '+12 Spirit').ItemVisual.set(0).Flags.set(0)
 
-let Tier3red4 = createGem(GemQuality3,'Tier3red4','|cff0975C1Delicate Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier3red4 = createGem(GemQuality3,'Tier3red4','|cff0975C1Delicate Blood Garnet',35930,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3red4,0,0,-1,0,0,0,0],[Tier3red4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Name.enGB.set(redColorCode + '+10 Stamina').ItemVisual.set(0).Flags.set(0)
 
-let Tier3red5 = createGem(GemQuality3,'Tier3red5','|cff0975C1Stark Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier3red5 = createGem(GemQuality3,'Tier3red5','|cff0975C1Stark Blood Garnet',35930,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3red5,0,0,-1,0,0,0,0],[Tier3red5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Name.enGB.set(redColorCode + '+10 Strength').ItemVisual.set(0).Flags.set(0)
 
-let Tier3red6 = createGem(GemQuality3,'Tier3red6','|cff0975C1Mighty Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier3red6 = createGem(GemQuality3,'Tier3red6','|cff0975C1Mighty Blood Garnet',35930,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3red6,0,0,-1,0,0,0,0],[Tier3red6,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,38).EffectPointsMax.setIndex(0,21).EffectPointsMin.setIndex(0,21).Name.enGB.set(redColorCode + '+21 Attack Power').ItemVisual.set(0).Flags.set(0)
 
-let Tier3red7 = createGem(GemQuality3,'Tier3red7','|cff0975C1Bright Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier3red7 = createGem(GemQuality3,'Tier3red7','|cff0975C1Bright Blood Garnet',35930,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3red7,0,0,-1,0,0,0,0],[Tier3red7,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,4).EffectArg.setIndex(0,0).EffectPointsMax.setIndex(0,45).EffectPointsMin.setIndex(0,45).Name.enGB.set(redColorCode + '+45 Armor').ItemVisual.set(0).Flags.set(0)
 
-let Tier3red8 = createGem(GemQuality3,'Tier3red8','|cff0975C1Mighty Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier3red8 = createGem(GemQuality3,'Tier3red8','|cff0975C1Mighty Blood Garnet',35930,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3red8,0,0,-1,0,0,0,0],[Tier3red8,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,21).EffectPointsMin.setIndex(0,21).Name.enGB.set(redColorCode + '+21 Spell Power').ItemVisual.set(0).Flags.set(0)
@@ -59,37 +60,37 @@ export let Tier3RedGems = [Tier3red1,Tier3red2,Tier3red3,Tier3red4,Tier3red5,Tie
 gemLevelUpPattern(tierThreeBaseResources[6],tier2RedGems,Tier3RedGems)
 
 // Green Gems
-let Tier3green1 = createGem(GemQuality3,'Tier3green1','|cff0975C1Radiant Deep Peridot',35843,'',GemPropertyIndex,10)
+let Tier3green1 = createGem(GemQuality3,'Tier3green1','|cff0975C1Radiant Deep Peridot',35843,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3green1,0,0,-1,0,0,0,0],[Tier3green1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,38).EffectPointsMax.setIndex(1,15).EffectPointsMin.setIndex(1,15).Name.enGB.set(greenColorCode + '+8 Agility and +15 Attack Power').ItemVisual.set(0).Flags.set(0)
 
-let Tier3green2 = createGem(GemQuality3,'Tier3green2','|cff0975C1Jagged Deep Peridot',35843,'',GemPropertyIndex,10)
+let Tier3green2 = createGem(GemQuality3,'Tier3green2','|cff0975C1Jagged Deep Peridot',35843,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3green2,0,0,-1,0,0,0,0],[Tier3green2,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,38).EffectPointsMax.setIndex(1,15).EffectPointsMin.setIndex(1,15).Name.enGB.set(greenColorCode + '+8 Strength and +15 Attack Power').ItemVisual.set(0).Flags.set(0)
 
-let Tier3green3 = createGem(GemQuality3,'Tier3green3','|cff0975C1Enduring Deep Peridot',35843,'',GemPropertyIndex,10)
+let Tier3green3 = createGem(GemQuality3,'Tier3green3','|cff0975C1Enduring Deep Peridot',35843,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3green3,0,0,-1,0,0,0,0],[Tier3green3,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,45).EffectPointsMax.setIndex(1,15).EffectPointsMin.setIndex(1,15).Name.enGB.set(greenColorCode + '+8 Intellect and +15 Spell Power').ItemVisual.set(0).Flags.set(0)
 
-let Tier3green4 = createGem(GemQuality3,'Tier3green4','|cff0975C1Dazzling Deep Peridot',35843,'',GemPropertyIndex,10)
+let Tier3green4 = createGem(GemQuality3,'Tier3green4','|cff0975C1Dazzling Deep Peridot',35843,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3green4,0,0,-1,0,0,0,0],[Tier3green4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,16).EffectPointsMin.setIndex(0,16).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,10).EffectPointsMin.setIndex(1,10).Name.enGB.set(greenColorCode + '+10 Intellect and +16 Spirit').ItemVisual.set(0).Flags.set(0)
 
-let Tier3green5 = createGem(GemQuality3,'Tier3green5','|cff0975C1Notched Deep Peridot',35843,'',GemPropertyIndex,10)
+let Tier3green5 = createGem(GemQuality3,'Tier3green5','|cff0975C1Notched Deep Peridot',35843,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3green5,0,0,-1,0,0,0,0],[Tier3green5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,12).EffectPointsMax.setIndex(0,18).EffectPointsMin.setIndex(0,18).Effect.setIndex(1,5).EffectArg.setIndex(1,13).EffectPointsMax.setIndex(1,18).EffectPointsMin.setIndex(1,18).Name.enGB.set(greenColorCode + '+18 Defense Rating and +18 Dodge Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3green6 = createGem(GemQuality3,'Tier3green6','|cff0975C1Barbed Deep Peridot',35843,'',GemPropertyIndex,10)
+let Tier3green6 = createGem(GemQuality3,'Tier3green6','|cff0975C1Barbed Deep Peridot',35843,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3green6,0,0,-1,0,0,0,0],[Tier3green6,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,36).EffectPointsMax.setIndex(0,12).EffectPointsMin.setIndex(0,12).Effect.setIndex(1,5).EffectArg.setIndex(1,31).EffectPointsMax.setIndex(1,12).EffectPointsMin.setIndex(1,12).Name.enGB.set(greenColorCode + '+12 Haste Rating and +12 Hit Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3green7 = createGem(GemQuality3,'Tier3green7','|cff0975C1Unstable Deep Peridot',35843,'',GemPropertyIndex,10)
+let Tier3green7 = createGem(GemQuality3,'Tier3green7','|cff0975C1Unstable Deep Peridot',35843,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3green7,0,0,-1,0,0,0,0],[Tier3green7,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,31).EffectPointsMax.setIndex(0,18).EffectPointsMin.setIndex(0,18).Effect.setIndex(1,5).EffectArg.setIndex(1,37).EffectPointsMax.setIndex(1,15).EffectPointsMin.setIndex(1,15).Name.enGB.set(greenColorCode + '+18 Hit Rating and +15 Expertise Rating').ItemVisual.set(0).Flags.set(0)
@@ -99,37 +100,37 @@ gemLevelUpPattern(tierThreeBaseResources[6],tier2GreenGems,Tier3GreenGems)
 
 
 // Purple Gems
-let Tier3purple1 = createGem(GemQuality3,'Tier3purple1','|cff0975C1Shifting Shadow Draenite',35847,'',GemPropertyIndex,10)
+let Tier3purple1 = createGem(GemQuality3,'Tier3purple1','|cff0975C1Shifting Shadow Draenite',35847,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3purple1,0,0,-1,0,0,0,0],[Tier3purple1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,31).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(purpleColorCode + '+8 Agility and +16 Hit Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3purple2 = createGem(GemQuality3,'Tier3purple2','|cff0975C1Sovereign Shadow Draenite',35847,'',GemPropertyIndex,10)
+let Tier3purple2 = createGem(GemQuality3,'Tier3purple2','|cff0975C1Sovereign Shadow Draenite',35847,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3purple2,0,0,-1,0,0,0,0],[Tier3purple2,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,31).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(purpleColorCode + '+8 Strength and +16 Hit Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3purple3 = createGem(GemQuality3,'Tier3purple3','|cff0975C1Infused Shadow Draenite',35847,'',GemPropertyIndex,10)
+let Tier3purple3 = createGem(GemQuality3,'Tier3purple3','|cff0975C1Infused Shadow Draenite',35847,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3purple3,0,0,-1,0,0,0,0],[Tier3purple3,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(purpleColorCode + '+8 Intellect and +16 Haste Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3purple4 = createGem(GemQuality3,'Tier3purple4','|cff0975C1Glowing Shadow Draenite',35847,'',GemPropertyIndex,10)
+let Tier3purple4 = createGem(GemQuality3,'Tier3purple4','|cff0975C1Glowing Shadow Draenite',35847,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3purple4,0,0,-1,0,0,0,0],[Tier3purple4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,20).EffectPointsMin.setIndex(0,20).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,14).EffectPointsMin.setIndex(1,14).Name.enGB.set(purpleColorCode + '+14 Haste Rating and +20 Spirit').ItemVisual.set(0).Flags.set(0)
 
-let Tier3purple5 = createGem(GemQuality3,'Tier3purple5','|cff0975C1Royal Shadow Draenite',35847,'',GemPropertyIndex,10)
+let Tier3purple5 = createGem(GemQuality3,'Tier3purple5','|cff0975C1Royal Shadow Draenite',35847,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3purple5,0,0,-1,0,0,0,0],[Tier3purple5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,15).EffectPointsMax.setIndex(0,30).EffectPointsMin.setIndex(0,30).Name.enGB.set(purpleColorCode + '+30 Block Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3purple6 = createGem(GemQuality3,'Tier3purple6','|cff0975C1Balanced Shadow Draenite',35847,'',GemPropertyIndex,10)
+let Tier3purple6 = createGem(GemQuality3,'Tier3purple6','|cff0975C1Balanced Shadow Draenite',35847,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3purple6,0,0,-1,0,0,0,0],[Tier3purple6,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,36).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,43).EffectPointsMax.setIndex(1,20).EffectPointsMin.setIndex(1,20).Name.enGB.set(purpleColorCode + '+8 Haste Rating and +20 Mana Per Second').ItemVisual.set(0).Flags.set(0)
 
-let Tier3purple7 = createGem(GemQuality3,'Tier3purple7','|cff0975C1Enthralled Shadow Draenite',35847,'',GemPropertyIndex,10)
+let Tier3purple7 = createGem(GemQuality3,'Tier3purple7','|cff0975C1Enthralled Shadow Draenite',35847,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3purple7,0,0,-1,0,0,0,0],[Tier3purple7,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,21).EffectPointsMin.setIndex(0,21).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,11).EffectPointsMin.setIndex(1,11).Name.enGB.set(purpleColorCode + '+21 Critical Strike Rating and +11 Expertise Rating').ItemVisual.set(0).Flags.set(0)
@@ -138,27 +139,27 @@ export let Tier3PurpleGems = [Tier3purple1,Tier3purple2,Tier3purple3,Tier3purple
 gemLevelUpPattern(tierThreeBaseResources[6],tier2PurpleGems,Tier3PurpleGems)
 
 // Yellow Gems
-let Tier3yellow1 = createGem(GemQuality3,'Tier3yellow1','|cff0975C1Brilliant Golden Draenite',35848,'',GemPropertyIndex,10)
+let Tier3yellow1 = createGem(GemQuality3,'Tier3yellow1','|cff0975C1Brilliant Golden Draenite',35848,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3yellow1,0,0,-1,0,0,0,0],[Tier3yellow1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(yellowColorCode + '+8 Agility and +16 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3yellow2 = createGem(GemQuality3,'Tier3yellow2','|cff0975C1Gleaming Golden Draenite',35848,'',GemPropertyIndex,10)
+let Tier3yellow2 = createGem(GemQuality3,'Tier3yellow2','|cff0975C1Gleaming Golden Draenite',35848,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3yellow2,0,0,-1,0,0,0,0],[Tier3yellow2,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(yellowColorCode + '+8 Strength and +16 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3yellow3 = createGem(GemQuality3,'Tier3yellow3','|cff0975C1Thick Golden Draenite',35848,'',GemPropertyIndex,10)
+let Tier3yellow3 = createGem(GemQuality3,'Tier3yellow3','|cff0975C1Thick Golden Draenite',35848,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3yellow3,0,0,-1,0,0,0,0],[Tier3yellow3,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(yellowColorCode + '+8 Intellect and +16 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3yellow4 = createGem(GemQuality3,'Tier3yellow4','|cff0975C1Rigid Golden Draenite',35848,'',GemPropertyIndex,10)
+let Tier3yellow4 = createGem(GemQuality3,'Tier3yellow4','|cff0975C1Rigid Golden Draenite',35848,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3yellow4,0,0,-1,0,0,0,0],[Tier3yellow4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,16).EffectPointsMin.setIndex(0,16).Effect.setIndex(1,5).EffectArg.setIndex(1,32).EffectPointsMax.setIndex(1,12).EffectPointsMin.setIndex(1,12).Name.enGB.set(yellowColorCode + '+12 Critical Strike Rating and +16 Spirit').ItemVisual.set(0).Flags.set(0)
 
-let Tier3yellow5 = createGem(GemQuality3,'Tier3yellow5','|cff0975C1Great Golden Draenite',35848,'',GemPropertyIndex,10)
+let Tier3yellow5 = createGem(GemQuality3,'Tier3yellow5','|cff0975C1Great Golden Draenite',35848,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3yellow5,0,0,-1,0,0,0,0],[Tier3yellow5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,30).EffectPointsMin.setIndex(0,30).Name.enGB.set(yellowColorCode + '+30 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
@@ -168,22 +169,22 @@ gemLevelUpPattern(tierThreeBaseResources[6],tier2YellowGems,Tier3YellowGems)
 
 //Blue Gems
 
-let Tier3blue1 = createGem(GemQuality3,'Tier3blue1','|cff0975C1Solid Azure Moonstone',35852,'',GemPropertyIndex,10)
+let Tier3blue1 = createGem(GemQuality3,'Tier3blue1','|cff0975C1Solid Azure Moonstone',35852,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3blue1,0,0,-1,0,0,0,0],[Tier3blue1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Name.enGB.set(blueColorCode + '+15 Stamina').ItemVisual.set(0).Flags.set(0)
 
-let Tier3blue2 = createGem(GemQuality3,'Tier3blue2','|cff0975C1Sparkling Azure Moonstone',35852,'',GemPropertyIndex,10)
+let Tier3blue2 = createGem(GemQuality3,'Tier3blue2','|cff0975C1Sparkling Azure Moonstone',35852,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3blue2,0,0,-1,0,0,0,0],[Tier3blue2,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,9).EffectPointsMin.setIndex(0,9).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,6).EffectPointsMin.setIndex(1,6).Name.enGB.set(blueColorCode + '+9 Stamina and +6 Intellect').ItemVisual.set(0).Flags.set(0)
 
-let Tier3blue3 = createGem(GemQuality3,'Tier3blue3','|cff0975C1Stormy Azure Moonstone',35852,'',GemPropertyIndex,10)
+let Tier3blue3 = createGem(GemQuality3,'Tier3blue3','|cff0975C1Stormy Azure Moonstone',35852,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3blue3,0,0,-1,0,0,0,0],[Tier3blue3,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,9).EffectPointsMin.setIndex(0,9).Effect.setIndex(1,5).EffectArg.setIndex(1,3).EffectPointsMax.setIndex(1,6).EffectPointsMin.setIndex(1,6).Name.enGB.set(blueColorCode + '+9 Stamina and +6 Agility').ItemVisual.set(0).Flags.set(0)
 
-let Tier3blue4 = createGem(GemQuality3,'Tier3blue4','|cff0975C1Lustrous Azure Moonstone',35852,'',GemPropertyIndex,10)
+let Tier3blue4 = createGem(GemQuality3,'Tier3blue4','|cff0975C1Lustrous Azure Moonstone',35852,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3blue4,0,0,-1,0,0,0,0],[Tier3blue4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,9).EffectPointsMin.setIndex(0,9).Effect.setIndex(1,5).EffectArg.setIndex(1,4).EffectPointsMax.setIndex(1,6).EffectPointsMin.setIndex(1,6).Name.enGB.set(blueColorCode + '+9 Stamina and +6 Strength').ItemVisual.set(0).Flags.set(0)
@@ -192,32 +193,32 @@ export let Tier3blueGems = [Tier3blue1,Tier3blue2,Tier3blue3,Tier3blue4]
 gemLevelUpPattern(tierThreeBaseResources[6],tier2blueGems,Tier3blueGems)
 
 // orange Gems
-let Tier3orange1 = createGem(GemQuality3,'Tier3orange1','|cff0975C1Inscribed Flame Spessarite',35845,'',GemPropertyIndex,10)
+let Tier3orange1 = createGem(GemQuality3,'Tier3orange1','|cff0975C1Inscribed Flame Spessarite',35845,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3orange1,0,0,-1,0,0,0,0],[Tier3orange1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(orangeColorCode + '+11 Critical Strike Rating and +16 Haste Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3orange2 = createGem(GemQuality3,'Tier3orange2','|cff0975C1Luminous Flame Spessarite',35845,'',GemPropertyIndex,10)
+let Tier3orange2 = createGem(GemQuality3,'Tier3orange2','|cff0975C1Luminous Flame Spessarite',35845,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3orange2,0,0,-1,0,0,0,0],[Tier3orange2,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Effect.setIndex(1,5).EffectArg.setIndex(1,31).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(orangeColorCode + '+11 Critical Strike Rating and +16 Hit Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3orange3 = createGem(GemQuality3,'Tier3orange3','|cff0975C1Glinting Flame Spessarite',35845,'',GemPropertyIndex,10)
+let Tier3orange3 = createGem(GemQuality3,'Tier3orange3','|cff0975C1Glinting Flame Spessarite',35845,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3orange3,0,0,-1,0,0,0,0],[Tier3orange3,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Effect.setIndex(1,5).EffectArg.setIndex(1,38).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(orangeColorCode + '+11 Critical Strike Rating and +16 Attack Power').ItemVisual.set(0).Flags.set(0)
 
-let Tier3orange4 = createGem(GemQuality3,'Tier3orange4','|cff0975C1Potent Flame Spessarite',35845,'',GemPropertyIndex,10)
+let Tier3orange4 = createGem(GemQuality3,'Tier3orange4','|cff0975C1Potent Flame Spessarite',35845,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3orange4,0,0,-1,0,0,0,0],[Tier3orange4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Effect.setIndex(1,5).EffectArg.setIndex(1,45).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(orangeColorCode + '+11 Critical Strike Rating and +16 Spell Power').ItemVisual.set(0).Flags.set(0)
 
-let Tier3orange5 = createGem(GemQuality3,'Tier3orange5','|cff0975C1Veiled Flame Spessarite',35845,'',GemPropertyIndex,10)
+let Tier3orange5 = createGem(GemQuality3,'Tier3orange5','|cff0975C1Veiled Flame Spessarite',35845,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3orange5,0,0,-1,0,0,0,0],[Tier3orange5,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,30).EffectPointsMin.setIndex(0,30).Name.enGB.set(orangeColorCode + '+30 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
 
-let Tier3orange6 = createGem(GemQuality3,'Tier3orange6','|cff0975C1Wicked Flame Spessarite',35845,'',GemPropertyIndex,10)
+let Tier3orange6 = createGem(GemQuality3,'Tier3orange6','|cff0975C1Wicked Flame Spessarite',35845,'',GemPropertyIndex,10,BagFamily)
 createRecipe([0,Tier3orange6,0,0,-1,0,0,0,0],[Tier3orange6,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Effect.setIndex(1,5).EffectArg.setIndex(1,43).EffectPointsMax.setIndex(1,25).EffectPointsMin.setIndex(1,25).Name.enGB.set(orangeColorCode + '+11 Critical Strike Rating and +25 Mana Per Second').ItemVisual.set(0).Flags.set(0)
