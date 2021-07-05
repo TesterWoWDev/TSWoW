@@ -65,10 +65,12 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
                         }
                     }
                     let item = player.AddItem(pkt.craftItem,pkt.craftItemCount)
-                    item.SetEnchantment(message.enchants[0],0)  
+                    item.SetEnchantment(message.enchants[0],0)
                     item.SetEnchantment(message.enchants[1],2)  
                     item.SetEnchantment(message.enchants[2],3)  
                     item.SetEnchantment(message.enchants[3],4)
+                    //item.SetEnchantment(message.enchants[4],5)
+                    item.SetEnchantment(1,6)
                     
                     pkt.craftItem = 0                  
                 }else{
