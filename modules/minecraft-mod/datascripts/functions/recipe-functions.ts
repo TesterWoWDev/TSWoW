@@ -45,7 +45,7 @@ export function createBaseResources(QualityValue:number,tier:string,itemPrefix:s
     return returnIDs
 }
 
-export function createGear(tier:string,quality:number,statMultiplier:number,materialType:number,disenchantID:number,randomPropID:number,colorCode:string,names:string[],display:number[]):number[]{
+export function createGear(levelrequirement:number,tier:string,quality:number,statMultiplier:number,materialType:number,disenchantID:number,randomPropID:number,colorCode:string,names:string[],display:number[]):number[]{
     let ids = [[4,materialType,1],[4,0,2],[4,materialType,3],[4,1,16],[4,materialType,5],[4,materialType,9],[4,materialType,10],[4,materialType,6],[4,materialType,7],[4,materialType,8],[4,0,11],[4,0,12]]
     let costs = [5,9,6,6,8,4,4,3,7,4,6,7]
     let returnIDs = []
@@ -56,6 +56,7 @@ export function createGear(tier:string,quality:number,statMultiplier:number,mate
         item.InventoryType.set(ids[i][2])
         item.Quality.set(quality)
         item.Description.enGB.set('')
+        item.RequiredLevel.set(levelrequirement)
         item.Name.enGB.set(colorCode+names[i]+'|r')
         item.DisplayInfo.setID(display[i])
         item.Durability.set(20)
@@ -75,7 +76,7 @@ export function createGear(tier:string,quality:number,statMultiplier:number,mate
     return returnIDs
 }
 
-export function createWeapons(tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,colorCode:string,names:string[],display:number[]):number[]{
+export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,colorCode:string,names:string[],display:number[]):number[]{
     let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
     let returnIDs = []
@@ -86,6 +87,7 @@ export function createWeapons(tier:string,quality:number,statMultiplier:number,d
         item.InventoryType.set(ids[i][2])
         item.Quality.set(quality)
         item.Description.enGB.set('')
+        item.RequiredLevel.set(levelrequirement)
         item.Name.enGB.set(colorCode+names[i]+'|r')
         item.DisplayInfo.setID(display[i])
         item.Durability.set(20)
