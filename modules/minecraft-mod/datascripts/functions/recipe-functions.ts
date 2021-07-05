@@ -18,11 +18,11 @@ import { MODNAME } from "../modname"
 
 
 
-export function createMaterial(QualityValue:number,tier:string,itemName:string,description:string,displayInfoID:number,colorCode:string):number{
+export function createMaterial(QualityValue:number,tier:string,itemName:string,description:string,displayInfoID:number):number{
     let parentItem = 2934
     let item = std.Items.create(MODNAME, tier + '-' + itemName.toLowerCase().replace(' ','-'), parentItem)
         item.Quality.set(QualityValue)
-        item.Name.enGB.set(colorCode + itemName)
+        item.Name.enGB.set(itemName)
         item.DisplayInfo.setID(displayInfoID)
         item.Description.enGB.set(description)
         item.ItemLevel.set(0)
@@ -30,12 +30,12 @@ export function createMaterial(QualityValue:number,tier:string,itemName:string,d
         return item.ID
 }
 
-export function createBaseResources(QualityValue:number,tier:string,itemPrefix:string,colorCode:string,Names:string[],displayIDs:number[]):number[]{
+export function createBaseResources(QualityValue:number,tier:string,itemPrefix:string,Names:string[],displayIDs:number[]):number[]{
     let returnIDs = []
     for(let i=0;i<Names.length;i++){
         let item = std.Items.create(MODNAME, tier + '-' + Names[i].toLowerCase().replace(' ','-'), 2934)
         item.Quality.set(QualityValue)
-        item.Name.enGB.set(colorCode + itemPrefix + ' ' + Names[i])
+        item.Name.enGB.set(itemPrefix + ' ' + Names[i])
         item.DisplayInfo.setID(displayIDs[i])
         //item.Description.enGB.set(description)
         item.ItemLevel.set(0)
@@ -45,7 +45,7 @@ export function createBaseResources(QualityValue:number,tier:string,itemPrefix:s
     return returnIDs
 }
 
-export function createGear(levelrequirement:number,tier:string,quality:number,statMultiplier:number,materialType:number,disenchantID:number,randomPropID:number,colorCode:string,names:string[],display:number[]):number[]{
+export function createGear(levelrequirement:number,tier:string,quality:number,statMultiplier:number,materialType:number,disenchantID:number,randomPropID:number,names:string[],display:number[]):number[]{
     let ids = [[4,materialType,1],[4,0,2],[4,materialType,3],[4,1,16],[4,materialType,5],[4,materialType,9],[4,materialType,10],[4,materialType,6],[4,materialType,7],[4,materialType,8],[4,0,11],[4,0,12]]
     let costs = [5,9,6,6,8,4,4,3,7,4,6,7]
     let returnIDs = []
@@ -57,7 +57,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         item.Quality.set(quality)
         item.Description.enGB.set('')
         item.RequiredLevel.set(levelrequirement)
-        item.Name.enGB.set(colorCode+names[i])
+        item.Name.enGB.set(names[i])
         item.DisplayInfo.setID(display[i])
         item.Durability.set(20)
         item.RandomProperty.set(randomPropID)
@@ -76,7 +76,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
     return returnIDs
 }
 
-export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,colorCode:string,names:string[],display:number[]):number[]{
+export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,names:string[],display:number[]):number[]{
     let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
     let returnIDs = []
@@ -88,7 +88,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.Quality.set(quality)
         item.Description.enGB.set('')
         item.RequiredLevel.set(levelrequirement)
-        item.Name.enGB.set(colorCode+names[i])
+        item.Name.enGB.set(names[i])
         item.DisplayInfo.setID(display[i])
         item.Durability.set(20)
         item.RandomProperty.set(randomPropID)
