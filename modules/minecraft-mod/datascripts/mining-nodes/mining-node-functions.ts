@@ -39,14 +39,3 @@ export function setupMiningNode(miningNode: GameObjectChest, metalID: number, re
     })
     return miningNode.ID
 }   
-
-export function createAllUndiscoverGems(gemCount: number, gemName: string, gemDisplayID: any):number[] {
-    let allGemIDs = []
-    for(let i=0;i<gemCount;i++){
-        let gem = std.Items.create(MODNAME,gemName.toLowerCase().replace(' ','-') + '-'+i,2934)
-        gem.Name.enGB.set('Unrefined '+gemName)
-        gem.DisplayInfo.setID(gemDisplayID)
-        allGemIDs.push(gem.ID)
-    }
-    return allGemIDs
-}

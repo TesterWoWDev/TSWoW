@@ -33,3 +33,14 @@ export function gemLevelUpPattern(dustID:number,startingGemID:number[],endingGem
         createRecipe([0,dustID,0,dustID,value,dustID,0,dustID,0],[value,dustID,0,0,0,0,0,0,0],[1,4,0,0,0,0,0,0,0],endingGemID[index],1)
     })
 }
+
+export function createAllUndiscoverGems(gemCount: number, gemName: string, gemDisplayID: any):number[] {
+    let allGemIDs = []
+    for(let i=0;i<gemCount;i++){
+        let gem = std.Items.create(MODNAME,gemName.toLowerCase().replace(' ','-') + '-'+i,2934)
+        gem.Name.enGB.set('Unrefined '+gemName)
+        gem.DisplayInfo.setID(gemDisplayID)
+        allGemIDs.push(gem.ID)
+    }
+    return allGemIDs
+}
