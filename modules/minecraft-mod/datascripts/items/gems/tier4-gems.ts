@@ -5,7 +5,7 @@ import { DBC_GemProperties } from "wotlkdata/dbc/types/GemProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
 import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "./gem-functions"
 import { tierFourBaseResources } from "../tier4-set"
-import { tier2blueGems, tier2GreenGems, tier2orangeGems, tier2PurpleGems, tier2RedGems, tier2YellowGems } from "./tier2-gems"
+import { Tier3blueGems, Tier3GreenGems, Tier3orangeGems, Tier3PurpleGems, Tier3RedGems, Tier3YellowGems } from "./tier3-gems"
 let vendor2 = std.CreatureTemplates.create(MODNAME,'gemdude4',3482)
 vendor2.Name.enGB.set('Test Gems 4')
 vendor2.Subname.enGB.set('will be removed')
@@ -56,7 +56,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,28).EffectPointsMin.setIndex(0,28).Name.enGB.set(redColorCode + '+28 Spell Power').ItemVisual.set(0).Flags.set(0)
 
 export let Tier4RedGems = [Tier4red1,Tier4red2,Tier4red3,Tier4red4,Tier4red5,Tier4red6,Tier4red7,Tier4red8]
-gemLevelUpPattern(tierFourBaseResources[6],tier2RedGems,Tier4RedGems)
+gemLevelUpPattern(tierFourBaseResources[6],Tier3RedGems,Tier4RedGems)
 
 // Green Gems
 let Tier4green1 = createGem(GemQuality4,'Tier4green1','|cff6524DERadiant Deep Peridot',35843,'',GemPropertyIndex,10)
@@ -95,7 +95,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,31).EffectPointsMax.setIndex(0,22).EffectPointsMin.setIndex(0,22).Effect.setIndex(1,5).EffectArg.setIndex(1,37).EffectPointsMax.setIndex(1,20).EffectPointsMin.setIndex(1,20).Name.enGB.set(greenColorCode + '+22 Hit Rating and +20 Expertise Rating').ItemVisual.set(0).Flags.set(0)
 
 export let Tier4GreenGems = [Tier4green1,Tier4green2,Tier4green3,Tier4green4,Tier4green5,Tier4green6,Tier4green7]
-gemLevelUpPattern(tierFourBaseResources[6],tier2GreenGems,Tier4GreenGems)
+gemLevelUpPattern(tierFourBaseResources[6],Tier3GreenGems,Tier4GreenGems)
 
 
 // Purple Gems
@@ -135,7 +135,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,28).EffectPointsMin.setIndex(0,28).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set(purpleColorCode + '+28 Critical Strike Rating and +16 Expertise Rating').ItemVisual.set(0).Flags.set(0)
 
 export let Tier4PurpleGems = [Tier4purple1,Tier4purple2,Tier4purple3,Tier4purple4,Tier4purple5,Tier4purple6,Tier4purple7]
-gemLevelUpPattern(tierFourBaseResources[6],tier2PurpleGems,Tier4PurpleGems)
+gemLevelUpPattern(tierFourBaseResources[6],Tier3PurpleGems,Tier4PurpleGems)
 
 // Yellow Gems
 let Tier4yellow1 = createGem(GemQuality4,'Tier4yellow1','|cff6524DEBrilliant Golden Draenite',35848,'',GemPropertyIndex,10)
@@ -164,7 +164,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,45).EffectPointsMin.setIndex(0,45).Name.enGB.set(yellowColorCode + '+45 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
 
 export let Tier4YellowGems = [Tier4yellow1,Tier4yellow2,Tier4yellow3,Tier4yellow4,Tier4yellow5]
-gemLevelUpPattern(tierFourBaseResources[6],tier2YellowGems,Tier4YellowGems)
+gemLevelUpPattern(tierFourBaseResources[6],Tier3YellowGems,Tier4YellowGems)
 
 //Blue Gems
 
@@ -189,7 +189,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Effect.setIndex(1,5).EffectArg.setIndex(1,4).EffectPointsMax.setIndex(1,10).EffectPointsMin.setIndex(1,10).Name.enGB.set(blueColorCode + '+15 Stamina and +10 Strength').ItemVisual.set(0).Flags.set(0)
 
 export let Tier4blueGems = [Tier4blue1,Tier4blue2,Tier4blue3,Tier4blue4]
-gemLevelUpPattern(tierFourBaseResources[6],tier2blueGems,Tier4blueGems)
+gemLevelUpPattern(tierFourBaseResources[6],Tier3blueGems,Tier4blueGems)
 
 // orange Gems
 let Tier4orange1 = createGem(GemQuality4,'Tier4orange1','|cff6524DEInscribed Flame Spessarite',35845,'',GemPropertyIndex,10)
@@ -223,6 +223,6 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Effect.setIndex(1,5).EffectArg.setIndex(1,43).EffectPointsMax.setIndex(1,45).EffectPointsMin.setIndex(1,45).Name.enGB.set(orangeColorCode + '+15 Critical Strike Rating and +45 Mana Per Second').ItemVisual.set(0).Flags.set(0)
 
 export let Tier4orangeGems = [Tier4orange1,Tier4orange2,Tier4orange3,Tier4orange4,Tier4orange5,Tier4orange6]
-gemLevelUpPattern(tierFourBaseResources[6],tier2orangeGems,Tier4orangeGems)
+gemLevelUpPattern(tierFourBaseResources[6],Tier3orangeGems,Tier4orangeGems)
 
 additems(vendor2,[Tier4RedGems,Tier4GreenGems,Tier4PurpleGems,Tier4YellowGems,Tier4blueGems,Tier4orangeGems])

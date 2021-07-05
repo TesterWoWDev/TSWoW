@@ -25,7 +25,7 @@ SQL.disenchant_loot_template.add(100,tierOneBaseResources[6]).Chance.set(100).Mi
 
 //remove below
 let vendor = std.CreatureTemplates.create(MODNAME,'cacheme',3482)
-vendor.Name.enGB.set('Cache Mats NPC')
+vendor.Name.enGB.set('Armor Npc 1')
 vendor.Subname.enGB.set('will be removed')
 vendor.FactionTemplate.set(35)
 
