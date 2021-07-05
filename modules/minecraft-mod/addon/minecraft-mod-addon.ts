@@ -1,10 +1,11 @@
-import { craftMessage, returnCraftItemMessage } from "../shared/Messages"
+import { craftMessage, returnCraftItemMessage, bagSlotCombo } from "../shared/Messages"
 import { Events, SendToServer } from "./lib/Events"
 
-    let choices = [0,0,0,0,0,0,0,0,0]
+    let choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
+    let itemIDs = [0,0,0,0,0,0,0,0,0]
     let buttons = []
     let enchants = [0,0,0,0]
-
+    let latestBagSlot = [0,0]
     let mframe = CreateFrame('Frame','minecraftMframe',UIParent)
         mframe.SetWidth(300)
         mframe.SetHeight(400)
@@ -50,7 +51,8 @@ import { Events, SendToServer } from "./lib/Events"
             craftText.SetText("Craft")
             craftBtn.HookScript("OnClick",(frame,evName,btnDown)=>{
                 updateProduct(1)
-                choices = [0,0,0,0,0,0,0,0,0]
+                choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
+                itemIDs = [0,0,0,0,0,0,0,0,0]
                 for(let i=0;i<9;i++){
                     buttons[i][2].SetTexture('')
                     buttons[i][1].SetScript("OnEnter",null)
@@ -119,14 +121,16 @@ import { Events, SendToServer } from "./lib/Events"
         let info = GetItemInfo(itemid)
             if(info != null){
                 buttons[Number(frame.GetName())][2].SetTexture(info[9])
-                choices[Number(frame.GetName())] = Number(itemid)
+                let m = new bagSlotCombo()
+                m.bagslot = latestBagSlot
+                choices[Number(frame.GetName())] = m
+                itemIDs[Number(frame.GetName())] = itemid
                 let itemstring:string = GetCursorInfo()[2]
-                let arr = itemstring.split(":")
 
                 buttons[Number(frame.GetName())][1].SetScript("OnEnter",(self)=>{
                     GameTooltip.ClearLines()
                     GameTooltip.SetOwner(self,'CENTER')
-                    GameTooltip.SetHyperlink("item:"+ itemid + ":" + arr[2] + ":0:" + arr[3] + ":" + arr[4] + ":" + arr[5] + ":0:0")
+                    GameTooltip.SetHyperlink(itemstring)
                     GameTooltip.Show()
                 })     
                 buttons[Number(frame.GetName())][1].SetScript("OnLeave",()=>{
@@ -134,6 +138,7 @@ import { Events, SendToServer } from "./lib/Events"
                 })
                 
                 if(frame.GetName() == '4'){
+                    let arr = itemstring.split(":")
                     enchants = [Number(arr[2]),Number(arr[3]),Number(arr[4]),Number(arr[5])]
                 }
             }
@@ -142,7 +147,8 @@ import { Events, SendToServer } from "./lib/Events"
 
     function deselect(frame:WoWAPI.Frame){
         buttons[Number(frame.GetName())][2].SetTexture("")
-        choices[Number(frame.GetName())] = 0
+        choices[Number(frame.GetName())] = new bagSlotCombo()
+        itemIDs[Number(frame.GetName())] = 0
         buttons[Number(frame.GetName())][1].SetScript("OnEnter",null)
         buttons[Number(frame.GetName())][1].SetScript("OnLeave",null)
         GameTooltip.Hide()
@@ -150,6 +156,7 @@ import { Events, SendToServer } from "./lib/Events"
 
     function updateProduct(purchase:uint32) {
         let pkt = new craftMessage()
+            pkt.itemIDs = itemIDs
             pkt.positions = choices
             pkt.purchase = purchase
             pkt.enchants = enchants
@@ -167,7 +174,7 @@ import { Events, SendToServer } from "./lib/Events"
             showBtn.SetScript("OnEnter",(self)=>{
                 GameTooltip.ClearLines()
                 GameTooltip.SetOwner(showBtn,'CENTER')
-                GameTooltip.SetHyperlink("item:"+ message.craftItem + ":" + message.enchantNum[0] + ":0:" + message.enchantNum[1] + ":" + message.enchantNum[2] + ":" + message.enchantNum[3] + ":0:0")
+                GameTooltip.SetHyperlink("item:"+ message.craftItem + ":" + message.enchantNum[0] + ":0:" + message.enchantNum[1] + ":" + message.enchantNum[2] + ":" + message.enchantNum[3] + ":"+message.enchantNum[4]+":0")
                 GameTooltip.Show()
             })     
             showBtn.SetScript("OnLeave",()=>{
@@ -191,6 +198,9 @@ import { Events, SendToServer } from "./lib/Events"
     Events.MerchantFrame.OnMerchantUpdate(mframe,()=>{
         closeAll()
     })
+    Events.Container.OnBagUpdate(mframe,(bagid)=>{
+        closeAll()
+    })
 
 function closeAll() {
     for(let i=0;i<buttons.length;i++){
@@ -204,6 +214,19 @@ function closeAll() {
     showBtn.SetScript("OnEnter",null)
     showBtn.SetScript("OnLeave",null)
     buttons = []
-    choices = [0,0,0,0,0,0,0,0,0]
+    choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
+    itemIDs = [0,0,0,0,0,0,0,0,0]
+    
     mframe.Hide()
 }
+
+Events.Container.OnItemLocked(mframe,(bag,slot)=>{
+    if(mframe.IsShown()){
+        if(slot == null){
+            closeAll()
+            print("Put that item into your bags!")
+        }else{
+            latestBagSlot = [bag,slot]
+        }
+    }
+})

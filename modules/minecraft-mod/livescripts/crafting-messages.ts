@@ -6,11 +6,11 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
         let queryString = "SELECT craftID,craftCount,req1,cnt1,req2,cnt2,req3,cnt3,req4,cnt4,req5,cnt5,req6,cnt6,req7,cnt7,req8,cnt8,req9,cnt9 FROM minecraft_recipes WHERE "
         let posString = ""
         let isEnchant = false
-        for(let i=0;i<message.positions.length;i++){
-            let fillVal = message.positions[i]
-            if(message.positions[i] != 0){
+        for(let i=0;i<message.itemIDs.length;i++){
+            let fillVal = message.itemIDs[i]
+            if(message.itemIDs[i] != 0){
                 if(i == 4){
-                    let item = player.GetItemByEntry(message.positions[i])
+                    let item = player.GetItemByEntry(message.itemIDs[i])
                     if(item.GetClass() == 2 || item.GetClass() == 4){
                         isEnchant = true
                         fillVal = -1
@@ -25,9 +25,9 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
         while(result.GetRow()){
             check = 1    
             if(isEnchant){
-                pkt.craftItem = message.positions[4]
+                pkt.craftItem = message.itemIDs[4]
                 let enchSet = 0
-                for(let i=0;i<4;i++){
+                for(let i=0;i<5;i++){
                     if(message.enchants[i] == 0){
                         message.enchants[i] = result.GetUInt32(0)
                         enchSet = 1
@@ -58,10 +58,22 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
                 }
                 if(checkItems == 1){
                     for(let i=0;i<message.positions.length;i++){
-                        if(message.positions[i] != 0){
-                            let itemID = message.positions[i]
-                            let item = player.GetItemByEntry(itemID)
-                            player.RemoveItem(item,1,itemID)
+                        if(message.itemIDs[i] != 0){
+                            let itemID = message.itemIDs[i]
+                            if(message.positions[i].bagslot[0] == 0){
+                                message.positions[i].bagslot[0] = 255
+                                message.positions[i].bagslot[1] +=22
+                            }else{
+                                message.positions[i].bagslot[0] += 18
+                                message.positions[i].bagslot[1] += -1
+                            }
+                            let item = player.GetItemByPos(message.positions[i].bagslot[0],message.positions[i].bagslot[1])
+                            if(item.GetEntry() == itemID){
+                                player.RemoveItem(item,1,itemID)
+                            }
+                            else{
+                                player.RemoveItem(CreateItem(itemID,1),1,itemID)
+                            }
                         }
                     }
                     let item = player.AddItem(pkt.craftItem,pkt.craftItemCount)
@@ -69,7 +81,7 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
                     item.SetEnchantment(message.enchants[1],2)  
                     item.SetEnchantment(message.enchants[2],3)  
                     item.SetEnchantment(message.enchants[3],4)
-                    //item.SetEnchantment(message.enchants[4],5)
+                    item.SetEnchantment(message.enchants[4],5)
                     item.SetEnchantment(1,6)
                     
                     pkt.craftItem = 0                  
