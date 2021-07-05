@@ -3,9 +3,9 @@ import { MODNAME } from "../../modname"
 import { createRecipe } from "../../functions/recipe-functions"
 import { DBC_GemProperties } from "wotlkdata/dbc/types/GemProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
-import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode } from "./gem-functions"
-import { createAllUndiscoverGems } from "../../mining-nodes/mining-node-functions"
+import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "./gem-functions"
 import { tierThreeBaseResources } from "../tier3-set"
+import { tier2blueGems, tier2GreenGems, tier2orangeGems, tier2PurpleGems, tier2RedGems, tier2YellowGems } from "./tier2-gems"
 let vendor2 = std.CreatureTemplates.create(MODNAME,'gemdude3',3482)
 vendor2.Name.enGB.set('Test Gems 3')
 vendor2.Subname.enGB.set('will be removed')
@@ -55,8 +55,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,21).EffectPointsMin.setIndex(0,21).Name.enGB.set(redColorCode + '+21 Spell Power').ItemVisual.set(0)
 
 export let Tier3RedGems = [Tier3red1,Tier3red2,Tier3red3,Tier3red4,Tier3red5,Tier3red6,Tier3red7,Tier3red8]
-export let undiscoveredReds = createAllUndiscoverGems(8,'Blood Garnet',39911)
-gemLevelUpPattern(tierThreeBaseResources[6],undiscoveredReds,Tier3RedGems)
+gemLevelUpPattern(tierThreeBaseResources[6],tier2RedGems,Tier3RedGems)
 
 // Green Gems
 let Tier3green1 = createGem('Tier3green1','Radiant Deep Peridot',35843,'',GemPropertyIndex,10)
@@ -95,8 +94,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,31).EffectPointsMax.setIndex(0,18).EffectPointsMin.setIndex(0,18).Effect.setIndex(1,5).EffectArg.setIndex(1,37).EffectPointsMax.setIndex(1,15).EffectPointsMin.setIndex(1,15).Name.enGB.set(greenColorCode + '+18 Hit Rating and +15 Expertise Rating').ItemVisual.set(0)
 
 export let Tier3GreenGems = [Tier3green1,Tier3green2,Tier3green3,Tier3green4,Tier3green5,Tier3green6,Tier3green7]
-export let undiscoveredGreens = createAllUndiscoverGems(7,'Deep Peridot',44729)
-gemLevelUpPattern(tierThreeBaseResources[6],undiscoveredGreens,Tier3GreenGems)
+gemLevelUpPattern(tierThreeBaseResources[6],tier2GreenGems,Tier3GreenGems)
 
 
 // Purple Gems
@@ -136,8 +134,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,21).EffectPointsMin.setIndex(0,21).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,11).EffectPointsMin.setIndex(1,1).Name.enGB.set(purpleColorCode + '+21 Critical Strike Rating and +11 Expertise Rating').ItemVisual.set(0)
 
 export let Tier3PurpleGems = [Tier3purple1,Tier3purple2,Tier3purple3,Tier3purple4,Tier3purple5,Tier3purple6,Tier3purple7]
-export let undiscoveredPurples = createAllUndiscoverGems(7,'Shadow Draenite',39933)
-gemLevelUpPattern(tierThreeBaseResources[6],undiscoveredPurples,Tier3PurpleGems)
+gemLevelUpPattern(tierThreeBaseResources[6],tier2PurpleGems,Tier3PurpleGems)
 
 // Yellow Gems
 let Tier3yellow1 = createGem('Tier3yellow1','Brilliant Golden Draenite',35848,'',GemPropertyIndex,10)
@@ -166,8 +163,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,30).EffectPointsMin.setIndex(0,30).Name.enGB.set(yellowColorCode + '+30 Critical Strike Rating').ItemVisual.set(0)
 
 export let Tier3YellowGems = [Tier3yellow1,Tier3yellow2,Tier3yellow3,Tier3yellow4,Tier3yellow5]
-export let undiscoveredYellows = createAllUndiscoverGems(5,'Shadow Draenite',39938)
-gemLevelUpPattern(tierThreeBaseResources[6],undiscoveredYellows,Tier3YellowGems)
+gemLevelUpPattern(tierThreeBaseResources[6],tier2YellowGems,Tier3YellowGems)
 
 //Blue Gems
 
@@ -192,8 +188,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,9).EffectPointsMin.setIndex(0,9).Effect.setIndex(1,5).EffectArg.setIndex(1,4).EffectPointsMax.setIndex(1,6).EffectPointsMin.setIndex(1,6).Name.enGB.set(blueColorCode + '+9 Stamina and +6 Strength').ItemVisual.set(0)
 
 export let Tier3blueGems = [Tier3blue1,Tier3blue2,Tier3blue3,Tier3blue4]
-export let undiscoveredblues = createAllUndiscoverGems(4,'Azure Moonstone',39928)
-gemLevelUpPattern(tierThreeBaseResources[6],undiscoveredblues,Tier3blueGems)
+gemLevelUpPattern(tierThreeBaseResources[6],tier2blueGems,Tier3blueGems)
 
 // orange Gems
 let Tier3orange1 = createGem('Tier3orange1','Inscribed Flame Spessarite',35845,'',GemPropertyIndex,10)
@@ -227,7 +222,6 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Effect.setIndex(1,5).EffectArg.setIndex(1,43).EffectPointsMax.setIndex(1,25).EffectPointsMin.setIndex(1,25).Name.enGB.set(orangeColorCode + '+11 Critical Strike Rating and +25 Mana Per Second').ItemVisual.set(0)
 
 export let Tier3orangeGems = [Tier3orange1,Tier3orange2,Tier3orange3,Tier3orange4,Tier3orange5,Tier3orange6]
-export let undiscoveredoranges = createAllUndiscoverGems(6,'Flame Spessarite',39932)
-gemLevelUpPattern(tierThreeBaseResources[6],undiscoveredoranges,Tier3orangeGems)
+gemLevelUpPattern(tierThreeBaseResources[6],tier2orangeGems,Tier3orangeGems)
 
 additems(vendor2,[Tier3RedGems,Tier3GreenGems,Tier3PurpleGems,Tier3YellowGems,Tier3blueGems,Tier3orangeGems])
