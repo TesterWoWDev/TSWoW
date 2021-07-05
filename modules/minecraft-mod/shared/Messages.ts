@@ -16,8 +16,6 @@ export class craftMessage {
         enchants:TSArray<int32> = [0,0,0,0,0]
 }
 
-
-
 @Message
 export class returnCraftItemMessage {
     @MsgPrimitive
@@ -26,4 +24,8 @@ export class returnCraftItemMessage {
         craftItemCount:uint32 = 0
     @MsgPrimitiveArray(4)
         enchantNum:TSArray<int32> = [0,0,0,0,0]
+}
+
+@Message
+export class showScreen {
 }

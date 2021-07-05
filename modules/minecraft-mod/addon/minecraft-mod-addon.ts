@@ -1,4 +1,4 @@
-import { craftMessage, returnCraftItemMessage, bagSlotCombo } from "../shared/Messages"
+import { craftMessage, returnCraftItemMessage, bagSlotCombo, showScreen } from "../shared/Messages"
 import { Events, SendToServer } from "./lib/Events"
 
     let choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
@@ -6,6 +6,7 @@ import { Events, SendToServer } from "./lib/Events"
     let buttons = []
     let enchants = [0,0,0,0]
     let latestBagSlot = [0,0]
+    let frameToggleCheck = 0
     let mframe = CreateFrame('Frame','minecraftMframe',UIParent)
         mframe.SetWidth(300)
         mframe.SetHeight(400)
@@ -84,6 +85,9 @@ import { Events, SendToServer } from "./lib/Events"
             frameTex.SetTexture("Interface/PAPERDOLLINFOFRAME/UI-EquipmentManager-Toggle")
             frameTex.SetAllPoints()
             frameToggle.SetScript('OnClick',(frame,button,down)=>{
+                if(mframe.IsShown()){
+                    closeAll()
+                }
                 mframe.Show()
                 buttonCreate()
             })
@@ -200,6 +204,10 @@ import { Events, SendToServer } from "./lib/Events"
     })
     Events.Container.OnBagUpdate(mframe,(bagid)=>{
         closeAll()
+        if(frameToggleCheck == 1){
+            waiter(0.1)
+            frameToggleCheck = 0
+        }
     })
 
 function closeAll() {
@@ -222,7 +230,7 @@ function closeAll() {
 
 Events.Container.OnItemLocked(mframe,(bag,slot)=>{
     if(mframe.IsShown()){
-        if(slot == null){
+        if(slot == null || bag == null){
             closeAll()
             print("Put that item into your bags!")
         }else{
@@ -230,3 +238,24 @@ Events.Container.OnItemLocked(mframe,(bag,slot)=>{
         }
     }
 })
+
+Events.AddOns.OnMessage(mframe,showScreen,(msg)=>{
+    frameToggleCheck = 1
+})
+
+
+
+let pasTime = 0;
+let waitFrame:WoWAPI.Frame = null;
+
+function waiter(delay){
+    waitFrame = CreateFrame("Frame","WaitFrame", UIParent);
+    waitFrame.SetScript('OnUpdate',function (self,elapse){
+        pasTime += elapse
+        if(delay <= pasTime){
+            frameToggle.Click()
+            self.SetScript("OnUpdate",null)
+            pasTime = 0
+        }
+    })
+}

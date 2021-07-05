@@ -1,4 +1,4 @@
-import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
+import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Messages";
 
     export function handleCraftMessages(events:TSEventHandlers){
     events.Addon.OnMessageID(craftMessage,(player,message)=>{
@@ -83,7 +83,7 @@ import { craftMessage, returnCraftItemMessage } from "../shared/Messages";
                     item.SetEnchantment(message.enchants[3],4)
                     item.SetEnchantment(message.enchants[4],5)
                     item.SetEnchantment(1,6)
-                    
+                    player.SendData(new showScreen())
                     pkt.craftItem = 0                  
                 }else{
                     player.SendAreaTriggerMessage('You do not have the required materials!')
