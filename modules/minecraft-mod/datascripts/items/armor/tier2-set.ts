@@ -1,10 +1,10 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../modname"
-import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../functions/recipe-functions"
+import { MODNAME } from "../../modname"
+import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../../functions/recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { stringItem } from "./string"
+import { stringItem } from "../string"
 
-export let tierTwoBaseResources = createBaseResources(2,'tier2','Rusty','|CFFFFFFFF',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20798])
+export let tierTwoBaseResources = createBaseResources(2,'tier2','Rusty','|CFFFFFFFF',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20611])
 
 export let tierTwoMailMaterial = createMaterial(2,'tier2','Rusty Mail Scraps','mail armor pieces',22924,'|CFFFFFFFF')
 export let tierTwoLeatherMaterial = createMaterial(2,'tier2','Rusty Leather Scraps','leather armor pieces',29468,'|CFFFFFFFF')

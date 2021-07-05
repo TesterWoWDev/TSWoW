@@ -1,10 +1,10 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../modname"
-import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../functions/recipe-functions"
+import { MODNAME } from "../../modname"
+import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../../functions/recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { stringItem } from "./string"
+import { stringItem } from "../string"
 
-export let tierOneBaseResources = createBaseResources(1,'tier1','Worn','|CFFFFFFFF',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20611])
+export let tierOneBaseResources = createBaseResources(1,'tier1','Worn','|CFFFFFFFF',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,6371])
 
 export let tierOneMailMaterial = createMaterial(1,'tier1','Worn Mail Scraps','mail armor pieces',22924,'|CFFFFFFFF')
 export let tierOneLeatherMaterial = createMaterial(1,'tier1','Worn Leather Scraps','leather armor pieces',29468,'|CFFFFFFFF')
@@ -25,7 +25,7 @@ SQL.disenchant_loot_template.add(100,tierOneBaseResources[6]).Chance.set(100).Mi
 
 //remove below
 let vendor = std.CreatureTemplates.create(MODNAME,'cacheme',3482)
-vendor.Name.enGB.set('Cache Mats NPC')
+vendor.Name.enGB.set('Armor Npc 1')
 vendor.Subname.enGB.set('will be removed')
 vendor.FactionTemplate.set(35)
 

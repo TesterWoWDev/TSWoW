@@ -10,7 +10,7 @@ export let purpleColorCode = '|cff8802CA'
 export let yellowColorCode = '|cffB9AC09'
 export let orangeColorCode = '|cffffa500'
 
-export function createGem(quality:number,modprefix:string,name:string,displayinfo:number,description:string,gemProp:number,itemlevel:number):number{
+export function createGem(quality:number,modprefix:string,name:string,displayinfo:number,description:string,gemProp:number,itemlevel:number,BagFamily:number):number{
     let gem = std.Items.create(MODNAME,modprefix,2934)
         gem.Name.enGB.set(name)
         gem.DisplayInfo.setID(displayinfo)

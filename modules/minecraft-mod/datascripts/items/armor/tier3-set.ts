@@ -1,10 +1,10 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../modname"
-import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../functions/recipe-functions"
+import { MODNAME } from "../../modname"
+import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../../functions/recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { stringItem } from "./string"
+import { stringItem } from "../string"
 
-export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished','|CFFFFFFFF',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20614])
+export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished','|CFFFFFFFF',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20798])
 
 export let tierThreeMailMaterial = createMaterial(3,'tier3','Polished Mail Scraps','mail armor pieces',22924,'|CFFFFFFFF')
 export let tierThreeLeatherMaterial = createMaterial(3,'tier3','Polished Leather Scraps','leather armor pieces',29468,'|CFFFFFFFF')
