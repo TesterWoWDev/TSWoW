@@ -10,8 +10,8 @@ let vendor2 = std.CreatureTemplates.create(MODNAME,'gemdude2',3482)
 vendor2.Name.enGB.set('Test Gems 2')
 vendor2.Subname.enGB.set('will be removed')
 vendor2.FactionTemplate.set(35)
-let GemPropertyIndex = 2000
-let SpellItemEnchantmentIndex = 5000
+let GemPropertyIndex = 2150
+let SpellItemEnchantmentIndex = 5150
 
 // Red Gems 
 let Tier2red1 = createGem('Tier2red1','Teardrop Blood Garnet',35930,'',GemPropertyIndex,10)
