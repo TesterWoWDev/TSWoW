@@ -14,7 +14,7 @@ let GemPropertyIndex = 2000
 let SpellItemEnchantmentIndex = 5000
 
 // Red Gems 
-let Tier2red1 = createGem('red1','Teardrop Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier2red1 = createGem('Tier2red1','Teardrop Blood Garnet',35930,'',GemPropertyIndex,10)
 createRecipe([0,Tier2red1,0,0,-1,0,0,0,0],[Tier2red1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set(redColorCode + '+7 Agility').ItemVisual.set(0)
@@ -44,12 +44,12 @@ createRecipe([0,Tier2red6,0,0,-1,0,0,0,0],[Tier2red6,0,0,0,0,0,0,0,0],[1,0,0,0,0
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,38).EffectPointsMax.setIndex(0,14).EffectPointsMin.setIndex(0,14).Name.enGB.set(redColorCode + '+14 Attack Power').ItemVisual.set(0)
 
-let Tier2red7 = createGem('red7','Bright Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier2red7 = createGem('Tier2red7','Bright Blood Garnet',35930,'',GemPropertyIndex,10)
 createRecipe([0,Tier2red7,0,0,-1,0,0,0,0],[Tier2red7,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,4).EffectArg.setIndex(0,0).EffectPointsMax.setIndex(0,32).EffectPointsMin.setIndex(0,32).Name.enGB.set(redColorCode + '+32 Armor').ItemVisual.set(0)
 
-let Tier2red8 = createGem('red8','Mighty Blood Garnet',35930,'',GemPropertyIndex,10)
+let Tier2red8 = createGem('Tier2red8','Mighty Blood Garnet',35930,'',GemPropertyIndex,10)
 createRecipe([0,Tier2red8,0,0,-1,0,0,0,0],[Tier2red8,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,14).EffectPointsMin.setIndex(0,14).Name.enGB.set(redColorCode + '+14 Spell Power').ItemVisual.set(0)
@@ -115,7 +115,7 @@ createRecipe([0,Tier2purple3,0,0,-1,0,0,0,0],[Tier2purple3,0,0,0,0,0,0,0,0],[1,0
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,5).EffectPointsMin.setIndex(0,5).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,12).EffectPointsMin.setIndex(1,12).Name.enGB.set(purpleColorCode + '+5 Intellect and +12 Haste Rating').ItemVisual.set(0)
 
-let Tier2purple4 = createGem('purple4','Glowing Shadow Draenite',35847,'',GemPropertyIndex,10)
+let Tier2purple4 = createGem('Tier2purple4','Glowing Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,Tier2purple4,0,0,-1,0,0,0,0],[Tier2purple4,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 1})
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,16).EffectPointsMin.setIndex(0,16).Effect.setIndex(1,5).EffectArg.setIndex(1,36).EffectPointsMax.setIndex(1,10).EffectPointsMin.setIndex(1,10).Name.enGB.set(purpleColorCode + '+10 Haste Rating and +16 Spirit').ItemVisual.set(0)
