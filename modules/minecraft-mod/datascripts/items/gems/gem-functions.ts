@@ -17,6 +17,7 @@ export function createGem(quality:number,modprefix:string,name:string,displayinf
         gem.Description.enGB.set(description)
         gem.row.GemProperties.set(gemProp)
         gem.ItemLevel.set(itemlevel)
+        gem.Quality.set(quality)
         return gem.ID
 }
 
