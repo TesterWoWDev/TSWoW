@@ -75,7 +75,7 @@ export function createGear(tier:string,quality:number,statMultiplier:number,mate
     return returnIDs
 }
 
-export function createWeapons(tier:string,quality:number,statMultiplier:number,randomPropID:number,disenchantID:number,colorCode:string,names:string[],display:number[]):number[]{
+export function createWeapons(tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,colorCode:string,names:string[],display:number[]):number[]{
     let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
     let returnIDs = []
