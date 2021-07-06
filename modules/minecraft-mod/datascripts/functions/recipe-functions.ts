@@ -45,7 +45,7 @@ export function createBaseResources(QualityValue:number,tier:string,itemPrefix:s
     return returnIDs
 }
 
-export function createGear(levelrequirement:number,tier:string,quality:number,statMultiplier:number,materialType:number,disenchantID:number,randomPropID:number,names:string[],display:number[],ArmorSpell1:number,ArmorSpell2:number,ArmorSpell3:number,ArmorSpell4:number,ArmorSpell5:number):number[]{
+export function createGear(levelrequirement:number,tier:string,quality:number,statMultiplier:number,materialType:number,disenchantID:number,randomPropID:number,names:string[],display:number[],armSpell:number[],armTrigger:number[]):number[]{
     let ids = [[4,materialType,1],[4,0,2],[4,materialType,3],[4,1,16],[4,materialType,5],[4,materialType,9],[4,materialType,10],[4,materialType,6],[4,materialType,7],[4,materialType,8],[4,0,11],[4,0,12]]
     let costs = [5,9,6,6,8,4,4,3,7,4,6,7]
     let returnIDs = []
@@ -64,11 +64,9 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         item.DisenchantID.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
-        item.Spells.add(ArmorSpell1)
-        item.Spells.add(ArmorSpell2)
-        item.Spells.add(ArmorSpell3)
-        item.Spells.add(ArmorSpell4)
-        item.Spells.add(ArmorSpell5)
+        armSpell.forEach((value,index)=>{
+            item.Spells.add(value).Trigger.set(armTrigger[i])
+        })
         
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
