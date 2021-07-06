@@ -133,7 +133,7 @@ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).E
 let purple7 = createGem(GemQuality1,'tier1-purple7','Enthralled Shadow Draenite',35847,'',GemPropertyIndex,10)
 createRecipe([0,purple7,0,0,-1,0,0,0,0],[purple7,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0],SpellItemEnchantmentIndex,1)
 DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,Maxcount_Inv: 0,Maxcount_Item: 0,Type: 8})
-DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Effect.setIndex(1,5).EffectArg.setIndex(1,5).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set(purpleColorCode + '+10 Critical Strike Rating and +5 Expertise Rating').ItemVisual.set(0).Flags.set(0)
+DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,10).EffectPointsMin.setIndex(0,10).Effect.setIndex(1,5).EffectArg.setIndex(1,37).EffectPointsMax.setIndex(1,5).EffectPointsMin.setIndex(1,5).Name.enGB.set(purpleColorCode + '+10 Critical Strike Rating and +5 Expertise Rating').ItemVisual.set(0).Flags.set(0)
 
 export let tier1PurpleGems = [purple1,purple2,purple3,purple4,purple5,purple6,purple7]
 export let undiscoveredPurples = createAllUndiscoverGems(7,'Shadow Draenite',39933)
