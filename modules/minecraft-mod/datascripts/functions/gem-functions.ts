@@ -1,7 +1,7 @@
 import { CreatureTemplate } from "tswow-stdlib/Creature/CreatureTemplate"
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../../modname"
-import { createRecipe } from "../../functions/recipe-functions"
+import { MODNAME } from "../modname"
+import { createRecipe } from "./recipe-functions"
 
 export let redColorCode = '|cffDC9415'
 export let greenColorCode = '|cff278916'

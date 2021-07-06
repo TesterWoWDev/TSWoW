@@ -3,7 +3,7 @@ import { MODNAME } from "../../modname"
 import { createRecipe } from "../../functions/recipe-functions"
 import { DBC_GemProperties } from "wotlkdata/dbc/types/GemProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
-import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "./gem-functions"
+import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "../../functions/gem-functions"
 import { tierOneBaseResources } from "../armor/tier1-set"
 let vendor2 = std.CreatureTemplates.create(MODNAME,'gemdude',3482)
 vendor2.Name.enGB.set('Test Gems')

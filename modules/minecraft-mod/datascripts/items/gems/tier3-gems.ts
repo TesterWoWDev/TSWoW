@@ -3,7 +3,7 @@ import { MODNAME } from "../../modname"
 import { createRecipe } from "../../functions/recipe-functions"
 import { DBC_GemProperties } from "wotlkdata/dbc/types/GemProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
-import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "./gem-functions"
+import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "../../functions/gem-functions"
 import { tierThreeBaseResources } from "../armor/tier3-set"
 import { tier2blueGems, tier2GreenGems, tier2orangeGems, tier2PurpleGems, tier2RedGems, tier2YellowGems } from "./tier2-gems"
 let vendor2 = std.CreatureTemplates.create(MODNAME,'gemdude3',3482)
