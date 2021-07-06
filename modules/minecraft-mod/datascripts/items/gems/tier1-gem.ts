@@ -166,7 +166,7 @@ DBC_GemProperties.add(GemPropertyIndex++,{Enchant_Id: SpellItemEnchantmentIndex,
 DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,15).EffectPointsMin.setIndex(0,15).Name.enGB.set(yellowColorCode + '+15 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
 
 export let tier1YellowGems = [yellow1,yellow2,yellow3,yellow4,yellow5]
-export let undiscoveredYellows = createAllUndiscoverGems(5,'Shadow Draenite',39938)
+export let undiscoveredYellows = createAllUndiscoverGems(5,'Golden Draenite',39938)
 gemLevelUpPattern(tierOneBaseResources[6],undiscoveredYellows,tier1YellowGems)
 
 //Blue Gems
