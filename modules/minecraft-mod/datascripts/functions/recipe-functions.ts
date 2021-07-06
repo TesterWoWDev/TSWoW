@@ -110,7 +110,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         if(ids[i][0] == 2){//weapon
             item.Material.setMetal()
             if(ids[i][2] == 17){//2h
-                item.Damage.addPhysical(costval*1.5,costval*2.2)
+                item.Damage.addPhysical(costval*levelrequirement*1.5,costval*levelrequirement*2.2)
                 item.Delay.set(2800)
                 let sheathval = 1
                 if(ids[i][1] == 10){//staff
@@ -122,21 +122,21 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
                 })
                 
             }else if(ids[i][1] == 15){//dagger
-                item.Damage.addPhysical(costval/1.5,costval)
+                item.Damage.addPhysical(costval*levelrequirement/1.5,costval*levelrequirement)
                 item.row.delay.set(1600)
                 item.Sheath.set(6)
                 DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
                     value.SheatheType.set(6)
                 })
             }else if(ids[i][2] == 26){//bow
-                item.Damage.addPhysical(costval*2,costval*3)
+                item.Damage.addPhysical(costval*levelrequirement*2,costval*levelrequirement*3)
                 item.Delay.set(2200)
                 item.Sheath.set(2)
                 DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
                     value.SheatheType.set(2)
                 })
             }else{//1h
-                item.Damage.addPhysical(costval,costval*1.5)
+                item.Damage.addPhysical(costval*levelrequirement,costval*levelrequirement*1.5)
                 item.Delay.set(1900)
                 item.Sheath.set(3)
                 DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
