@@ -19,12 +19,16 @@ import { Events, SendToServer } from "./lib/Events"
         mframe.SetScript('OnDragStop',(self,button)=>{
             self.StopMovingOrSizing()
         })
-        
-        mframe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground", 
+        mframe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground",
             edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
             tile : true, tileSize : 22, edgeSize : 22, 
             insets : { left : 4, right : 4, top : 4, bottom : 4 }})
-        mframe.SetBackdropColor(0,0,0,1)
+        mframe.SetBackdropColor(0,0,0,0.1)
+        
+        let mtex = mframe.CreateTexture('tex','BACKGROUND')
+        mtex.SetPoint('CENTER',mframe,'CENTER')
+        mtex.SetSize(293,393)
+        mtex.SetTexture('Interface/AchievementFrame/UI-Achievement-StatsBackground')
             mframe.SetPoint("CENTER",0,0)
             mframe.Hide()
     let exitbutn = CreateFrame("Button", 'exitbtn', mframe)
@@ -40,7 +44,7 @@ import { Events, SendToServer } from "./lib/Events"
         })
 
     let craftBtn = CreateFrame("Button", 'craftbtn', mframe)
-        craftBtn.SetPoint("CENTER", mframe, "CENTER",0,-70)
+        craftBtn.SetPoint("CENTER", mframe, "CENTER",0,-80)
         craftBtn.SetWidth(150)
         craftBtn.SetHeight(60)
         let craftTex = craftBtn.CreateTexture('','BACKGROUND')
@@ -64,7 +68,7 @@ import { Events, SendToServer } from "./lib/Events"
             })
     let showBtn = CreateFrame('Button','showframe',mframe)
         showBtn.SetSize(64,64)
-        showBtn.SetPoint('CENTER',mframe,'BOTTOM',0,70)
+        showBtn.SetPoint('CENTER',mframe,'BOTTOM',0,60)
         showBtn.SetBackdrop({edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
             tile : true, tileSize : 22, edgeSize : 22, 
             insets : { left : 4, right : 4, top : 4, bottom : 4 }})
@@ -96,7 +100,7 @@ import { Events, SendToServer } from "./lib/Events"
         for(let i=0;i<9;i++){
             let slot = CreateFrame('Button',i.toString(),mframe)
             slot.SetSize(64,64)
-            slot.SetPoint('TOPLEFT',mframe,'TOPLEFT',40+((slot.GetWidth()+5)*(Math.floor(i%3))),-30-((slot.GetHeight()+5)*(Math.floor(i/3))))
+            slot.SetPoint('TOPLEFT',mframe,'TOPLEFT',50+((slot.GetWidth()+5)*(Math.floor(i%3))),-40-((slot.GetHeight()+5)*(Math.floor(i/3))))
             slot.RegisterForClicks("AnyDown")
             slot.SetBackdrop({ edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
                 tile : true, tileSize : 22, edgeSize : 22, 
