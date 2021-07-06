@@ -45,7 +45,7 @@ export function createBaseResources(QualityValue:number,tier:string,itemPrefix:s
     return returnIDs
 }
 
-export function createGear(levelrequirement:number,tier:string,quality:number,statMultiplier:number,materialType:number,disenchantID:number,randomPropID:number,names:string[],display:number[]):number[]{
+export function createGear(levelrequirement:number,tier:string,quality:number,statMultiplier:number,materialType:number,disenchantID:number,randomPropID:number,names:string[],display:number[],ArmorSpell1:number,ArmorSpell2:number,ArmorSpell3:number,ArmorSpell4:number,ArmorSpell5:number):number[]{
     let ids = [[4,materialType,1],[4,0,2],[4,materialType,3],[4,1,16],[4,materialType,5],[4,materialType,9],[4,materialType,10],[4,materialType,6],[4,materialType,7],[4,materialType,8],[4,0,11],[4,0,12]]
     let costs = [5,9,6,6,8,4,4,3,7,4,6,7]
     let returnIDs = []
@@ -64,6 +64,11 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         item.DisenchantID.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
+        item.Spells.add(ArmorSpell1)
+        item.Spells.add(ArmorSpell2)
+        item.Spells.add(ArmorSpell3)
+        item.Spells.add(ArmorSpell4)
+        item.Spells.add(ArmorSpell5)
         
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
@@ -76,7 +81,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
     return returnIDs
 }
 
-export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,names:string[],display:number[]):number[]{
+export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,names:string[],display:number[],WeaponSpell1:number,WeaponSpell2:number,WeaponSpell3:number,WeaponSpell4:number,WeaponSpell5:number):number[]{
     let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
     let returnIDs = []
@@ -95,6 +100,11 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.DisenchantID.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
+        item.Spells.add(WeaponSpell1)
+        item.Spells.add(WeaponSpell2)
+        item.Spells.add(WeaponSpell3)
+        item.Spells.add(WeaponSpell4)
+        item.Spells.add(WeaponSpell5)
 
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
