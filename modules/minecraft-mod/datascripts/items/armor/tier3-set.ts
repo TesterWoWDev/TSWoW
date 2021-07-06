@@ -8,14 +8,14 @@ import { expSpell3 } from "../../spells/exp-spell3"
 let levelrequirement = 10
 let armSpell = [expSpell3.ID,0,0,0,0]
 let armTrigger = [1,0,0,0,0]
-let wepSpell = [expSpell3.ID,0,0,0,0]
-let wepTrigger = [1,0,0,0,0]
+let wepSpell = [expSpell3.ID,41679,41751,41787,0]
+let wepTrigger = [1,1,1,1,0]
 
-export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished',['Pearl','Epaulet','Chain','Metal','Reinforced Metal','Stick','Dust'],[12310,35338,39340,7355,7389,2618,20798])
+export let tierThreeBaseResources = createBaseResources(2,'tier3','Polished',['Pearl','Epaulet','Chain','Metal','Reinforced Metal','Stick','Dust'],[12310,35338,39340,7355,7389,2618,20798])
 
-export let tierThreeMailMaterial = createMaterial(3,'tier3','Polished Mail Scraps','mail armor pieces',22924)
-export let tierThreeLeatherMaterial = createMaterial(3,'tier3','Polished Leather Scraps','leather armor pieces',29468)
-export let tierThreeClothMaterial = createMaterial(3,'tier3','Polished Cloth Scraps','cloth armor pieces',7383)
+export let tierThreeMailMaterial = createMaterial(2,'tier3','Polished Mail Scraps','mail armor pieces',22924)
+export let tierThreeLeatherMaterial = createMaterial(2,'tier3','Polished Leather Scraps','leather armor pieces',29468)
+export let tierThreeClothMaterial = createMaterial(2,'tier3','Polished Cloth Scraps','cloth armor pieces',7383)
 
 export let tierThreeMailGear = createGear(levelrequirement,'tier3-mail',2,3.5,3,5272,102,['Officer\'s Polished Helm','Officer\'s Polished Necklace','Officer\'s Polished Spaulders','Officer\'s Polished Cloak','Officer\'s Polished Chestguard','Officer\'s Polished Bracers','Officer\'s Polished Gloves','Officer\'s Polished Belt','Officer\'s Polished Legguards','Officer\'s Polished Greaves','Officer\'s Polished Ring','Officer\'s Polished Trinket'],[22886,15420,26894,15273,25746,35044,26888,33633,22882,43734,28830,31287],armSpell,armTrigger)
 export let tierThreeLeatherGear = createGear(levelrequirement,'tier3-leather',2,3.2,2,102,5273,['Officer\'s Polished Headress','Officer\'s Polished Necklace','Officer\'s Polished Shoulders','Officer\'s Polished Cloak','Officer\'s Polished Chestpiece','Officer\'s Polished Bracers','Officer\'s Polished Gloves','Officer\'s Polished Belt','Officer\'s Polished Leggings','Officer\'s Polished Mocassins','Officer\'s Polished Ring','Officer\'s Polished Trinket'],[43883,32008,43319,45480,38920,45400,48920,43300,43304,45787,44086,53454],armSpell,armTrigger)

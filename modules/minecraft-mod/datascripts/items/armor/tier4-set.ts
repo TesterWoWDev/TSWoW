@@ -8,17 +8,17 @@ import { expSpell4 } from "../../spells/exp-spell4"
 let levelrequirement = 15
 let armSpell = [expSpell4.ID,0,0,0,0]
 let armTrigger = [1,0,0,0,0]
-let wepSpell = [expSpell4.ID,0,0,0,0]
-let wepTrigger = [1,0,0,0,0]
+let wepSpell = [expSpell4.ID,41679,41751,41787,44585]
+let wepTrigger = [1,1,1,1,1]
 
 //Thunderfury, FireBlast, Haste, Health, Attack Power, Armor, Spell Power, Blank x5
 //let RandomChanceOnHitSpells = [21992,29633,33297,40444,45355,67653,71606,0,0,0,0,0]
 
-export let tierFourBaseResources = createBaseResources(4,'tier4','Pristine',['Pearl','Epaulet','Chain','Metal','Reinforced Metal','Stick','Dust'],[12310,35338,39340,7355,7389,2618,20614])
+export let tierFourBaseResources = createBaseResources(3,'tier4','Pristine',['Pearl','Epaulet','Chain','Metal','Reinforced Metal','Stick','Dust'],[12310,35338,39340,7355,7389,2618,20614])
 
-export let tierFourMailMaterial = createMaterial(4,'tier4','Pristine Mail Scraps','mail armor pieces',22924)
-export let tierFourLeatherMaterial = createMaterial(4,'tier4','Pristine Leather Scraps','leather armor pieces',29468)
-export let tierFourClothMaterial = createMaterial(4,'tier4','Pristine Cloth Scraps','cloth armor pieces',7383)
+export let tierFourMailMaterial = createMaterial(3,'tier4','Pristine Mail Scraps','mail armor pieces',22924)
+export let tierFourLeatherMaterial = createMaterial(3,'tier4','Pristine Leather Scraps','leather armor pieces',29468)
+export let tierFourClothMaterial = createMaterial(3,'tier4','Pristine Cloth Scraps','cloth armor pieces',7383)
 
 export let tierFourMailGear = createGear(levelrequirement,'tier4-mail',3,4.5,3,103,5318,['General\'s Relinquished Helm','General\'s Relinquished Necklace','General\'s Relinquished Spaulders','General\'s Relinquished Cloak','General\'s Relinquished Chestguard','General\'s Relinquished Bracers','General\'s Relinquished Gloves','General\'s Relinquished Belt','General\'s Relinquished Legguards','General\'s Relinquished Greaves','General\'s Relinquished Ring','General\'s Relinquished Trinket'],[42353,32008,42351,23422,42352,35044,42355,42603,42354,42604,39126,39917],armSpell,armTrigger)
 export let tierFourLeatherGear = createGear(levelrequirement,'tier4-leather',3,4.2,2,103,5318,['General\'s Relinquished Headress','General\'s Relinquished Necklace','General\'s Relinquished Shoulders','General\'s Relinquished Cloak','General\'s Relinquished Chestpiece','General\'s Relinquished Bracers','General\'s Relinquished Gloves','General\'s Relinquished Belt','General\'s Relinquished Leggings','General\'s Relinquished Mocassins','General\'s Relinquished Ring','General\'s Relinquished Trinket'],[43759,45351,42443,23422,43075,35044,43073,43078,43076,43082,39124,48971],armSpell,armTrigger)
