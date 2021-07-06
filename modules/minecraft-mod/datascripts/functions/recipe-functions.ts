@@ -70,7 +70,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
-        item.Stats.addStamina(costval*quality)
+        item.Stats.addStamina(costval+levelrequirement)
         item.Stats.addHitRating(costval/2)
         item.Armor.set(costval*materialType*3)
 
@@ -104,7 +104,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
 
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
-        item.Stats.addStamina(costval*quality)
+        item.Stats.addStamina((costval*quality)+levelrequirement)
         item.Stats.addHitRating(costval)
         costval = costval*2
         if(ids[i][0] == 2){//weapon

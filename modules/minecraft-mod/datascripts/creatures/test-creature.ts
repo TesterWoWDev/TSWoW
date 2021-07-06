@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "../../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata/sql/SQLFiles"
 import { MODNAME } from "../modname"
 
 let creature1 = std.CreatureTemplates.create(MODNAME,'example-creature1',299)

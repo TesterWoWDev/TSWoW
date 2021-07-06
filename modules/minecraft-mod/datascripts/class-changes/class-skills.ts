@@ -19,4 +19,8 @@ classes.forEach((value,index,array)=>{
         curClass.EquipSkills.TwoHandedMaces.setAuto()
         curClass.EquipSkills.TwoHandedSwords.setAuto()
         curClass.EquipSkills.Wand.setAuto()
+        curClass.Stats.MeleeCrit.set((old,index)=>0)//old*0.328) // Controls Main Stat to Secondary Calculations
+        curClass.Stats.MeleeCritBase.set((old,index)=>0)//=>old*0.328) // Base Critical Strike Rating
+        curClass.Stats.CombatRatings.set((old,index)=>642)//=>old/0.0642) // Controls Secondary Stat Calculations?
+        curClass.Stats.CombatRatingsScalar.set((old,index)=>10) // Unknown
 })
