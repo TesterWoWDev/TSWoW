@@ -89,6 +89,7 @@ import { Events, SendToServer } from "./lib/Events"
             frameTex.SetTexture("Interface/PAPERDOLLINFOFRAME/UI-EquipmentManager-Toggle")
             frameTex.SetAllPoints()
             frameToggle.SetScript('OnClick',(frame,button,down)=>{
+                ClearCursor()
                 if(mframe.IsShown()){
                     closeAll()
                 }

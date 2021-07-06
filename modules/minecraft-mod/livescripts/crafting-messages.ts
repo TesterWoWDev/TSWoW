@@ -68,11 +68,16 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                                 message.positions[i].bagslot[1] += -1
                             }
                             let item = player.GetItemByPos(message.positions[i].bagslot[0],message.positions[i].bagslot[1])
-                            if(item.GetEntry() == itemID){
-                                player.RemoveItem(item,1,itemID)
-                            }
-                            else{
-                                player.RemoveItem(CreateItem(itemID,1),1,itemID)
+                            if(item.IsNull()){
+                                player.SendAreaTriggerMessage("stop trying to break shit")
+                                return
+                            }else{
+                                if(item.GetEntry() == itemID){
+                                    player.RemoveItem(item,1,itemID)
+                                }
+                                else{
+                                    player.RemoveItem(CreateItem(itemID,1),1,itemID)
+                                }
                             }
                         }
                     }
