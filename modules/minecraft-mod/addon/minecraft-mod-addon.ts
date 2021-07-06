@@ -58,6 +58,7 @@ import { Events, SendToServer } from "./lib/Events"
                 updateProduct(1)
                 choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
                 itemIDs = [0,0,0,0,0,0,0,0,0]
+                enchants = [0,0,0,0]
                 for(let i=0;i<9;i++){
                     buttons[i][2].SetTexture('')
                     buttons[i][1].SetScript("OnEnter",null)
