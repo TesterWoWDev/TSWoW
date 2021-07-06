@@ -11,7 +11,7 @@ let armTrigger = [1,0,0,0,0]
 let wepSpell = [expSpell3.ID,0,0,0,0]
 let wepTrigger = [1,0,0,0,0]
 
-export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20798])
+export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished',['Pearl','Epaulet','Chain','Metal','Reinforced Metal','Stick','Dust'],[12310,35338,39340,7355,7389,2618,20798])
 
 export let tierThreeMailMaterial = createMaterial(3,'tier3','Polished Mail Scraps','mail armor pieces',22924)
 export let tierThreeLeatherMaterial = createMaterial(3,'tier3','Polished Leather Scraps','leather armor pieces',29468)

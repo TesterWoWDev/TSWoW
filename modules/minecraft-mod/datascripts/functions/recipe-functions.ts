@@ -69,6 +69,8 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         })
         
         let costval = (costs[i]/2)*statMultiplier
+        item.Price.set(((levelrequirement*levelrequirement)*100), ((levelrequirement*levelrequirement)*150)) //sellprice + buyprice
+       // item.Price.set(((quality*quality*100)/1.5),(quality*quality*100))
         item.ItemLevel.set(costval)
         item.Stats.addStamina(costval+levelrequirement)
         item.Stats.addHitRating(costval/2)
@@ -103,6 +105,8 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         })
 
         let costval = (costs[i]/2)*statMultiplier
+        item.Price.set(((levelrequirement*levelrequirement)*100), ((levelrequirement*levelrequirement)*150)) //sellprice + buyprice
+      //  item.Price.set(((quality*quality*100)/2),(quality*quality*100))
         item.ItemLevel.set(costval)
         item.Stats.addStamina((costval*quality)+levelrequirement)
         item.Stats.addHitRating(costval)

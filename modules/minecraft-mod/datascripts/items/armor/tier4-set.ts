@@ -14,7 +14,7 @@ let wepTrigger = [1,0,0,0,0]
 //Thunderfury, FireBlast, Haste, Health, Attack Power, Armor, Spell Power, Blank x5
 //let RandomChanceOnHitSpells = [21992,29633,33297,40444,45355,67653,71606,0,0,0,0,0]
 
-export let tierFourBaseResources = createBaseResources(4,'tier4','Pristine',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20614])
+export let tierFourBaseResources = createBaseResources(4,'tier4','Pristine',['Pearl','Epaulet','Chain','Metal','Reinforced Metal','Stick','Dust'],[12310,35338,39340,7355,7389,2618,20614])
 
 export let tierFourMailMaterial = createMaterial(4,'tier4','Pristine Mail Scraps','mail armor pieces',22924)
 export let tierFourLeatherMaterial = createMaterial(4,'tier4','Pristine Leather Scraps','leather armor pieces',29468)
