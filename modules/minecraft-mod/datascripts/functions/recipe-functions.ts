@@ -81,7 +81,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
     return returnIDs
 }
 
-export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,names:string[],display:number[],WeaponSpell1:number,WeaponSpell2:number,WeaponSpell3:number,WeaponSpell4:number,WeaponSpell5:number):number[]{
+export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,names:string[],display:number[],wepSpell:number[],wepTrigger:number[]):number[]{
     let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
     let returnIDs = []
@@ -100,11 +100,9 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.DisenchantID.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
-        item.Spells.add(WeaponSpell1)
-        item.Spells.add(WeaponSpell2)
-        item.Spells.add(WeaponSpell3)
-        item.Spells.add(WeaponSpell4)
-        item.Spells.add(WeaponSpell5)
+        wepSpell.forEach((value,index)=>{
+            item.Spells.add(value).Trigger.set(wepTrigger[i])
+        })
 
         let costval = (costs[i]/2)*statMultiplier
         item.ItemLevel.set(costval)
