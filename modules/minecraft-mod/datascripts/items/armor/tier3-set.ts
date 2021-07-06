@@ -3,12 +3,12 @@ import { MODNAME } from "../../modname"
 import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../../functions/recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { stringItem } from "../string"
-import { expSpell } from "../../spells/exp-spell"
+import { expSpell3 } from "../../spells/exp-spell3"
 
 let levelrequirement = 10
-let armSpell = [expSpell.ID,0,0,0,0]
+let armSpell = [expSpell3.ID,0,0,0,0]
 let armTrigger = [1,0,0,0,0]
-let wepSpell = [expSpell.ID,0,0,0,0]
+let wepSpell = [expSpell3.ID,0,0,0,0]
 let wepTrigger = [1,0,0,0,0]
 
 export let tierThreeBaseResources = createBaseResources(3,'tier3','Polished',['Blood Garnet','Epulets','chain','Metal','Reinforced Metal','Stick','Dust'],[35916,35338,39340,7355,7389,2618,20798])

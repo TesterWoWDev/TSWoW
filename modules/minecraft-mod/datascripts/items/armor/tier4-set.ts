@@ -3,12 +3,12 @@ import { MODNAME } from "../../modname"
 import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../../functions/recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { stringItem } from "../string"
-import { expSpell } from "../../spells/exp-spell"
+import { expSpell4 } from "../../spells/exp-spell4"
 
 let levelrequirement = 15
-let armSpell = [expSpell.ID,0,0,0,0]
+let armSpell = [expSpell4.ID,0,0,0,0]
 let armTrigger = [1,0,0,0,0]
-let wepSpell = [expSpell.ID,0,0,0,0]
+let wepSpell = [expSpell4.ID,0,0,0,0]
 let wepTrigger = [1,0,0,0,0]
 
 //Thunderfury, FireBlast, Haste, Health, Attack Power, Armor, Spell Power, Blank x5
