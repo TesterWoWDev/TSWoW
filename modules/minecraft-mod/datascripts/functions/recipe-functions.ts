@@ -65,7 +65,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
         armSpell.forEach((value,index)=>{
-            item.Spells.add(value).Trigger.set(armTrigger[i])
+            item.Spells.add(value).Trigger.set(armTrigger[index])
         })
         
         let costval = (costs[i]/2)*statMultiplier
@@ -99,7 +99,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
         wepSpell.forEach((value,index)=>{
-            item.Spells.add(value).Trigger.set(wepTrigger[i])
+            item.Spells.add(value).Trigger.set(wepTrigger[index])
         })
 
         let costval = (costs[i]/2)*statMultiplier
