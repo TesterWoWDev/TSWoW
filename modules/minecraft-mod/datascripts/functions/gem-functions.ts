@@ -6,7 +6,7 @@ import { createRecipe } from "./recipe-functions"
 export let redColorCode = '|cffDC9415'
 export let greenColorCode = '|cff278916'
 export let blueColorCode = '|cff2EBEF0'
-export let purpleColorCode = '|cff8802CA'
+export let purpleColorCode = '|cffA97BFF'
 export let yellowColorCode = '|cffB9AC09'
 export let orangeColorCode = '|cffffa500'
 
