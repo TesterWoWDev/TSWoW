@@ -15,69 +15,70 @@ export let mailTierThreeItemEnchantmentIndex = 15010
 export let weaponTierThreeItemEnchantmentIndex = 15011
 export let trinketTierThreeItemEnchantmentIndex = 16016
 
-/*On Use : Health (-61)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,health3.ID).Name.enGB.set('Increases health by 1350 for 18 seconds.').ItemVisual.set(0).Flags.set(0)
-/*On Use : Attack Power (-60)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,attackpower3.ID).Name.enGB.set('Increases attack power by 250 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
-/*On Use : Spell Power (-59)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,spellpower3.ID).Name.enGB.set('Increases spell power by 250 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
-/*Chance : Shadow Bolt (-58)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,chanceStun3.ID).Name.enGB.set(redColorCode + 'Chance: Stuns target for 3 seconds.').ItemVisual.set(0).Flags.set(0)
-/*Chance : Healing (-57)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,chanceHeal3.ID).Name.enGB.set(redColorCode + 'Chance: Heal 450.').ItemVisual.set(0).Flags.set(0)
-/*Chance : Thunderfury (-56)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,chanceLightning3.ID).Name.enGB.set(redColorCode + 'Chance: Lightning Blast for 246 damage.').ItemVisual.set(0).Flags.set(0)
-/*Chance : Shadow Bolt (-55)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,chanceShadow3.ID).Name.enGB.set(redColorCode + 'Chance: Shadow Bolt for 120 damage.').ItemVisual.set(0).Flags.set(0)
-/*Omnipotence Weapon (-54)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,19).EffectPointsMin.setIndex(0,19).Effect.setIndex(1,5).EffectArg.setIndex(1,4).EffectPointsMax.setIndex(1,19).EffectPointsMin.setIndex(1,19).Name.enGB.set('+19 Agility\n+19 Strength').ItemVisual.set(0).Flags.set(0)
-/*Omnipotence Weapon (-53)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,19).EffectPointsMin.setIndex(0,19).Effect.setIndex(1,5).EffectArg.setIndex(1,7).EffectPointsMax.setIndex(1,22).EffectPointsMin.setIndex(1,22).Name.enGB.set('+19 Intellect\n+22 Stamina').ItemVisual.set(0).Flags.set(0)
-/*Omnipotence Weapon (-52)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,36).EffectPointsMin.setIndex(0,36).Effect.setIndex(1,5).EffectArg.setIndex(1,38).EffectPointsMax.setIndex(1,36).EffectPointsMin.setIndex(1,36).Name.enGB.set('+36 Spell Power\n+36 Attack Power').ItemVisual.set(0).Flags.set(0)
-/*Omnipotence (-51)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Effect.setIndex(1,5).EffectArg.setIndex(1,4).EffectPointsMax.setIndex(1,7).EffectPointsMin.setIndex(1,7).Name.enGB.set('+7 Agility\n+7 Strength').ItemVisual.set(0).Flags.set(0)
-/*Omnipotence (-50)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Effect.setIndex(1,5).EffectArg.setIndex(1,7).EffectPointsMax.setIndex(1,9).EffectPointsMin.setIndex(1,9).Name.enGB.set('+7 Intellect\n+9 Stamina').ItemVisual.set(0).Flags.set(0)
-/*Omnipotence (-49)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Effect.setIndex(1,5).EffectArg.setIndex(1,38).EffectPointsMax.setIndex(1,11).EffectPointsMin.setIndex(1,11).Name.enGB.set('+11 Spell Power\n+11 Attack Power').ItemVisual.set(0).Flags.set(0)
 
-/*Healing (-48)*/       DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,42).EffectPointsMax.setIndex(0,36).EffectPointsMin.setIndex(0,36).Name.enGB.set('+36 Healing Done').ItemVisual.set(0).Flags.set(0)
-/*Intellect (-47)*/     DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,19).EffectPointsMin.setIndex(0,19).Name.enGB.set('+19 Intellect').ItemVisual.set(0).Flags.set(0)
-/*Spirit (-46)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,27).EffectPointsMin.setIndex(0,27).Name.enGB.set('+27 Spirit').ItemVisual.set(0).Flags.set(0)
-/*Spell Power (-45)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,36).EffectPointsMin.setIndex(0,36).Name.enGB.set('+36 Spell Power').ItemVisual.set(0).Flags.set(0)
-/*Haste Rating (-44)*/  DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,36).EffectPointsMax.setIndex(0,19).EffectPointsMin.setIndex(0,19).Name.enGB.set('+19 Haste Rating').ItemVisual.set(0).Flags.set(0)
-/*Strength (-43)*/             DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,4).EffectPointsMax.setIndex(0,19).EffectPointsMin.setIndex(0,19).Name.enGB.set('+19 Strength').ItemVisual.set(0).Flags.set(0)
-/*Attack Power (-42)*/         DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,38).EffectPointsMax.setIndex(0,36).EffectPointsMin.setIndex(0,36).Name.enGB.set('+36 Attack Power').ItemVisual.set(0).Flags.set(0)
-/*Agility (-41)*/              DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,19).EffectPointsMin.setIndex(0,19).Name.enGB.set('+19 Agility').ItemVisual.set(0).Flags.set(0)
-/*Ranged Attack Power (-40)*/  DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,39).EffectPointsMax.setIndex(0,36).EffectPointsMin.setIndex(0,36).Name.enGB.set('+36 Ranged Attack Power').ItemVisual.set(0).Flags.set(0)
-/*Stamina (-39)*/          DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,22).EffectPointsMin.setIndex(0,22).Name.enGB.set('+22 Stamina').ItemVisual.set(0).Flags.set(0)
-/*Hit Rating (-38)*/       DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,31).EffectPointsMax.setIndex(0,27).EffectPointsMin.setIndex(0,27).Name.enGB.set('+27 Hit Rating').ItemVisual.set(0).Flags.set(0)
-/*Critical Strike (-37)*/  DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,31).EffectPointsMin.setIndex(0,31).Name.enGB.set('+31 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
-/*Health (-36)*/           DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,1).EffectPointsMax.setIndex(0,275).EffectPointsMin.setIndex(0,275).Name.enGB.set('+275 Health').ItemVisual.set(0).Flags.set(0)
-/*Mana (-35)*/             DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,2).EffectPointsMax.setIndex(0,250).EffectPointsMin.setIndex(0,250).Name.enGB.set('+250 Mana').ItemVisual.set(0).Flags.set(0)
-/*Health per 5 (-34)*/     DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,46).EffectPointsMax.setIndex(0,31).EffectPointsMin.setIndex(0,31).Name.enGB.set('+31 Health Per Second').ItemVisual.set(0).Flags.set(0)
-/*Mana per 5 (-33)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,43).EffectPointsMax.setIndex(0,31).EffectPointsMin.setIndex(0,31).Name.enGB.set('+31 Mana Per Second').ItemVisual.set(0).Flags.set(0)
-/*Block Rating (-32)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,15).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Block Rating').ItemVisual.set(0).Flags.set(0)
-/*Expertise Rating (-31)*/    DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,37).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Expertise Rating').ItemVisual.set(0).Flags.set(0)
-/*Defense Rating (-30)*/      DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,12).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Defense Rating').ItemVisual.set(0).Flags.set(0)
-/*Dodge Rating (-27)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,13).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Dodge Rating').ItemVisual.set(0).Flags.set(0)
-/*Parry Rating (-28)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,14).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Parry Rating').ItemVisual.set(0).Flags.set(0)
-/*Resilience Rating (-27)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,35).EffectPointsMax.setIndex(0,4).EffectPointsMin.setIndex(0,4).Name.enGB.set('+4 Resilience Rating').ItemVisual.set(0).Flags.set(0)
-/*Armor Penetration (-26)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,44).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Name.enGB.set('+8 Armor Penetration').ItemVisual.set(0).Flags.set(0)
-/*Spell Penetration (-25)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,47).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Name.enGB.set('+8 Spell Penetration').ItemVisual.set(0).Flags.set(0)
-
-/*Healing (-24)*/       DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,42).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Healing Done').ItemVisual.set(0).Flags.set(0)
-/*Intellect (-23)*/     DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('+7 Intellect').ItemVisual.set(0).Flags.set(0)
-/*Spirit (-22)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,6).EffectPointsMax.setIndex(0,9).EffectPointsMin.setIndex(0,9).Name.enGB.set('+9 Spirit').ItemVisual.set(0).Flags.set(0)
-/*Spell Power (-21)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Spell Power').ItemVisual.set(0).Flags.set(0)
-/*Haste Rating (-20)*/  DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,36).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Name.enGB.set('+8 Haste Rating').ItemVisual.set(0).Flags.set(0)
-/*Strength (-19)*/             DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('+7 Strength').ItemVisual.set(0).Flags.set(0)
-/*Attack Power (-18)*/         DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,38).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Attack Power').ItemVisual.set(0).Flags.set(0)
-/*Agility (-17)*/              DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('+7 Agility').ItemVisual.set(0).Flags.set(0)
-/*Ranged Attack Power (-16)*/  DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,39).EffectPointsMax.setIndex(0,9).EffectPointsMin.setIndex(0,9).Name.enGB.set('+9 Ranged Attack Power').ItemVisual.set(0).Flags.set(0)
-/*Stamina (-15)*/          DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,7).EffectPointsMax.setIndex(0,9).EffectPointsMin.setIndex(0,9).Name.enGB.set('+9 Stamina').ItemVisual.set(0).Flags.set(0)
-/*Hit Rating (-14)*/       DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,31).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Hit Rating').ItemVisual.set(0).Flags.set(0)
-/*Critical Strike (-13)*/  DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,32).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Critical Strike Rating').ItemVisual.set(0).Flags.set(0)
-/*Health (-12)*/           DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,1).EffectPointsMax.setIndex(0,165).EffectPointsMin.setIndex(0,165).Name.enGB.set('+165 Health').ItemVisual.set(0).Flags.set(0)
-/*Mana (-11)*/             DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,2).EffectPointsMax.setIndex(0,88).EffectPointsMin.setIndex(0,88).Name.enGB.set('+88 Mana').ItemVisual.set(0).Flags.set(0)
-/*Health per 5 (-10)*/     DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,46).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Health Per Second').ItemVisual.set(0).Flags.set(0)
-/*Mana per 5 (-9)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,43).EffectPointsMax.setIndex(0,11).EffectPointsMin.setIndex(0,11).Name.enGB.set('+11 Mana Per Second').ItemVisual.set(0).Flags.set(0)
-/*Block Rating (-8)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,15).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('+7 Block Rating').ItemVisual.set(0).Flags.set(0)
-/*Expertise Rating (-7)*/    DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,37).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('+7 Expertise Rating').ItemVisual.set(0).Flags.set(0)
-/*Defense Rating (-6)*/      DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,12).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('+7 Defense Rating').ItemVisual.set(0).Flags.set(0)
-/*Dodge Rating (-5)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,13).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('+7 Dodge Rating').ItemVisual.set(0).Flags.set(0)
-/*Parry Rating (-4)*/        DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,14).EffectPointsMax.setIndex(0,7).EffectPointsMin.setIndex(0,7).Name.enGB.set('+7 Parry Rating').ItemVisual.set(0).Flags.set(0)
-/*Resilience Rating (-3)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,35).EffectPointsMax.setIndex(0,3).EffectPointsMin.setIndex(0,3).Name.enGB.set('+3 Resilience Rating').ItemVisual.set(0).Flags.set(0)
-/*Armor Penetration (-2)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,44).EffectPointsMax.setIndex(0,4).EffectPointsMin.setIndex(0,4).Name.enGB.set('+4 Armor Penetration').ItemVisual.set(0).Flags.set(0)
-/*Spell Penetration (-1)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,47).EffectPointsMax.setIndex(0,4).EffectPointsMin.setIndex(0,4).Name.enGB.set('+4 Spell Penetration').ItemVisual.set(0).Flags.set(0)
+/*On Use : Health (-61)*/           addSpell(7,health3.ID,0,0,0,0,0,0,'Increases health by 1350 for 18 seconds.',SpellItemEnchantmentIndex++)
+/*On Use : Attack Power (-60)*/     addSpell(7,attackpower3.ID,0,0,0,0,0,0,'Increases attack power by 250 for 10 seconds.',SpellItemEnchantmentIndex++)
+/*On Use : Spell Power (-59)*/      addSpell(7,spellpower3.ID,0,0,0,0,0,0,'Increases spell power by 250 for 10 seconds.',SpellItemEnchantmentIndex++)
+/*Chance : Shadow Bolt (-58)*/      addSpell(1,chanceStun3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Stuns target for 3 seconds.',SpellItemEnchantmentIndex++)
+/*Chance : Healing (-57)*/          addSpell(1,chanceHeal3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Heal 450.',SpellItemEnchantmentIndex++)
+/*Chance : Thunderfury (-56)*/      addSpell(1,chanceLightning3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Lightning Blast for 246 damage.',SpellItemEnchantmentIndex++)
+/*Chance : Shadow Bolt (-55)*/      addSpell(1,chanceShadow3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Shadow Bolt for 120 damage.',SpellItemEnchantmentIndex++)
+/*Omnipotence Weapon (-54)*/        addSpell(5,3,19,19,5,4,19,19,'+19 Agility\n+19 Strength',SpellItemEnchantmentIndex++)
+/*Omnipotence Weapon (-53)*/        addSpell(5,5,19,19,5,7,22,22,'+19 Intellect\n+22 Stamina',SpellItemEnchantmentIndex++)
+/*Omnipotence Weapon (-52)*/        addSpell(5,45,36,36,5,38,36,36,'+36 Spell Power\n+36 Attack Power',SpellItemEnchantmentIndex++)
+/*Omnipotence (-51)*/               addSpell(5,3,7,7,5,4,7,7,'+7 Agility\n+7 Strength',SpellItemEnchantmentIndex++)
+/*Omnipotence (-50)*/               addSpell(5,5,7,7,5,7,9,9,'+7 Intellect\n+9 Stamina',SpellItemEnchantmentIndex++)
+/*Omnipotence (-49)*/               addSpell(5,45,11,11,5,38,11,11,'+11 Spell Power\n+11 Attack Power',SpellItemEnchantmentIndex++)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*Healing (-48)*/                   addSpell(5,42,36,36,0,0,0,0,'+36 Healing Done',SpellItemEnchantmentIndex++)
+/*Intellect (-47)*/                 addSpell(5,5,19,19,0,0,0,0,'+19 Intellect',SpellItemEnchantmentIndex++)
+/*Spirit (-46)*/                    addSpell(5,6,27,27,0,0,0,0,'+27 Spirit',SpellItemEnchantmentIndex++)
+/*Spell Power (-45)*/               addSpell(5,45,36,36,0,0,0,0,'+36 Spell Power',SpellItemEnchantmentIndex++)
+/*Haste Rating (-44)*/              addSpell(5,36,19,19,0,0,0,0,'+19 Haste Rating',SpellItemEnchantmentIndex++)
+/*Strength (-43)*/                  addSpell(5,4,19,19,0,0,0,0,'+19 Strength',SpellItemEnchantmentIndex++)
+/*Attack Power (-42)*/              addSpell(5,38,36,36,0,0,0,0,'+36 Attack Power',SpellItemEnchantmentIndex++)
+/*Agility (-41)*/                   addSpell(5,3,19,19,0,0,0,0,'+19 Agility',SpellItemEnchantmentIndex++)
+/*Ranged Attack Power (-40)*/       addSpell(5,39,36,36,0,0,0,0,'+36 Ranged Attack Power',SpellItemEnchantmentIndex++)
+/*Stamina (-39)*/                   addSpell(5,7,22,22,0,0,0,0,'+22 Stamina',SpellItemEnchantmentIndex++)
+/*Hit Rating (-38)*/                addSpell(5,31,27,27,0,0,0,0,'+27 Hit Rating',SpellItemEnchantmentIndex++)
+/*Critical Strike (-37)*/           addSpell(5,32,31,31,0,0,0,0,'+31 Critical Strike Rating',SpellItemEnchantmentIndex++)
+/*Health (-36)*/                    addSpell(5,1,275,275,0,0,0,0,'+275 Health',SpellItemEnchantmentIndex++)
+/*Mana (-35)*/                      addSpell(5,2,250,250,0,0,0,0,'+250 Mana',SpellItemEnchantmentIndex++)
+/*Health per 5 (-34)*/              addSpell(5,46,31,31,0,0,0,0,'+31 Health Per Second',SpellItemEnchantmentIndex++)
+/*Mana per 5 (-33)*/                addSpell(5,43,31,31,0,0,0,0,'+31 Mana Per Second',SpellItemEnchantmentIndex++)
+/*Block Rating (-32)*/              addSpell(5,15,11,11,0,0,0,0,'+11 Block Rating',SpellItemEnchantmentIndex++)
+/*Expertise Rating (-31)*/          addSpell(5,37,11,11,0,0,0,0,'+11 Expertise Rating',SpellItemEnchantmentIndex++)
+/*Defense Rating (-30)*/            addSpell(5,12,11,11,0,0,0,0,'+11 Defense Rating',SpellItemEnchantmentIndex++)
+/*Dodge Rating (-27)*/              addSpell(5,13,11,11,0,0,0,0,'+11 Dodge Rating',SpellItemEnchantmentIndex++)
+/*Parry Rating (-28)*/              addSpell(5,14,11,11,0,0,0,0,'+11 Parry Rating',SpellItemEnchantmentIndex++)
+/*Resilience Rating (-27)*/         addSpell(5,35,4,4,0,0,0,0,'+4 Resilience Rating',SpellItemEnchantmentIndex++)
+/*Armor Penetration (-26)*/         addSpell(5,44,8,8,0,0,0,0,'+8 Armor Penetration',SpellItemEnchantmentIndex++)
+/*Spell Penetration (-25)*/         addSpell(5,47,8,8,0,0,0,0,'+8 Spell Penetration',SpellItemEnchantmentIndex++)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*Healing (-24)*/                   addSpell(5,42,11,11,0,0,0,0,'+11 Healing Done',SpellItemEnchantmentIndex++)
+/*Intellect (-23)*/                 addSpell(5,5,7,7,0,0,0,0,'+7 Intellect',SpellItemEnchantmentIndex++)
+/*Spirit (-22)*/                    addSpell(5,6,9,9,0,0,0,0,'+9 Spirit',SpellItemEnchantmentIndex++)
+/*Spell Power (-21)*/               addSpell(5,45,11,11,0,0,0,0,'+11 Spell Power',SpellItemEnchantmentIndex++)
+/*Haste Rating (-20)*/              addSpell(5,36,8,8,0,0,0,0,'+8 Haste Rating',SpellItemEnchantmentIndex++)
+/*Strength (-19)*/                  addSpell(5,7,7,7,0,0,0,0,'+7 Strength',SpellItemEnchantmentIndex++)
+/*Attack Power (-18)*/              addSpell(5,38,11,11,0,0,0,0,'+11 Attack Power',SpellItemEnchantmentIndex++)
+/*Agility (-17)*/                   addSpell(5,3,7,7,0,0,0,0,'+7 Agility',SpellItemEnchantmentIndex++)
+/*Ranged Attack Power (-16)*/       addSpell(5,39,9,9,0,0,0,0,'+9 Ranged Attack Power',SpellItemEnchantmentIndex++)
+/*Stamina (-15)*/                   addSpell(5,7,9,9,0,0,0,0,'+9 Stamina',SpellItemEnchantmentIndex++)
+/*Hit Rating (-14)*/                addSpell(5,31,11,11,0,0,0,0,'+11 Hit Rating',SpellItemEnchantmentIndex++)
+/*Critical Strike (-13)*/           addSpell(5,32,11,11,0,0,0,0,'+11 Critical Strike Rating',SpellItemEnchantmentIndex++)
+/*Health (-12)*/                    addSpell(5,1,165,165,0,0,0,0,'+165 Health',SpellItemEnchantmentIndex++)
+/*Mana (-11)*/                      addSpell(5,2,88,88,0,0,0,0,'+88 Mana',SpellItemEnchantmentIndex++)
+/*Health per 5 (-10)*/              addSpell(5,46,11,11,0,0,0,0,'+11 Health Per Second',SpellItemEnchantmentIndex++)
+/*Mana per 5 (-9)*/                 addSpell(5,43,11,11,0,0,0,0,'+11 Mana Per Second',SpellItemEnchantmentIndex++)
+/*Block Rating (-8)*/               addSpell(5,15,7,7,0,0,0,0,'+7 Block Rating',SpellItemEnchantmentIndex++)
+/*Expertise Rating (-7)*/           addSpell(5,37,7,7,0,0,0,0,'+7 Expertise Rating',SpellItemEnchantmentIndex++)
+/*Defense Rating (-6)*/             addSpell(5,12,7,7,0,0,0,0,'+7 Defense Rating',SpellItemEnchantmentIndex++)
+/*Dodge Rating (-5)*/               addSpell(5,13,7,7,0,0,0,0,'+7 Dodge Rating',SpellItemEnchantmentIndex++)
+/*Parry Rating (-4)*/               addSpell(5,14,7,7,0,0,0,0,'+7 Parry Rating',SpellItemEnchantmentIndex++)
+/*Resilience Rating (-3)*/          addSpell(5,35,3,3,0,0,0,0,'+3 Resilience Rating',SpellItemEnchantmentIndex++)
+/*Armor Penetration (-2)*/          addSpell(5,44,4,4,0,0,0,0,'+4 Armor Penetration',SpellItemEnchantmentIndex++)
+/*Spell Penetration (-1)*/          addSpell(5,47,4,4,0,0,0,0,'+4 Spell Penetration',SpellItemEnchantmentIndex++)
 
 // Trinkets : On Use Effects
 addDBC('of Recurring Power',PropertyIndex++,trinketTierThreeItemEnchantmentIndex,59,39,47,1)            /*On Use : Spell Power + Stamina + Intellect             1% Chance*/
@@ -185,17 +186,6 @@ function addDBC(name: string, propIndex: number, enchIndex:number, index1val: nu
     SQL.item_enchantment_template.add(enchIndex,propIndex).chance.set(chance)
 }
 
-
-
-
-/*Testing Multiples (WORKS)*/ /*    DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,13).EffectPointsMax.setIndex(0,3).EffectPointsMin.setIndex(0,3).Name.enGB.set('+3 Agility\n+5 Strength').ItemVisual.set(0).Flags.set(0) */
-
-/*
-int
-spirit
-spell pwoer
-haste
-hit
-crit
-mp5
-*/
+function addSpell(effect1type: number, effect1stattype: number, effect1max: number, effect1min:number, effect2type:number, effect2stattype:number,effect2max:number, effect2min:number,name: string,index:number) {
+    DBC_SpellItemEnchantment.add(index).Name.enGB.set(name).Effect.setIndex(0,effect1type).EffectArg.setIndex(0,effect1stattype).EffectPointsMax.setIndex(0,effect1max).EffectArg.setIndex(0,effect1min).Effect.setIndex(1,effect2type).EffectArg.setIndex(1,effect2stattype).EffectPointsMax.setIndex(1,effect2max).EffectArg.setIndex(1,effect2min)
+}
