@@ -30,7 +30,7 @@ generateGearRecipes(tierOneBaseResources[0],tierOneClothMaterial,tierOneBaseReso
 
 generateWeaponRecipes(tierOneBaseResources[0],tierOneBaseResources[5],tierOneBaseResources[3],tierOneBaseResources[4],stringItem.ID,tierOneWeapons)
 
-SQL.disenchant_loot_template.add(100,tierOneBaseResources[6]).Chance.set(100).MinCount.set(1).MaxCount.set(3).LootMode.set(1).GroupId.set(1).Reference.set(0).Comment.set('tier1 disenchant')
+SQL.disenchant_loot_template.add(100,tierOneBaseResources[6]).Chance.set(100).MinCount.set(1).MaxCount.set(3).LootMode.set(1).GroupId.set(1).Reference.set(0).Comment.set('Tier 1 Disenchant - Dust')
 
 //remove below
 let vendor = std.CreatureTemplates.create(MODNAME,'cacheme',3482)
