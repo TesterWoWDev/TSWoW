@@ -2,6 +2,8 @@ import { DBC_ItemRandomProperties } from "wotlkdata/dbc/types/ItemRandomProperti
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { redColorCode } from "../../functions/gem-functions"
+import { attackpower1 } from "../../spells/AttackPower-1"
+import { spellpower1 } from "../../spells/SpellPower-1"
 
 let PropertyIndex = 3000
 let SpellItemEnchantmentIndex = 6500
@@ -11,6 +13,8 @@ export let mailTierFourItemEnchantmentIndex = 15014
 export let weaponTierFourItemEnchantmentIndex = 15015
 
 
+/*On Use : Attack Power (-60)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,attackpower1.ID).Name.enGB.set(redColorCode + 'Increases attack power by 200 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
+/*On Use : Spell Power (-59)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,spellpower1.ID).Name.enGB.set(redColorCode + 'Increases spell power by 200 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
 
 /*Chance : Shadow Bolt (-58)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,56).Name.enGB.set(redColorCode + '+ Chance on Hit : Stuns target for 3 seconds.').ItemVisual.set(0).Flags.set(0)
 /*Chance : Healing (-57)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,2054).Name.enGB.set(redColorCode + '+ Chance on Hit : Heal 341.').ItemVisual.set(0).Flags.set(0)
@@ -75,11 +79,22 @@ export let weaponTierFourItemEnchantmentIndex = 15015
 /*Armor Penetration (-2)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,44).EffectPointsMax.setIndex(0,5).EffectPointsMin.setIndex(0,5).Name.enGB.set('+5 Armor Penetration').ItemVisual.set(0).Flags.set(0)
 /*Spell Penetration (-1)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,47).EffectPointsMax.setIndex(0,5).EffectPointsMin.setIndex(0,5).Name.enGB.set('+5 Spell Penetration').ItemVisual.set(0).Flags.set(0)
 
+// On Use Effects
+addDBC('of Recurring Power',PropertyIndex++,weaponTierFourItemEnchantmentIndex,59,0,0,1)            /*On Use : Spell Power              1% Chance*/
+addDBC('of Escalating Power',PropertyIndex++,weaponTierFourItemEnchantmentIndex,60,0,0,1)           /*On Use : Attack Power             1% Chance*/
+
 // Chance on Hit Effects
 addDBC('of the Jailer',PropertyIndex++,weaponTierFourItemEnchantmentIndex,58,0,0,1)            /*Chance to Stun                    1% Chance*/
 addDBC('of the Lightning Thief',PropertyIndex++,weaponTierFourItemEnchantmentIndex,56,0,0,1)   /*Chance to Thunderfury             1% Chance*/
 addDBC('of the Immortal',PropertyIndex++,weaponTierFourItemEnchantmentIndex,57,0,0,1)          /*Chance to Heal                    1% Chance*/
 addDBC('of the Shadow Storm',PropertyIndex++,weaponTierFourItemEnchantmentIndex,55,0,0,1)      /*Chance to Send Shadowbolts        1% Chance*/
+
+
+// I have not taken into account the percentage changes for anything above this line.
+// AKA : These will put the effective percent of an enchant > 100%.
+
+
+
 
 // Omnipotence Chances
 addDBC('of the Omnipotent',PropertyIndex++,clothTierFourItemEnchantmentIndex,49,50,51,1)     /*Haste + Crit + Hit                        1% Chance*/
