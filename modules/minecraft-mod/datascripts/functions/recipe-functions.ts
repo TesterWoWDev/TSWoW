@@ -80,8 +80,31 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
     return returnIDs
 }
 
+export function createTrinket(levelrequirement:number,tier:string,quality:number,disenchantID:number,randomPropID:number,name:string,display:number,armSpell:number[],armTrigger:number[]){
+    let ids = [4,0,12]
+    let costs = 7
+        let item = std.Items.create(MODNAME,tier + ' ' + name.toLowerCase().replace(" ","-"),38)
+        item.Class.set(ids[0],ids[1])
+        item.InventoryType.set(ids[2])
+        item.Quality.set(quality)
+        item.Description.enGB.set('')
+        item.RequiredLevel.set(levelrequirement)
+        item.Name.enGB.set(name)
+        item.DisplayInfo.setID(display)
+        item.Durability.set(20)
+        item.RandomProperty.set(randomPropID)
+        item.DisenchantID.set(disenchantID)
+        item.RequiredDisenchantSkill.set(0)
+        item.Flags.set(0)
+        armSpell.forEach((value,index)=>{
+            item.Spells.add(value).Trigger.set(armTrigger[index])
+        })
+        item.Price.set(((levelrequirement*levelrequirement)*100), ((levelrequirement*levelrequirement)*150)) //sellprice + buyprice
+        item.ItemLevel.set(costs/2*quality)
+    return item.ID
+}
 export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,names:string[],display:number[],wepSpell:number[],wepTrigger:number[]):number[]{
-    let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
+    let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,5,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
     let returnIDs = []
 
@@ -139,9 +162,13 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
             }else{//1h
                 item.Damage.addPhysical(costval*levelrequirement,costval*levelrequirement*1.5)
                 item.Delay.set(1900)
-                item.Sheath.set(3)
+                let sheathval = 3
+                if(ids[i][1] == 13){//fist wep
+                    sheathval = 0
+                }
+                item.Sheath.set(sheathval)
                 DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
-                    value.SheatheType.set(3)
+                    value.SheatheType.set(sheathval)
                 })
             }
         }else{//shield
