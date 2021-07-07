@@ -1,6 +1,10 @@
 export function transmog(events:TSEventHandlers){
     events.Player.OnCommand((player,com,found)=>{
-    if(com.get().startsWith("transmog")){
+        if(com.get().startsWith("transmogclear")){
+            let clearString = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+            QueryCharacters("INSERT INTO `playertransmog` VALUES("+player.GetGUIDLow()+",\""+clearString+"\",\""+clearString+"\") ON DUPLICATE KEY UPDATE transmogIDs=\""+clearString+"\", transmogVisualIDs=\""+clearString+"\"")
+            setAllTransmogs(player)
+        }else if(com.get().startsWith("transmog")){
         found.set(true)
         let vis = com.get().substr(8)
         let visSplit = vis.split(" ")//itemID,enchantID,slotID\
