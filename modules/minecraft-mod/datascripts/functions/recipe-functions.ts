@@ -146,8 +146,9 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
             }
         }else{//shield
             item.Armor.set(costval*5)
-            item.Stats.addBlockRating(costval)
+            item.Stats.addBlockRating(costval/2)
             item.Sheath.set(4)
+            item.BlockChance.set(costval)
             DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
                 value.SheatheType.set(4)
             })
