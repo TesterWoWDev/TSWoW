@@ -3,6 +3,8 @@ import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantme
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { redColorCode } from "../../functions/gem-functions"
 import { attackpower1 } from "../../spells/attack-power-spells"
+import { chanceHeal1, chanceLightning1, chanceShadow1, chanceStun1 } from "../../spells/chance-on-hit-spells"
+import { health1 } from "../../spells/health-increase-spells"
 import { spellpower1 } from "../../spells/spell-power-spells"
 
 let PropertyIndex = 2500
@@ -11,21 +13,19 @@ export let clothTierOneItemEnchantmentIndex = 15000
 export let leatherTierOneItemEnchantmentIndex = 15001
 export let mailTierOneItemEnchantmentIndex = 15002
 export let weaponTierOneItemEnchantmentIndex = 15003
+export let trinketTierOneItemEnchantmentIndex = 16018
 
 
-
-/*On Use : Attack Power (-60)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,attackpower1.ID).Name.enGB.set('Increases attack power by 200 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
-/*On Use : Spell Power (-59)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,spellpower1.ID).Name.enGB.set('Increases spell power by 200 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
-
-/*Chance : Stun Baton (-58)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,56).Name.enGB.set(redColorCode + '+ Chance on Hit : Stuns target for 3 seconds.').ItemVisual.set(0).Flags.set(0)
-/*Chance : Healing (-57)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,2054).Name.enGB.set(redColorCode + '+ Chance on Hit : Heal 341.').ItemVisual.set(0).Flags.set(0)
-/*Chance : Thunderfury (-56)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,21992).Name.enGB.set(redColorCode + '+ Chance on Hit : Lightning Blast.').ItemVisual.set(0).Flags.set(0)
-/*Chance : Shadow Bolt (-55)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,13440).Name.enGB.set(redColorCode + '+ Chance on Hit : Shadow Bolt.').ItemVisual.set(0).Flags.set(0)
-
+/*On Use : Health (-61)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,health1.ID).Name.enGB.set('Increases health by 350 for 18 seconds.').ItemVisual.set(0).Flags.set(0)
+/*On Use : Attack Power (-60)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,attackpower1.ID).Name.enGB.set('Increases attack power by 50 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
+/*On Use : Spell Power (-59)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,spellpower1.ID).Name.enGB.set('Increases spell power by 50 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
+/*Chance : Stun Baton (-58)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,chanceStun1.ID).Name.enGB.set(redColorCode + 'Chance on Hit : Stuns target for 1 seconds.').ItemVisual.set(0).Flags.set(0)
+/*Chance : Healing (-57)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,chanceHeal1.ID).Name.enGB.set(redColorCode + 'Chance on Hit : Heal 100.').ItemVisual.set(0).Flags.set(0)
+/*Chance : Thunderfury (-56)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,chanceLightning1.ID).Name.enGB.set(redColorCode + 'Chance on Hit : Lightning Blast for 100 damage.').ItemVisual.set(0).Flags.set(0)
+/*Chance : Shadow Bolt (-55)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,chanceShadow1.ID).Name.enGB.set(redColorCode + '+ Chance on Hit : Shadow Bolt for 30 damage.').ItemVisual.set(0).Flags.set(0)
 /*Omnipotence Weapon (-54)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,4).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('+8 Agility\n+8 Strength').ItemVisual.set(0).Flags.set(0)
 /*Omnipotence Weapon (-53)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,7).EffectPointsMax.setIndex(1,9).EffectPointsMin.setIndex(1,9).Name.enGB.set('+8 Intellect\n+9 Stamina').ItemVisual.set(0).Flags.set(0)
 /*Omnipotence Weapon (-52)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,16).EffectPointsMin.setIndex(0,16).Effect.setIndex(1,5).EffectArg.setIndex(1,38).EffectPointsMax.setIndex(1,16).EffectPointsMin.setIndex(1,16).Name.enGB.set('+16 Spell Power\n+16 Attack Power').ItemVisual.set(0).Flags.set(0)
-
 /*Omnipotence (-51)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,4).EffectPointsMax.setIndex(1,2).EffectPointsMin.setIndex(1,2).Name.enGB.set('+2 Agility\n+2 Strength').ItemVisual.set(0).Flags.set(0)
 /*Omnipotence (-50)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Effect.setIndex(1,5).EffectArg.setIndex(1,7).EffectPointsMax.setIndex(1,2).EffectPointsMin.setIndex(1,2).Name.enGB.set('+2 Intellect\n+3 Stamina').ItemVisual.set(0).Flags.set(0)
 /*Omnipotence (-49)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,45).EffectPointsMax.setIndex(0,6).EffectPointsMin.setIndex(0,6).Effect.setIndex(1,5).EffectArg.setIndex(1,38).EffectPointsMax.setIndex(1,6).EffectPointsMin.setIndex(1,6).Name.enGB.set('+6 Spell Power\n+6 Attack Power').ItemVisual.set(0).Flags.set(0)
@@ -79,6 +79,17 @@ export let weaponTierOneItemEnchantmentIndex = 15003
 /*Resilience Rating (-3)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,35).EffectPointsMax.setIndex(0,1).EffectPointsMin.setIndex(0,1).Name.enGB.set('+1 Resilience Rating').ItemVisual.set(0).Flags.set(0)
 /*Armor Penetration (-2)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,44).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Name.enGB.set('+2 Armor Penetration').ItemVisual.set(0).Flags.set(0)
 /*Spell Penetration (-1)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,47).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Name.enGB.set('+2 Spell Penetration').ItemVisual.set(0).Flags.set(0)
+
+// Trinkets : On Use Effects
+addDBC('of Recurring Power',PropertyIndex++,trinketTierOneItemEnchantmentIndex,59,39,47,1)            /*On Use : Spell Power + Stamina + Intellect             1% Chance*/
+addDBC('of Escalating Power',PropertyIndex++,trinketTierOneItemEnchantmentIndex,60,39,43,1)           /*On Use : Attack Power + Stamina + Strength             1% Chance*/
+addDBC('of Escalating Power',PropertyIndex++,trinketTierOneItemEnchantmentIndex,60,39,41,1)           /*On Use : Attack Power + Stamina + Agility              1% Chance*/
+
+// Trinkets : Chance on Hit Effects
+addDBC('of the Jailer',PropertyIndex++,trinketTierOneItemEnchantmentIndex,58,38,37,1)            /*Chance to Stun + Hit + Crit                    1% Chance*/
+addDBC('of the Lightning Thief',PropertyIndex++,trinketTierOneItemEnchantmentIndex,56,44,31,1)   /*Chance to Thunderfury + Haste + Expertise            1% Chance*/
+addDBC('of the Immortal',PropertyIndex++,trinketTierOneItemEnchantmentIndex,57,36,37,1)          /*Chance to Heal + Health + Crit                   1% Chance*/
+addDBC('of the Shadow Storm',PropertyIndex++,trinketTierOneItemEnchantmentIndex,55,45,42,1)      /*Chance to Send Shadowbolts + Spell Power + Attack Power       1% Chance*/
 
 // Chance on Hit Effects
 addDBC('of the Jailer',PropertyIndex++,weaponTierOneItemEnchantmentIndex,58,0,0,1)            /*Chance to Stun                    1% Chance*/
