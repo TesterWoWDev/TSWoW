@@ -26,7 +26,7 @@ export function createMaterial(QualityValue:number,tier:string,itemName:string,d
         item.DisplayInfo.setID(displayInfoID)
         item.Description.enGB.set(description)
         item.ItemLevel.set(0)
-        item.MaxStack.set(200)
+        item.MaxStack.set(900)
         return item.ID
 }
 
@@ -39,7 +39,7 @@ export function createBaseResources(QualityValue:number,tier:string,itemPrefix:s
         item.DisplayInfo.setID(displayIDs[i])
         //item.Description.enGB.set(description)
         item.ItemLevel.set(0)
-        item.MaxStack.set(200)
+        item.MaxStack.set(900)
         returnIDs.push(item.ID)
     }
     return returnIDs
