@@ -18,7 +18,7 @@ export let trinketTierTwoItemEnchantmentIndex = 16017
 /*On Use : Health (-61)*/           addSpell(7,health2.ID,0,0,0,0,0,0,'Increases health by 750 for 18 seconds.',SpellItemEnchantmentIndex++)
 /*On Use : Attack Power (-60)*/     addSpell(7,attackpower2.ID,0,0,0,0,0,0,'Increases attack power by 150 for 10 seconds.',SpellItemEnchantmentIndex++)
 /*On Use : Spell Power (-59)*/      addSpell(7,spellpower2.ID,0,0,0,0,0,0,'Increases spell power by 150 for 10 seconds.',SpellItemEnchantmentIndex++)
-/*Chance : Shadow Bolt (-58)*/      addSpell(1,chanceStun2.ID,0,0,0,0,0,0,redColorCode + 'Chance: Stuns target for 2 seconds.',SpellItemEnchantmentIndex++)
+/*Chance : Stun Baton (-58)*/       addSpell(1,chanceStun2.ID,0,0,0,0,0,0,redColorCode + 'Chance: Stuns target for 2 seconds.',SpellItemEnchantmentIndex++)
 /*Chance : Healing (-57)*/          addSpell(1,chanceHeal2.ID,0,0,0,0,0,0,redColorCode + 'Chance: Heal 250.',SpellItemEnchantmentIndex++)
 /*Chance : Thunderfury (-56)*/      addSpell(1,chanceLightning2.ID,0,0,0,0,0,0,redColorCode + 'Chance: Lightning Blast for 175 damage.',SpellItemEnchantmentIndex++)
 /*Chance : Shadow Bolt (-55)*/      addSpell(1,chanceShadow2.ID,0,0,0,0,0,0,redColorCode + 'Chance: Shadow Bolt for 80 damage.',SpellItemEnchantmentIndex++)
@@ -187,5 +187,5 @@ function addDBC(name: string, propIndex: number, enchIndex:number, index1val: nu
 }
 
 function addSpell(effect1type: number, effect1stattype: number, effect1max: number, effect1min:number, effect2type:number, effect2stattype:number,effect2max:number, effect2min:number,name: string,index:number) {
-    DBC_SpellItemEnchantment.add(index).Name.enGB.set(name).Effect.setIndex(0,effect1type).EffectArg.setIndex(0,effect1stattype).EffectPointsMax.setIndex(0,effect1max).EffectArg.setIndex(0,effect1min).Effect.setIndex(1,effect2type).EffectArg.setIndex(1,effect2stattype).EffectPointsMax.setIndex(1,effect2max).EffectArg.setIndex(1,effect2min)
+    DBC_SpellItemEnchantment.add(index).Name.enGB.set(name).Effect.setIndex(0,effect1type).EffectArg.setIndex(0,effect1stattype).EffectPointsMax.setIndex(0,effect1max).EffectPointsMin.setIndex(0,effect1min).Effect.setIndex(1,effect2type).EffectArg.setIndex(1,effect2stattype).EffectPointsMax.setIndex(1,effect2max).EffectPointsMin.setIndex(1,effect2min)
 }
