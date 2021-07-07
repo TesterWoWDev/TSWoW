@@ -72,8 +72,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         item.Price.set(((levelrequirement*levelrequirement)*100), ((levelrequirement*levelrequirement)*150)) //sellprice + buyprice
        // item.Price.set(((quality*quality*100)/1.5),(quality*quality*100))
         item.ItemLevel.set(costval)
-        item.Stats.addStamina(costval+levelrequirement)
-        item.Stats.addHitRating(costval/2)
+        item.Stats.addStamina((costval+levelrequirement)/2)
         item.Armor.set(costval*materialType*3)
 
         returnIDs.push(item.ID)
@@ -108,8 +107,6 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.Price.set(((levelrequirement*levelrequirement)*100), ((levelrequirement*levelrequirement)*150)) //sellprice + buyprice
       //  item.Price.set(((quality*quality*100)/2),(quality*quality*100))
         item.ItemLevel.set(costval)
-        item.Stats.addStamina((costval*quality)+levelrequirement)
-        item.Stats.addHitRating(costval)
         costval = costval*2
         if(ids[i][0] == 2){//weapon
             item.Material.setMetal()
@@ -149,8 +146,9 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
             }
         }else{//shield
             item.Armor.set(costval*5)
-            item.Stats.addBlockRating(costval)
+            item.Stats.addBlockRating(costval/2)
             item.Sheath.set(4)
+            item.BlockChance.set(costval)
             DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
                 value.SheatheType.set(4)
             })
