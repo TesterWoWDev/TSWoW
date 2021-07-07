@@ -266,3 +266,65 @@ function waiter(delay){
         }
     })
 }
+//causing error
+let mat = 'INV_Misc_WartornScrap_Plate'
+let gem = 'INV_Misc_Gem_Diamond_01'
+let epulet = 'INV_Armor_Shoulder_Plate_Naxxramas_RaidWarrior_C_01'
+let chain = 'INV_Belt_18'
+let metal = 'INV_Gizmo_MithrilCasing_01'
+let reinforcedMetal = 'INV_Gizmo_MithrilCasing_02'
+let stick = 'INV_Fishingpole_06'
+let string = 'INV_Misc_Thread_01'
+//add in enchanting
+let dust = 'INV_Enchant_DustArcane'
+let unrefinedGem = 'INV_Enchant_ShardShadowfrostLarge'
+
+let recipes = [[mat,mat,mat,mat,'',mat,'','',''],[mat,chain,mat,mat,gem,mat,'',mat,''],[epulet,'',epulet,mat,'',mat,'','',''],[mat,chain,mat,mat,mat,mat,'','',''],[mat,'',mat,mat,mat,mat,mat,mat,mat,],['',mat,'',mat,'',mat,'',mat,''],[mat,'',mat,mat,'',mat,'','',''],['','','',mat,mat,mat,'','',''],[mat,mat,mat,mat,'',mat,mat,'',mat],['','','',mat,'',mat,mat,'',mat],['',gem,'',mat,'',mat,'',mat,''],['',mat,'',mat,gem,mat,'',mat,''],['',metal,'','',metal,'','',stick,''],['','','','',metal,metal,'',stick,''],['','','','',metal,'','',stick,metal],['','','','',metal,'','',stick,''],['',reinforcedMetal,'','',reinforcedMetal,'','',stick,''],['','','','',reinforcedMetal,reinforcedMetal,'',stick,''],['','','','',reinforcedMetal,'','',stick,reinforcedMetal],['','',reinforcedMetal,'',reinforcedMetal,'',stick,'',''],['',gem,'','',stick,'','',stick,''],['',stick,'',metal,'',metal,'','',''],['',stick,'','',string,stick,'',stick,''],[stick,'',stick,'',reinforcedMetal,'',stick,'',stick],['skipforblank'],['','','',stick,stick,'',gem,stick,''],['','','','',gem,'','',stick,''],['skipforblank']]//maybe add a spot for enchant
+let recipeIcons = ['INV_Misc_Desecrated_PlateHelm','INV_Jewelry_Necklace_06','INV_Misc_Desecrated_PlateShoulder','INV_Misc_Cape_19','INV_Misc_Desecrated_PlateChest','INV_Misc_Desecrated_PlateBracer','INV_Misc_Desecrated_PlateGloves','INV_Misc_Desecrated_PlateBelt','INV_Misc_Desecrated_PlatePants','INV_Misc_Desecrated_PlateBoots','INV_Jewelry_Ring_03','INV_Jewelry_Talisman_01','INV_Sword_01','INV_Mace_03','INV_Axe_03','INV_Weapon_ShortBlade_14','INV_Sword_2H_Blacksmithing_03','INV_Mace_84','INV_Axe_60','INV_Weapon_Halberd15','INV_Staff_13','INV_Weapon_Hand_01','INV_Weapon_Bow_01','INV_Shield_17','','INV_Misc_Book_01','INV_Wand_07']
+let mframeRecipe = CreateFrame('Frame','mframerecipe',mframe)
+    mframeRecipe.SetWidth(260)
+    mframeRecipe.SetHeight(400)
+    mframeRecipe.SetPoint('RIGHT',mframe,'LEFT')
+    mframeRecipe.Hide()
+    mframeRecipe.SetBackdrop({bgFile : "Interface/TutorialFrame/TutorialFrameBackground",
+    edgeFile : "Interface/DialogFrame/UI-DialogBox-Border", 
+    tile : true, tileSize : 22, edgeSize : 22, 
+    insets : { left : 4, right : 4, top : 4, bottom : 4 }})
+    mframeRecipe.SetBackdropColor(0,0,0,0.1)
+
+let mtexRecipe = mframeRecipe.CreateTexture('recipetex','BACKGROUND')
+    mtexRecipe.SetPoint('CENTER',mframeRecipe,'CENTER')
+    mtexRecipe.SetSize(mframeRecipe.GetWidth()-7,mframeRecipe.GetHeight()-7)
+    mtexRecipe.SetTexture('Interface/AchievementFrame/UI-Achievement-StatsBackground')
+let exitbutnRecipe = CreateFrame("Button", 'exitbtnrec', mframe)
+    exitbutnRecipe.SetPoint("TOPLEFT", mframe, "TOPLEFT",5,-5)
+    exitbutnRecipe.SetWidth(50)
+    exitbutnRecipe.SetHeight(50)
+let extexRecipe = exitbutnRecipe.CreateTexture('exittexrec','BACKGROUND')
+    extexRecipe.SetTexture("Interface\\Calendar\\EventNotification.blp")
+    extexRecipe.SetAllPoints(exitbutnRecipe)
+    extexRecipe.SetPoint("CENTER",0,0)
+    exitbutnRecipe.HookScript("OnClick",(frame,evName,btnDown)=>{
+        if(mframeRecipe.IsShown()){
+            mframeRecipe.Hide()
+        }
+        else{
+            mframeRecipe.Show()
+        }
+    })
+    recipes.forEach((value,index)=>{
+        let button = CreateFrame('Button','recipebut',mframeRecipe)
+            button.SetSize(45,45)
+            button.SetPoint('CENTER',mframeRecipe,'TOPLEFT',55+((button.GetWidth()+5)*(Math.floor(index%4))),-50-((button.GetHeight()+5)*(Math.floor(index/4))))
+            button.CreateTexture
+            let butRecipe = button.CreateTexture('tex','BACKGROUND')
+                butRecipe.SetAllPoints(button)
+                butRecipe.SetTexture('Interface/Icons/'+recipeIcons[index])//set to 
+            
+            button.SetScript('OnClick',(frame,button,down)=>{
+                buttons.forEach((element,i) => {
+                    element[2].SetTexture('')
+                    element[2].SetTexture('Interface/Icons/' + value[i])
+                });
+            })
+    })
