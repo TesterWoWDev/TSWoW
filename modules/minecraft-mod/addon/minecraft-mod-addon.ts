@@ -322,6 +322,11 @@ let extexRecipe = exitbutnRecipe.CreateTexture('exittexrec','BACKGROUND')
                 butRecipe.SetTexture('Interface/Icons/'+recipeIcons[index])//set to 
             
             button.SetScript('OnClick',(frame,button,down)=>{
+                choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
+                itemIDs = [0,0,0,0,0,0,0,0,0]
+                enchants = [0,0,0,0]
+                latestBagSlot = [0,0]
+
                 buttons.forEach((element,i) => {
                     element[2].SetTexture('')
                     element[2].SetTexture('Interface/Icons/' + value[i])
