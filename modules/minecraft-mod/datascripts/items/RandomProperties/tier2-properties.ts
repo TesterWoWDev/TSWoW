@@ -75,82 +75,66 @@ addDBC('of Life',PropertyIndex++,clothTierTwoItemEnchantmentIndex,12,10,0,10)   
 addDBC('of Swiftness',PropertyIndex++,clothTierTwoItemEnchantmentIndex,20,14,13,10)     /*Haste + Crit + Hit                        10% Chance*/
 
 // Leather Items - MELEE
-addDBC('of Balance',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,17,13,18,5)     /*Agility + Crit + Attackpower              10% Chance*/ 
-addDBC('of Aggression',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,17,20,18,5)  /*Agility + Haste + Attackpower             10% Chance*/
-addDBC('of Power',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,20,18,0,5)        /*Haste + Attackpower                       10% Chance*/
-addDBC('of Lethality',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,18,18,14,5)   /*Attackpower + Attackpower + Hit           10% Chance*/
-addDBC('of Stealth',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,18,10,20,5)     /*Attackpower + Health per 5 + Haste        10% Chance*/
-addDBC('of Vanishing',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,5,4,17,5)     /*Agility, Dodge, Parry                     10% Chance*/
-addDBC('of Bleeding',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,18,13,2,5)     /*Attackpower + Crit + Armor Pen            10% Chance*/
-addDBC('of Brutality',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,18,14,13,5)   /*Attackpower + Hit + Crit                  10% Chance*/
-addDBC('of Life',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,12,10,0,5)         /*Health + Health per 5                     10% Chance*/
-addDBC('of Swiftness',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,20,14,13,5)   /*Haste + Crit + Hit                        10% Chance*/
+addDBC('of Balance',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,17,13,18,6.67)     /*Agility + Crit + Attackpower              6.67% Chance*/ 
+addDBC('of Aggression',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,17,20,18,6.67)  /*Agility + Haste + Attackpower             6.67% Chance*/
+addDBC('of Power',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,20,18,0,6.67)        /*Haste + Attackpower                       6.67% Chance*/
+addDBC('of Lethality',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,18,18,14,6.67)   /*Attackpower + Attackpower + Hit           6.67% Chance*/
+addDBC('of Stealth',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,18,10,20,6.67)     /*Attackpower + Health per 5 + Haste        6.67% Chance*/
+addDBC('of Vanishing',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,5,4,17,6.67)     /*Agility, Dodge, Parry                     6.67% Chance*/
+addDBC('of Bleeding',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,18,13,2,6.67)     /*Attackpower + Crit + Armor Pen            6.67% Chance*/
+addDBC('of Brutality',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,18,14,13,6.67)   /*Attackpower + Hit + Crit                  6.67% Chance*/
 // Leather Items - CASTER
-addDBC('of Blasphemy',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,23,22,21,5)     /*Intellect + Spirit + Spellpower           10% Chance*/ 
-addDBC('of Potency',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,23,20,21,5)       /*Intellect + Haste + Spellpower            10% Chance*/
-addDBC('of Power',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,20,21,0,5)          /*Haste + Spellpower                        10% Chance*/
-addDBC('of Smiting',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,21,21,14,5)       /*Spellpower + Spellpower + Hit             10% Chance*/
-addDBC('of Healing',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,21,9,20,5)        /*Spellpower + Mana per 5 + Haste           10% Chance*/
-addDBC('of Renewal',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,10,9,0,5)         /*Health per 5 + Mana per 5                 10% Chance*/
-addDBC('of Blasting',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,21,13,1,5)       /*Spellpower + Crit + Spell Pen             10% Chance*/
-addDBC('of Destruction',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,21,14,13,5)   /*Spellpower + Hit + Crit                   10% Chance*/
-addDBC('of Life',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,12,10,0,5)           /*Health + Health per 5                     10% Chance*/
-addDBC('of Swiftness',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,20,14,13,5)     /*Haste + Crit + Hit                        10% Chance*/
+addDBC('of Blasphemy',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,23,22,21,6.67)     /*Intellect + Spirit + Spellpower           6.67% Chance*/ 
+addDBC('of Potency',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,23,20,21,6.67)       /*Intellect + Haste + Spellpower            6.67% Chance*/
+addDBC('of Power',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,20,21,0,6.67)          /*Haste + Spellpower                        6.67% Chance*/
+addDBC('of Smiting',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,21,21,14,6.67)       /*Spellpower + Spellpower + Hit             6.67% Chance*/
+addDBC('of Healing',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,21,9,20,6.67)        /*Spellpower + Mana per 5 + Haste           6.67% Chance*/
+addDBC('of Blasting',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,21,13,1,6.67)       /*Spellpower + Crit + Spell Pen             6.67% Chance*/
+addDBC('of Destruction',PropertyIndex++,leatherTierTwoItemEnchantmentIndex,21,14,13,6.67)   /*Spellpower + Hit + Crit                   6.67% Chance*/
 
 // Mail Items - MELEE
-addDBC('of Pain',PropertyIndex++,mailTierTwoItemEnchantmentIndex,19,13,18,5)           /*Strength + Crit + Attackpower             10% Chance*/ 
-addDBC('of Revenge',PropertyIndex++,mailTierTwoItemEnchantmentIndex,19,20,18,5)        /*Strength + Haste + Attackpower            10% Chance*/
-addDBC('of Brutality',PropertyIndex++,mailTierTwoItemEnchantmentIndex,20,18,0,5)       /*Haste + Attackpower                       10% Chance*/
-addDBC('of Agony',PropertyIndex++,mailTierTwoItemEnchantmentIndex,18,18,14,5)          /*Attackpower + Attackpower + Hit           10% Chance*/
-addDBC('of Berserking',PropertyIndex++,mailTierTwoItemEnchantmentIndex,18,10,20,5)     /*Attackpower + Health per 5 + Haste        10% Chance*/
-addDBC('of Resourcefulness',PropertyIndex++,mailTierTwoItemEnchantmentIndex,5,4,19,5)  /*Strength, Dodge, Parry                    10% Chance*/
-addDBC('of Remorse',PropertyIndex++,mailTierTwoItemEnchantmentIndex,18,13,2,5)         /*Attackpower + Crit + Armor Pen            10% Chance*/
-addDBC('of Demise',PropertyIndex++,mailTierTwoItemEnchantmentIndex,18,14,13,5)         /*Attackpower + Hit + Crit                  10% Chance*/
-addDBC('of Life',PropertyIndex++,mailTierTwoItemEnchantmentIndex,12,10,0,5)            /*Health + Health per 5                     10% Chance*/
-addDBC('of Swiftness',PropertyIndex++,mailTierTwoItemEnchantmentIndex,20,14,13,5)      /*Haste + Crit + Hit                        10% Chance*/
+addDBC('of Pain',PropertyIndex++,mailTierTwoItemEnchantmentIndex,19,13,18,5.89)           /*Strength + Crit + Attackpower             5.89% Chance*/ 
+addDBC('of Revenge',PropertyIndex++,mailTierTwoItemEnchantmentIndex,19,20,18,5.89)        /*Strength + Haste + Attackpower            5.89% Chance*/
+addDBC('of Brutality',PropertyIndex++,mailTierTwoItemEnchantmentIndex,20,18,0,5.89)       /*Haste + Attackpower                       5.89% Chance*/
+addDBC('of Agony',PropertyIndex++,mailTierTwoItemEnchantmentIndex,18,18,14,5.89)          /*Attackpower + Attackpower + Hit           5.89% Chance*/
+addDBC('of Berserking',PropertyIndex++,mailTierTwoItemEnchantmentIndex,18,10,20,5.89)     /*Attackpower + Health per 5 + Haste        5.89% Chance*/
+addDBC('of Resourcefulness',PropertyIndex++,mailTierTwoItemEnchantmentIndex,5,4,19,5.89)  /*Strength, Dodge, Parry                    5.89% Chance*/
+addDBC('of Remorse',PropertyIndex++,mailTierTwoItemEnchantmentIndex,18,13,2,5.89)         /*Attackpower + Crit + Armor Pen            5.89% Chance*/
+addDBC('of Demise',PropertyIndex++,mailTierTwoItemEnchantmentIndex,18,14,13,5.89)         /*Attackpower + Hit + Crit                  5.89% Chance*/
+addDBC('of Life',PropertyIndex++,mailTierTwoItemEnchantmentIndex,12,10,0,5.89)            /*Health + Health per 5                     5.89% Chance*/
+addDBC('of Swiftness',PropertyIndex++,mailTierTwoItemEnchantmentIndex,20,14,13,5.89)      /*Haste + Crit + Hit                        5.89% Chance*/
 // Mail Items - CASTER
-addDBC('of Blasphemy',PropertyIndex++,mailTierTwoItemEnchantmentIndex,23,22,21,5)     /*Intellect + Spirit + Spellpower           10% Chance*/ 
-addDBC('of Potency',PropertyIndex++,mailTierTwoItemEnchantmentIndex,23,20,21,5)       /*Intellect + Haste + Spellpower            10% Chance*/
-addDBC('of Power',PropertyIndex++,mailTierTwoItemEnchantmentIndex,20,21,0,5)          /*Haste + Spellpower                        10% Chance*/
-addDBC('of Smiting',PropertyIndex++,mailTierTwoItemEnchantmentIndex,21,21,14,5)       /*Spellpower + Spellpower + Hit             10% Chance*/
-addDBC('of Healing',PropertyIndex++,mailTierTwoItemEnchantmentIndex,21,9,20,5)        /*Spellpower + Mana per 5 + Haste           10% Chance*/
-addDBC('of Renewal',PropertyIndex++,mailTierTwoItemEnchantmentIndex,10,9,0,5)         /*Health per 5 + Mana per 5                 10% Chance*/
-addDBC('of Blasting',PropertyIndex++,mailTierTwoItemEnchantmentIndex,21,13,1,5)       /*Spellpower + Crit + Spell Pen             10% Chance*/
-addDBC('of Destruction',PropertyIndex++,mailTierTwoItemEnchantmentIndex,21,14,13,5)   /*Spellpower + Hit + Crit                   10% Chance*/
-addDBC('of Life',PropertyIndex++,mailTierTwoItemEnchantmentIndex,12,10,0,5)           /*Health + Health per 5                     10% Chance*/
-addDBC('of Swiftness',PropertyIndex++,mailTierTwoItemEnchantmentIndex,20,14,13,5)     /*Haste + Crit + Hit                        10% Chance*/
+addDBC('of Blasphemy',PropertyIndex++,mailTierTwoItemEnchantmentIndex,23,22,21,5.89)     /*Intellect + Spirit + Spellpower           5.89% Chance*/ 
+addDBC('of Potency',PropertyIndex++,mailTierTwoItemEnchantmentIndex,23,20,21,5.89)       /*Intellect + Haste + Spellpower            5.89% Chance*/
+addDBC('of Power',PropertyIndex++,mailTierTwoItemEnchantmentIndex,20,21,0,5.89)          /*Haste + Spellpower                        5.89% Chance*/
+addDBC('of Smiting',PropertyIndex++,mailTierTwoItemEnchantmentIndex,21,21,14,5.89)       /*Spellpower + Spellpower + Hit             5.89% Chance*/
+addDBC('of Healing',PropertyIndex++,mailTierTwoItemEnchantmentIndex,21,9,20,5.89)        /*Spellpower + Mana per 5 + Haste           5.89% Chance*/
+addDBC('of Blasting',PropertyIndex++,mailTierTwoItemEnchantmentIndex,21,13,1,5.89)       /*Spellpower + Crit + Spell Pen             5.89% Chance*/
+addDBC('of Destruction',PropertyIndex++,mailTierTwoItemEnchantmentIndex,21,14,13,5.89)   /*Spellpower + Hit + Crit                   5.89% Chance*/
+
 
 // Weapon Enchants
-addDBC('of Blasphemy',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,47,46,45,3.33)      /*Intellect + Spirit + Spellpower           3.33% Chance*/ 
-addDBC('of Potency',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,47,44,45,3.33)        /*Intellect + Haste + Spellpower            3.33% Chance*/
-addDBC('of Power',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,45,0,3.33)           /*Haste + Spellpower                        3.33% Chance*/
-addDBC('of Smiting',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,45,45,38,3.33)        /*Spellpower + Spellpower + Hit             3.33% Chance*/
-addDBC('of Healing',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,45,33,44,3.33)        /*Spellpower + Mana per 5 + Haste           3.33% Chance*/
-addDBC('of Renewal',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,34,33,0,3.33)         /*Health per 5 + Mana per 5                 3.33% Chance*/
-addDBC('of Blasting',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,45,37,25,3.33)       /*Spellpower + Crit + Spell Pen             3.33% Chance*/
-addDBC('of Destruction',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,45,38,37,3.33)    /*Spellpower + Hit + Crit                   3.33% Chance*/
-addDBC('of Life',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,36,34,0,3.33)            /*Health + Health per 5                     3.33% Chance*/
-addDBC('of Swiftness',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,37,38,3.33)      /*Haste + Crit + Hit                        3.33% Chance*/
-addDBC('of Balance',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,41,37,42,3.33)        /*Agility + Crit + Attackpower              3.33% Chance*/ 
-addDBC('of Aggression',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,41,44,42,3.33)     /*Agility + Haste + Attackpower             3.33% Chance*/
-addDBC('of Power',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,42,0,3.33)           /*Haste + Attackpower                       3.33% Chance*/
-addDBC('of Lethality',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,42,38,3.33)      /*Attackpower + Attackpower + Hit           3.33% Chance*/
-addDBC('of Stealth',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,34,44,3.33)        /*Attackpower + Health per 5 + Haste        3.33% Chance*/
-addDBC('of Vanishing',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,41,27,28,3.33)      /*Agility, Dodge, Parry                     3.33% Chance*/
-addDBC('of Bleeding',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,37,26,3.33)       /*Attackpower + Crit + Armor Pen            3.33% Chance*/
-addDBC('of Brutality',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,38,37,3.33)      /*Attackpower + Hit + Crit                  3.33% Chance*/
-addDBC('of Life',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,36,34,0,3.33)            /*Health + Health per 5                     3.33% Chance*/
-addDBC('of Swiftness',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,37,38,3.33)      /*Haste + Crit + Hit                        3.33% Chance*/
-addDBC('of Pain',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,43,37,42,3.33)           /*Strength + Crit + Attackpower             3.33% Chance*/ 
-addDBC('of Revenge',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,43,44,42,3.33)        /*Strength + Haste + Attackpower            3.33% Chance*/
-addDBC('of Brutality',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,42,0,3.33)       /*Haste + Attackpower                       3.33% Chance*/
-addDBC('of Agony',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,42,38,3.33)          /*Attackpower + Attackpower + Hit           3.33% Chance*/
-addDBC('of Berserking',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,34,44,3.33)     /*Attackpower + Health per 5 + Haste        3.33% Chance*/
-addDBC('of Resourcefulness',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,43,27,28,3.33)/*Strength, Dodge, Parry                    3.33% Chance*/
-addDBC('of Remorse',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,37,26,3.33)        /*Attackpower + Crit + Armor Pen            3.33% Chance*/
-addDBC('of Demise',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,37,38,3.33)         /*Attackpower + Hit + Crit                  3.33% Chance*/
-addDBC('of Life',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,36,34,0,3.33)            /*Health + Health per 5                     3.33% Chance*/
-addDBC('of Swiftness',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,37,38,3.33)      /*Haste + Crit + Hit                        3.33% Chance*/
+addDBC('of Blasphemy',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,47,46,45,4.75)      /*Intellect + Spirit + Spellpower           4.75% Chance*/ 
+addDBC('of Potency',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,47,44,45,4.75)        /*Intellect + Haste + Spellpower            4.75% Chance*/
+addDBC('of Power',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,45,0,4.75)           /*Haste + Spellpower                        4.75% Chance*/
+addDBC('of Smiting',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,45,45,38,4.75)        /*Spellpower + Spellpower + Hit             4.75% Chance*/
+addDBC('of Healing',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,45,33,44,4.75)        /*Spellpower + Mana per 5 + Haste           4.75% Chance*/
+addDBC('of Renewal',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,34,33,0,4.75)         /*Health per 5 + Mana per 5                 4.75% Chance*/
+addDBC('of Blasting',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,45,37,25,4.75)       /*Spellpower + Crit + Spell Pen             4.75% Chance*/
+addDBC('of Destruction',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,45,38,37,4.75)    /*Spellpower + Hit + Crit                   4.75% Chance*/
+addDBC('of Life',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,36,34,0,4.75)            /*Health + Health per 5                     4.75% Chance*/
+addDBC('of Swiftness',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,37,38,4.75)      /*Haste + Crit + Hit                        4.75% Chance*/
+addDBC('of Balance',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,41,37,42,4.75)        /*Agility + Crit + Attackpower              4.75% Chance*/ 
+addDBC('of Aggression',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,41,44,42,4.75)     /*Agility + Haste + Attackpower             4.75% Chance*/
+addDBC('of Power',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,44,42,0,4.75)           /*Haste + Attackpower                       4.75% Chance*/
+addDBC('of Lethality',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,42,38,4.75)      /*Attackpower + Attackpower + Hit           4.75% Chance*/
+addDBC('of Stealth',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,34,44,4.75)        /*Attackpower + Health per 5 + Haste        4.75% Chance*/
+addDBC('of Vanishing',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,41,27,28,4.75)      /*Agility, Dodge, Parry                     4.75% Chance*/
+addDBC('of Bleeding',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,37,26,4.75)       /*Attackpower + Crit + Armor Pen            4.75% Chance*/
+addDBC('of Brutality',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,42,38,37,4.75)      /*Attackpower + Hit + Crit                  4.75% Chance*/
+addDBC('of Pain',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,43,37,42,4.75)           /*Strength + Crit + Attackpower             4.75% Chance*/ 
+addDBC('of Revenge',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,43,44,42,4.75)        /*Strength + Haste + Attackpower            4.75% Chance*/
+addDBC('of Resourcefulness',PropertyIndex++,weaponTierTwoItemEnchantmentIndex,43,27,28,4.75)/*Strength, Dodge, Parry                    4.75% Chance*/
 
 
 
