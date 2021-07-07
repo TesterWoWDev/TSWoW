@@ -3,7 +3,7 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../modname"
 import { createRecipe } from "./recipe-functions"
 
-export let redColorCode = '|cffDC9415'
+export let redColorCode = '|cffff0000'
 export let greenColorCode = '|cff278916'
 export let blueColorCode = '|cff2EBEF0'
 export let purpleColorCode = '|cffA97BFF'

@@ -1,6 +1,7 @@
 import { DBC_ItemRandomProperties } from "wotlkdata/dbc/types/ItemRandomProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { redColorCode } from "../../functions/gem-functions"
 
 let PropertyIndex = 2500
 let SpellItemEnchantmentIndex = 6000
@@ -8,6 +9,14 @@ export let clothTierOneItemEnchantmentIndex = 15000
 export let leatherTierOneItemEnchantmentIndex = 15001
 export let mailTierOneItemEnchantmentIndex = 15002
 export let weaponTierOneItemEnchantmentIndex = 15003
+
+
+
+
+/*Chance : Stun Baton (-58)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,56).Name.enGB.set(redColorCode + '+ Chance on Hit : Stuns target for 3 seconds.').ItemVisual.set(0).Flags.set(0)
+/*Chance : Healing (-57)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,2054).Name.enGB.set(redColorCode + '+ Chance on Hit : Heal 341.').ItemVisual.set(0).Flags.set(0)
+/*Chance : Thunderfury (-56)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,21992).Name.enGB.set(redColorCode + '+ Chance on Hit : Lightning Blast.').ItemVisual.set(0).Flags.set(0)
+/*Chance : Shadow Bolt (-55)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,13440).Name.enGB.set(redColorCode + '+ Chance on Hit : Shadow Bolt.').ItemVisual.set(0).Flags.set(0)
 
 /*Omnipotence Weapon (-54)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,3).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,4).EffectPointsMax.setIndex(1,8).EffectPointsMin.setIndex(1,8).Name.enGB.set('+8 Agility\n+8 Strength').ItemVisual.set(0).Flags.set(0)
 /*Omnipotence Weapon (-53)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,5).EffectPointsMax.setIndex(0,8).EffectPointsMin.setIndex(0,8).Effect.setIndex(1,5).EffectArg.setIndex(1,7).EffectPointsMax.setIndex(1,9).EffectPointsMin.setIndex(1,9).Name.enGB.set('+8 Intellect\n+9 Stamina').ItemVisual.set(0).Flags.set(0)
@@ -67,6 +76,10 @@ export let weaponTierOneItemEnchantmentIndex = 15003
 /*Armor Penetration (-2)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,44).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Name.enGB.set('+2 Armor Penetration').ItemVisual.set(0).Flags.set(0)
 /*Spell Penetration (-1)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,47).EffectPointsMax.setIndex(0,2).EffectPointsMin.setIndex(0,2).Name.enGB.set('+2 Spell Penetration').ItemVisual.set(0).Flags.set(0)
 
+addDBC('of the Jailer',PropertyIndex++,weaponTierOneItemEnchantmentIndex,58,0,0,100)            /*Chance to Stun                    1% Chance*/
+addDBC('of the Lightning Thief',PropertyIndex++,weaponTierOneItemEnchantmentIndex,56,0,0,100)   /*Chance to Thunderfury             1% Chance*/
+addDBC('of the Immortal',PropertyIndex++,weaponTierOneItemEnchantmentIndex,57,0,0,100)          /*Chance to Heal                    1% Chance*/
+addDBC('of the Shadow Storm',PropertyIndex++,weaponTierOneItemEnchantmentIndex,55,0,0,100)      /*Chance to Send Shadowbolts        1% Chance*/
 
 
 // Omnipotence Chances
