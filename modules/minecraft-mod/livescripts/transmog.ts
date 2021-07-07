@@ -27,7 +27,7 @@ export function transmog(events:TSEventHandlers){
                 }
                 idsString = idsString.substr(1)
                 visString = visString.substr(1)
-                QueryCharacters("INSERT INTO `playertransmog` VALUES("+player.GetGUIDLow()+","+idsString+","+visString+") ON DUPLICATE KEY UPDATE transmogIDs="+idsString+", transmogVisualIDs="+visString)
+                QueryCharacters("INSERT INTO `playertransmog` VALUES("+player.GetGUIDLow()+",\""+idsString+"\",\""+visString+"\") ON DUPLICATE KEY UPDATE transmogIDs=\""+idsString+"\", transmogVisualIDs=\""+visString+"\"")
                 setAllTransmogs(player)
             }else{
                 player.SendAreaTriggerMessage("Equip an item first!")
