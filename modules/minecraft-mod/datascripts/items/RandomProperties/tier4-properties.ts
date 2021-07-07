@@ -75,19 +75,17 @@ export let weaponTierFourItemEnchantmentIndex = 15015
 /*Armor Penetration (-2)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,44).EffectPointsMax.setIndex(0,5).EffectPointsMin.setIndex(0,5).Name.enGB.set('+5 Armor Penetration').ItemVisual.set(0).Flags.set(0)
 /*Spell Penetration (-1)*/   DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).EffectArg.setIndex(0,47).EffectPointsMax.setIndex(0,5).EffectPointsMin.setIndex(0,5).Name.enGB.set('+5 Spell Penetration').ItemVisual.set(0).Flags.set(0)
 
-
-//addDBC('of the Jailer',PropertyIndex++,weaponTierFourItemEnchantmentIndex,58,0,0,100)            /*Chance to Stun                    1% Chance*/
-addDBC('of the Lightning Thief',PropertyIndex++,weaponTierFourItemEnchantmentIndex,56,0,0,100)   /*Chance to Thunderfury             1% Chance*/
-//addDBC('of the Immortal',PropertyIndex++,weaponTierFourItemEnchantmentIndex,57,0,0,100)          /*Chance to Heal                    1% Chance*/
-//addDBC('of the Shadow Storm',PropertyIndex++,weaponTierFourItemEnchantmentIndex,55,0,0,100)      /*Chance to Send Shadowbolts        1% Chance*/
-
-
+// Chance on Hit Effects
+addDBC('of the Jailer',PropertyIndex++,weaponTierFourItemEnchantmentIndex,58,0,0,1)            /*Chance to Stun                    1% Chance*/
+addDBC('of the Lightning Thief',PropertyIndex++,weaponTierFourItemEnchantmentIndex,56,0,0,1)   /*Chance to Thunderfury             1% Chance*/
+addDBC('of the Immortal',PropertyIndex++,weaponTierFourItemEnchantmentIndex,57,0,0,1)          /*Chance to Heal                    1% Chance*/
+addDBC('of the Shadow Storm',PropertyIndex++,weaponTierFourItemEnchantmentIndex,55,0,0,1)      /*Chance to Send Shadowbolts        1% Chance*/
 
 // Omnipotence Chances
 addDBC('of the Omnipotent',PropertyIndex++,clothTierFourItemEnchantmentIndex,49,50,51,1)     /*Haste + Crit + Hit                        1% Chance*/
-addDBC('of the Omnipotent',PropertyIndex++,leatherTierFourItemEnchantmentIndex,49,50,51,1)     /*Haste + Crit + Hit                        1% Chance*/
-addDBC('of the Omnipotent',PropertyIndex++,mailTierFourItemEnchantmentIndex,49,50,51,1)     /*Haste + Crit + Hit                        1% Chance*/
-addDBC('of the Omnipotent',PropertyIndex++,weaponTierFourItemEnchantmentIndex,52,53,54,1)     /*Haste + Crit + Hit                        1% Chance*/
+addDBC('of the Omnipotent',PropertyIndex++,leatherTierFourItemEnchantmentIndex,49,50,51,1)   /*Haste + Crit + Hit                        1% Chance*/
+addDBC('of the Omnipotent',PropertyIndex++,mailTierFourItemEnchantmentIndex,49,50,51,1)      /*Haste + Crit + Hit                        1% Chance*/
+addDBC('of the Omnipotent',PropertyIndex++,weaponTierFourItemEnchantmentIndex,52,53,54,1)    /*Haste + Crit + Hit                        1% Chance*/
 
 // Cloth Items
 addDBC('of Blasphemy',PropertyIndex++,clothTierFourItemEnchantmentIndex,23,22,21,9.9)     /*Intellect + Spirit + Spellpower           10% Chance*/ 
