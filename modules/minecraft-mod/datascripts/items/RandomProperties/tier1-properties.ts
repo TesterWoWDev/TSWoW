@@ -2,6 +2,8 @@ import { DBC_ItemRandomProperties } from "wotlkdata/dbc/types/ItemRandomProperti
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { redColorCode } from "../../functions/gem-functions"
+import { attackpower1 } from "../../spells/attack-power-spells"
+import { spellpower1 } from "../../spells/spell-power-spells"
 
 let PropertyIndex = 2500
 let SpellItemEnchantmentIndex = 6000
@@ -12,6 +14,8 @@ export let weaponTierOneItemEnchantmentIndex = 15003
 
 
 
+/*On Use : Attack Power (-60)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,attackpower1.ID).Name.enGB.set('Increases attack power by 200 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
+/*On Use : Spell Power (-59)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,7).EffectArg.setIndex(0,spellpower1.ID).Name.enGB.set('Increases spell power by 200 for 10 seconds.').ItemVisual.set(0).Flags.set(0)
 
 /*Chance : Stun Baton (-58)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,56).Name.enGB.set(redColorCode + '+ Chance on Hit : Stuns target for 3 seconds.').ItemVisual.set(0).Flags.set(0)
 /*Chance : Healing (-57)*/ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,1).EffectArg.setIndex(0,2054).Name.enGB.set(redColorCode + '+ Chance on Hit : Heal 341.').ItemVisual.set(0).Flags.set(0)

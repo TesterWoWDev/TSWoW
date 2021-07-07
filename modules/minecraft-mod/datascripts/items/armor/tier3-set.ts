@@ -3,7 +3,7 @@ import { MODNAME } from "../../modname"
 import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons } from "../../functions/recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { stringItem } from "../string"
-import { expSpell3 } from "../../spells/exp-spell3"
+import { expSpell3 } from "../../spells/experience-rate-spells"
 import { clothTierThreeItemEnchantmentIndex, leatherTierThreeItemEnchantmentIndex, mailTierThreeItemEnchantmentIndex, weaponTierThreeItemEnchantmentIndex } from "../RandomProperties/tier3-properties"
 
 let levelrequirement = 10
