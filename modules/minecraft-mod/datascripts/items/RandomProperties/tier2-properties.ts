@@ -1,6 +1,3 @@
-import { std } from "tswow-stdlib"
-import { MODNAME } from "../../modname"
-import { DBC } from "wotlkdata/dbc/DBCFiles"
 import { DBC_ItemRandomProperties } from "wotlkdata/dbc/types/ItemRandomProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
 import { SQL } from "wotlkdata/sql/SQLFiles"
