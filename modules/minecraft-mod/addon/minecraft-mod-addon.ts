@@ -55,6 +55,7 @@ import { Events, SendToServer } from "./lib/Events"
             craftText.SetPoint("CENTER",0, 10)
             craftText.SetText("Craft")
             craftBtn.HookScript("OnClick",(frame,evName,btnDown)=>{
+                PlaySoundFile("Sound\\Interface\\GM_ChatWarning.wav")
                 updateProduct(1)
                 choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
                 itemIDs = [0,0,0,0,0,0,0,0,0]

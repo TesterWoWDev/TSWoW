@@ -13735,6 +13735,7 @@ declare function UIDropDownMenu_CreateInfo(): WoWAPI.UIDropdownInfo;
  */
 declare function UIDropDownMenu_AddButton(info: WoWAPI.UIDropdownInfo): void;
 
+declare function PlaySoundFile(path:string): void;
 /**
  * comma separated list of enabled flags
  */
