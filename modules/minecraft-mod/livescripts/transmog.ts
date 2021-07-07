@@ -1,6 +1,7 @@
 export function transmog(events:TSEventHandlers){
     events.Player.OnCommand((player,com,found)=>{
     if(com.get().startsWith("transmog")){
+        found.set(true)
         let vis = com.get().substr(8)
         let visSplit = vis.split(" ")//itemID,enchantID,slotID\
         if(visSplit.length == 3){
@@ -35,8 +36,7 @@ export function transmog(events:TSEventHandlers){
                 }
             }else{
                 player.SendBroadcastMessage("use a valid slot ID!\nHEAD = 0  - SHOULDERS = 2 - SHIRT = 3\nCHEST = 4 - WAIST = 5 - LEGS = 6\nFEET = 7 - WRISTS = 8 - HANDS = 9\nBACK = 14 - MAINHAND = 15 - OFFHAND = 16\nRANGED = 17 - TABARD = 18")
-            }
-            found.set(true)
+            }    
         }else{
             player.SendBroadcastMessage('Usage: .transmog itemID visualID slotID -- itemID or visualID can be filled with 0 to ignore')
         }
@@ -60,7 +60,6 @@ function setAllTransmogs(player:TSPlayer){
         for(let i=0;i<itemIDs.length;i++){
             let item = ToUInt32(itemIDs[i])
             let visual = ToUInt32(visualIDs[i])
-            console.log(item)
             if(!player.GetItemByPos(255,i).IsNull()){
                 if(item > 0)
                 player.SetUInt16Value((0x0087+0x008E+0x0006)+(i*2),0,item)
