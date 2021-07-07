@@ -81,7 +81,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
 }
 
 export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,names:string[],display:number[],wepSpell:number[],wepTrigger:number[]):number[]{
-    let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,4,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
+    let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,5,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
     let returnIDs = []
 
@@ -139,9 +139,13 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
             }else{//1h
                 item.Damage.addPhysical(costval*levelrequirement,costval*levelrequirement*1.5)
                 item.Delay.set(1900)
-                item.Sheath.set(3)
+                let sheathval = 3
+                if(ids[i][1] == 13){//fist wep
+                    sheathval = 0
+                }
+                item.Sheath.set(sheathval)
                 DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
-                    value.SheatheType.set(3)
+                    value.SheatheType.set(sheathval)
                 })
             }
         }else{//shield
