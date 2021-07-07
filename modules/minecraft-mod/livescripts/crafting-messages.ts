@@ -73,7 +73,9 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                                 return
                             }else{
                                 if(item.GetEntry() == itemID){
-                                    player.RemoveItem(item,1,itemID)
+                                    if(!(isEnchant && i==4)){
+                                        player.RemoveItem(item,1,itemID)
+                                    }   
                                 }
                                 else{
                                     player.RemoveItem(CreateItem(itemID,1),1,itemID)
@@ -81,7 +83,13 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                             }
                         }
                     }
-                    let item = player.AddItem(pkt.craftItem,pkt.craftItemCount)
+                    let item = CreateItem(pkt.craftItem,pkt.craftItemCount)
+                    if(isEnchant){
+                        item = player.GetItemByPos(message.positions[4].bagslot[0],message.positions[4].bagslot[1])
+                    }else{
+                        player.AddItem(pkt.craftItem,pkt.craftItemCount)
+                    }
+                    
                     item.SetEnchantment(message.enchants[0],0)
                     item.SetEnchantment(message.enchants[1],2)  
                     item.SetEnchantment(message.enchants[2],3)  
