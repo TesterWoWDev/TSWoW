@@ -19,7 +19,7 @@ export let trinketTierThreeItemEnchantmentIndex = 16016
 /*On Use : Health (-61)*/           addSpell(7,health3.ID,0,0,0,0,0,0,'Increases health by 1350 for 18 seconds.',SpellItemEnchantmentIndex++)
 /*On Use : Attack Power (-60)*/     addSpell(7,attackpower3.ID,0,0,0,0,0,0,'Increases attack power by 250 for 10 seconds.',SpellItemEnchantmentIndex++)
 /*On Use : Spell Power (-59)*/      addSpell(7,spellpower3.ID,0,0,0,0,0,0,'Increases spell power by 250 for 10 seconds.',SpellItemEnchantmentIndex++)
-/*Chance : Shadow Bolt (-58)*/      addSpell(1,chanceStun3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Stuns target for 3 seconds.',SpellItemEnchantmentIndex++)
+/*Chance : Stun Baton (-58)*/       addSpell(1,chanceStun3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Stuns target for 3 seconds.',SpellItemEnchantmentIndex++)
 /*Chance : Healing (-57)*/          addSpell(1,chanceHeal3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Heal 450.',SpellItemEnchantmentIndex++)
 /*Chance : Thunderfury (-56)*/      addSpell(1,chanceLightning3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Lightning Blast for 246 damage.',SpellItemEnchantmentIndex++)
 /*Chance : Shadow Bolt (-55)*/      addSpell(1,chanceShadow3.ID,0,0,0,0,0,0,redColorCode + 'Chance: Shadow Bolt for 120 damage.',SpellItemEnchantmentIndex++)
