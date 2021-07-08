@@ -68,11 +68,13 @@ function setAllTransmogs(player:TSPlayer){
             let item = ToUInt32(itemIDs[i])
             let visual = ToUInt32(visualIDs[i])
             if(!player.GetItemByPos(255,i).IsNull()){
-                if(item > 0)
-                player.SetUInt16Value((0x0087+0x008E+0x0006)+(i*2),0,item)
-                else
-                player.SetUInt16Value((0x0087+0x008E+0x0006)+(i*2),0,player.GetItemByPos(255,i).GetEntry())
-                player.SetUInt16Value((0x0088+0x008E+0x0006)+(i*2),0,visual)//enchantment visual                
+                if(item > 0){
+                    player.SetUInt64Value((0x0087+0x008E+0x0006)+(i*2),item)
+                }
+                else{
+                    player.SetUInt64Value((0x0087+0x008E+0x0006)+(i*2),player.GetItemByPos(255,i).GetEntry())
+                }
+                player.SetUInt64Value((0x0088+0x008E+0x0006)+(i*2),visual)//enchantment visual                
             }
         }
     }
