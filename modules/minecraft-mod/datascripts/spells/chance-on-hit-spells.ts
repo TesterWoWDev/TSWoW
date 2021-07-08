@@ -1,14 +1,13 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../modname"
 
-
-// Stuns
 /*
 chanceStun1C.Attributes.isHiddenFromLog.clear()
 chanceStun1C.Attributes.isHiddenInSpellbook.clear()
 chanceStun1C.Attributes.hideFromAuraBar.clear()
 */
 
+// Stuns
 export let chanceStun1 = std.Spells.create(MODNAME,'chanceStun1-spell',15283)
 chanceStun1.Name.enGB.set('Smashed')
 chanceStun1.Description.enGB.set('Stunned for 1 second.')
@@ -83,7 +82,7 @@ chanceStun4C.Effects.get(0).TriggerSpell.set(chanceStun4.ID)
 
 // Healing
 
-/* Doesn't work in any way.
+// Doesn't work in any way.
 export let chanceHeal1 = std.Spells.create(MODNAME,'chanceHeal1-spell',2054)
 chanceHeal1.Name.enGB.set('Revitalized')
 chanceHeal1.Description.enGB.set('Heals the caster for 100.')
@@ -91,6 +90,7 @@ chanceHeal1.AuraDescription.enGB.set('Heals the caster for 100.')
 chanceHeal1.CastTime.set(-100000,0,-100000)
 chanceHeal1.Effects.get(0).BasePoints.set(99)
 chanceHeal1.Effects.get(0).DieSides.set(1)
+chanceHeal1.Effects.get(0).ImplicitTargetA.setDestCaster()
 export let chanceHeal1M = std.Spells.create(MODNAME,'chanceHeal1M-spell',67670) //melee
 chanceHeal1M.Name.enGB.set('Revitalized')
 chanceHeal1M.Description.enGB.set('Heals the caster for 100.')
@@ -103,8 +103,8 @@ chanceHeal1C.Description.enGB.set('Heals the caster for 100.')
 chanceHeal1C.AuraDescription.enGB.set('Heals the caster for 100.')
 chanceHeal1C.Duration.set(-1,0,-1)
 chanceHeal1C.Effects.get(0).TriggerSpell.set(2054)//(chanceHeal1.ID)
-*/
 
+/*
 export let chanceHeal1 = std.Spells.create(MODNAME,'chanceHeal1-spell',2054)
 chanceHeal1.Name.enGB.set('Revitalized')
 chanceHeal1.Description.enGB.set('Heals the caster for 100.')
@@ -112,7 +112,7 @@ chanceHeal1.Effects.get(0).BasePoints.set(99)
 chanceHeal1.Effects.get(0).DieSides.set(1)
 chanceHeal1.Proc.TypeMask.set(0xFFFFC)
 chanceHeal1.Proc.Chance.set(100)
-
+*/
 
 export let chanceHeal2 = std.Spells.create(MODNAME,'chanceHeal2-spell',2054)
 chanceHeal2.Name.enGB.set('Revitalized')
