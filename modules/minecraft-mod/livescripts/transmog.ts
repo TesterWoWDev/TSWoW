@@ -1,6 +1,7 @@
 export function transmog(events:TSEventHandlers){
     events.Player.OnCommand((player,com,found)=>{
         if(com.get().startsWith("transmogclear")){
+            found.set(true)
             let clearString = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
             QueryCharacters("INSERT INTO `playertransmog` VALUES("+player.GetGUIDLow()+",\""+clearString+"\",\""+clearString+"\") ON DUPLICATE KEY UPDATE transmogIDs=\""+clearString+"\", transmogVisualIDs=\""+clearString+"\"")
             setAllTransmogs(player)
