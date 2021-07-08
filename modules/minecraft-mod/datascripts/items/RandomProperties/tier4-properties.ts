@@ -3,7 +3,7 @@ import { pickpocketing_loot_templateRow } from "../../../../../bin/scripts/tswow
 import { spellColorCode } from "../../functions/gem-functions"
 import { addDBC, addSpell } from "../../functions/property-functions"
 import { attackpower4 } from "../../spells/attack-power-spells"
-import { chanceHeal4, chanceLightning4, chanceShadow4, chanceStun4 } from "../../spells/chance-on-hit-spells"
+import { chanceHeal4, chanceLightning4, chanceShadow4, chanceStun4, chanceStun4C, chanceStun4M } from "../../spells/chance-on-hit-spells"
 import { health4 } from "../../spells/health-increase-spells"
 import { spellpower4 } from "../../spells/spell-power-spells"
 
@@ -18,7 +18,7 @@ export let trinketTierFourItemEnchantmentIndex = 16015
 /*On Use : Health (-61)*/           addSpell(7,health4.ID,0,0,0,0,0,0,'Increases health by 1750 for 18 seconds.',sIEI++)
 /*On Use : Attack Power (-60)*/     addSpell(7,attackpower4.ID,0,0,0,0,0,0,spellColorCode + 'Increases attack power by 200 for 10 seconds.',sIEI++)
 /*On Use : Spell Power (-59)*/      addSpell(7,spellpower4.ID,0,0,0,0,0,0,spellColorCode + 'Increases spell power by 200 for 10 seconds.',sIEI++)
-/*Chance : Stun Baton (-58)*/       addSpell(1,chanceStun4.ID,0,0,0,0,0,0,spellColorCode + '+ Chance on Hit : Stuns target for 3 seconds.',sIEI++)
+/*Chance : Stun Baton (-58)*/       addSpell(3,chanceStun4M.ID,0,0,3,chanceStun4C.ID,0,0,spellColorCode +'+ Chance on Hit : Stuns target for 3 seconds.',sIEI++)
 /*Chance : Healing (-57)*/          addSpell(1,chanceHeal4.ID,0,0,0,0,0,0,spellColorCode + '+ Chance on Hit : Heal 341.',sIEI++)
 /*Chance : Thunderfury (-56)*/      addSpell(1,chanceLightning4.ID,0,0,0,0,0,0,spellColorCode + '+ Chance on Hit : Lightning Blast.',sIEI++)
 /*Chance : Shadow Bolt (-55)*/      addSpell(1,chanceShadow4.ID,0,0,0,0,0,0,spellColorCode + '+ Chance on Hit : Shadow Bolt.',sIEI++)

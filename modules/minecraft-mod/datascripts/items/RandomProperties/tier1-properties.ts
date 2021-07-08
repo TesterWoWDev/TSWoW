@@ -1,7 +1,8 @@
-import { redColorCode } from "../../functions/gem-functions"
+import { spellColorCode } from "../../functions/gem-functions"
 import { addDBC, addSpell } from "../../functions/property-functions"
 import { attackpower1 } from "../../spells/attack-power-spells"
-import { chanceHeal1, chanceLightning1, chanceShadow1, chanceStun1 } from "../../spells/chance-on-hit-spells"
+//import { chanceHeal1, chanceHeal1C, chanceHeal1M, chanceLightning1C, chanceLightning1M, chanceShadow1, chanceStun1C, chanceStun1M } from "../../spells/chance-on-hit-spells"
+import { chanceHeal1, chanceLightning1C, chanceLightning1M, chanceShadow1, chanceStun1C, chanceStun1M } from "../../spells/chance-on-hit-spells"
 import { health1 } from "../../spells/health-increase-spells"
 import { spellpower1 } from "../../spells/spell-power-spells"
 
@@ -15,12 +16,13 @@ export let trinketTierOneItemEnchantmentIndex = 16018
 
 
 /*On Use : Health (-61)*/           addSpell(7,health1.ID,0,0,0,0,0,0,'Increases health by 350 for 18 seconds.',sIEI++)
-/*On Use : Attack Power (-60)*/     addSpell(7,attackpower1.ID,0,0,0,0,0,0,'Increases attack power by 50 for 10 seconds.',sIEI++)
-/*On Use : Spell Power (-59)*/      addSpell(7,spellpower1.ID,0,0,0,0,0,0,'Increases spell power by 50 for 10 seconds.',sIEI++)
-/*Chance : Stun Baton (-58)*/       addSpell(1,chanceStun1.ID,0,0,0,0,0,0,redColorCode + 'Chance: Stuns target for 1 seconds.',sIEI++)
-/*Chance : Healing (-57)*/          addSpell(1,chanceHeal1.ID,0,0,0,0,0,0,redColorCode + 'Chance: Heal 100.',sIEI++)
-/*Chance : Thunderfury (-56)*/      addSpell(1,chanceLightning1.ID,0,0,0,0,0,0,redColorCode + 'Chance: Lightning Blast for 100 damage.',sIEI++)
-/*Chance : Shadow Bolt (-55)*/      addSpell(1,chanceShadow1.ID,0,0,0,0,0,0,redColorCode + '+ Chance: Shadow Bolt for 30 damage.',sIEI++)
+/*On Use : Attack Power (-60)*/     addSpell(7,attackpower1.ID,0,0,0,0,0,0,spellColorCode +'Increases attack power by 50 for 10 seconds.',sIEI++)
+/*On Use : Spell Power (-59)*/      addSpell(7,spellpower1.ID,0,0,0,0,0,0,spellColorCode +'Increases spell power by 50 for 10 seconds.',sIEI++)
+/*Chance : Stun Baton (-58)*/       addSpell(3,chanceStun1M.ID,0,0,3,chanceStun1C.ID,0,0,spellColorCode + 'Chance: Stuns target for 1 seconds.',sIEI++)
+/*Chance : Healing (-57)*/          addSpell(1,chanceHeal1.ID,0,0,0,0,0,0,spellColorCode + 'Chance: Heal 100.',sIEI++)
+/*Chance : Healing (-57)*/       //   addSpell(3,chanceHeal1M.ID,0,0,3,chanceHeal1C.ID,0,0,spellColorCode + 'Chance: Heal 100.',sIEI++)
+/*Chance : Thunderfury (-56)*/      addSpell(3,chanceLightning1M.ID,0,0,3,chanceLightning1C.ID,0,0,spellColorCode + 'Chance: Lightning Blast for 100 damage.',sIEI++)
+/*Chance : Shadow Bolt (-55)*/      addSpell(1,chanceShadow1.ID,0,0,0,0,0,0,spellColorCode + '+ Chance: Shadow Bolt for 30 damage.',sIEI++)
 /*Omnipotence Weapon (-54)*/        addSpell(5,3,8,8,5,4,8,8,'+8 Agility\n+8 Strength',sIEI++)
 /*Omnipotence Weapon (-53)*/        addSpell(5,5,8,8,5,7,9,9,'+8 Intellect\n+9 Stamina',sIEI++)
 /*Omnipotence Weapon (-52)*/        addSpell(5,45,16,16,5,38,16,16,'+16 Spell Power\n+16 Attack Power',sIEI++)

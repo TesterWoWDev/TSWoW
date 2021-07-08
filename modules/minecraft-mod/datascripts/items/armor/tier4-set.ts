@@ -9,7 +9,7 @@ import { clothTierFourItemEnchantmentIndex, leatherTierFourItemEnchantmentIndex,
 let levelrequirement = 15
 let armSpell = [expSpell4.ID,0,0,0,0]
 let armTrigger = [1,0,0,0,0]
-let wepSpell = [expSpell4.ID,41679,41751,41787,44585]
+let wepSpell = [expSpell4.ID,41679,41751,41787,0]
 let wepTrigger = [1,1,1,1,1]
 
 export let tierFourBaseResources = createBaseResources(3,'tier4','Pristine',['Pearl','Epaulet','Chain','Metal','Reinforced Metal','Stick','Dust'],[12310,35338,39340,7355,7389,2618,20614])
