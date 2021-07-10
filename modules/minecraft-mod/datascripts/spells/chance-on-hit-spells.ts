@@ -331,7 +331,7 @@ chanceShadow3.Effects.get(0).BasePoints.set(119)
 chanceShadow3.Proc.TypeMask.set(0xFFFFC)
 chanceShadow3.Proc.Chance.set(100)
 
-export let chanceShadow4 = std.Spells.create(MODNAME,'chanceShadow1-spell',13440)
+export let chanceShadow4 = std.Spells.create(MODNAME,'chanceShadow4-spell',13440)
 chanceShadow4.Name.enGB.set('Shadow Bolt')
 chanceShadow4.Description.enGB.set('Sends a shadowy bolt at the target dealing 177 damage.')
 chanceShadow4.Effects.get(0).BasePoints.set(176)
