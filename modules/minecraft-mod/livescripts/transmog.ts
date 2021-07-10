@@ -1,42 +1,68 @@
+
+const tmogField = "player_transmog";
+@CharactersTable
+class playerMog extends DBTable {
+    constructor(playerGUID: uint32){
+        super()
+        this.playerGUID = playerGUID
+        this.transmogIDs = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+        this.visualIDs = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
+    }
+    @PrimaryKey
+        playerGUID: uint32 = 0
+    @Field
+        transmogIDs: string = ""
+    @Field
+        visualIDs: string = ""
+}
+
 export function transmog(events:TSEventHandlers){
+
+    events.Player.OnLogin((player)=>{
+        const guid = player.GetGUIDLow()
+        const rows = LoadRows(playerMog,`playerGUID = ${guid}`)
+        const stats = rows.length > 0 ? rows.get(0) : new playerMog(guid);
+        player.GetData().SetObject(tmogField,stats);
+        setAllTransmogs(player,stats)
+    })
+    
+    events.Player.OnSave(player=>{
+        player.GetData().GetObject(tmogField, new playerMog(player.GetGUIDLow())).save()
+    })
+
+    events.Items.OnEquipEarly((item,player)=>{
+        player.GetTasks().AddTimer("test_task",50,1,(timer,entity,del,can)=>{
+            //setAllTransmogs(entity.ToPlayer(),player.GetData().GetObject(tmogField, new playerMog(player.GetGUIDLow())))
+        });  
+    })
+
     events.Player.OnCommand((player,com,found)=>{
         if(com.get().startsWith("transmogclear")){
             found.set(true)
-            player.GetTasks().AddTimer("test_task",50,1,(timer,entity,del,can)=>{ 
-                let clearString = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
-                QueryCharacters("INSERT INTO `playertransmog` VALUES("+entity.ToPlayer().GetGUIDLow()+",\""+clearString+"\",\""+clearString+"\") ON DUPLICATE KEY UPDATE transmogIDs=\""+clearString+"\", transmogVisualIDs=\""+clearString+"\"")
-                setAllTransmogs(entity.ToPlayer())
-            });  
-            return
+            player.GetData().SetObject(tmogField,new playerMog(player.GetGUIDLow()));
+            setAllTransmogs(player,new playerMog(player.GetGUIDLow()))
         }else if(com.get().startsWith("transmog")){
             found.set(true)
-            let vis = com.get().substr(8)
-            let visSplit = vis.split(" ")//itemID,enchantID,slotID\
-            if(visSplit.length == 3){
-                let slot = ToUInt32(visSplit[2])
+            let visSplit = com.get().split(" ")//itemID,enchantID,slotID\
+            if(visSplit.length == 4){
+                let slot = ToUInt32(visSplit[3])
                 if(slot < 19 && slot >= 0){
                     if(!player.GetItemByPos(255,slot).IsNull()){
-                        let oldValID = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
-                        let oldValVisID = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"
-                        let tmogInfo = QueryCharacters("SELECT * FROM `playertransmog` WHERE playerGUID = "+player.GetGUIDLow())
-                        while(tmogInfo.GetRow()){
-                            oldValID = tmogInfo.GetString(1)
-                            oldValVisID = tmogInfo.GetString(2)
-                        }
-                        let tmogIDs = oldValID.split(",")
-                        let tmogVisIDs = oldValVisID.split(",")
-                        tmogIDs[slot] = visSplit[0]
-                        tmogVisIDs[slot] = visSplit[1]
+                        const tmogInfo = player.GetData().GetObject(tmogField, new playerMog(player.GetGUIDLow()))
+                        let tmogIDs = tmogInfo.transmogIDs.split(",")
+                        let tmogVisIDs = tmogInfo.visualIDs.split(",")
+                        tmogIDs[slot] = visSplit[1]
+                        tmogVisIDs[slot] = visSplit[2]
                         let idsString = ""
                         let visString = ""
                         for(let i=0;i<tmogVisIDs.length;i++){
                             idsString = idsString + ","+tmogIDs[i]
                             visString = visString + ","+tmogVisIDs[i]
                         }
-                        idsString = idsString.substr(1)
-                        visString = visString.substr(1)
-                        QueryCharacters("INSERT INTO `playertransmog` VALUES("+player.GetGUIDLow()+",\""+idsString+"\",\""+visString+"\") ON DUPLICATE KEY UPDATE transmogIDs=\""+idsString+"\", transmogVisualIDs=\""+visString+"\"")
-                        setAllTransmogs(player)
+                        tmogInfo.transmogIDs = idsString.substr(1)
+                        tmogInfo.visualIDs = visString.substr(1)
+                        player.GetData().SetObject(tmogField,tmogInfo)
+                        setAllTransmogs(player,tmogInfo)
                     }else{
                         player.SendBroadcastMessage("Equip an item first!")
                     }
@@ -48,34 +74,22 @@ export function transmog(events:TSEventHandlers){
             }
         }
     })
-
-    events.Player.OnLogin((player,first)=>{
-        setAllTransmogs(player)
-    })
-
-    events.Items.OnEquipEarly((item,player,slot,isSwap,result)=>{
-        player.GetTasks().AddTimer("test_task",50,1,(timer,entity,del,can)=>{
-            setAllTransmogs(entity.ToPlayer())
-        });  
-    })
 }
-function setAllTransmogs(player:TSPlayer){
-    let tmogInfo = QueryCharacters("SELECT * FROM `playertransmog` WHERE playerGUID = "+player.GetGUIDLow())
-    while(tmogInfo.GetRow()){
-        let itemIDs = tmogInfo.GetString(1).split(',')
-        let visualIDs = tmogInfo.GetString(2).split(',')
-        for(let i=0;i<itemIDs.length;i++){
-            let item = ToUInt32(itemIDs[i])
-            let visual = ToUInt32(visualIDs[i])
-            if(!player.GetItemByPos(255,i).IsNull()){
-                if(item > 0){
-                    player.SetUInt64Value((0x0087+0x008E+0x0006)+(i*2),item)
-                }
-                else{
-                    player.SetUInt64Value((0x0087+0x008E+0x0006)+(i*2),player.GetItemByPos(255,i).GetEntry())
-                }
-                player.SetUInt64Value((0x0088+0x008E+0x0006)+(i*2),visual)//enchantment visual                
+
+function setAllTransmogs(player:TSPlayer,tmogInfo: playerMog){
+    let itemIDs = tmogInfo.transmogIDs.split(',')
+    let visualIDs = tmogInfo.visualIDs.split(',')
+    for(let i=0;i<itemIDs.length;i++){
+        let itemID = ToUInt32(itemIDs[i])
+        let visual = ToUInt32(visualIDs[i])
+        if(!player.GetItemByPos(255,i).IsNull()){
+            let index = 0x0087+0x008E+0x0006
+            if(itemID > 0){
+                player.SetUInt64Value(index+(i*2),itemID)
+            }else{
+                player.SetUInt64Value(index+(i*2),player.GetItemByPos(255,i).GetEntry())
             }
+            player.SetUInt64Value(index+0x0001+(i*2),visual)//enchantment visual                
         }
     }
 }
