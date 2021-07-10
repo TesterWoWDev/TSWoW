@@ -73,7 +73,7 @@ chanceStun4M.Description.enGB.set('Your attacks and abilties have the chance to 
 chanceStun4M.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
 chanceStun4M.Duration.set(-1,0,-1)
 chanceStun4M.Effects.get(0).TriggerSpell.set(chanceStun4.ID)
-export let chanceStun4C = std.Spells.create(MODNAME,'chanceStun2C-spell',67672) //caster
+export let chanceStun4C = std.Spells.create(MODNAME,'chanceStun4C-spell',67672) //caster
 chanceStun4C.Name.enGB.set('Smashed')
 chanceStun4C.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
 chanceStun4C.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
