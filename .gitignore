@@ -1,4 +1,5 @@
 .vscode
+.vs
 bin/*.sql
 bin/7zip
 bin/BLPConverter
