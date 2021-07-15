@@ -1,7 +1,7 @@
 import { AttachedLootSet } from "tswow-stdlib/Loot/Loot";
 import { CreatureTemplate } from "tswow-stdlib/Creature/CreatureTemplate";
 import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/armor/tier1-set";
-import { Bosscreature1Loot, creature10Loot, creature1Loot, creature2Loot, creature3Loot, creature4Loot, creature5Loot, creature6Loot, creature7Loot, creature8Loot, creature9Loot, DemiBosscreature1Loot, DemiBosscreature2Loot, RareCreature1Loot, RareCreature2Loot, RareCreature3Loot } from "./zone-1-creatures";
+import { Bosscreature1Loot, creature10Loot, creature1Loot, creature2Loot, creature3Loot, creature4Loot, creature5Loot, creature6Loot, creature7Loot, creature8Loot, creature9Loot, DemiBosscreature1Loot, DemiBosscreature2Loot, RareCreature1Loot, RareCreature2Loot, RareCreature3Loot, RareCreature4Loot } from "./zone-1-creatures";
 import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../items/armor/tier2-set";
 import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../items/gems/tier1-gem";
 
@@ -346,6 +346,74 @@ RareCreature3Loot.addItem(11669,1,1,1,false,2,0)        // Naglering - Rare Item
 RareCreature3Loot.addItem(11809,1,1,1,false,2,0)        // Flame Wrath - Rare Item
 RareCreature3Loot.addItem(11832,1,1,1,false,2,0)        // Burst of Knowledge - Rare Item
 RareCreature3Loot.addItem(11808,1,1,1,false,2,0)        // Circle of Flame - Rare Item
+
+// Rare Creature 3 - Murglegurgle (Rare Murloc)
+// Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
+// Group 1 (Epic Equipment) Loot Percentage  = 0.300% 
+// Group 2 (Rare Equipment) Loot Percentage  = 36.00%
+addLoot(RareCreature4Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2]) // Tier 1 Scraps
+addLoot(RareCreature4Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
+addLoot(RareCreature4Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
+addLoot(RareCreature4Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
+addLootSingleChance(RareCreature4Loot,undiscoveredReds,0.125)   // All Gems = 4.625%
+addLootSingleChance(RareCreature4Loot,undiscoveredGreens,0.125)
+addLootSingleChance(RareCreature4Loot,undiscoveredYellows,0.125)
+addLootSingleChance(RareCreature4Loot,undiscoveredPurples,0.125)
+addLootSingleChance(RareCreature4Loot,undiscoveredBlues,0.125)
+addLootSingleChance(RareCreature4Loot,undiscoveredOranges,0.125)
+RareCreature4Loot.addItem(805,5,1,1,false,0,0)      // Small Red Pouch (6 slot bag)
+RareCreature4Loot.addItem(828,5,1,1,false,0,0)      // Small Blue Pouch (6 slot bag)
+RareCreature4Loot.addItem(5571,5,1,1,false,0,0)     // Small Black Pouch (6 slot bag)
+RareCreature4Loot.addItem(5572,5,1,1,false,0,0)     // Small Green Pouch (6 slot bag)
+RareCreature4Loot.addItem(4498,3,1,1,false,0,0)     // Brown Leather Satchel (8 slot bag)
+RareCreature4Loot.addItem(869,0.025,1,1,false,1,0)      // Dazzling Longsword - Level 20 Epic           1h Sword
+RareCreature4Loot.addItem(1982,0.025,1,1,false,1,0)     // Nightblade - Level 20 Epic                   2h Sword
+RareCreature4Loot.addItem(870,0.025,1,1,false,1,0)      // Fiery War Axe - Level 20 Epic                2h Axe
+RareCreature4Loot.addItem(868,0.025,1,1,false,1,0)      // Ardent Custodian - Level 20 Epic             2h Mace
+RareCreature4Loot.addItem(873,0.025,1,1,false,1,0)      // Staff of Jordan - Level 20 Epic              Staff
+RareCreature4Loot.addItem(1204,0.025,1,1,false,1,0)     // The Green Tower - Level 20 Epic              Shield
+RareCreature4Loot.addItem(2825,0.025,1,1,false,1,0)     // Bow of Searing Arrows - Level 20 Epic        Bow
+RareCreature4Loot.addItem(1980,0.025,1,1,false,1,0)     // Underworld Band - Level 20 Epic              Ring
+RareCreature4Loot.addItem(2164,0.025,1,1,false,1,0)     // Gut Ripper - Level 20 Epic                   Dagger
+RareCreature4Loot.addItem(11684,0.025,1,1,false,1,0)    // Ironfoe - Level 20 Epic                      1h Mace
+RareCreature4Loot.addItem(18203,0.025,1,1,false,1,0)    // Eskhandar's Right Claw - Level 20 Epic       1h Mace
+RareCreature4Loot.addItem(18202,0.025,1,1,false,1,0)    // Eskhandar's Left Claw - Level 20 Epic        1h Mace
+RareCreature4Loot.addItem(13218,1,1,1,false,2,0)        // Fang of the Crystal Spider - Rare Item
+RareCreature4Loot.addItem(13183,1,1,1,false,2,0)        // Venomspitter - Rare Item
+RareCreature4Loot.addItem(11121,1,1,1,false,2,0)        // Darkwater Talwar - Rare Item
+RareCreature4Loot.addItem(6904,1,1,1,false,2,0)         // Bite of Serra'kis - Rare Item
+RareCreature4Loot.addItem(1481,1,1,1,false,2,0)         // Grimclaw - Rare Item
+RareCreature4Loot.addItem(1482,1,1,1,false,2,0)         // Shadowfang - Rare Item
+RareCreature4Loot.addItem(6909,1,1,1,false,2,0)         // Strike of the Hydra - Rare Item
+RareCreature4Loot.addItem(9412,1,1,1,false,2,0)         // Galgann's Fireblaster - Rare Item
+RareCreature4Loot.addItem(9419,1,1,1,false,2,0)         // Galgann's Firehammer - Rare Item
+RareCreature4Loot.addItem(7719,1,1,1,false,2,0)         // Raging Berserker Helm - Rare Item
+RareCreature4Loot.addItem(7718,1,1,1,false,2,0)         // Herod's Shoulder - Rare Item
+RareCreature4Loot.addItem(10330,1,1,1,false,2,0)        // Scarlet Leggings - Rare Item
+RareCreature4Loot.addItem(34227,1,1,1,false,2,0)        // Deadman's Hand - Rare Item
+RareCreature4Loot.addItem(7711,1,1,1,false,2,0)         // Robe of Doan - Rare Item
+RareCreature4Loot.addItem(7712,1,1,1,false,2,0)         // Mantle of Doan - Rare Item
+RareCreature4Loot.addItem(11726,1,1,1,false,2,0)        // Savage Gladiator Chain - Rare Item
+RareCreature4Loot.addItem(11728,1,1,1,false,2,0)        // Savage Gladiator Leggings - Rare Item
+RareCreature4Loot.addItem(11729,1,1,1,false,2,0)        // Savage Gladiator Helm - Rare Item
+RareCreature4Loot.addItem(11730,1,1,1,false,2,0)        // Savage Gladiator Grips - Rare Item
+RareCreature4Loot.addItem(11731,1,1,1,false,2,0)        // Savage Gladiator Greaves - Rare Item
+RareCreature4Loot.addItem(11608,1,1,1,false,2,0)        // Dark Iron Pulverizer - Rare Item
+RareCreature4Loot.addItem(22301,1,1,1,false,2,0)        // Ironweave Robe - Rare Item
+RareCreature4Loot.addItem(22302,1,1,1,false,2,0)        // Ironweave Cowl - Rare Item
+RareCreature4Loot.addItem(22303,1,1,1,false,2,0)        // Ironweave Pants - Rare Item
+RareCreature4Loot.addItem(22304,1,1,1,false,2,0)        // Ironweave Gloves - Rare Item
+RareCreature4Loot.addItem(22305,1,1,1,false,2,0)        // Ironweave Mantle - Rare Item
+RareCreature4Loot.addItem(22306,1,1,1,false,2,0)        // Ironweave Belt - Rare Item
+RareCreature4Loot.addItem(22311,1,1,1,false,2,0)        // Ironweave Boots - Rare Item
+RareCreature4Loot.addItem(22313,1,1,1,false,2,0)        // Ironweave Bracers - Rare Item
+RareCreature4Loot.addItem(11920,1,1,1,false,2,0)        // Wraith Scythe - Rare Item
+RareCreature4Loot.addItem(11810,1,1,1,false,2,0)        // Force of Will - Rare Item
+RareCreature4Loot.addItem(11817,1,1,1,false,2,0)        // Lord General's Sword - Rare Item
+RareCreature4Loot.addItem(11669,1,1,1,false,2,0)        // Naglering - Rare Item
+RareCreature4Loot.addItem(11809,1,1,1,false,2,0)        // Flame Wrath - Rare Item
+RareCreature4Loot.addItem(11832,1,1,1,false,2,0)        // Burst of Knowledge - Rare Item
+RareCreature4Loot.addItem(11808,1,1,1,false,2,0)        // Circle of Flame - Rare Item
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
