@@ -279,8 +279,8 @@ let string = 'INV_Misc_Thread_01'
 let dust = 'INV_Enchant_DustArcane'
 let unrefinedGem = 'INV_Enchant_ShardShadowfrostLarge'
 
-let recipes = [[mat,mat,mat,mat,'',mat,'','',''],[mat,chain,mat,mat,gem,mat,'',mat,''],[epulet,'',epulet,mat,'',mat,'','',''],[mat,chain,mat,mat,mat,mat,'','',''],[mat,'',mat,mat,mat,mat,mat,mat,mat,],['',mat,'',mat,'',mat,'',mat,''],[mat,'',mat,mat,'',mat,'','',''],['','','',mat,mat,mat,'','',''],[mat,mat,mat,mat,'',mat,mat,'',mat],['','','',mat,'',mat,mat,'',mat],['',gem,'',mat,'',mat,'',mat,''],['',mat,'',mat,gem,mat,'',mat,''],['',metal,'','',metal,'','',stick,''],['','','','',metal,metal,'',stick,''],['','','','',metal,'','',stick,metal],['','','','',metal,'','',stick,''],['',reinforcedMetal,'','',reinforcedMetal,'','',stick,''],['','','','',reinforcedMetal,reinforcedMetal,'',stick,''],['','','','',reinforcedMetal,'','',stick,reinforcedMetal],['','',reinforcedMetal,'',reinforcedMetal,'',stick,'',''],['',gem,'','',stick,'','',stick,''],['',stick,'',metal,'',metal,'','',''],['',stick,'','',string,stick,'',stick,''],[stick,'',stick,'',reinforcedMetal,'',stick,'',stick],['skipforblank'],['','','',stick,stick,'',gem,stick,''],['','','','',gem,'','',stick,''],['skipforblank']]//maybe add a spot for enchant
-let recipeIcons = ['INV_Misc_Desecrated_PlateHelm','INV_Jewelry_Necklace_06','INV_Misc_Desecrated_PlateShoulder','INV_Misc_Cape_19','INV_Misc_Desecrated_PlateChest','INV_Misc_Desecrated_PlateBracer','INV_Misc_Desecrated_PlateGloves','INV_Misc_Desecrated_PlateBelt','INV_Misc_Desecrated_PlatePants','INV_Misc_Desecrated_PlateBoots','INV_Jewelry_Ring_03','INV_Jewelry_Talisman_01','INV_Sword_01','INV_Mace_03','INV_Axe_03','INV_Weapon_ShortBlade_14','INV_Sword_2H_Blacksmithing_03','INV_Mace_84','INV_Axe_60','INV_Weapon_Halberd15','INV_Staff_13','INV_Weapon_Hand_01','INV_Weapon_Bow_01','INV_Shield_17','','INV_Misc_Book_01','INV_Wand_07']
+let recipes = [[mat,mat,mat,mat,'',mat,'','',''],[mat,chain,mat,mat,gem,mat,'',mat,''],[epulet,'',epulet,mat,'',mat,'','',''],[mat,chain,mat,mat,mat,mat,'','',''],[mat,'',mat,mat,mat,mat,mat,mat,mat,],['',mat,'',mat,'',mat,'',mat,''],[mat,'',mat,mat,'',mat,'','',''],['','','',mat,mat,mat,'','',''],[mat,mat,mat,mat,'',mat,mat,'',mat],['','','',mat,'',mat,mat,'',mat],['',gem,'',mat,'',mat,'',mat,''],['',mat,'',mat,gem,mat,'',mat,''],['',metal,'','',metal,'','',stick,''],['','','','',metal,metal,'',stick,''],['','','','',metal,'','',stick,metal],['','','','',metal,'','',stick,''],['',reinforcedMetal,'','',reinforcedMetal,'','',stick,''],['','','','',reinforcedMetal,reinforcedMetal,'',stick,''],['','','','',reinforcedMetal,'','',stick,reinforcedMetal],['','',reinforcedMetal,'',reinforcedMetal,'',stick,'',''],['',gem,'','',stick,'','',stick,''],['',stick,'',metal,'',metal,'','',''],['',stick,'','',string,stick,'',stick,''],[stick,'',stick,'',reinforcedMetal,'',stick,'',stick],['',dust,'',dust,unrefinedGem,dust,'',dust,''],['','','',stick,stick,'',gem,stick,''],['','','','',gem,'','',stick,''],['skipforblank']]//maybe add a spot for enchant
+let recipeIcons = ['INV_Misc_Desecrated_PlateHelm','INV_Jewelry_Necklace_06','INV_Misc_Desecrated_PlateShoulder','INV_Misc_Cape_19','INV_Misc_Desecrated_PlateChest','INV_Misc_Desecrated_PlateBracer','INV_Misc_Desecrated_PlateGloves','INV_Misc_Desecrated_PlateBelt','INV_Misc_Desecrated_PlatePants','INV_Misc_Desecrated_PlateBoots','INV_Jewelry_Ring_03','INV_Jewelry_Talisman_01','INV_Sword_01','INV_Mace_03','INV_Axe_03','INV_Weapon_ShortBlade_14','INV_Sword_2H_Blacksmithing_03','INV_Mace_84','INV_Axe_60','INV_Weapon_Halberd15','INV_Staff_13','INV_Weapon_Hand_01','INV_Weapon_Bow_01','INV_Shield_17','INV_Enchant_FormulaEpic_01','INV_Misc_Book_01','INV_Wand_07']
 let mframeRecipe = CreateFrame('Frame','mframerecipe',mframe)
     mframeRecipe.SetWidth(260)
     mframeRecipe.SetHeight(400)
@@ -349,9 +349,9 @@ let extexRecipe = exitbutnRecipe.CreateTexture('exittexrec','BACKGROUND')
                         }else if(value[i] == string){
                             tooltip = "String"
                         }else if(value[i] == dust){
-                            tooltip = "Dust"
+                            tooltip = "Enchantment Dust"
                         }else if(value[i] == unrefinedGem){
-                            tooltip = "Unrefined Gem"
+                            tooltip = "Enchantment Gem"
                         }
                         element[1].SetScript("OnEnter",(self)=>{
                             GameTooltip.ClearLines()
