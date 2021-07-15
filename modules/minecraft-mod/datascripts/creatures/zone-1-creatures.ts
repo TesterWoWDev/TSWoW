@@ -13,6 +13,7 @@ creature1.Stats.DamageMod.set(1)
 creature1.Stats.ExperienceMod.set(1)
 creature1.Stats.HealthMod.set(1)
 creature1.Stats.ManaMod.set(1)
+export let creature1Loot = creature1.NormalLoot
 let creature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature2',299)
 creature2.MovementType.setRandomMovement()
 creature2.Level.set(1,2)
@@ -22,6 +23,7 @@ creature2.Stats.DamageMod.set(1)
 creature2.Stats.ExperienceMod.set(1)
 creature2.Stats.HealthMod.set(1)
 creature2.Stats.ManaMod.set(1)
+export let creature2Loot = creature2.NormalLoot
 let creature3 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature3',299)
 creature3.MovementType.setRandomMovement()
 creature3.Level.set(1,2)
@@ -31,6 +33,7 @@ creature3.Stats.DamageMod.set(1)
 creature3.Stats.ExperienceMod.set(1)
 creature3.Stats.HealthMod.set(1)
 creature3.Stats.ManaMod.set(1)
+export let creature3Loot = creature3.NormalLoot
 let creature4 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature4',299)
 creature4.MovementType.setRandomMovement()
 creature4.Level.set(1,2)
@@ -40,6 +43,7 @@ creature4.Stats.DamageMod.set(1)
 creature4.Stats.ExperienceMod.set(1)
 creature4.Stats.HealthMod.set(1)
 creature4.Stats.ManaMod.set(1)
+export let creature4Loot = creature4.NormalLoot
 let creature5 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature5',299)
 creature5.MovementType.setRandomMovement()
 creature5.Level.set(1,2)
@@ -49,6 +53,7 @@ creature5.Stats.DamageMod.set(1)
 creature5.Stats.ExperienceMod.set(1)
 creature5.Stats.HealthMod.set(1)
 creature5.Stats.ManaMod.set(1)
+export let creature5Loot = creature5.NormalLoot
 let creature6 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature6',299)
 creature6.MovementType.setRandomMovement()
 creature6.Level.set(1,2)
@@ -58,6 +63,7 @@ creature6.Stats.DamageMod.set(1)
 creature6.Stats.ExperienceMod.set(1)
 creature6.Stats.HealthMod.set(1)
 creature6.Stats.ManaMod.set(1)
+export let creature6Loot = creature6.NormalLoot
 let creature7 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature7',299)
 creature7.MovementType.setRandomMovement()
 creature7.Level.set(1,2)
@@ -67,6 +73,7 @@ creature7.Stats.DamageMod.set(1)
 creature7.Stats.ExperienceMod.set(1)
 creature7.Stats.HealthMod.set(1)
 creature7.Stats.ManaMod.set(1)
+export let creature7Loot = creature7.NormalLoot
 let creature8 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature8',299)
 creature8.MovementType.setRandomMovement()
 creature8.Level.set(1,2)
@@ -76,6 +83,7 @@ creature8.Stats.DamageMod.set(1)
 creature8.Stats.ExperienceMod.set(1)
 creature8.Stats.HealthMod.set(1)
 creature8.Stats.ManaMod.set(1)
+export let creature8Loot = creature8.NormalLoot
 let creature9 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature9',299)
 creature9.MovementType.setRandomMovement()
 creature9.Level.set(1,2)
@@ -85,6 +93,7 @@ creature9.Stats.DamageMod.set(1)
 creature9.Stats.ExperienceMod.set(1)
 creature9.Stats.HealthMod.set(1)
 creature9.Stats.ManaMod.set(1)
+export let creature9Loot = creature9.NormalLoot
 let creature10 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature10',299)
 creature10.MovementType.setRandomMovement()
 creature10.Level.set(1,2)
@@ -94,6 +103,7 @@ creature10.Stats.DamageMod.set(1)
 creature10.Stats.ExperienceMod.set(1)
 creature10.Stats.HealthMod.set(1)
 creature10.Stats.ManaMod.set(1)
+export let creature10Loot = creature10.NormalLoot
 
 //Rare Creature Spawns
 let RareCreature1 = std.CreatureTemplates.create(MODNAME,'Placeholder-RareCreature1',299)
@@ -106,6 +116,7 @@ RareCreature1.Stats.DamageMod.set(5)
 RareCreature1.Stats.ExperienceMod.set(10)
 RareCreature1.Stats.HealthMod.set(5)
 RareCreature1.Stats.ManaMod.set(3)
+export let RareCreature1Loot = RareCreature1.NormalLoot
 let RareCreature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-RareCreature2',299)
 RareCreature2.MovementType.setRandomMovement()
 RareCreature2.Level.set(1,6)
@@ -116,6 +127,7 @@ RareCreature2.Stats.DamageMod.set(5)
 RareCreature2.Stats.ExperienceMod.set(10)
 RareCreature2.Stats.HealthMod.set(5)
 RareCreature2.Stats.ManaMod.set(3)
+export let RareCreature2Loot = RareCreature2.NormalLoot
 let RareCreature3 = std.CreatureTemplates.create(MODNAME,'Placeholder-RareCreature3',299)
 RareCreature3.MovementType.setRandomMovement()
 RareCreature3.Level.set(1,6)
@@ -126,6 +138,7 @@ RareCreature3.Stats.DamageMod.set(5)
 RareCreature3.Stats.ExperienceMod.set(10)
 RareCreature3.Stats.HealthMod.set(5)
 RareCreature3.Stats.ManaMod.set(3)
+export let RareCreature3Loot = RareCreature3.NormalLoot
 
 //DemiBosss Creature Spawns
 let DemiBosscreature1 = std.CreatureTemplates.create(MODNAME,'Placeholder-DemiBosscreature1',299)
@@ -138,6 +151,7 @@ DemiBosscreature1.Stats.DamageMod.set(4)
 DemiBosscreature1.Stats.ExperienceMod.set(3)
 DemiBosscreature1.Stats.HealthMod.set(4)
 DemiBosscreature1.Stats.ManaMod.set(2)
+export let DemiBosscreature1Loot = DemiBosscreature1.NormalLoot
 let DemiBosscreature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-DemiBosscreature2',299)
 //DemiBosscreature2.MovementType.setRandomMovement()
 DemiBosscreature2.Rank.setElite()
@@ -148,6 +162,7 @@ DemiBosscreature2.Stats.DamageMod.set(4)
 DemiBosscreature2.Stats.ExperienceMod.set(3)
 DemiBosscreature2.Stats.HealthMod.set(4)
 DemiBosscreature2.Stats.ManaMod.set(2)
+export let DemiBosscreature2Loot = DemiBosscreature2.NormalLoot
 
 //Boss Creature Spawns
 let Bosscreature1 = std.CreatureTemplates.create(MODNAME,'Placeholder-Bosscreature1',299)
@@ -160,7 +175,7 @@ Bosscreature1.Stats.DamageMod.set(8)
 Bosscreature1.Stats.ExperienceMod.set(6)
 Bosscreature1.Stats.HealthMod.set(8)
 Bosscreature1.Stats.ManaMod.set(6)
-
+export let Bosscreature1Loot = Bosscreature1.NormalLoot
 
 
 
