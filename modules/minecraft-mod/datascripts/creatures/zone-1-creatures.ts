@@ -61,7 +61,8 @@ creature4.Stats.DamageMod.set(1)
 creature4.Stats.ExperienceMod.set(1)
 creature4.Stats.HealthMod.set(1)
 creature4.Stats.ManaMod.set(1)
-SQL.creature_equip_template.add(creature4.ID,1).ItemID1.set(23844).ItemID2.set(2410)
+SQL.creature_equip_template.add(creature4.ID,1).ItemID1.set(23844)
+SQL.creature_equip_template.add(creature4.ID,2).ItemID1.set(2410)
 export let creature4Loot = creature4.NormalLoot
 
 let creature5 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature5',299)
@@ -91,7 +92,9 @@ creature6.Stats.DamageMod.set(1)
 creature6.Stats.ExperienceMod.set(1)
 creature6.Stats.HealthMod.set(1)
 creature6.Stats.ManaMod.set(1)
-SQL.creature_equip_template.add(creature6.ID,1).ItemID1.set(15220).ItemID2.set(3319).ItemID3.set(2011)
+SQL.creature_equip_template.add(creature6.ID,1).ItemID1.set(15220)
+SQL.creature_equip_template.add(creature6.ID,2).ItemID1.set(33219)
+SQL.creature_equip_template.add(creature6.ID,3).ItemID1.set(2011)
 export let creature6Loot = creature6.NormalLoot
 
 let creature7 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature7',299)
@@ -197,7 +200,9 @@ RareCreature3.Stats.DamageMod.set(5)
 RareCreature3.Stats.ExperienceMod.set(10)
 RareCreature3.Stats.HealthMod.set(5)
 RareCreature3.Stats.ManaMod.set(3)
-SQL.creature_equip_template.add(RareCreature3.ID,1).ItemID1.set(15220).ItemID2.set(3319).ItemID3.set(2011)
+SQL.creature_equip_template.add(RareCreature3.ID,1).ItemID1.set(15220)
+SQL.creature_equip_template.add(RareCreature3.ID,2).ItemID1.set(3319)
+SQL.creature_equip_template.add(RareCreature3.ID,3).ItemID1.set(2011)
 export let RareCreature3Loot = RareCreature3.NormalLoot
 
 //DemiBosss Creature Spawns
@@ -216,7 +221,7 @@ DemiBosscreature1.Stats.ExperienceMod.set(3)
 DemiBosscreature1.Stats.HealthMod.set(4)
 DemiBosscreature1.Stats.ManaMod.set(2)
 SQL.creature_equip_template.add(DemiBosscreature1.ID,1).ItemID1.set(7721)
-SQL.creature_equip_template.add(DemiBosscreature1.ID,2).ItemID1.set(7726)
+SQL.creature_equip_template.add(DemiBosscreature1.ID,1).ItemID2.set(7726)
 export let DemiBosscreature1Loot = DemiBosscreature1.NormalLoot
 
 let DemiBosscreature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-DemiBosscreature2',299)
