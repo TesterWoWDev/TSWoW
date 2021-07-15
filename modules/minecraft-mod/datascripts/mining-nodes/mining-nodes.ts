@@ -5,8 +5,6 @@ import { tierTwoBaseResources } from "../items/armor/tier2-set";
 import { tierThreeBaseResources } from "../items/armor/tier3-set";
 import { tierFourBaseResources } from "../items/armor/tier4-set";
 
-
-
 export let node1 = makeMiningNode('Copper Vein 1',310,38,'tier1')
 setupMiningNode(node1,tierOneBaseResources[3],tierOneBaseResources[4],tierOneBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
 
