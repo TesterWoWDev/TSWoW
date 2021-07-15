@@ -94,7 +94,7 @@ declare class TSPlayer extends TSUnit {
      * @param cod 
      * @param items 
      */
-	SendMail(senderType: uint8, from: uint64, subject: string, body: string, money? : uint32, cod? : uint32, items? : TSArray<TSItem>);
+	SendMail(senderType: uint8, from: uint64, subject: string, body: string, money? : uint32, cod? : uint32, delay? : uint32, items? : TSArray<TSItem>);
 
     /**
      * Returns 'true' if the [Player] can Titan Grip, 'false' otherwise.
