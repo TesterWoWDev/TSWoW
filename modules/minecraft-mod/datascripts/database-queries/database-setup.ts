@@ -6,9 +6,7 @@ SQL.Databases.world_dest.writeEarly('DELETE FROM `item_enchantment_template` WHE
 SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).position_z.set(31.1351).map.set(723).name.set('start')
 //run once
 SQL.item_template.filter({}).forEach((value,index,arr)=>{
-    if(value.name.get().includes('"')|| value.description.get().includes('"')){
-        
-    }else{
+    if(!value.name.get().includes('"') && !value.description.get().includes('"')){
         if(value.RequiredLevel.get() != null){
             if(value.RequiredLevel.get() > 20){
                 if(value.RequiredLevel.get() < 60){
@@ -22,5 +20,5 @@ SQL.item_template.filter({}).forEach((value,index,arr)=>{
                 }
             }
         }
-    }
+    }     
 })
