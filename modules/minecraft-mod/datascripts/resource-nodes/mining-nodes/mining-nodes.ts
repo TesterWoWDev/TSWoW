@@ -1,9 +1,9 @@
-import { undiscoveredGreens, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../items/gems/tier1-gem";
-import { tierOneBaseResources } from "../items/armor/tier1-set";
-import { setupMiningNode, makeResourceNode } from "../functions/mining-node-functions";
-import { tierTwoBaseResources } from "../items/armor/tier2-set";
-import { tierThreeBaseResources } from "../items/armor/tier3-set";
-import { tierFourBaseResources } from "../items/armor/tier4-set";
+import { makeResourceNode, setupMiningNode } from "../../functions/resource-node-functions"
+import { tierOneBaseResources } from "../../items/armor/tier1-set"
+import { tierTwoBaseResources } from "../../items/armor/tier2-set"
+import { tierThreeBaseResources } from "../../items/armor/tier3-set"
+import { tierFourBaseResources } from "../../items/armor/tier4-set"
+import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows } from "../../items/gems/tier1-gem"
 
 export let node1 = makeResourceNode('Copper Vein 1',310,38,'tier1')
 setupMiningNode(node1,tierOneBaseResources[3],tierOneBaseResources[4],tierOneBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
