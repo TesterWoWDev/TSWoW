@@ -213,6 +213,8 @@ RareCreature1Loot.addItem(11808,1,1,1,false,2,0)        // Circle of Flame - Rar
 
 // Rare Creature 2 - Fang (Rare Wolf)
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
+// Group 1 (Epic Equipment) Loot Percentage  = 0.300% 
+// Group 2 (Rare Equipment) Loot Percentage  = 36.00%
 addLoot(RareCreature2Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2]) // Tier 1 Scraps
 addLoot(RareCreature2Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLoot(RareCreature2Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
@@ -279,6 +281,8 @@ RareCreature2Loot.addItem(11808,1,1,1,false,2,0)        // Circle of Flame - Rar
 
 // Rare Creature 3 - Murglegurgle (Rare Murloc)
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
+// Group 1 (Epic Equipment) Loot Percentage  = 0.300% 
+// Group 2 (Rare Equipment) Loot Percentage  = 36.00%
 addLoot(RareCreature3Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2]) // Tier 1 Scraps
 addLoot(RareCreature3Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLoot(RareCreature3Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
