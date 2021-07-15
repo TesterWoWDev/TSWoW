@@ -40,7 +40,7 @@ export function setupMiningNode(miningNode: GameObjectChest, metalID: number, re
     miningNode.Loot.addItem(armorGem,10,1,1)
     gemIDArray.forEach((value: number[],index,arr)=>{//all gem colors
         value.forEach(element => {//specific gem colors
-            miningNode.Loot.addItem(element,1,1,1)//specific gems
+            miningNode.Loot.addItem(element,1,1,0.1)//specific gems
         });
     })
     return miningNode.row.entry.get()
