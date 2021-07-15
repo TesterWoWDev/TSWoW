@@ -330,6 +330,42 @@ let extexRecipe = exitbutnRecipe.CreateTexture('exittexrec','BACKGROUND')
                 buttons.forEach((element,i) => {
                     element[2].SetTexture('')
                     element[2].SetTexture('Interface/Icons/' + value[i])
+                    if(value[i] != ''){
+                        let tooltip = ""
+                        if(value[i] == mat){
+                            tooltip = "Material"
+                        }else if(value[i] == gem){
+                            tooltip = "Gem"
+                        }else if(value[i] == epulet){
+                            tooltip = "Epulet"
+                        }else if(value[i] == chain){
+                            tooltip = "Chain"
+                        }else if(value[i] == metal){
+                            tooltip = "Metal"
+                        }else if(value[i] == reinforcedMetal){
+                            tooltip = "Reinforced Metal"
+                        }else if(value[i] == stick){
+                            tooltip = "Stick"
+                        }else if(value[i] == string){
+                            tooltip = "String"
+                        }else if(value[i] == dust){
+                            tooltip = "Dust"
+                        }else if(value[i] == unrefinedGem){
+                            tooltip = "Unrefined Gem"
+                        }
+                        element[1].SetScript("OnEnter",(self)=>{
+                            GameTooltip.ClearLines()
+                            GameTooltip.SetOwner(element[1],'CENTER')
+                            GameTooltip.SetText(tooltip)
+                            GameTooltip.Show()
+                        })     
+                        element[1].SetScript("OnLeave",()=>{
+                            GameTooltip.Hide()
+                        })
+                    }else{
+                        element[1].SetScript("OnEnter",null)
+                        element[1].SetScript("OnLeave",null)
+                    }
                 });
             })
     })
