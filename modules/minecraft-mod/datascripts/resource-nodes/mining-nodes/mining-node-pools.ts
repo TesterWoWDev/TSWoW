@@ -1,5 +1,5 @@
 import { retardMaudan, spawn1Tier1, spawn2Tier1, spawn2Tier2, spawn3Tier1, spawn3Tier2, spawn3Tier3, spawn4Tier1, spawn4Tier2, spawn4Tier3, spawn4Tier4 } from "./mining-node-spawns";
-import { makePool } from "../functions/mining-node-functions";
+import { makePool } from "../../functions/resource-node-functions";
 import { node1, node2, node3, node4 } from "./mining-nodes";
 
 let poolEntry = 100000

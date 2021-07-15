@@ -88,6 +88,7 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                         item = player.GetItemByPos(message.positions[4].bagslot[0],message.positions[4].bagslot[1])
                     }else{
                         //add a check if added, else mail
+                        //possibly try to add tochest, see if that adds random affix
                         let itema = player.AddItem(pkt.craftItem,pkt.craftItemCount)
                         if(itema.IsNull()){
                             player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you',0,0,0,[item])

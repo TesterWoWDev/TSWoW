@@ -21,17 +21,17 @@ import { Pos } from "tswow-stdlib/Misc/Position";
 // 1652-350
 // 1651-375
 
-export function makeMiningNode(name:string,displayID:number,lockID:number,modPrefix:string):GameObjectChest{
-    let miningNode = std.GameObjectTemplates.create(MODNAME,modPrefix + name.toLowerCase().replace(' ','-')).setChest()
-    miningNode.Name.enGB.set(name)
-    miningNode.Display.setID(displayID)//currently copper vein
-    miningNode.Lock.setID(lockID)
-    miningNode.Size.set(0.5)
-    miningNode.RestockTime.set(0)
-    miningNode.IsConsumable.set(1)
-    miningNode.row.Data4.set(1)
-    miningNode.row.Data5.set(1)
-    return miningNode
+export function makeResourceNode(name:string,displayID:number,lockID:number,modPrefix:string):GameObjectChest{
+    let resourceNode = std.GameObjectTemplates.create(MODNAME,modPrefix + name.toLowerCase().replace(' ','-')).setChest()
+    resourceNode.Name.enGB.set(name)
+    resourceNode.Display.setID(displayID)//currently copper vein
+    resourceNode.Lock.setID(lockID)
+    resourceNode.Size.set(0.5)
+    resourceNode.RestockTime.set(0)
+    resourceNode.IsConsumable.set(1)
+    resourceNode.row.Data4.set(1)
+    resourceNode.row.Data5.set(1)
+    return resourceNode
 }
 
 export function setupMiningNode(miningNode: GameObjectChest, metalID: number, refinedMetalID: number, armorGem:number, gemIDArray: number[][]):number {
