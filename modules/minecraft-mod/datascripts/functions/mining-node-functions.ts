@@ -35,9 +35,9 @@ export function makeMiningNode(name:string,displayID:number,lockID:number,modPre
 }
 
 export function setupMiningNode(miningNode: GameObjectChest, metalID: number, refinedMetalID: number, armorGem:number, gemIDArray: number[][]):number {
-    miningNode.Loot.addItem(metalID,100,1,2)
-    miningNode.Loot.addItem(refinedMetalID,50,1,2)
-    miningNode.Loot.addItem(armorGem,10,1,1)
+    miningNode.Loot.addItem(metalID,50,1,2)
+    miningNode.Loot.addItem(refinedMetalID,20,1,2)
+    miningNode.Loot.addItem(armorGem,100,1,1)
     gemIDArray.forEach((value: number[],index,arr)=>{//all gem colors
         value.forEach(element => {//specific gem colors
             miningNode.Loot.addItem(element,1,1,0.1)//specific gems
