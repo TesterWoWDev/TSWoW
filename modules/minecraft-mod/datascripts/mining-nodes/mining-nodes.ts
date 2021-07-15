@@ -7,17 +7,15 @@ import { tierFourBaseResources } from "../items/armor/tier4-set";
 
 let poolEntry = 100000
 
-setupMiningNode(makeMiningNode('Copper Vein 1',3998,38,'tier1'),tierOneBaseResources[3],tierOneBaseResources[4],tierOneBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
-addPoolMembers(makePool(poolEntry++,60),[1,1,1])
+let node1 = setupMiningNode(makeMiningNode('Copper Vein 1',310,38,'tier1'),tierOneBaseResources[3],tierOneBaseResources[4],tierOneBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
+//addPoolMembers(makePool(poolEntry++,60),node1,[[x,y,z,o],[1,1,1,1],[1,1,1,1]])
 
-setupMiningNode(makeMiningNode('Copper Vein 2',3998,18,'tier2'),tierTwoBaseResources[3],tierTwoBaseResources[4],tierTwoBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
-addPoolMembers(makePool(poolEntry++,50),[1,1,1])
+setupMiningNode(makeMiningNode('Copper Vein 2',310,18,'tier2'),tierTwoBaseResources[3],tierTwoBaseResources[4],tierTwoBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
 
-setupMiningNode(makeMiningNode('Copper Vein 3',3998,19,'tier3'),tierThreeBaseResources[3],tierThreeBaseResources[4],tierThreeBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
-addPoolMembers(makePool(poolEntry++,40),[1,1,1])
 
-setupMiningNode(makeMiningNode('Copper Vein 4',3998,20,'tier4'),tierFourBaseResources[3],tierFourBaseResources[4],tierFourBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
-addPoolMembers(makePool(poolEntry++,30),[1,1,1])
+setupMiningNode(makeMiningNode('Copper Vein 3',310,19,'tier3'),tierThreeBaseResources[3],tierThreeBaseResources[4],tierThreeBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
+
+setupMiningNode(makeMiningNode('Copper Vein 4',310,20,'tier4'),tierFourBaseResources[3],tierFourBaseResources[4],tierFourBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
 
 //run around, spawn game object mining nodes, export gameobject db, move to field of spawned mining nodes
 

@@ -2,6 +2,7 @@ import { std } from "tswow-stdlib"
 import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
 import { MODNAME } from "../modname"
 import { SQL } from "wotlkdata/sql/SQLFiles";
+import { Pos } from "tswow-stdlib/Misc/Position";
 //lockID-mining skill required
 // 38-0
 // 18-25
@@ -40,9 +41,11 @@ export function setupMiningNode(miningNode: GameObjectChest, metalID: number, re
     return miningNode.ID
 }   
 
-export function addPoolMembers(poolEntry:number,poolMembers:number[]){
-    poolMembers.forEach(element => {
-        SQL.pool_members.add(1,element).poolSpawnId.set(poolEntry)
+export function addPoolMembers(poolEntry:number,gobID:number, gobPositions:number[][]){
+    let gob = std.GameObjectTemplates.load(gobID)
+    gobPositions.forEach((element,index) => {
+        let gobGUID = gob.spawn(MODNAME,gobID+'spawn'+index,Pos(723,element[0],element[1],element[2],element[3]))
+        SQL.pool_members.add(1,gobGUID.row.guid.get()).poolSpawnId.set(poolEntry)
     })
 }
 
