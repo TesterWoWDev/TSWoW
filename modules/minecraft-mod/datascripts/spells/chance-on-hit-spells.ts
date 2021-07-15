@@ -140,47 +140,10 @@ chanceHeal4.Proc.Chance.set(100)
 
 // Thunderfury
 
-
-// // ONLY WORKS ONTOP OF TARGET.
-// export let chanceLightningExtra1 = std.Spells.create(MODNAME,'chanceLightningExtra1-spell',27648)
-// chanceLightningExtra1.Name.enGB.set('Biting Winds')
-// chanceLightningExtra1.Range.HostileMax.set(50)
-// chanceLightningExtra1.Range.HostileMin.set(0)
-// chanceLightningExtra1.Range.FriendMax.set(50)
-// chanceLightningExtra1.Range.FriendMin.set(0)
-// chanceLightningExtra1.Description.enGB.set('Attack speed slowed by 5%.')
-// chanceLightningExtra1.Effects.get(0).BasePoints.set(-6)
-// chanceLightningExtra1.Effects.get(0).DieSides.set(1)
-// export let chanceLightning1 = std.Spells.create(MODNAME,'chanceLightning1-spell',21992)
-// chanceLightning1.Name.enGB.set('Thunderfury')
-// chanceLightning1.Range.HostileMax.set(50)
-// chanceLightning1.Range.HostileMin.set(0)
-// chanceLightning1.Range.FriendMax.set(50)
-// chanceLightning1.Range.FriendMin.set(0)
-// chanceLightning1.Description.enGB.set('Blasts your enemy with lightning, dealing 100 Nature damage, reduces their resistances by 5')
-// chanceLightning1.Effects.get(0).BasePoints.set(-6)
-// chanceLightning1.Effects.get(0).DieSides.set(1)
-// chanceLightning1.Effects.get(1).BasePoints.set(99)
-// chanceLightning1.Effects.get(1).DieSides.set(1)
-// chanceLightning1.Effects.get(2).TriggerSpell.set(chanceLightningExtra1.ID)
-// export let chanceLightning1M = std.Spells.create(MODNAME,'chanceLightning1M-spell',67670) //melee
-// chanceLightning1M.Name.enGB.set('Thunderfury')
-// chanceLightning1M.Description.enGB.set('Blasts your enemy with lightning, dealing 100 Nature damage, reduces their resistances by 5')
-// chanceLightning1M.AuraDescription.enGB.set('Blasts your enemy with lightning, dealing 100 Nature damage, reduces their resistances by 5')
-// chanceLightning1M.Duration.set(-1,0,-1)
-// chanceLightning1M.Effects.get(0).TriggerSpell.set(chanceLightning1.ID)
-// export let chanceLightning1C = std.Spells.create(MODNAME,'chanceLightning1C-spell',67672) //caster
-// chanceLightning1C.Name.enGB.set('Thunderfury')
-// chanceLightning1C.Description.enGB.set('Blasts your enemy with lightning, dealing 100 Nature damage, reduces their resistances by 5')
-// chanceLightning1C.AuraDescription.enGB.set('Blasts your enemy with lightning, dealing 100 Nature damage, reduces their resistances by 5')
-// chanceLightning1C.Duration.set(-1,0,-1)
-// chanceLightning1C.Effects.get(0).TriggerSpell.set(chanceLightning1.ID)
-
-
-
 export let chanceLightning1 = std.Spells.create(MODNAME,'chanceLightning1-spell',21992)//15283
 chanceLightning1.row.RangeIndex.set(6)
 chanceLightning1.Name.enGB.set('Thunderfury')
+chanceLightning1.Effects.get(1).BasePoints.set(99)
 // chanceLightning1.Description.enGB.set('thundered with $s1 resistance lower and $s2 damage')
 // chanceLightning1.AuraDescription.enGB.set('thundered with $s1 resistance lower and $s2 damage.')
 chanceLightning1.Duration.set(5000,0,5000)
