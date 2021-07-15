@@ -181,6 +181,7 @@ chanceHeal4.Proc.Chance.set(100)
 export let chanceLightning1 = std.Spells.create(MODNAME,'chanceLightning1-spell',21992)//15283
 chanceLightning1.row.RangeIndex.set(6)
 chanceLightning1.Name.enGB.set('Thunderfury')
+chanceLightning1.Effects.get(1).BasePoints.set(99)
 // chanceLightning1.Description.enGB.set('thundered with $s1 resistance lower and $s2 damage')
 // chanceLightning1.AuraDescription.enGB.set('thundered with $s1 resistance lower and $s2 damage.')
 chanceLightning1.Duration.set(5000,0,5000)
