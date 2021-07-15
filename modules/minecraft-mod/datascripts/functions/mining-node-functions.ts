@@ -22,10 +22,15 @@ import { Pos } from "tswow-stdlib/Misc/Position";
 // 1651-375
 
 export function makeMiningNode(name:string,displayID:number,lockID:number,modPrefix:string):GameObjectChest{
-    let miningNode = std.GameObjectTemplates.create(MODNAME,modPrefix + name.toLowerCase().replace(' ','-'),1731).setChest()
+    let miningNode = std.GameObjectTemplates.create(MODNAME,modPrefix + name.toLowerCase().replace(' ','-')).setChest()
     miningNode.Name.enGB.set(name)
     miningNode.Display.setID(displayID)//currently copper vein
     miningNode.Lock.setID(lockID)
+    miningNode.Size.set(0.5)
+    miningNode.RestockTime.set(0)
+    miningNode.IsConsumable.set(1)
+    miningNode.row.Data4.set(1)
+    miningNode.row.Data5.set(1)
     return miningNode
 }
 
