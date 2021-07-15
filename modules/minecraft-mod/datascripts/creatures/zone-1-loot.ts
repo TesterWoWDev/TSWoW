@@ -150,14 +150,12 @@ addLoot(RareCreature1Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMa
 addLoot(RareCreature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLoot(RareCreature1Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(RareCreature1Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLoot(RareCreature1Loot,[undiscoveredReds[0],undiscoveredGreens[0],undiscoveredYellows[0],undiscoveredPurples[0],undiscoveredBlues[0],undiscoveredOranges[0]],[0.125,0.125,0.125,0.125,0.125,0.125]) // All Gems = 4.625%
-addLoot(RareCreature1Loot,[undiscoveredReds[1],undiscoveredGreens[1],undiscoveredYellows[1],undiscoveredPurples[1],undiscoveredBlues[1],undiscoveredOranges[1]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature1Loot,[undiscoveredReds[2],undiscoveredGreens[2],undiscoveredYellows[2],undiscoveredPurples[2],undiscoveredBlues[2],undiscoveredOranges[2]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature1Loot,[undiscoveredReds[3],undiscoveredGreens[3],undiscoveredYellows[3],undiscoveredPurples[3],undiscoveredBlues[3],undiscoveredOranges[3]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature1Loot,[undiscoveredReds[4],undiscoveredGreens[4],undiscoveredYellows[4],undiscoveredPurples[4],undiscoveredOranges[4]],[0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature1Loot,[undiscoveredReds[5],undiscoveredGreens[5],undiscoveredYellows[5],undiscoveredOranges[5]],[0.125,0.125,0.125,0.125])
-addLoot(RareCreature1Loot,[undiscoveredReds[6],undiscoveredGreens[6],undiscoveredYellows[6],undiscoveredOranges[6]],[0.125,0.125,0.125,0.125])
-addLoot(RareCreature1Loot,[undiscoveredReds[7]],[0.125])
+addLootSingleChance(RareCreature1Loot,undiscoveredReds,0.125)
+addLootSingleChance(RareCreature1Loot,undiscoveredGreens,0.125)
+addLootSingleChance(RareCreature1Loot,undiscoveredYellows,0.125)
+addLootSingleChance(RareCreature1Loot,undiscoveredPurples,0.125)
+addLootSingleChance(RareCreature1Loot,undiscoveredBlues,0.125)
+addLootSingleChance(RareCreature1Loot,undiscoveredOranges,0.125)
 RareCreature1Loot.addItem(805,5,1,1,false,0,0)          // Small Red Pouch (6 slot bag)
 RareCreature1Loot.addItem(828,5,1,1,false,0,0)          // Small Blue Pouch (6 slot bag)
 RareCreature1Loot.addItem(5571,5,1,1,false,0,0)         // Small Black Pouch (6 slot bag)
@@ -219,14 +217,12 @@ addLoot(RareCreature2Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMa
 addLoot(RareCreature2Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLoot(RareCreature2Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(RareCreature2Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLoot(RareCreature2Loot,[undiscoveredReds[0],undiscoveredGreens[0],undiscoveredYellows[0],undiscoveredPurples[0],undiscoveredBlues[0],undiscoveredOranges[0]],[0.125,0.125,0.125,0.125,0.125,0.125]) // All Gems = 4.625%
-addLoot(RareCreature2Loot,[undiscoveredReds[1],undiscoveredGreens[1],undiscoveredYellows[1],undiscoveredPurples[1],undiscoveredBlues[1],undiscoveredOranges[1]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature2Loot,[undiscoveredReds[2],undiscoveredGreens[2],undiscoveredYellows[2],undiscoveredPurples[2],undiscoveredBlues[2],undiscoveredOranges[2]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature2Loot,[undiscoveredReds[3],undiscoveredGreens[3],undiscoveredYellows[3],undiscoveredPurples[3],undiscoveredBlues[3],undiscoveredOranges[3]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature2Loot,[undiscoveredReds[4],undiscoveredGreens[4],undiscoveredYellows[4],undiscoveredPurples[4],undiscoveredOranges[4]],[0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature2Loot,[undiscoveredReds[5],undiscoveredGreens[5],undiscoveredYellows[5],undiscoveredOranges[5]],[0.125,0.125,0.125,0.125])
-addLoot(RareCreature2Loot,[undiscoveredReds[6],undiscoveredGreens[6],undiscoveredYellows[6],undiscoveredOranges[6]],[0.125,0.125,0.125,0.125])
-addLoot(RareCreature2Loot,[undiscoveredReds[7]],[0.125])
+addLootSingleChance(RareCreature2Loot,undiscoveredReds,0.125)
+addLootSingleChance(RareCreature2Loot,undiscoveredGreens,0.125)
+addLootSingleChance(RareCreature2Loot,undiscoveredYellows,0.125)
+addLootSingleChance(RareCreature2Loot,undiscoveredPurples,0.125)
+addLootSingleChance(RareCreature2Loot,undiscoveredBlues,0.125)
+addLootSingleChance(RareCreature2Loot,undiscoveredOranges,0.125)
 RareCreature2Loot.addItem(805,5,1,1,false,0,0)      // Small Red Pouch (6 slot bag)
 RareCreature2Loot.addItem(828,5,1,1,false,0,0)      // Small Blue Pouch (6 slot bag)
 RareCreature2Loot.addItem(5571,5,1,1,false,0,0)     // Small Black Pouch (6 slot bag)
@@ -287,14 +283,12 @@ addLoot(RareCreature3Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMa
 addLoot(RareCreature3Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLoot(RareCreature3Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(RareCreature3Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLoot(RareCreature3Loot,[undiscoveredReds[0],undiscoveredGreens[0],undiscoveredYellows[0],undiscoveredPurples[0],undiscoveredBlues[0],undiscoveredOranges[0]],[0.125,0.125,0.125,0.125,0.125,0.125]) // All Gems = 4.625%
-addLoot(RareCreature3Loot,[undiscoveredReds[1],undiscoveredGreens[1],undiscoveredYellows[1],undiscoveredPurples[1],undiscoveredBlues[1],undiscoveredOranges[1]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature3Loot,[undiscoveredReds[2],undiscoveredGreens[2],undiscoveredYellows[2],undiscoveredPurples[2],undiscoveredBlues[2],undiscoveredOranges[2]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature3Loot,[undiscoveredReds[3],undiscoveredGreens[3],undiscoveredYellows[3],undiscoveredPurples[3],undiscoveredBlues[3],undiscoveredOranges[3]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature3Loot,[undiscoveredReds[4],undiscoveredGreens[4],undiscoveredYellows[4],undiscoveredPurples[4],undiscoveredOranges[4]],[0.125,0.125,0.125,0.125,0.125])
-addLoot(RareCreature3Loot,[undiscoveredReds[5],undiscoveredGreens[5],undiscoveredYellows[5],undiscoveredOranges[5]],[0.125,0.125,0.125,0.125])
-addLoot(RareCreature3Loot,[undiscoveredReds[6],undiscoveredGreens[6],undiscoveredYellows[6],undiscoveredOranges[6]],[0.125,0.125,0.125,0.125])
-addLoot(RareCreature3Loot,[undiscoveredReds[7]],[0.125])
+addLootSingleChance(RareCreature3Loot,undiscoveredReds,0.125)
+addLootSingleChance(RareCreature3Loot,undiscoveredGreens,0.125)
+addLootSingleChance(RareCreature3Loot,undiscoveredYellows,0.125)
+addLootSingleChance(RareCreature3Loot,undiscoveredPurples,0.125)
+addLootSingleChance(RareCreature3Loot,undiscoveredBlues,0.125)
+addLootSingleChance(RareCreature3Loot,undiscoveredOranges,0.125)
 RareCreature3Loot.addItem(805,5,1,1,false,0,0)      // Small Red Pouch (6 slot bag)
 RareCreature3Loot.addItem(828,5,1,1,false,0,0)      // Small Blue Pouch (6 slot bag)
 RareCreature3Loot.addItem(5571,5,1,1,false,0,0)     // Small Black Pouch (6 slot bag)
@@ -360,14 +354,12 @@ RareCreature3Loot.addItem(11808,1,1,1,false,2,0)        // Circle of Flame - Rar
 addLoot(DemiBosscreature1Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2]) // Tier 1 Scraps
 addLoot(DemiBosscreature1Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(DemiBosscreature1Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLoot(DemiBosscreature1Loot,[undiscoveredReds[0],undiscoveredGreens[0],undiscoveredYellows[0],undiscoveredPurples[0],undiscoveredBlues[0],undiscoveredOranges[0]],[0.125,0.125,0.125,0.125,0.125,0.125]) // All Gems = 4.625%
-addLoot(DemiBosscreature1Loot,[undiscoveredReds[1],undiscoveredGreens[1],undiscoveredYellows[1],undiscoveredPurples[1],undiscoveredBlues[1],undiscoveredOranges[1]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature1Loot,[undiscoveredReds[2],undiscoveredGreens[2],undiscoveredYellows[2],undiscoveredPurples[2],undiscoveredBlues[2],undiscoveredOranges[2]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature1Loot,[undiscoveredReds[3],undiscoveredGreens[3],undiscoveredYellows[3],undiscoveredPurples[3],undiscoveredBlues[3],undiscoveredOranges[3]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature1Loot,[undiscoveredReds[4],undiscoveredGreens[4],undiscoveredYellows[4],undiscoveredPurples[4],undiscoveredOranges[4]],[0.125,0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature1Loot,[undiscoveredReds[5],undiscoveredGreens[5],undiscoveredYellows[5],undiscoveredOranges[5]],[0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature1Loot,[undiscoveredReds[6],undiscoveredGreens[6],undiscoveredYellows[6],undiscoveredOranges[6]],[0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature1Loot,[undiscoveredReds[7]],[0.125])
+addLootSingleChance(DemiBosscreature1Loot,undiscoveredReds,0.125)
+addLootSingleChance(DemiBosscreature1Loot,undiscoveredGreens,0.125)
+addLootSingleChance(DemiBosscreature1Loot,undiscoveredYellows,0.125)
+addLootSingleChance(DemiBosscreature1Loot,undiscoveredPurples,0.125)
+addLootSingleChance(DemiBosscreature1Loot,undiscoveredBlues,0.125)
+addLootSingleChance(DemiBosscreature1Loot,undiscoveredOranges,0.125)
 DemiBosscreature1Loot.addItem(805,5,1,1,false,0,0)      // Small Red Pouch (6 slot bag)
 DemiBosscreature1Loot.addItem(828,5,1,1,false,0,0)      // Small Blue Pouch (6 slot bag)
 DemiBosscreature1Loot.addItem(5571,5,1,1,false,0,0)     // Small Black Pouch (6 slot bag)
@@ -379,14 +371,12 @@ DemiBosscreature1Loot.addItem(4498,3,1,1,false,0,0)     // Brown Leather Satchel
 addLoot(DemiBosscreature2Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2]) // Tier 1 Scraps
 addLoot(DemiBosscreature2Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(DemiBosscreature2Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLoot(DemiBosscreature2Loot,[undiscoveredReds[0],undiscoveredGreens[0],undiscoveredYellows[0],undiscoveredPurples[0],undiscoveredBlues[0],undiscoveredOranges[0]],[0.125,0.125,0.125,0.125,0.125,0.125]) // All Gems = 4.625%
-addLoot(DemiBosscreature2Loot,[undiscoveredReds[1],undiscoveredGreens[1],undiscoveredYellows[1],undiscoveredPurples[1],undiscoveredBlues[1],undiscoveredOranges[1]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature2Loot,[undiscoveredReds[2],undiscoveredGreens[2],undiscoveredYellows[2],undiscoveredPurples[2],undiscoveredBlues[2],undiscoveredOranges[2]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature2Loot,[undiscoveredReds[3],undiscoveredGreens[3],undiscoveredYellows[3],undiscoveredPurples[3],undiscoveredBlues[3],undiscoveredOranges[3]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature2Loot,[undiscoveredReds[4],undiscoveredGreens[4],undiscoveredYellows[4],undiscoveredPurples[4],undiscoveredOranges[4]],[0.125,0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature2Loot,[undiscoveredReds[5],undiscoveredGreens[5],undiscoveredYellows[5],undiscoveredOranges[5]],[0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature2Loot,[undiscoveredReds[6],undiscoveredGreens[6],undiscoveredYellows[6],undiscoveredOranges[6]],[0.125,0.125,0.125,0.125])
-addLoot(DemiBosscreature2Loot,[undiscoveredReds[7]],[0.125])
+addLootSingleChance(DemiBosscreature2Loot,undiscoveredReds,0.125)
+addLootSingleChance(DemiBosscreature2Loot,undiscoveredGreens,0.125)
+addLootSingleChance(DemiBosscreature2Loot,undiscoveredYellows,0.125)
+addLootSingleChance(DemiBosscreature2Loot,undiscoveredPurples,0.125)
+addLootSingleChance(DemiBosscreature2Loot,undiscoveredBlues,0.125)
+addLootSingleChance(DemiBosscreature2Loot,undiscoveredOranges,0.125)
 DemiBosscreature2Loot.addItem(805,5,1,1,false,0,0)      // Small Red Pouch (6 slot bag)
 DemiBosscreature2Loot.addItem(828,5,1,1,false,0,0)      // Small Blue Pouch (6 slot bag)
 DemiBosscreature2Loot.addItem(5571,5,1,1,false,0,0)     // Small Black Pouch (6 slot bag)
@@ -404,14 +394,12 @@ DemiBosscreature2Loot.addItem(4498,3,1,1,false,0,0)     // Brown Leather Satchel
 addLoot(Bosscreature1Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2]) // Tier 1 Scraps
 addLoot(Bosscreature1Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(Bosscreature1Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLoot(Bosscreature1Loot,[undiscoveredReds[0],undiscoveredGreens[0],undiscoveredYellows[0],undiscoveredPurples[0],undiscoveredBlues[0],undiscoveredOranges[0]],[0.125,0.125,0.125,0.125,0.125,0.125]) // All Gems = 4.625%
-addLoot(Bosscreature1Loot,[undiscoveredReds[1],undiscoveredGreens[1],undiscoveredYellows[1],undiscoveredPurples[1],undiscoveredBlues[1],undiscoveredOranges[1]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(Bosscreature1Loot,[undiscoveredReds[2],undiscoveredGreens[2],undiscoveredYellows[2],undiscoveredPurples[2],undiscoveredBlues[2],undiscoveredOranges[2]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(Bosscreature1Loot,[undiscoveredReds[3],undiscoveredGreens[3],undiscoveredYellows[3],undiscoveredPurples[3],undiscoveredBlues[3],undiscoveredOranges[3]],[0.125,0.125,0.125,0.125,0.125,0.125])
-addLoot(Bosscreature1Loot,[undiscoveredReds[4],undiscoveredGreens[4],undiscoveredYellows[4],undiscoveredPurples[4],undiscoveredOranges[4]],[0.125,0.125,0.125,0.125,0.125])
-addLoot(Bosscreature1Loot,[undiscoveredReds[5],undiscoveredGreens[5],undiscoveredYellows[5],undiscoveredOranges[5]],[0.125,0.125,0.125,0.125])
-addLoot(Bosscreature1Loot,[undiscoveredReds[6],undiscoveredGreens[6],undiscoveredYellows[6],undiscoveredOranges[6]],[0.125,0.125,0.125,0.125])
-addLoot(Bosscreature1Loot,[undiscoveredReds[7]],[0.125])
+addLootSingleChance(Bosscreature1Loot,undiscoveredReds,0.125)
+addLootSingleChance(Bosscreature1Loot,undiscoveredGreens,0.125)
+addLootSingleChance(Bosscreature1Loot,undiscoveredYellows,0.125)
+addLootSingleChance(Bosscreature1Loot,undiscoveredPurples,0.125)
+addLootSingleChance(Bosscreature1Loot,undiscoveredBlues,0.125)
+addLootSingleChance(Bosscreature1Loot,undiscoveredOranges,0.125)
 Bosscreature1Loot.addItem(805,5,1,1,false,0,0)      // Small Red Pouch (6 slot bag)
 Bosscreature1Loot.addItem(828,5,1,1,false,0,0)      // Small Blue Pouch (6 slot bag)
 Bosscreature1Loot.addItem(5571,5,1,1,false,0,0)     // Small Black Pouch (6 slot bag)
@@ -441,10 +429,22 @@ Bosscreature1Loot.addItem(4498,3,1,1,false,0,0)     // Brown Leather Satchel (8 
 
 
 
-function addLoot(loot: AttachedLootSet<CreatureTemplate>, baseResources: number[], chances: number[]) {
-    baseResources.forEach((value,index)=>{
+function addLoot(loot: AttachedLootSet<CreatureTemplate>, items: number[], chances: number[],groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
         if(chances[index] > 0) {
-            loot.addItem(value,chances[index],1,1,false,0,0)
+            loot.addItem(value,chances[index],1,1,false,groupID,0)
         }
+    })
+}
+
+function addLootSingleChance(loot: AttachedLootSet<CreatureTemplate>, items: number[], chance: number,groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
+        loot.addItem(value,chance,1,1,false,groupID,0)
     })
 }
