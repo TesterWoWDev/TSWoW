@@ -5,17 +5,19 @@ SQL.Databases.world_dest.writeEarly('CREATE TABLE `minecraft_recipes` (`pos1` in
 SQL.Databases.world_dest.writeEarly('DELETE FROM `item_enchantment_template` WHERE entry >= 8700')
 SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).position_z.set(31.1351).map.set(723).name.set('start')
 //run once
-// SQL.item_template.filter({}).forEach((value,index,arr)=>{
-//     if(value.name.get().includes('"') || value.name.get().includes("'") || value.description.get().includes('"') || value.description.get().includes("'")){
+SQL.item_template.filter({}).forEach((value,index,arr)=>{
+    if(value.name.get().includes('"') || value.name.get().includes("'") || value.description.get().includes('"') || value.description.get().includes("'")){
         
-//     }else
-//     if(value.RequiredLevel.get() != null)
-//     if(value.RequiredLevel.get() > 20)
-//     if(value.RequiredLevel.get() < 60){
-//         value.RequiredLevel.set(20)
-//     }else if(value.RequiredLevel.get() < 70){
-//         value.RequiredLevel.set(30)
-//     }else{
-//         value.RequiredLevel.set(40)
-//     }
-// })
+    }else
+    if(value.RequiredLevel.get() != null)
+    if(value.RequiredLevel.get() > 20)
+    if(value.RequiredLevel.get() < 60){
+        value.RequiredLevel.set(10)
+    }else if(value.RequiredLevel.get() < 70){
+        value.RequiredLevel.set(15)
+    }else if(value.RequiredLevel.get() < 79){
+        value.RequiredLevel.set(20)
+    }else{
+        value.RequiredLevel.set(30)
+    }
+})
