@@ -150,7 +150,7 @@ addLoot(RareCreature1Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMa
 addLoot(RareCreature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLoot(RareCreature1Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(RareCreature1Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootSingleChance(RareCreature1Loot,undiscoveredReds,0.125)
+addLootSingleChance(RareCreature1Loot,undiscoveredReds,0.125)   // All Gems = 4.625%
 addLootSingleChance(RareCreature1Loot,undiscoveredGreens,0.125)
 addLootSingleChance(RareCreature1Loot,undiscoveredYellows,0.125)
 addLootSingleChance(RareCreature1Loot,undiscoveredPurples,0.125)
@@ -219,7 +219,7 @@ addLoot(RareCreature2Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMa
 addLoot(RareCreature2Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLoot(RareCreature2Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(RareCreature2Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootSingleChance(RareCreature2Loot,undiscoveredReds,0.125)
+addLootSingleChance(RareCreature2Loot,undiscoveredReds,0.125)   // All Gems = 4.625%
 addLootSingleChance(RareCreature2Loot,undiscoveredGreens,0.125)
 addLootSingleChance(RareCreature2Loot,undiscoveredYellows,0.125)
 addLootSingleChance(RareCreature2Loot,undiscoveredPurples,0.125)
@@ -287,7 +287,7 @@ addLoot(RareCreature3Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMa
 addLoot(RareCreature3Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLoot(RareCreature3Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
 addLoot(RareCreature3Loot,tierTwoBaseResources,[1,1,1,1,1,1,1]) // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootSingleChance(RareCreature3Loot,undiscoveredReds,0.125)
+addLootSingleChance(RareCreature3Loot,undiscoveredReds,0.125)   // All Gems = 4.625%
 addLootSingleChance(RareCreature3Loot,undiscoveredGreens,0.125)
 addLootSingleChance(RareCreature3Loot,undiscoveredYellows,0.125)
 addLootSingleChance(RareCreature3Loot,undiscoveredPurples,0.125)
