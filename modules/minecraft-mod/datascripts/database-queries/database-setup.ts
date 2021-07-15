@@ -8,16 +8,19 @@ SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).positi
 SQL.item_template.filter({}).forEach((value,index,arr)=>{
     if(value.name.get().includes('"')|| value.description.get().includes('"')){
         
-    }else
-    if(value.RequiredLevel.get() != null)
-    if(value.RequiredLevel.get() > 20)
-    if(value.RequiredLevel.get() < 60){
-        value.RequiredLevel.set(10)
-    }else if(value.RequiredLevel.get() < 70){
-        value.RequiredLevel.set(15)
-    }else if(value.RequiredLevel.get() < 79){
-        value.RequiredLevel.set(20)
     }else{
-        value.RequiredLevel.set(30)
+        if(value.RequiredLevel.get() != null){
+            if(value.RequiredLevel.get() > 20){
+                if(value.RequiredLevel.get() < 60){
+                    value.RequiredLevel.set(10)
+                }else if(value.RequiredLevel.get() < 70){
+                    value.RequiredLevel.set(15)
+                }else if(value.RequiredLevel.get() < 79){
+                    value.RequiredLevel.set(20)
+                }else{
+                    value.RequiredLevel.set(30)
+                }
+            }
+        }
     }
 })
