@@ -1,15 +1,16 @@
 import { undiscoveredGreens, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../items/gems/tier1-gem";
 import { tierOneBaseResources } from "../items/armor/tier1-set";
-import { setupMiningNode, makeMiningNode, makePool, addPoolMembers } from "../functions/mining-node-functions";
+import { setupMiningNode, makeMiningNode, makePool } from "../functions/mining-node-functions";
 import { tierTwoBaseResources } from "../items/armor/tier2-set";
 import { tierThreeBaseResources } from "../items/armor/tier3-set";
 import { tierFourBaseResources } from "../items/armor/tier4-set";
 import { spawn1 } from "./mining-node-one-spawns";
 
 let poolEntry = 100000
+let node1 = makeMiningNode('Copper Vein 1',310,38,'tier1')
+setupMiningNode(node1,tierOneBaseResources[3],tierOneBaseResources[4],tierOneBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
 
-let node1 = setupMiningNode(makeMiningNode('Copper Vein 1',310,38,'tier1'),tierOneBaseResources[3],tierOneBaseResources[4],tierOneBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
-addPoolMembers(makePool(poolEntry++,60),node1,spawn1)
+makePool(poolEntry++,node1,60,spawn1)
 
 setupMiningNode(makeMiningNode('Copper Vein 2',310,18,'tier2'),tierTwoBaseResources[3],tierTwoBaseResources[4],tierTwoBaseResources[0],[undiscoveredReds,undiscoveredGreens,undiscoveredPurples,undiscoveredYellows])
 
