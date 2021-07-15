@@ -5,11 +5,11 @@ import { node1, node2, node3, node4 } from "./mining-nodes";
 let poolEntry = 100000
 let respawnRate = 300
 //tier 1 area
-makePool(poolEntry++, node1, 50, respawnRate, spawn1Tier1)
+makePool(poolEntry++, node1, 30, respawnRate, spawn1Tier1)
 
 //tier2 area
 makePool(poolEntry++, node1, 5, respawnRate, spawn2Tier1)
-makePool(poolEntry++, node2, 30, respawnRate, spawn2Tier2)
+makePool(poolEntry++, node2, 25, respawnRate, spawn2Tier2)
 
 //tier3 area
 makePool(poolEntry++, node1, 5, respawnRate, spawn3Tier1)
