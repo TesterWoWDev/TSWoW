@@ -156,6 +156,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
                 item.Damage.addPhysical(costval*levelrequirement*2,costval*levelrequirement*3)
                 item.Delay.set(2200)
                 item.Sheath.set(2)
+                item.RangeMod.set(100)
                 DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
                     value.SheatheType.set(2)
                 })
