@@ -53,3 +53,15 @@ export let spawn1 = [
     [-7996.71,339.732,1.13312,2.07604,],
     [-8153.19,456.436,1.49579,2.17499,],
 ]
+
+export let spawn2 = [
+
+]
+
+export let spawn3 = [
+
+]
+
+export let spawn4 = [
+
+]
