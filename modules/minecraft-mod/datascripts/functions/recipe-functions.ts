@@ -171,14 +171,16 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
                     value.SheatheType.set(sheathval)
                 })
             }
-        }else{//shield
-            item.Armor.set(costval*5)
-            item.Stats.addBlockRating(costval/2)
-            item.Sheath.set(4)
-            item.BlockChance.set(costval)
-            DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
-                value.SheatheType.set(4)
-            })
+        }else{
+            if(ids[i][1] == 6){//shield
+                item.Armor.set(costval*5)
+                item.Stats.addBlockRating(costval/2)
+                item.Sheath.set(4)
+                item.BlockChance.set(costval)
+                DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
+                    value.SheatheType.set(4)
+                })
+            }   
         }
         returnIDs.push(item.ID)
     }
