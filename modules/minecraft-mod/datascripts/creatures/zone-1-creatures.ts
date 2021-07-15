@@ -16,7 +16,9 @@ creature1.Stats.DamageMod.set(1)
 creature1.Stats.ExperienceMod.set(1)
 creature1.Stats.HealthMod.set(1)
 creature1.Stats.ManaMod.set(1)
+SQL.creature_equip_template.add(creature1.ID,1).ItemID1.set(25).ItemID2.set(869).ItemID3.set(1194)
 export let creature1Loot = creature1.NormalLoot
+
 let creature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature2',299)
 creature2.Name.enGB.set('Young Wolf')
 creature2.Models.clearAll()
@@ -30,6 +32,7 @@ creature2.Stats.ExperienceMod.set(1)
 creature2.Stats.HealthMod.set(1)
 creature2.Stats.ManaMod.set(1)
 export let creature2Loot = creature2.NormalLoot
+
 let creature3 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature3',299)
 creature3.Name.enGB.set('Wild Boar')
 creature3.Models.clearAll()
@@ -43,6 +46,7 @@ creature3.Stats.ExperienceMod.set(1)
 creature3.Stats.HealthMod.set(1)
 creature3.Stats.ManaMod.set(1)
 export let creature3Loot = creature3.NormalLoot
+
 let creature4 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature4',299)
 creature4.Name.enGB.set('Kobold Foreman')
 creature4.Models.clearAll()
@@ -55,7 +59,9 @@ creature4.Stats.DamageMod.set(1)
 creature4.Stats.ExperienceMod.set(1)
 creature4.Stats.HealthMod.set(1)
 creature4.Stats.ManaMod.set(1)
+SQL.creature_equip_template.add(creature4.ID,1).ItemID1.set(23844).ItemID2.set(2410)
 export let creature4Loot = creature4.NormalLoot
+
 let creature5 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature5',299)
 creature5.Name.enGB.set('Kobold Miner')
 creature5.Models.clearAll()
@@ -68,7 +74,9 @@ creature5.Stats.DamageMod.set(1)
 creature5.Stats.ExperienceMod.set(1)
 creature5.Stats.HealthMod.set(1)
 creature5.Stats.ManaMod.set(1)
+SQL.creature_equip_template.add(creature5.ID,1).ItemID1.set(2901)
 export let creature5Loot = creature5.NormalLoot
+
 let creature6 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature6',299)
 creature6.Name.enGB.set('Salty Murloc')
 creature6.Models.clearAll()
@@ -81,7 +89,9 @@ creature6.Stats.DamageMod.set(1)
 creature6.Stats.ExperienceMod.set(1)
 creature6.Stats.HealthMod.set(1)
 creature6.Stats.ManaMod.set(1)
+SQL.creature_equip_template.add(creature6.ID,1).ItemID1.set(15220).ItemID2.set(3319).ItemID3.set(2011)
 export let creature6Loot = creature6.NormalLoot
+
 let creature7 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature7',299)
 creature7.Name.enGB.set('Murloc Wavebender')
 creature7.Models.clearAll()
@@ -94,7 +104,9 @@ creature7.Stats.DamageMod.set(1)
 creature7.Stats.ExperienceMod.set(1)
 creature7.Stats.HealthMod.set(1)
 creature7.Stats.ManaMod.set(1)
+SQL.creature_equip_template.add(creature7.ID,1).ItemID1.set(14083).ItemID2.set(9452).ItemID3.set(18082)
 export let creature7Loot = creature7.NormalLoot
+
 let creature8 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature8',299)
 creature8.Name.enGB.set('Placeholder Creature')
 creature8.Models.clearAll()
@@ -108,6 +120,7 @@ creature8.Stats.ExperienceMod.set(1)
 creature8.Stats.HealthMod.set(1)
 creature8.Stats.ManaMod.set(1)
 export let creature8Loot = creature8.NormalLoot
+
 let creature9 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature9',299)
 creature9.Name.enGB.set('Placeholder Creature')
 creature9.Models.clearAll()
@@ -121,6 +134,7 @@ creature9.Stats.ExperienceMod.set(1)
 creature9.Stats.HealthMod.set(1)
 creature9.Stats.ManaMod.set(1)
 export let creature9Loot = creature9.NormalLoot
+
 let creature10 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature10',299)
 creature10.Name.enGB.set('Placeholder Creature')
 creature10.Models.clearAll()
@@ -150,6 +164,7 @@ RareCreature1.Stats.DamageMod.set(5)
 RareCreature1.Stats.ExperienceMod.set(10)
 RareCreature1.Stats.HealthMod.set(5)
 RareCreature1.Stats.ManaMod.set(3)
+SQL.creature_equip_template.add(RareCreature1.ID,1).ItemID1.set(2901)
 export let RareCreature1Loot = RareCreature1.NormalLoot
 let RareCreature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-RareCreature2',299)
 RareCreature2.Name.enGB.set('Fang')
@@ -180,6 +195,7 @@ RareCreature3.Stats.DamageMod.set(5)
 RareCreature3.Stats.ExperienceMod.set(10)
 RareCreature3.Stats.HealthMod.set(5)
 RareCreature3.Stats.ManaMod.set(3)
+SQL.creature_equip_template.add(RareCreature3.ID,1).ItemID1.set(15220).ItemID2.set(3319).ItemID3.set(2011)
 export let RareCreature3Loot = RareCreature3.NormalLoot
 
 //DemiBosss Creature Spawns
@@ -197,7 +213,10 @@ DemiBosscreature1.Stats.DamageMod.set(4)
 DemiBosscreature1.Stats.ExperienceMod.set(3)
 DemiBosscreature1.Stats.HealthMod.set(4)
 DemiBosscreature1.Stats.ManaMod.set(2)
+SQL.creature_equip_template.add(DemiBosscreature1.ID,1).ItemID1.set(7721)
+SQL.creature_equip_template.add(DemiBosscreature1.ID,2).ItemID1.set(7726)
 export let DemiBosscreature1Loot = DemiBosscreature1.NormalLoot
+
 let DemiBosscreature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-DemiBosscreature2',299)
 DemiBosscreature2.Name.enGB.set('Widow Fae')
 DemiBosscreature2.Subname.enGB.set('Sisters of Chaos')
@@ -212,6 +231,7 @@ DemiBosscreature2.Stats.DamageMod.set(4)
 DemiBosscreature2.Stats.ExperienceMod.set(3)
 DemiBosscreature2.Stats.HealthMod.set(4)
 DemiBosscreature2.Stats.ManaMod.set(2)
+SQL.creature_equip_template.add(DemiBosscreature2.ID,1).ItemID1.set(19355)
 export let DemiBosscreature2Loot = DemiBosscreature2.NormalLoot
 
 //Boss Creature Spawns
@@ -229,6 +249,7 @@ Bosscreature1.Stats.DamageMod.set(8)
 Bosscreature1.Stats.ExperienceMod.set(6)
 Bosscreature1.Stats.HealthMod.set(8)
 Bosscreature1.Stats.ManaMod.set(6)
+SQL.creature_equip_template.add(Bosscreature1.ID,1).ItemID1.set(6174)
 export let Bosscreature1Loot = Bosscreature1.NormalLoot
 
 
