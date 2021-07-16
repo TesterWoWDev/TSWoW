@@ -35,3 +35,7 @@ export function spawnMultipleGobs(id:number, positions:number[][]){
         spawnGob(id,positions[i],i);
     }
 }
+
+export function setFaction(entry:number,faction:number){
+    std.CreatureTemplates.load(entry).FactionTemplate.set(faction)
+}
