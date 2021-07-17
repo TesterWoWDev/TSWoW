@@ -5,7 +5,7 @@ import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tie
 import { MODNAME } from "../modname"
 
 
-let Chest1 = makeResourceNode('Small Chest',259,0,'test-Chest1-chest')
+let Chest1 = makeResourceNode('Small Chest',259,57,'test-Chest1-chest')
 Chest1.Size.set(0.75)
 addLoot(Chest1,tierOneBaseResources,[4,3,1,2,2,5,3])
 /*Base Resources*/  addLootSingleChance(Chest1,[tierOneMailMaterial,tierOneLeatherMaterial,tierOneClothMaterial],10)            //Group 0
