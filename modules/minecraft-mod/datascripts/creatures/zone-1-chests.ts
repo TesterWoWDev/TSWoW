@@ -63,7 +63,7 @@ function addLoot(chest: GameObjectChest, items: number[], chances: number[],grou
     }
     items.forEach((value,index)=>{
         if(chances[index] > 0) {
-            chest.Loot.addItem(value,chances[index],1,1,false,groupID,0)
+            chest.Loot.addItem(value,chances[index],1,1,false,groupID,1)
         }
     })
 
@@ -75,7 +75,7 @@ function addLootSingleChance(chest: GameObjectChest,items:number[],chance:number
     }
     items.forEach((value,index)=>{
         if(chance > 0) {
-            chest.Loot.addItem(value,chance,1,1,false,groupID,0)
+            chest.Loot.addItem(value,chance,1,1,false,groupID,1)
         }
     })
 }
@@ -85,7 +85,7 @@ function addLootMultiDrop(chest: GameObjectChest, items: number[], chances: numb
     }
     items.forEach((value,index)=>{
         if(chances[index] > 0) {
-            chest.Loot.addItem(value,chances[index],min[index],max[index],false,groupID,0)
+            chest.Loot.addItem(value,chances[index],min[index],max[index],false,groupID,1)
         }
     })
 }
@@ -96,7 +96,7 @@ function addLootSingleChanceMultiDrop(chest: GameObjectChest,items:number[],chan
     }
     items.forEach((value,index)=>{
         if(chance > 0) {
-            chest.Loot.addItem(value,chance,min[index],max[index],false,groupID,0)
+            chest.Loot.addItem(value,chance,min[index],max[index],false,groupID,1)
         }
     })
 }
@@ -109,7 +109,7 @@ function addLootMultiGroup(chest: GameObjectChest, items: number[], chances: num
     }
     items.forEach((value,index)=>{
         if(chances[index] > 0) {
-            chest.Loot.addItem(value,chances[index],min,max,false,groupID,0)
+            chest.Loot.addItem(value,chances[index],min,max,false,groupID,1)
         }
     })
 }
@@ -120,7 +120,7 @@ function addLootSingleChanceMultiGroup(chest: GameObjectChest,items:number[],cha
     }
     items.forEach((value,index)=>{
         if(chance > 0) {
-            chest.Loot.addItem(value,chance,min,max,false,groupID,0)
+            chest.Loot.addItem(value,chance,min,max,false,groupID,1)
         }
     })
 }
