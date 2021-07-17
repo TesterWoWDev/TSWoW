@@ -29,7 +29,12 @@ coredata/datasets/default/mysql
 coredata/datasets/default/mysql_plain
 coredata/datasets/default/dbc
 coredata/datasets/default/vmaps
-coredata/realms
+coredata/realms/tswow/Crashes
+coredata/realms/tswow/DBErrors.log
+coredata/realms/tswow/realmid
+coredata/realms/tswow/Server.log
+coredata/realms/tswow/tswow.realm.yaml
+coredata/realms/tswow/worldserver.conf.dist
 coredata/IDs.ts
 coredata/terminal-history.txt
 ids.txt
