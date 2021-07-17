@@ -1,13 +1,12 @@
 import { std } from "tswow-stdlib"
 import { GameObjectChest } from "../../../tswow-stdlib/datascripts/build/GameObject/Types/GameObjectChest"
+import { makeResourceNode } from "../functions/resource-node-functions"
 import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/armor/tier1-set"
 import { MODNAME } from "../modname"
 
-let Chest1 = std.GameObjectTemplates.create(MODNAME,'test-Chest1-chest',2843).setChest()
-export let Chest1Loot = Chest1.Loot
-Chest1.Name.enGB.set('Small Chest')
-Chest1.Display.setID(259)
-Chest1.Size.set(0.25)
+
+let Chest1 = makeResourceNode('Small Chest',259,0,'test-Chest1-chest')
+Chest1.Size.set(0.75)
 addLoot(Chest1,tierOneBaseResources,[4,3,1,2,2,5,3])
 /*Base Resources*/  addLootSingleChance(Chest1,[tierOneMailMaterial,tierOneLeatherMaterial,tierOneClothMaterial],10)            //Group 0
 /*Epic Items*/      addLootSingleChance(Chest1,[869,1982,870,868,873,1204,2825,1980,2164,11684,18203,18202],0.0125)             //Group 0
