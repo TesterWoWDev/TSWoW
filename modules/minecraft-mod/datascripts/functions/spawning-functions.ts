@@ -28,7 +28,7 @@ export function spawnGob(id: number, position:number[], index?:number) {
         index = 0
     }
     let gob = std.GameObjectTemplates.load(id);
-    gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(723,position[0],position[1],position[2],position[3])).row.id.set(id)
+    gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(723,position[0],position[1],position[2],position[3])).row.id.set(id).rotation2.set(0).rotation3.set(0);
 }
 
 export function spawnMultipleGobs(id:number, positions:number[][]){
