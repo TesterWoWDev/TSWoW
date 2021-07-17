@@ -2,6 +2,7 @@ import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { SQL_smart_scripts } from "../../../../bin/scripts/tswow/wotlkdata/sql/types/smart_scripts"
 import { MODNAME } from "../modname"
+import { Rank1Frostbolt, Rank2Frostbolt } from "./zone-1-creature-spells"
 
 
 //Normal Creature Spawns
@@ -11,7 +12,12 @@ creature1.Models.clearAll()
 creature1.Models.addIds(2357,2358)
 
 //Spells
-
+let scriptC1 = creature1.Scripts.onRange(0,10,0,0)
+    scriptC1.Target.setClosestEnemy(10,0)
+    scriptC1.Target.setVictim()
+    scriptC1.Action.setCast(Rank1Frostbolt.ID,0,0)
+let script2C1 = scriptC1.then()
+    script2C1.Action.setCast(Rank2Frostbolt.ID,0,0)
 //End of Spells
 
 creature1.MovementType.setRandomMovement()

@@ -1,7 +1,6 @@
 import { DBC_ItemRandomProperties } from "wotlkdata/dbc/types/ItemRandomProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { text } from "../../../../bin/scripts/tswow/wotlkdata/primitives"
 
 export function addDBC(name: string, propIndex: number, enchIndex:number, index1val: number, index2val: number, index3val: number, chance:number,SpellItemEnchantmentIndex:number) {
     DBC_ItemRandomProperties.add(propIndex).Name2.enGB.set(name).Enchantment.setIndex(0,SpellItemEnchantmentIndex-index1val).Enchantment.setIndex(1,SpellItemEnchantmentIndex-index2val).Enchantment.setIndex(2,SpellItemEnchantmentIndex-index3val)
