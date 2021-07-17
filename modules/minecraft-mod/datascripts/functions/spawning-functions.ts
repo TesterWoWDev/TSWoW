@@ -1,5 +1,6 @@
 import { std } from "tswow-stdlib";
 import { Pos } from "tswow-stdlib/Misc/Position";
+import { SQL } from "../../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles";
 import { MODNAME } from "../modname";
 
 export function spawnNPC(id: number, wanderDistance:number, equipmentID:number, position:number[], index?:number) {
@@ -38,4 +39,12 @@ export function spawnMultipleGobs(id:number, positions:number[][]){
 
 export function setFaction(entry:number,faction:number){
     std.CreatureTemplates.load(entry).FactionTemplate.set(faction)
+}
+
+ export function setLevel(entry:number,level:number){
+    std.CreatureTemplates.load(entry).Level.set(level)
+ }
+
+ export function removeQuests(entry:number){
+    std.CreatureTemplates.load(entry).NPCFlags.QuestGiver.clear()
 }
