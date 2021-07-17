@@ -1,5 +1,6 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL_smart_scripts } from "../../../../bin/scripts/tswow/wotlkdata/sql/types/smart_scripts"
 import { MODNAME } from "../modname"
 
 
@@ -8,6 +9,11 @@ let creature1 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature1',299
 creature1.Name.enGB.set('Bandit')
 creature1.Models.clearAll()
 creature1.Models.addIds(2357,2358)
+
+//Spells
+
+//End of Spells
+
 creature1.MovementType.setRandomMovement()
 creature1.Level.set(1,2)
 creature1.DamageSchool.setNormal()
