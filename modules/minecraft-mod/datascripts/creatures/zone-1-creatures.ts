@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { MODNAME } from "../modname"
-import { Rank1Frostbolt, Rank1FireBlast, Rank1FrostArmor, Rank1FrostNova, Rank1BoarCharge, Rank1Strike, Rank1Bite, Rank1Gore } from "./zone-1-creature-spells"
+import { Rank1Frostbolt, Rank1FireBlast, Rank1FrostArmor, Rank1FrostNova, Rank1BoarCharge, Rank1Strike, Rank1Bite, Rank1Gore, Rank1Whirlwind } from "./zone-1-creature-spells"
 
 
 //Normal Creature Spawns
@@ -18,9 +18,9 @@ creature1.Models.addIds(2357,2358)
     creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
     creature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
-    creature1.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(10,0).Action.setCast(Rank1Strike.ID,2,7)
-    creature1.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(10,0).Action.setCast(Rank1BoarCharge.ID,2,7)
-    creature1.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(10,0).Action.setCast(67037,2,7)
+    creature1.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1Strike.ID,2,7)
+    creature1.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(Rank1BoarCharge.ID,2,7)
+    creature1.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Whirlwind.ID,2,7)
 //End of Spells
 creature1.MovementType.setRandomMovement()
 creature1.Level.set(1,2)
@@ -47,8 +47,8 @@ creature2.Models.addIds(903)
     creature2.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
     creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
-    creature2.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(10,0).Action.setCast(Rank1Bite.ID,2,7)
-    creature2.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(10,0).Action.setCast(Rank1Gore.ID,2,7)
+    creature2.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1Bite.ID,2,7)
+    creature2.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Gore.ID,2,7)
 //End of Spells
 creature2.MovementType.setRandomMovement()
 creature2.Level.set(2,2)
@@ -74,9 +74,9 @@ creature3.Models.addIds(503,389,607,704)
     creature3.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
     creature3.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
-    creature3.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(10,0).Action.setCast(Rank1Bite.ID,2,7)
-    creature3.Scripts.onTimedEventTriggered(1).Target.setClosestEnemy(10,0).Action.setCast(Rank1BoarCharge.ID,2,7)
-    creature3.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(10,0).Action.setCast(Rank1Gore.ID,2,7)
+    creature3.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1Bite.ID,2,7)
+    creature3.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(Rank1BoarCharge.ID,2,7)
+    creature3.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Gore.ID,2,7)
 //End of Spells
 creature3.MovementType.setRandomMovement()
 creature3.Level.set(1,3)
@@ -153,9 +153,9 @@ creature7.Models.addIds(983,1079,5293)
     creature7.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,3000,3000,100).row.event_flags.set(1)
     creature7.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
-    creature7.Scripts.onTimedEventTriggered(0).Target.setClosestEnemy(40,0).Action.setCast(Rank1FireBlast.ID,0,0)// Fire Blast
-    creature7.Scripts.onTimedEventTriggered(1).Target.setCreatureRange(0,0,40,1).Action.setCast(Rank1FrostNova.ID,2,7)// Frost Nova - The only working one
-    creature7.Scripts.onTimedEventTriggered(2).Target.setClosestEnemy(40,0).Action.setCast(Rank1Frostbolt.ID,0,0)//Frostbolt
+    creature7.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1FireBlast.ID,0,0)
+    creature7.Scripts.onTimedEventTriggered(1).Target.setCreatureRange(0,0,40,1).Action.setCast(Rank1FrostNova.ID,2,7)
+    creature7.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Frostbolt.ID,0,0)
 //End of Spells
 creature7.Scale.set(1)
 creature7.MovementType.setRandomMovement()

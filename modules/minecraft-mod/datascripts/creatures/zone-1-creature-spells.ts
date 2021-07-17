@@ -41,3 +41,8 @@ Rank1Gore.Name.enGB.set('Gore')
 Rank1Gore.Description.enGB.set('Inflicts $s2 damage to an enemy every 3s for $d.')
 Rank1Gore.Effects.get(1).BasePoints.set(4)
 Rank1Gore.Duration.set(9000,0,9000)
+
+export let Rank1Whirlwind = std.Spells.create(MODNAME,'Rank1Whirlwind-spell',67037)
+Rank1Whirlwind.Name.enGB.set('Whirlwind')
+
+
