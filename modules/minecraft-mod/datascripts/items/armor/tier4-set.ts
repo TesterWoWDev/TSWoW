@@ -1,10 +1,11 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
-import { createMaterial, createGear, generateGearRecipes, generateWeaponRecipes, createBaseResources, createWeapons, createTrinket } from "../../functions/recipe-functions"
+import { generateGearRecipes, generateWeaponRecipes } from "../../functions/recipe-functions"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { stringItem } from "../string"
 import { expSpell4 } from "../../spells/experience-rate-spells"
 import { clothTierFourItemEnchantmentIndex, leatherTierFourItemEnchantmentIndex, mailTierFourItemEnchantmentIndex, trinketTierFourItemEnchantmentIndex, weaponTierFourItemEnchantmentIndex } from "../RandomProperties/tier4-properties"
+import { createBaseResources, createGear, createMaterial, createTrinket, createWeapons } from "../../functions/item-functions"
 
 let levelrequirement = 15
 let armSpell = [expSpell4.ID,0,0,0,0]
