@@ -7,3 +7,4 @@ SQL.Databases.world_dest.writeEarly('DELETE FROM `creature_equip_template` WHERE
 
 SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).position_z.set(31.1351).map.set(723).name.set('start')
 //in bin/sql/custom/world/item_level setup is a auto-set required level sql
+//as well as item required rep and skills
