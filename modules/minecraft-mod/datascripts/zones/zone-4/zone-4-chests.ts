@@ -1,7 +1,7 @@
 import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { tierFourBaseResources, tierFourMailMaterial, tierFourLeatherMaterial, tierFourClothMaterial } from "../../items/armor/tier4-set"
-import { ScrollofSpiritVIII, ScrollofProtectionVIII, ScrollofAgilityVIII, ScrollofIntellectVIII, ScrollofStaminaVIII, ScrollofStrengthVIII } from "../zone-1/zone-1-items"
+import { ScrollofSpiritVIII, ScrollofProtectionVIII, ScrollofAgilityVIII, ScrollofIntellectVIII, ScrollofStaminaVIII, ScrollofStrengthVIII, Silverleaf, Earthroot } from "../zone-1/zone-1-items"
 import { ZandalarVindicatorBreastplate, ZandalarVindicatorBelt, ZandalarVindicatorArmguards, ZandalarFreethinkerBreastplate, ZandalarFreethinkerBelt, ZandalarFreethinkerArmguards, ZandalarAugurHauberk, ZandalarAugurBelt, ZandalarAugurBracers, ZandalarPredatorMantle, ZandalarPredatorBelt, ZandalarPredatorBracers, ZandalarMadcapTunic, ZandalarMadcapMantle, ZandalarMadcapBracers, ZandalarHaruspexTunic, ZandalarHaruspexBelt, ZandalarHaruspexBracers, ZandalarConfessorMantle, ZandalarConfessorBindings, ZandalarConfessorWraps, ZandalarIllusionistMantle, ZandalarIllusionistWraps, ZandalarDemoniacWraps, ZandalarDemoniacMantle, ZandalarHonorToken, ZandalarianHeroBadge, ZandalarianHeroMedallion, ZandalarianHeroCharm, ZandalarDemoniacRobe, ZandalarIllusionistRobe, ZandalarSignetofMojo, ZandalarSignetofMight, ZandalarSignetofSerenity, GrileksCharmofMight, GrileksCharmofValor, RenatakisCharmofBeasts, RenatakisCharmofTrickery, WushoolaysCharmofNature, WushoolaysCharmofSpirits, HazzarahsCharmofDestruction, HazzarahsCharmofHealing, HazzarahsCharmofMagic, PristineEnchantedSouthSeasKelp, JewelofKajaro, MaelstromsWrath, HerosBrand, TheAllSeeingEyeofZuldazar, UnmarredVisionofVoodress, ZandalarianShadowMasteryTalisman, KezansUnstoppableTaint, RageofMugamba, FourArdentCustodian, FourBowofSearingArrows, FourDazzlingLongsword, FourEskhandarsLeftClaw, FourEskhandarsRightClaw, FourFieryWarAxe, FourGutRipper, FourIronfoe, FourNightblade, FourStaffofJordan, FourTheGreenTower, FourUnderworldBand, AvengersBreastplate, AvengersCrown, AvengersGreaves, AvengersLegguards, AvengersPauldrons, ConquerorsBreastplate, ConquerorsCrown, ConquerorsGreaves, ConquerorsLegguards, ConquerorsSpaulders, DeathdealersBoots, DeathdealersHelm, DeathdealersLeggings, DeathdealersSpaulders, DeathdealersVest, DoomcallersCirclet, DoomcallersFootwraps, DoomcallersMantle, DoomcallersRobes, DoomcallersTrousers, EnigmaBoots, EnigmaCirclet, EnigmaLeggings, EnigmaRobes, EnigmaShoulderpads, FootwrapsoftheOracle, GenesisBoots, GenesisHelm, GenesisShoulderpads, GenesisTrousers, GenesisVest, MantleoftheOracle, StormcallersDiadem, StormcallersFootguards, StormcallersHauberk, StormcallersLeggings, StormcallersPauldrons, StrikersDiadem, StrikersFootguards, StrikersHauberk, StrikersLeggings, StrikersPauldrons, TiaraoftheOracle, TrousersoftheOracle, VestmentsoftheOracle } from "./zone-4-items"
 
 export let Chest1 = makeResourceNode('Large Chest',259,57,'test-Chest1-chest')
@@ -63,9 +63,11 @@ addLootSingleChance(Chest1,[
 ],1.5,6)
 /*Green Weps - Group 2*/      
 addLootSingleChance(Chest1,[
+    Silverleaf.ID
 ],1.5,2)
 /*Miscellaneous - Group 3*/   
 addLootSingleChanceMultiGroup(Chest1,[
+    Earthroot.ID
 ],11,1,2,3)
 /*Buff Scrolls - Group 4*/    
 addLootSingleChanceMultiGroup(Chest1,[
