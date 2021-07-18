@@ -10,7 +10,16 @@ bin/mpqbuilder
 bin/mysql
 bin/revision
 bin/scripts
-bin/sql
+bin/sql/auth
+bin/sql/characters
+bin/sql/custom/auth
+bin/sql/custom/characters
+bin/sql/custom/world/2016*
+bin/sql/custom/world/2018*
+bin/sql/updates
+bin/sql/world
+bin/sql/auth_create.sql
+bin/sql/characters_create.sql
 bin/symlinkmaker.js
 bin/tmp
 bin/trinitycore
