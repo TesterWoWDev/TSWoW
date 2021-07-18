@@ -8,7 +8,7 @@ let Chest1 = makeResourceNode('Small Chest',259,57,'test-Chest1-chest')
 Chest1.Size.set(0.75)
 addLoot(Chest1,tierOneBaseResources,[4,3,1,2,2,5,3])
 /*Base Resources - Group 5*/  
-addLootSingleChance(Chest1,[tierOneMailMaterial,tierOneLeatherMaterial,tierOneClothMaterial],33,5)
+addLootSingleChanceMultiGroup(Chest1,[tierOneMailMaterial,tierOneLeatherMaterial,tierOneClothMaterial],33,1,3,5)
 /*Epic Items - Group 0*/      
 addLootSingleChance(Chest1,[869,1982,870,868,873,1204,2825,1980,2164,11684,18203,18202],0.0125)
 /*Rare Items - Group 0*/      
