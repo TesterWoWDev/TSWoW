@@ -1,6 +1,44 @@
 import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
 
+export let SmallRedPouch = std.Items.create(MODNAME,'smallredpouch',805)
+SmallRedPouch.Quality.setWhite()
+SmallRedPouch.ContainerSlots.set(6)
+export let SmallBluePouch = std.Items.create(MODNAME,'smallbluepouch',828)
+SmallBluePouch.Quality.setWhite()
+SmallBluePouch.ContainerSlots.set(6)
+export let SmallBlackPouch = std.Items.create(MODNAME,'smallblackpouch',5571)
+SmallBlackPouch.Quality.setWhite()
+SmallBlackPouch.ContainerSlots.set(6)
+export let SmallGreenPouch = std.Items.create(MODNAME,'smallgreenpouch',5572)
+SmallGreenPouch.Quality.setWhite()
+SmallGreenPouch.ContainerSlots.set(6)
+export let BrownLeatherSatchel = std.Items.create(MODNAME,'brownleathersatchel',4498)
+BrownLeatherSatchel.Quality.setWhite()
+BrownLeatherSatchel.ContainerSlots.set(8)
+
+export let DarnassianBleu = std.Items.create(MODNAME,'darnassianbleu',2070)
+DarnassianBleu.Quality.setWhite()
+export let ShinyRedApple = std.Items.create(MODNAME,'shinyredapple',4536)
+ShinyRedApple.Quality.setWhite()
+export let RefreshingSpringWater = std.Items.create(MODNAME,'refreshingspringwater',159)
+RefreshingSpringWater.Quality.setWhite()
+
+export let Dirk = std.Items.create(MODNAME,'dirk',159)
+Dirk.Quality.setWhite()
+export let TornNote = std.Items.create(MODNAME,'tornnote',159)
+TornNote.Quality.setWhite()
+
+export let MeltedCandle = std.Items.create(MODNAME,'meltedcandle',755)
+MeltedCandle.Quality.setWhite()
+export let LargeCandle = std.Items.create(MODNAME,'largecandle',772)
+LargeCandle.Quality.setWhite()
+export let MagicCandle = std.Items.create(MODNAME,'magiccandle',1399)
+MagicCandle.Quality.setWhite()
+export let BladedPickaxe = std.Items.create(MODNAME,'bladedpickaxe',1399)
+BladedPickaxe.Quality.setWhite()
+
+
 export let BlazingRapier = std.Items.create(MODNAME,'blazingrapier',12777)
 BlazingRapier.Quality.setGreen()
 export let WickedMithrilBlade = std.Items.create(MODNAME,'wickedmithrilblade',7943)
