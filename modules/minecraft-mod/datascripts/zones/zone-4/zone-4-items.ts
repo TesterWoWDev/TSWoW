@@ -1,6 +1,5 @@
 import { MODNAME } from "quests-mod"
-import { std } from "../../../../tswow-stdlib/datascripts/build/tswow-stdlib-data"
-
+import { std } from "tswow-stdlib"
 
 export let MassiveRedPouch = std.Items.create(MODNAME,'massiveredpouch',805)
 MassiveRedPouch.Quality.setBlue()
