@@ -4,7 +4,7 @@ import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tie
 import { BlazingRapier, WickedMithrilBlade, SearingGoldenBlade, BuzzSaw, BuzzerBlade, Rockslicer, RhahkZorsHammer, GoldplatedBuckler, EmberstoneStaff, ImpalingHarpoon, ThiefsBlade, SmitesReaver, SmitesMightyHammer, CookiesTenderizer, CookiesStirringRod, IronKnuckles, PrisonShank, KamsWalkingStick, SerpentsKiss, KreshsBack, WornTurtleShellShield, SerpentsShoulders, BoahnsFang, ArmoroftheFang, LeggingsoftheFang, FootpadsoftheFang, BeltoftheFang, GlovesoftheFang, StaffofNobles, BladeofEternalDarkness, BladeoftheWretched, FrightskullShaft, GatorbiteAxe, InfernalTricksterLeggings, PhytoskinSpaulders, RunebladeofBaronRivendare, SkullforgeReaver } from "./zone-1-items"
 
 
-let Chest1 = makeResourceNode('Small Chest',259,57,'test-Chest1-chest')
+export let Chest1 = makeResourceNode('Small Chest',259,57,'test-Chest1-chest')
 Chest1.Size.set(0.75)
 addLoot(Chest1,tierOneBaseResources,[4,3,1,2,2,5,3])
 /*Base Resources - Group 5*/  
