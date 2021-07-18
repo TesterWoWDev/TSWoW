@@ -1,4 +1,4 @@
-import { GameObjectChest } from "../../../tswow-stdlib/datascripts/build/GameObject/Types/GameObjectChest"
+import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
 import { makeResourceNode } from "../functions/resource-node-functions"
 import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/armor/tier1-set"
 import { BlazingRapier, WickedMithrilBlade, SearingGoldenBlade, BuzzSaw, BuzzerBlade, Rockslicer, RhahkZorsHammer, GoldplatedBuckler, EmberstoneStaff, ImpalingHarpoon, ThiefsBlade, SmitesReaver, SmitesMightyHammer, CookiesTenderizer, CookiesStirringRod, IronKnuckles, PrisonShank, KamsWalkingStick, SerpentsKiss, KreshsBack, WornTurtleShellShield, SerpentsShoulders, BoahnsFang, ArmoroftheFang, LeggingsoftheFang, FootpadsoftheFang, BeltoftheFang, GlovesoftheFang, StaffofNobles, BladeofEternalDarkness, BladeoftheWretched, FrightskullShaft, GatorbiteAxe, InfernalTricksterLeggings, PhytoskinSpaulders, RunebladeofBaronRivendare, SkullforgeReaver } from "./zone-1-items"
@@ -27,11 +27,11 @@ addLootSingleChance(Chest1,[
 /*Green Weps - Group 2*/      
 addLootSingleChance(Chest1,
     [BlazingRapier.ID,              WickedMithrilBlade.ID,              SearingGoldenBlade.ID,
-    BuzzSaw.ID,                     BuzzerBlade.ID,                     Rockslicer.ID,          RhahkZorsHammer.ID,
+    BuzzSaw.ID,                     BuzzerBlade.ID,                     Rockslicer.ID,                      RhahkZorsHammer.ID,
     GoldplatedBuckler.ID,           StaffofNobles.ID,                   EmberstoneStaff.ID,
     ImpalingHarpoon.ID,             ThiefsBlade.ID,                     SmitesReaver.ID,
     SmitesMightyHammer.ID,          CookiesTenderizer.ID,               CookiesStirringRod.ID,
-    IronKnuckles.ID,                PrisonShank.ID,                     KamsWalkingStick.ID,    SerpentsKiss.ID,
+    IronKnuckles.ID,                PrisonShank.ID,                     KamsWalkingStick.ID,                SerpentsKiss.ID,
     KreshsBack.ID,                  WornTurtleShellShield.ID,           SerpentsShoulders.ID,
     BoahnsFang.ID,                  ArmoroftheFang.ID,                  LeggingsoftheFang.ID,
     FootpadsoftheFang.ID,           BeltoftheFang.ID,                   GlovesoftheFang.ID],3,2)

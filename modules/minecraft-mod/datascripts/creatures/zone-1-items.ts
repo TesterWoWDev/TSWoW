@@ -1,5 +1,5 @@
 import { MODNAME } from "quests-mod"
-import { std } from "../../../tswow-stdlib/datascripts/build/tswow-stdlib-data"
+import { std } from "tswow-stdlib"
 
 export let BlazingRapier = std.Items.create(MODNAME,'blazingrapier',12777)
 BlazingRapier.Quality.setGreen()
