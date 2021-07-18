@@ -1,6 +1,23 @@
 import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
 
+
+export let Silverleaf = std.Items.create(MODNAME,'silverleaf',765)
+Silverleaf.Quality.setWhite()
+Silverleaf.MaxStack.set(500)
+export let Earthroot = std.Items.create(MODNAME,'earthroot',2449)
+Earthroot.Quality.setWhite()
+Earthroot.MaxStack.set(500)
+export let WildSteelbloom = std.Items.create(MODNAME,'wildsteelbloom',3355)
+WildSteelbloom.Quality.setWhite()
+WildSteelbloom.MaxStack.set(500)
+export let Mageroyal = std.Items.create(MODNAME,'mageroyal',785)
+Mageroyal.Quality.setWhite()
+Mageroyal.MaxStack.set(500)
+export let Peacebloom = std.Items.create(MODNAME,'peacebloom',2447)
+Peacebloom.Quality.setWhite()
+Peacebloom.MaxStack.set(500)
+
 export let SmallRedPouch = std.Items.create(MODNAME,'smallredpouch',805)
 SmallRedPouch.Quality.setWhite()
 SmallRedPouch.ContainerSlots.set(6)
@@ -36,7 +53,7 @@ LargeCandle.Quality.setWhite()
 export let MagicCandle = std.Items.create(MODNAME,'magiccandle',1399)
 MagicCandle.Quality.setWhite()
 export let BladedPickaxe = std.Items.create(MODNAME,'bladedpickaxe',1399)
-BladedPickaxe.Quality.setWhite()
+BladedPickaxe.Quality.setGreen()
 
 
 export let BlazingRapier = std.Items.create(MODNAME,'blazingrapier',12777)
