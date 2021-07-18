@@ -1,5 +1,7 @@
 import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
+import { StaminaI } from "../zone-1/zone-1-item-spells"
+import { SpiritIV, ProtectionIV, AgilityIV, IntellectIV, StrengthIV, StaminaIV } from "./zone-4-item-spells"
 
 export let MassiveRedPouch = std.Items.create(MODNAME,'massiveredpouch',805)
 MassiveRedPouch.Quality.setBlue()
@@ -248,3 +250,35 @@ export let ConquerorsLegguards = std.Items.create(MODNAME,'conquerorslegguards',
 ConquerorsLegguards.Quality.setBlue()
 export let ConquerorsGreaves = std.Items.create(MODNAME,'conquerorsgreaves',21333)
 ConquerorsGreaves.Quality.setBlue()
+
+
+export let FourthScrollofSpiritVIII = std.Items.create(MODNAME,'fourthscrollofspiritviii',37098)
+FourthScrollofSpiritVIII.Name.enGB.set('Scroll of Spirit')
+FourthScrollofSpiritVIII.Quality.setWhite()
+FourthScrollofSpiritVIII.Spells.clear(0)
+FourthScrollofSpiritVIII.Spells.add(SpiritIV.ID)
+export let FourthScrollofProtectionVIII = std.Items.create(MODNAME,'fourthscrollofprotectionviii',43468)
+FourthScrollofProtectionVIII.Name.enGB.set('Scroll of Protection')
+FourthScrollofProtectionVIII.Quality.setWhite()
+FourthScrollofProtectionVIII.Spells.clear(0)
+FourthScrollofProtectionVIII.Spells.add(ProtectionIV.ID)
+export let FourthScrollofAgilityVIII = std.Items.create(MODNAME,'fourthscrollofagilityviii',43464)
+FourthScrollofAgilityVIII.Name.enGB.set('Scroll of Agility')
+FourthScrollofAgilityVIII.Quality.setWhite()
+FourthScrollofAgilityVIII.Spells.clear(0)
+FourthScrollofAgilityVIII.Spells.add(AgilityIV.ID)
+export let FourthScrollofIntellectVIII = std.Items.create(MODNAME,'fourthscrollofintellectviii',37092)
+FourthScrollofIntellectVIII.Name.enGB.set('Scroll of Intellect')
+FourthScrollofIntellectVIII.Quality.setWhite()
+FourthScrollofIntellectVIII.Spells.clear(0)
+FourthScrollofIntellectVIII.Spells.add(IntellectIV.ID)
+export let FourthScrollofStaminaVIII = std.Items.create(MODNAME,'fourthscrollofstaminaviii',37094)
+FourthScrollofStaminaVIII.Name.enGB.set('Scroll of Stamina')
+FourthScrollofStaminaVIII.Quality.setWhite()
+FourthScrollofStaminaVIII.Spells.clear(0)
+FourthScrollofStaminaVIII.Spells.add(StaminaIV.ID)
+export let FourthScrollofStrengthVIII = std.Items.create(MODNAME,'fourthscrollofstrengthviii',43466)
+FourthScrollofStrengthVIII.Name.enGB.set('Scroll of Strength')
+FourthScrollofStrengthVIII.Quality.setWhite()
+FourthScrollofStrengthVIII.Spells.clear(0)
+FourthScrollofStrengthVIII.Spells.add(StrengthIV.ID)
