@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { MODNAME } from "../modname"
+import { MODNAME } from "../../modname"
 import { Rank1Frostbolt, Rank1FireBlast, Rank1FrostArmor, Rank1FrostNova, Rank1BoarCharge, Rank1Strike, Rank1Bite, Rank1Gore, Rank1Whirlwind } from "./zone-1-creature-spells"
 
 

@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../modname"
+import { MODNAME } from "../../modname"
 
 // Magic Spells
 export let Rank1Frostbolt = std.Spells.create(MODNAME,'Rank1Frostbolt-spell',116)
