@@ -22,6 +22,7 @@ InvasionBoss01.Models.addIds(18527)
 //End of Spells
 InvasionBoss01.MovementType.setRandomMovement()
 InvasionBoss01.Level.set(8,8)
+InvasionBoss01.Rank.setBoss()
 InvasionBoss01.FactionTemplate.set(48)
 InvasionBoss01.DamageSchool.setNormal()
 InvasionBoss01.Stats.ArmorMod.set(8)
