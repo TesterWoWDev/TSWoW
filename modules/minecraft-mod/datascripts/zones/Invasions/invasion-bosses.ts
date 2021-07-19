@@ -2,7 +2,7 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
 import { BossDummySpell1 } from "./invasion-creature-spells"
 
-export let InvasionBoss01 = std.CreatureTemplates.create(MODNAME,'invasionboss01',17257)
+export let InvasionBoss01 = std.CreatureTemplates.create(MODNAME,'invasionboss01',299)
 InvasionBoss01.Name.enGB.set('Galitrax the Destroyer')
 InvasionBoss01.Models.clearAll()
 InvasionBoss01.Models.addIds(18527)
@@ -26,7 +26,7 @@ InvasionBoss01.DamageSchool.setNormal()
 InvasionBoss01.Stats.ArmorMod.set(8)
 InvasionBoss01.Stats.DamageMod.set(6)
 InvasionBoss01.Stats.ExperienceMod.set(5)
-InvasionBoss01.Stats.HealthMod.set(8)
+InvasionBoss01.Stats.HealthMod.set(80)
 InvasionBoss01.Stats.ManaMod.set(5)
 export let InvasionBoss01Loot = InvasionBoss01.NormalLoot
 
