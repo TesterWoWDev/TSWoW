@@ -29,3 +29,6 @@ InvasionBoss01.Stats.ExperienceMod.set(5)
 InvasionBoss01.Stats.HealthMod.set(8)
 InvasionBoss01.Stats.ManaMod.set(5)
 export let InvasionBoss01Loot = InvasionBoss01.NormalLoot
+
+export let InvasionBossInvisibleAdd01 = std.CreatureTemplates.create(MODNAME,'invasion-invisible-01',30616)
+InvasionBossInvisibleAdd01.Name.enGB.set('Flame Wave Creature')
