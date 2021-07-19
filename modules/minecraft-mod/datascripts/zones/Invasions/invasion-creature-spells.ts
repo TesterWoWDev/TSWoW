@@ -39,3 +39,8 @@ BossDummySpell1.Name.enGB.set('Flame Wave')
 export let InvasionFlameWave = std.Spells.create(MODNAME,'invasionflamewave-spell',57492)
 InvasionFlameWave.Name.enGB.set('SomeDamagingAbility')
 InvasionFlameWave.Effects.get(0).BasePoints.set(249)
+
+export let InvasionBossStrike = std.Spells.create(MODNAME,'InvasionBossStrike-spell',12057)
+InvasionBossStrike.Name.enGB.set('Strike')
+InvasionBossStrike.Description.enGB.set('Strike at an enemy, inflicting weapon damage + $s1.')
+InvasionBossStrike.Effects.get(0).BasePoints.set(179)
