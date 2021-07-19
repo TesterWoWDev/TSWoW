@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
-import { BossDummySpell1 } from "./invasion-creature-spells"
+import { BossDummySpell1, InvasionBossStrike, InvasionWhirlwind } from "./invasion-creature-spells"
 
 export let InvasionBoss01 = std.CreatureTemplates.create(MODNAME,'invasionboss01',299)
 InvasionBoss01.Name.enGB.set('Galitrax the Destroyer')
@@ -16,15 +16,15 @@ InvasionBoss01.Models.addIds(18527)
     InvasionBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
     InvasionBoss01.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(BossDummySpell1.ID,2,7)
-    InvasionBoss01.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(BossDummySpell1.ID,2,7)
-    InvasionBoss01.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(BossDummySpell1.ID,2,7)
+    InvasionBoss01.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(InvasionBossStrike.ID,2,7)
+    InvasionBoss01.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(InvasionWhirlwind.ID,2,7)
 //End of Spells
 InvasionBoss01.MovementType.setRandomMovement()
 InvasionBoss01.Level.set(3,8)
 InvasionBoss01.FactionTemplate.set(48)
 InvasionBoss01.DamageSchool.setNormal()
 InvasionBoss01.Stats.ArmorMod.set(8)
-InvasionBoss01.Stats.DamageMod.set(6)
+InvasionBoss01.Stats.DamageMod.set(60)
 InvasionBoss01.Stats.ExperienceMod.set(5)
 InvasionBoss01.Stats.HealthMod.set(80)
 InvasionBoss01.Stats.ManaMod.set(5)
