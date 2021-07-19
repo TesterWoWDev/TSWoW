@@ -26,7 +26,7 @@ export function invasions(events:TSEventHandlers){
         addPercent(5)
     })
 
-    events.CreatureID.OnDeath(GetID("creature_template","minecraft-mod","invasion-boss-01"),(creature,killer)=>{
+    events.CreatureID.OnDeath(GetID("creature_template","minecraft-mod","invasionboss01"),(creature,killer)=>{
         let players = creature.GetPlayersInRange(50,0,0)
         for(let i = 0; i < players.length; i++){
             //players[i].AddItem(id,1)
