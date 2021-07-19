@@ -2,10 +2,10 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
 import { BossDummySpell1 } from "./invasion-creature-spells"
 
-export let InvasionBoss01 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-01',299)
-InvasionBoss01.Name.enGB.set('Mistress of Torment')
+export let InvasionBoss01 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-01',17257)
+InvasionBoss01.Name.enGB.set('Galitrax the Destroyer')
 InvasionBoss01.Models.clearAll()
-InvasionBoss01.Models.addIds(29442,18419)
+InvasionBoss01.Models.addIds(18527)
 //Spells
     //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
     InvasionBoss01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
