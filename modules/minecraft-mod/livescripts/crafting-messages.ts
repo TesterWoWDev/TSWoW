@@ -41,7 +41,6 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                 }
             }else{
                 pkt.craftItem = result.GetUInt32(0)
-                
             }
             pkt.craftItemCount = result.GetUInt32(1)
             if(message.purchase == 1){
@@ -62,7 +61,7 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                             let itemID = message.itemIDs[i]
                             if(message.positions[i].bagslot[0] == 0){
                                 message.positions[i].bagslot[0] = 255
-                                message.positions[i].bagslot[1] +=22
+                                message.positions[i].bagslot[1] += 22
                             }else{
                                 message.positions[i].bagslot[0] += 18
                                 message.positions[i].bagslot[1] += -1
@@ -91,10 +90,9 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                         //possibly try to add tochest, see if that adds random affix
                         let itema = player.AddItem(pkt.craftItem,pkt.craftItemCount)
                         if(itema.IsNull()){
-                            player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you',0,0,0,[item])
+                            player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,0,[item])
                         }
                     }
-                    
                     item.SetEnchantment(message.enchants[0],0)
                     item.SetEnchantment(message.enchants[1],2)  
                     item.SetEnchantment(message.enchants[2],3)  

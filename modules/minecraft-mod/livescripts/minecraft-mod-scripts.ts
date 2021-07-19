@@ -10,8 +10,25 @@ export function Main(events: TSEventHandlers) {
 	worldChat(events)
     creature1Script(events)
     
+    // events.Player.OnSay((player,type,lang,msg)=>{
+    //     //in event script every 5 min to send POI to all online players
+    //     player.GossipSendPOI(7454,-2203,41,0,0,'Legion Invasion')
+    // })
+
     events.Player.OnSay((player,type,lang,msg)=>{
-        //in event script every 5 min to send POI to all online players
-        player.GossipSendPOI(7454,-2203,41,0,0,'Legion Invasion')
+        let t = QueryWorld('SELECT eventID FROM `invasions` ORDER BY eventID DESC LIMIT 1;')
+        while(t.GetRow()){
+            let q = QueryWorld('SELECT * FROM `invasions` WHERE eventID='+randNum(0,t.GetInt32(0)))
+            while(q.GetRow()){
+                if(q.GetInt16(1) == 1){//creature
+                    player.SpawnCreature(q.GetInt32(2),q.GetInt32(3),q.GetInt32(4),q.GetInt32(5),q.GetInt32(6),8,0)
+                }else{//gameobject
+                    player.SummonGameObject(q.GetInt32(2),q.GetInt32(3),q.GetInt32(4),q.GetInt32(5),q.GetInt32(6),0)
+                }
+            }
+        }
     })
+}
+function randNum(min:number,max:number) {
+    return Math.floor(Math.random()*(max-min+1)+min);
 }
