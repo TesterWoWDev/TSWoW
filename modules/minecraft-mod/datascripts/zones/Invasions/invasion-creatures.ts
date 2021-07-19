@@ -63,7 +63,7 @@ InvasionMinion02.Stats.ManaMod.set(2)
 export let InvasionMinion02Loot = InvasionMinion02.NormalLoot
 
 
-export let InvasionLargeMinion01 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-01',299)
+export let InvasionLargeMinion01 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-02',299)
 InvasionLargeMinion01.Name.enGB.set('Felguard')
 InvasionLargeMinion01.Models.clearAll()
 InvasionLargeMinion01.Models.addIds(5047,7970,5048,9017)
@@ -95,7 +95,7 @@ SQL.creature_equip_template.add(InvasionLargeMinion01.ID,3).ItemID1.set(30902)
 export let InvasionLargeMinion01Loot = InvasionLargeMinion01.NormalLoot
 
 
-export let InvasionLargeMinion02 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-01',299)
+export let InvasionLargeMinion02 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-03',299)
 InvasionLargeMinion02.Name.enGB.set('Mistress of Torment')
 InvasionLargeMinion02.Models.clearAll()
 InvasionLargeMinion02.Models.addIds(29442,18419)

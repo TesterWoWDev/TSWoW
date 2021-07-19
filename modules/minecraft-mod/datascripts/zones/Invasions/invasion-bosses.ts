@@ -2,7 +2,7 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
 import { BossDummySpell1 } from "./invasion-creature-spells"
 
-export let InvasionBoss01 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-01',299)
+export let InvasionBoss01 = std.CreatureTemplates.create(MODNAME,'invasion-boss-01',299)
 InvasionBoss01.Name.enGB.set('Mistress of Torment')
 InvasionBoss01.Models.clearAll()
 InvasionBoss01.Models.addIds(29442,18419)
