@@ -32,3 +32,5 @@ export let InvasionBoss01Loot = InvasionBoss01.NormalLoot
 
 export let InvasionBossInvisibleAdd01 = std.CreatureTemplates.create(MODNAME,'invasion-invisible-01',30616)
 InvasionBossInvisibleAdd01.Name.enGB.set('Flame Wave Creature')
+InvasionBossInvisibleAdd01.Scale.set(0.5)
+InvasionBossInvisibleAdd01.FactionTemplate.set(35)

@@ -36,6 +36,6 @@ InvasionBoarCharge.Duration.set(3000,0,3000)
 export let BossDummySpell1 = std.Spells.create(MODNAME,'bossdummyspell1-spell',77)
 BossDummySpell1.Name.enGB.set('Flame Wave')
 
-export let InvasionFlameWave = std.Spells.create(MODNAME,'invasionfrostarmor-spell',57492)
+export let InvasionFlameWave = std.Spells.create(MODNAME,'invasionflamewave-spell',57492)
 InvasionFlameWave.Name.enGB.set('SomeDamagingAbility')
 InvasionFlameWave.Effects.get(0).BasePoints.set(249)
