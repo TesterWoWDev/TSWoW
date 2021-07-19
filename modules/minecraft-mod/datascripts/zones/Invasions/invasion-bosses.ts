@@ -1,4 +1,5 @@
 import { std } from "tswow-stdlib"
+import { SQL } from "wotlkdata/sql/SQLFiles"
 import { MODNAME } from "../../modname"
 import { BossDummySpell1, InvasionBossStrike, InvasionWhirlwind } from "./invasion-creature-spells"
 
@@ -28,6 +29,8 @@ InvasionBoss01.Stats.DamageMod.set(60)
 InvasionBoss01.Stats.ExperienceMod.set(5)
 InvasionBoss01.Stats.HealthMod.set(80)
 InvasionBoss01.Stats.ManaMod.set(5)
+SQL.creature_equip_template.add(InvasionBoss01.ID,1).ItemID1.set(32837)
+SQL.creature_equip_template.add(InvasionBoss01.ID,1).ItemID2.set(32838)
 export let InvasionBoss01Loot = InvasionBoss01.NormalLoot
 
 export let InvasionBossInvisibleAdd01 = std.CreatureTemplates.create(MODNAME,'invasion-invisible-01',30616)
