@@ -32,3 +32,6 @@ InvasionBoarCharge.Name.enGB.set('Boar Charge')
 InvasionBoarCharge.AuraDescription.enGB.set('Increases Speed by $s1%.')
 InvasionBoarCharge.Effects.get(0).BasePoints.set(74)
 InvasionBoarCharge.Duration.set(3000,0,3000)
+
+export let BossDummySpell1 = std.Spells.create(MODNAME,'bossdummyspell1-spell',77)
+BossDummySpell1.Name.enGB.set('Flame Wave')

@@ -35,9 +35,9 @@ InvasionMinion01.Stats.ManaMod.set(4)
 export let InvasionMinion01Loot = InvasionMinion01.NormalLoot
 
 export let InvasionMinion02 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-01',299)
-InvasionMinion02.Name.enGB.set('Legion Engineer')
+InvasionMinion02.Name.enGB.set('Legion Hound')
 InvasionMinion02.Models.clearAll()
-InvasionMinion02.Models.addIds(5047,7970,5048,9017)
+InvasionMinion02.Models.addIds(7949)
 //Spells
     //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
     InvasionMinion02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
@@ -52,14 +52,14 @@ InvasionMinion02.Models.addIds(5047,7970,5048,9017)
     InvasionMinion02.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(InvasionWhirlwind.ID,2,7)
 //End of Spells
 InvasionMinion02.MovementType.setRandomMovement()
-InvasionMinion02.Level.set(3,8)
+InvasionMinion02.Level.set(4,4)
 InvasionMinion02.FactionTemplate.set(48)
 InvasionMinion02.DamageSchool.setNormal()
-InvasionMinion02.Stats.ArmorMod.set(8)
-InvasionMinion02.Stats.DamageMod.set(6)
+InvasionMinion02.Stats.ArmorMod.set(5)
+InvasionMinion02.Stats.DamageMod.set(4)
 InvasionMinion02.Stats.ExperienceMod.set(5)
-InvasionMinion02.Stats.HealthMod.set(8)
-InvasionMinion02.Stats.ManaMod.set(5)
+InvasionMinion02.Stats.HealthMod.set(3)
+InvasionMinion02.Stats.ManaMod.set(2)
 export let InvasionMinion02Loot = InvasionMinion02.NormalLoot
 
 
@@ -93,5 +93,34 @@ SQL.creature_equip_template.add(InvasionLargeMinion01.ID,1).ItemID1.set(32332)
 SQL.creature_equip_template.add(InvasionLargeMinion01.ID,2).ItemID1.set(32369)
 SQL.creature_equip_template.add(InvasionLargeMinion01.ID,3).ItemID1.set(30902)
 export let InvasionLargeMinion01Loot = InvasionLargeMinion01.NormalLoot
+
+
+export let InvasionLargeMinion02 = std.CreatureTemplates.create(MODNAME,'invasion-largeminion-01',299)
+InvasionLargeMinion02.Name.enGB.set('Mistress of Torment')
+InvasionLargeMinion02.Models.clearAll()
+InvasionLargeMinion02.Models.addIds(29442,18419)
+//Spells
+    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
+    InvasionLargeMinion02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+    InvasionLargeMinion02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+    InvasionLargeMinion02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+    InvasionLargeMinion02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+    InvasionLargeMinion02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+    InvasionLargeMinion02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+    //combat loop
+    InvasionLargeMinion02.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(InvasionStrike.ID,2,7)
+    InvasionLargeMinion02.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(InvasionBoarCharge.ID,2,7)
+    InvasionLargeMinion02.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(InvasionWhirlwind.ID,2,7)
+//End of Spells
+InvasionLargeMinion02.MovementType.setRandomMovement()
+InvasionLargeMinion02.Level.set(3,8)
+InvasionLargeMinion02.FactionTemplate.set(48)
+InvasionLargeMinion02.DamageSchool.setNormal()
+InvasionLargeMinion02.Stats.ArmorMod.set(8)
+InvasionLargeMinion02.Stats.DamageMod.set(6)
+InvasionLargeMinion02.Stats.ExperienceMod.set(5)
+InvasionLargeMinion02.Stats.HealthMod.set(8)
+InvasionLargeMinion02.Stats.ManaMod.set(5)
+export let InvasionLargeMinion02Loot = InvasionLargeMinion02.NormalLoot
 
 
