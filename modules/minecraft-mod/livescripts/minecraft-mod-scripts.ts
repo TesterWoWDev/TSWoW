@@ -9,4 +9,9 @@ export function Main(events: TSEventHandlers) {
     transmog(events)
 	worldChat(events)
     creature1Script(events)
+    
+    events.Player.OnSay((player,type,lang,msg)=>{
+        //in event script every 5 min to send POI to all online players
+        player.GossipSendPOI(7454,-2203,41,0,0,'Legion Invasion')
+    })
 }
