@@ -14,13 +14,17 @@ export function spawnNPC(id: number, wanderDistance:number, equipmentID:number, 
         spawn.WanderDistance.set(wanderDistance);
         spawn.MovementType.setRandomMovement()
     }
+    return spawn.GUID
 
 }
 
 export function spawnMultipleNPCs(id:number,wanderDistance:number, equipmentID:number, positions:number[][]){
+    let guids = []
     for (let i = 0; i < positions.length; i++) {
-        spawnNPC(id,wanderDistance,equipmentID,positions[i],i);
+        let spawn = spawnNPC(id,wanderDistance,equipmentID,positions[i],i);
+        guids.push(spawn)
     }
+    return guids
 }
 
 export function spawnGob(id: number, position:number[], index?:number) {
@@ -55,4 +59,18 @@ export function setName(entry:number, name:string){
 
 export function setSubName(entry:number, subname:string){
     std.CreatureTemplates.load(entry).Subname.enGB.set(subname)
+}
+
+export function addWaypoint(guid:number,path:number[][]){
+    let pathID = guid*10
+    path.forEach((value,index)=>{
+        
+    SQL.waypoint_data.add(pathID,index).position_x.set(value[0]).position_y.set(value[1]).position_z.set(value[2]).orientation.set(value[3]).delay.set(value[4]).move_type.set(0)
+    })
+    SQL.creature_addon.add(guid).path_id.set(pathID)
+}
+export function addWaypoints(guids:number[],paths:number[][][]){
+    guids.forEach((value,index)=>{
+        addWaypoint(value,paths[index])
+    })
 }
