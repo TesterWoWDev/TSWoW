@@ -1,6 +1,6 @@
 export function onLoginEvents(events:TSEventHandlers){
     events.Player.OnLogin((player,first)=>{
-        SendWorldMessage(player.GetName() + ' the level ' +player.GetLevel + ' ' + player.GetClass + ' has logged in.')
+        SendWorldMessage(player.GetName() + ' the level ' +player.GetLevel() + ' ' + player.GetClassAsString(0) + ' has logged in.')
         if(first){
             player.LearnSpell(50305)//skin
             player.LearnSpell(65288)//herb
