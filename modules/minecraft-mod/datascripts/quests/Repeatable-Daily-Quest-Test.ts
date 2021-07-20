@@ -1,9 +1,9 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../modname"
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/armor/tier1-set"
-import { SQL } from "../../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles"
-import { AttachedLootSet } from "../../../tswow-stdlib/datascripts/build/Loot/Loot"
-import { ItemTemplate } from "../../../tswow-stdlib/datascripts/build/Item/ItemTemplate"
+import { SQL } from "wotlkdata/sql/SQLFiles"
+import { AttachedLootSet } from "tswow-stdlib//Loot/Loot"
+import { ItemTemplate } from "tswow-stdlib/Item/ItemTemplate"
 import { GoldenBar1G } from "../items/currencies"
 
 export let DQGiver01 = std.CreatureTemplates.create(MODNAME,'dqgiver01-mob',9274)//replace 2934 with parentCreature of a questgiver
