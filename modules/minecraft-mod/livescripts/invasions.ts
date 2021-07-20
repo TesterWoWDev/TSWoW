@@ -4,6 +4,7 @@ let spawners:TSUnit[] = []
 let cSpawns:TSCreature[] = []
 let gSpawns:TSGameObject[] = []
 let spawned:boolean = false
+
 export function invasions(events:TSEventHandlers){
     events.Player.OnLogin((player,first)=>{
         if(spawners.length <=0){
