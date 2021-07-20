@@ -26,7 +26,7 @@ expSpell4.Description.enGB.set('Experience gained is increased by $s1%.')
 expSpell4.Effects.get(0).BasePoints.set(3)
 expSpell4.Effects.get(1).BasePoints.set(3)
 
-export let HeirloomExperienceRates = std.Spells.create(MODNAME,'exp-spell',57353)
+export let HeirloomExperienceRates = std.Spells.create(MODNAME,'heirloom-exp-spell',57353)
 HeirloomExperienceRates.Name.enGB.set('Increased Experience')
 HeirloomExperienceRates.Description.enGB.set('Experience gained is increased by $s1%.')
 HeirloomExperienceRates.Effects.get(0).BasePoints.set(99)
