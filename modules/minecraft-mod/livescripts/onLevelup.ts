@@ -67,48 +67,48 @@ let spellsList = [
         [48990,49048,49001,61006,49052,49045],      // Mend Pet (10),       Multi Shot (8),         Serpent Sting (10-12),  Kill Shot (3),       Steady Shot (4),        Arcane Shot (11)
     ],
     [[0/*Rogue*/],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [1752,2098,5171,703,1784],          // Sinister Strike (1),         Eviscerate (1),         Slice and Dice (1),         Garrote (1),        Stealth
+        [8676,1943,6760],                   // Ambush (1),                  Rupture (1),            Eviscerate (2)
+        [6761,8631,8724],                   // Eviscerate (3),              Garrote (2),            Ambush (2)
+        [1833,8639,8632],                   // Cheap Shot,                  Rupture (2),            Garrote (3)
+        [408,8623,1760],                    // Kidney Shot (1),             Eviscerate (4+5),       Sinister Strike (5)
+        [53,26889],                         // Backstab (1),                Vanish (3)
+        [3127],                             // Parry
+        [5277,2983],                        // Evasion (1),                 Sprint (1)
+        [1860],                             // Safe Fall
+        [27441,2591],                       // Ambush (7),                  Backstab (4)
+        [51723,31224],                      // Fan of Knives,               Cloak of Shadows
+        [26862],                            // Sinister Strike (10)
+        [1842],                             // Disarm Trap
+        [48691,48671],                      // Ambush (10),                 Rupture (8)
+        [11305],                            // Sprint (3)
+        [1766,8647],                        // Kick,                        Expose Armor
+        [2094,51724],                       // Blind,                       Sap (4)
+        [48638,11281],                      // Sinister Strike (12),        Backstab (8)
+        [48667],                            // Eviscerate (11)
+        [48657],                            // Backstab (12)
     ],
     [[0/*Priest*/],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [17,139,589,8092,2944],         // Power Word Shield (1),       Renew (1),              Shadow Word Pain (1),       Mind Blast (1),        Devouring Plague (1)
+        [2061,14914],                   // Flash Heal (1),              Holy Fire (1)
+        [598,8122],                     // Smite (3),                   Psychic Scream (1)
+        [600,6075,992],                 // Power Word Shield (3),       Renew (3),              Shadow Word Pain (4)
+        [15237,1004,8104],              // Holy Nova,                   Smite (5),              Mind Blast (4)
+        [3747,15264,32379],             // Power Word Shield (4),       Holy Fire (4),          Shadow Word Death (1)
+        [19238,19279],                  // Desperate Prayer (2),        Devouring Plague (5)
+        [15431,48171],                  // Holy Nova (2),               Resurrection (7)
+        [596,25367],                    // Prayer of Healing (1),       Shadow Word Pain (9)
+        [10963,10947,48157],            // Greater Heal (2),            Mind Blast (9),         Shadow Word Death (3)
+        [10898,27800],                  // Power Word Shield (7),       Holy Nova (5)
+        [10927,15261,10933],            // Renew (7),                   Holy Fire (8),          Smite (7)
+        [48161,48125],                  // Power Word Fort (8),         Shadow Word Pain (12)
+        [10960,34433],                  // Prayer of Healing (3),       Shadowfiend
+        [10900,27801],                  // Power Word Shield (9),       Holy Nova (6)
+        [34863,48045],                  // Circle of Healing (2),       Mind Sear
+        [25364,48158],                  // Smite (10),                  Shadow Word Death (4)
+        [25218,48113],                  // Power Word Shield (12),      Prayer of Mending (3)
+        [34866,48068],                  // Circle of Healing (5),       Renew (14)
+        [48066,64843],                  // Power Word Shield (14),      Divine Hymn
     ],
     [[0/*Deathknight*/],
         [0],[0],[0],[0],[0],[0],[0],[0],[0],
@@ -119,7 +119,7 @@ let spellsList = [
         [49936,49918,56222,48263],              // Death and Decay (2),    Plague Strike (3),       Dark Command,           Frost Presence
         [49939,49893,49928,50842,49020],        // Blood Boil (2),         Death Coil (3),          Blood Strike (4),       Pestilence              Obliterate (1)
         [49940,49919],                          // Blood Boil (3),         Plague Strike (4)
-        [49937,46584,48707],                    // Death and Decay (3)     Raise Dead,              Anti-Magic Shell
+        [49937,46584,48707,49909],              // Death and Decay (3)     Raise Dead,              Anti-Magic Shell,       Icy Touch (5)
         [49929,49920,51423],                    // Blood Strike (5),       Plague Strike (5),       Obliterate (2)
         [49938,49941,49894,51424],              // Death and Decay (4),    Blood Boil (4),          Death Coil (4),         Obliterate (3)
         [49895,49930,49921,51425,45529,47568],  // Death Coil (5),         Blood Strike (6),        Plague Strike (6),      Obliterate (4),         Blood Tap,        Empower Rune Weapon
