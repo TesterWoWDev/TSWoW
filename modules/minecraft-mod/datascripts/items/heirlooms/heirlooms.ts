@@ -2,6 +2,7 @@ import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
 import { HeirloomExperienceRates } from "../../spells/experience-rate-spells"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { DBC_ItemExtendedCost } from "../../../../../bin/scripts/tswow/wotlkdata/dbc/types/ItemExtendedCost"
 
 //If we do end up utilizing heirlooms, they will require level 20 to purchase, and they will also cost boss tokens/raid tokens/dungeon tokens
 //This would allow players to speed level their alts from 1-20 much quicker than with the normal armor set bonuses.
@@ -129,7 +130,7 @@ HeirloomVendor.FactionTemplate.set(35)
 
 SQL.Databases.world_dest.writeEarly('DELETE FROM npc_vendor WHERE entry = ' + HeirloomVendor.ID + '')
 
-HeirloomVendor.Vendor.addItem(BloodiedArcaniteReaper.ID)
+HeirloomVendor.Vendor.addItem(BloodiedArcaniteReaper.ID,0,0,HeirloomExtendedCost.ID)
 HeirloomVendor.Vendor.addItem(BalancedHeartseeker.ID)
 HeirloomVendor.Vendor.addItem(VenerableDalRendsSacredCharge.ID)
 HeirloomVendor.Vendor.addItem(CharmedAncientBoneBow.ID)
@@ -166,3 +167,10 @@ HeirloomVendor.Vendor.addItem(TatteredDreadmistRobe.ID)
 HeirloomVendor.Vendor.addItem(VenerableMassofMcGowan.ID)
 HeirloomVendor.Vendor.addItem(RepurposedLavaDredger.ID)
 
+
+let ExtendedCostIndex = 3000
+addDBC(0,0,0,21202,0,0,0,0,1,0,0,0,0,0)
+
+export function addDBC(reqHonor: number, reqArena:number, ArenaSlotID: number, ReqItemID1: number, ReqItemID2: number, ReqItemID3:number, ReqItemID4:number, ReqItemID5:number, ReqItemID1Count:Number, ReqItemID2Count:Number,ReqItemID3Count:Number,ReqItemID4Count:Number,ReqItemID5Count:Number,PersonalRating:Number) {
+    DBC_ItemExtendedCost.add(ExtendedCostIndex).HonorPoints.set(reqHonor).ArenaPoints.set(reqArena).ArenaBracket.set(ArenaSlotID).ItemID.set([ReqItemID1,ReqItemID2,ReqItemID3,ReqItemID4,ReqItemID5],[ReqItemID1Count,ReqItemID2Count,ReqItemID3Count,ReqItemID4Count,ReqItemID5Count]).RequiredArenaRating.set(PersonalRating)
+}
