@@ -48,3 +48,11 @@ export function setFaction(entry:number,faction:number){
  export function removeQuests(entry:number){
     std.CreatureTemplates.load(entry).NPCFlags.QuestGiver.clear()
 }
+
+export function setName(entry:number, name:string){
+    std.CreatureTemplates.load(entry).Name.enGB.set(name)
+}
+
+export function setSubName(entry:number, subname:string){
+    std.CreatureTemplates.load(entry).Subname.enGB.set(subname)
+}
