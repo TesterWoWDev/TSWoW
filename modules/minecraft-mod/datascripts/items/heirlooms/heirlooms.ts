@@ -169,8 +169,8 @@ HeirloomVendor.Vendor.addItem(RepurposedLavaDredger.ID)
 
 
 let ExtendedCostIndex = 3000
-addDBC(0,0,0,21202,0,0,0,0,1,0,0,0,0,0)
-
-export function addDBC(reqHonor: number, reqArena:number, ArenaSlotID: number, ReqItemID1: number, ReqItemID2: number, ReqItemID3:number, ReqItemID4:number, ReqItemID5:number, ReqItemID1Count:Number, ReqItemID2Count:Number,ReqItemID3Count:Number,ReqItemID4Count:Number,ReqItemID5Count:Number,PersonalRating:Number) {
-    DBC_ItemExtendedCost.add(ExtendedCostIndex).HonorPoints.set(reqHonor).ArenaPoints.set(reqArena).ArenaBracket.set(ArenaSlotID).ItemID.set([ReqItemID1,ReqItemID2,ReqItemID3,ReqItemID4,ReqItemID5],[ReqItemID1Count,ReqItemID2Count,ReqItemID3Count,ReqItemID4Count,ReqItemID5Count]).RequiredArenaRating.set(PersonalRating)
+//addDBC(0,0,0,21202,0,0,0,0,1,0,0,0,0,0)
+addDBCItemExtendedCost(ExtendedCostIndex++,honor,arena,slot,[1,1,1,1,1],[1,1,1,1,1],rating)
+export function addDBCItemExtendedCost(index:number, reqHonor: number, reqArena:number, ArenaSlotID: number, reqItems:number[], reqItemCount:number[],PersonalRating:number) {
+    DBC_ItemExtendedCost.add(index).HonorPoints.set(reqHonor).ArenaPoints.set(reqArena).ArenaBracket.set(ArenaSlotID).ItemID.set(reqItems).ItemCount.set(reqItemCount).RequiredArenaRating.set(PersonalRating)
 }
