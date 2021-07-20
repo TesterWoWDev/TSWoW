@@ -7,7 +7,7 @@ import { BlazingRapier, WickedMithrilBlade, SearingGoldenBlade, BuzzSaw, BuzzerB
 
 
 export let Zone1Chest1 = makeResourceNode('Small Chest',259,57,'zone1chest1-chest')
-spawnMultipleGobs(Zone1Chest1.ID,[[-8334.18,110.985,18.7963,3.147]])
+spawnMultipleGobs(250008,[[-8334.177,110.985,18.796,3.147],[-8028.486,101.582,1.089,4.817],[-7896.042,138.932,-26.418,1.171],[-8246.397,280.637,3.401,2.344],[-7963.068,232.766,-27.964,0.902],[-7927.933,119.273,-50.434,6.027],[-7935.968,179.275,-45.210,5.896],[-7938.499,244.016,-35.589,2.280],[-8052.747,40.852,1.877,5.17],[-7969.805,-19.939,0.453,2.319],[-8227.125,270.125,3.976,1.564],[-8048.143,465.894,-4.900,4.711]])
 Zone1Chest1.Size.set(0.75)
 addLoot(Zone1Chest1,tierOneBaseResources,[4,3,1,2,2,5,3])
 /*Base Resources - Group 5*/  
