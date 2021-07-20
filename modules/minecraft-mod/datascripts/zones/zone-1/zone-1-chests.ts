@@ -2,26 +2,27 @@ import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { spawnMultipleGobs } from "../../functions/spawning-functions"
 import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
+import { SmallSackofCoins, LargeSackofCoins } from "../../items/currencies"
 import { BlazingRapier, WickedMithrilBlade, SearingGoldenBlade, BuzzSaw, BuzzerBlade, Rockslicer, RhahkZorsHammer, GoldplatedBuckler, EmberstoneStaff, ImpalingHarpoon, ThiefsBlade, SmitesReaver, SmitesMightyHammer, CookiesTenderizer, CookiesStirringRod, IronKnuckles, PrisonShank, KamsWalkingStick, SerpentsKiss, KreshsBack, WornTurtleShellShield, SerpentsShoulders, BoahnsFang, ArmoroftheFang, LeggingsoftheFang, FootpadsoftheFang, BeltoftheFang, GlovesoftheFang, StaffofNobles, BladeofEternalDarkness, BladeoftheWretched, FrightskullShaft, GatorbiteAxe, InfernalTricksterLeggings, PhytoskinSpaulders, RunebladeofBaronRivendare, SkullforgeReaver, BiteofSerrakis, BurstofKnowledge, CircleofFlame, DarkIronPulverizer, DarkwaterTalwar, DeadmansHand, FangoftheCrystalSpider, FlameWrath, ForceofWill, GalgannsFireblaster, GalgannsFirehammer, GoblinDragonGun, Grimclaw, HerodsShoulder, IronweaveBelt, IronweaveBoots, IronweaveBracers, IronweaveCowl, IronweaveGloves, IronweaveMantle, IronweavePants, IronweaveRobe, LordGeneralsSword, MantleofDoan, Naglering, RagingBerserkersHelm, RobeofDoan, SavageGladiatorChain, SavageGladiatorGreaves, SavageGladiatorGrips, SavageGladiatorHelm, SavageGladiatorLeggings, ScarletLeggings, Shadowfang, StrikeoftheHydra, WraithScythe, ArdentCustodian, BowofSearingArrows, DazzlingLongsword, EskhandarsLeftClaw, EskhandarsRightClaw, FieryWarAxe, GutRipper, Ironfoe, Nightblade, StaffofJordan, TheGreenTower, UnderworldBand, AzureSilkBelt, AzureSilkCloak, AzureSilkGloves, AzureSilkHood, AzureSilkPants, AzureSilkVest, BarbaricIronBoots, BarbaricIronBreastplate, BarbaricIronGloves, BarbaricIronHelm, BarbaricIronShoulders, CrimsonSilkBelt, CrimsonSilkCloak, CrimsonSilkGloves, CrimsonSilkPantaloons, CrimsonSilkRobe, CrimsonSilkShoulders, CrimsonSilkVest, EmbossedLeatherBoots, EmbossedLeatherCloak, EmbossedLeatherGloves, EmbossedLeatherPants, EmbossedLeatherVest, FineLeatherBelt, FineLeatherBoots, FineLeatherCloak, FineLeatherGloves, FineLeatherTunic, SilveredBronzeBoots, SilveredBronzeBreastplate, SilveredBronzeGauntlets, SilveredBronzeShoulders, DiscoloredHealingPotion, LesserHealingPotion, LesserManaPotion, MinorHealingPotion, MinorManaPotion, MinorRejuvenationPotion, RagePotion, SwiftnessPotion, SwimSpeedPotion, ScrollofAgilityVIII, ScrollofIntellectVIII, ScrollofProtectionVIII, ScrollofSpiritVIII, ScrollofStaminaVIII, ScrollofStrengthVIII } from "./zone-1-items"
 
 
-export let Chest1 = makeResourceNode('Small Chest',259,57,'test-Chest1-chest')
-spawnMultipleGobs(Chest1.ID,[[-8334.18,110.985,18.7963,3.147]])
-Chest1.Size.set(0.75)
-addLoot(Chest1,tierOneBaseResources,[4,3,1,2,2,5,3])
+export let Zone1Chest1 = makeResourceNode('Small Chest',259,57,'zone1chest1-chest')
+spawnMultipleGobs(Zone1Chest1.ID,[[-8334.18,110.985,18.7963,3.147]])
+Zone1Chest1.Size.set(0.75)
+addLoot(Zone1Chest1,tierOneBaseResources,[4,3,1,2,2,5,3])
 /*Base Resources - Group 5*/  
-addLootSingleChanceMultiGroup(Chest1,[
+addLootSingleChanceMultiGroup(Zone1Chest1,[
     tierOneMailMaterial,            tierOneLeatherMaterial,             tierOneClothMaterial]
 ,33,1,3,5)
 /*Epic Items - Group 0*/      
-addLootSingleChance(Chest1,[
+addLootSingleChance(Zone1Chest1,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
     ArdentCustodian.ID,             StaffofJordan.ID,                   TheGreenTower.ID,
     BowofSearingArrows.ID,          UnderworldBand.ID,                  GutRipper.ID,
     Ironfoe.ID,                     EskhandarsRightClaw.ID,             EskhandarsLeftClaw.ID
 ],0.0125)
 /*Rare Items - Group 0*/      
-addLootSingleChance(Chest1,[
+addLootSingleChance(Zone1Chest1,[
     FangoftheCrystalSpider.ID,      GoblinDragonGun.ID,                 DarkwaterTalwar.ID,
     BiteofSerrakis.ID,              Grimclaw.ID,                        Shadowfang.ID,
     StrikeoftheHydra.ID,            GalgannsFireblaster.ID,             GalgannsFirehammer.ID,
@@ -36,7 +37,7 @@ addLootSingleChance(Chest1,[
     FlameWrath.ID,                  BurstofKnowledge.ID,                CircleofFlame.ID
 ],0.2)
 /*Green Armor - Group 1*/
-addLootSingleChance(Chest1,[
+addLootSingleChance(Zone1Chest1,[
     FineLeatherBoots.ID,            FineLeatherCloak.ID,                FineLeatherGloves.ID,
     FineLeatherTunic.ID,            FineLeatherBelt.ID,                 EmbossedLeatherVest.ID,
     EmbossedLeatherBoots.ID,        EmbossedLeatherCloak.ID,            EmbossedLeatherGloves.ID,
@@ -50,13 +51,13 @@ addLootSingleChance(Chest1,[
     BarbaricIronBoots.ID,           BarbaricIronGloves.ID
 ],3,1)
 /*Green Armor - Part 2 - Group 6*/
-addLootSingleChance(Chest1,[
+addLootSingleChance(Zone1Chest1,[
     InfernalTricksterLeggings.ID,   PhytoskinSpaulders.ID,              BladeofEternalDarkness.ID,
     GatorbiteAxe.ID,                FrightskullShaft.ID,                SkullforgeReaver.ID,
     RunebladeofBaronRivendare.ID,   BladeoftheWretched.ID
 ],3,6)
 /*Green Weps - Group 2*/      
-addLootSingleChance(Chest1,
+addLootSingleChance(Zone1Chest1,
     [BlazingRapier.ID,              WickedMithrilBlade.ID,              SearingGoldenBlade.ID,
     BuzzSaw.ID,                     BuzzerBlade.ID,                     Rockslicer.ID,                      RhahkZorsHammer.ID,
     GoldplatedBuckler.ID,           StaffofNobles.ID,                   EmberstoneStaff.ID,
@@ -68,16 +69,18 @@ addLootSingleChance(Chest1,
     FootpadsoftheFang.ID,           BeltoftheFang.ID,                   GlovesoftheFang.ID
 ],3,2)
 /*Miscellaneous - Group 3*/   
-addLootSingleChanceMultiGroup(Chest1,[
+addLootSingleChanceMultiGroup(Zone1Chest1,[
     MinorManaPotion.ID,             MinorHealingPotion.ID,              MinorRejuvenationPotion.ID,
     DiscoloredHealingPotion.ID,     LesserHealingPotion.ID,             SwiftnessPotion.ID,
     RagePotion.ID,                  SwimSpeedPotion.ID,                 LesserManaPotion.ID
 ],11,1,2,3)
 /*Buff Scrolls - Group 4*/    
-addLootSingleChanceMultiGroup(Chest1,[
+addLootSingleChanceMultiGroup(Zone1Chest1,[
     ScrollofSpiritVIII.ID,          ScrollofProtectionVIII.ID,          ScrollofAgilityVIII.ID,
     ScrollofIntellectVIII.ID,       ScrollofStaminaVIII.ID,             ScrollofStrengthVIII.ID
 ],15,1,3,4)
+/*Money Bags*/
+addLoot(Zone1Chest1,[SmallSackofCoins.ID,LargeSackofCoins.ID],[30,3],8)
 
 
 

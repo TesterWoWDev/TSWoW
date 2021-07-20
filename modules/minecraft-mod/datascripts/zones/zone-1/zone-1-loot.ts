@@ -5,7 +5,8 @@ import { Bosscreature1Loot, creature10Loot, creature1Loot, creature2Loot, creatu
 import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set";
 import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem";
 import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, FangoftheCrystalSpider, GoblinDragonGun, DarkwaterTalwar, BiteofSerrakis, Grimclaw, Shadowfang, StrikeoftheHydra, GalgannsFireblaster, GalgannsFirehammer, RagingBerserkersHelm, HerodsShoulder, ScarletLeggings, DeadmansHand, RobeofDoan, MantleofDoan, SavageGladiatorChain, SavageGladiatorLeggings, SavageGladiatorHelm, SavageGladiatorGrips, SavageGladiatorGreaves, DarkIronPulverizer, IronweaveRobe, IronweaveCowl, IronweavePants, IronweaveGloves, IronweaveMantle, IronweaveBelt, IronweaveBoots, IronweaveBracers, WraithScythe, ForceofWill, LordGeneralsSword, Naglering, FlameWrath, BurstofKnowledge, CircleofFlame, BrownLeatherSatchel, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, DarnassianBleu, RefreshingSpringWater, ShinyRedApple, Dirk, TornNote, LargeCandle, MagicCandle, MeltedCandle, BladedPickaxe } from "./zone-1-items";
-
+import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test";
+import { SmallSackofCoins } from "../../items/currencies";
 //Pearl, Epaulet, Chain, Metal, Reinforced Metal, Stick,Dust
 //Cloth, Leather, Mail
 
@@ -29,7 +30,10 @@ addLoot(creature1Loot,[
 addLoot(creature1Loot,[
     Dirk.ID,                        TornNote.ID
 ],[1,1],1)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature1Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -43,7 +47,10 @@ addLoot(creature2Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature2Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -57,7 +64,10 @@ addLoot(creature3Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature3Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -71,7 +81,10 @@ addLoot(creature4Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature4Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -89,7 +102,10 @@ addLoot(creature5Loot,[
     MeltedCandle.ID,                LargeCandle.ID,                     MagicCandle.ID,
     BladedPickaxe.ID
 ],[3,2,2,0.25],1)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature5Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -103,7 +119,10 @@ addLoot(creature6Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature6Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -117,7 +136,10 @@ addLoot(creature7Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature7Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -131,7 +153,10 @@ addLoot(creature8Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature8Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -145,7 +170,10 @@ addLoot(creature9Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature9Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)    
 
 
 
@@ -159,7 +187,10 @@ addLoot(creature10Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
-
+/*Quest Requirements - Group 8*/
+addLoot(creature10Loot,[
+    DRQItemRequired01.ID,           SmallSackofCoins.ID
+],[5,1],8)     
 
 
 
