@@ -1,5 +1,6 @@
 import { handleCraftMessages } from "./crafting-messages"
 import { creature1Script } from "./creature-scripts/creature1-test"
+import { invasions } from "./invasions"
 import { onLevelup } from "./onLevelup"
 import { onLoginEvents } from "./onLogin"
 import { transmog } from "./transmog"
@@ -11,4 +12,5 @@ export function Main(events: TSEventHandlers) {
 	worldChat(events)
     creature1Script(events)
     onLevelup(events)
+    //invasions(events)
 }
