@@ -2,7 +2,12 @@ import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
 import { HeirloomExperienceRates } from "../../spells/experience-rate-spells"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { DBC_ItemExtendedCost } from "../../../../../bin/scripts/tswow/wotlkdata/dbc/types/ItemExtendedCost"
+import { addDBCItemExtendedCost } from "../../functions/dbcfunctions"
+
+let ExtendedCostIndex = 3000
+addDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[10,10,1,1,1],0) // Armor and Trinkets
+addDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[25,25,1,1,1],0) // 1h weapon
+addDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[50,50,1,1,1],0) // 2h weapon
 
 //If we do end up utilizing heirlooms, they will require level 20 to purchase, and they will also cost boss tokens/raid tokens/dungeon tokens
 //This would allow players to speed level their alts from 1-20 much quicker than with the normal armor set bonuses.
@@ -130,47 +135,39 @@ HeirloomVendor.FactionTemplate.set(35)
 
 SQL.Databases.world_dest.writeEarly('DELETE FROM npc_vendor WHERE entry = ' + HeirloomVendor.ID + '')
 
-HeirloomVendor.Vendor.addItem(BloodiedArcaniteReaper.ID,0,0,HeirloomExtendedCost.ID)
-HeirloomVendor.Vendor.addItem(BalancedHeartseeker.ID)
-HeirloomVendor.Vendor.addItem(VenerableDalRendsSacredCharge.ID)
-HeirloomVendor.Vendor.addItem(CharmedAncientBoneBow.ID)
-HeirloomVendor.Vendor.addItem(DignifiedHeadmastersCharge.ID)
-HeirloomVendor.Vendor.addItem(DevoutAurastoneHammer.ID)
-HeirloomVendor.Vendor.addItem(PolishedSpauldersofValor.ID)
-HeirloomVendor.Vendor.addItem(ChampionHerodsShoulder.ID)
-HeirloomVendor.Vendor.addItem(MysticalPauldronsofElements.ID)
-HeirloomVendor.Vendor.addItem(StainedShadowcraftSpaulders.ID)
-HeirloomVendor.Vendor.addItem(PreenedIronfeatherShoulders.ID)
-HeirloomVendor.Vendor.addItem(TatteredDreadmistMantle.ID)
-HeirloomVendor.Vendor.addItem(SwiftHandofJustice.ID)
-HeirloomVendor.Vendor.addItem(DiscerningEyeoftheBeast.ID)
-HeirloomVendor.Vendor.addItem(SharpenedScarletKris.ID)
-HeirloomVendor.Vendor.addItem(ReforgedTruesilverChampion.ID)
-HeirloomVendor.Vendor.addItem(UpgradedDwarvenHandCannon.ID)
-HeirloomVendor.Vendor.addItem(TheBlessedHammerofGrace.ID)
-HeirloomVendor.Vendor.addItem(GrandStaffofJordan.ID)
-HeirloomVendor.Vendor.addItem(InheritedInsigniaoftheHorde.ID)
-HeirloomVendor.Vendor.addItem(InheritedInsigniaoftheAlliance.ID)
-HeirloomVendor.Vendor.addItem(StrengthenedStockadePauldrons.ID)
-HeirloomVendor.Vendor.addItem(PristineLightforgeSpaulders.ID)
-HeirloomVendor.Vendor.addItem(PrizedBeastmastesMantle.ID)
-HeirloomVendor.Vendor.addItem(AgedPauldronsofTheFiveThunders.ID)
-HeirloomVendor.Vendor.addItem(ExceptionalStormshroudShoulders.ID)
-HeirloomVendor.Vendor.addItem(LastingFeralheartSpaulders.ID)
-HeirloomVendor.Vendor.addItem(ExquisiteSunderseerMantle.ID)
-HeirloomVendor.Vendor.addItem(ChampionsDeathdealerBreastplate.ID)
-HeirloomVendor.Vendor.addItem(MysticalVestofElements.ID)
-HeirloomVendor.Vendor.addItem(PolishedBreastplateofValor.ID)
-HeirloomVendor.Vendor.addItem(PreenedIronfeatherBreastplate.ID)
-HeirloomVendor.Vendor.addItem(StainedShadowcraftTunic.ID)
-HeirloomVendor.Vendor.addItem(TatteredDreadmistRobe.ID)
-HeirloomVendor.Vendor.addItem(VenerableMassofMcGowan.ID)
-HeirloomVendor.Vendor.addItem(RepurposedLavaDredger.ID)
-
-
-let ExtendedCostIndex = 3000
-//addDBC(0,0,0,21202,0,0,0,0,1,0,0,0,0,0)
-addDBCItemExtendedCost(ExtendedCostIndex++,honor,arena,slot,[1,1,1,1,1],[1,1,1,1,1],rating)
-export function addDBCItemExtendedCost(index:number, reqHonor: number, reqArena:number, ArenaSlotID: number, reqItems:number[], reqItemCount:number[],PersonalRating:number) {
-    DBC_ItemExtendedCost.add(index).HonorPoints.set(reqHonor).ArenaPoints.set(reqArena).ArenaBracket.set(ArenaSlotID).ItemID.set(reqItems).ItemCount.set(reqItemCount).RequiredArenaRating.set(PersonalRating)
-}
+HeirloomVendor.Vendor.addItem(BloodiedArcaniteReaper.ID,0,0,ExtendedCostIndex-1)
+HeirloomVendor.Vendor.addItem(BalancedHeartseeker.ID,0,0,ExtendedCostIndex-2)
+HeirloomVendor.Vendor.addItem(VenerableDalRendsSacredCharge.ID,0,0,ExtendedCostIndex-2)
+HeirloomVendor.Vendor.addItem(CharmedAncientBoneBow.ID,0,0,ExtendedCostIndex-2)
+HeirloomVendor.Vendor.addItem(DignifiedHeadmastersCharge.ID,0,0,ExtendedCostIndex-1)
+HeirloomVendor.Vendor.addItem(DevoutAurastoneHammer.ID,0,0,ExtendedCostIndex-2)
+HeirloomVendor.Vendor.addItem(PolishedSpauldersofValor.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(ChampionHerodsShoulder.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(MysticalPauldronsofElements.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(StainedShadowcraftSpaulders.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(PreenedIronfeatherShoulders.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(TatteredDreadmistMantle.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(SwiftHandofJustice.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(DiscerningEyeoftheBeast.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(SharpenedScarletKris.ID,0,0,ExtendedCostIndex-2)
+HeirloomVendor.Vendor.addItem(ReforgedTruesilverChampion.ID,0,0,ExtendedCostIndex-1)
+HeirloomVendor.Vendor.addItem(UpgradedDwarvenHandCannon.ID,0,0,ExtendedCostIndex-2)
+HeirloomVendor.Vendor.addItem(TheBlessedHammerofGrace.ID,0,0,ExtendedCostIndex-2)
+HeirloomVendor.Vendor.addItem(GrandStaffofJordan.ID,0,0,ExtendedCostIndex-1)
+HeirloomVendor.Vendor.addItem(InheritedInsigniaoftheHorde.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(InheritedInsigniaoftheAlliance.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(StrengthenedStockadePauldrons.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(PristineLightforgeSpaulders.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(PrizedBeastmastesMantle.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(AgedPauldronsofTheFiveThunders.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(ExceptionalStormshroudShoulders.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(LastingFeralheartSpaulders.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(ExquisiteSunderseerMantle.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(ChampionsDeathdealerBreastplate.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(MysticalVestofElements.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(PolishedBreastplateofValor.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(PreenedIronfeatherBreastplate.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(StainedShadowcraftTunic.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(TatteredDreadmistRobe.ID,0,0,ExtendedCostIndex-3)
+HeirloomVendor.Vendor.addItem(VenerableMassofMcGowan.ID,0,0,ExtendedCostIndex-2)
+HeirloomVendor.Vendor.addItem(RepurposedLavaDredger.ID,0,0,ExtendedCostIndex-1)
