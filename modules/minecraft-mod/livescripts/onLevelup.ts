@@ -147,26 +147,26 @@ let spellsList = [
         [51514,58804],                     // Hex,                      Windfury Weapon (8)    
     ],
     [[0/*Mage*/],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [5504,587,2136,116],        // Conjure Water (1),           Conjure Food (1),           Fire Blast (1),             Frostbolt (1)
+        [1463,122],                 // Mana Shield,                 Frost Nova (1)
+        [1953,10],                  // Blink (1),                   Blizzard (1)
+        [2139,1449],                // Counterspell,                Arcane Explosion (1)
+        [118,8401,8407],            // Polymorph (1),               Fireball (6),               Frostbolt (6)
+        [6127,6129],                // Conjure Water (4),           Conjure Food (4)
+        [10157],                    // Arcane Intelligence (5)
+        [30451,27075,8438],         // Arcane Blast (1),            Arcane Missiles (9),        Arcane Explosion (3)
+        [12051],                    // Evocation
+        [66,120],                   // Invisibility,                Cone of Cold (1)
+        [27131],                    // Mana Shield (7)
+        [10201],                    // Arcane Explosion (5)
+        [10150,8492,10181],         // Fireball (10),               Cone of Cold (2),           Frostbolt (10)
+        [10161],                    // Cone of Cold (5)
+        [12826,30455],              // Polymorph (4),               Ice Lance (1)
+        [42921],                    // Arcane Explosion (10)
+        [42897,42931],              // Arcane Blast (4),            Cone of Cold (8)
+        [44780,55342],              // Arcane Barrage (2),          Mirror Image, 
+        [42833,42940,42842],        // Fireball (16),               Blizzard (9),               Frostbolt (16)
+        [58659,44781,47610,42950],  // Ritual of Refreshment,       Arcane Barrage (3),         Frostfire Bolt (2),         Dragon's Breath (6)
     ],
     [[0/*Warlock*/],
         [0],
