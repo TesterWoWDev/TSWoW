@@ -11,7 +11,7 @@ DQGiver01.Name.enGB.set('Captain Rupert')
 DQGiver01.Subname.enGB.set('Captain of the Guard')
 DQGiver01.Level.set(20,20)
 DQGiver01.Models.clearAll()
-DQGiver01.Models.setId(1738,1737)
+DQGiver01.Models.addIds(1738,1737)
 
 export let DRQItemRequired01 = std.Items.create(MODNAME,'drqitemrequired01-item',22924)
 DRQItemRequired01.Name.enGB.set('Tarnished Metal')
