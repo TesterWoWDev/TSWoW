@@ -219,7 +219,8 @@ export function onLevelup(events:TSEventHandlers){
         if(player.GetLevel() <= 20)
         learnSpells(player)
     })
-    events.Player.OnCreate((player)=>{
+    events.Player.OnLogin((player,first)=>{
+        if(first)
         learnSpells(player)
     })
 }
