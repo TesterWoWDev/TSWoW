@@ -29,9 +29,14 @@ addLoot(ArenaofChampionsChest,[SmallSackofCoins.ID,LargeSackofCoins.ID,MassiveSa
 
 
 spawnGob(ArenaofChampionsChest.ID,[-8595.069,1488.233,-75.437,5.249]) // Chest Spawn (Needs a Timer)
-
-
-
+// Make it go by world time, every day, a chest will spawn at 7:00AM EST and 7:00PM EST
+// Monday = 7-7
+// Tuesday = 5-5
+// Wednesday = 3-3
+// Thursday = 1-1
+// Friday = 11-11
+// Saturday = 11-11
+// Sunday = 9-9
 
 
 
