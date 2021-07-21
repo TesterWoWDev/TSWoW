@@ -77,8 +77,6 @@ spawnNPC(31454,0,0,[-8300.252,16.922,47.169,0.924])//bound water elemental
     setFaction(1889,35)
 spawnNPC(5794,0,0,[-8210.519,-198.697,3.408,4.088])//Thurmonde the Devout
     setFaction(5794,35)
-
-// Change level to 20. Set faction to 35.
 spawnMultipleNPCs(14284,0,0,[[-8285.886,-203.843,0.828,1.543],[-8298.244,-203.508,0.760,1.543]])//Stormpike Battleguard
     setLevel(14284,20)
     setFaction(14284,35)
