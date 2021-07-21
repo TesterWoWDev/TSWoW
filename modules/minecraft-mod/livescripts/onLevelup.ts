@@ -216,6 +216,7 @@ let spellsList = [
 ]
 export function onLevelup(events:TSEventHandlers){
     events.Player.OnLevelChanged((player,oldLevel)=>{
+        if(player.GetLevel() <= 20)
         learnSpells(player)
     })
     events.Player.OnCreate((player)=>{
