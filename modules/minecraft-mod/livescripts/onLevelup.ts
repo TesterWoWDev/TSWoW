@@ -169,26 +169,26 @@ let spellsList = [
         [58659,44781,47610,42950],  // Ritual of Refreshment,       Arcane Barrage (3),         Frostfire Bolt (2),         Dragon's Breath (6)
     ],
     [[0/*Warlock*/],
+        [172,688,348],          // Corruption (1),          Imp,                    Immolate (1) 
+        [5782,6201],            // Fear (1),                Healthstone
+        [1454,1014,689],        // Life Tap (1),            Curse of Agony,         Drain Life (1)
+        [1120,5740,705],        // Drain Soul (1),          Rain of Fire,           Shadowbolt (3)
+        [7648,1490,18868],      // Corruption (4),          Curse of Elements (1),  Shadowburn
+        [11687,11665],          // Life Tap (4),            Immolate (5)
+        [6217,29722],           // Curse of Agony (3),      Incinerate (1)
+        [11729,6353,11660],     // Healthstone (4),         Soul Fire,              Shadowbolt (8)
+        [11699],                // Drain Life (5)
+        [27217],                // Drain Soul (5)
+        [27218,25309],          // Curse of Agony (7),      Immolate (8)
+        [693],                  // Soulstone,        
+        [47820,47897],          // Rain of Fire (7),        Shadowflame
+        [27209],                // Shadowbolt (11)
+        [47809,47811],          // Shadowbolt (13),         Immolate (11)
+        [48018,48020],          // Demon Summon,            Demon Teleport, 
+        [47864],                // Curse of Agony (9)
+        [47847,47825],          // Shadowfury,              Soul Fire (6),
         [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [47867],                // Curse of Doom
     ],
     [[0]/*Empty Slot*/],
     [[0/*Druid*/],
