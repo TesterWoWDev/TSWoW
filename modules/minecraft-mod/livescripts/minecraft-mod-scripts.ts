@@ -8,7 +8,7 @@ import { worldChat } from "./world-chat"
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
     onLoginEvents(events)
-    transmog(events)
+    //transmog(events)
 	worldChat(events)
     creature1Script(events)
     onLevelup(events)
