@@ -7,6 +7,8 @@ spawnMultipleNPCs(6368,10,0,[[-8277.286,-116.715,0.340,1.084],[-8276.010,-132.32
 spawnNPC(23754,0,0,[-8373.211,-166.998,0.017,0.698])//murloc
     setName(23754,'Remmy \\"The Murky Murloc\\" Jones')
 spawnNPC(3561,0,0,[-8297.441,-261.479,-5.098,3.122])// Poison Supplies
+    setFaction(3561,35)
+    setLevel(3561,20)
 //start zone vendors
 spawnNPC(1213,0,0,[-8702.677,-64.117,31.134,1.227])
     setFaction(1213,35)
