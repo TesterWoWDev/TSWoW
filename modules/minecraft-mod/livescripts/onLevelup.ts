@@ -192,26 +192,26 @@ let spellsList = [
     ],
     [[0]/*Empty Slot*/],
     [[0/*Druid*/],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [8921,774,8936],                        // Moonfire (1),            Rejuvenation (1),       Regrowth (1)
+        [339,5178,2921,5229],                   // Entangling Roots (1),    Wrath (3),              Starfire (1),           Enrage 
+        [770,8925],                             // Faerie Fire,             Moonfire (3)
+        [5211,768,1082,6808,5487,779,1079],     // Bash,                    Cat Form,               Claw,                   Maul,               Bear Form,      Swipe (Bear),       Rip (1)
+        [16914,6780],                           // Hurricane (1),           Wrath (6),         
+        [8928,8950,5188],                       // Moonfire (6),            Starfire (3),           Healing Touch (4)
+        [5215,1822,5217,5221,1850],             // Prowl,                   Rake (1),               Tigers Fury (1),        Shred (1),          Dash (1)
+        [9912,9835,2090],                       // Wrath (8),               Moonfire (10),          Rejuvenation (4)
+        [5201,9745,8992,9493],                  // Claw (3),                Maul (5),               Shred (3),              Rip (3)
+        [27012,9750,50763],                     // Hurricane (4),           Regrowth (6),           Revive (7)
+        [26986,6787,62078],                     // Starfire (8),            Ravage (2),             Swipe Cat
+        [9005,9634,22827],                      // Pounce,                  Dire Bear Form,         Ferocious Bite (2)
+        [20719,9904,26997,9840],                // Feline Grace,            Rake (4),               Swipe Bear (6),         Rejuvenation (9)
+        [9827,27001,740],                       // Pounce (3),              Shred (6),              Tranquility
+        [22570,9896,9888,33763],                // Maim (1),                Rip (6),                Healing Touch (9),      Lifebloom (1)
+        [48463,24248,25299],                    // Moonfire (14),           Ferocious Bite (6),     Rejuvenation (11)
+        [48461,48574,48443],                    // Wrath (12),              Rake (7),               Regrowth (12)
+        [48465,50464],                          // Starfire (10),           Nourish (1)
+        [53308,49800],                          // Entangling Roots (8),    Rip (9)
+        [48568,48572,48579,53251,48477,48447],  // Lacerate (3),            Shred (9),              Ravage (7),             Wild Growth (3),    Rebirth (7),    Tranquility (7)
     ],
 ]
 export function onLevelup(events:TSEventHandlers){
