@@ -125,93 +125,93 @@ let spellsList = [
         [49895,49930,49921,51425,45529,47568],  // Death Coil (5),         Blood Strike (6),        Plague Strike (6),      Obliterate (4),         Blood Tap,        Empower Rune Weapon
     ],
     [[0/*Shaman*/],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [8042,8050,8056,403,331,8737],     // Earth Shock (1),          Flame Shock (1),            Frost Shock (1),            Lightning Bolt (1),         Healing Wave (1),           Mail
+        [915,324,8024,8033,10399],         // Lightning Bolt (4),       Lightning shield,           Flametongue Weapon (1),     Frostbrand Weapon (1),      Rockbiter Weapon (4)
+        [943,8058,52127],                  // Lightning Bolt (5),       Frost Shock (2),            Water Shield
+        [8046,8053,10466],                 // Earth Shock (4),          Flame Shock (3),            Lesser Healing Wave (4)
+        [66843,6364,8075,8512,5675],       // Call of Ancestors,        Searing Totem (1),          Strength of Earth (1),      Windfury Totem (1),         Mana Spring Totem
+        [421,10622,51991],                 // Chain Lightning (1),      Chain Heal (2),             Earthliving Weapon (3)
+        [10431,16342],                     // Lightning Shield (6),     Flametongue Weapon (6)
+        [15208],                           // Lightning Bolt (10)
+        [2860,25567],                      // Chain Lightning (3),      Healing Stream Totem (6)
+        [51505,16355,10413],               // Lava Burst,               Frostbrand Weapon (4),      Earth Shock (6)
+        [2645,20608],                      // Ghost Wolf,               Reincarnation
+        [10473,58704,58643,58744],         // Frost Shock (4),          Searing Totem (10),         Strength of Earth (8),      Mana Spring Totem (8)
+        [2894,58785],                      // Fire Elemental Totem,     Flametongue Weapon (8)
+        [25449,49233],                     // Lightning Bolt (12),      Flame Shock (9)
+        [58796,49277],                     // Frostbrand Weapon (9),    Ancestral Spirit (7)
+        [49271,61300],                     // Chain Lightning (8),      Riptide (3)
+        [49238,49236],                     // Lightning Bolt (14),      Frost Shock (7)
+        [60043,49231],                     // Lava Burst (2),           Earth Shock (10)
+        [59158,49284],                     // Thunderstorm (3),         Earth Shield
+        [51514,58804],                     // Hex,                      Windfury Weapon (8)    
     ],
     [[0/*Mage*/],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [5504,587,2136,116],        // Conjure Water (1),           Conjure Food (1),           Fire Blast (1),             Frostbolt (1)
+        [1463,122],                 // Mana Shield,                 Frost Nova (1)
+        [1953,10],                  // Blink (1),                   Blizzard (1)
+        [2139,1449],                // Counterspell,                Arcane Explosion (1)
+        [118,8401,8407],            // Polymorph (1),               Fireball (6),               Frostbolt (6)
+        [6127,6129],                // Conjure Water (4),           Conjure Food (4)
+        [10157],                    // Arcane Intelligence (5)
+        [30451,27075,8438],         // Arcane Blast (1),            Arcane Missiles (9),        Arcane Explosion (3)
+        [12051],                    // Evocation
+        [66,120],                   // Invisibility,                Cone of Cold (1)
+        [27131],                    // Mana Shield (7)
+        [10201],                    // Arcane Explosion (5)
+        [10150,8492,10181],         // Fireball (10),               Cone of Cold (2),           Frostbolt (10)
+        [10161],                    // Cone of Cold (5)
+        [12826,30455],              // Polymorph (4),               Ice Lance (1)
+        [42921],                    // Arcane Explosion (10)
+        [42897,42931],              // Arcane Blast (4),            Cone of Cold (8)
+        [44780,55342],              // Arcane Barrage (2),          Mirror Image, 
+        [42833,42940,42842],        // Fireball (16),               Blizzard (9),               Frostbolt (16)
+        [58659,44781,47610,42950],  // Ritual of Refreshment,       Arcane Barrage (3),         Frostfire Bolt (2),         Dragon's Breath (6)
     ],
     [[0/*Warlock*/],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [172,688,348],          // Corruption (1),          Imp,                    Immolate (1) 
+        [5782,6201],            // Fear (1),                Healthstone
+        [1454,1014,689],        // Life Tap (1),            Curse of Agony,         Drain Life (1)
+        [1120,5740,705],        // Drain Soul (1),          Rain of Fire,           Shadowbolt (3)
+        [7648,1490,18868],      // Corruption (4),          Curse of Elements (1),  Shadowburn
+        [11687,11665],          // Life Tap (4),            Immolate (5)
+        [6217,29722],           // Curse of Agony (3),      Incinerate (1)
+        [11729,6353,11660],     // Healthstone (4),         Soul Fire,              Shadowbolt (8)
+        [11699],                // Drain Life (5)
+        [27217],                // Drain Soul (5)
+        [27218,25309],          // Curse of Agony (7),      Immolate (8)
+        [693],                  // Soulstone,        
+        [47820,47897],          // Rain of Fire (7),        Shadowflame
+        [27209],                // Shadowbolt (11)
+        [47809,47811],          // Shadowbolt (13),         Immolate (11)
+        [48018,48020],          // Demon Summon,            Demon Teleport, 
+        [47864],                // Curse of Agony (9)
+        [47847],          // Shadowfury
+        [47825],                //Soul Fire (6)
+        [47867],                // Curse of Doom
     ],
     [[0]/*Empty Slot*/],
     [[0/*Druid*/],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
-        [0],
+        [8921,774,8936],                        // Moonfire (1),            Rejuvenation (1),       Regrowth (1)
+        [339,5178,2921,5229],                   // Entangling Roots (1),    Wrath (3),              Starfire (1),           Enrage 
+        [770,8925],                             // Faerie Fire,             Moonfire (3)
+        [5211,768,1082,6808,5487,779,1079],     // Bash,                    Cat Form,               Claw,                   Maul,               Bear Form,      Swipe (Bear),       Rip (1)
+        [16914,6780],                           // Hurricane (1),           Wrath (6),         
+        [8928,8950,5188],                       // Moonfire (6),            Starfire (3),           Healing Touch (4)
+        [5215,1822,5217,5221,1850],             // Prowl,                   Rake (1),               Tigers Fury (1),        Shred (1),          Dash (1)
+        [9912,9835,2090],                       // Wrath (8),               Moonfire (10),          Rejuvenation (4)
+        [5201,9745,8992,9493],                  // Claw (3),                Maul (5),               Shred (3),              Rip (3)
+        [27012,9750,50763],                     // Hurricane (4),           Regrowth (6),           Revive (7)
+        [26986,6787,62078],                     // Starfire (8),            Ravage (2),             Swipe Cat
+        [9005,9634,22827],                      // Pounce,                  Dire Bear Form,         Ferocious Bite (2)
+        [20719,9904,26997,9840],                // Feline Grace,            Rake (4),               Swipe Bear (6),         Rejuvenation (9)
+        [9827,27001,740],                       // Pounce (3),              Shred (6),              Tranquility
+        [22570,9896,9888,33763],                // Maim (1),                Rip (6),                Healing Touch (9),      Lifebloom (1)
+        [48463,24248,25299],                    // Moonfire (14),           Ferocious Bite (6),     Rejuvenation (11)
+        [48461,48574,48443],                    // Wrath (12),              Rake (7),               Regrowth (12)
+        [48465,50464],                          // Starfire (10),           Nourish (1)
+        [53308,49800],                          // Entangling Roots (8),    Rip (9)
+        [48568,48572,48579,53251,48477,48447],  // Lacerate (3),            Shred (9),              Ravage (7),             Wild Growth (3),    Rebirth (7),    Tranquility (7)
     ],
 ]
 export function onLevelup(events:TSEventHandlers){
