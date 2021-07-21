@@ -186,8 +186,8 @@ let spellsList = [
         [47809,47811],          // Shadowbolt (13),         Immolate (11)
         [48018,48020],          // Demon Summon,            Demon Teleport, 
         [47864],                // Curse of Agony (9)
-        [47847,47825],          // Shadowfury,              Soul Fire (6),
-        [0],
+        [47847],          // Shadowfury
+        [47825],                //Soul Fire (6)
         [47867],                // Curse of Doom
     ],
     [[0]/*Empty Slot*/],
