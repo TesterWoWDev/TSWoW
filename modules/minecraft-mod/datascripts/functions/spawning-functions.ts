@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib";
 import { Pos } from "tswow-stdlib/Misc/Position";
-import { SQL } from "../../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles";
+import { SQL } from "wotlkdata/sql/SQLFiles";
 import { MODNAME } from "../modname";
 
 export function spawnNPC(id: number, wanderDistance:number, equipmentID:number, position:number[], index?:number) {

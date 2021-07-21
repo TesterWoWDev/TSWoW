@@ -9,6 +9,7 @@ SQL.spell_target_position.add(FortHopePortal.ID,0).MapID.set(723).PositionX.set(
 export let PortaltoFortHope = std.GameObjectTemplates.create(MODNAME,'forthope-object',176296)
 PortaltoFortHope.row.Data0.set(FortHopePortal.ID)
 PortaltoFortHope.Display.setID(5231)
+PortaltoFortHope.Name.enGB.set('Portal to Fort Hope')
 spawnGob(PortaltoFortHope.ID,[-8300.282,45.823,47.236,0.305])    // Portal to Fort Hope
 
 
@@ -18,6 +19,7 @@ SQL.spell_target_position.add(DauntlessPortal.ID,0).MapID.set(723).PositionX.set
 export let PortaltoDauntless = std.GameObjectTemplates.create(MODNAME,'dauntless-object',176296)
 PortaltoDauntless.row.Data0.set(DauntlessPortal.ID)
 PortaltoDauntless.Display.setID(6831)
+PortaltoDauntless.Name.enGB.set('Portal to the Dauntless Hideout')
 spawnGob(PortaltoDauntless.ID,[-8314.533,19.98,47.236,0.305])    // Portal to the Dauntless Hideout
 
 
@@ -28,6 +30,7 @@ SQL.spell_target_position.add(ApothecaryPortal.ID,0).MapID.set(723).PositionX.se
 export let PortaltoApothecary = std.GameObjectTemplates.create(MODNAME,'apothecary-object',176296)
 PortaltoApothecary.row.Data0.set(ApothecaryPortal.ID)
 PortaltoApothecary.Display.setID(4398)
+PortaltoApothecary.Name.enGB.set('Portal to the Apothecary')
 spawnGob(PortaltoApothecary.ID,[-8274.409,31.319,47.236,0.305])    // Portal to the Apothecary
 
 
@@ -38,6 +41,7 @@ SQL.spell_target_position.add(StoneCirclePortal.ID,0).MapID.set(723).PositionX.s
 export let PortaltoStoneCircle = std.GameObjectTemplates.create(MODNAME,'stonecircle-object',176296)
 PortaltoStoneCircle.row.Data0.set(StoneCirclePortal.ID)
 PortaltoStoneCircle.Display.setID(7848)
+PortaltoStoneCircle.Name.enGB.set('Portal to the Stone Circle')
 spawnGob(PortaltoStoneCircle.ID,[-8288.521,4.945,47.236,0.305])    // Portal to the Stone Circle
 
 
@@ -48,4 +52,5 @@ SQL.spell_target_position.add(JeweloftheSeaPortal.ID,0).MapID.set(723).PositionX
 export let PortaltoJewelofSea = std.GameObjectTemplates.create(MODNAME,'jewelofsea-object',176296)
 PortaltoJewelofSea.row.Data0.set(JeweloftheSeaPortal.ID)
 PortaltoJewelofSea.Display.setID(84510)
+PortaltoJewelofSea.Name.enGB.set('Jewel of the Sea')
 spawnGob(PortaltoJewelofSea.ID,[-8352.683,-279.542,0.277,1.440])    // Jewel of the Sea
