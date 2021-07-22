@@ -8,7 +8,7 @@ export function spawnNPC(id: number, wanderDistance:number, equipmentID:number, 
         index = 0
     }
     let npc = std.CreatureTemplates.load(id);
-    let spawn = npc.spawn(MODNAME,id+"creature-spawn"+index,Pos(723,position[0],position[1],position[2],position[3]))
+    let spawn = npc.spawn(MODNAME,id+"creature-spawn"+index,Pos(725,position[0],position[1],position[2],position[3]))
     spawn.row.equipment_id.set(equipmentID)
     if(wanderDistance > 0){
         spawn.WanderDistance.set(wanderDistance);
@@ -32,7 +32,7 @@ export function spawnGob(id: number, position:number[], index?:number) {
         index = 0
     }
     let gob = std.GameObjectTemplates.load(id);
-    gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(723,position[0],position[1],position[2],position[3])).row.id.set(id).rotation2.set(0).rotation3.set(0);
+    gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(725,position[0],position[1],position[2],position[3])).row.id.set(id).rotation2.set(0).rotation3.set(0);
 }
 
 export function spawnMultipleGobs(id:number, positions:number[][]){
