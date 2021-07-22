@@ -232,6 +232,7 @@ SQL.creature_text.add(RareCreature1.ID,1,1).Text.set('Didn\'t ye hear me the fir
 SQL.broadcast_text.add(RareCreature1.ID+3).Text.set('Move!! Ye blithering idiots!').Flags.set(1)
 SQL.creature_text.add(RareCreature1.ID,1,2).Text.set('Move!! Ye blithering idiots!').BroadcastTextId.set(RareCreature1.ID+3).Probability.set(100).Type.set(14)
 //Combat Scripts
+/* I guess this doesn't work for some reason?
 SQL.smart_scripts.add(RareCreature1.ID,0,0,0).event_type.set(4).event_chance.set(100).action_type.set(1).action_param3.set(1).target_type.set(7).comment.set('The Miner IN COMBAT Scripts.')
 SQL.broadcast_text.add(RareCreature1.ID+4).Text.set('So ye want a piece of me?! Bring er on!').Flags.set(1)
 SQL.creature_text.add(RareCreature1.ID,0,0).Text.set('So ye want a piece of me?! Bring er on!').BroadcastTextId.set(RareCreature1.ID+4).Probability.set(100).Type.set(14)
@@ -251,6 +252,7 @@ SQL.creature_text.add(RareCreature1.ID,0,3).Text.set('Heh.. that tickled!').Broa
     RareCreature1.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1Bite.ID,2,7)
     RareCreature1.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Gore.ID,2,7)
 //End of Spells
+*/
 RareCreature1.DamageSchool.setNormal()
 RareCreature1.Stats.ArmorMod.set(5)
 RareCreature1.Stats.DamageMod.set(10)
