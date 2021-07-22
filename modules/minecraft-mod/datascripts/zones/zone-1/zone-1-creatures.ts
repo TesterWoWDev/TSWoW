@@ -3,6 +3,7 @@ import { SQL } from "wotlkdata/sql/SQLFiles"
 import { MODNAME } from "../../modname"
 import { Rank1Frostbolt, Rank1FireBlast, Rank1FrostArmor, Rank1FrostNova, Rank1BoarCharge, Rank1Strike, Rank1Bite, Rank1Gore, Rank1Whirlwind } from "./zone-1-creature-spells"
 
+let broadcastindex = 85000
 
 //Normal Creature Spawns
 export let creature1 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature1',299)
@@ -222,15 +223,16 @@ RareCreature1.MovementType.setRandomMovement()
 RareCreature1.Level.set(4,6)
 RareCreature1.Rank.setRare()
 RareCreature1.AIName.SmartAI()
+
 //Out of Combat Scripts
 SQL.smart_scripts.add(RareCreature1.ID,0,1,2).event_type.set(1).event_chance.set(100).event_param1.set(3000).event_param2.set(3000).event_param3.set(30000).event_param4.set(30000).action_type.set(11).action_param1.set(45872).target_type.set(1).comment.set('Defibrilate Spell Cast')
 SQL.smart_scripts.add(RareCreature1.ID,0,2,0).event_type.set(61).event_chance.set(100).action_type.set(1).action_param1.set(1).target_type.set(1).comment.set('The Miner OUT OF COMBAT Text Scripts.')
-SQL.broadcast_text.add(RareCreature1.ID+1).Text.set('What are ye lookin\' at, back to work!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,1,0).Text.set('What are ye lookin\' at, back to work!').BroadcastTextId.set(RareCreature1.ID+1).Probability.set(100).Type.set(14)
-SQL.broadcast_text.add(RareCreature1.ID+2).Text.set('Didn\'t ye hear me the first time? I\'ll be takin\' the next three nuggets from yer sack!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,1,1).Text.set('Didn\'t ye hear me the first time? I\'ll be takin\' the next three nuggets from yer sack!').BroadcastTextId.set(RareCreature1.ID+2).Probability.set(100).Type.set(14)
-SQL.broadcast_text.add(RareCreature1.ID+3).Text.set('Move!! Ye blithering idiots!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,1,2).Text.set('Move!! Ye blithering idiots!').BroadcastTextId.set(RareCreature1.ID+3).Probability.set(100).Type.set(14)
+SQL.broadcast_text.add(broadcastindex++).Text.set('What are ye lookin\' at, back to work!').Flags.set(1)
+SQL.creature_text.add(RareCreature1.ID,1,0).Text.set('What are ye lookin\' at, back to work!').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(14)
+SQL.broadcast_text.add(broadcastindex++).Text.set('Didn\'t ye hear me the first time? I\'ll be takin\' the next three nuggets from yer sack!').Flags.set(1)
+SQL.creature_text.add(RareCreature1.ID,1,1).Text.set('Didn\'t ye hear me the first time? I\'ll be takin\' the next three nuggets from yer sack!').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(14)
+SQL.broadcast_text.add(broadcastindex++).Text.set('Move!! Ye blithering idiots!').Flags.set(1)
+SQL.creature_text.add(RareCreature1.ID,1,2).Text.set('Move!! Ye blithering idiots!').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(14)
 
 SQL.smart_scripts.add(RareCreature1.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(4000).event_param2.set(14000).event_param3.set(22000).event_param4.set(28000).action_type.set(11).action_param1.set(6016).target_type.set(2).comment.set('Pierce Armor (repeatable)')
 SQL.smart_scripts.add(RareCreature1.ID,0,4,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(180000).event_param4.set(180000).action_type.set(11).action_param1.set(7164).target_type.set(1).comment.set('Defensive Stance')
@@ -255,17 +257,17 @@ RareCreature2.Level.set(5,8)
 RareCreature2.Rank.setRare()
 RareCreature2.AIName.SmartAI()
 //Out of Combat Scripts
-SQL.smart_scripts.add(RareCreature2.ID,0,1,2).event_type.set(1).event_chance.set(100).event_param1.set(3000).event_param2.set(3000).event_param3.set(30000).event_param4.set(30000).action_type.set(11).action_param1.set(72213).target_type.set(1).comment.set('Shout Spell Cast')
-SQL.smart_scripts.add(RareCreature1.ID,0,2,0).event_type.set(61).event_chance.set(100).action_type.set(1).action_param1.set(1).target_type.set(1).comment.set('Fang OUT OF COMBAT Text Scripts.')
-SQL.broadcast_text.add(RareCreature1.ID+1).Text.set('AWOO!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,1,0).Text.set('AWOO!').BroadcastTextId.set(RareCreature2.ID+1).Probability.set(100).Type.set(14)
-SQL.broadcast_text.add(RareCreature1.ID+2).Text.set('I SMELL FRESH MEAT!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,1,1).Text.set('I SMELL FRESH MEAT!').BroadcastTextId.set(RareCreature2.ID+2).Probability.set(100).Type.set(14)
+SQL.smart_scripts.add(RareCreature2.ID,0,1,2).event_type.set(1).event_chance.set(100).event_param1.set(3000).event_param2.set(3000).event_param3.set(30000).event_param4.set(30000).action_type.set(11).action_param1.set(73213).target_type.set(1).comment.set('Shout Spell Cast')
+SQL.smart_scripts.add(RareCreature2.ID,0,2,0).event_type.set(61).event_chance.set(100).action_type.set(1).action_param1.set(1).target_type.set(1).comment.set('Fang OUT OF COMBAT Text Scripts.')
+SQL.broadcast_text.add(broadcastindex++).Text.set('AWOO!').Flags.set(1)
+SQL.creature_text.add(RareCreature2.ID,1,0).Text.set('AWOO!').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(14)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I SMELL...FRESH MEAT!').Flags.set(1)
+SQL.creature_text.add(RareCreature2.ID,1,1).Text.set('I SMELL...FRESH MEAT!').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(14)
 
-SQL.smart_scripts.add(RareCreature1.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(29544).target_type.set(2).comment.set('Fear')
-SQL.smart_scripts.add(RareCreature1.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(4280).target_type.set(2).comment.set('Consume Flesh')
-SQL.smart_scripts.add(RareCreature1.ID,0,5,0).event_type.set(1).event_chance.set(100).event_param1.set(8000).event_param2.set(15000).event_param3.set(30000).event_param4.set(35000).action_type.set(11).action_param1.set(64062).target_type.set(1).comment.set('Steroid Shout')
-SQL.smart_scripts.add(RareCreature1.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(120000).event_param4.set(120000).action_type.set(11).action_param1.set(4238).target_type.set(1).comment.set('HP Shout')
+SQL.smart_scripts.add(RareCreature2.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(29544).target_type.set(2).comment.set('Fear')
+SQL.smart_scripts.add(RareCreature2.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(4280).target_type.set(2).comment.set('Consume Flesh')
+SQL.smart_scripts.add(RareCreature2.ID,0,5,0).event_type.set(1).event_chance.set(100).event_param1.set(13000).event_param2.set(18000).event_param3.set(60000).event_param4.set(75000).action_type.set(11).action_param1.set(64062).target_type.set(1).comment.set('Steroid Shout')
+SQL.smart_scripts.add(RareCreature2.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(100000).event_param4.set(100000).action_type.set(11).action_param1.set(4238).target_type.set(1).comment.set('HP Shout')
 
 RareCreature2.DamageSchool.setNormal()
 RareCreature2.Stats.ArmorMod.set(5)
