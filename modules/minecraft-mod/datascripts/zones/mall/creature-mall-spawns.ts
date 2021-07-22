@@ -27,8 +27,8 @@ spawnNPC(9980,0,0,[-8448.728,-197.267,0.722,0.0435]) //Stable Master
     setFaction(9980,35)
     setLevel(9980,20)
 spawnNPC(2878,0,0,[-8328.205,-33.192,0.540,3.521])//Pet Trainer
-    setFaction(2787,35)
-    setLevel(2787,20)
+    setFaction(2878,35)
+    setLevel(2878,20)
 spawnNPC(1231,0,0,[-8333.356,-39.987,0.547,0.330]) //Hunter
     setFaction(1231,35)
     setLevel(1231,20)
