@@ -243,13 +243,13 @@ SQL.broadcast_text.add(RareCreature1.ID+7).Text.set('Heh.. that tickled!').Flags
 SQL.creature_text.add(RareCreature1.ID,0,3).Text.set('Heh.. that tickled!').BroadcastTextId.set(RareCreature1.ID+7).Probability.set(100).Type.set(14)
 //Spells
     //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    creature2.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-    creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    creature2.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+    RareCreature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+    RareCreature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+    RareCreature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+    RareCreature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
-    creature2.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1Bite.ID,2,7)
-    creature2.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Gore.ID,2,7)
+    RareCreature1.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1Bite.ID,2,7)
+    RareCreature1.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Gore.ID,2,7)
 //End of Spells
 RareCreature1.DamageSchool.setNormal()
 RareCreature1.Stats.ArmorMod.set(5)
