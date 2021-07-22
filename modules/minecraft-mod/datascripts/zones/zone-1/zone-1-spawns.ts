@@ -11,7 +11,7 @@ spawnMultipleNPCs(creature7.ID,5,0,[[-7935.2,45.0298,0.365154,2.27616],[-7970.89
 // spawnMultipleNPCs(1000020,5,0,[])
 // spawnMultipleNPCs(1000021,5,0,[])
 // spawnMultipleNPCs(1000022,5,0,[])
-spawnMultipleNPCs(RareCreature1.ID,5,0,[[-7963.61,235.445,-36.7152,2.41438]])
+spawnMultipleNPCs(RareCreature1.ID,0,0,[[-7963.61,235.445,-36.7152,2.41438]])
 spawnNPC(RareCreature2.ID,4,0,[-7835.281,162.039,-26.939,3.330])
 spawnMultipleNPCs(RareCreature3.ID,5,0,[[-8029.45,17.956,1.23156,3.59327]])
 spawnNPC(RareCreature4.ID,0,0,[-8260.50,276.86,3.5,0.825])
