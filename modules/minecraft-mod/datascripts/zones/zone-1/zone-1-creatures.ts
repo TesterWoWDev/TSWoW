@@ -236,35 +236,13 @@ SQL.smart_scripts.add(RareCreature1.ID,0,3,0).event_type.set(0).event_chance.set
 SQL.smart_scripts.add(RareCreature1.ID,0,4,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(180000).event_param4.set(180000).action_type.set(11).action_param1.set(7164).target_type.set(1).comment.set('Defensive Stance')
 SQL.smart_scripts.add(RareCreature1.ID,0,5,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(6000).event_param4.set(9000).action_type.set(11).action_param1.set(52608).target_type.set(5).comment.set('Throw Lantern')
 
-//Combat Scripts
-/* I guess this doesn't work for some reason?
-SQL.smart_scripts.add(RareCreature1.ID,0,0,0).event_type.set(4).event_chance.set(100).action_type.set(1).action_param3.set(1).target_type.set(7).comment.set('The Miner IN COMBAT Scripts.')
-SQL.broadcast_text.add(RareCreature1.ID+4).Text.set('So ye want a piece of me?! Bring er on!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,0,0).Text.set('So ye want a piece of me?! Bring er on!').BroadcastTextId.set(RareCreature1.ID+4).Probability.set(100).Type.set(14)
-SQL.broadcast_text.add(RareCreature1.ID+5).Text.set('Taste my steel!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,0,1).Text.set('Taste my steel!').BroadcastTextId.set(RareCreature1.ID+5).Probability.set(100).Type.set(14)
-SQL.broadcast_text.add(RareCreature1.ID+6).Text.set('Another corpse to hang on me wall!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,0,2).Text.set('Another corpse to hang on me wall!').BroadcastTextId.set(RareCreature1.ID+6).Probability.set(100).Type.set(14)
-SQL.broadcast_text.add(RareCreature1.ID+7).Text.set('Heh.. that tickled!').Flags.set(1)
-SQL.creature_text.add(RareCreature1.ID,0,3).Text.set('Heh.. that tickled!').BroadcastTextId.set(RareCreature1.ID+7).Probability.set(100).Type.set(14)
-//Spells
-    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    RareCreature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-    RareCreature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    RareCreature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    RareCreature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
-    //combat loop
-    RareCreature1.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1Bite.ID,2,7)
-    RareCreature1.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Gore.ID,2,7)
-//End of Spells
-*/
 RareCreature1.DamageSchool.setNormal()
 RareCreature1.Stats.ArmorMod.set(5)
 RareCreature1.Stats.DamageMod.set(10)
 RareCreature1.Stats.ExperienceMod.set(10)
 RareCreature1.Stats.HealthMod.set(12)
 RareCreature1.Stats.ManaMod.set(3)
-SQL.creature_equip_template.add(RareCreature1.ID,1).ItemID1.set(2901)
+SQL.creature_equip_template.add(RareCreature1.ID,1).ItemID1.set(42796)
 export let RareCreature1Loot = RareCreature1.NormalLoot
 
 export let RareCreature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-RareCreature2',299)
