@@ -232,9 +232,9 @@ SQL.creature_text.add(RareCreature1.ID,1,1).Text.set('Didn\'t ye hear me the fir
 SQL.broadcast_text.add(RareCreature1.ID+3).Text.set('Move!! Ye blithering idiots!').Flags.set(1)
 SQL.creature_text.add(RareCreature1.ID,1,2).Text.set('Move!! Ye blithering idiots!').BroadcastTextId.set(RareCreature1.ID+3).Probability.set(100).Type.set(14)
 
-SQL.smart_scripts.add(RareCreature1.ID,0,3,0).event_chance.set(100).event_param1.set(4000).event_param2.set(14000).event_param3.set(22000).event_param4.set(28000).action_type.set(11).action_param1.set(6016).target_type.set(2).comment.set('Pierce Armor (repeatable)')
-SQL.smart_scripts.add(RareCreature1.ID,0,4,0).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(180000).event_param4.set(180000).action_type.set(11).action_param1.set(7164).target_type.set(1).comment.set('Defensive Stance')
-SQL.smart_scripts.add(RareCreature1.ID,0,5,0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(6000).event_param4.set(9000).action_type.set(11).action_param1.set(52608).target_type.set(5).comment.set('Throw Lantern')
+SQL.smart_scripts.add(RareCreature1.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(4000).event_param2.set(14000).event_param3.set(22000).event_param4.set(28000).action_type.set(11).action_param1.set(6016).target_type.set(2).comment.set('Pierce Armor (repeatable)')
+SQL.smart_scripts.add(RareCreature1.ID,0,4,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(180000).event_param4.set(180000).action_type.set(11).action_param1.set(7164).target_type.set(1).comment.set('Defensive Stance')
+SQL.smart_scripts.add(RareCreature1.ID,0,5,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(6000).event_param4.set(9000).action_type.set(11).action_param1.set(52608).target_type.set(5).comment.set('Throw Lantern')
 
 //Combat Scripts
 /* I guess this doesn't work for some reason?
