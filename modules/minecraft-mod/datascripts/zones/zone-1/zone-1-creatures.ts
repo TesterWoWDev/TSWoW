@@ -253,7 +253,6 @@ RareCreature2.FactionTemplate.set(48)
 RareCreature2.MovementType.setRandomMovement()
 RareCreature2.Level.set(5,8)
 RareCreature2.Rank.setRare()
-RareCreature2.Level.set(5,8)
 RareCreature2.AIName.SmartAI()
 //Out of Combat Scripts
 SQL.smart_scripts.add(RareCreature2.ID,0,1,2).event_type.set(1).event_chance.set(100).event_param1.set(3000).event_param2.set(3000).event_param3.set(30000).event_param4.set(30000).action_type.set(11).action_param1.set(72213).target_type.set(1).comment.set('Shout Spell Cast')
@@ -267,6 +266,7 @@ SQL.smart_scripts.add(RareCreature1.ID,0,3,0).event_type.set(0).event_chance.set
 SQL.smart_scripts.add(RareCreature1.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(4280).target_type.set(2).comment.set('Consume Flesh')
 SQL.smart_scripts.add(RareCreature1.ID,0,5,0).event_type.set(1).event_chance.set(100).event_param1.set(8000).event_param2.set(15000).event_param3.set(30000).event_param4.set(35000).action_type.set(11).action_param1.set(64062).target_type.set(1).comment.set('Steroid Shout')
 SQL.smart_scripts.add(RareCreature1.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(120000).event_param4.set(120000).action_type.set(11).action_param1.set(4238).target_type.set(1).comment.set('HP Shout')
+
 RareCreature2.DamageSchool.setNormal()
 RareCreature2.Stats.ArmorMod.set(5)
 RareCreature2.Stats.DamageMod.set(10)
