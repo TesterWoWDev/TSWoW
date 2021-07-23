@@ -1,8 +1,8 @@
 
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../../../../quests-mod/datascripts/build/quests-mod-data"
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { SmallSackofCoinswithBag } from "../../items/currencies"
+import { MODNAME } from "../../modname"
 import { questGiver01, startingZoneWolfBoss } from "./starting-zone-creatures"
 import { AgathasLockbox } from "./starting-zone-items"
 
