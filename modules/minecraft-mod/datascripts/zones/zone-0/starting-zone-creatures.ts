@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "../../../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata/sql/SQLFiles"
 import { spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 

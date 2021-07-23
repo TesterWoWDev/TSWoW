@@ -3,7 +3,6 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../../../../quests-mod/datascripts/build/quests-mod-data"
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { SmallSackofCoinswithBag } from "../../items/currencies"
-import { SmallGreenPouch, SmallRedPouch } from "../zone-1/zone-1-items"
 import { questGiver01, startingZoneWolfBoss } from "./starting-zone-creatures"
 import { AgathasLockbox } from "./starting-zone-items"
 
