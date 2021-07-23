@@ -41,6 +41,11 @@ export function spawnMultipleGobs(id:number, positions:number[][]){
     }
 }
 
+export function spawnGobTimer(id: number, position:number[], spawnSecs:number) {
+    let gob = std.GameObjectTemplates.load(id);
+    gob.spawn(MODNAME,id+"gob-spawn",Pos(725,position[0],position[1],position[2],position[3])).row.id.set(id).rotation2.set(0).rotation3.set(0).spawntimesecs.set(spawnSecs);
+}
+
 export function setFaction(entry:number,faction:number){
     std.CreatureTemplates.load(entry).FactionTemplate.set(faction)
 }
