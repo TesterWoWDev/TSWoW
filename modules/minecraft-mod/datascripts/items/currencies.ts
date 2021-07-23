@@ -1,4 +1,5 @@
 import { std } from "tswow-stdlib"
+import { SQL } from "../../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles"
 import { MODNAME } from "../modname"
 
 export let GoldenBar1G = std.Items.create(MODNAME,'goldenbar1g-item',3577)
@@ -33,6 +34,7 @@ GoldenBar100G.Price.set(1000000,1500000,1)
 
 export let SmallSackofCoinswithBag = std.Items.create(MODNAME,'coinsinbag-item',5335) // Use this for the Starter Quest as Reward (provides player with an early game bag)
 SmallSackofCoinswithBag.MoneyLoot.set(225,815)
+SQL.item_loot_template.add(SmallSackofCoinswithBag.ID,4957).Chance.set(100)
 export let SmallSackofCoins = std.Items.create(MODNAME,'smallcoins-item',11966)
 SmallSackofCoins.Name.enGB.set('Small Sack of Coins')
 SmallSackofCoins.MoneyLoot.set(750,2250)
