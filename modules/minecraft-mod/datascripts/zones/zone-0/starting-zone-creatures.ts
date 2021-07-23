@@ -3,7 +3,7 @@ import { SQL } from "wotlkdata/sql/SQLFiles"
 import { spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 
-export let startingZoneWolfBoss = std.CreatureTemplates.create(MODNAME,'Placeholder-creature4',299)
+export let startingZoneWolfBoss = std.CreatureTemplates.create(MODNAME,'startingzonewolfboss-creature',299)
 startingZoneWolfBoss.Name.enGB.set('Ravaging Worg')
 startingZoneWolfBoss.Models.clearAll()
 startingZoneWolfBoss.Models.addIds(24235)
