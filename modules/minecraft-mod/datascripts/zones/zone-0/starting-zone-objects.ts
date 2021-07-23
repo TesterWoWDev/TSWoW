@@ -2,12 +2,12 @@ import { makeResourceNode } from "../../functions/resource-node-functions";
 import { spawnGob } from "../../functions/spawning-functions";
 import { tierOneBaseResources, tierOneMailMaterial, tierOneLeatherMaterial, tierOneClothMaterial } from "../../items/armor/tier1-set";
 import { SmallSackofCoins, LargeSackofCoins } from "../../items/currencies";
-import { addLoot, addLootSingleChance, addLootSingleChanceMultiGroup } from "../zone-1/zone-1-chests";
+import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
 import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, FangoftheCrystalSpider, GoblinDragonGun, DarkwaterTalwar, BiteofSerrakis, Grimclaw, Shadowfang, StrikeoftheHydra, GalgannsFireblaster, GalgannsFirehammer, RagingBerserkersHelm, HerodsShoulder, ScarletLeggings, DeadmansHand, RobeofDoan, MantleofDoan, SavageGladiatorChain, SavageGladiatorLeggings, SavageGladiatorHelm, SavageGladiatorGrips, SavageGladiatorGreaves, DarkIronPulverizer, IronweaveRobe, IronweaveCowl, IronweavePants, IronweaveGloves, IronweaveMantle, IronweaveBelt, IronweaveBoots, IronweaveBracers, WraithScythe, ForceofWill, LordGeneralsSword, Naglering, FlameWrath, BurstofKnowledge, CircleofFlame, FineLeatherBoots, FineLeatherCloak, FineLeatherGloves, FineLeatherTunic, FineLeatherBelt, EmbossedLeatherVest, EmbossedLeatherBoots, EmbossedLeatherCloak, EmbossedLeatherGloves, EmbossedLeatherPants, AzureSilkGloves, AzureSilkVest, AzureSilkPants, AzureSilkHood, AzureSilkBelt, AzureSilkCloak, CrimsonSilkBelt, CrimsonSilkCloak, CrimsonSilkVest, CrimsonSilkShoulders, CrimsonSilkPantaloons, CrimsonSilkRobe, CrimsonSilkGloves, SilveredBronzeBreastplate, SilveredBronzeShoulders, SilveredBronzeBoots, SilveredBronzeGauntlets, BarbaricIronShoulders, BarbaricIronBreastplate, BarbaricIronHelm, BarbaricIronBoots, BarbaricIronGloves, InfernalTricksterLeggings, PhytoskinSpaulders, BladeofEternalDarkness, GatorbiteAxe, FrightskullShaft, SkullforgeReaver, RunebladeofBaronRivendare, BladeoftheWretched, BlazingRapier, WickedMithrilBlade, SearingGoldenBlade, BuzzSaw, BuzzerBlade, Rockslicer, RhahkZorsHammer, GoldplatedBuckler, StaffofNobles, EmberstoneStaff, ImpalingHarpoon, ThiefsBlade, SmitesReaver, SmitesMightyHammer, CookiesTenderizer, CookiesStirringRod, IronKnuckles, PrisonShank, KamsWalkingStick, SerpentsKiss, KreshsBack, WornTurtleShellShield, SerpentsShoulders, BoahnsFang, ArmoroftheFang, LeggingsoftheFang, FootpadsoftheFang, BeltoftheFang, GlovesoftheFang, MinorManaPotion, MinorHealingPotion, MinorRejuvenationPotion, DiscoloredHealingPotion, LesserHealingPotion, SwiftnessPotion, RagePotion, SwimSpeedPotion, LesserManaPotion, ScrollofSpiritVIII, ScrollofProtectionVIII, ScrollofAgilityVIII, ScrollofIntellectVIII, ScrollofStaminaVIII, ScrollofStrengthVIII } from "../zone-1/zone-1-items";
 import { SQL } from "wotlkdata/sql/SQLFiles";
 import { AgathasLockbox } from "./starting-zone-items";
 
-export let StolenLockbox = makeResourceNode('Agathas Stolen Lockbox',259,57,'stolenlockbox-chest')
+export let StolenLockbox = makeResourceNode('Agatha\'s Stolen Lockbox',259,57,'stolenlockbox-chest')
 StolenLockbox.Size.set(0.5)
 
 spawnGob(StolenLockbox.ID,[-8670.00,-14.301,31.26,4.64]) // Agatha's Stolen Lockbox in Starting Zone
@@ -87,3 +87,129 @@ addLoot(StolenLockbox,[SmallSackofCoins.ID,LargeSackofCoins.ID],[30,3],8)
 /*Quest Items Loot*/
 addLoot(StolenLockbox,[AgathasLockbox.ID],[100],7)
 SQL.gameobject_loot_template.add(StolenLockbox.ID,AgathasLockbox.ID).QuestRequired.set(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function addLoot(chest: GameObjectChest, items: number[], chances: number[],groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
+        if(chances[index] > 0) {
+            chest.Loot.addItem(value,chances[index],1,1,false,groupID,1)
+        }
+    })
+
+}
+
+function addLootSingleChance(chest: GameObjectChest,items:number[],chance:number,groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
+        if(chance > 0) {
+            chest.Loot.addItem(value,chance,1,1,false,groupID,1)
+        }
+    })
+}
+function addLootMultiDrop(chest: GameObjectChest, items: number[], chances: number[],min:number[],max:number[],groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
+        if(chances[index] > 0) {
+            chest.Loot.addItem(value,chances[index],min[index],max[index],false,groupID,1)
+        }
+    })
+}
+
+function addLootSingleChanceMultiDrop(chest: GameObjectChest,items:number[],chance:number,min:number[],max:number[],groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
+        if(chance > 0) {
+            chest.Loot.addItem(value,chance,min[index],max[index],false,groupID,1)
+        }
+    })
+}
+
+
+
+function addLootMultiGroup(chest: GameObjectChest, items: number[], chances: number[],min:number,max:number,groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
+        if(chances[index] > 0) {
+            chest.Loot.addItem(value,chances[index],min,max,false,groupID,1)
+        }
+    })
+}
+
+function addLootSingleChanceMultiGroup(chest: GameObjectChest,items:number[],chance:number,min:number,max:number,groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
+        if(chance > 0) {
+            chest.Loot.addItem(value,chance,min,max,false,groupID,1)
+        }
+    })
+}
