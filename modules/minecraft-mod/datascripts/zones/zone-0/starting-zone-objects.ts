@@ -7,7 +7,7 @@ import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJor
 import { SQL } from "wotlkdata/sql/SQLFiles";
 import { AgathasLockbox } from "./starting-zone-items";
 
-export let StolenLockbox = makeResourceNode('Agatha\'s Stolen Lockbox',259,57,'stolenlockbox-chest')
+export let StolenLockbox = makeResourceNode('Agathas Stolen Lockbox',259,57,'stolenlockbox-chest')
 StolenLockbox.Size.set(0.5)
 
 spawnGob(StolenLockbox.ID,[-8670.00,-14.301,31.26,4.64]) // Agatha's Stolen Lockbox in Starting Zone
