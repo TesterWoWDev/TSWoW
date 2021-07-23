@@ -9,5 +9,5 @@ export function Main(events: TSEventHandlers) {
 	Killstreaks(events)
 	Skillshot(events)
 	onDeath(events)
-    rangeLoot(events)
+    //rangeLoot(events)
 }

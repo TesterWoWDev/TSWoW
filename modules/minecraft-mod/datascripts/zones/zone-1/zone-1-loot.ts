@@ -460,7 +460,7 @@ function addLoot(loot: AttachedLootSet<CreatureTemplate>, items: number[], chanc
     }
     items.forEach((value,index)=>{
         if(chances[index] > 0) {
-            loot.addItem(value,chances[index],1,1,false,groupID,0)
+            loot.addItem(value,chances[index],1,1,false,groupID,1)
         }
     })
 }
