@@ -21,7 +21,7 @@ spawnNPC(startingZoneWolfBoss.ID,8,0,[-8668.536,-23.10,31.13,3.61])
 export let startingZoneWolfBossLoot = startingZoneWolfBoss.NormalLoot
 
 
-export let ghostlyFigure01 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature4',299)
+export let ghostlyFigure01 = std.CreatureTemplates.create(MODNAME,'ghostlyfigure01-creature',299)
 ghostlyFigure01.Name.enGB.set('Ghostly Figure')
 ghostlyFigure01.Models.clearAll()
 ghostlyFigure01.Models.addIds(10478)
@@ -35,3 +35,18 @@ ghostlyFigure01.Stats.HealthMod.set(1)
 ghostlyFigure01.Stats.ManaMod.set(1)
 spawnNPC(ghostlyFigure01.ID,0,0,[-8667.347,-17.63,31.13,1.49])
 SQL.creature_template_addon.add(ghostlyFigure01.ID).auras.set('68442') // Force Kneel
+
+export let questGiver01 = std.CreatureTemplates.create(MODNAME,'questgiver01-creature',299)
+questGiver01.Name.enGB.set('Elder Fogwaffle')
+questGiver01.Models.clearAll()
+questGiver01.Models.addIds(26958)
+questGiver01.Level.set(10,10)
+questGiver01.FactionTemplate.set(35)
+questGiver01.DamageSchool.setNormal()
+questGiver01.Stats.ArmorMod.set(1)
+questGiver01.Stats.DamageMod.set(1)
+questGiver01.Stats.ExperienceMod.set(1)
+questGiver01.Stats.HealthMod.set(1)
+questGiver01.Stats.ManaMod.set(1)
+spawnNPC(questGiver01.ID,0,0,[-8680.762,-52.365,34.40,1.268])
+SQL.creature_template_addon.add(questGiver01.ID).auras.set('25824') // Spotlight
