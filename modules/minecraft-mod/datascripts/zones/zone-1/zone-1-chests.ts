@@ -113,7 +113,7 @@ addLoot(Zone1Chest1,[SmallSackofCoins.ID,LargeSackofCoins.ID],[30,3],8)
 
 
 
-export function addLoot(chest: GameObjectChest, items: number[], chances: number[],groupID?:number) {
+function addLoot(chest: GameObjectChest, items: number[], chances: number[],groupID?:number) {
     if(groupID == null){
         groupID = 0
     }
@@ -125,7 +125,7 @@ export function addLoot(chest: GameObjectChest, items: number[], chances: number
 
 }
 
-export function addLootSingleChance(chest: GameObjectChest,items:number[],chance:number,groupID?:number) {
+function addLootSingleChance(chest: GameObjectChest,items:number[],chance:number,groupID?:number) {
     if(groupID == null){
         groupID = 0
     }
@@ -135,7 +135,7 @@ export function addLootSingleChance(chest: GameObjectChest,items:number[],chance
         }
     })
 }
-export function addLootMultiDrop(chest: GameObjectChest, items: number[], chances: number[],min:number[],max:number[],groupID?:number) {
+function addLootMultiDrop(chest: GameObjectChest, items: number[], chances: number[],min:number[],max:number[],groupID?:number) {
     if(groupID == null){
         groupID = 0
     }
@@ -146,7 +146,7 @@ export function addLootMultiDrop(chest: GameObjectChest, items: number[], chance
     })
 }
 
-export function addLootSingleChanceMultiDrop(chest: GameObjectChest,items:number[],chance:number,min:number[],max:number[],groupID?:number) {
+function addLootSingleChanceMultiDrop(chest: GameObjectChest,items:number[],chance:number,min:number[],max:number[],groupID?:number) {
     if(groupID == null){
         groupID = 0
     }
@@ -159,7 +159,7 @@ export function addLootSingleChanceMultiDrop(chest: GameObjectChest,items:number
 
 
 
-export function addLootMultiGroup(chest: GameObjectChest, items: number[], chances: number[],min:number,max:number,groupID?:number) {
+function addLootMultiGroup(chest: GameObjectChest, items: number[], chances: number[],min:number,max:number,groupID?:number) {
     if(groupID == null){
         groupID = 0
     }
@@ -170,7 +170,7 @@ export function addLootMultiGroup(chest: GameObjectChest, items: number[], chanc
     })
 }
 
-export function addLootSingleChanceMultiGroup(chest: GameObjectChest,items:number[],chance:number,min:number,max:number,groupID?:number) {
+function addLootSingleChanceMultiGroup(chest: GameObjectChest,items:number[],chance:number,min:number,max:number,groupID?:number) {
     if(groupID == null){
         groupID = 0
     }

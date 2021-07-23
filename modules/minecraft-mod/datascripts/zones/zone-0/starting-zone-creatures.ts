@@ -15,7 +15,7 @@ startingZoneWolfBoss.DamageSchool.setNormal()
 startingZoneWolfBoss.Stats.ArmorMod.set(1)
 startingZoneWolfBoss.Stats.DamageMod.set(1)
 startingZoneWolfBoss.Stats.ExperienceMod.set(1)
-startingZoneWolfBoss.Stats.HealthMod.set(1)
+startingZoneWolfBoss.Stats.HealthMod.set(3)
 startingZoneWolfBoss.Stats.ManaMod.set(1)
 spawnNPC(startingZoneWolfBoss.ID,8,0,[-8668.536,-23.10,31.13,3.61])
 export let startingZoneWolfBossLoot = startingZoneWolfBoss.NormalLoot
