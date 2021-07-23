@@ -39,6 +39,7 @@ Rank1Bite.Effects.get(0).BasePoints.set(34)
 export let Rank1Gore = std.Spells.create(MODNAME,'Rank1Gore-spell',4102)
 Rank1Gore.Name.enGB.set('Gore')
 Rank1Gore.Description.enGB.set('Inflicts $s2 damage to an enemy every 3s for $d.')
+Rank1Gore.AuraDescription.enGB.set('Bleeding for $s1 damage every 3 seconds.')
 Rank1Gore.Effects.get(1).BasePoints.set(4)
 Rank1Gore.Duration.set(9000,0,9000)
 
