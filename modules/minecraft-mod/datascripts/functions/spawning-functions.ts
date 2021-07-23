@@ -27,6 +27,18 @@ export function spawnMultipleNPCs(id:number,wanderDistance:number, equipmentID:n
     return guids
 }
 
+export function spawnNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:number[], respawnTime:number){
+    let npc = std.CreatureTemplates.load(id);
+    let spawn = npc.spawn(MODNAME,id+"creature-spawn",Pos(725,position[0],position[1],position[2],position[3]))
+    spawn.row.equipment_id.set(equipmentID)
+    spawn.SpawnTime.set(respawnTime)
+    if(wanderDistance > 0){
+        spawn.WanderDistance.set(wanderDistance);
+        spawn.MovementType.setRandomMovement()
+    }
+    return spawn.GUID
+}
+
 export function spawnGob(id: number, position:number[], index?:number) {
     if(index == null){
         index = 0
