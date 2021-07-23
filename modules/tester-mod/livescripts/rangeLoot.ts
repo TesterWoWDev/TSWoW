@@ -1,5 +1,8 @@
 export function rangeLoot(events: TSEventHandlers) {
     events.Player.OnCreatureKill((player,corpse)=>{
+        if(player.IsGM())
+        return
+        
         let inRange = corpse.GetCreaturesInRange(10,0,0,2)
         let corpseLoot = corpse.GetLoot()
         for(let i=0;i<inRange.length;i++){

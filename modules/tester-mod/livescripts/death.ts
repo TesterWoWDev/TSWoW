@@ -12,7 +12,6 @@ class PlayerItemHolder {
 let arrOfPlayerLoot : TSArray<PlayerItemHolder> = [];
 export function onDeath(events: TSEventHandlers) {
 	events.Player.OnPlayerKilledByCreature((killer,player)=>{
-		if(!player.IsGM())
 		removeLoot(player)
 	})
 
