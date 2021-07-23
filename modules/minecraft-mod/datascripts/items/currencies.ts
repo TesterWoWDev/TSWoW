@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "../../../../bin/scripts/tswow/wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata/sql/SQLFiles"
 import { MODNAME } from "../modname"
 
 export let GoldenBar1G = std.Items.create(MODNAME,'goldenbar1g-item',3577)
