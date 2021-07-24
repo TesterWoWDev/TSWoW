@@ -2,12 +2,12 @@ import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
 import { HeirloomExperienceRates } from "../../spells/experience-rate-spells"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { addDBCItemExtendedCost } from "../../functions/dbc-functions"
+import { addToDBCItemExtendedCost } from "../../functions/dbc-functions"
 
 let ExtendedCostIndex = 3000
-addDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[10,10,1,1,1],0) // Armor and Trinkets
-addDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[25,25,1,1,1],0) // 1h weapon
-addDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[50,50,1,1,1],0) // 2h weapon
+addToDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[10,10,1,1,1],0) // Armor and Trinkets
+addToDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[25,25,1,1,1],0) // 1h weapon
+addToDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[50,50,1,1,1],0) // 2h weapon
 
 //If we do end up utilizing heirlooms, they will require level 20 to purchase, and they will also cost boss tokens/raid tokens/dungeon tokens
 //This would allow players to speed level their alts from 1-20 much quicker than with the normal armor set bonuses.

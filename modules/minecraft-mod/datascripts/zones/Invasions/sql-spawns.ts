@@ -1,4 +1,4 @@
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { addToInvasion } from "../../functions/invasion-functions"
 
 //gameobjects
 addToInvasion(0,0,185927,-7905.21,170.081,6.40744,1.88203)
@@ -24,8 +24,3 @@ addToInvasion(0,0,185589,-8074.14,250.03,0.046494,3.23288)
 addToInvasion(0,0,185589,-7935.79,341.719,0.181484,0.562527)
 addToInvasion(0,0,185589,-7840.07,208.413,0.795613,2.52995)
 addToInvasion(0,0,4002164,-7988.79,256.07,13.9983,5.36957)
-
-
-function addToInvasion(invasionId:number, isCreature:number, entry:number, x:number, y:number, z:number, o:number){
-    SQL.Databases.world_dest.write('insert INTO `invasions` VALUES('+invasionId+','+isCreature+','+entry+','+x+','+y+','+z+','+o+')')
-}

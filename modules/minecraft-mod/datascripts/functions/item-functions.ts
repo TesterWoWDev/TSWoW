@@ -1,5 +1,7 @@
 import { std } from "tswow-stdlib"
 import { DBC } from "wotlkdata/dbc/DBCFiles"
+import { ItemTemplate } from "../../../tswow-stdlib/datascripts/build/Item/ItemTemplate"
+import { AttachedLootSet } from "../../../tswow-stdlib/datascripts/build/Loot/Loot"
 import { MODNAME } from "../modname"
 
 //tiername,parent,prefix,[itemnames]
@@ -183,4 +185,15 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         returnIDs.push(item.ID)
     }
     return returnIDs
+}
+
+export function addLootToItem(loot: AttachedLootSet<ItemTemplate> , items: number[], chances: number[],groupID?:number) {
+    if(groupID == null){
+        groupID = 0
+    }
+    items.forEach((value,index)=>{
+        if(chances[index] > 0) {
+            loot.addItem(value,chances[index],1,1,false,groupID,0)
+        }
+    })
 }

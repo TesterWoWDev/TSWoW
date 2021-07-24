@@ -42,15 +42,5 @@ DRQ01.Rewards.Item.add(ResourceCacheReward.ID,1)
 SQL.quest_template_addon.add(DRQ01.ID).SpecialFlags.set(1)
 SQL.quest_request_items.add(DRQ01.ID).CompletionText.set('Dadanga looks up at you as you approach her. She seems to be hoping for something...$B$BShe\'s probably hungry!$B$BThere\'s got to be something growing in the crater that would be just the perfect snack for a large herbivore. Dadanga\'s a big girl; whatever you bring her, there would need to be a lot of it!')
 
-
-
-function addLoot(loot: AttachedLootSet<ItemTemplate> , items: number[], chances: number[],groupID?:number) {
-    if(groupID == null){
-        groupID = 0
-    }
-    items.forEach((value,index)=>{
-        if(chances[index] > 0) {
-            loot.addItem(value,chances[index],1,1,false,groupID,0)
-        }
-    })
-}
+//import
+//addLootToItem(loot: AttachedLootSet<ItemTemplate> , items: number[], chances: number[],groupID?:number)
