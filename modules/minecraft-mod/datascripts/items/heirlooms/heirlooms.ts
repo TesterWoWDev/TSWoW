@@ -2,7 +2,7 @@ import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
 import { HeirloomExperienceRates } from "../../spells/experience-rate-spells"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { addDBCItemExtendedCost } from "../../functions/dbcfunctions"
+import { addDBCItemExtendedCost } from "../../functions/dbc-functions"
 
 let ExtendedCostIndex = 3000
 addDBCItemExtendedCost(ExtendedCostIndex++,0,0,0,[40752,40753,1,1,1],[10,10,1,1,1],0) // Armor and Trinkets

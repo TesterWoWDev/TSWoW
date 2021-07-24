@@ -22,7 +22,7 @@ export function createGem(quality:number,modprefix:string,name:string,displayinf
         return gem.ID
 }
 
-export function additems(vendor: CreatureTemplate, allGems: number[][]) {
+export function vendorAddItems(vendor: CreatureTemplate, allGems: number[][]) {
     allGems.forEach((value,index,arr)=>{
         value.forEach((gem)=>{
             vendor.Vendor.addItem(gem)

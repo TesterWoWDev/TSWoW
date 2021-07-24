@@ -3,7 +3,7 @@ import { MODNAME } from "../../modname"
 import { createRecipe } from "../../functions/recipe-functions"
 import { DBC_GemProperties } from "wotlkdata/dbc/types/GemProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
-import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "../../functions/gem-functions"
+import { createGem, vendorAddItems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "../../functions/gem-functions"
 import { tierOneBaseResources } from "../armor/tier1-set"
 let vendor2 = std.CreatureTemplates.create(MODNAME,'gemdude',3482)
 vendor2.Name.enGB.set('Test Gems')
@@ -230,4 +230,4 @@ export let tier1OrangeGems = [orange1,orange2,orange3,orange4,orange5,orange6]
 export let undiscoveredOranges = createAllUndiscoverGems(6,'Flame Spessarite',39932)
 gemLevelUpPattern(tierOneBaseResources[6],undiscoveredOranges,tier1OrangeGems)
 
-additems(vendor2,[tier1RedGems,tier1GreenGems,tier1PurpleGems,tier1YellowGems,tier1BlueGems,tier1OrangeGems])
+vendorAddItems(vendor2,[tier1RedGems,tier1GreenGems,tier1PurpleGems,tier1YellowGems,tier1BlueGems,tier1OrangeGems])

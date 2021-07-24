@@ -3,7 +3,7 @@ import { MODNAME } from "../../modname"
 import { createRecipe } from "../../functions/recipe-functions"
 import { DBC_GemProperties } from "wotlkdata/dbc/types/GemProperties"
 import { DBC_SpellItemEnchantment } from "wotlkdata/dbc/types/SpellItemEnchantment"
-import { createGem, additems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "../../functions/gem-functions"
+import { createGem, vendorAddItems, gemLevelUpPattern, redColorCode, greenColorCode, purpleColorCode, yellowColorCode, blueColorCode, orangeColorCode, createAllUndiscoverGems } from "../../functions/gem-functions"
 import { tierThreeBaseResources } from "../armor/tier3-set"
 import { tier2BlueGems, tier2GreenGems, tier2OrangeGems, tier2PurpleGems, tier2RedGems, tier2YellowGems } from "./tier2-gems"
 let vendor2 = std.CreatureTemplates.create(MODNAME,'gemdude3',3482)
@@ -225,4 +225,4 @@ DBC_SpellItemEnchantment.add(SpellItemEnchantmentIndex++).Effect.setIndex(0,5).E
 export let tier3OrangeGems = [tier3Orange1,tier3Orange2,tier3Orange3,tier3Orange4,tier3Orange5,tier3Orange6]
 gemLevelUpPattern(tierThreeBaseResources[6],tier2OrangeGems,tier3OrangeGems)
 
-additems(vendor2,[tier3RedGems,tier3GreenGems,tier3PurpleGems,tier3YellowGems,tier3BlueGems,tier3OrangeGems])
+vendorAddItems(vendor2,[tier3RedGems,tier3GreenGems,tier3PurpleGems,tier3YellowGems,tier3BlueGems,tier3OrangeGems])
