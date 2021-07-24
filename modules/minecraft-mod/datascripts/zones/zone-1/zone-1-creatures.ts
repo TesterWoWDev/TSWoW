@@ -381,48 +381,7 @@ export let Bosscreature1Loot = Bosscreature1.NormalLoot
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let creature2000 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature2000',299)
 creature2000.MovementType.setWaypoint()
 SQL.waypoints.add(creature2000.ID,1).position_x.set(1).position_y.set(1).position_z.set(1)
 SQL.waypoints.add(creature2000.ID,2).position_x.set(1).position_y.set(2).position_z.set(1)
-
-
-function smartScripts(entry:number,sourceType:number,id:number,link:number,eventType:number,eventChance:number,eventParams:number[],action:number,actionParam:number,targetType:number,comment:string){
-    SQL.smart_scripts.add(entry,sourceType,id,link).event_type.set(eventType).event_chance.set(eventChance).event_param1.set(eventParams[0]).event_param2.set(eventParams[1]).event_param3.set(eventParams[2]).event_param4.set(eventParams[3]).action_type.set(action).action_param1.set(actionParam).target_type.set(targetType).comment.set(comment)
-}

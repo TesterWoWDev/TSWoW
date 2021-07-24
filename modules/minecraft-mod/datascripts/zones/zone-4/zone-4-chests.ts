@@ -1,4 +1,4 @@
-import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
+import { addLootToGobChest, addLootToGobChestSingleChanceMultiGroup, addLootToGobChestSingleChance } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { tierFourBaseResources, tierFourMailMaterial, tierFourLeatherMaterial, tierFourClothMaterial } from "../../items/armor/tier4-set"
 import { LargeSackofCoins, MassiveSackofCoins, SmallSackofCoins } from "../../items/currencies"
@@ -7,13 +7,13 @@ import { ZandalarVindicatorBreastplate, ZandalarVindicatorBelt, ZandalarVindicat
 
 export let Zone4Chest1 = makeResourceNode('Large Chest',259,57,'zone4chest1-chest')
 Zone4Chest1.Size.set(1.25)
-addLoot(Zone4Chest1,tierFourBaseResources,[4,3,1,2,2,5,3])
+addLootToGobChest(Zone4Chest1,tierFourBaseResources,[4,3,1,2,2,5,3])
 /*Base Resources - Group 5*/  
-addLootSingleChanceMultiGroup(Zone4Chest1,[
+addLootToGobChestSingleChanceMultiGroup(Zone4Chest1,[
     tierFourMailMaterial,                   tierFourLeatherMaterial,                tierFourClothMaterial]
 ,33,1,3,5)
 /*Epic Items - Group 0*/      
-addLootSingleChance(Zone4Chest1,[
+addLootToGobChestSingleChance(Zone4Chest1,[
     GenesisHelm.ID,                         GenesisShoulderpads.ID,                 GenesisBoots.ID,
     GenesisTrousers.ID,                     GenesisVest.ID,                         EnigmaRobes.ID,
     EnigmaBoots.ID,                         EnigmaShoulderpads.ID,                  EnigmaLeggings.ID,
@@ -32,7 +32,7 @@ addLootSingleChance(Zone4Chest1,[
 
 ],0.0125)
 /*Rare Items - Group 0*/      
-addLootSingleChance(Zone4Chest1,[
+addLootToGobChestSingleChance(Zone4Chest1,[
     ZandalarVindicatorBreastplate.ID,       ZandalarVindicatorBelt.ID,              ZandalarVindicatorArmguards.ID,
     ZandalarFreethinkerBreastplate.ID,      ZandalarFreethinkerBelt.ID,             ZandalarFreethinkerArmguards.ID,
     ZandalarAugurHauberk.ID,                ZandalarAugurBelt.ID,                   ZandalarAugurBracers.ID,
@@ -47,7 +47,7 @@ addLootSingleChance(Zone4Chest1,[
     ZandalarSignetofSerenity.ID,            GrileksCharmofMight.ID,                 GrileksCharmofValor.ID
 ],0.2)
 /*Green Armor - Group 1*/
-addLootSingleChance(Zone4Chest1,[
+addLootToGobChestSingleChance(Zone4Chest1,[
     RenatakisCharmofBeasts.ID,              RenatakisCharmofTrickery.ID,            WushoolaysCharmofNature.ID,
     WushoolaysCharmofSpirits.ID,            HazzarahsCharmofDestruction.ID,         HazzarahsCharmofHealing.ID,
     HazzarahsCharmofMagic.ID,               PristineEnchantedSouthSeasKelp.ID,      JewelofKajaro.ID,
@@ -56,123 +56,24 @@ addLootSingleChance(Zone4Chest1,[
     RageofMugamba.ID
 ],3,1)
 /*Green Armor - Part 2 - Group 6*/
-addLootSingleChance(Zone4Chest1,[
+addLootToGobChestSingleChance(Zone4Chest1,[
     FourDazzlingLongsword.ID,                   FourNightblade.ID,                          FourFieryWarAxe.ID,
     FourArdentCustodian.ID,                     FourStaffofJordan.ID,                       FourTheGreenTower.ID,
     FourBowofSearingArrows.ID,                  FourUnderworldBand.ID,                      FourGutRipper.ID,   
     FourIronfoe.ID,                             FourEskhandarsRightClaw.ID,                 FourEskhandarsLeftClaw.ID
 ],1.5,6)
 /*Green Weps - Group 2*/      
-addLootSingleChance(Zone4Chest1,[
+addLootToGobChestSingleChance(Zone4Chest1,[
     Silverleaf.ID
 ],1.5,2)
 /*Miscellaneous - Group 3*/   
-addLootSingleChanceMultiGroup(Zone4Chest1,[
+addLootToGobChestSingleChanceMultiGroup(Zone4Chest1,[
     Earthroot.ID
 ],11,1,2,3)
 /*Buff Scrolls - Group 4*/    
-addLootSingleChanceMultiGroup(Zone4Chest1,[
+addLootToGobChestSingleChanceMultiGroup(Zone4Chest1,[
     FourthScrollofSpiritVIII.ID,                FourthScrollofProtectionVIII.ID,            FourthScrollofAgilityVIII.ID,
     FourthScrollofIntellectVIII.ID,             FourthScrollofStaminaVIII.ID,               FourthScrollofStrengthVIII.ID
 ],15,1,3,4)
 /*Money Bags*/
-addLoot(Zone4Chest1,[SmallSackofCoins.ID,LargeSackofCoins.ID,MassiveSackofCoins.ID],[50,20,5],8)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function addLoot(chest: GameObjectChest, items: number[], chances: number[],groupID?:number) {
-    if(groupID == null){
-        groupID = 0
-    }
-    items.forEach((value,index)=>{
-        if(chances[index] > 0) {
-            chest.Loot.addItem(value,chances[index],1,1,false,groupID,1)
-        }
-    })
-
-}
-
-function addLootSingleChance(chest: GameObjectChest,items:number[],chance:number,groupID?:number) {
-    if(groupID == null){
-        groupID = 0
-    }
-    items.forEach((value,index)=>{
-        if(chance > 0) {
-            chest.Loot.addItem(value,chance,1,1,false,groupID,1)
-        }
-    })
-}
-function addLootMultiDrop(chest: GameObjectChest, items: number[], chances: number[],min:number[],max:number[],groupID?:number) {
-    if(groupID == null){
-        groupID = 0
-    }
-    items.forEach((value,index)=>{
-        if(chances[index] > 0) {
-            chest.Loot.addItem(value,chances[index],min[index],max[index],false,groupID,1)
-        }
-    })
-}
-
-function addLootSingleChanceMultiDrop(chest: GameObjectChest,items:number[],chance:number,min:number[],max:number[],groupID?:number) {
-    if(groupID == null){
-        groupID = 0
-    }
-    items.forEach((value,index)=>{
-        if(chance > 0) {
-            chest.Loot.addItem(value,chance,min[index],max[index],false,groupID,1)
-        }
-    })
-}
-
-
-
-function addLootMultiGroup(chest: GameObjectChest, items: number[], chances: number[],min:number,max:number,groupID?:number) {
-    if(groupID == null){
-        groupID = 0
-    }
-    items.forEach((value,index)=>{
-        if(chances[index] > 0) {
-            chest.Loot.addItem(value,chances[index],min,max,false,groupID,1)
-        }
-    })
-}
-
-function addLootSingleChanceMultiGroup(chest: GameObjectChest,items:number[],chance:number,min:number,max:number,groupID?:number) {
-    if(groupID == null){
-        groupID = 0
-    }
-    items.forEach((value,index)=>{
-        if(chance > 0) {
-            chest.Loot.addItem(value,chance,min,max,false,groupID,1)
-        }
-    })
-}
+addLootToGobChest(Zone4Chest1,[SmallSackofCoins.ID,LargeSackofCoins.ID,MassiveSackofCoins.ID],[50,20,5],8)

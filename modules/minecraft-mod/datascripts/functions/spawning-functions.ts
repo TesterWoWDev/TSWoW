@@ -58,26 +58,6 @@ export function spawnGobTimer(id: number, position:number[], spawnSecs:number) {
     gob.spawn(MODNAME,id+"gob-spawn",Pos(725,position[0],position[1],position[2],position[3])).row.id.set(id).rotation2.set(0).rotation3.set(0).spawntimesecs.set(spawnSecs);
 }
 
-export function setFaction(entry:number,faction:number){
-    std.CreatureTemplates.load(entry).FactionTemplate.set(faction)
-}
-
- export function setLevel(entry:number,level:number){
-    std.CreatureTemplates.load(entry).Level.set(level)
- }
-
- export function removeQuests(entry:number){
-    std.CreatureTemplates.load(entry).NPCFlags.QuestGiver.clear()
-}
-
-export function setName(entry:number, name:string){
-    std.CreatureTemplates.load(entry).Name.enGB.set(name)
-}
-
-export function setSubName(entry:number, subname:string){
-    std.CreatureTemplates.load(entry).Subname.enGB.set(subname)
-}
-
 export function addWaypoint(guid:number,path:number[][]){
     let pathID = guid*10
     path.forEach((value,index)=>{
