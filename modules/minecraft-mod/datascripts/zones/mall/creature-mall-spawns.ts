@@ -1,4 +1,5 @@
-import { addWaypoint, addWaypoints, removeQuests, setFaction, setLevel, setName, spawnMultipleNPCs, spawnNPC } from "../../functions/spawning-functions"
+import { setFaction, setName, setLevel, removeQuests } from "../../functions/npc-functions"
+import { addWaypoint, addWaypoints, spawnMultipleNPCs, spawnNPC } from "../../functions/spawning-functions"
 
 spawnNPC(6367,0,0,[-8265.167,-116.997,0.901,3.106])//crazy cat lady
     setFaction(6367,35)
