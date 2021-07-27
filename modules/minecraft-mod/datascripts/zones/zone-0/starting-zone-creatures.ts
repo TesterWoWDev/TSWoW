@@ -50,3 +50,19 @@ questGiver01.Stats.HealthMod.set(1)
 questGiver01.Stats.ManaMod.set(1)
 spawnNPC(questGiver01.ID,0,0,[-8680.762,-52.365,34.40,1.268])
 SQL.creature_template_addon.add(questGiver01.ID).auras.set('25824') // Spotlight
+
+export let questGiver02 = std.CreatureTemplates.create(MODNAME,'questgiver02-creature',30368)
+questGiver02.Name.enGB.set('Arcanist Fractal Spem')
+questGiver02.Models.clearAll()
+questGiver02.Models.addIds(21835)
+questGiver02.Level.set(10,10)
+questGiver02.FactionTemplate.set(35)
+questGiver02.DamageSchool.setNormal()
+questGiver02.Stats.ArmorMod.set(1)
+questGiver02.Stats.DamageMod.set(1)
+questGiver02.Stats.ExperienceMod.set(1)
+questGiver02.Stats.HealthMod.set(1)
+questGiver02.Stats.ManaMod.set(1)
+spawnNPC(questGiver02.ID,0,0,[-8744.915,-11.808,31.532,1.98])
+SQL.creature_template_addon.add(questGiver02.ID).auras.set('25824') // Spotlight
+SQL.creature_template_addon.add(questGiver02.ID).auras.set('68442') // Force Kneel
