@@ -5,6 +5,7 @@ import { SQL } from "wotlkdata/sql/SQLFiles";
 import { AgathasLockbox, startingResource01 } from "./starting-zone-items";
 import { startingQuest01, startingQuest02 } from "./starting-zone-quests";
 import { addLootToGobChest } from "../../functions/gob-functions";
+import { addLootToItem } from "../../functions/item-functions";
 
 export let StolenLockbox = makeResourceNode('Agatha\'s Stolen Lockbox',259,57,'stolenlockbox-chest')
 StolenLockbox.Size.set(0.5)
@@ -13,6 +14,8 @@ spawnGobTimer(StolenLockbox.ID,[-8670.00,-14.301,31.26,4.64],10) // Agatha's Sto
 /*Quest Items Loot*/
 addLootToGobChest(StolenLockbox,[AgathasLockbox.ID],[100],7)
 SQL.gameobject_loot_template.add(StolenLockbox.ID,AgathasLockbox.ID).QuestRequired.set(1)
+SQL.item_loot_template.add(AgathasLockbox.ID,AgathasLockbox.ID).Chance.set(100) // 100% chance to receive the same item back when lock picked because people are dumb
+
 
 
 export let startingResourceNode01 = makeResourceNode('Walk of Heroes Lilly',269,29,'startingresourcenode-chest')
