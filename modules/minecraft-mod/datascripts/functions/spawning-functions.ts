@@ -61,8 +61,7 @@ export function spawnGobTimer(id: number, position:number[], spawnSecs:number) {
 export function addWaypoint(guid:number,path:number[][]){
     let pathID = guid*10
     path.forEach((value,index)=>{
-        
-    SQL.waypoint_data.add(pathID,index).position_x.set(value[0]).position_y.set(value[1]).position_z.set(value[2]).orientation.set(value[3]).delay.set(value[4]).move_type.set(0)
+        SQL.waypoint_data.add(pathID,index).position_x.set(value[0]).position_y.set(value[1]).position_z.set(value[2]).orientation.set(value[3]).delay.set(value[4]).move_type.set(0)
     })
     SQL.creature_addon.add(guid).path_id.set(pathID)
 }
