@@ -1,5 +1,5 @@
+import { addToDBCSpellItemEnchantment, addToDBCItemRandomProperties } from "../../functions/dbc-functions"
 import { spellColorCode } from "../../functions/gem-functions"
-import { addToDBCItemRandomProperties, addToDBCSpellItemEnchantment } from "../../functions/property-functions"
 import { attackpower1 } from "../../spells/attack-power-spells"
 import { chanceHeal1, chanceHeal1C, chanceHeal1M, chanceLightning1C, chanceLightning1M, chanceShadow1, chanceStun1C, chanceStun1M } from "../../spells/chance-on-hit-spells"
 //import { chanceHeal1, chanceLightning1C, chanceLightning1M, chanceShadow1, chanceStun1C, chanceStun1M } from "../../spells/chance-on-hit-spells"
