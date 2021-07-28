@@ -63,6 +63,7 @@ questGiver02.Stats.DamageMod.set(1)
 questGiver02.Stats.ExperienceMod.set(1)
 questGiver02.Stats.HealthMod.set(1)
 questGiver02.Stats.ManaMod.set(1)
+questGiver02.NPCFlags.QuestGiver.mark()
 spawnNPC(questGiver02.ID,0,0,[-8744.915,-11.808,31.532,1.98])
 SQL.creature_template_addon.add(questGiver02.ID).auras.set('25824') // Spotlight
 SQL.creature_template_addon.add(questGiver02.ID).auras.set('68442') // Force Kneel
