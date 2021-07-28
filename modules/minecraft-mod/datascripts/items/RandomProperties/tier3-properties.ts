@@ -1,5 +1,5 @@
+import { addToDBCSpellItemEnchantment, addToDBCItemRandomProperties } from "../../functions/dbc-functions"
 import { spellColorCode } from "../../functions/gem-functions"
-import { addToDBCItemRandomProperties, addToDBCSpellItemEnchantment } from "../../functions/property-functions"
 import { attackpower3 } from "../../spells/attack-power-spells"
 import { chanceHeal3, chanceLightning3, chanceShadow3, chanceStun3, chanceStun3C, chanceStun3M } from "../../spells/chance-on-hit-spells"
 import { health3 } from "../../spells/health-increase-spells"

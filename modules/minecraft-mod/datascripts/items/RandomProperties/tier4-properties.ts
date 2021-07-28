@@ -1,7 +1,6 @@
 
-import { pickpocketing_loot_templateRow } from "../../../../../bin/scripts/tswow/wotlkdata/sql/types/pickpocketing_loot_template"
+import { addToDBCSpellItemEnchantment, addToDBCItemRandomProperties } from "../../functions/dbc-functions"
 import { spellColorCode } from "../../functions/gem-functions"
-import { addToDBCItemRandomProperties, addToDBCSpellItemEnchantment } from "../../functions/property-functions"
 import { attackpower4 } from "../../spells/attack-power-spells"
 import { chanceHeal4, chanceLightning4, chanceShadow4, chanceStun4, chanceStun4C, chanceStun4M } from "../../spells/chance-on-hit-spells"
 import { health4 } from "../../spells/health-increase-spells"
