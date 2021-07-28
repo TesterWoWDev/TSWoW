@@ -65,7 +65,7 @@ startingQuest02.MinLevel.set(1)
 startingQuest02.QuestLevel.set(1)
 
 startingQuest02.Questgiver.addBoth(questGiver01.ID)
-prevAndNextQuestID(startingQuest02.ID,0,0)
+prevAndNextQuestID(startingQuest02.ID,startingQuest01.ID,startingQuest03.ID)
 startingQuest02.Objectives.Item.add(startingResource01.ID,10)
 
 startingQuest02.Rewards.ChoiceItem.add(tierOneBaseResources[0],2)
@@ -95,7 +95,7 @@ startingQuest03.QuestLevel.set(1)
 
 startingQuest03.Questgiver.addStarter(questGiver01.ID)
 startingQuest03.Questgiver.addEnder(questGiver02.ID)
-prevAndNextQuestID(startingQuest03.ID,0,0)
+prevAndNextQuestID(startingQuest03.ID,startingQuest02.ID,startingQuest04.ID)
 
 startingQuest03.Rewards.Money.set(86)
 
@@ -119,7 +119,7 @@ startingQuest04.QuestLevel.set(1)
 
 startingQuest04.Questgiver.addStarter(questGiver02.ID)
 startingQuest04.Questgiver.addEnder(questGiver02.ID)
-prevAndNextQuestID(startingQuest04.ID,0,0)
+prevAndNextQuestID(startingQuest04.ID,startingQuest03.ID,startingQuest05.ID)
 
 startingQuest04.Rewards.ChoiceItem.add(tierOneClothMaterial,2)
 startingQuest04.Rewards.ChoiceItem.add(tierOneMailMaterial,2)
