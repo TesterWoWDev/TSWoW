@@ -5,7 +5,6 @@ import { SQL } from "wotlkdata/sql/SQLFiles";
 export function addToDBCItemExtendedCost(index:number, reqHonor: number, reqArena:number, ArenaSlotID: number, reqItems:number[], reqItemCount:number[],PersonalRating:number) {
     DBC.ItemExtendedCost.add(index).HonorPoints.set(reqHonor).ArenaPoints.set(reqArena).ArenaBracket.set(ArenaSlotID).ItemID.set(reqItems).ItemCount.set(reqItemCount).RequiredArenaRating.set(PersonalRating)
 }
-DBC.ItemExtendedCost.add
 export function addToDBCItemRandomProperties(name: string, propIndex: number, enchIndex:number, index1val: number, index2val: number, index3val: number, chance:number,SpellItemEnchantmentIndex:number) {
     DBC.ItemRandomProperties.add(propIndex).Name2.enGB.set(name).Enchantment.setIndex(0,SpellItemEnchantmentIndex-index1val).Enchantment.setIndex(1,SpellItemEnchantmentIndex-index2val).Enchantment.setIndex(2,SpellItemEnchantmentIndex-index3val)
     SQL.item_enchantment_template.add(enchIndex,propIndex).chance.set(chance)
