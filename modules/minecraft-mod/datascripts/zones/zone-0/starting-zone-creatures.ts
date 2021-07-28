@@ -36,18 +36,12 @@ ghostlyFigure01.Stats.ManaMod.set(1)
 spawnNPC(ghostlyFigure01.ID,0,0,[-8667.347,-17.63,31.13,1.49])
 SQL.creature_template_addon.add(ghostlyFigure01.ID).auras.set('68442') // Force Kneel
 
-export let questGiver01 = std.CreatureTemplates.create(MODNAME,'questgiver01-creature',30368)
+export let questGiver01 = std.CreatureTemplates.create(MODNAME,'questgiver01-creature',2934)
 questGiver01.Name.enGB.set('Elder Fogwaffle')
 questGiver01.Models.clearAll()
 questGiver01.Models.addIds(26958)
 questGiver01.Level.set(10,10)
 questGiver01.FactionTemplate.set(35)
-questGiver01.DamageSchool.setNormal()
-questGiver01.Stats.ArmorMod.set(1)
-questGiver01.Stats.DamageMod.set(1)
-questGiver01.Stats.ExperienceMod.set(1)
-questGiver01.Stats.HealthMod.set(1)
-questGiver01.Stats.ManaMod.set(1)
 spawnNPC(questGiver01.ID,0,0,[-8680.762,-52.365,34.40,1.268])
 SQL.creature_template_addon.add(questGiver01.ID).auras.set('25824') // Spotlight
 

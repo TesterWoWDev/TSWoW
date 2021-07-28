@@ -6,7 +6,7 @@ let mob = std.CreatureTemplates.create(MODNAME,'quest1-mob',2934)//replace 2934 
 mob.Name.enGB.set('eh')
 mob.Subname.enGB.set('eh')
 mob.Level.set(1,3)
-
+mob.FactionTemplate.set(35)
 let mob2 = std.CreatureTemplates.create(MODNAME,'quest1-mob2',2934)//replace 2934 with parentCreature of a enemy mob(boar maybe)
 mob2.Name.enGB.set('eh')
 mob2.Subname.enGB.set('eh')
