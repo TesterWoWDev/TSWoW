@@ -1,7 +1,7 @@
-import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { tierOneBaseResources, tierOneClothMaterial } from "../../items/armor/tier1-set"
+import { MODNAME } from "../../modname"
 
 export let AgathasLockbox = std.Items.create(MODNAME,'agathaslockbox',4632)
 AgathasLockbox.Name.enGB.set('Agatha\'s Lockbox')

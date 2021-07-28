@@ -1,5 +1,6 @@
-import { MODNAME } from "quests-mod"
+
 import { std } from "tswow-stdlib"
+import { MODNAME } from "../../modname"
 import { SpiritI, ProtectionI, AgilityI, IntellectI, StaminaI, StrengthI } from "./zone-1-item-spells"
 
 

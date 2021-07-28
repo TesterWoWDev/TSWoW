@@ -1,7 +1,6 @@
-import { MODNAME } from "quests-mod"
 import { std } from "tswow-stdlib"
-import { ItemName } from "../../../../tswow-stdlib/datascripts/build/Item/ItemText"
-import { StaminaI } from "../zone-1/zone-1-item-spells"
+import { MODNAME } from "../../modname"
+
 import { SpiritIV, ProtectionIV, AgilityIV, IntellectIV, StrengthIV, StaminaIV } from "./zone-4-item-spells"
 
 export let MassiveRedPouch = std.Items.create(MODNAME,'massiveredpouch',805)
