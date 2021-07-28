@@ -1,6 +1,5 @@
 
 import { std } from "tswow-stdlib"
-import { prevAndNextQuestID } from "../../functions/quest-functions"
 import { tierOneBaseResources, tierOneClothGear, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { SmallSackofCoinswithBag } from "../../items/currencies"
 import { MODNAME } from "../../modname"
@@ -38,7 +37,8 @@ startingQuest01.Objectives.Entity.add(startingZoneWolfBoss.ID,1)//kill quest
 startingQuest01.Objectives.Item.add(AgathasLockbox.ID,1)//return item quest
 
 startingQuest01.Questgiver.addBoth(questGiver01.ID)
-prevAndNextQuestID(startingQuest01.ID,0,startingQuest02.ID)
+startingQuest01.PrevQuestID.set(0)
+startingQuest01.NextQuestID.set(startingQuest02.ID)
 
 startingQuest01.Rewards.ChoiceItem.add(tierOneClothMaterial,2)
 startingQuest01.Rewards.ChoiceItem.add(tierOneMailMaterial,2)
@@ -65,7 +65,8 @@ startingQuest02.MinLevel.set(1)
 startingQuest02.QuestLevel.set(1)
 
 startingQuest02.Questgiver.addBoth(questGiver01.ID)
-prevAndNextQuestID(startingQuest02.ID,startingQuest01.ID,startingQuest03.ID)
+startingQuest02.PrevQuestID.set(startingQuest01.ID)
+startingQuest02.NextQuestID.set(startingQuest03.ID)
 startingQuest02.Objectives.Item.add(startingResource01.ID,10)
 
 startingQuest02.Rewards.ChoiceItem.add(tierOneBaseResources[0],2)
@@ -95,7 +96,8 @@ startingQuest03.QuestLevel.set(1)
 
 startingQuest03.Questgiver.addStarter(questGiver01.ID)
 startingQuest03.Questgiver.addEnder(questGiver02.ID)
-prevAndNextQuestID(startingQuest03.ID,startingQuest02.ID,startingQuest04.ID)
+startingQuest03.PrevQuestID.set(startingQuest02.ID)
+startingQuest03.NextQuestID.set(startingQuest04.ID)
 
 startingQuest03.Rewards.Money.set(86)
 
@@ -119,7 +121,8 @@ startingQuest04.QuestLevel.set(1)
 
 startingQuest04.Questgiver.addStarter(questGiver02.ID)
 startingQuest04.Questgiver.addEnder(questGiver02.ID)
-prevAndNextQuestID(startingQuest04.ID,startingQuest03.ID,startingQuest05.ID)
+startingQuest04.PrevQuestID.set(startingQuest03.ID)
+startingQuest04.NextQuestID.set(0)
 
 startingQuest04.Rewards.ChoiceItem.add(tierOneClothMaterial,2)
 startingQuest04.Rewards.ChoiceItem.add(tierOneMailMaterial,2)
