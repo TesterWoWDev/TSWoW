@@ -51,7 +51,6 @@ export function makePool(poolEntry:number, node: GameObjectChest, maxLimit:numbe
     gobPositions.forEach((element,index) => {
         let gobGUID = node.spawn(MODNAME,poolEntry+'spawn'+index,Pos(725,element[0],element[1],element[2],element[3]))
         gobGUID.SpawnTimeSecs.set(respawnRate)
-        gobGUID.row.id.set(node.ID)
         SQL.pool_members.add(1,gobGUID.row.guid.get()).poolSpawnId.set(poolEntry).chance.set(100)
     })
 }
