@@ -146,7 +146,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
                 
             }else if(ids[i][1] == 15){//dagger
                 item.Damage.addPhysical(costval*levelrequirement/1.5,costval*levelrequirement)
-                item.row.delay.set(1600)
+                item.Delay.set(1600)
                 item.Sheath.set(6)
                 DBC.Item.filter({ID:item.ID}).forEach((value,index,array)=>{
                     value.SheatheType.set(6)

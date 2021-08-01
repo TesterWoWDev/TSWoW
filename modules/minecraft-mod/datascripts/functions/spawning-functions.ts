@@ -27,9 +27,12 @@ export function spawnMultipleNPCs(id:number,wanderDistance:number, equipmentID:n
     return guids
 }
 
-export function spawnNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:number[], respawnTime:number){
+export function spawnNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:number[], respawnTime:number,index?:number){
+    if(index == null){
+        index = 0
+    }
     let npc = std.CreatureTemplates.load(id);
-    let spawn = npc.spawn(MODNAME,id+"creature-spawn",Pos(725,position[0],position[1],position[2],position[3]))
+    let spawn = npc.spawn(MODNAME,id+"creature-spawn"+index,Pos(725,position[0],position[1],position[2],position[3]))
     spawn.row.equipment_id.set(equipmentID)
     spawn.SpawnTime.set(respawnTime)
     if(wanderDistance > 0){
@@ -39,12 +42,23 @@ export function spawnNPCWithTimer(id:number, wanderDistance:number, equipmentID:
     return spawn.GUID
 }
 
+export function spawnMultipleNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:number[][], respawnTime:number){
+    let npc = std.CreatureTemplates.load(id);
+    let guids: number[] = []
+    position.forEach((value,index)=>{
+        let guid = spawnNPCWithTimer(id,wanderDistance,equipmentID,value,respawnTime,index)
+        guids.push(guid)
+    })
+    
+    return guids
+}
+
 export function spawnGob(id: number, position:number[], index?:number) {
     if(index == null){
         index = 0
     }
     let gob = std.GameObjectTemplates.load(id);
-    gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(725,position[0],position[1],position[2],position[3])).row.id.set(id).rotation2.set(0).rotation3.set(0);
+    gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(725,position[0],position[1],position[2],position[3]))
 }
 
 export function spawnMultipleGobs(id:number, positions:number[][]){
@@ -53,16 +67,29 @@ export function spawnMultipleGobs(id:number, positions:number[][]){
     }
 }
 
-export function spawnGobTimer(id: number, position:number[], spawnSecs:number) {
+export function spawnGobTimer(id: number, position:number[], spawnSecs:number, index?:number) {
+    if(index == null){
+        index = 0
+    }
     let gob = std.GameObjectTemplates.load(id);
-    gob.spawn(MODNAME,id+"gob-spawn",Pos(725,position[0],position[1],position[2],position[3])).row.id.set(id).rotation2.set(0).rotation3.set(0).spawntimesecs.set(spawnSecs);
+    let spawn = gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(725,position[0],position[1],position[2],position[3])).SpawnTimeSecs.set(spawnSecs);
+    return spawn.row.guid.get()
+}
+
+export function spawnMultiGobTimer(id: number, position:number[][], spawnSecs:number) {
+    let gob = std.GameObjectTemplates.load(id);
+    let guids: number[] = []
+    position.forEach((value,index)=>{
+        let guid = spawnGobTimer(id,value,spawnSecs,index)
+        guids.push(guid)
+    })
+    return guids
 }
 
 export function addWaypoint(guid:number,path:number[][]){
     let pathID = guid*10
     path.forEach((value,index)=>{
-        
-    SQL.waypoint_data.add(pathID,index).position_x.set(value[0]).position_y.set(value[1]).position_z.set(value[2]).orientation.set(value[3]).delay.set(value[4]).move_type.set(0)
+        SQL.waypoint_data.add(pathID,index).position_x.set(value[0]).position_y.set(value[1]).position_z.set(value[2]).orientation.set(value[3]).delay.set(value[4]).move_type.set(0)
     })
     SQL.creature_addon.add(guid).path_id.set(pathID)
 }
