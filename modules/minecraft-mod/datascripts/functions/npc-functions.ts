@@ -43,6 +43,6 @@ export function addLootToCreatureSingleChance(loot: AttachedLootSet<CreatureTemp
         groupID = 0
     }
     items.forEach((value,index)=>{
-        loot.addItem(value,chance,1,1,false,groupID,0)
+        loot.addItem(value,chance,1,1,false,groupID,1)
     })
 }

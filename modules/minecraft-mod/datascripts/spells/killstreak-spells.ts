@@ -7,7 +7,7 @@ for(let i=1;i<=15;i++){
     let spell = std.Spells.create(MODNAME,'killstreak-spell-'+i,168)
     spell.Name.enGB.set(names[i])
     spell.Description.enGB.set('You are a '+names[i])
-    spell.AuraDescription.enGB.set('You are a '+names[i])
+    spell.AuraDescription.enGB.set('You are a '+names[i] + '. You have a bounty of an extra '+(i*5)+' honor on your head.')
     spell.Effects.clearAll()
     let e = spell.Effects.add()
     e.EffectType.setApplyAura()
