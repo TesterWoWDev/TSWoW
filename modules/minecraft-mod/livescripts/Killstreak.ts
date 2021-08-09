@@ -1,5 +1,22 @@
 const TABLE_NAME_KILLSTREAK = "playerkillstreak";
-const auraSpells:TSArray<uint32> = [1901,1901,1901]
+const auraSpells:TSArray<uint32> = [
+    GetID("Spell","minecraft-mod","killstreak-spell-1"),
+    GetID("Spell","minecraft-mod","killstreak-spell-2"),
+    GetID("Spell","minecraft-mod","killstreak-spell-3"),
+    GetID("Spell","minecraft-mod","killstreak-spell-4"),
+    GetID("Spell","minecraft-mod","killstreak-spell-5"),
+    GetID("Spell","minecraft-mod","killstreak-spell-6"),
+    GetID("Spell","minecraft-mod","killstreak-spell-7"),
+    GetID("Spell","minecraft-mod","killstreak-spell-8"),
+    GetID("Spell","minecraft-mod","killstreak-spell-9"),
+    GetID("Spell","minecraft-mod","killstreak-spell-10"),
+    GetID("Spell","minecraft-mod","killstreak-spell-11"),
+    GetID("Spell","minecraft-mod","killstreak-spell-12"),
+    GetID("Spell","minecraft-mod","killstreak-spell-13"),
+    GetID("Spell","minecraft-mod","killstreak-spell-14"),
+    GetID("Spell","minecraft-mod","killstreak-spell-15"),
+]
+
 @CharactersTable
 class PlayerKillstreak extends DBTable {
 	constructor(playerGUID: uint32) {
