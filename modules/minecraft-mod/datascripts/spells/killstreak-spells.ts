@@ -15,6 +15,7 @@ for(let i=1;i<=15;i++){
     e.DieSides.set(1)
     spell.Duration.setID(21)
     spell.Visual.clear()
+    spell.Attributes.cantBeCanceled.mark()
     spell.Icon.set("Achievement_PVP_H_"+padLeadingZeros(i,2))
 }
 
