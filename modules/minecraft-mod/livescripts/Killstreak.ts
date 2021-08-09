@@ -34,16 +34,16 @@ export function Killstreaks(events: TSEventHandlers) {
 		let killCount = killer.GetData().GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killer.GetGUIDLow())).killCount++		
 		let pastKills = killed.GetData().GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killed.GetGUIDLow())).killCount
         if(killCount%5 == 0){
-            let val = Math.floor(killCount/5.0)
-            if(val <= auraSpells.length){
-                if(val > 0){
-                    killer.RemoveAura(auraSpells[val-1])
+            let m = (killCount/5) | 0
+            if(m <= auraSpells.length){
+                if(m > 0){
+                    killer.RemoveAura(auraSpells[m-1])
                 }
-                killer.AddAura(auraSpells[val],killer)
+                killer.AddAura(auraSpells[m],killer)
             }
         }
         if(pastKills > 5){
-            killer.ModifyHonorPoints(pastKills*5)
+            //killer.ModifyHonorPoints(pastKills*5)
             SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has ENDED |cffff0000"+killed.GetName() + "|r's killstreak of "+(pastKills+1))
         }else{
             SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Now on a killstreak of "+(killCount+1))
