@@ -14,10 +14,13 @@ export function Atlas(events: TSEventHandlers) {
                     check = 0
                 }
             }
-            let query = QueryWorld('SELECT lootid FROM creature_template WHERE entry="' + entry + '";');
-            while(query.GetRow()){
-                lootID = query.GetUInt32(0)
-                check = 0
+            if(check == 0){
+                check = -1
+                let query = QueryWorld('SELECT lootid FROM creature_template WHERE entry="' + entry + '";');
+                while(query.GetRow()){
+                    lootID = query.GetUInt32(0)
+                    check = 0
+                }
             }
             if(check == 0){
                 let query = QueryWorld('SELECT * FROM creature_loot_template WHERE Entry="' + lootID + '";');
