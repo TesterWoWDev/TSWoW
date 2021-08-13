@@ -108,7 +108,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
     let returnIDs = []
 
     for(let i=0;i<names.length;i++){
-        let item = std.Items.create(MODNAME,tier + ' ' + names[i].toLowerCase().replace(" ","-"),38)
+        let item = std.Items.create(MODNAME,tier + ' ' + names[i].toLowerCase().replace(" ","-").replace("'",""),38)
         item.Class.set(ids[i][0],ids[i][1])
         item.InventoryType.set(ids[i][2])
         item.Quality.set(quality)

@@ -29,8 +29,6 @@ export function makeResourceNode(name:string,displayID:number,lockID:number,modP
     resourceNode.Size.set(0.5)
     resourceNode.RestockTime.set(0)
     resourceNode.IsConsumable.set(1)
-    resourceNode.row.Data4.set(1)
-    resourceNode.row.Data5.set(1)
     return resourceNode
 }
 

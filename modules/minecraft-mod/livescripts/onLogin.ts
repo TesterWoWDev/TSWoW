@@ -5,7 +5,7 @@ export function onLoginEvents(events:TSEventHandlers){
 
         let colors = ["","C79C6E","F58CBA","ABD473","FFF569","FFFFFF","C41F3B","0070DE","69CCF0","9482C9","","FF7D0A"]
         SendWorldMessage('|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r, the level [' +classIcons[player.GetClass()] + ' |cff'+levelColors[player.GetLevel()] +player.GetLevel()+ '|r] '+'|cff'+ colors[player.GetClass()] + player.GetClassAsString(0).toLowerCase() + '|r has logged in.')
-        SendWorldMessage('[' +classIcons[player.GetClass()] + ' |cff'+levelColors[player.GetLevel()] +player.GetLevel()+ '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h' + ' has logged in.')
+        SendWorldMessage('[' +classIcons[player.GetClass()] + ' |cff'+colors[player.GetLevel()] +player.GetLevel()+ '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h' + ' has logged in.')
         
         if(first){
             player.LearnSpell(50305)//skin
