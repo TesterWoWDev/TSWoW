@@ -48,39 +48,17 @@ function removeLoot(player:TSPlayer){
 	player.ModifyMoney(-9999999999)
 	let itemsHolder: TSArray<itemDef> = []
 	for (let x=19;x<=22;x++){//equipped bags inside slots
-			for (let i = 0; i <= 35; ++i){
-					item = player.GetItemByPos(x,i)
-					if(!item.IsNull()){
-							let itemP = new itemDef()
-							itemP.itemCount = item.GetCount()
-							itemP.itemEntry = item.GetEntry()
-							itemsHolder.push(itemP)
-							player.RemoveItem(item,item.GetCount(),item.GetEntry())
-					}
+		for (let i = 0; i <= 35; ++i){
+			item = player.GetItemByPos(x,i)
+			if(!item.IsNull()){
+				let itemP = new itemDef()
+				itemP.itemCount = item.GetCount()
+				itemP.itemEntry = item.GetEntry()
+				itemsHolder.push(itemP)
+				player.RemoveItem(item,item.GetCount(),item.GetEntry())
 			}
+		}
 	}
-	// for (let x=67;x<=74;x++){//equipped bags inside bank slots
-	// 		for (let i = 0; i <= 35; ++i){
-	// 				item = player.GetItemByPos(x,i)
-	// 				if(!item.IsNull()){
-	// 						let itemP = new itemDef()
-	// 						itemP.itemCount = item.GetCount()
-	// 						itemP.itemEntry = item.GetEntry()
-	// 						itemsHolder.push(itemP)
-	// 						player.RemoveItem(item,item.GetCount(),item.GetEntry())
-	// 				}
-	// 		}
-	// }
-	// for(let i=0;i<=118;i++){//equip/equip bags/backpack/bank main/bank bags/keyring
-	// 		item = player.GetItemByPos(255,i)
-	// 		if(!item.IsNull()){
-	// 				let itemP = new itemDef()
-	// 				itemP.itemCount = item.GetCount()
-	// 				itemP.itemEntry = item.GetEntry()
-	// 				itemsHolder.push(itemP)
-	// 				player.RemoveItem(item,item.GetCount(),item.GetEntry())
-	// 		}
-	// }
 	container.items = itemsHolder
 	arrOfPlayerLoot.push(container)
 }
