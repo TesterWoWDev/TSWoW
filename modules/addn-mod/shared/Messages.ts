@@ -31,29 +31,13 @@ export class creatureNoExistMessage {
 }
 
 @Message
-export class bagSlotMessage {
+export class blackjackPlayerMessage {
     @MsgPrimitive
-        Bag: uint32 = 1
-    @MsgPrimitive
-        Slot: uint32 = 1
-    @MsgPrimitive
-        itemID: uint32 = 0
+        value: uint32 = 0
 }
 
 @Message
-export class frameCloseMessage {
-    @MsgPrimitive
-        Close: uint32 = 1
-}
-
-@Message
-export class scrapMessage {
-    @MsgPrimitive
-        Close: uint32 = 1
-}
-
-@Message
-export class showText {
-    @MsgString(179)
-        showTextVar: string = ""
+export class blackjackSendHandMessage {
+    @MsgPrimitiveArray(10)
+        cards: TSArray<uint32> = []
 }
