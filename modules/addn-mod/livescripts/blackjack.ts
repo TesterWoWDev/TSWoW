@@ -1,5 +1,5 @@
 import { count } from "console";
-import { blackjackPlayerMessage } from "../shared/Messages";
+import { blackjackPlayerMessage, blackjackSendHandMessage } from "../shared/Messages";
 
 class Player {
     cards: TSArray<uint32> = []
@@ -30,6 +30,8 @@ export function Blackjack(events: TSEventHandlers) {
             addPlayerBet(player,message.bet)
         }else if(val == 6){
             setPlayerBet(player,message.bet)
+        }else if(val == 7){
+            sendPlayerData(player)   
         }else if(val == 100){
             kickPlayer(player.GetGUIDLow())
         }
@@ -54,14 +56,14 @@ function drawCard(player:TSPlayer){
     let curCards = currentPlayers[curKey].cards
     curCards.push(randomCard())
     currentPlayers[curKey].cards = curCards
-    //update player
+    sendPlayerData(player)
 }
 
 function emptyHand(player:TSPlayer){
     const curKey = player.GetGUIDLow()
     let e:TSArray<uint32> = []
     currentPlayers[curKey].cards = e
-    //update player
+    sendPlayerData(player)
 }
 
 function countHand(player:TSPlayer):uint32{
@@ -108,6 +110,14 @@ function setPlayerBet(player:TSPlayer,bet:uint32){
     }
     //update player
 }
+
+function sendPlayerData(player:TSPlayer){
+    let pkt = new blackjackSendHandMessage()
+    let cur = currentPlayers[player.GetGUIDLow()]
+    pkt.cards = cur.cards
+    pkt.bet = cur.curBet
+}
+
 
 function endGame(){
     currentPlayers.forEach((key,value)=>{

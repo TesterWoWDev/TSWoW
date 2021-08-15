@@ -41,4 +41,6 @@ export class blackjackPlayerMessage {
 export class blackjackSendHandMessage {
     @MsgPrimitiveArray(10)
         cards: TSArray<uint32> = []
+    @MsgPrimitive
+        bet: uint32 = 0
 }
