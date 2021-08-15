@@ -3,13 +3,14 @@ import { blackjackPlayerMessage } from "../shared/Messages";
 
 class Player {
     cards: TSArray<uint32> = []
+    curBet: uint32 = 0
   }
   let currentPlayers : TSDictionary<uint64,Player> = MakeDictionary<uint64,Player>({});
 
 export function Blackjack(events: TSEventHandlers) {
     events.Player.OnLogout((player)=>{
         if(currentPlayers.contains(player.GetGUIDLow())){
-            kickPlayer(player)
+            kickPlayer(player.GetGUIDLow())
         }
     })
 
@@ -25,8 +26,12 @@ export function Blackjack(events: TSEventHandlers) {
             countHand(player)
         }else if(val == 4){
             checkLose(player)
+        }else if(val == 5){
+            addPlayerBet(player,message.bet)
+        }else if(val == 6){
+            setPlayerBet(player,message.bet)
         }else if(val == 100){
-            kickPlayer(player)
+            kickPlayer(player.GetGUIDLow())
         }
     })
 }
@@ -35,8 +40,7 @@ function joinPlayer(player:TSPlayer){
     currentPlayers[player.GetGUIDLow()] = new Player()
 }
 
-function kickPlayer(player:TSPlayer){
-    const oldKey = player.GetGUIDLow()
+function kickPlayer(oldKey:uint32){
     let newDict = MakeDictionary<uint64,Player>({})
     currentPlayers.forEach((key,value)=>{
         if(key != oldKey)
@@ -50,12 +54,14 @@ function drawCard(player:TSPlayer){
     let curCards = currentPlayers[curKey].cards
     curCards.push(randomCard())
     currentPlayers[curKey].cards = curCards
+    //update player
 }
 
 function emptyHand(player:TSPlayer){
     const curKey = player.GetGUIDLow()
     let e:TSArray<uint32> = []
     currentPlayers[curKey].cards = e
+    //update player
 }
 
 function countHand(player:TSPlayer):uint32{
@@ -75,13 +81,53 @@ function checkLose(player:TSPlayer):bool{
         return true
     }else if(count == 21){
         player.SendAreaTriggerMessage('YOU WON!')
+        playerWin(player)
         return false
     }else{
         player.SendAreaTriggerMessage('You did not lose!')
         return false
+    }   
+}
+
+function addPlayerBet(player:TSPlayer,bet:uint32){
+    if(player.GetMoney() >= bet){
+        player.ModifyMoney(-bet)
+        currentPlayers[player.GetGUIDLow()].curBet += bet
+    }else{
+        player.SendAreaTriggerMessage('You poor')
     }
+    //update player
+}
+
+function setPlayerBet(player:TSPlayer,bet:uint32){
+    if(player.GetMoney() >= bet){
+        player.ModifyMoney(-bet)
+        currentPlayers[player.GetGUIDLow()].curBet = bet
+    }else{
+        player.SendAreaTriggerMessage('You poor')
+    }
+    //update player
+}
+
+function endGame(){
+    currentPlayers.forEach((key,value)=>{
+        kickPlayer(key)
+    });
+}
+
+function playerWin(player:TSPlayer){
+    let totalPot = getTotalPot()
+    player.ModifyMoney(totalPot)
     
 }
 function randomCard():uint32{
     return Math.floor(Math.random() * 13) + 1;
+}
+
+function getTotalPot():uint32{
+    let totalPot:uint32 = 0
+    currentPlayers.forEach((key,value)=>{
+        totalPot += value.curBet;
+    });
+    return totalPot
 }

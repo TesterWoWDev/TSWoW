@@ -34,6 +34,7 @@ export class creatureNoExistMessage {
 export class blackjackPlayerMessage {
     @MsgPrimitive
         value: uint32 = 0
+        bet: uint32 = 0
 }
 
 @Message
