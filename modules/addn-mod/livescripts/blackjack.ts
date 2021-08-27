@@ -98,7 +98,7 @@ function addPlayerBet(player:TSPlayer,bet:uint32){
     }else{
         player.SendAreaTriggerMessage('You poor')
     }
-    //update player
+    sendPlayerData(player)
 }
 
 function setPlayerBet(player:TSPlayer,bet:uint32){
@@ -108,7 +108,7 @@ function setPlayerBet(player:TSPlayer,bet:uint32){
     }else{
         player.SendAreaTriggerMessage('You poor')
     }
-    //update player
+    sendPlayerData(player)
 }
 
 function sendPlayerData(player:TSPlayer){

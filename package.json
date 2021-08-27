@@ -42,6 +42,7 @@
     "sync-mysql": "^3.0.1",
     "terminal-kit": "^1.44.0",
     "tester-mod": "file:modules/tester-mod/datascripts/build",
+    "testing": "file:modules/testing/datascripts/build",
     "tswow-stdlib": "file:modules/tswow-stdlib/datascripts/build",
     "typescript": "^4.2.3",
     "typescript-to-lua": "^0.37.1",
