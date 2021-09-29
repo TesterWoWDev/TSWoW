@@ -1,14 +1,27 @@
-let itemIDs = [
+let itemIDs:TSArray<uint64> = [
+    GetID("item_template","minecraft-mod","staffofflames"),
     2092
 ]
+let spellIDs = [
+    13,
+    13
+]
+let spellNames = [
+    "name1",
+    "name2"
+]
+
+
 
 const itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({ // <-- works!
-    2092: 51723,
 });
-
 const itemIDToSpellName : TSDictionary<uint64,string> = MakeDictionary<uint64,string>({ // <-- works!
-    2092: "Fan of Knives",
 });
+for(let i=0;i<itemIDs.length;i++){
+    itemIDToSpellID[itemIDs[i]] = spellIDs[i]
+    itemIDToSpellName[itemIDs[i]] = spellNames[i]
+}
+
 
 export function itemLearnSpell(events: TSEventHandlers) {
     //add some sort of loop
