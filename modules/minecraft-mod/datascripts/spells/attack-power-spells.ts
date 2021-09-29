@@ -33,4 +33,3 @@ attackpower4.Effects.get(0).AuraType.setModAttackPower()
 attackpower4.Effects.get(0).BasePoints.set(349)
 attackpower4.Effects.get(1).BasePoints.set(-1)
 attackpower4.Cooldown.set(120000,0,0,0)
-
