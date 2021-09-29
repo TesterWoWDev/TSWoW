@@ -1,8 +1,6 @@
 let table:TSArray<uint32> = [
     GetID("creature_template","minecraft-mod","worgchampioncreature-creature"),
-    
 ]
-
 
 export function creatureDeathTest(events: TSEventHandlers) {
     for(let i=0;i<table.length;i++){

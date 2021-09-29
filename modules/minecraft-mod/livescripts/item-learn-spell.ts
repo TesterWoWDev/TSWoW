@@ -2,7 +2,7 @@ let itemIDs:TSArray<uint64> = [
     GetID("item_template","minecraft-mod","staffofflames"),
     2092
 ]
-let spellIDs = [
+let spellIDs:TSArray<uint64> = [
     GetID("Spell","minecraft-mod","felflamestrike-spell"),
     GetID("Spell","minecraft-mod","fanofknives-spell"),
 ]
