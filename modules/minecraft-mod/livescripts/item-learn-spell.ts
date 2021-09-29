@@ -1,13 +1,15 @@
 let itemIDs = [
-    2092
+    2092, GetID("item_template","minecraft-mod","staffofflames")
 ]
 
 const itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({ // <-- works!
-    2092: 51723,
+    2092: 51723, 
+    staffofflames: 41379,
 });
 
 const itemIDToSpellName : TSDictionary<uint64,string> = MakeDictionary<uint64,string>({ // <-- works!
     2092: "Fan of Knives",
+    41379: "Flamestrike",
 });
 
 export function itemLearnSpell(events: TSEventHandlers) {
