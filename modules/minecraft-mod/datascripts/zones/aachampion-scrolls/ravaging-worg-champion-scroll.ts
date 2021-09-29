@@ -36,6 +36,21 @@ WorgScroll.RequiredLevel.set(1)
 WorgScroll.Spells.clearAll()
 WorgScroll.Spells.add(WorgChampion.ID)
 
+/*Spell Scripts - Champion Boss Items*/
+export let chanceWorg1 = std.Spells.create(MODNAME,'chanceworg1-spell',34067)//15283
+chanceWorg1.Name.enGB.set('Summon Worg')
+
+export let chanceWorg1M = std.Spells.create(MODNAME,'chanceworg1m-spell',67670) //melee
+chanceWorg1M.Name.enGB.set('Summon Worg')
+chanceWorg1M.Description.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
+chanceWorg1M.AuraDescription.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
+chanceWorg1M.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
+export let chanceWorg1C = std.Spells.create(MODNAME,'chanceworg1c-spell',67672) //caster
+chanceWorg1C.Name.enGB.set('Summon Worg')
+chanceWorg1C.Description.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
+chanceWorg1C.AuraDescription.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
+chanceWorg1C.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
+
 /*Item Creation - Champion Boss Loot*/
 export let ChampionsSatchel = std.Items.create(MODNAME,'championsatchel',805)
 ChampionsSatchel.Quality.setBlue()
@@ -49,16 +64,20 @@ StaffofFlames.Stats.addSpirit(32)
 StaffofFlames.Stats.addSpellPower(220)
 StaffofFlames.Stats.addHasteRating(22)
 StaffofFlames.Stats.addCritRating(50)
+StaffofFlames.Spells.clearAll()
+StaffofFlames.Spells.add(chanceWorg1C.ID)
 export let DancingFlamesRapier = std.Items.create(MODNAME,'dancingflamesrapier',12777)
 DancingFlamesRapier.Name.enGB.set("Rapier of the Dancing Flame")
 DancingFlamesRapier.Quality.setBlue()
-StaffofFlames.Stats.clearAll()
-StaffofFlames.Stats.addStamina(55)
-StaffofFlames.Stats.addAgility(18)
-StaffofFlames.Stats.addStrength(22)
-StaffofFlames.Stats.addAttackPower(99)
-StaffofFlames.Stats.addHasteRating(7)
-StaffofFlames.Stats.addCritRating(12)
+DancingFlamesRapier.Stats.clearAll()
+DancingFlamesRapier.Stats.addStamina(55)
+DancingFlamesRapier.Stats.addAgility(18)
+DancingFlamesRapier.Stats.addStrength(22)
+DancingFlamesRapier.Stats.addAttackPower(99)
+DancingFlamesRapier.Stats.addHasteRating(7)
+DancingFlamesRapier.Stats.addCritRating(12)
+DancingFlamesRapier.Spells.clearAll()
+DancingFlamesRapier.Spells.add(chanceWorg1M.ID)
 
 /*Adding the loot to the boss*/
 
