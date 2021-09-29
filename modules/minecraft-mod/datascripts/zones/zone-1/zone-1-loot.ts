@@ -6,6 +6,9 @@ import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJor
 import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test";
 import { SmallSackofCoins } from "../../items/currencies";
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions";
+import { MurlocScroll } from "../aachampion-scrolls/murloc-champion-scroll";
+import { WorgScroll } from "../aachampion-scrolls/ravaging-worg-champion-scroll";
+import { KoboldScroll } from "../aachampion-scrolls/kobold-champion-scroll";
 //Pearl, Epaulet, Chain, Metal, Reinforced Metal, Stick,Dust
 //Cloth, Leather, Mail
 
@@ -38,6 +41,9 @@ addLootToCreature(creature1Loot,[
 
 // Creature 2 - Animal - Young Wolf
 // Group 1 Loot Percentage = 6% + 13% + 41% = 60%
+addLootToCreature(creature2Loot,[
+    WorgScroll.ID, // Worg Champion Scroll
+],[0.5],2)
 addLootToCreature(creature2Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[2,4,0])
 addLootToCreature(creature2Loot,tierOneBaseResources,[0,0,5,0,0,8,0])
 /*Bags and Food - Group 0*/
@@ -72,6 +78,9 @@ addLootToCreature(creature3Loot,[
 
 // Creature 4 - Kobold Foreman
 // Group 1 Loot Percentage = 8% + 25% + 41% = 74%
+addLootToCreature(creature4Loot,[
+    KoboldScroll.ID, // Worg Champion Scroll
+],[0.5],2)
 addLootToCreature(creature4Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[4,4,0])
 addLootToCreature(creature4Loot,tierOneBaseResources,[6,2,4,4,3,2,4])
 /*Bags and Food - Group 0*/
@@ -89,6 +98,9 @@ addLootToCreature(creature4Loot,[
 
 // Creature 5 - Kobold Miner
 // Group 1 Loot Percentage = 9% + 26% + 41% = 76%
+addLootToCreature(creature5Loot,[
+    KoboldScroll.ID, // Worg Champion Scroll
+],[0.5],2)
 addLootToCreature(creature5Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[0,4,5])
 addLootToCreature(creature5Loot,tierOneBaseResources,[8,0,0,6,4,3,5])
 /*Bags and Food - Group 0*/
@@ -110,6 +122,10 @@ addLootToCreature(creature5Loot,[
 
 // Creature 6 - Salty Murloc
 // Group 1 Loot Percentage = 8% + 4% + 41% = 53%
+/*Murloc Champion Scroll - Group 2*/
+addLootToCreature(creature6Loot,[
+    MurlocScroll.ID, // Murloc Champion Scroll
+],[0.5],2)
 addLootToCreature(creature6Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[8,0,0])
 addLootToCreature(creature6Loot,tierOneBaseResources,[0,0,0,0,0,4,0])
 /*Bags and Food - Group 0*/
@@ -127,6 +143,9 @@ addLootToCreature(creature6Loot,[
 
 // Creature 7 - Murloc Wavebender
 // Group 1 Loot Percentage = 12% + 19% + 41% = 72%
+addLootToCreature(creature7Loot,[
+    MurlocScroll.ID, // Murloc Champion Scroll
+],[0.5],2)
 addLootToCreature(creature7Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[6,0,6])
 addLootToCreature(creature7Loot,tierOneBaseResources,[6,0,3,0,0,2,8])
 /*Bags and Food - Group 0*/
@@ -245,6 +264,9 @@ addLootToCreatureSingleChance(RareCreature1Loot,[
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
 // Group 1 (Epic Equipment) Loot Percentage  = 0.300% 
 // Group 2 (Rare Equipment) Loot Percentage  = 36.00%
+addLootToCreature(RareCreature2Loot,[
+    WorgScroll.ID, // Worg Champion Scroll
+],[2.0],3)
 addLootToCreature(RareCreature2Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2]) // Tier 1 Scraps
 addLootToCreature(RareCreature2Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLootToCreature(RareCreature2Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
@@ -287,6 +309,9 @@ addLootToCreatureSingleChance(RareCreature2Loot,[
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
 // Group 1 (Epic Equipment) Loot Percentage  = 0.300% 
 // Group 2 (Rare Equipment) Loot Percentage  = 36.00%
+addLootToCreature(RareCreature3Loot,[
+    MurlocScroll.ID, // Murloc Champion Scroll
+],[2.0],3)
 addLootToCreature(RareCreature3Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2]) // Tier 1 Scraps
 addLootToCreature(RareCreature3Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[1,1,1]) // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
 addLootToCreature(RareCreature3Loot,tierOneBaseResources,[5,5,5,5,5,5,5])
@@ -325,7 +350,7 @@ addLootToCreatureSingleChance(RareCreature3Loot,[
     FlameWrath.ID,                  BurstofKnowledge.ID,                CircleofFlame.ID
 ],0.2,2)
 
-// Rare Creature 3 - Murglegurgle (Rare Murloc)
+// Rare Creature 4 - Unknown
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
 // Group 1 (Epic Equipment) Loot Percentage  = 0.300% 
 // Group 2 (Rare Equipment) Loot Percentage  = 36.00%

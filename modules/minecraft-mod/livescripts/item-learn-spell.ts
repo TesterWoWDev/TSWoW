@@ -3,8 +3,8 @@ let itemIDs:TSArray<uint64> = [
     2092
 ]
 let spellIDs = [
-    39139,
-    51723
+    GetID("Spell","minecraft-mod","felflamestrike-spell"),
+    GetID("Spell","minecraft-mod","fanofknives-spell"),
 ]
 let spellNames = [
     "Flamestrike",

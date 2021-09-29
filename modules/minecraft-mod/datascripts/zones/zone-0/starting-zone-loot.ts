@@ -14,7 +14,7 @@ addLootToCreature(startingZoneWolfBossLoot,[
 /*Champion Scroll Loot - Group 1*/
 addLootToCreature(startingZoneWolfBossLoot,[
     WorgScroll.ID
-],[100],1)
+],[2],1)
 /*Quest Requirements - Group 8*/
 addLootToCreature(startingZoneWolfBossLoot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID
