@@ -11,5 +11,8 @@ export function creatureDeathTest(events: TSEventHandlers) {
             }
         })  
     }
-    
+    events.Player.OnLogin((player,first)=>{
+        console.log(player.GetZoneId())
+        console.log(player.GetAreaId())
+    })
 }
