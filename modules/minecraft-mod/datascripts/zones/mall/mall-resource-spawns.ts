@@ -11,7 +11,7 @@ LoggingPileLogs.Name.enGB.set('Logs')
 LoggingPileLogs.Quality.setWhite()
 LoggingPileLogs.MaxStack.set(9999)
 
-export let GrainSack = std.Items.create(MODNAME,'grainsack',19492)
+export let GrainSack = std.Items.create(MODNAME,'grainsack',8838)
 GrainSack.Name.enGB.set('Grain')
 GrainSack.Quality.setWhite()
 GrainSack.MaxStack.set(9999)
