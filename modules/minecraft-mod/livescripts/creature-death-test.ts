@@ -7,9 +7,12 @@ export function creatureDeathTest(events: TSEventHandlers) {
         events.CreatureID.OnDeath(table[i], (creature,killer)=>{
             let players = creature.GetPlayersInRange(50,0,0)
             for(let i=0;i<players.length;i++){
-                players[i].AddAura(133,players[i])
+                players[i].AddAura(GetID("Spell","minecraft-mod","championkill-spell"),players[i])
             }
         })  
     }
-    
+    events.Player.OnLogin((player,first)=>{
+        console.log(player.GetZoneId())
+        console.log(player.GetAreaId())
+    })
 }
