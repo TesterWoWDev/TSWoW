@@ -11,20 +11,18 @@ let spellNames = [
     "Fan of Knives"
 ]
 
-
-
-const itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({ // <-- works!
+let itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({ // <-- works!
+    1:1
 });
-const itemIDToSpellName : TSDictionary<uint64,string> = MakeDictionary<uint64,string>({ // <-- works!
+let itemIDToSpellName : TSDictionary<uint64,string> = MakeDictionary<uint64,string>({ // <-- works!
+    1:"1"
 });
-for(let i=0;i<itemIDs.length;i++){
-    itemIDToSpellID[itemIDs[i]] = spellIDs[i]
-    itemIDToSpellName[itemIDs[i]] = spellNames[i]
-}
-
 
 export function itemLearnSpell(events: TSEventHandlers) {
-    //add some sort of loop
+    for(let i=0;i<itemIDs.length;i++){
+        itemIDToSpellID[itemIDs[i]] = spellIDs[i]
+        itemIDToSpellName[itemIDs[i]] = spellNames[i]
+    }
     for(let i=0;i<itemIDs.length;i++){
         events.ItemID.OnEquipEarly(itemIDs[i],(item,player,result)=>{
             let entry = item.GetEntry()
