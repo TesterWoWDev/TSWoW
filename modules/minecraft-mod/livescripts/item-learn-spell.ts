@@ -12,10 +12,8 @@ let spellNames = [
 ]
 
 let itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({ // <-- works!
-    1:1
 });
 let itemIDToSpellName : TSDictionary<uint64,string> = MakeDictionary<uint64,string>({ // <-- works!
-    1:"1"
 });
 
 export function itemLearnSpell(events: TSEventHandlers) {
