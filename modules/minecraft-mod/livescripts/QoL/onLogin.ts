@@ -12,6 +12,7 @@ export function onLoginEvents(events:TSEventHandlers){
             player.LearnSpell(65288)//herb
             player.LearnSpell(50310)//mining
             player.LearnSpell(13262)//disenchant
+            player.LearnSpell(51296)//cooking
             player.RemoveSpell(2383,false,false)//remove find herb
             player.RemoveSpell(2580,false,false)//remove find mineral
             player.AddItem(GetID("item_template","minecraft-mod","multitool"),1)//multitool
