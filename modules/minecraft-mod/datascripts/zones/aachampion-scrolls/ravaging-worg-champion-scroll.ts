@@ -83,6 +83,13 @@ chanceWorg1C.Description.enGB.set('Your attacks and abilties have the chance to 
 chanceWorg1C.AuraDescription.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
 chanceWorg1C.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
 
+
+export let passiveflamewave = std.Spells.create(MODNAME,'passiveflamewave-spell',67672) //caster
+passiveflamewave.Name.enGB.set('Flame Wave')
+passiveflamewave.Description.enGB.set('Your attacks and abilties now have the chance to cast flame wave.')
+passiveflamewave.AuraDescription.enGB.set('Your attacks and abilties now have the chance to cast flame wave.')
+passiveflamewave.Effects.get(0).TriggerSpell.set(75413)
+
 //These don't work; the mana cost can not be changed.1
 export let FanofKnives = std.Spells.create(MODNAME,'fanofknives-spell',51723)
 FanofKnives.Mana.setEnergy(10)
