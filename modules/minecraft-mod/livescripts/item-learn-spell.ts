@@ -11,10 +11,8 @@ let spellNames = [
     "Fan of Knives"
 ]
 
-let itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({ // <-- works!
-});
-let itemIDToSpellName : TSDictionary<uint64,string> = MakeDictionary<uint64,string>({ // <-- works!
-});
+let itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({});
+let itemIDToSpellName : TSDictionary<uint64,string> = MakeDictionary<uint64,string>({});
 
 export function itemLearnSpell(events: TSEventHandlers) {
     for(let i=0;i<itemIDs.length;i++){
