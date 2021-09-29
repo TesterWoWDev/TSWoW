@@ -85,12 +85,12 @@ chanceWorg1C.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
 
 //These don't work; the mana cost can not be changed.1
 export let FanofKnives = std.Spells.create(MODNAME,'fanofknives-spell',51723)
-FanofKnives.Power.setEnergy(10)
+FanofKnives.Mana.setEnergy(10)
 FanofKnives.Cooldown.set(0,0,0,0)
 export let FelFlamestrike = std.Spells.create(MODNAME,'felflamestrike-spell',39139)
 FelFlamestrike.Name.enGB.set('Flamestrike')
 FelFlamestrike.CastTime.set(3000,0,3000)
-FelFlamestrike.Power.setMana(0,0,0,0,0)
+FelFlamestrike.Mana.setMana(0,0,0,0,0)
 FelFlamestrike.Cooldown.set(30000,0,0,0)
 
 
