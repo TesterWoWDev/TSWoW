@@ -68,6 +68,6 @@ addLootToCreature(WorgChampionCreatureLoot,[
 ],[5,5,5,5,3],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(WorgChampionCreatureLoot,[
-    StaffofFlames.ID,          
-],100,1)
+    StaffofFlames.ID,       DancingFlamesRapier.ID,       
+],50,1)
 //create boss script here
