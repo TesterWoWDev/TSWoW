@@ -7,6 +7,8 @@ import { worldChat } from "./world-chat"
 import { Dueling } from "./QoL/onDuel"
 import { Killstreaks } from "./QoL/Killstreak"
 import { onLoginEvents } from "./QoL/onLogin"
+import { itemLearnSpell } from "./item-learn-spell"
+import { creatureDeathTest } from "./creature-death-test"
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
     onLoginEvents(events)
@@ -16,5 +18,7 @@ export function Main(events: TSEventHandlers) {
     onLevelup(events)
     Killstreaks(events)
     Dueling(events)
+    itemLearnSpell(events)
     //invasions(events)
+    creatureDeathTest(events)      
 }
