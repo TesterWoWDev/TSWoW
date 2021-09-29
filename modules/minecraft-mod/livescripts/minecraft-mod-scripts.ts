@@ -20,5 +20,5 @@ export function Main(events: TSEventHandlers) {
     Dueling(events)
     itemLearnSpell(events)
     //invasions(events)
-    creatureDeathTest(events)      
+    //creatureDeathTest(events)      
 }
