@@ -1,6 +1,6 @@
 export function itemLearnSpell(events: TSEventHandlers) {
     //add some sort of loop
-    events.ItemID.OnEquipLate(2092,(item,player,result)=>{
+    events.ItemID.OnEquipEarly(2092,(item,player,result)=>{
         player.LearnSpell(51723)
         player.SendAreaTriggerMessage("You feel a surge of energy enter your mind. You have learned how to use Fan of Knives.")
     })
