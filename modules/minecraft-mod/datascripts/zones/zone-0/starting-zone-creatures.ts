@@ -1,6 +1,9 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL_broadcast_text } from "wotlkdata/sql/types/broadcast_text"
 import { SQL_creature_template_addon } from "wotlkdata/sql/types/creature_template_addon"
+import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
+import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
 import { spawnMultipleNPCs, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 import { creature3 } from "../zone-1/zone-1-creatures"
@@ -8,6 +11,7 @@ import { creature3 } from "../zone-1/zone-1-creatures"
 /*Ambient Creature Spawns*/
 export let WoodcuttingTree = std.CreatureTemplates.create(MODNAME,'woodcuttingtree-creature',721)
 WoodcuttingTree.Name.enGB.set('Tree')
+WoodcuttingTree.FactionTemplate.set(7) // Non Agressive Faction - will not get attacked by boars
 WoodcuttingTree.Scale.set(1)
 WoodcuttingTree.Models.clearAll()
 WoodcuttingTree.Models.addIds(16977)
@@ -25,6 +29,51 @@ StandingCitizen.Models.clearAll()
 StandingCitizen.Models.addIds(23082,1526,1501,21621)
 SQL_creature_template_addon.add(StandingCitizen.ID).emote.set(0)
 
+export let DandotheRiled = std.CreatureTemplates.create(MODNAME,'dando-creature',39686)
+DandotheRiled.Name.enGB.set('Dando the Riled')
+DandotheRiled.Subname.enGB.set('The Undying')
+DandotheRiled.FactionTemplate.set(35)
+DandotheRiled.Models.clearAll()
+DandotheRiled.Models.addIds(30859,30987,30861,30862)
+spawnNPC(DandotheRiled.ID,0,0,[-8743.039062,-86.155716,31.135164,2.109006])
+SQL_waypoint_data.add(DandotheRiled.ID,1).position_x.set(-8743.039062).position_y.set(-86.155716).position_z.set(31.135164).orientation.set(2.109006) //starting point = spawn point
+SQL_waypoint_data.add(DandotheRiled.ID,2).position_x.set(-8747.386719).position_y.set(-76.869591).position_z.set(31.135164).orientation.set(0.903420)
+SQL_waypoint_data.add(DandotheRiled.ID,3).position_x.set(-8737.828125).position_y.set(-62.211067).position_z.set(31.135164).orientation.set(0.989814)
+SQL_waypoint_data.add(DandotheRiled.ID,4).position_x.set(-8718.592773).position_y.set(-45.496162).position_z.set(31.135164).orientation.set(0.687435)
+SQL_waypoint_data.add(DandotheRiled.ID,5).position_x.set(-8700.653320).position_y.set(-44.864475).position_z.set(31.135210).orientation.set(5.851428)
+SQL_waypoint_data.add(DandotheRiled.ID,6).position_x.set(-8694.234375).position_y.set(-61.146999).position_z.set(31.135210).orientation.set(5.113153).delay.set(20000).action.set(0).action_chance.set(100)//stop and talk to the npc, add emote and creature text
+SQL_broadcast_text.add(90000).Text.set('Are you kidding me? These prices are absolutely outrageous. How do you expect new players to afford any of this crap?!').EmoteID1.set(1)
+SQL_waypoint_scripts.add(DandotheRiled.ID).id.set(6).delay.set(5).command.set(0).datalong.set(0).dataint.set(90000)
+
+SQL_waypoint_data.add(DandotheRiled.ID,7).position_x.set(-8701.031250).position_y.set(-43.527889).position_z.set(31.135210).orientation.set(2.717688) //the walk back
+SQL_waypoint_data.add(DandotheRiled.ID,8).position_x.set(-8716.988281).position_y.set(-44.429104).position_z.set(31.147694).orientation.set(3.931129)
+SQL_waypoint_data.add(DandotheRiled.ID,9).position_x.set(-8747.326172).position_y.set(-71.871475).position_z.set(31.134922).orientation.set(3.907567).delay.set(20000) //end point = spawn point
+
+export let Boar01 = std.CreatureTemplates.create(MODNAME,'boar01-creature3',299)
+Boar01.Name.enGB.set('Wild Boar')
+Boar01.Models.clearAll()
+Boar01.Models.addIds(503,389,607,704)
+Boar01.MovementType.setRandomMovement()
+Boar01.Level.set(1,1)
+Boar01.DamageSchool.setNormal()
+Boar01.Stats.ArmorMod.set(1)
+Boar01.Stats.DamageMod.set(1)
+Boar01.Stats.ExperienceMod.set(1)
+Boar01.Stats.HealthMod.set(1)
+Boar01.Stats.ManaMod.set(1)
+
+// Faction 32 fights faction 31 - AKA, adventurers fight boars
+export let FightingAdventurer01 = std.CreatureTemplates.create(MODNAME,'adventurer01-creature',39686)
+FightingAdventurer01.Name.enGB.set('Seasoned Adventurer')
+FightingAdventurer01.Subname.enGB.set('Likes to fight shit')
+FightingAdventurer01.FactionTemplate.set(31)
+FightingAdventurer01.Models.clearAll()
+FightingAdventurer01.Models.addIds(3882,2184,2183,2182)
+spawnMultipleNPCs(FightingAdventurer01.ID,5,0,[
+    [-8711.581055,-28.310860,31.778915,2.517407],
+    [-8708.771484,-21.659365,32.305820,0.475371],
+    [-8699.515625,-29.343998,31.186831,5.560824]])
+    
 /*Rabbit Spawns*/
 spawnMultipleNPCs(721,5,0,[
     [-8752.416016,-55.609863,32.740227,1.547497],
@@ -58,8 +107,8 @@ spawnMultipleNPCs(WoodcuttingTree.ID,0,0,[
     [-8676.500000,-3.677603,31.134516,3.416707],
     [-8688.759766,-16.322594,31.601250,3.204649]])
 
-/*Wild Boar Spawns*/
-spawnMultipleNPCs(creature3.ID,2,0,[
+/*Wild Boar Spawns - not working*/
+spawnMultipleNPCs(Boar01.ID,5,0,[
     [-8719.245117,-31.721756,31.517546,2.776600],
     [-8706.595703,-12.252595,31.755642,6.024221],
     [-8691.984375,-34.009716,32.009277,4.539816],
