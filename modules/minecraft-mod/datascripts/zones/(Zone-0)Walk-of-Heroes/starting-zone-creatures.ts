@@ -2,6 +2,8 @@ import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { SQL_broadcast_text } from "wotlkdata/sql/types/broadcast_text"
 import { SQL_creature_template_addon } from "wotlkdata/sql/types/creature_template_addon"
+import { SQL_creature_text } from "wotlkdata/sql/types/creature_text"
+import { SQL_smart_scripts } from "wotlkdata/sql/types/smart_scripts"
 import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
 import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
 import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
@@ -21,6 +23,21 @@ TalkingCitizen.FactionTemplate.set(35)
 TalkingCitizen.Models.clearAll()
 TalkingCitizen.Models.addIds(23082,1526,1501,21621)
 SQL_creature_template_addon.add(TalkingCitizen.ID).emote.set(1)
+
+export let WelcomeCreature = std.CreatureTemplates.create(MODNAME,'welcomecreature-creature',28951)
+WelcomeCreature.Name.enGB.set('Gnarsh Thicchoof')
+WelcomeCreature.FactionTemplate.set(35)
+WelcomeCreature.Models.clearAll()
+WelcomeCreature.Models.addIds(2100)
+WelcomeCreature.AIName.SmartAI()
+SQL_broadcast_text.add(100000).Text.set("Welcome!").Flags.set(1).EmoteID1.set(0)
+SQL_broadcast_text.add(100001).Text.set("Greetings, $c!").Flags.set(1).EmoteID1.set(0)
+SQL_broadcast_text.add(100002).Text.set("Let me know if you need help finding anything, $c.").Flags.set(1).EmoteID1.set(0)
+SQL_creature_text.add(WelcomeCreature.ID,0,1).Text.set("Welcome!").Type.set(12).Probability.set(100).BroadcastTextId.set(100000)
+SQL_creature_text.add(WelcomeCreature.ID,0,2).Text.set("Greetings, $c!").Type.set(12).Probability.set(100).BroadcastTextId.set(100001)
+SQL_creature_text.add(WelcomeCreature.ID,0,3).Text.set("Let me know if you need help finding anything, $c.").Type.set(12).Probability.set(100).BroadcastTextId.set(100002)
+SQL_smart_scripts.add(WelcomeCreature.ID,0,0,0).event_type.set(10).event_chance.set(100).event_param1.set(1).event_param2.set(5).event_param3.set(30000).event_param4.set(120000).event_param5.set(1).action_type.set(1).target_type.set(7)
+spawnNPC(WelcomeCreature.ID,0,0,[-8737.058594,-69.216385,31.271191,3.145761])
 
 export let StandingCitizen = std.CreatureTemplates.create(MODNAME,'standingcitizen-creature',39686)
 StandingCitizen.Name.enGB.set('Heroic Citizen')
@@ -363,7 +380,7 @@ spawnMultipleNPCWithTimer(BanditNpc.ID,5,0,[
     [-8172.538086,-138.023895,-2.176677,2.954185],
     [-8188.282227,-126.753784,1.124124,3.994838]],30)
     
-spawnMultipleNPCWithTimer(BanditBossNpc.ID,5,0,[
+spawnMultipleNPCWithTimer(BanditBossNpc.ID,0,0,[
     [-8114.638672,-112.206512,0.463341,2.844230],
     [-8133.045410,-127.867378,0.715504,2.180568],
     [-8129.356934,-71.137146,0.144882,4.026255],
