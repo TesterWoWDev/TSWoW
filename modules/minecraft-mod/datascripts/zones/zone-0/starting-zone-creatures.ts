@@ -52,6 +52,10 @@ export let Rabbit01 = std.CreatureTemplates.load(721)
 Rabbit01.Name.enGB.set('Wild Hare')
 Rabbit01.FactionTemplate.set(32)
 
+export let Fawn01 = std.CreatureTemplates.load(890)
+Fawn01.Name.enGB.set('Fawn')
+Fawn01.FactionTemplate.set(32)
+
 export let Boar01 = std.CreatureTemplates.create(MODNAME,'boar01-creature3',299)
 Boar01.Name.enGB.set('Wild Boar')
 Boar01.FactionTemplate.set(32) //Fights with Faction 31
@@ -144,6 +148,8 @@ SQL.creature_template_addon.add(questGiver02.ID).auras.set('68442') // Force Kne
 spawnMultipleNPCWithTimer(FightingAdventurer01.ID,5,0,[
     [-8711.581055,-28.310860,31.778915,2.517407],
     [-8708.771484,-21.659365,32.305820,0.475371],
+    [-8660.538086,-47.789867,31.134550,0.306507],
+    [-8657.004883,-37.224842,31.436808,0.184771],
     [-8699.515625,-29.343998,31.186831,5.560824]],10)
     
 /*Rabbit Spawns*/
@@ -156,7 +162,7 @@ spawnMultipleNPCWithTimer(Rabbit01.ID,5,0,[
     [-8654.867188,-39.264111,31.256962,2.242575]],30)
 
 /*Fawn Spawns*/
-spawnMultipleNPCWithTimer(890,5,0,[
+spawnMultipleNPCWithTimer(Fawn01.ID,5,0,[
     [-8716.108398,-33.742191,32.049961,6.102806],
     [-8654.079102,-75.843369,33.006699,5.710110],
     [-8679.473633,-62.391918,31.180559,6.161709]],10)

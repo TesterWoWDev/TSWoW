@@ -1,14 +1,20 @@
 let itemIDs:TSArray<uint64> = [
     GetID("item_template","minecraft-mod","staffofflames"),
-    2092
+    2092,
+    49778,
+    2361
 ]
 let spellIDs:TSArray<uint64> = [
     GetID("Spell","minecraft-mod","felflamestrike-spell"),
     GetID("Spell","minecraft-mod","fanofknives-spell"),
+    GetID("Spell","minecraft-mod","furyhammer-spell"),
+    GetID("Spell","minecraft-mod","passiveflamewave-spell")
 ]
 let spellNames = [
     "Flamestrike",
-    "Fan of Knives"
+    "Fan of Knives",
+    "Storm of Fury",
+    "Flame Waves"
 ]
 
 let itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({});

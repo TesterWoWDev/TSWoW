@@ -84,24 +84,6 @@ chanceWorg1C.AuraDescription.enGB.set('Your attacks and abilties have the chance
 chanceWorg1C.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
 
 
-export let passiveflamewave = std.Spells.create(MODNAME,'passiveflamewave-spell',67672) //caster
-passiveflamewave.Name.enGB.set('Flame Wave')
-passiveflamewave.Description.enGB.set('Your attacks and abilties now have the chance to cast flame wave.')
-passiveflamewave.AuraDescription.enGB.set('Your attacks and abilties now have the chance to cast flame wave.')
-passiveflamewave.Effects.get(0).TriggerSpell.set(75413)
-
-//These don't work; the mana cost can not be changed.1
-export let FanofKnives = std.Spells.create(MODNAME,'fanofknives-spell',51723)
-FanofKnives.Mana.setEnergy(10)
-FanofKnives.Cooldown.set(0,0,0,0)
-export let FelFlamestrike = std.Spells.create(MODNAME,'felflamestrike-spell',39139)
-FelFlamestrike.Name.enGB.set('Flamestrike')
-FelFlamestrike.CastTime.set(3000,0,3000)
-FelFlamestrike.Mana.setMana(0,0,0,0,0)
-FelFlamestrike.Cooldown.set(30000,0,0,0)
-
-
-
 /*Item Creation - Champion Boss Loot*/
 export let ChampionsSatchel = std.Items.create(MODNAME,'championsatchel',805)
 ChampionsSatchel.Quality.setBlue()
