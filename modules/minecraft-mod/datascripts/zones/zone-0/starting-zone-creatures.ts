@@ -4,9 +4,8 @@ import { SQL_broadcast_text } from "wotlkdata/sql/types/broadcast_text"
 import { SQL_creature_template_addon } from "wotlkdata/sql/types/creature_template_addon"
 import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
 import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
-import { spawnMultipleNPCs, spawnNPC } from "../../functions/spawning-functions"
+import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
-import { creature3 } from "../zone-1/zone-1-creatures"
 
 /*Ambient Creature Spawns*/
 export let WoodcuttingTree = std.CreatureTemplates.create(MODNAME,'woodcuttingtree-creature',721)
@@ -49,8 +48,13 @@ SQL_waypoint_data.add(DandotheRiled.ID,7).position_x.set(-8701.031250).position_
 SQL_waypoint_data.add(DandotheRiled.ID,8).position_x.set(-8716.988281).position_y.set(-44.429104).position_z.set(31.147694).orientation.set(3.931129)
 SQL_waypoint_data.add(DandotheRiled.ID,9).position_x.set(-8747.326172).position_y.set(-71.871475).position_z.set(31.134922).orientation.set(3.907567).delay.set(20000) //end point = spawn point
 
+export let Rabbit01 = std.CreatureTemplates.load(721)
+Rabbit01.Name.enGB.set('Wild Hare')
+Rabbit01.FactionTemplate.set(32)
+
 export let Boar01 = std.CreatureTemplates.create(MODNAME,'boar01-creature3',299)
 Boar01.Name.enGB.set('Wild Boar')
+Boar01.FactionTemplate.set(32) //Fights with Faction 31
 Boar01.Models.clearAll()
 Boar01.Models.addIds(503,389,607,704)
 Boar01.MovementType.setRandomMovement()
@@ -62,35 +66,37 @@ Boar01.Stats.ExperienceMod.set(1)
 Boar01.Stats.HealthMod.set(1)
 Boar01.Stats.ManaMod.set(1)
 
-// Faction 32 fights faction 31 - AKA, adventurers fight boars
 export let FightingAdventurer01 = std.CreatureTemplates.create(MODNAME,'adventurer01-creature',39686)
 FightingAdventurer01.Name.enGB.set('Seasoned Adventurer')
 FightingAdventurer01.Subname.enGB.set('Likes to fight shit')
-FightingAdventurer01.FactionTemplate.set(31)
+FightingAdventurer01.Level.set(1)
+FightingAdventurer01.FactionTemplate.set(31) //Fights with Faction 32
 FightingAdventurer01.Models.clearAll()
 FightingAdventurer01.Models.addIds(3882,2184,2183,2182)
-spawnMultipleNPCs(FightingAdventurer01.ID,5,0,[
+SQL.creature_equip_template.add(FightingAdventurer01.ID,1).ItemID1.set(34661)
+SQL.creature_equip_template.add(FightingAdventurer01.ID,2).ItemID1.set(6174)
+spawnMultipleNPCWithTimer(FightingAdventurer01.ID,5,0,[
     [-8711.581055,-28.310860,31.778915,2.517407],
     [-8708.771484,-21.659365,32.305820,0.475371],
-    [-8699.515625,-29.343998,31.186831,5.560824]])
+    [-8699.515625,-29.343998,31.186831,5.560824]],10)
     
 /*Rabbit Spawns*/
-spawnMultipleNPCs(721,5,0,[
+spawnMultipleNPCWithTimer(Rabbit01.ID,5,0,[
     [-8752.416016,-55.609863,32.740227,1.547497],
     [-8742.524414,-27.454241,32.073261,0.538260],
     [-8697.744141,-17.519131,31.180975,0.589310],
     [-8708.807617,-54.212940,31.565746,4.622335],
     [-8632.762695,-58.197071,32.607571,1.677089],
-    [-8654.867188,-39.264111,31.256962,2.242575]])
+    [-8654.867188,-39.264111,31.256962,2.242575]],30)
 
 /*Fawn Spawns*/
-spawnMultipleNPCs(890,5,0,[
+spawnMultipleNPCWithTimer(890,5,0,[
     [-8716.108398,-33.742191,32.049961,6.102806],
     [-8654.079102,-75.843369,33.006699,5.710110],
-    [-8679.473633,-62.391918,31.180559,6.161709]])
+    [-8679.473633,-62.391918,31.180559,6.161709]],10)
 
 /*SMALL Tree Spawns*/
-spawnMultipleNPCs(WoodcuttingTree.ID,0,0,[
+spawnMultipleNPCWithTimer(WoodcuttingTree.ID,0,0,[
     [-8727.718750,-38.397255,31.283049,3.554162],
     [-8734.904297,-46.539581,31.506783,2.650954],
     [-8758.661133,-43.644886,31.158398,3.832979],
@@ -105,10 +111,10 @@ spawnMultipleNPCs(WoodcuttingTree.ID,0,0,[
     [-8647.504883,-37.426968,31.154825,1.044804],
     [-8658.979492,-11.219471,31.989655,1.838056],
     [-8676.500000,-3.677603,31.134516,3.416707],
-    [-8688.759766,-16.322594,31.601250,3.204649]])
+    [-8688.759766,-16.322594,31.601250,3.204649]],30)
 
 /*Wild Boar Spawns - not working*/
-spawnMultipleNPCs(Boar01.ID,5,0,[
+spawnMultipleNPCWithTimer(Boar01.ID,5,0,[
     [-8719.245117,-31.721756,31.517546,2.776600],
     [-8706.595703,-12.252595,31.755642,6.024221],
     [-8691.984375,-34.009716,32.009277,4.539816],
@@ -118,7 +124,7 @@ spawnMultipleNPCs(Boar01.ID,5,0,[
     [-8650.274414,-52.797848,31.658913,1.716297],
     [-8658.132812,-47.646954,31.140652,1.739859],
     [-8654.184570,-36.367447,31.438324,1.618122],
-    [-8680.250000,-10.810021,31.378077,3.891851]])
+    [-8680.250000,-10.810021,31.378077,3.891851]],10)
 
 /*Citizens of the Walk of Heroes*/
 spawnMultipleNPCs(TalkingCitizen.ID,0,0,[
