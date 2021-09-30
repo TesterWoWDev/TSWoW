@@ -1,4 +1,3 @@
-import { addLootToGobChestSingleChance } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
