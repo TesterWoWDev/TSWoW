@@ -33,5 +33,5 @@ SackofGrains.Size.set(1)
 SackofGrains.Loot.addItem(GrainSack.ID,100,6,24,false,1,2)
 
 export let BowlofFruit = makeResourceNode('Bowl of Fruit',381,57,'bowloffruit-chest')
-BowlofFruit.Size.set(1)
+BowlofFruit.Size.set(0.25)
 BowlofFruit.Loot.addItem(ShinyRedApple.ID,100,1,4,false,1,2)
