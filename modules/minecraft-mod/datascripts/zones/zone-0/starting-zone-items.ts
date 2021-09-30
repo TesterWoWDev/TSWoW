@@ -1,7 +1,41 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL_playercreateinfo_item } from "wotlkdata/sql/types/playercreateinfo_item"
 import { tierOneBaseResources, tierOneClothMaterial } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
+
+export let StartingVest = std.Items.create(MODNAME,'startingvest',2300)
+StartingVest.Name.enGB.set('Tattered Vest')
+StartingVest.RequiredLevel.set(1)
+StartingVest.Quality.setWhite()
+StartingVest.Stats.addStamina(3)
+export let StartingBoots = std.Items.create(MODNAME,'startingboots',2309)
+StartingBoots.Name.enGB.set('Tattered Boots')
+StartingBoots.RequiredLevel.set(1)
+StartingBoots.Quality.setWhite()
+StartingBoots.Stats.addStamina(1)
+export let StartingCloak = std.Items.create(MODNAME,'startingcloak',2310)
+StartingCloak.Name.enGB.set('Tattered Cloak')
+StartingCloak.RequiredLevel.set(1)
+StartingCloak.Quality.setWhite()
+StartingCloak.Stats.addStamina(2)
+export let StartingGloves = std.Items.create(MODNAME,'startinggloves',4239)
+StartingGloves.Name.enGB.set('Tattered Gloves')
+StartingGloves.RequiredLevel.set(1)
+StartingGloves.Quality.setWhite()
+StartingGloves.Stats.addStamina(2)
+export let StartingPants = std.Items.create(MODNAME,'startingpants',4242)
+StartingPants.Name.enGB.set('Tattered Pants')
+StartingPants.RequiredLevel.set(1)
+StartingPants.Quality.setWhite()
+StartingPants.Stats.addStamina(3)
+
+SQL_playercreateinfo_item.add(0,0,StartingVest.ID)
+SQL_playercreateinfo_item.add(0,0,StartingBoots.ID)
+SQL_playercreateinfo_item.add(0,0,StartingCloak.ID)
+SQL_playercreateinfo_item.add(0,0,StartingGloves.ID)
+SQL_playercreateinfo_item.add(0,0,StartingPants.ID)
+
 
 export let AgathasLockbox = std.Items.create(MODNAME,'agathaslockbox',4632)
 AgathasLockbox.Name.enGB.set('Agatha\'s Lockbox')
