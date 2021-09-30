@@ -1,5 +1,7 @@
 import { MODNAME } from "../../modname"
 import { std } from "tswow-stdlib"
+import { chanceWorg1M } from "../aachampion-scrolls/ravaging-worg-champion-scroll"
+
 
 
 //Testing Zone
@@ -36,3 +38,45 @@ FuryHammer.Mana.setMana(0,0,0,0,0)
 FuryHammer.Cooldown.set(30000,0,0,0)
 FuryHammer.InterruptFlags.clearAll()
 FuryHammer.Effects.get(0).TriggerSpell.set(FuryHammerEffect.ID)
+
+
+
+
+
+/*Items for Level*/
+export let StaffofFlames = std.Items.create(MODNAME,'staffofflames',5201)
+StaffofFlames.Name.enGB.set("Staff of Furious Flames")
+StaffofFlames.Quality.setBlue()
+StaffofFlames.Stats.clearAll()
+StaffofFlames.Stats.addStamina(98)
+StaffofFlames.Stats.addSpirit(32)
+StaffofFlames.Stats.addSpellPower(220)
+StaffofFlames.Stats.addHasteRating(22)
+StaffofFlames.Stats.addCritRating(50)
+export let DancingFlamesRapier = std.Items.create(MODNAME,'dancingflamesrapier',12777)
+DancingFlamesRapier.Name.enGB.set("Rapier of the Dancing Flame")
+DancingFlamesRapier.Description.enGB.set("This blade contains the secrets of the fire lord, allowing the user the chance to call down furious flames with every attack.")
+DancingFlamesRapier.Quality.setBlue()
+DancingFlamesRapier.Stats.clearAll()
+DancingFlamesRapier.Stats.addStamina(55)
+DancingFlamesRapier.Stats.addAgility(18)
+DancingFlamesRapier.Stats.addStrength(22)
+DancingFlamesRapier.Stats.addAttackPower(99)
+DancingFlamesRapier.Stats.addHasteRating(7)
+DancingFlamesRapier.Stats.addCritRating(12)
+DancingFlamesRapier.Spells.clearAll()
+//DancingFlamesRapier.Spells.add(chanceWorg1M.ID)
+DancingFlamesRapier.Spells.get(0).Trigger.set(1)
+
+
+
+
+
+
+
+
+
+
+
+
+

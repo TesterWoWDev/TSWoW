@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { MODNAME } from "../../modname"
+import { DancingFlamesRapier, StaffofFlames } from "../zone-0/starting-zone-item-learn-spell"
 
 /*Creature - Worg Champion*/
 export let WorgChampionCreature = std.CreatureTemplates.create(MODNAME,'worgchampioncreature-creature',299)
@@ -88,31 +89,7 @@ chanceWorg1C.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
 export let ChampionsSatchel = std.Items.create(MODNAME,'championsatchel',805)
 ChampionsSatchel.Quality.setBlue()
 ChampionsSatchel.ContainerSlots.set(24)
-export let StaffofFlames = std.Items.create(MODNAME,'staffofflames',5201)
-StaffofFlames.Name.enGB.set("Staff of Furious Flames")
-StaffofFlames.Quality.setBlue()
-StaffofFlames.Stats.clearAll()
-StaffofFlames.Stats.addStamina(98)
-StaffofFlames.Stats.addSpirit(32)
-StaffofFlames.Stats.addSpellPower(220)
-StaffofFlames.Stats.addHasteRating(22)
-StaffofFlames.Stats.addCritRating(50)
-StaffofFlames.Spells.clearAll()
-StaffofFlames.Spells.add(chanceWorg1C.ID)
-StaffofFlames.Spells.get(0).Trigger.set(1)
-export let DancingFlamesRapier = std.Items.create(MODNAME,'dancingflamesrapier',12777)
-DancingFlamesRapier.Name.enGB.set("Rapier of the Dancing Flame")
-DancingFlamesRapier.Quality.setBlue()
-DancingFlamesRapier.Stats.clearAll()
-DancingFlamesRapier.Stats.addStamina(55)
-DancingFlamesRapier.Stats.addAgility(18)
-DancingFlamesRapier.Stats.addStrength(22)
-DancingFlamesRapier.Stats.addAttackPower(99)
-DancingFlamesRapier.Stats.addHasteRating(7)
-DancingFlamesRapier.Stats.addCritRating(12)
-DancingFlamesRapier.Spells.clearAll()
-DancingFlamesRapier.Spells.add(chanceWorg1M.ID)
-DancingFlamesRapier.Spells.get(0).Trigger.set(1)
+
 
 /*Adding the loot to the boss*/
 
