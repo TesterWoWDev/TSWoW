@@ -1,7 +1,26 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { spawnNPC } from "../../functions/spawning-functions"
+import { spawnMultipleNPCs, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
+
+/*Ambient Creature Spawns*/
+
+/*Rabbit Spawns*/
+spawnMultipleNPCs(721,5,0,[
+    [725,-8752.416016,-55.609863,32.740227,1.547497],
+    [725,-8742.524414,-27.454241,32.073261,0.538260],
+    [725,-8697.744141,-17.519131,31.180975,0.589310],
+    [725,-8708.807617,-54.212940,31.565746,4.622335],
+    [725,-8632.762695,-58.197071,32.607571,1.677089],
+    [725,-8654.867188,-39.264111,31.256962,2.242575]])
+
+/*Fawn Spawns*/
+spawnMultipleNPCs(890,5,0,[
+    [725,-8716.108398,-33.742191,32.049961,6.102806],
+    [725,-8654.079102,-75.843369,33.006699,5.710110],
+    [725,-8679.473633,-62.391918,31.180559,6.161709]])
+
+
 
 export let startingZoneWolfBoss = std.CreatureTemplates.create(MODNAME,'startingzonewolfboss-creature',299)
 startingZoneWolfBoss.Name.enGB.set('Ravaging Worg')
