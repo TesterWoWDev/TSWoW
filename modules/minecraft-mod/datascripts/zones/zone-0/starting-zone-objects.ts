@@ -15,8 +15,6 @@ spawnMultipleGobs(507606, [
     [-8758.624023,-95.507362,31.879797,4.209993], 
     [-8733.508789,-89.997482,31.795820,2.870894]])
 
-
-
 spawnGobTimer(180876,[-8746.657,-7.287,30.159,4.64],10) // Starting Elunes Buff
 
 export let StolenLockbox = makeResourceNode('Agatha\'s Stolen Lockbox',259,57,'stolenlockbox-chest')
@@ -109,8 +107,6 @@ spawnMultiGobTimer(BowlofFruit.ID,[
     [-8708.587891,-68.290565,32.972340,1.150848],
     [-8690.356445,-56.413517,32.948765,6.157759],
     [-8679.367188,-66.759132,32.558807,4.916830],],300)
-
-
 
 /*Chest Items Loot*/
 addLootToGobChest(StartingZoneChestSpawn,[

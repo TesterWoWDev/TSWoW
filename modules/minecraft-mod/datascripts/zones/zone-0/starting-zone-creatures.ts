@@ -7,7 +7,6 @@ import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
 import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 
-/*Ambient Creature Spawns*/
 export let WoodcuttingTree = std.CreatureTemplates.create(MODNAME,'woodcuttingtree-creature',721)
 WoodcuttingTree.Name.enGB.set('Tree')
 WoodcuttingTree.FactionTemplate.set(7) // Non Agressive Faction - will not get attacked by boars
@@ -15,12 +14,14 @@ WoodcuttingTree.Scale.set(1)
 WoodcuttingTree.Models.clearAll()
 WoodcuttingTree.Models.addIds(16977)
 WoodcuttingTree.Level.set(1,1)
+
 export let TalkingCitizen = std.CreatureTemplates.create(MODNAME,'talkingcitizen-creature',39686)
 TalkingCitizen.Name.enGB.set('Heroic Citizen')
 TalkingCitizen.FactionTemplate.set(35)
 TalkingCitizen.Models.clearAll()
 TalkingCitizen.Models.addIds(23082,1526,1501,21621)
 SQL_creature_template_addon.add(TalkingCitizen.ID).emote.set(1)
+
 export let StandingCitizen = std.CreatureTemplates.create(MODNAME,'standingcitizen-creature',39686)
 StandingCitizen.Name.enGB.set('Heroic Citizen')
 StandingCitizen.FactionTemplate.set(35)
@@ -43,7 +44,6 @@ SQL_waypoint_data.add(DandotheRiled.ID,5).position_x.set(-8700.653320).position_
 SQL_waypoint_data.add(DandotheRiled.ID,6).position_x.set(-8694.234375).position_y.set(-61.146999).position_z.set(31.135210).orientation.set(5.113153).delay.set(20000).action.set(0).action_chance.set(100)//stop and talk to the npc, add emote and creature text
 SQL_broadcast_text.add(90000).Text.set('Are you kidding me? These prices are absolutely outrageous. How do you expect new players to afford any of this crap?!').EmoteID1.set(1)
 SQL_waypoint_scripts.add(DandotheRiled.ID).id.set(6).delay.set(5).command.set(0).datalong.set(0).dataint.set(90000)
-
 SQL_waypoint_data.add(DandotheRiled.ID,7).position_x.set(-8701.031250).position_y.set(-43.527889).position_z.set(31.135210).orientation.set(2.717688) //the walk back
 SQL_waypoint_data.add(DandotheRiled.ID,8).position_x.set(-8716.988281).position_y.set(-44.429104).position_z.set(31.147694).orientation.set(3.931129)
 SQL_waypoint_data.add(DandotheRiled.ID,9).position_x.set(-8747.326172).position_y.set(-71.871475).position_z.set(31.134922).orientation.set(3.907567).delay.set(20000) //end point = spawn point
@@ -73,8 +73,74 @@ FightingAdventurer01.Level.set(1)
 FightingAdventurer01.FactionTemplate.set(31) //Fights with Faction 32
 FightingAdventurer01.Models.clearAll()
 FightingAdventurer01.Models.addIds(3882,2184,2183,2182)
+FightingAdventurer01.Stats.ArmorMod.set(8)
+FightingAdventurer01.Stats.DamageMod.set(2)
+FightingAdventurer01.Stats.HealthMod.set(7)
+FightingAdventurer01.Stats.ManaMod.set(3)
 SQL.creature_equip_template.add(FightingAdventurer01.ID,1).ItemID1.set(34661)
 SQL.creature_equip_template.add(FightingAdventurer01.ID,2).ItemID1.set(6174)
+
+export let startingZoneWolfBoss = std.CreatureTemplates.create(MODNAME,'startingzonewolfboss-creature',299)
+startingZoneWolfBoss.Name.enGB.set('Ravaging Worg')
+startingZoneWolfBoss.Models.clearAll()
+startingZoneWolfBoss.Models.addIds(24235)
+startingZoneWolfBoss.MovementType.setRandomMovement()
+startingZoneWolfBoss.Level.set(2,2)
+startingZoneWolfBoss.Rank.setElite()
+startingZoneWolfBoss.FactionTemplate.set(48)
+startingZoneWolfBoss.DamageSchool.setNormal()
+startingZoneWolfBoss.Stats.ArmorMod.set(1)
+startingZoneWolfBoss.Stats.DamageMod.set(2)
+startingZoneWolfBoss.Stats.ExperienceMod.set(1)
+startingZoneWolfBoss.Stats.HealthMod.set(3)
+startingZoneWolfBoss.Stats.ManaMod.set(1)
+spawnNPC(startingZoneWolfBoss.ID,8,0,[-8668.536,-23.10,31.13,3.61])
+export let startingZoneWolfBossLoot = startingZoneWolfBoss.NormalLoot
+
+export let ghostlyFigure01 = std.CreatureTemplates.create(MODNAME,'ghostlyfigure01-creature',299)
+ghostlyFigure01.Name.enGB.set('Ghostly Figure')
+ghostlyFigure01.Models.clearAll()
+ghostlyFigure01.Models.addIds(10478)
+ghostlyFigure01.Level.set(1,1)
+ghostlyFigure01.FactionTemplate.set(35)
+ghostlyFigure01.DamageSchool.setNormal()
+ghostlyFigure01.Stats.ArmorMod.set(1)
+ghostlyFigure01.Stats.DamageMod.set(1)
+ghostlyFigure01.Stats.ExperienceMod.set(1)
+ghostlyFigure01.Stats.HealthMod.set(1)
+ghostlyFigure01.Stats.ManaMod.set(1)
+spawnNPC(ghostlyFigure01.ID,0,0,[-8667.347,-17.63,31.13,1.49])
+SQL.creature_template_addon.add(ghostlyFigure01.ID).auras.set('68442') // Force Kneel
+
+export let questGiver01 = std.CreatureTemplates.create(MODNAME,'questgiver01-creature',2934)
+questGiver01.Name.enGB.set('Elder Fogwaffle')
+questGiver01.Models.clearAll()
+questGiver01.Models.addIds(26958)
+questGiver01.Level.set(10,10)
+questGiver01.FactionTemplate.set(35)
+spawnNPC(questGiver01.ID,0,0,[-8680.762,-52.365,34.40,1.268])
+SQL.creature_template_addon.add(questGiver01.ID).auras.set('25824') // Spotlight
+
+export let questGiver02 = std.CreatureTemplates.create(MODNAME,'questgiver02-creature',30368)
+questGiver02.Name.enGB.set('Arcanist Fractal Spem')
+questGiver02.Models.clearAll()
+questGiver02.Models.addIds(21835)
+questGiver02.Level.set(10,10)
+questGiver02.FactionTemplate.set(35)
+questGiver02.DamageSchool.setNormal()
+questGiver02.Stats.ArmorMod.set(1)
+questGiver02.Stats.DamageMod.set(1)
+questGiver02.Stats.ExperienceMod.set(1)
+questGiver02.Stats.HealthMod.set(1)
+questGiver02.Stats.ManaMod.set(1)
+questGiver02.NPCFlags.QuestGiver.mark()
+spawnNPC(questGiver02.ID,0,0,[-8744.915,-11.808,31.532,1.98])
+SQL.creature_template_addon.add(questGiver02.ID).auras.set('25824') // Spotlight
+SQL.creature_template_addon.add(questGiver02.ID).auras.set('68442') // Force Kneel
+
+
+/*Creature Spawn Zone*/
+
 spawnMultipleNPCWithTimer(FightingAdventurer01.ID,5,0,[
     [-8711.581055,-28.310860,31.778915,2.517407],
     [-8708.771484,-21.659365,32.305820,0.475371],
@@ -151,62 +217,3 @@ spawnMultipleNPCs(StandingCitizen.ID,0,0,[
     [-8702.535156,-52.957691,31.134275,4.779361],
     [-8702.372070,-56.103153,31.134275,4.744020],
     [-8702.339844,-58.769962,31.134275,4.724386]])
-
-export let startingZoneWolfBoss = std.CreatureTemplates.create(MODNAME,'startingzonewolfboss-creature',299)
-startingZoneWolfBoss.Name.enGB.set('Ravaging Worg')
-startingZoneWolfBoss.Models.clearAll()
-startingZoneWolfBoss.Models.addIds(24235)
-startingZoneWolfBoss.MovementType.setRandomMovement()
-startingZoneWolfBoss.Level.set(2,2)
-startingZoneWolfBoss.Rank.setElite()
-startingZoneWolfBoss.FactionTemplate.set(48)
-startingZoneWolfBoss.DamageSchool.setNormal()
-startingZoneWolfBoss.Stats.ArmorMod.set(1)
-startingZoneWolfBoss.Stats.DamageMod.set(2)
-startingZoneWolfBoss.Stats.ExperienceMod.set(1)
-startingZoneWolfBoss.Stats.HealthMod.set(3)
-startingZoneWolfBoss.Stats.ManaMod.set(1)
-spawnNPC(startingZoneWolfBoss.ID,8,0,[-8668.536,-23.10,31.13,3.61])
-export let startingZoneWolfBossLoot = startingZoneWolfBoss.NormalLoot
-
-
-export let ghostlyFigure01 = std.CreatureTemplates.create(MODNAME,'ghostlyfigure01-creature',299)
-ghostlyFigure01.Name.enGB.set('Ghostly Figure')
-ghostlyFigure01.Models.clearAll()
-ghostlyFigure01.Models.addIds(10478)
-ghostlyFigure01.Level.set(1,1)
-ghostlyFigure01.FactionTemplate.set(35)
-ghostlyFigure01.DamageSchool.setNormal()
-ghostlyFigure01.Stats.ArmorMod.set(1)
-ghostlyFigure01.Stats.DamageMod.set(1)
-ghostlyFigure01.Stats.ExperienceMod.set(1)
-ghostlyFigure01.Stats.HealthMod.set(1)
-ghostlyFigure01.Stats.ManaMod.set(1)
-spawnNPC(ghostlyFigure01.ID,0,0,[-8667.347,-17.63,31.13,1.49])
-SQL.creature_template_addon.add(ghostlyFigure01.ID).auras.set('68442') // Force Kneel
-
-export let questGiver01 = std.CreatureTemplates.create(MODNAME,'questgiver01-creature',2934)
-questGiver01.Name.enGB.set('Elder Fogwaffle')
-questGiver01.Models.clearAll()
-questGiver01.Models.addIds(26958)
-questGiver01.Level.set(10,10)
-questGiver01.FactionTemplate.set(35)
-spawnNPC(questGiver01.ID,0,0,[-8680.762,-52.365,34.40,1.268])
-SQL.creature_template_addon.add(questGiver01.ID).auras.set('25824') // Spotlight
-
-export let questGiver02 = std.CreatureTemplates.create(MODNAME,'questgiver02-creature',30368)
-questGiver02.Name.enGB.set('Arcanist Fractal Spem')
-questGiver02.Models.clearAll()
-questGiver02.Models.addIds(21835)
-questGiver02.Level.set(10,10)
-questGiver02.FactionTemplate.set(35)
-questGiver02.DamageSchool.setNormal()
-questGiver02.Stats.ArmorMod.set(1)
-questGiver02.Stats.DamageMod.set(1)
-questGiver02.Stats.ExperienceMod.set(1)
-questGiver02.Stats.HealthMod.set(1)
-questGiver02.Stats.ManaMod.set(1)
-questGiver02.NPCFlags.QuestGiver.mark()
-spawnNPC(questGiver02.ID,0,0,[-8744.915,-11.808,31.532,1.98])
-SQL.creature_template_addon.add(questGiver02.ID).auras.set('25824') // Spotlight
-SQL.creature_template_addon.add(questGiver02.ID).auras.set('68442') // Force Kneel
