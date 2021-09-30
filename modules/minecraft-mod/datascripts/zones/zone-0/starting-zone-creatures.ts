@@ -4,6 +4,12 @@ import { spawnMultipleNPCs, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 
 /*Ambient Creature Spawns*/
+export let WoodcuttingTree = std.CreatureTemplates.create(MODNAME,'woodcuttingtree-creature',721)
+WoodcuttingTree.Name.enGB.set('Tree')
+WoodcuttingTree.Scale.set(1)
+WoodcuttingTree.Models.clearAll()
+WoodcuttingTree.Models.addIds(16977)
+WoodcuttingTree.Level.set(1,1)
 
 /*Rabbit Spawns*/
 spawnMultipleNPCs(721,5,0,[
@@ -20,6 +26,23 @@ spawnMultipleNPCs(890,5,0,[
     [-8654.079102,-75.843369,33.006699,5.710110],
     [-8679.473633,-62.391918,31.180559,6.161709]])
 
+/*SMALL Tree Spawns*/
+spawnMultipleNPCs(WoodcuttingTree.ID,0,0,[
+    [-8727.718750,-38.397255,31.283049,3.554162],
+    [-8734.904297,-46.539581,31.506783,2.650954],
+    [-8758.661133,-43.644886,31.158398,3.832979],
+    [-8759.510742,-58.613422,31.437906,5.176006],
+    [-8728.844727,-78.705399,31.601536,5.878936],
+    [-8720.337891,-72.532272,31.176889,0.326171],
+    [-8694.780273,-74.936867,31.134272,5.474452],
+    [-8681.517578,-71.739296,31.317982,0.502878],
+    [-8663.000977,-78.752197,31.212084,5.988886],
+    [-8642.680664,-74.266396,31.328184,0.306529],
+    [-8641.277344,-56.033127,31.289261,1.979428],
+    [-8647.504883,-37.426968,31.154825,1.044804],
+    [-8658.979492,-11.219471,31.989655,1.838056],
+    [-8676.500000,-3.677603,31.134516,3.416707],
+    [-8688.759766,-16.322594,31.601250,3.204649]])
 
 
 export let startingZoneWolfBoss = std.CreatureTemplates.create(MODNAME,'startingzonewolfboss-creature',299)
