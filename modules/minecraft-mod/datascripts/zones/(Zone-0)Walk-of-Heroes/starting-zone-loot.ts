@@ -1,8 +1,8 @@
 import { addLootToCreature } from "../../functions/npc-functions";
 import { SmallSackofCoins } from "../../items/currencies";
 import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test";
-import { WorgScroll } from "../aachampion-scrolls/ravaging-worg-champion-scroll";
-import { SmallRedPouch, SmallBluePouch, SmallBlackPouch, SmallGreenPouch, BrownLeatherSatchel, DarnassianBleu, ShinyRedApple, RefreshingSpringWater, Dirk, TornNote } from "../zone-1/zone-1-items";
+import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
+import { SmallRedPouch, SmallBluePouch, SmallBlackPouch, SmallGreenPouch, BrownLeatherSatchel, DarnassianBleu, ShinyRedApple, RefreshingSpringWater, Dirk, TornNote } from "../(Zone-1)Bramblewood/zone-1-items";
 import { startingZoneWolfBossLoot } from "./starting-zone-creatures";
 
 // Creature 1 = Ravaging Worg

@@ -1,4 +1,4 @@
-import { Silverleaf, Earthroot, WildSteelbloom, Mageroyal, Peacebloom } from "../../zones/zone-1/zone-1-items"
+import { Silverleaf, Earthroot, WildSteelbloom, Mageroyal, Peacebloom } from "../../zones/(Zone-1)Bramblewood/zone-1-items"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { tierOneBaseResources } from "../../items/armor/tier1-set"
 

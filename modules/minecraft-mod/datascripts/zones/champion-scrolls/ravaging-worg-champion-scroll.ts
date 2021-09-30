@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { MODNAME } from "../../modname"
-import { DancingFlamesRapier, StaffofFlames } from "../zone-0/starting-zone-item-learn-spell"
+import { DancingFlamesRapier, StaffofFlames } from "../(Zone-0)Walk-of-Heroes/starting-zone-item-learn-spell"
 
 /*Creature - Worg Champion*/
 export let WorgChampionCreature = std.CreatureTemplates.create(MODNAME,'worgchampioncreature-creature',299)

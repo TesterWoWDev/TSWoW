@@ -6,9 +6,9 @@ import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJor
 import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test";
 import { SmallSackofCoins } from "../../items/currencies";
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions";
-import { MurlocScroll } from "../aachampion-scrolls/murloc-champion-scroll";
-import { WorgScroll } from "../aachampion-scrolls/ravaging-worg-champion-scroll";
-import { KoboldScroll } from "../aachampion-scrolls/kobold-champion-scroll";
+import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll";
+import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
+import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll";
 //Pearl, Epaulet, Chain, Metal, Reinforced Metal, Stick,Dust
 //Cloth, Leather, Mail
 

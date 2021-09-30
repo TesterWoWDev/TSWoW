@@ -1,7 +1,7 @@
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
-import { ShinyRedApple, RefreshingSpringWater } from "../zone-1/zone-1-items";
+import { ShinyRedApple, RefreshingSpringWater } from "../(Zone-1)Bramblewood/zone-1-items";
 import { SmallSackofCoins } from "../../items/currencies";
 
 /*Item Creation Zone*/

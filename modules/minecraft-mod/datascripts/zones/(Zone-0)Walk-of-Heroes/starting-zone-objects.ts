@@ -5,7 +5,7 @@ import { SQL } from "wotlkdata/sql/SQLFiles";
 import { AgathasLockbox, BlackMalice, CavedwellerBracers, ChantingBlade, Cruelbarb, CrystallineCuffs, CursedFelblade, DefiasArmor, DefiasBelt, Defiasboot, DefiasGlove, DefiasLeg, FamilySeal, GoldGloves, JewelRing, NobleRobe, RobeofEvocation, ShadowfangWeapon, SmiteAxe, startingResource01, SubterraneanCape, WalkingBoots } from "./starting-zone-items";
 import { startingQuest01, startingQuest02 } from "./starting-zone-quests";
 import { addLootToGobChest } from "../../functions/gob-functions";
-import { BowlofFruit, SackofGrains } from "../mall/mall-resource-spawns";
+import { BowlofFruit, SackofGrains } from "../(Zone-5)Mall/mall-resource-spawns";
 
 /*Ambient Object Spawns*/
 /*Tables*/

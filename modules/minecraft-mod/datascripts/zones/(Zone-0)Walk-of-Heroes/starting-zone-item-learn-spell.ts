@@ -1,6 +1,6 @@
 import { MODNAME } from "../../modname"
 import { std } from "tswow-stdlib"
-import { chanceWorg1M } from "../aachampion-scrolls/ravaging-worg-champion-scroll"
+import { chanceWorg1M } from "../champion-scrolls/ravaging-worg-champion-scroll"
 
 
 
