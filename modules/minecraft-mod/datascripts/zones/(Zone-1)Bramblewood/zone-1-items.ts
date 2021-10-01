@@ -3,6 +3,8 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
 import { SpiritI, ProtectionI, AgilityI, IntellectI, StaminaI, StrengthI } from "./zone-1-item-spells"
 
+export let RavenLordMount = std.Items.load(32768)
+RavenLordMount.RequiredLevel.set(3)
 
 export let Silverleaf = std.Items.create(MODNAME,'silverleaf',765)
 Silverleaf.Quality.setWhite()

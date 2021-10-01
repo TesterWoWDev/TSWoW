@@ -4,6 +4,7 @@ import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatur
 import { MODNAME } from "../../../modname"
 import { SQL } from "wotlkdata"
 import { OrbofPower, PowerToken } from "./ARarePowerOrb"
+import { RavenLordMount } from "../../(Zone-1)Bramblewood/zone-1-items"
 //Class Trainer Quest - Warrior
 
 export let WarriorQuestGiver01 = std.CreatureTemplates.create(MODNAME,'warrior01-creature',30368)
@@ -52,6 +53,7 @@ WarriorQuest02.Questgiver.addEnder(WarriorQuestGiver01.ID)
 WarriorQuest02.Rewards.Money.set(200000)
 WarriorQuest02.Objectives.Item.add(OrbofPower.ID,10)
 WarriorQuest02.Rewards.Item.add(PowerToken.ID,1)
+WarriorQuest02.Rewards.Item.add(RavenLordMount.ID,1)
 
 WarriorQuest02.Text.Objective.enGB.set('Travel around the game, complete quests, collect resources, slay enemies, and obtain orbs of power. When you have obtained 10 orbs of power, return to me and we can create an incredibly powerful item for you.')
 WarriorQuest02.Text.Incomplete.enGB.set('Have you managed to find any power orbs yet? You can obtain power orbs from quests, killing monsters, completing dungeons, or even off of resource collection.')

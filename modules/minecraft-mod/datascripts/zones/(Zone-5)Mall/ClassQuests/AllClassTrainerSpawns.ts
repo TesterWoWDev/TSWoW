@@ -1,4 +1,6 @@
 
+import { std } from "tswow-stdlib"
+import { MODNAME } from "../../../modname"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { spawnGob, spawnNPC } from "../../../functions/spawning-functions"
 import { DeathknightQuestGiver01 } from "./DeathKnightClassQuest"
@@ -11,6 +13,7 @@ import { RogueQuestGiver01 } from "./RogueClassQuest"
 import { ShamanQuestGiver01 } from "./ShamanClassQuest"
 import { WarlockQuestGiver01 } from "./WarlockClassQuest"
 import { WarriorQuestGiver01 } from "./WarriorClassQuest"
+import { SQL_npc_vendor } from "wotlkdata/sql/types/npc_vendor"
 
 spawnNPC(questGiver03.ID,0,0,[-8292.411133,-271.135468,17.274445,1.4686858]) //Quest Giver 3 Spawn
 
@@ -36,4 +39,42 @@ spawnNPC(DeathknightQuestGiver01.ID,0,0,[-8325.328125,-121.336845,0.852532,5.242
 
 spawnNPC(33251,0,0,[-8326.202148,-124.327225,0.852532,0.117808]) //Deathknight Trainer
 spawnGob(190557, [-8326.202148,-124.327225,0.852532,0.117808])//runeforge
-    
+spawnNPC(22060,0,0,[-8144.066406,21.116680,0.641976,3.220194]) //Rogue Ganker
+
+export let Amulet01 = std.Items.create(MODNAME,'newamulet01',21712)
+Amulet01.Quality.setBlue()
+Amulet01.Price.set(151211,359521,1)
+Amulet01.RequiredLevel.set(7)
+
+export let Amulet02 = std.Items.create(MODNAME,'newamulet02',7722)
+Amulet02.Quality.setGreen()
+Amulet02.Price.set(79523,91517,1)
+Amulet02.RequiredLevel.set(5)
+
+export let Amulet03 = std.Items.create(MODNAME,'newamulet03',9641)
+Amulet03.Quality.setGreen()
+Amulet03.Price.set(22692,25326,1)
+Amulet03.RequiredLevel.set(1)
+
+export let Amulet04 = std.Items.create(MODNAME,'newamulet04',1443)
+Amulet04.Quality.setBlue()
+Amulet04.Price.set(121256,192526,1)
+Amulet04.RequiredLevel.set(7)
+
+export let Amulet05 = std.Items.create(MODNAME,'newamulet05',10711)
+Amulet05.Quality.setBlue()
+Amulet05.Price.set(34546,39636,1)
+Amulet05.RequiredLevel.set(1)
+
+
+
+export let AmuletVendor = std.CreatureTemplates.create(MODNAME,'druid01-creature',3562)
+AmuletVendor.Name.enGB.set('Maggie the Wise')
+SQL_npc_vendor.add(AmuletVendor.ID,Amulet01.ID,0).incrtime.set(3600).maxcount.set(2)
+SQL_npc_vendor.add(AmuletVendor.ID,Amulet02.ID,0).incrtime.set(3600).maxcount.set(2)
+SQL_npc_vendor.add(AmuletVendor.ID,Amulet03.ID,0).incrtime.set(3600).maxcount.set(2)
+SQL_npc_vendor.add(AmuletVendor.ID,Amulet04.ID,0).incrtime.set(3600).maxcount.set(2)
+SQL_npc_vendor.add(AmuletVendor.ID,Amulet05.ID,0).incrtime.set(3600).maxcount.set(2)
+
+spawnNPC(3562,0,0,[-8186.291504,13.517035,0.115301,5.435018]) //Reagent Vendor at City Exit
+spawnNPC(AmuletVendor.ID,0,0,[-8182.976074,16.767733,0.099456,5.533191]) //Amulet Vendor at City Exit
