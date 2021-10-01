@@ -2,7 +2,7 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../../modname"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
-import { addWaypoint, addWaypoints, spawnGob, spawnMultipleNPCWithTimer, spawnNPC } from "../../../functions/spawning-functions"
+import { spawnGob, spawnMultipleNPCWithTimer, spawnNPC } from "../../../functions/spawning-functions"
 import { DeathknightQuestGiver01 } from "./DeathKnightClassQuest"
 import { DruidQuestGiver01 } from "./DruidClassQuest"
 import { HunterQuestGiver01 } from "./HunterClassQuest"
@@ -15,7 +15,6 @@ import { WarlockQuestGiver01 } from "./WarlockClassQuest"
 import { WarriorQuestGiver01 } from "./WarriorClassQuest"
 import { SQL_npc_vendor } from "wotlkdata/sql/types/npc_vendor"
 import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
-import { SQL_creature_addon } from "wotlkdata/sql/types/creature_addon"
 
 spawnNPC(questGiver03.ID,0,0,[-8292.411133,-271.135468,17.274445,1.4686858]) //Quest Giver 3 Spawn
 
