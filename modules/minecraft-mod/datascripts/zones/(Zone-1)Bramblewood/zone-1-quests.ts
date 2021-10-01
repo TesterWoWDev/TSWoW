@@ -16,12 +16,20 @@ export let StrangeEtherealCrate = std.Items.create(MODNAME,'strangecrate01',3677
 StrangeEtherealCrate.Name.enGB.set('Strange Ethereal Crate')
 StrangeEtherealCrate.Quality.setGreen()
 StrangeEtherealCrate.MaxStack.set(500)
+StrangeEtherealCrate.Spells.clearAll()
+export let EtherealPortalBag = std.Items.create(MODNAME,'etherealportalbag',4498)
+EtherealPortalBag.Quality.setBlue()
+EtherealPortalBag.DisplayInfo.copyFrom(38186)
+EtherealPortalBag.ContainerSlots.set(16)
 
 export let EtherealCrate = makeResourceNode('Ethereal Crate',75964,57,'etherealcrate-chest')
 EtherealCrate.Size.set(0.5)
 addLootToGobChest(EtherealCrate,[
     StrangeEtherealCrate.ID
 ],[100],1)
+addLootToGobChest(EtherealCrate,[
+    EtherealPortalBag.ID
+],[1],2)
 
 spawnMultiGobTimer(EtherealCrate.ID,[
 [-7957.128906,237.430008,-37.370800,4.547691],
