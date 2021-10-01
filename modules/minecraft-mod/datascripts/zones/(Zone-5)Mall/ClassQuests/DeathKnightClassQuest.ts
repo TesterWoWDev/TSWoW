@@ -1,6 +1,7 @@
 
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
+import { SQL_quest_template_addon } from "wotlkdata/sql/types/quest_template_addon"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken } from "./ARarePowerOrb"
@@ -26,7 +27,6 @@ export let DeathknightQuest01 = std.Quests.create(MODNAME,'dkquest01-quest')
 DeathknightQuest01.Flags.set(1)
 DeathknightQuest01.MinLevel.set(1)
 DeathknightQuest01.QuestLevel.set(1)
-DeathknightQuest01.AllowableClasses.set(32)
 DeathknightQuest01.Questgiver.addStarter(questGiver03.ID)
 DeathknightQuest01.Questgiver.addEnder(DeathknightQuestGiver01.ID)
 
@@ -50,7 +50,6 @@ DeathknightQuest02.Flags.set(8)
 SQL.quest_template_addon.add(DeathknightQuest02.ID).SpecialFlags.set(1)
 DeathknightQuest02.MinLevel.set(1)
 DeathknightQuest02.QuestLevel.set(1)
-DeathknightQuest02.AllowableClasses.set(32)
 DeathknightQuest02.Questgiver.addStarter(DeathknightQuestGiver01.ID)
 DeathknightQuest02.Questgiver.addEnder(DeathknightQuestGiver01.ID)
 
