@@ -10,7 +10,7 @@ import { tierOneClothMaterial, tierOneMailMaterial, tierOneLeatherMaterial } fro
 import { creature4, creature5 } from "./zone-1-creatures"
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
-
+import { SQL } from "wotlkdata/sql/SQLFiles";
 
 export let StrangeEtherealCrate = std.Items.create(MODNAME,'strangecrate01',36771)
 StrangeEtherealCrate.Name.enGB.set('Strange Ethereal Crate')
@@ -23,7 +23,8 @@ EtherealPortalBag.DisplayInfo.copyFrom(38186)
 EtherealPortalBag.ContainerSlots.set(12)
 
 export let EtherealCrate = makeResourceNode('Ethereal Crate',75964,57,'etherealcrate-chest')
-EtherealCrate.Size.set(0.5)
+SQL.gameobject_loot_template.add(EtherealCrate.ID,StrangeEtherealCrate.ID).QuestRequired.set(1)
+EtherealCrate.Size.set(1)
 addLootToGobChest(EtherealCrate,[
     StrangeEtherealCrate.ID
 ],[100],1)
