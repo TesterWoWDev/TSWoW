@@ -1,9 +1,10 @@
 
 import { std } from "tswow-stdlib"
+import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { tierOneBaseResources, tierOneClothGear, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { SmallSackofCoinswithBag } from "../../items/currencies"
 import { MODNAME } from "../../modname"
-import { questGiver01, questGiver02, startingZoneWolfBoss } from "./starting-zone-creatures"
+import { BanditBossNpc, BanditNpc, questGiver01, questGiver02, questGiver03, startingZoneWolfBoss } from "./starting-zone-creatures"
 import { AgathasLockbox, SatchelofResources, startingResource01 } from "./starting-zone-items"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -135,7 +136,82 @@ startingQuest04.Text.Reward.enGB.set('Very good hero, you have learned the basic
 startingQuest04.Text.Title.enGB.set('Crafting : a Tutorial')
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Starting Quest 5
+
+startingQuest05.Flags.set(1)
+startingQuest05.MinLevel.set(1)
+startingQuest05.QuestLevel.set(1)
+
+startingQuest05.Questgiver.addStarter(questGiver02.ID)
+startingQuest05.Questgiver.addEnder(questGiver03.ID)
+
+startingQuest05.Rewards.ChoiceItem.add(tierOneClothMaterial,2)
+startingQuest05.Rewards.ChoiceItem.add(tierOneMailMaterial,2)
+startingQuest05.Rewards.ChoiceItem.add(tierOneLeatherMaterial,2)
+startingQuest05.Rewards.Money.set(286)
+
+startingQuest05.Text.Objective.enGB.set('Your journey is almost over hero, and it may feel like it has already begun. Head to the town hall outside of the Walk of Heroes and speak to the Knight Captain in the barracks. He shall guide you on what you must do next. You are always welcomed here.')
+startingQuest05.Text.Incomplete.enGB.set('Did you manage to speak to the Knight Captain in the barracks? You should leave through the cave and speak to him at once!')
+startingQuest05.Text.Description.enGB.set('Speak to the Knight Captain in the barracks of Shandralis, outside of the Walk of Heroes.')
+startingQuest05.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waiting for you. Welcome.')
+startingQuest05.Text.Title.enGB.set('Shandralis')
+
+
+
+
+
+
+
+
+//Starting Quest 6 - Defias Bandits
+
+startingQuest06.Flags.set(1)
+startingQuest06.MinLevel.set(1)
+startingQuest06.QuestLevel.set(1)
+
+startingQuest06.Questgiver.addStarter(questGiver03.ID)
+startingQuest06.Questgiver.addEnder(questGiver03.ID)
+
+startingQuest06.Rewards.ChoiceItem.add(tierOneClothMaterial,5)
+startingQuest06.Rewards.ChoiceItem.add(tierOneMailMaterial,5)
+startingQuest06.Rewards.ChoiceItem.add(tierOneLeatherMaterial,5)
+startingQuest06.Rewards.Money.set(4025)
+startingQuest06.Objectives.Entity.add(BanditNpc.ID,15)
+startingQuest06.Objectives.Entity.add(BanditBossNpc.ID,3)
+startingQuest06.Rewards.Item.add(OrbofPower.ID,1)
+
+startingQuest06.Text.Objective.enGB.set('Thank you for coming again hero, we need you here. We are currently dealing with a bandit problem and they are stealing all of the food from poor Gertrude and her cats... Please end this problem once and for all. I don\'t like to resort to violence but this is an exception I guess. Slay 15 bandits and 3 unruly bandits and return to me for your reward.')
+startingQuest06.Text.Incomplete.enGB.set('We must work with haste hero, the bandits will not remain around for long.')
+startingQuest06.Text.Description.enGB.set('Slay 15 Bandits and 3 Unruly bandits.')
+startingQuest06.Text.Reward.enGB.set('You have truly been a great help to your town.')
+startingQuest06.Text.Title.enGB.set('A Thief in the Night')
+
+//Starting Quest 7 - Kobold Mines (in bramblewood folder)
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Enter town and Start Journey
+//Make 10 subquests : Introduction (Class Master) - speak to class trainer
+//Start Class Chain Quests
+
+//Defias Bandit Problem - Main Story - kill 10 bandits and 3 unruly bandits
+//On your way, set them free, give them big goal quests from now on, with epic rewards. IE : bring 2500 wood to the town for winter, reward : purple bracers
 
 
 

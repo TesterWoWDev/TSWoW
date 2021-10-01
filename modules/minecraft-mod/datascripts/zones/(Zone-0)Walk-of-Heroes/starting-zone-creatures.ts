@@ -187,6 +187,19 @@ spawnNPC(questGiver02.ID,0,0,[-8744.915,-11.808,31.532,1.98])
 SQL.creature_template_addon.add(questGiver02.ID).auras.set('25824') // Spotlight
 SQL.creature_template_addon.add(questGiver02.ID).auras.set('68442') // Force Kneel
 
+export let questGiver03 = std.CreatureTemplates.create(MODNAME,'questgiver03-creature',30368)
+questGiver03.Name.enGB.set('Knight Captain')
+questGiver03.Models.clearAll()
+questGiver03.Models.addIds(21835)
+questGiver03.Level.set(10,10)
+questGiver03.FactionTemplate.set(35)
+questGiver03.DamageSchool.setNormal()
+questGiver03.Stats.ArmorMod.set(1)
+questGiver03.Stats.DamageMod.set(1)
+questGiver03.Stats.ExperienceMod.set(1)
+questGiver03.Stats.HealthMod.set(1)
+questGiver03.Stats.ManaMod.set(1)
+questGiver03.NPCFlags.QuestGiver.mark()
 
 /*Creature Spawn Zone*/
 
