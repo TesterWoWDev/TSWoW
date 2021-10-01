@@ -1,20 +1,20 @@
 let itemIDs:TSArray<uint64> = [
-    GetID("item_template","minecraft-mod","staffofflames"),
-    2092,
-    49778,
-    GetID("item_template","minecraft-mod","dancingflamesrapier")
+    GetID("item_template","minecraft-mod","untestedboots"), //Un-Tested Boots + 25% Speed on Equip
+    GetID("item_template","minecraft-mod","fallencloak"), //Cloak of the Fallen Angel + Spawn chest 1 time per hour
+    GetID("item_template","minecraft-mod","flannelshirt"), //Worn Flannel + Summons Girlfriend 
+    GetID("item_template","minecraft-mod","strangeblade") //Lexaeus Strange Blade + Summon Naked Women
 ]
 let spellIDs:TSArray<uint64> = [
-    GetID("Spell","minecraft-mod","felflamestrike-spell"),
-    GetID("Spell","minecraft-mod","fanofknives-spell"),
-    GetID("Spell","minecraft-mod","furyhammer-spell"),
-    GetID("Spell","minecraft-mod","passiveflamewave-spell")
+    GetID("Spell","minecraft-mod","movementspell-spell"), //Un-Tested Boots Movement Speed Spell
+    GetID("Spell","minecraft-mod","fallencloak-spell"), //Cloak of the Fallen Angel Spawn Chest Spell
+    GetID("Spell","minecraft-mod","flannelspell-spell"), //Worn Flannel Summon Girlfriend
+    GetID("Spell","minecraft-mod","lexaeusspell-spell") //Strange Blade Summon Naked People
 ]
 let spellNames = [
-    "Flamestrike",
-    "Fan of Knives",
-    "Storm of Fury",
-    "Flame Waves"
+    "Un-Tested Speed", //Un-Tested Boots Spell Name
+    "Summon Cache of Resources", //Fallen Cloak Spell Name
+    "Summon Girlfriend", //Flannel Spell Name
+    "Simp" //Lexaeus Spell Name
 ]
 
 let itemIDToSpellID : TSDictionary<uint64,uint64> = MakeDictionary<uint64,uint64>({});
