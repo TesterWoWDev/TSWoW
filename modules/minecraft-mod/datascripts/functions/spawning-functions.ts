@@ -53,6 +53,7 @@ export function spawnMultipleNPCWithTimer(id:number, wanderDistance:number, equi
     return guids
 }
 
+
 export function spawnGob(id: number, position:number[], index?:number) {
     if(index == null){
         index = 0

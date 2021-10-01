@@ -2,7 +2,7 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../../modname"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
-import { spawnGob, spawnNPC } from "../../../functions/spawning-functions"
+import { addWaypoint, addWaypoints, spawnGob, spawnMultipleNPCWithTimer, spawnNPC } from "../../../functions/spawning-functions"
 import { DeathknightQuestGiver01 } from "./DeathKnightClassQuest"
 import { DruidQuestGiver01 } from "./DruidClassQuest"
 import { HunterQuestGiver01 } from "./HunterClassQuest"
@@ -14,6 +14,8 @@ import { ShamanQuestGiver01 } from "./ShamanClassQuest"
 import { WarlockQuestGiver01 } from "./WarlockClassQuest"
 import { WarriorQuestGiver01 } from "./WarriorClassQuest"
 import { SQL_npc_vendor } from "wotlkdata/sql/types/npc_vendor"
+import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
+import { SQL_creature_addon } from "wotlkdata/sql/types/creature_addon"
 
 spawnNPC(questGiver03.ID,0,0,[-8292.411133,-271.135468,17.274445,1.4686858]) //Quest Giver 3 Spawn
 
@@ -78,3 +80,28 @@ SQL_npc_vendor.add(AmuletVendor.ID,Amulet05.ID,0).incrtime.set(3600).maxcount.se
 
 spawnNPC(3562,0,0,[-8186.291504,13.517035,0.115301,5.435018]) //Reagent Vendor at City Exit
 spawnNPC(AmuletVendor.ID,0,0,[-8182.976074,16.767733,0.099456,5.533191]) //Amulet Vendor at City Exit
+
+
+
+
+spawnGob(532751, [-8299.083008,20.426346,12.764252,0.761878])//NpcSpawnPortal
+
+
+export let AdventurerMageTower = std.CreatureTemplates.create(MODNAME,'adventurermagetower-creature',39686)
+AdventurerMageTower.Name.enGB.set('Foreign Adventurer')
+AdventurerMageTower.Subname.enGB.set('')
+AdventurerMageTower.FactionTemplate.set(31)
+AdventurerMageTower.Models.clearAll()
+AdventurerMageTower.Models.addIds(30859,30987,30861,30862)
+AdventurerMageTower.Level.set(1,3)
+
+SQL_waypoint_data.add(AdventurerMageTower.ID,1).position_x.set(-8299.083008).position_y.set(20.426346).position_z.set(12.764252).orientation.set(0.761878).move_type.set(1) //starting point = spawn point
+SQL_waypoint_data.add(AdventurerMageTower.ID,2).position_x.set(-8293.528320).position_y.set(24.700512).position_z.set(12.764252).orientation.set(5.906237).move_type.set(1)
+SQL_waypoint_data.add(AdventurerMageTower.ID,3).position_x.set(-8266.353516).position_y.set(9.681848).position_z.set(12.674788).orientation.set(5.764865).move_type.set(1)
+SQL_waypoint_data.add(AdventurerMageTower.ID,4).position_x.set(-8231.514648).position_y.set(-11.710628).position_z.set(4.428009).orientation.set(5.729524).move_type.set(1)
+SQL_waypoint_data.add(AdventurerMageTower.ID,5).position_x.set(-8201.644531).position_y.set(-18.149355).position_z.set(0.264162).orientation.set(6.118293).move_type.set(1)
+SQL_waypoint_data.add(AdventurerMageTower.ID,6).position_x.set(-8140.579102).position_y.set(42.030800).position_z.set(0.426499).orientation.set(0.797220).move_type.set(1)
+SQL_waypoint_data.add(AdventurerMageTower.ID,7).position_x.set(-8102.019531).position_y.set(70.905174).position_z.set(1.228998).orientation.set(0.624432).move_type.set(1)
+
+spawnMultipleNPCWithTimer(AdventurerMageTower.ID,0,0,[
+    [-8299.083008,20.426346,12.764252,0.761878]],10)
