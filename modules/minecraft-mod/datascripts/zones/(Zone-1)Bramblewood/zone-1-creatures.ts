@@ -2,6 +2,7 @@ import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { MODNAME } from "../../modname"
 import { Rank1Frostbolt, Rank1FireBlast, Rank1FrostArmor, Rank1FrostNova, Rank1BoarCharge, Rank1Strike, Rank1Bite, Rank1Gore, Rank1Whirlwind } from "./zone-1-creature-spells"
+import { BoarSkin, Teeth } from "./zone-1-items"
 
 let broadcastindex = 85000
 
@@ -85,8 +86,12 @@ creature3.DamageSchool.setNormal()
 creature3.Stats.ArmorMod.set(1)
 creature3.Stats.DamageMod.set(1)
 creature3.Stats.ExperienceMod.set(1)
+creature3.UnitFlags.Skinnable.mark()
 creature3.Stats.HealthMod.set(1)
 creature3.Stats.ManaMod.set(1)
+creature3.Scale.set(1.5)
+creature3.SkinningLoot.addItem(BoarSkin.ID,100,1,2)
+creature3.SkinningLoot.addItem(Teeth.ID,25,1,4,false,2)
 export let creature3Loot = creature3.NormalLoot
 
 export let creature4 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature4',299)

@@ -2,7 +2,7 @@ import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tie
 import { Bosscreature1Loot, creature10Loot, creature1Loot, creature2Loot, creature3Loot, creature4Loot, creature5Loot, creature6Loot, creature7Loot, creature8Loot, creature9Loot, DemiBosscreature1Loot, DemiBosscreature2Loot, RareCreature1Loot, RareCreature2Loot, RareCreature3Loot, RareCreature4Loot } from "./zone-1-creatures";
 import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set";
 import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem";
-import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, FangoftheCrystalSpider, GoblinDragonGun, DarkwaterTalwar, BiteofSerrakis, Grimclaw, Shadowfang, StrikeoftheHydra, GalgannsFireblaster, GalgannsFirehammer, RagingBerserkersHelm, HerodsShoulder, ScarletLeggings, DeadmansHand, RobeofDoan, MantleofDoan, SavageGladiatorChain, SavageGladiatorLeggings, SavageGladiatorHelm, SavageGladiatorGrips, SavageGladiatorGreaves, DarkIronPulverizer, IronweaveRobe, IronweaveCowl, IronweavePants, IronweaveGloves, IronweaveMantle, IronweaveBelt, IronweaveBoots, IronweaveBracers, WraithScythe, ForceofWill, LordGeneralsSword, Naglering, FlameWrath, BurstofKnowledge, CircleofFlame, BrownLeatherSatchel, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, DarnassianBleu, RefreshingSpringWater, ShinyRedApple, Dirk, TornNote, LargeCandle, MagicCandle, MeltedCandle, BladedPickaxe } from "./zone-1-items";
+import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, FangoftheCrystalSpider, GoblinDragonGun, DarkwaterTalwar, BiteofSerrakis, Grimclaw, Shadowfang, StrikeoftheHydra, GalgannsFireblaster, GalgannsFirehammer, RagingBerserkersHelm, HerodsShoulder, ScarletLeggings, DeadmansHand, RobeofDoan, MantleofDoan, SavageGladiatorChain, SavageGladiatorLeggings, SavageGladiatorHelm, SavageGladiatorGrips, SavageGladiatorGreaves, DarkIronPulverizer, IronweaveRobe, IronweaveCowl, IronweavePants, IronweaveGloves, IronweaveMantle, IronweaveBelt, IronweaveBoots, IronweaveBracers, WraithScythe, ForceofWill, LordGeneralsSword, Naglering, FlameWrath, BurstofKnowledge, CircleofFlame, BrownLeatherSatchel, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, DarnassianBleu, RefreshingSpringWater, ShinyRedApple, Dirk, TornNote, LargeCandle, MagicCandle, MeltedCandle, BladedPickaxe, BoarSkin } from "./zone-1-items";
 import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test";
 import { SmallSackofCoins } from "../../items/currencies";
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions";
@@ -69,6 +69,10 @@ addLootToCreature(creature3Loot,[
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
+//Boarskin
+addLootToCreature(creature3Loot,[
+    BoarSkin.ID
+],[100],7)  
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature3Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID

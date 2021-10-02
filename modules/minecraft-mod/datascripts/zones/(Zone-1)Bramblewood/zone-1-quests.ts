@@ -1,6 +1,6 @@
 //Starting Quest 7 - Kobold Mines
 
-import { questGiver03 } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { Boar01, questGiver03 } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { startingQuest07 } from "../(Zone-0)Walk-of-Heroes/starting-zone-quests"
 import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToGobChest } from "../../functions/gob-functions"
@@ -11,6 +11,7 @@ import { creature4, creature5 } from "./zone-1-creatures"
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
 import { SQL } from "wotlkdata/sql/SQLFiles";
+import { BoarSkin, BoarskinSatchel } from "./zone-1-items"
 
 export let StrangeEtherealCrate = std.Items.create(MODNAME,'strangecrate01',36771)
 StrangeEtherealCrate.Name.enGB.set('Strange Ethereal Crate')
@@ -103,9 +104,6 @@ spawnMultiGobTimer(EtherealCrate.ID,[
 [-7831.480469,165.753174,-26.191280,5.160311],
 [-7833.295410,158.632385,-27.252964,2.572427],],60)
 
-
-
-
 startingQuest07.Flags.set(1)
 startingQuest07.MinLevel.set(1)
 startingQuest07.QuestLevel.set(1)
@@ -127,3 +125,36 @@ startingQuest07.Text.Incomplete.enGB.set('I understand your concern hero, but th
 startingQuest07.Text.Description.enGB.set('Slay 10 Kobold Foreman, 10 Kobold Miners, and collect 15 Strange Ethereal Crates.')
 startingQuest07.Text.Reward.enGB.set('You have truly been a great help to your town.')
 startingQuest07.Text.Title.enGB.set('Meddlesome Affairs')
+
+
+export let BoarQuestGiver01 = std.CreatureTemplates.create(MODNAME,'boarquestgiver01-creature',30368)
+BoarQuestGiver01.Name.enGB.set('Jethel Salisbury')
+BoarQuestGiver01.Models.clearAll()
+BoarQuestGiver01.Models.addIds(2200)
+BoarQuestGiver01.Level.set(10,10)
+BoarQuestGiver01.FactionTemplate.set(35)
+BoarQuestGiver01.DamageSchool.setNormal()
+BoarQuestGiver01.Stats.ArmorMod.set(1)
+BoarQuestGiver01.Stats.DamageMod.set(1)
+BoarQuestGiver01.Stats.ExperienceMod.set(1)
+BoarQuestGiver01.Stats.HealthMod.set(1)
+BoarQuestGiver01.Stats.ManaMod.set(1)
+BoarQuestGiver01.NPCFlags.QuestGiver.mark()
+
+export let BagQuest01 = std.Quests.create(MODNAME,'bagquest01-quest')
+BagQuest01.Flags.set(8)
+BagQuest01.MinLevel.set(1)
+BagQuest01.QuestLevel.set(1)
+SQL.quest_template_addon.add(BagQuest01.ID).SpecialFlags.set(1)
+BagQuest01.Questgiver.addStarter(BoarQuestGiver01.ID)
+BagQuest01.Questgiver.addEnder(BoarQuestGiver01.ID)
+
+BagQuest01.Rewards.Money.set(2525)
+BagQuest01.Objectives.Item.add(BoarSkin.ID,25)
+BagQuest01.Rewards.Item.add(BoarskinSatchel.ID,1)
+
+BagQuest01.Text.Objective.enGB.set('I understand that it can be quite difficult to continue on your journey without ample room to carry supplies, hero. I have a deal for you. If you can bring me 25 Boarskins from the boars in the surrounding area, I can fashion them into a bag for you so that you can carry more materials in the future. What do you say? Do we have a deal?')
+BagQuest01.Text.Incomplete.enGB.set('Have you managed to get the boar skins that I require to fashion into a bag?')
+BagQuest01.Text.Description.enGB.set('Bring 25 Boar Skins to Jethel.')
+BagQuest01.Text.Reward.enGB.set('Oh these will be perfect, just give me one moment and I\'ll be ready for you!')
+BagQuest01.Text.Title.enGB.set('Useful Little Boars')

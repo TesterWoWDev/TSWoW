@@ -2,7 +2,7 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../../modname"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
-import { spawnGob, spawnMultipleNPCWithTimer, spawnNPC } from "../../../functions/spawning-functions"
+import { addWaypoint, addWaypoints, spawnGob, spawnMultipleNPCWithTimer, spawnNPC } from "../../../functions/spawning-functions"
 import { DeathknightQuestGiver01 } from "./DeathKnightClassQuest"
 import { DruidQuestGiver01 } from "./DruidClassQuest"
 import { HunterQuestGiver01 } from "./HunterClassQuest"
@@ -104,3 +104,4 @@ SQL_waypoint_data.add(AdventurerMageTower.ID,7).position_x.set(-8102.019531).pos
 
 spawnMultipleNPCWithTimer(AdventurerMageTower.ID,0,0,[
     [-8299.083008,20.426346,12.764252,0.761878]],10)
+

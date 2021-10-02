@@ -6,6 +6,7 @@ import { SQL_creature_text } from "wotlkdata/sql/types/creature_text"
 import { SQL_smart_scripts } from "wotlkdata/sql/types/smart_scripts"
 import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
 import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
+import { BoarSkin, DeerSkin, RabbitSkin, Teeth } from "../(Zone-1)Bramblewood/zone-1-items"
 import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 
@@ -65,13 +66,20 @@ SQL_waypoint_data.add(DandotheRiled.ID,7).position_x.set(-8701.031250).position_
 SQL_waypoint_data.add(DandotheRiled.ID,8).position_x.set(-8716.988281).position_y.set(-44.429104).position_z.set(31.147694).orientation.set(3.931129)
 SQL_waypoint_data.add(DandotheRiled.ID,9).position_x.set(-8747.326172).position_y.set(-71.871475).position_z.set(31.134922).orientation.set(3.907567).delay.set(20000) //end point = spawn point
 
-export let Rabbit01 = std.CreatureTemplates.load(721)
+export let Rabbit01 = std.CreatureTemplates.create(MODNAME,'rabbit01-creature',721)
 Rabbit01.Name.enGB.set('Wild Hare')
 Rabbit01.FactionTemplate.set(32)
+Rabbit01.SkinningLoot.addItem(Teeth.ID,25,1,4,false,2)
+Rabbit01.SkinningLoot.addItem(RabbitSkin.ID,100,1,2)
+Rabbit01.UnitFlags.Skinnable.mark()
 
-export let Fawn01 = std.CreatureTemplates.load(890)
+export let Fawn01 = std.CreatureTemplates.create(MODNAME,'fawn-creature',890)
 Fawn01.Name.enGB.set('Fawn')
 Fawn01.FactionTemplate.set(32)
+Fawn01.Scale.set(2)
+Fawn01.SkinningLoot.addItem(Teeth.ID,25,1,4,false,2)
+Fawn01.SkinningLoot.addItem(DeerSkin.ID,100,1,2)
+Fawn01.UnitFlags.Skinnable.mark()
 
 export let BanditNpc = std.CreatureTemplates.create(MODNAME,'banditnpc-creature3',116)
 BanditNpc.Name.enGB.set('Bandit')
@@ -108,12 +116,16 @@ Boar01.Models.clearAll()
 Boar01.Models.addIds(503,389,607,704)
 Boar01.MovementType.setRandomMovement()
 Boar01.Level.set(1,1)
+Boar01.Scale.set(1.5)
 Boar01.DamageSchool.setNormal()
 Boar01.Stats.ArmorMod.set(1)
 Boar01.Stats.DamageMod.set(1)
 Boar01.Stats.ExperienceMod.set(1)
 Boar01.Stats.HealthMod.set(1)
 Boar01.Stats.ManaMod.set(1)
+Boar01.SkinningLoot.addItem(BoarSkin.ID,100,1,2)
+Boar01.UnitFlags.Skinnable.mark()
+export let Boar01Loot = Boar01.NormalLoot
 
 export let FightingAdventurer01 = std.CreatureTemplates.create(MODNAME,'adventurer01-creature',39686)
 FightingAdventurer01.Name.enGB.set('Seasoned Adventurer')
@@ -212,7 +224,6 @@ spawnMultipleNPCWithTimer(FightingAdventurer01.ID,5,0,[
     
 /*Rabbit Spawns*/
 spawnMultipleNPCWithTimer(Rabbit01.ID,5,0,[
-
 [-8224.416016,-75.297699,0.322220,3.535379],
 [-8238.592773,-94.925919,1.552764,3.998765],
 [-8264.207031,-78.104279,0.530478,2.687149],

@@ -2,21 +2,17 @@ import { MODNAME } from "../../modname"
 import { std } from "tswow-stdlib"
 import { chanceWorg1M } from "../champion-scrolls/ravaging-worg-champion-scroll"
 
-
+//cast thunderclap, force it to apply a new aura, lasts for 300 seconds, casts the consecration
 
 //Testing Zone
-export let FlameWaveDamage = std.Spells.create(MODNAME,'flamewavedamage-spell',75413)
-FlameWaveDamage.Effects.get(0).BasePoints.set(179)
-FlameWaveDamage.Effects.get(0).DieSides.set(15)
-FlameWaveDamage.Effects.get(2).EffectType.set(0)
-FlameWaveDamage.Effects.get(0).Radius.set(5,0,5)
-FlameWaveDamage.Effects.get(1).Radius.set(5,0,5)
-export let PassiveFlameWave = std.Spells.create(MODNAME,'passiveflamewave-spell',67672) //caster
-PassiveFlameWave.Name.enGB.set('Flame Wave')
-PassiveFlameWave.Description.enGB.set('Your attacks and abilties now have the chance to cast flame wave.')
-PassiveFlameWave.AuraDescription.enGB.set('Your attacks and abilties now have the chance to cast flame wave.')
-PassiveFlameWave.Effects.get(0).TriggerSpell.set(FlameWaveDamage.ID)
+export let Consecrationdamage = std.Spells.create(MODNAME,'Consecrationdamage-spell',20116)
 
+export let ThunderClapModifier = std.Spells.create(MODNAME,'thunderclaptest-spell',58098) //caster
+ThunderClapModifier.Name.enGB.set('Thunder Clap (Effect)')
+ThunderClapModifier.Description.enGB.set('Thunder Clap now leaves behind consecration.')
+ThunderClapModifier.AuraDescription.enGB.set('Your attacks and abilties now have the chance to leave behind consecration.')
+ThunderClapModifier.Effects.get(0).TriggerSpell.set(Consecrationdamage.ID)
+ThunderClapModifier.Effects.get(0).ImplicitTargetA.setUnitTargetEnemy()
 
 //Working Spells
 export let FanofKnives = std.Spells.create(MODNAME,'fanofknives-spell',51723)
