@@ -41,6 +41,46 @@ StrangeBlade.Name.enGB.set("Strange Blade")
 StrangeBlade.RequiredLevel.set(1)
 StrangeBlade.Quality.setBlue()
 StrangeBlade.Price.set(1,1)
+//Direct Equip Spells
+export let SlowFallSpell = std.Spells.create(MODNAME,'slowfallspell-spell',130) //caster
+SlowFallSpell.Name.enGB.set('Slow Fall (Permanent)')
+SlowFallSpell.Description.enGB.set('Chickens can\'t fly though.')
+SlowFallSpell.Duration.set(-1,0,-1)
+export let DamageSpell = std.Spells.create(MODNAME,'damagespell-spell',71188) //caster
+DamageSpell.Name.enGB.set('Rampage')
+DamageSpell.Description.enGB.set('He\'s a bull so...')
+DamageSpell.Effects.get(0).BasePoints.set(1)
+DamageSpell.Effects.get(1).AuraType.set(0)
+DamageSpell.Effects.get(2).AuraType.set(0)
+DamageSpell.Duration.set(-1,0,-1)
+export let HealthSpell = std.Spells.create(MODNAME,'healthspell-spell',71188) //caster
+HealthSpell.Name.enGB.set('Invincible')
+HealthSpell.Description.enGB.set('I guess this works for now..?')
+HealthSpell.Effects.get(0).BasePoints.set(1)
+HealthSpell.Effects.get(0).AuraType.setModIncreaseHealthPercent()
+HealthSpell.Effects.get(1).AuraType.set(0)
+HealthSpell.Effects.get(2).AuraType.set(0)
+HealthSpell.Duration.set(-1,0,-1)
+//
+export let BrokenChickenShoulders = std.Items.create(MODNAME,'chickenshoulders',5404)
+BrokenChickenShoulders.Name.enGB.set("Cracked Chicken Shell Shoulderguards")
+BrokenChickenShoulders.RequiredLevel.set(1)
+BrokenChickenShoulders.Quality.setBlue()
+BrokenChickenShoulders.Price.set(1,1)
+BrokenChickenShoulders.Spells.add(SlowFallSpell.ID).Trigger.set(1)
+export let RampagingLeggings = std.Items.create(MODNAME,'rampaginglegs',6587)
+RampagingLeggings.Name.enGB.set("Leggings of Brutal Rampage")
+RampagingLeggings.RequiredLevel.set(1)
+RampagingLeggings.Quality.setBlue()
+RampagingLeggings.Price.set(1,1)
+RampagingLeggings.Spells.add(DamageSpell.ID).Trigger.set(1)
+export let UndyingGauntlets = std.Items.create(MODNAME,'undyinggauntlets',10413)
+UndyingGauntlets.Name.enGB.set("Gauntlets of the Undying")
+UndyingGauntlets.RequiredLevel.set(1)
+UndyingGauntlets.Quality.setBlue()
+UndyingGauntlets.Price.set(1,1)
+UndyingGauntlets.Spells.add(HealthSpell.ID).Trigger.set(1)
+
 
 //Game Objects
 export let ForgottenBoots = makeResourceNode('Forgotten Boots',86691,57,'forgottenboots-chest')
@@ -68,8 +108,8 @@ addLootToGobChestSingleChance(FallenChest,[
 export let WornFlannel = makeResourceNode('Forgotten Laundry',7679,57,'forgottenlaundry-chest')
 WornFlannel.Size.set(1.0)
 addLootToGobChestSingleChanceMultiGroup(WornFlannel,[
-    WornFlannelShirt.ID]
-,100,1,1,5)
+    WornFlannelShirt.ID,        BrokenChickenShoulders.ID,         RampagingLeggings.ID,         UndyingGauntlets.ID ]
+,25,1,1,5)
 export let StrangeBladeObject = makeResourceNode('Strange Blade',98395,57,'strangeblade-chest')
 StrangeBladeObject.Size.set(1.0)
 addLootToGobChestSingleChanceMultiGroup(StrangeBladeObject,[
