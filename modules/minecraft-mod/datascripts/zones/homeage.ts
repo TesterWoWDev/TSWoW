@@ -49,6 +49,7 @@ SlowFallSpell.Duration.set(-1,0,-1)
 export let DamageSpell = std.Spells.create(MODNAME,'damagespell-spell',71188) //caster
 DamageSpell.Name.enGB.set('Rampage')
 DamageSpell.Description.enGB.set('He\'s a bull so...')
+DamageSpell.AuraDescription.enGB.set('Increases total damage dealt by s1%.')
 DamageSpell.Effects.get(0).BasePoints.set(1)
 DamageSpell.Effects.get(1).AuraType.set(0)
 DamageSpell.Effects.get(2).AuraType.set(0)
@@ -56,6 +57,7 @@ DamageSpell.Duration.set(-1,0,-1)
 export let HealthSpell = std.Spells.create(MODNAME,'healthspell-spell',71188) //caster
 HealthSpell.Name.enGB.set('Invincible')
 HealthSpell.Description.enGB.set('I guess this works for now..?')
+HealthSpell.AuraDescription.enGB.set('Increases total health by s1%.')
 HealthSpell.Effects.get(0).BasePoints.set(1)
 HealthSpell.Effects.get(0).AuraType.setModIncreaseHealthPercent()
 HealthSpell.Effects.get(1).AuraType.set(0)
@@ -80,7 +82,7 @@ UndyingGauntlets.RequiredLevel.set(1)
 UndyingGauntlets.Quality.setBlue()
 UndyingGauntlets.Price.set(1,1)
 UndyingGauntlets.Spells.add(HealthSpell.ID).Trigger.set(1)
-
+UndyingGauntlets.ItemSet.set(0)
 
 //Game Objects
 export let ForgottenBoots = makeResourceNode('Forgotten Boots',86691,57,'forgottenboots-chest')
@@ -123,12 +125,15 @@ GirlfriendMob.Subname.enGB.set('It would have been tasteless to call this enslav
 GirlfriendMob.FactionTemplate.set(35)
 GirlfriendMob.Models.clearAll()
 GirlfriendMob.Models.addIds(27999)
+GirlfriendMob.PetSpells.set(13471)
+
 export let NakedLexMob01 = std.CreatureTemplates.create(MODNAME,'lexmob01-creature',510)
 NakedLexMob01.Name.enGB.set('Narcissa Illusion')
 NakedLexMob01.Subname.enGB.set('')
 NakedLexMob01.FactionTemplate.set(35)
 NakedLexMob01.Models.clearAll()
 NakedLexMob01.Models.addIds(20579,19724)
+NakedLexMob01.PetSpells.set(13172)
 
 //Spells
 export let MovementSpell = std.Spells.create(MODNAME,'movementspell-spell',9175) //caster
