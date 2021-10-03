@@ -100,7 +100,7 @@ OrbOfPowerVendor.Models.clearAll()
 OrbOfPowerVendor.Models.addIds(21891)
 OrbOfPowerVendor.FactionTemplate.set(35)
     spawnMultipleNPCWithTimer(OrbOfPowerVendor.ID,0,0,[
-        [-8431.319336,-97.310295,2.217211,3.191707]],10)
+        [-8302.053711,-267.736298,17.274397,6.243299]],10)
 
 
 
