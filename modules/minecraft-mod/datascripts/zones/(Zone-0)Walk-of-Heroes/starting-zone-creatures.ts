@@ -7,7 +7,7 @@ import { SQL_smart_scripts } from "wotlkdata/sql/types/smart_scripts"
 import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
 import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
 import { BoarSkin, DeerSkin, RabbitSkin, Teeth } from "../(Zone-1)Bramblewood/zone-1-items"
-import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
+import { addWaypoint, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 
 export let WoodcuttingTree = std.CreatureTemplates.create(MODNAME,'woodcuttingtree-creature',721)
@@ -53,15 +53,17 @@ DandotheRiled.Subname.enGB.set('The Undying')
 DandotheRiled.FactionTemplate.set(35)
 DandotheRiled.Models.clearAll()
 DandotheRiled.Models.addIds(30859,30987,30861,30862)
-spawnNPC(DandotheRiled.ID,0,0,[-8743.039062,-86.155716,31.135164,2.109006])
+let DandotheRiledGUID = spawnNPC(DandotheRiled.ID,0,0,[-8743.039062,-86.155716,31.135164,2.109006])
 SQL_waypoint_data.add(DandotheRiled.ID,1).position_x.set(-8743.039062).position_y.set(-86.155716).position_z.set(31.135164).orientation.set(2.109006) //starting point = spawn point
 SQL_waypoint_data.add(DandotheRiled.ID,2).position_x.set(-8747.386719).position_y.set(-76.869591).position_z.set(31.135164).orientation.set(0.903420)
 SQL_waypoint_data.add(DandotheRiled.ID,3).position_x.set(-8737.828125).position_y.set(-62.211067).position_z.set(31.135164).orientation.set(0.989814)
 SQL_waypoint_data.add(DandotheRiled.ID,4).position_x.set(-8718.592773).position_y.set(-45.496162).position_z.set(31.135164).orientation.set(0.687435)
 SQL_waypoint_data.add(DandotheRiled.ID,5).position_x.set(-8700.653320).position_y.set(-44.864475).position_z.set(31.135210).orientation.set(5.851428)
 SQL_waypoint_data.add(DandotheRiled.ID,6).position_x.set(-8694.234375).position_y.set(-61.146999).position_z.set(31.135210).orientation.set(5.113153).delay.set(20000).action.set(0).action_chance.set(100)//stop and talk to the npc, add emote and creature text
+addWaypoint(DandotheRiledGUID,[[x,y,z,o,delay],[x,y,z,o,delay],[x,y,z,o,delay],[x,y,z,o,delay]])
 SQL_broadcast_text.add(90000).Text.set('Are you kidding me? These prices are absolutely outrageous. How do you expect new players to afford any of this crap?!').EmoteID1.set(1)
 SQL_waypoint_scripts.add(DandotheRiled.ID).id.set(6).delay.set(5).command.set(0).datalong.set(0).dataint.set(90000)
+
 SQL_waypoint_data.add(DandotheRiled.ID,7).position_x.set(-8701.031250).position_y.set(-43.527889).position_z.set(31.135210).orientation.set(2.717688) //the walk back
 SQL_waypoint_data.add(DandotheRiled.ID,8).position_x.set(-8716.988281).position_y.set(-44.429104).position_z.set(31.147694).orientation.set(3.931129)
 SQL_waypoint_data.add(DandotheRiled.ID,9).position_x.set(-8747.326172).position_y.set(-71.871475).position_z.set(31.134922).orientation.set(3.907567).delay.set(20000) //end point = spawn point
