@@ -28,10 +28,8 @@ export function itemLearnSpell(events: TSEventHandlers) {
     for(let i=0;i<itemIDs.length;i++){
         events.ItemID.OnEquipEarly(itemIDs[i],(item,player,result)=>{
             let entry = item.GetEntry()
-            if(player.CanEquipItem(item,item.GetSlot(),entry)){
-                player.LearnSpell(itemIDToSpellID[entry])
-                player.SendBroadcastMessage("You feel a surge of energy enter your mind. You have learned how to use |Hspell:" + itemIDToSpellID[entry] + "|h|r|cff71d5ff[" + itemIDToSpellName[entry] + "]|r|h")
-            }
+            player.LearnSpell(itemIDToSpellID[entry])
+            player.SendBroadcastMessage("You feel a surge of energy enter your mind. You have learned how to use |Hspell:" + itemIDToSpellID[entry] + "|h|r|cff71d5ff[" + itemIDToSpellName[entry] + "]|r|h")
         })
         events.ItemID.OnUnequip(itemIDs[i],(item,player,isSwap,result)=>{
             let entry = item.GetEntry()
