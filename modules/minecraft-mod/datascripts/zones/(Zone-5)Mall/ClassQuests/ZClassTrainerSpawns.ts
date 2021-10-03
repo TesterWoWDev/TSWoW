@@ -40,7 +40,7 @@ spawnNPC(DeathknightQuestGiver01.ID,0,0,[-8325.328125,-121.336845,0.852532,5.242
 
 spawnNPC(33251,0,0,[-8326.202148,-124.327225,0.852532,0.117808]) //Deathknight Trainer
 spawnGob(190557, [-8326.202148,-124.327225,0.852532,0.117808])//runeforge
-spawnNPC(22060,0,0,[-8144.066406,21.116680,0.641976,3.220194]) //Rogue Ganker
+//spawnNPC(22060,0,0,[-8144.066406,21.116680,0.641976,3.220194]) //Rogue Ganker
 
 export let Amulet01 = std.Items.create(MODNAME,'newamulet01',21712)
 Amulet01.Quality.setBlue()
