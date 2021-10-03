@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib";
 import { DBC, SQL } from "wotlkdata";
-import { Spell } from "../../../tswow-stdlib/datascripts/build/Spell/Spell";
+import { Spell } from "tswow-stdlib/Spell/Spell";
 import { all_objects, baseHousingItem } from "./copied_objects";
 
 let startIndex = 100000;
