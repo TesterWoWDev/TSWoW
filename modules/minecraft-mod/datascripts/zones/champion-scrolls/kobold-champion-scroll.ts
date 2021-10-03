@@ -62,6 +62,7 @@ KoboldScroll.MaxCount.set(1)
 KoboldScroll.RequiredLevel.set(1)
 KoboldScroll.Spells.clearAll()
 KoboldScroll.Spells.add(KoboldChampion.ID)
+KoboldScroll.Spells.add(KoboldScroll.ID,undefined,undefined,-1)
 
 /*Spell Scripts - Champion Boss Items*/
 export let KoboldCreatureSpawn = std.CreatureTemplates.create(MODNAME,'koboldcreaturespawn-creature',8776)
