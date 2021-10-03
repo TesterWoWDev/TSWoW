@@ -8,7 +8,6 @@ export function addLootToGobChest(chest: GameObjectChest, items: number[], chanc
             chest.Loot.addItem(value,chances[index],1,1,false,groupID,1)
         }
     })
-
 }
 
 export function addLootToGobChestSingleChance(chest: GameObjectChest,items:number[],chance:number,groupID?:number) {

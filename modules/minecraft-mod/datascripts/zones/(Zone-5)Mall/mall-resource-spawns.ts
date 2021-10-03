@@ -3,6 +3,7 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
 import { ShinyRedApple, RefreshingSpringWater } from "../(Zone-1)Bramblewood/zone-1-items";
 import { SmallSackofCoins } from "../../items/currencies";
+import { addLootToGobChestMultiDrop } from "../../functions/gob-functions";
 
 /*Item Creation Zone*/
 export let LoggingPileLogs = std.Items.create(MODNAME,'logpilelogs',929)
@@ -19,19 +20,13 @@ GrainSack.MaxStack.set(9999)
 /*Object Creation Zone*/
 export let PileofLogs = makeResourceNode('Pile of Logs',289,57,'pileoflogs-chest')
 PileofLogs.Size.set(1)
-PileofLogs.Loot.addItem(LoggingPileLogs.ID,100,1,4,false,1,2)
-
+addLootToGobChestMultiDrop(PileofLogs,[LoggingPileLogs.ID],[100],[1],[3],1)
 export let SmallTownChest = makeResourceNode('Chest',259,57,'smalltownchest-chest')
 SmallTownChest.Size.set(1)
-SmallTownChest.Loot.addItem(ShinyRedApple.ID,100,1,3,false,1,2)
-SmallTownChest.Loot.addItem(RefreshingSpringWater.ID,100,1,3,false,2,2)
-SmallTownChest.Loot.addItem(GrainSack.ID,25,1,1,false,3,2)
-SmallTownChest.Loot.addItem(SmallSackofCoins.ID,25,1,1,false,3,2)
-
+addLootToGobChestMultiDrop(SmallTownChest,[ShinyRedApple.ID,RefreshingSpringWater.ID,GrainSack.ID,SmallSackofCoins.ID],[100,100,25,25],[1,1,1,1],[2,2,1,1],1)
 export let SackofGrains = makeResourceNode('Sack of Grain',5471,57,'sackofgrains-chest')
 SackofGrains.Size.set(1)
-SackofGrains.Loot.addItem(GrainSack.ID,100,6,24,false,1,2)
-
+addLootToGobChestMultiDrop(SackofGrains,[GrainSack.ID],[100],[1],[2],1)
 export let BowlofFruit = makeResourceNode('Bowl of Fruit',381,57,'bowloffruit-chest')
 BowlofFruit.Size.set(0.5)
-BowlofFruit.Loot.addItem(ShinyRedApple.ID,100,1,4,false,1,2)
+addLootToGobChestMultiDrop(BowlofFruit,[ShinyRedApple.ID],[100],[1],[2],1)
