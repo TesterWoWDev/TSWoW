@@ -45,6 +45,7 @@ StartingRing.RequiredLevel.set(1)
 StartingRing.Quality.setGreen()
 StartingRing.Stats.addSpellPower(20)
 StartingRing.Stats.addAttackPower(20)
+StartingRing.Stats.addCritRating(15)
 
 SQL_playercreateinfo_item.add(0,0,StartingVest.ID).amount.set(1)
 SQL_playercreateinfo_item.add(0,0,StartingBoots.ID).amount.set(1)
