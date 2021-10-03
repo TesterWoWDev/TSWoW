@@ -239,5 +239,4 @@ function learnSpells(player:TSPlayer){
             player.LearnSpell(spells[i])
         }
     }
-    player.SaveToDB()
 }
