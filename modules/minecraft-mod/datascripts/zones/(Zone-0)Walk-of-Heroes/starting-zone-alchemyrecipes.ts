@@ -1,4 +1,5 @@
 import { std } from "tswow-stdlib"
+import { GrainSack } from "../(Zone-5)Mall/mall-resource-spawns"
 import { addLootToGobChest } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { spawnMultiGobTimer } from "../../functions/spawning-functions"
@@ -102,3 +103,9 @@ MinorDefense.Reagents.add(BlueFlower01.ID,1)
 export let LionElixir = std.Spells.load(2329)
 LionElixir.Reagents.clearAll()
 LionElixir.Reagents.add(RedFlower01.ID,1)
+
+export let HerbEgg = std.Spells.load(8604)
+HerbEgg.Reagents.clearAll()
+HerbEgg.Effects.get(0).ItemType.set(30816)
+HerbEgg.Reagents.add(GrainSack.ID,1)
+HerbEgg.Icon.set('Interface\\Icons\\INV_Misc_Food_09')
