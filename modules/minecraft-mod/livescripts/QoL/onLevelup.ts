@@ -228,14 +228,16 @@ export function onLevelup(events:TSEventHandlers){
         SendWorldMessage('[' +classIcons[player.GetClass()] + '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r' + ' has reached level [' + '|cff'+levelColors[player.GetLevel()] +player.GetLevel()+ '|r].')
     })
     events.Player.OnLogin((player,first)=>{
-        if(first)
         learnSpells(player)
     })
 }
 
 function learnSpells(player:TSPlayer){
-    let spells = spellsList[player.GetClass()][player.GetLevel()]
-    for(let i=0;i<spells.length;i++){
-        player.LearnSpell(spells[i])
+    for(let j=0;j<=player.GetLevel();j++){
+        let spells = spellsList[player.GetClass()][j]
+        for(let i=0;i<spells.length;i++){
+            player.LearnSpell(spells[i])
+        }
     }
+    player.SaveToDB()
 }
