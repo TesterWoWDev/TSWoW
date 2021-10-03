@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
-import { ClothArmorVendor01 } from "./creature-mall-spawns"
+import { ClothArmorVendor01, PlateArmorVendor01, PlateArmorVendor02 } from "./creature-mall-spawns"
 
 
 //Cloth
@@ -55,6 +55,68 @@ ClothArmorVendor01.addVendorItem(ClothItem11.ID,0,0,0)
 ClothArmorVendor01.addVendorItem(ClothItem12.ID,0,0,0)
 
 //Plate
+export let PlateItem01 = std.Items.create(MODNAME,'plateitem01',13286)
+PlateItem01.Quality.setGreen()
+PlateItem01.Price.set(27893,293262,1)
+export let PlateItem02 = std.Items.create(MODNAME,'plateitem02',13168)
+PlateItem02.Quality.setGreen()
+PlateItem02.Price.set(31893,805211,1)
+export let PlateItem03 = std.Items.create(MODNAME,'plateitem03',13166)
+PlateItem03.Quality.setGreen()
+PlateItem03.Price.set(45893,426232,1)
+export let PlateItem04 = std.Items.create(MODNAME,'plateitem04',13167)
+PlateItem04.Quality.setGreen()
+PlateItem04.Price.set(66893,589565,1)
+export let PlateItem05 = std.Items.create(MODNAME,'plateitem05',13285)
+PlateItem05.Quality.setGreen()
+PlateItem05.Price.set(52893,725236,1)
+export let PlateItem06 = std.Items.create(MODNAME,'plateitem06',12582)
+PlateItem06.Quality.setGreen()
+PlateItem06.Price.set(14893,586565,1)
+export let PlateItem07 = std.Items.create(MODNAME,'plateitem07',22322)
+PlateItem07.Quality.setGreen()
+PlateItem07.Price.set(19893,445252,1)
+export let PlateItem08 = std.Items.create(MODNAME,'plateitem08',12637)
+PlateItem08.Quality.setGreen()
+PlateItem08.Price.set(28893,612369,1)
+export let PlateItem09 = std.Items.create(MODNAME,'plateitem09',13259)
+PlateItem09.Quality.setGreen()
+PlateItem09.Price.set(24893,1078459,1)
+export let PlateItem10 = std.Items.create(MODNAME,'plateitem10',13205)
+PlateItem10.Quality.setGreen()
+PlateItem10.Price.set(29892,415236,1)
+export let PlateItem11 = std.Items.create(MODNAME,'plateitem11',13163)
+PlateItem11.Quality.setGreen()
+PlateItem11.Price.set(11843,1775421,1)
+export let PlateItem12 = std.Items.create(MODNAME,'plateitem12',13162)
+PlateItem12.Quality.setGreen()
+PlateItem12.Price.set(19893,923663,1)
+export let PlateItem13 = std.Items.create(MODNAME,'plateitem13',13182)
+PlateItem13.Quality.setGreen()
+PlateItem13.Price.set(19893,741122,1)
+export let PlateItem14 = std.Items.create(MODNAME,'plateitem14',13143)
+PlateItem14.Quality.setGreen()
+PlateItem14.Price.set(19893,2754565,1)
+export let PlateItem15 = std.Items.create(MODNAME,'plateitem15',12592)
+PlateItem15.Quality.setGreen()
+PlateItem15.Price.set(19893,4001253,1)
+
+PlateArmorVendor01.addVendorItem(PlateItem01.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem02.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem03.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem04.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem05.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem06.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem07.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem08.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem09.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem10.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem11.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem12.ID,0,0,0)
+PlateArmorVendor01.addVendorItem(PlateItem13.ID,0,0,0)
+PlateArmorVendor02.addVendorItem(PlateItem14.ID,0,0,0)
+PlateArmorVendor02.addVendorItem(PlateItem15.ID,0,0,0)
+
 
 //Leather
 //Mail

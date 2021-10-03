@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL_creature_loot_template } from "wotlkdata/sql/types/creature_loot_template"
 import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
-import { spawnMultipleNPCWithTimer } from "../functions/spawning-functions"
+import { addWaypoint, spawnMultipleNPCWithTimer, spawnNPCWithTimer } from "../functions/spawning-functions"
 import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 
 
@@ -14,44 +14,45 @@ TeremustheDevourer.MovementType.setWaypoint()
 TeremustheDevourer.HoverHeight.set(0)
 SQL_creature_loot_template.add(TeremustheDevourer.ID,OrbofPower.ID).MinCount.set(3).MaxCount.set(3).GroupId.set(8).Chance.set(75)
 
-spawnMultipleNPCWithTimer(TeremustheDevourer.ID,0,0,[
-        [-8118.032227,167.130127,0.385031,1.114623]],3600)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,0).position_x.set(-8118.032227).position_y.set(167.130127).position_z.set(0.385031).orientation.set(1.114623).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,1).position_x.set(-8118.032227).position_y.set(167.130127).position_z.set(0.385031).orientation.set(1.114623).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,2).position_x.set(-8096.434082).position_y.set(211.146317).position_z.set(42.124470).orientation.set(1.114623).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,3).position_x.set(-8077.522949).position_y.set(249.686569).position_z.set(80.557678).orientation.set(1.114623).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,4).position_x.set(-8015.776855).position_y.set(265.939209).position_z.set(100.877609).orientation.set(1.004667).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,5).position_x.set(-7895.859375).position_y.set(290.834656).position_z.set(63.229534).orientation.set(1.271702).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,6).position_x.set(-7851.308594).position_y.set(391.449402).position_z.set(41.961056).orientation.set(2.363406).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,7).position_x.set(-7917.164551).position_y.set(441.007446).position_z.set(33.707443).orientation.set(2.547975).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,8).position_x.set(-8002.609375).position_y.set(501.461517).position_z.set(24.687088).orientation.set(2.328063).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,9).position_x.set(-8051.108887).position_y.set(573.350891).position_z.set(15.010974).orientation.set(2.006050).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,10).position_x.set(-8081.376465).position_y.set(663.390320).position_z.set(6.400089).orientation.set(1.762576).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,11).position_x.set(-8140.656250).position_y.set(752.662231).position_z.set(8.269316).orientation.set(2.520486).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,12).position_x.set(-8197.198242).position_y.set(791.590149).position_z.set(11.175634).orientation.set(3.034922).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,13).position_x.set(-8301.951172).position_y.set(798.297546).position_z.set(8.888098).orientation.set(3.097754).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,14).position_x.set(-8401.448242).position_y.set(789.975525).position_z.set(7.239199).orientation.set(3.376570).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,15).position_x.set(-8455.218750).position_y.set(738.004822).position_z.set(6.602922).orientation.set(4.429001).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,16).position_x.set(-8451.646484).position_y.set(668.357605).position_z.set(5.520953).orientation.set(4.994486).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,17).position_x.set(-8432.068359).position_y.set(595.306152).position_z.set(7.590181).orientation.set(4.731379).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,18).position_x.set(-8421.533203).position_y.set(506.328430).position_z.set(42.404877).orientation.set(4.978777).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,19).position_x.set(-8408.778320).position_y.set(443.141418).position_z.set(68.354767).orientation.set(4.778503).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,20).position_x.set(-8408.551758).position_y.set(338.602844).position_z.set(75.850159).orientation.set(4.699965).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,21).position_x.set(-8399.631836).position_y.set(288.434235).position_z.set(73.402023).orientation.set(5.147637).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,22).position_x.set(-8346.824219).position_y.set(174.835022).position_z.set(53.608337).orientation.set(5.029831).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,23).position_x.set(-8335.767578).position_y.set(128.415207).position_z.set(50.785828).orientation.set(4.813852).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,24).position_x.set(-8336.389648).position_y.set(52.755013).position_z.set(49.873104).orientation.set(4.554675).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,25).position_x.set(-8362.116211).position_y.set(-29.443632).position_z.set(49.583382).orientation.set(4.224812).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,26).position_x.set(-8397.033203).position_y.set(-83.106148).position_z.set(49.270763).orientation.set(4.024539).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,27).position_x.set(-8431.659180).position_y.set(-163.613129).position_z.set(48.711510).orientation.set(4.888471).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,28).position_x.set(-8405.871094).position_y.set(-207.594147).position_z.set(47.564697).orientation.set(5.811308).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,29).position_x.set(-8345.963867).position_y.set(-210.439301).position_z.set(44.926720).orientation.set(0.227126).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,30).position_x.set(-8280.692383).position_y.set(-179.459351).position_z.set(39.179253).orientation.set(0.525577).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,31).position_x.set(-8222.092773).position_y.set(-142.829239).position_z.set(28.452156).orientation.set(0.615898).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,32).position_x.set(-8166.322754).position_y.set(-87.527634).position_z.set(28.341286).orientation.set(0.910423).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,33).position_x.set(-8132.009766).position_y.set(-44.782753).position_z.set(30.826450).orientation.set(0.839737).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,34).position_x.set(-8064.551758).position_y.set(-7.702972).position_z.set(20.397846).orientation.set(0.046484).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,35).position_x.set(-7969.661621).position_y.set(15.519738).position_z.set(14.511736).orientation.set(0.584482).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,36).position_x.set(-7947.986816).position_y.set(57.004776).position_z.set(12.289534).orientation.set(1.939295).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,37).position_x.set(-7993.659180).position_y.set(110.397179).position_z.set(8.902172).orientation.set(2.355556).move_type.set(2)
-    SQL_waypoint_data.add(TeremustheDevourer.ID,38).position_x.set(-8059.353027).position_y.set(163.871964).position_z.set(5.709215).orientation.set(2.595102).move_type.set(2)
+let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,0,0,
+    [-8118.032227,167.130127,0.385031,1.114623],3600)
+addWaypoint(TeremustheDevourerGUID,[
+    [-8118.032227,167.130127,0.385031,1.114623,0],
+    [-8118.032227,167.130127,0.385031,1.114623,0],
+    [-8096.434082,211.146317,42.124470,1.114623,0],
+    [-8077.522949,249.686569,80.557678,1.114623,0],
+    [-8015.776855,265.939209,100.877609,1.004667,0],
+    [-7895.859375,290.834656,63.229534,1.271702,0],
+    [-7851.308594,391.449402,41.961056,2.363406,0],
+    [-7917.164551,441.007446,33.707443,2.547975,0],
+    [-8002.609375,501.461517,24.687088,2.328063,0],
+    [-8051.108887,573.350891,15.010974,2.006050,0],
+    [-8081.376465,663.390320,6.400089,1.762576,0],
+    [-8140.656250,752.662231,8.269316,2.520486,0],
+    [-8197.198242,791.590149,11.175634,3.034922,0],
+    [-8301.951172,798.297546,8.888098,3.097754,0],
+    [-8401.448242,789.975525,7.239199,3.376570,0],
+    [-8455.218750,738.004822,6.602922,4.429001,0],
+    [-8451.646484,668.357605,5.520953,4.994486,0],
+    [-8432.068359,595.306152,7.590181,4.731379,0],
+    [-8421.533203,506.328430,42.404877,4.978777,0],
+    [-8408.778320,443.141418,68.354767,4.778503,0],
+    [-8408.551758,338.602844,75.850159,4.699965,0],
+    [-8399.631836,288.434235,73.402023,5.147637,0],
+    [-8346.824219,174.835022,53.608337,5.029831,0],
+    [-8335.767578,128.415207,50.785828,4.813852,0],
+    [-8336.389648,52.755013,49.873104,4.554675,0],
+    [-8362.116211,-29.443632,49.583382,4.224812,0],
+    [-8397.033203,-83.106148,49.270763,4.024539,0],
+    [-8431.659180,-163.613129,48.711510,4.888471,0],
+    [-8405.871094,-207.594147,47.564697,5.811308,0],
+    [-8345.963867,-210.439301,44.926720,0.227126,0],
+    [-8280.692383,-179.459351,39.179253,0.525577,0],
+    [-8222.092773,-142.829239,28.452156,0.615898,0],
+    [-8166.322754,-87.527634,28.341286,0.910423,0],
+    [-8132.009766,-44.782753,30.826450,0.839737,0],
+    [-8064.551758,-7.702972,20.397846,0.046484,0],
+    [-7969.661621,15.519738,14.511736,0.584482,0],
+    [-7947.986816,57.004776,12.289534,1.939295,0],
+    [-7993.659180,110.397179,8.902172,2.355556,0],
+    [-8059.353027,163.871964,5.709215,2.595102,0]])

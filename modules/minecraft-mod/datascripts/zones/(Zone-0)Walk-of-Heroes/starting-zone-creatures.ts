@@ -4,7 +4,6 @@ import { SQL_broadcast_text } from "wotlkdata/sql/types/broadcast_text"
 import { SQL_creature_template_addon } from "wotlkdata/sql/types/creature_template_addon"
 import { SQL_creature_text } from "wotlkdata/sql/types/creature_text"
 import { SQL_smart_scripts } from "wotlkdata/sql/types/smart_scripts"
-import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
 import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
 import { BoarSkin, DeerSkin, RabbitSkin, Teeth } from "../(Zone-1)Bramblewood/zone-1-items"
 import { addWaypoint, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
@@ -54,10 +53,18 @@ DandotheRiled.FactionTemplate.set(35)
 DandotheRiled.Models.clearAll()
 DandotheRiled.Models.addIds(30859,30987,30861,30862)
 let DandotheRiledGUID = spawnNPC(DandotheRiled.ID,0,0,[-8743.039062,-86.155716,31.135164,2.109006])
-addWaypoint(DandotheRiledGUID,[[-8743.039062,-86.155716,31.135164,2.109006,0],[-8747.386719,-76.869591,31.135164,0.903420,0],[-8737.828125,-62.211067,31.135164,0.989814,0],[-8718.592773,-45.496162,31.135164,0.687435,0],[-8700.653320,-44.864475,31.135210,5.851428,0],[-8694.234375,-61.146999,31.135210,5.113153,0],[-8694.234375,-61.146999,31.135210,5.113153,20000]])
+addWaypoint(DandotheRiledGUID,[[-8743.039062,-86.155716,31.135164,2.109006,0],
+    [-8747.386719,-76.869591,31.135164,0.903420,0],
+    [-8737.828125,-62.211067,31.135164,0.989814,0],
+    [-8718.592773,-45.496162,31.135164,0.687435,0],
+    [-8700.653320,-44.864475,31.135210,5.851428,0],
+    [-8694.234375,-61.146999,31.135210,5.113153,0],
+    [-8694.234375,-61.146999,31.135210,5.113153,20000]])
+addWaypoint(DandotheRiledGUID,[[-8701.031250,-43.527889,31.135210,2.717688,0],
+    [-8716.988281,-44.429104,31.147694,3.931129,0],
+    [-8747.326172,-71.871475,31.134922,3.907567,20000]])
 SQL_broadcast_text.add(90000).Text.set('Are you kidding me? These prices are absolutely outrageous. How do you expect new players to afford any of this crap?!').EmoteID1.set(1)
 SQL_waypoint_scripts.add(DandotheRiled.ID).id.set(6).delay.set(5).command.set(0).datalong.set(0).dataint.set(90000)
-addWaypoint(DandotheRiledGUID,[[-8701.031250,-43.527889,31.135210,2.717688,0],[-8716.988281,-44.429104,31.147694,3.931129,0],[-8747.326172,-71.871475,31.134922,3.907567,20000]])
 
 export let Rabbit01 = std.CreatureTemplates.create(MODNAME,'rabbit01-creature',721)
 Rabbit01.Name.enGB.set('Wild Hare')
