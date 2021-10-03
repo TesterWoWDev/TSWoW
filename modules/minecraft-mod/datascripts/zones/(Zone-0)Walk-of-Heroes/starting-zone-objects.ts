@@ -4,8 +4,10 @@ import { spawnGobTimer, spawnMultiGobTimer, spawnMultipleGobs } from "../../func
 import { SQL } from "wotlkdata/sql/SQLFiles";
 import { AgathasLockbox, BlackMalice, CavedwellerBracers, ChantingBlade, Cruelbarb, CrystallineCuffs, CursedFelblade, DefiasArmor, DefiasBelt, Defiasboot, DefiasGlove, DefiasLeg, FamilySeal, GoldGloves, JewelRing, NobleRobe, RobeofEvocation, ShadowfangWeapon, SmiteAxe, startingResource01, SubterraneanCape, WalkingBoots } from "./starting-zone-items";
 import { startingQuest01, startingQuest02 } from "./starting-zone-quests";
-import { addLootToGobChest } from "../../functions/gob-functions";
-import { BowlofFruit, SackofGrains } from "../(Zone-5)Mall/mall-resource-spawns";
+import { addLootToGobChest, addLootToGobChestMultiDrop } from "../../functions/gob-functions";
+import { BowlofFruit, GrainSack, SackofGrains } from "../(Zone-5)Mall/mall-resource-spawns";
+import { ShinyRedApple, RefreshingSpringWater } from "../(Zone-1)Bramblewood/zone-1-items";
+import { SmallSackofCoins } from "../../items/currencies";
 
 /*Ambient Object Spawns*/
 /*Tables*/
@@ -42,7 +44,7 @@ SQL.gameobject_loot_template.add(startingResourceNode01.ID,startingResource01.ID
 
 export let StartingZoneChestSpawn = makeResourceNode('Abandoned Supply Chest',259,57,'abandonedchest-chest')
 StartingZoneChestSpawn.Size.set(0.5)
-
+addLootToGobChestMultiDrop(StartingZoneChestSpawn,[ShinyRedApple.ID,RefreshingSpringWater.ID,GrainSack.ID,SmallSackofCoins.ID],[100,100,25,25],[1,1,1,1],[2,2,1,1],1)
 spawnMultiGobTimer(StartingZoneChestSpawn.ID,[
     [-8670.00,-14.301,31.26,4.64],
     [-8736.603516,-32.861248,32.003632,1.590670],
