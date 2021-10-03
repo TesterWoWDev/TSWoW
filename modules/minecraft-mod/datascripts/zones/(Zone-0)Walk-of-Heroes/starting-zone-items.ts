@@ -5,6 +5,7 @@ import { tierOneBaseResources, tierOneClothMaterial } from "../../items/armor/ti
 import { MODNAME } from "../../modname"
 
 export let ExpScroll = std.Items.create(MODNAME,'expscroll',2455)
+ExpScroll.Name.enGB.set('Experience Scroll')
 ExpScroll.Quality.setWhite()
 ExpScroll.Spells.clearAll()
 ExpScroll.Spells.add(18282)
