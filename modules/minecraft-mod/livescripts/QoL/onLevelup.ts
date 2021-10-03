@@ -236,6 +236,7 @@ function learnSpells(player:TSPlayer){
     for(let j=0;j<=player.GetLevel();j++){
         let spells = spellsList[player.GetClass()][j]
         for(let i=0;i<spells.length;i++){
+            if(spells[i] != 0)
             player.LearnSpell(spells[i])
         }
     }
