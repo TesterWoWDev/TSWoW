@@ -6,7 +6,7 @@ import { SmallSackofCoins } from "../../items/currencies";
 import { addLootToGobChestMultiDrop } from "../../functions/gob-functions";
 
 /*Item Creation Zone*/
-export let LoggingPileLogs = std.Items.create(MODNAME,'logpilelogs',929)
+export let LoggingPileLogs = std.Items.create(MODNAME,'logpilelogs',44208)
 LoggingPileLogs.Name.enGB.set('Logs')
 LoggingPileLogs.Quality.setWhite()
 LoggingPileLogs.MaxStack.set(9999)
