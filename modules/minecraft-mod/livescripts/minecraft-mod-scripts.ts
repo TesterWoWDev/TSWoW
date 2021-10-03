@@ -9,7 +9,7 @@ import { Killstreaks } from "./QoL/Killstreak"
 import { onLoginEvents } from "./QoL/onLogin"
 import { itemLearnSpell } from "./item-learn-spell"
 import { creatureDeathTest } from "./creature-death-test"
-import { itemGiveXP } from "./exp-item"
+
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
     onLoginEvents(events)
@@ -22,5 +22,4 @@ export function Main(events: TSEventHandlers) {
     itemLearnSpell(events)
     //invasions(events)
     creatureDeathTest(events)      
-    itemGiveXP(events)
 }
