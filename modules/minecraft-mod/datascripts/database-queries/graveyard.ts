@@ -1,6 +1,7 @@
 import { DBC, SQL } from "wotlkdata";
 
 DBC.WorldSafelocs.add(10000).LocX.set(-8702.67).LocY.set(-64.116).LocZ.set(31.14).Continent.set(725).AreaName.enGB.set("mall reset")
+SQL.graveyard_zone.add(10000,0).Faction.set(0)
 SQL.graveyard_zone.add(10000,5000).Faction.set(0)
 SQL.graveyard_zone.add(10000,5001).Faction.set(0)
 SQL.graveyard_zone.add(10000,5002).Faction.set(0)
