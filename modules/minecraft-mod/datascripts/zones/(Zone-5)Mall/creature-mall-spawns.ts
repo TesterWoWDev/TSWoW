@@ -1,9 +1,11 @@
 import { std } from "tswow-stdlib"
+import { SQL } from "wotlkdata"
 import { creature2, creature3 } from "../(Zone-1)Bramblewood/zone-1-creatures"
 import { setFaction, setName, setLevel, removeQuests } from "../../functions/npc-functions"
 import { addWaypoint, addWaypoints, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 
+let broadcastindex = 87000
 
 export let BattleGuard = std.CreatureTemplates.create(MODNAME,'battleguard-creature',14284)
 BattleGuard.Name.enGB.set('Battleguard')
@@ -48,6 +50,12 @@ ClothArmorVendor02.Models.clearAll()
 ClothArmorVendor02.Models.addIds(17665)
 spawnMultipleNPCWithTimer(ClothArmorVendor02.ID,0,0,[
     [-8311.923828,-15.273244,0.732956,2.488793]],10)
+ClothArmorVendor02.AIName.SmartAI()
+SQL.smart_scripts.add(ClothArmorVendor02.ID,0,2,0).event_type.set(61).event_chance.set(100).action_type.set(1).action_param1.set(1).target_type.set(1).comment.set('Artisan Cloth NPC OUT OF COMBAT Text Scripts.')
+SQL.creature_text.add(ClothArmorVendor02.ID,1,0).Text.set('I understand your concern, but I don\'t think they will notice. Just continue working and this will all be over shortly.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I understand your concern, but I don\'t think they will notice. Just continue working and this will all be over shortly.').Flags.set(1)
+SQL.creature_text.add(ClothArmorVendor02.ID,1,1).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').Flags.set(1)
 
 export let LeatherArmorVendor01 = std.CreatureTemplates.create(MODNAME,'leathervendor01-creature',3562)
 LeatherArmorVendor01.Name.enGB.set('Susan Glenfiddich')
@@ -63,6 +71,14 @@ LeatherArmorVendor02.Models.clearAll()
 LeatherArmorVendor02.Models.addIds(17824)
 spawnMultipleNPCWithTimer(LeatherArmorVendor02.ID,0,0,[
     [-8331.398438,-197.823914,1.013544,2.386700]],10)
+LeatherArmorVendor02.Models.clearAll()
+LeatherArmorVendor02.AIName.SmartAI()
+SQL.smart_scripts.add(LeatherArmorVendor02.ID,0,2,0).event_type.set(61).event_chance.set(100).action_type.set(1).action_param1.set(1).target_type.set(1).comment.set('Artisan Cloth NPC OUT OF COMBAT Text Scripts.')
+SQL.creature_text.add(LeatherArmorVendor02.ID,1,0).Text.set('I understand your concern, but I don\'t think they will notice. Just continue working and this will all be over shortly.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I understand your concern, but I don\'t think they will notice. Just continue working and this will all be over shortly.').Flags.set(1)
+SQL.creature_text.add(LeatherArmorVendor02.ID,1,1).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').Flags.set(1)
+    
 
 export let PlateArmorVendor01 = std.CreatureTemplates.create(MODNAME,'platevendor01-creature',3562)
 PlateArmorVendor01.Name.enGB.set('Todd Macallan')
@@ -78,6 +94,14 @@ PlateArmorVendor02.Models.clearAll()
 PlateArmorVendor02.Models.addIds(17662)
 spawnMultipleNPCWithTimer(PlateArmorVendor02.ID,0,0,[
     [-8439.367188,-246.661530,14.019466,4.632934]],10)
+PlateArmorVendor02.Models.clearAll()
+PlateArmorVendor02.AIName.SmartAI()
+SQL.smart_scripts.add(PlateArmorVendor02.ID,0,2,0).event_type.set(61).event_chance.set(100).action_type.set(1).action_param1.set(1).target_type.set(1).comment.set('Artisan Cloth NPC OUT OF COMBAT Text Scripts.')
+SQL.creature_text.add(PlateArmorVendor02.ID,1,0).Text.set('I understand your concern, but I don\'t think they will notice. Just continue working and this will all be over shortly.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I understand your concern, but I don\'t think they will notice. Just continue working and this will all be over shortly.').Flags.set(1)
+SQL.creature_text.add(PlateArmorVendor02.ID,1,1).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').Flags.set(1)
+     
 
 export let MailArmorVendor01 = std.CreatureTemplates.create(MODNAME,'mailvendor01-creature',3562)
 MailArmorVendor01.Name.enGB.set('Timmy Shellsdrop')
@@ -93,7 +117,15 @@ MailArmorVendor02.Models.addIds(17733)
 MailArmorVendor02.FactionTemplate.set(35)
 spawnMultipleNPCWithTimer(MailArmorVendor02.ID,0,0,[
     [-8410.368164,-219.129791,1.083180,5.983823]],10)
-
+MailArmorVendor02.Models.clearAll()
+MailArmorVendor02.AIName.SmartAI()   
+SQL.smart_scripts.add(MailArmorVendor02.ID,0,2,0).event_type.set(61).event_chance.set(100).action_type.set(1).action_param1.set(1).target_type.set(1).comment.set('Artisan Cloth NPC OUT OF COMBAT Text Scripts.')
+SQL.creature_text.add(MailArmorVendor02.ID,1,0).Text.set('I understand your concern, but I don\'t think they will notice. Just continue working and this will all be over shortly.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I understand your concern, but I don\'t think they will notice. Just continue working and this will all be over shortly.').Flags.set(1)
+SQL.creature_text.add(MailArmorVendor02.ID,1,1).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
+SQL.broadcast_text.add(broadcastindex++).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').Flags.set(1)
+     
+    
 export let OrbOfPowerVendor = std.CreatureTemplates.create(MODNAME,'powerorbvendor-creature',3562)
 OrbOfPowerVendor.Name.enGB.set('Zerok the Orb Collector')
 OrbOfPowerVendor.Models.clearAll()
