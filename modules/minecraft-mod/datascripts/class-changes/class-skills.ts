@@ -25,4 +25,13 @@ classes.forEach((value,index,array)=>{
         curClass.Stats.CombatRatingsScalar.set((old,index)=>0.1)    // Controls Secondary Stats (primarily haste)
         curClass.Stats.SpellCrit.set((old,index)=>0)                // Controls Main Stat to Crit Rating
         curClass.Stats.SpellCritBase.set((old,index)=>0)            // Controls Crit per Level
+        curClass.StartGear.Chest.clear()
+        curClass.StartGear.Back.clear()
+        curClass.StartGear.Feet.clear()
+        curClass.StartGear.Hands.clear()
+        curClass.StartGear.Head.clear()
+        curClass.StartGear.Legs.clear()
+        curClass.StartGear.Shoulder.clear()
+        curClass.StartGear.Waist.clear()
+        curClass.StartGear.Wrists.clear()
 })

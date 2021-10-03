@@ -52,7 +52,7 @@ SQL_playercreateinfo_item.add(0,0,StartingBoots.ID).amount.set(1)
 SQL_playercreateinfo_item.add(0,0,StartingCloak.ID).amount.set(1)
 SQL_playercreateinfo_item.add(0,0,StartingGloves.ID).amount.set(1)
 SQL_playercreateinfo_item.add(0,0,StartingPants.ID).amount.set(1)
-SQL_playercreateinfo_item.add(0,0,StartingRing.ID).amount.set(2)
+SQL_playercreateinfo_item.add(0,0,StartingRing.ID).amount.set(1)
 
 
 export let AgathasLockbox = std.Items.create(MODNAME,'agathaslockbox',4632)
