@@ -4,6 +4,12 @@ import { SQL_playercreateinfo_item } from "wotlkdata/sql/types/playercreateinfo_
 import { tierOneBaseResources, tierOneClothMaterial } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
 
+export let ExpScroll = std.Items.create(MODNAME,'expscroll',2455)
+ExpScroll.Quality.setWhite()
+ExpScroll.Spells.clearAll()
+ExpScroll.Spells.add(18282)
+ExpScroll.Spells.add(ExpScroll.ID,undefined,undefined,-1)
+
 export let StartingVest = std.Items.create(MODNAME,'startingvest',2300)
 StartingVest.Name.enGB.set('Tattered Vest')
 StartingVest.Class.setClothEquip()
