@@ -1,6 +1,8 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
 
+export let RavenLordMountSpeed = std.Spells.load(41252)
+RavenLordMountSpeed.Effects.get(1).BasePoints.set(29)
 
 export let IntellectI = std.Spells.create(MODNAME,'intellecti-spell',48100)
 IntellectI.Name.enGB.set('Scroll of Intellect')
