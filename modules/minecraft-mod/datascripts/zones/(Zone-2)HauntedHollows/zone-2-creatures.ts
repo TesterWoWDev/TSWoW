@@ -110,6 +110,16 @@ spawnMultipleNPCWithTimer(Zone2Creature1.ID,5,0,[
     [-8956.512695,-475.510529,7.917710,2.107352],
     [-8710.021484,-341.958008,14.851360,0.838924],],300)
 
+export let SmallSpider = std.CreatureTemplates.create(MODNAME,'smallspider-creature',721)
+SmallSpider.Name.enGB.set('Skitterer')
+SmallSpider.FactionTemplate.set(32)
+SmallSpider.Models.clearAll()
+SmallSpider.Models.addIds(18923)
+spawnMultipleNPCWithTimer(Zone2Creature1.ID,10,0,[
+
+
+    [-8710.021484,-341.958008,14.851360,0.838924],],300)
+
 export let WebVictim = std.CreatureTemplates.create(MODNAME,'webbed-zone2',17680)
 WebVictim.Name.enGB.set('Webbed Creature')
 WebVictim.Level.set(3,3)
