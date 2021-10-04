@@ -5,7 +5,7 @@ import { startingQuest07 } from "../(Zone-0)Walk-of-Heroes/starting-zone-quests"
 import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToGobChest } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
-import { spawnMultiGobTimer } from "../../functions/spawning-functions"
+import { spawnMultiGobTimer, spawnNPC } from "../../functions/spawning-functions"
 import { tierOneClothMaterial, tierOneMailMaterial, tierOneLeatherMaterial } from "../../items/armor/tier1-set"
 import { creature4, creature5 } from "./zone-1-creatures"
 import { std } from "tswow-stdlib"
@@ -140,6 +140,8 @@ BoarQuestGiver01.Stats.ExperienceMod.set(1)
 BoarQuestGiver01.Stats.HealthMod.set(1)
 BoarQuestGiver01.Stats.ManaMod.set(1)
 BoarQuestGiver01.NPCFlags.QuestGiver.mark()
+
+spawnNPC(BoarQuestGiver01.ID,0,0,[-8263.850,-122.315,0.9015,2.32])
 
 export let BagQuest01 = std.Quests.create(MODNAME,'bagquest01-quest')
 BagQuest01.Flags.set(8)
