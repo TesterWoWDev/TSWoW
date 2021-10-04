@@ -4,6 +4,7 @@ import { GrainSack } from "../(Zone-5)Mall/mall-resource-spawns"
 import { addLootToGobChest } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { spawnMultiGobTimer } from "../../functions/spawning-functions"
+import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
 
 //Resource Items
@@ -124,3 +125,43 @@ SuperAppleSpell.Reagents.clearAll()
 SuperAppleSpell.Effects.get(0).ItemType.set(SuperApple.ID)
 SuperAppleSpell.Reagents.add(ShinyRedApple.ID,10)
 SuperAppleSpell.Icon.set('Interface\\Icons\\INV_Misc_Food_19')
+
+
+//Blacksmithing - make resources destroy into "organic matter" - trade with compost bin to get resources
+
+export let OrganicMatter = std.Items.create(MODNAME,'organicmatter',765)
+OrganicMatter.Name.enGB.set('Organic Matter')
+OrganicMatter.Quality.setWhite()
+OrganicMatter.MaxStack.set(9999)
+OrganicMatter.DisplayInfo.copyFrom(39342)
+
+export let Blacksmithing = std.Spells.load(51300)
+Blacksmithing.Name.enGB.set('Resource Refining')
+Blacksmithing.Icon.set('Interface\\Icons\\inv_misc_enggizmos_27')
+
+export let DestroyCloth = std.Spells.load(2660)
+DestroyCloth.Name.enGB.set('Recycle Cloth Scraps')
+DestroyCloth.Reagents.clearAll()
+DestroyCloth.Effects.get(0).ItemType.set(OrganicMatter.ID) //3 Organic Matter for 5 Cloth
+DestroyCloth.Effects.get(0).BasePoints.set(2)
+DestroyCloth.Effects.get(0).DieSides.set(1)
+DestroyCloth.Reagents.add(tierOneClothMaterial,5)
+DestroyCloth.Icon.set('Interface\\Icons\\inv_misc_enggizmos_27')
+
+export let DestroyLeather = std.Spells.load(3115)
+DestroyLeather.Name.enGB.set('Recycle Leather Scraps')
+DestroyLeather.Reagents.clearAll()
+DestroyLeather.Effects.get(0).ItemType.set(OrganicMatter.ID) //3 Organic Matter for 5 Leather
+DestroyLeather.Effects.get(0).BasePoints.set(2)
+DestroyLeather.Effects.get(0).DieSides.set(1)
+DestroyLeather.Reagents.add(tierOneLeatherMaterial,5)
+DestroyLeather.Icon.set('Interface\\Icons\\inv_misc_enggizmos_27')
+
+export let DestroyMail = std.Spells.load(2663)
+DestroyMail.Name.enGB.set('Recycle Mail Scraps')
+DestroyMail.Reagents.clearAll()
+DestroyMail.Effects.get(0).ItemType.set(OrganicMatter.ID) //3 Organic Matter for 5 Mail
+DestroyMail.Effects.get(0).BasePoints.set(2)
+DestroyMail.Effects.get(0).DieSides.set(1)
+DestroyMail.Reagents.add(tierOneMailMaterial,5)
+DestroyMail.Icon.set('Interface\\Icons\\inv_misc_enggizmos_27')
