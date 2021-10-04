@@ -15,6 +15,7 @@ import { WarlockQuestGiver01 } from "./WarlockClassQuest"
 import { WarriorQuestGiver01 } from "./WarriorClassQuest"
 import { SQL_npc_vendor } from "wotlkdata/sql/types/npc_vendor"
 import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
+import { setFaction } from "../../../functions/npc-functions"
 
 spawnNPC(questGiver03.ID,0,0,[-8292.411133,-271.135468,17.274445,1.4686858]) //Quest Giver 3 Spawn
 
@@ -71,6 +72,7 @@ Amulet05.RequiredLevel.set(1)
 
 export let AmuletVendor = std.CreatureTemplates.create(MODNAME,'druid01-creature',3562)
 AmuletVendor.Name.enGB.set('Maggie the Wise')
+AmuletVendor.FactionTemplate.set(35)
 SQL_npc_vendor.add(AmuletVendor.ID,Amulet01.ID,0).incrtime.set(3600).maxcount.set(2)
 SQL_npc_vendor.add(AmuletVendor.ID,Amulet02.ID,0).incrtime.set(3600).maxcount.set(2)
 SQL_npc_vendor.add(AmuletVendor.ID,Amulet03.ID,0).incrtime.set(3600).maxcount.set(2)
@@ -78,6 +80,7 @@ SQL_npc_vendor.add(AmuletVendor.ID,Amulet04.ID,0).incrtime.set(3600).maxcount.se
 SQL_npc_vendor.add(AmuletVendor.ID,Amulet05.ID,0).incrtime.set(3600).maxcount.set(2)
 
 spawnNPC(3562,0,0,[-8186.291504,13.517035,0.115301,5.435018]) //Reagent Vendor at City Exit
+setFaction(3562,35)
 spawnNPC(AmuletVendor.ID,0,0,[-8182.976074,16.767733,0.099456,5.533191]) //Amulet Vendor at City Exit
 
 

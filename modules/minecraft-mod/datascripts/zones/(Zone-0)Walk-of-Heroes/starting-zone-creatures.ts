@@ -5,9 +5,13 @@ import { SQL_creature_template_addon } from "wotlkdata/sql/types/creature_templa
 import { SQL_creature_text } from "wotlkdata/sql/types/creature_text"
 import { SQL_smart_scripts } from "wotlkdata/sql/types/smart_scripts"
 import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
-import { BoarSkin, DeerSkin, RabbitSkin, Teeth } from "../(Zone-1)Bramblewood/zone-1-items"
+import { ArdentCustodian, BiteofSerrakis, BoarSkin, BowofSearingArrows, BrownLeatherSatchel, BurstofKnowledge, CircleofFlame, DarkIronPulverizer, DarkwaterTalwar, DarnassianBleu, DazzlingLongsword, DeadmansHand, DeerSkin, EskhandarsLeftClaw, EskhandarsRightClaw, FangoftheCrystalSpider, FieryWarAxe, FlameWrath, ForceofWill, GalgannsFireblaster, GalgannsFirehammer, GoblinDragonGun, Grimclaw, GutRipper, HerodsShoulder, Ironfoe, IronweaveBelt, IronweaveBoots, IronweaveBracers, IronweaveCowl, IronweaveGloves, IronweaveMantle, IronweavePants, IronweaveRobe, LordGeneralsSword, MantleofDoan, Naglering, Nightblade, RabbitSkin, RagingBerserkersHelm, RefreshingSpringWater, RobeofDoan, SavageGladiatorChain, SavageGladiatorGreaves, SavageGladiatorGrips, SavageGladiatorHelm, SavageGladiatorLeggings, ScarletLeggings, Shadowfang, ShinyRedApple, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, StaffofJordan, StrikeoftheHydra, Teeth, TheGreenTower, UnderworldBand, WraithScythe } from "../(Zone-1)Bramblewood/zone-1-items"
+import { LoggingPileLogs } from "../(Zone-5)Mall/mall-resource-spawns"
+import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { addWaypoint, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
+import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial, tierOneBaseResources } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
+import { FireStick, FightingStick01, FightingStick02, FightingStick03 } from "./starting-zone-items"
 
 export let WoodcuttingTree = std.CreatureTemplates.create(MODNAME,'woodcuttingtree-creature',721)
 WoodcuttingTree.Name.enGB.set('Tree')
@@ -16,6 +20,11 @@ WoodcuttingTree.Scale.set(1)
 WoodcuttingTree.Models.clearAll()
 WoodcuttingTree.Models.addIds(16977)
 WoodcuttingTree.Level.set(1,1)
+WoodcuttingTree.NormalLoot.addItem(LoggingPileLogs.ID,100,1,3,false,1,1)
+WoodcuttingTree.NormalLoot.addItem(FireStick.ID,0.5,1,1,false,2,1)
+WoodcuttingTree.NormalLoot.addItem(FightingStick01.ID,0.5,1,1,false,2,1)
+WoodcuttingTree.NormalLoot.addItem(FightingStick02.ID,0.5,1,1,false,2,1)
+WoodcuttingTree.NormalLoot.addItem(FightingStick03.ID,0.5,1,1,false,2,1)
 
 export let TalkingCitizen = std.CreatureTemplates.create(MODNAME,'talkingcitizen-creature',39686)
 TalkingCitizen.Name.enGB.set('Heroic Citizen')
@@ -87,13 +96,22 @@ BanditNpc.FactionTemplate.set(32) //Fights with Faction 31
 BanditNpc.Models.clearAll()
 BanditNpc.Models.addIds(2357,2358)
 BanditNpc.MovementType.setRandomMovement()
-BanditNpc.Level.set(1,2)
+BanditNpc.Level.set(1,3)
 BanditNpc.DamageSchool.setNormal()
 BanditNpc.Stats.ArmorMod.set(1)
-BanditNpc.Stats.DamageMod.set(2)
+BanditNpc.Stats.DamageMod.set(3)
 BanditNpc.Stats.ExperienceMod.set(1)
-BanditNpc.Stats.HealthMod.set(3)
+BanditNpc.Stats.HealthMod.set(2)
 BanditNpc.Stats.ManaMod.set(1)
+export let BanditNpcLoot = BanditNpc.NormalLoot
+addLootToCreature(BanditNpcLoot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,5,2])
+addLootToCreature(BanditNpcLoot,tierOneBaseResources,[0,0,2,0,0,2,0])
+/*Bags and Food - Group 0*/
+addLootToCreature(BanditNpcLoot,[
+    SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
+    ShinyRedApple.ID,               RefreshingSpringWater.ID
+],[1,1,0.5,0.5,0,10,10,18],0)
 
 export let BanditBossNpc = std.CreatureTemplates.create(MODNAME,'banditboss-creature3',116)
 BanditBossNpc.Name.enGB.set('Unruly Bandit')
@@ -103,11 +121,20 @@ BanditBossNpc.Models.addIds(2357,2358)
 BanditBossNpc.MovementType.setRandomMovement()
 BanditBossNpc.Level.set(3,5)
 BanditBossNpc.DamageSchool.setNormal()
-BanditBossNpc.Stats.ArmorMod.set(1)
-BanditBossNpc.Stats.DamageMod.set(3)
+BanditBossNpc.Stats.ArmorMod.set(2)
+BanditBossNpc.Stats.DamageMod.set(5)
 BanditBossNpc.Stats.ExperienceMod.set(1)
 BanditBossNpc.Stats.HealthMod.set(3)
 BanditBossNpc.Stats.ManaMod.set(1)
+export let BanditBossNpcLoot = BanditBossNpc.NormalLoot
+addLootToCreature(BanditBossNpcLoot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[10,10,5])
+addLootToCreature(BanditBossNpcLoot,tierOneBaseResources,[3,3,4,3,2,2,3])
+/*Bags and Food - Group 0*/
+addLootToCreature(BanditBossNpcLoot,[
+    SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
+    ShinyRedApple.ID,               RefreshingSpringWater.ID
+],[1,1,0.5,0.5,0,10,10,18],1)
 
 export let Boar01 = std.CreatureTemplates.create(MODNAME,'boar01-creature3',299)
 Boar01.Name.enGB.set('Wild Boar')
@@ -135,11 +162,40 @@ FightingAdventurer01.FactionTemplate.set(31) //Fights with Faction 32
 FightingAdventurer01.Models.clearAll()
 FightingAdventurer01.Models.addIds(3882,2184,2183,2182)
 FightingAdventurer01.Stats.ArmorMod.set(8)
-FightingAdventurer01.Stats.DamageMod.set(2)
+FightingAdventurer01.Stats.DamageMod.set(5)
 FightingAdventurer01.Stats.HealthMod.set(7)
 FightingAdventurer01.Stats.ManaMod.set(3)
 SQL.creature_equip_template.add(FightingAdventurer01.ID,1).ItemID1.set(34661)
 SQL.creature_equip_template.add(FightingAdventurer01.ID,2).ItemID1.set(6174)
+export let FightingAdventurer01Loot = FightingAdventurer01.NormalLoot
+/*Bags - Group 0*/
+addLootToCreature(FightingAdventurer01Loot,[
+    SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID
+],[5,5,5,5,3],0)
+/*Epic Items - Group 1*/
+addLootToCreatureSingleChance(FightingAdventurer01Loot,[
+    DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
+    ArdentCustodian.ID,             StaffofJordan.ID,                   TheGreenTower.ID,
+    BowofSearingArrows.ID,          UnderworldBand.ID,                  GutRipper.ID,
+    Ironfoe.ID,                     EskhandarsRightClaw.ID,             EskhandarsLeftClaw.ID
+],0.025,1)
+/*Rare Items - Group 0*/      
+addLootToCreatureSingleChance(FightingAdventurer01Loot,[
+    FangoftheCrystalSpider.ID,      GoblinDragonGun.ID,                 DarkwaterTalwar.ID,
+    BiteofSerrakis.ID,              Grimclaw.ID,                        Shadowfang.ID,
+    StrikeoftheHydra.ID,            GalgannsFireblaster.ID,             GalgannsFirehammer.ID,
+    RagingBerserkersHelm.ID,        HerodsShoulder.ID,                  ScarletLeggings.ID,
+    DeadmansHand.ID,                RobeofDoan.ID,                      MantleofDoan.ID,
+    SavageGladiatorChain.ID,        SavageGladiatorLeggings.ID,         SavageGladiatorHelm.ID,
+    SavageGladiatorGrips.ID,        SavageGladiatorGreaves.ID,          DarkIronPulverizer.ID,
+    IronweaveRobe.ID,               IronweaveCowl.ID,                   IronweavePants.ID,
+    IronweaveGloves.ID,             IronweaveMantle.ID,                 IronweaveBelt.ID,
+    IronweaveBoots.ID,              IronweaveBracers.ID,                WraithScythe.ID,
+    ForceofWill.ID,                 LordGeneralsSword.ID,               Naglering.ID,
+    FlameWrath.ID,                  BurstofKnowledge.ID,                CircleofFlame.ID
+],0.2,2)
+
 
 export let startingZoneWolfBoss = std.CreatureTemplates.create(MODNAME,'startingzonewolfboss-creature',299)
 startingZoneWolfBoss.Name.enGB.set('Ravaging Worg')

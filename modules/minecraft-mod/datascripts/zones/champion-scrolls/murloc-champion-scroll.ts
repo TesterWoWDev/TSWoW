@@ -61,8 +61,7 @@ MurlocScroll.FlagsExtra.set(0)
 MurlocScroll.MaxCount.set(1)
 MurlocScroll.RequiredLevel.set(1)
 MurlocScroll.Spells.clearAll()
-MurlocScroll.Spells.add(MurlocChampion.ID)
-MurlocScroll.Spells.add(MurlocScroll.ID,undefined,undefined,-1)
+MurlocScroll.Spells.add(MurlocChampion.ID,undefined,undefined,-1)
 
 /*Spell Scripts - Champion Boss Items*/
 export let MurlocCreatureSpawn = std.CreatureTemplates.create(MODNAME,'murloccreaturespawn-creature',8776)

@@ -62,8 +62,7 @@ WorgScroll.FlagsExtra.set(0)
 WorgScroll.MaxCount.set(1)
 WorgScroll.RequiredLevel.set(1)
 WorgScroll.Spells.clearAll()
-WorgScroll.Spells.add(WorgChampion.ID)
-WorgScroll.Spells.add(WorgScroll.ID,undefined,undefined,-1)
+WorgScroll.Spells.add(WorgChampion.ID,undefined,undefined,-1)
 
 /*Spell Scripts - Champion Boss Items*/
 export let WorgCreatureSpawn = std.CreatureTemplates.create(MODNAME,'worgcreaturespawn-creature',8776)
