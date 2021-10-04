@@ -11,13 +11,15 @@ export function worldChat(events:TSEventHandlers){
             for(let i = 1; i < text.length; i++){
                 message += text[i] + " "
             }
-            let teamIcon = g
+            let teamIcon = ""
             let faction = player.GetFaction()
             if(faction == 0){
                 teamIcon = h
             }
             else if(faction == 1){
                 teamIcon = a
+            }else{
+                teamIcon = g
             }
             SendWorldMessage("[World] [" + teamIcon + "|cff" + colors[player.GetClass()]+ "|Hplayer:" + player.GetName() + "|h" + player.GetName() + "|h|r]: |cffffffff"+message+"|r")
         }
