@@ -27,7 +27,7 @@ MaturePumpkin.Price.set(55,95)
 
 
 /*Object Creation Zone*/
-export let TirisfalPumpkin = makeResourceNode('Matured Pumpkin',375,57,'pumpkin-chest')
+export let TirisfalPumpkin = makeResourceNode('Matured Pumpkin',60,57,'pumpkin-chest')
 TirisfalPumpkin.Size.set(1)
 addLootToGobChestMultiDrop(TirisfalPumpkin,[MaturePumpkin.ID],[100],[1],[1],1)
 export let PileofLogs = makeResourceNode('Pile of Logs',289,57,'pileoflogs-chest')
