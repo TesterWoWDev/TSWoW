@@ -9,6 +9,7 @@ import { Killstreaks } from "./QoL/Killstreak"
 import { onLoginEvents } from "./QoL/onLogin"
 import { itemLearnSpell } from "./item-learn-spell"
 import { creatureDeathTest } from "./creature-death-test"
+import { reviveFix } from "./revive"
 
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
@@ -22,12 +23,7 @@ export function Main(events: TSEventHandlers) {
     itemLearnSpell(events)
     //invasions(events)
     creatureDeathTest(events)      
+    reviveFix(events)
 
-    events.Spells.OnCast(spell=>{
-        console.log(spell.GetEntry() + " on cast of spell ")
-    })
 
-    events.Spells.OnApply((effect,appl,type)=>{
-        console.log(effect.GetID() + " apply id here" + appl.GetAura().GetAuraId() + " -- ---- " + type)
-    })
 }
