@@ -18,7 +18,6 @@ GrainSack.Quality.setWhite()
 GrainSack.MaxStack.set(9999)
 GrainSack.Price.set(60,80)
 
-375
 export let MaturePumpkin = std.Items.create(MODNAME,'mpumpkin',4656)
 MaturePumpkin.Name.enGB.set('Matured Pumpkin')
 MaturePumpkin.Quality.setWhite()
