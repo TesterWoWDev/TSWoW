@@ -20,6 +20,4 @@ export function Main(events: TSEventHandlers) {
     itemLearnSpell(events)
     creatureDeathTest(events)      
     reviveFix(events)
-
-
 }
