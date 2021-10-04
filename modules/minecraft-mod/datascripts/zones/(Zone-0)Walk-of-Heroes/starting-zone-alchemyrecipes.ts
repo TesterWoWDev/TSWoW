@@ -118,7 +118,7 @@ HerbEgg.Effects.get(0).ItemType.set(30816)
 HerbEgg.Reagents.add(GrainSack.ID,1)
 HerbEgg.Icon.set('Interface\\Icons\\INV_Misc_Food_09')
 
-export let SuperAppleSpell = std.Spells.load(2358)
+export let SuperAppleSpell = std.Spells.load(2538)
 SuperAppleSpell.Name.enGB.set('Super Apple')
 SuperAppleSpell.Reagents.clearAll()
 SuperAppleSpell.Effects.get(0).ItemType.set(SuperApple.ID)
