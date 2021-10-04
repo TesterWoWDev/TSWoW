@@ -1,5 +1,6 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { BanditNpc } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { MODNAME } from "../../modname"
 import { Rank1Frostbolt, Rank1FireBlast, Rank1FrostArmor, Rank1FrostNova, Rank1BoarCharge, Rank1Strike, Rank1Bite, Rank1Gore, Rank1Whirlwind } from "./zone-1-creature-spells"
 import { BoarSkin, Teeth } from "./zone-1-items"
@@ -36,6 +37,7 @@ creature1.Stats.ManaMod.set(1)
 SQL.creature_equip_template.add(creature1.ID,1).ItemID1.set(25)
 SQL.creature_equip_template.add(creature1.ID,2).ItemID1.set(869)
 SQL.creature_equip_template.add(creature1.ID,3).ItemID1.set(1194)
+SQL.creature_template.add(creature1.ID).KillCredit1.set(BanditNpc.ID)
 export let creature1Loot = creature1.NormalLoot
 
 export let creature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature2',299)
