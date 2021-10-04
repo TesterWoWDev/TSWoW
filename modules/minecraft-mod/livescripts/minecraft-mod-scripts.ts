@@ -12,14 +12,12 @@ import { reviveFix } from "./revival"
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
     onLoginEvents(events)
-    //transmog(events)
 	worldChat(events)
     creature1Script(events)
     onLevelup(events)
     Killstreaks(events)
     Dueling(events)
     itemLearnSpell(events)
-    //invasions(events)
     creatureDeathTest(events)      
     reviveFix(events)
 
