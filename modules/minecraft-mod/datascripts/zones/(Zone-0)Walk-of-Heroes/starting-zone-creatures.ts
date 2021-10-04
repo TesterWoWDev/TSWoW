@@ -25,6 +25,8 @@ WoodcuttingTree.NormalLoot.addItem(FireStick.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(FightingStick01.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(FightingStick02.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(FightingStick03.ID,0.5,1,1,false,2,1)
+WoodcuttingTree.NormalLoot.addItem(tierOneBaseResources[5],25,1,1,false,3,1)
+
 
 export let TalkingCitizen = std.CreatureTemplates.create(MODNAME,'talkingcitizen-creature',39686)
 TalkingCitizen.Name.enGB.set('Heroic Citizen')
