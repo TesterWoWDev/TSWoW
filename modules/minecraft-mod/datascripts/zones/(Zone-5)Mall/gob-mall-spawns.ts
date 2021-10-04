@@ -1,6 +1,6 @@
 import { makePool } from "../../functions/resource-node-functions"
-import { spawnGob, spawnMultipleGobs } from "../../functions/spawning-functions"
-import { PileofLogs, SmallTownChest } from "./mall-resource-spawns"
+import { spawnGob, spawnMultiGobTimer, spawnMultipleGobs } from "../../functions/spawning-functions"
+import { PileofLogs, SmallTownChest, TirisfalPumpkin } from "./mall-resource-spawns"
 import { logSpawns, chestSpawns, tableSpawns } from "./spawn-locations"
 
 spawnGob(192697, [-8291.490, 21.201, 47.116, 4.103])// Enchanted Anvil
@@ -25,7 +25,15 @@ spawnGob(508762, [-833.958, -37.469, 0.549, 0.305003])//bearskin rug
 
 spawnGob(519624, [-8297.656, -262.202, 2.705, 3.144])//poison vial
 spawnMultipleGobs(184949, [[-8298.985, -261.509, -5.098, 0.000236], [-8281.607, -259.292, -5.097, 3.853]])//Poison bench
-spawnMultipleGobs(375, [[-8176.382, -116.968, 0.180, 0.180, 4.376], [-8168.203, -109.813, 1.296, 2.419], [-8166.599, -110.485, 1.296, 2.800], [-8169.804, -100.548, 0.179, 1.485], [-8143.457, -88.685, 0.178, 5.353], [-8137.371, -73.559, 0.163, 3.772], [-8145.463, 98.444, 1.297, 2.088], [-8136.298, -101.223, 0.270, 1.730], [-8136.736328, -116.110, 0.276, 2.575]])//trisfal pumpkin
+spawnMultiGobTimer(TirisfalPumpkin.ID, [[-8176.382, -116.968, 0.180, 0.180, 4.376], 
+    [-8168.203, -109.813, 1.296, 2.419], 
+    [-8166.599, -110.485, 1.296, 2.800], 
+    [-8169.804, -100.548, 0.179, 1.485], 
+    [-8143.457, -88.685, 0.178, 5.353], 
+    [-8137.371, -73.559, 0.163, 3.772], 
+    [-8145.463, 98.444, 1.297, 2.088], 
+    [-8136.298, -101.223, 0.270, 1.730], 
+    [-8136.736328, -116.110, 0.276, 2.575]],150)//trisfal pumpkin
 spawnGob(144126, [-8447.782, -200.266, 0.646, 6.273150])//Mailbox
 
 spawnMultipleGobs(507606, tableSpawns)

@@ -18,9 +18,18 @@ GrainSack.Quality.setWhite()
 GrainSack.MaxStack.set(9999)
 GrainSack.Price.set(60,80)
 
+375
+export let MaturePumpkin = std.Items.create(MODNAME,'mpumpkin',4656)
+MaturePumpkin.Name.enGB.set('Matured Pumpkin')
+MaturePumpkin.Quality.setWhite()
+MaturePumpkin.MaxStack.set(9999)
+MaturePumpkin.Price.set(55,95)
 
 
 /*Object Creation Zone*/
+export let TirisfalPumpkin = makeResourceNode('Matured Pumpkin',375,57,'pumpkin-chest')
+TirisfalPumpkin.Size.set(1)
+addLootToGobChestMultiDrop(TirisfalPumpkin,[MaturePumpkin.ID],[100],[1],[1],1)
 export let PileofLogs = makeResourceNode('Pile of Logs',289,57,'pileoflogs-chest')
 PileofLogs.Size.set(1)
 addLootToGobChestMultiDrop(PileofLogs,[LoggingPileLogs.ID],[100],[1],[3],1)
