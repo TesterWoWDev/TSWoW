@@ -106,6 +106,7 @@ LionElixir.Reagents.clearAll()
 LionElixir.Reagents.add(RedFlower01.ID,1)
 
 export let HerbEgg = std.Spells.load(8604)
+HerbEgg.Name.enGB.set('Bread')
 HerbEgg.Reagents.clearAll()
 HerbEgg.Effects.get(0).ItemType.set(30816)
 HerbEgg.Reagents.add(GrainSack.ID,1)

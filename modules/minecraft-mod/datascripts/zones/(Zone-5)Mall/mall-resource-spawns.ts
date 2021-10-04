@@ -10,11 +10,14 @@ export let LoggingPileLogs = std.Items.create(MODNAME,'logpilelogs',44208)
 LoggingPileLogs.Name.enGB.set('Logs')
 LoggingPileLogs.Quality.setWhite()
 LoggingPileLogs.MaxStack.set(9999)
+LoggingPileLogs.Price.set(60,80)
 
 export let GrainSack = std.Items.create(MODNAME,'grainsack',8838)
 GrainSack.Name.enGB.set('Grain')
 GrainSack.Quality.setWhite()
 GrainSack.MaxStack.set(9999)
+GrainSack.Price.set(60,80)
+
 
 
 /*Object Creation Zone*/
