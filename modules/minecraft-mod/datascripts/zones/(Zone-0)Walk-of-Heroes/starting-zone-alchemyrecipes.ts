@@ -1,4 +1,5 @@
 import { std } from "tswow-stdlib"
+import { ShinyRedApple } from "../(Zone-1)Bramblewood/zone-1-items"
 import { GrainSack } from "../(Zone-5)Mall/mall-resource-spawns"
 import { addLootToGobChest } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
@@ -92,6 +93,11 @@ addLootToGobChest(ResourceFlower02,[
     BlueFlower01.ID,    ImmortalFlower.ID
 ],[100,0.5],1)
 
+export let SuperApple = std.Items.create(MODNAME,'superapple',46691)
+SuperApple.Name.enGB.set('Super Apple')
+SuperApple.Quality.setBlue()
+SuperApple.DisplayInfo.copyFrom(ShinyRedApple.ID)
+
 export let HealthPotion = std.Spells.load(2330)
 HealthPotion.Reagents.clearAll()
 HealthPotion.Reagents.add(RedFlower01.ID,1)
@@ -111,3 +117,10 @@ HerbEgg.Reagents.clearAll()
 HerbEgg.Effects.get(0).ItemType.set(30816)
 HerbEgg.Reagents.add(GrainSack.ID,1)
 HerbEgg.Icon.set('Interface\\Icons\\INV_Misc_Food_09')
+
+export let SuperAppleSpell = std.Spells.load(2358)
+SuperAppleSpell.Name.enGB.set('Super Apple')
+SuperAppleSpell.Reagents.clearAll()
+SuperAppleSpell.Effects.get(0).ItemType.set(SuperApple.ID)
+SuperAppleSpell.Reagents.add(ShinyRedApple.ID,10)
+SuperAppleSpell.Icon.set('Interface\\Icons\\INV_Misc_Food_19')
