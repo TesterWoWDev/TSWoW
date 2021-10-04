@@ -184,4 +184,4 @@ spawnMultiGobTimer(WornFlannel.ID,[
 spawnMultiGobTimer(StrangeBladeObject.ID,[
     [-8769.497070,-66.478806,31.149784,5.054265],
     [-8257.423828,269.696350,3.486881,2.343452]],1500)
-                                        
+                                            
