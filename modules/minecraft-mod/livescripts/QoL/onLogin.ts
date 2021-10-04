@@ -10,7 +10,7 @@ export function onLoginEvents(events:TSEventHandlers){
         }
 
         SendWorldMessage('|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r, the level [' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] + player.GetLevel() + '|r] '+'|cff'+ colors[player.GetClass()] + player.GetClassAsString(0).toLowerCase() + '|r has logged in.')
-        SendWorldMessage('[' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] +player.GetLevel()+ '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h' + ' has logged in.')
+        SendWorldMessage('[' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] +player.GetLevel()+ '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r' + ' has logged in.')
         
         if(first){
             player.LearnSpell(50305)//skin
