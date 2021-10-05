@@ -3,9 +3,10 @@ import { SQL } from "wotlkdata"
 import { DBC_ItemExtendedCost } from "wotlkdata/dbc/types/ItemExtendedCost"
 import { OrganicMatter } from "../(Zone-0)Walk-of-Heroes/starting-zone-alchemyrecipes"
 import { creature2, creature3 } from "../(Zone-1)Bramblewood/zone-1-creatures"
-import { setFaction, setName, setLevel, removeQuests } from "../../functions/npc-functions"
+import { setFaction, setName, setLevel, removeQuests, addLootToCreatureSingleChance, addLootToCreature } from "../../functions/npc-functions"
 import { addWaypoint, addWaypoints, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
+import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { MODNAME } from "../../modname"
 import { OrbofPower } from "./ClassQuests/ARarePowerOrb"
 
@@ -148,11 +149,50 @@ OrganicMatterVendor.addVendorItem(tierOneClothMaterial,0,0,5001)
 OrganicMatterVendor.addVendorItem(tierOneMailMaterial,0,0,5001)
 OrganicMatterVendor.addVendorItem(tierOneLeatherMaterial,0,0,5001)
 
+spawnMultipleNPCWithTimer(28951,0,0,[
+    [-8465.184,-147.926,0.538401,5.600]],10)
+setFaction(28951,35)
 
+spawnMultipleNPCWithTimer(29491,0,0,[
+    [-8465.306,-176.7459,0.660,1.25]],10)
+setFaction(29491,35)
 
+export let PulseStaff = std.Items.create(MODNAME,'pulsestaff',28782)
+PulseStaff.Name.enGB.set('Teasing Stick')
+export let Vindicator = std.Items.create(MODNAME,'vindicator',29458)
+Vindicator.Name.enGB.set('Olaf\'s Lost Shield')
+export let Satchel = std.Items.create(MODNAME,'satchelbearsack',34845)
+Satchel.Name.enGB.set('Giant Bear Sack')
+export let SavageBlade = std.Items.create(MODNAME,'savageblade',32369)
+SavageBlade.Name.enGB.set('Bearhunter')
+export let SpikyBearTrap = std.Items.create(MODNAME,'spikybeartrap',32375)
+SpikyBearTrap.Name.enGB.set('Guardsmans Shield')
+export let Edgeblade = std.Items.create(MODNAME,'spikybeartrap',18822)
+Edgeblade.Name.enGB.set('Abnormal Blade')
 
-
-
+export let GrizzlyBen = std.CreatureTemplates.create(MODNAME,'oldben',17347)
+GrizzlyBen.Name.enGB.set('Grizzled Ben')
+GrizzlyBen.Level.set(15,15)
+GrizzlyBen.FactionTemplate.set(32)
+GrizzlyBen.DamageSchool.setNormal()
+GrizzlyBen.Stats.ArmorMod.set(25)
+GrizzlyBen.Stats.DamageMod.set(120)
+GrizzlyBen.Stats.ExperienceMod.set(5)
+GrizzlyBen.Stats.HealthMod.set(95)
+GrizzlyBen.Stats.ManaMod.set(25)
+export let GrizzlyBenLoot = GrizzlyBen.NormalLoot
+addLootToCreature(GrizzlyBenLoot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[2,2,2])
+addLootToCreature(GrizzlyBenLoot,tierTwoBaseResources,[3,3,2,3,1,2,1])
+/*Bags and Armor*/
+addLootToCreatureSingleChance(GrizzlyBenLoot,[
+    PulseStaff.ID,              Vindicator.ID,             
+    SavageBlade.ID,             SpikyBearTrap.ID,          Edgeblade.ID               
+],1,0)
+addLootToCreatureSingleChance(GrizzlyBenLoot,[
+    Satchel.ID,
+],100,5)
+spawnMultipleNPCWithTimer(GrizzlyBen.ID,0,0,[
+    [-8378.534,1.4655,0.611,4.908]],300)
 
 export let fish = std.CreatureTemplates.create(MODNAME,'fish',905)
 fish.Level.set(3,3)
