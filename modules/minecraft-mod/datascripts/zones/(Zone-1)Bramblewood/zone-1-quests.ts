@@ -164,7 +164,7 @@ BagQuest01.Text.Reward.enGB.set('Oh these will be perfect, just give me one mome
 BagQuest01.Text.Title.enGB.set('Useful Little Boars')
 
 
-export let ExpTestQuest01 = std.Quests.create(MODNAME,'bagquest01-quest')
+export let ExpTestQuest01 = std.Quests.create(MODNAME,'expquest1-quest')
 ExpTestQuest01.Flags.set(8)
 ExpTestQuest01.MinLevel.set(1)
 ExpTestQuest01.QuestLevel.set(1)
