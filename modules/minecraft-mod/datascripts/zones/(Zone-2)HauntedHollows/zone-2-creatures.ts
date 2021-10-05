@@ -110,6 +110,9 @@ spawnMultipleNPCWithTimer(Zone2Creature1.ID,5,0,[
     [-8966.097656,-485.147491,11.982493,1.125604],
     [-8956.512695,-475.510529,7.917710,2.107352],
     [-8710.021484,-341.958008,14.851360,0.838924],],300)
+    
+export let BansheeShriek = std.Spells.create(MODNAME,'bansheeshriek-spell',31651)
+BansheeShriek.Duration.set(8000,0,8000)
 
 export let Zone2Creature5 = std.CreatureTemplates.create(MODNAME,'zone2creature5',10463)
 Zone2Creature5.Name.enGB.set('Banshee')
@@ -123,8 +126,8 @@ Zone2Creature5.Name.enGB.set('Banshee')
     Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
     Zone2Creature5.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(16868,2,7)
-    Zone2Creature5.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(16838,2,7)
-    Zone2Creature5.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(31651,2,7)
+    Zone2Creature5.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(37500,2,7)
+    Zone2Creature5.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(BansheeShriek.ID,2,7)
 //End of Spells
 Zone2Creature5.Level.set(5,7)
 Zone2Creature5.FactionTemplate.set(48)
