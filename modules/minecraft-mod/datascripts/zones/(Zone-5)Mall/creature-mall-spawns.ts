@@ -1,9 +1,11 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
+import { DBC_ItemExtendedCost } from "wotlkdata/dbc/types/ItemExtendedCost"
 import { creature2, creature3 } from "../(Zone-1)Bramblewood/zone-1-creatures"
 import { setFaction, setName, setLevel, removeQuests } from "../../functions/npc-functions"
 import { addWaypoint, addWaypoints, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
+import { OrbofPower } from "./ClassQuests/ARarePowerOrb"
 
 let broadcastindex = 87000
 
@@ -122,14 +124,21 @@ SQL.broadcast_text.add(broadcastindex++).Text.set('I understand your concern, bu
 SQL.creature_text.add(MailArmorVendor02.ID,1,1).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(12)
 SQL.broadcast_text.add(broadcastindex++).Text.set('I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you.').Flags.set(1)
      
-    
 export let OrbOfPowerVendor = std.CreatureTemplates.create(MODNAME,'powerorbvendor-creature',3562)
 OrbOfPowerVendor.Name.enGB.set('Zerok the Orb Collector')
 OrbOfPowerVendor.Models.clearAll()
 OrbOfPowerVendor.Models.addIds(21891)
 OrbOfPowerVendor.FactionTemplate.set(35)
-    spawnMultipleNPCWithTimer(OrbOfPowerVendor.ID,0,0,[
-        [-8302.053711,-267.736298,17.274397,6.243299]],10)
+spawnMultipleNPCWithTimer(OrbOfPowerVendor.ID,0,0,[
+    [-8302.053711,-267.736298,17.274397,6.243299]],10)
+DBC_ItemExtendedCost.add(5000).ItemID.set([OrbofPower.ID]).ItemCount.set([10])
+OrbOfPowerVendor.addVendorItem(34170,0,0,5000)
+
+
+
+
+
+
 
 
 export let fish = std.CreatureTemplates.create(MODNAME,'fish',905)
