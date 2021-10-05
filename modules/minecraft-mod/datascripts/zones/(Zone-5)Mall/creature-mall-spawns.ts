@@ -180,6 +180,8 @@ GrizzlyBen.Stats.DamageMod.set(120)
 GrizzlyBen.Stats.ExperienceMod.set(5)
 GrizzlyBen.Stats.HealthMod.set(95)
 GrizzlyBen.Stats.ManaMod.set(25)
+GrizzlyBen.Scale.set(2)
+GrizzlyBen.Rank.setBoss()
 export let GrizzlyBenLoot = GrizzlyBen.NormalLoot
 addLootToCreature(GrizzlyBenLoot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[2,2,2])
 addLootToCreature(GrizzlyBenLoot,tierTwoBaseResources,[3,3,2,3,1,2,1])
@@ -193,6 +195,15 @@ addLootToCreatureSingleChance(GrizzlyBenLoot,[
 ],100,5)
 spawnMultipleNPCWithTimer(GrizzlyBen.ID,0,0,[
     [-8378.534,1.4655,0.611,4.908]],300)
+
+
+
+
+
+
+
+
+
 
 export let fish = std.CreatureTemplates.create(MODNAME,'fish',905)
 fish.Level.set(3,3)
