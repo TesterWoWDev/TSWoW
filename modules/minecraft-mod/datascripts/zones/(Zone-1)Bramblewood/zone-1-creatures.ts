@@ -1,44 +1,10 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { BanditNpc } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { MODNAME } from "../../modname"
 import { Rank1Frostbolt, Rank1FireBlast, Rank1FrostArmor, Rank1FrostNova, Rank1BoarCharge, Rank1Strike, Rank1Bite, Rank1Gore, Rank1Whirlwind } from "./zone-1-creature-spells"
 import { BoarSkin, Teeth } from "./zone-1-items"
 
 let broadcastindex = 85000
-
-//Normal Creature Spawns
-export let creature1 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature1',299)
-creature1.Name.enGB.set('Bandit')
-creature1.Models.clearAll()
-creature1.Models.addIds(2357,2358)
-//Spells
-    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-    creature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
-    creature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    creature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
-    //combat loop
-    creature1.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1Strike.ID,2,7)
-    creature1.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(Rank1BoarCharge.ID,2,7)
-    creature1.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Rank1Whirlwind.ID,2,7)
-//End of Spells
-creature1.MovementType.setRandomMovement()
-creature1.Level.set(1,2)
-creature1.FactionTemplate.set(48)
-creature1.DamageSchool.setNormal()
-creature1.Stats.ArmorMod.set(1)
-creature1.Stats.DamageMod.set(1)
-creature1.Stats.ExperienceMod.set(1)
-creature1.Stats.HealthMod.set(1)
-creature1.Stats.ManaMod.set(1)
-SQL.creature_equip_template.add(creature1.ID,1).ItemID1.set(25)
-SQL.creature_equip_template.add(creature1.ID,2).ItemID1.set(869)
-SQL.creature_equip_template.add(creature1.ID,3).ItemID1.set(1194)
-SQL.creature_template.add(creature1.ID).KillCredit1.set(BanditNpc.ID)
-export let creature1Loot = creature1.NormalLoot
 
 export let creature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature2',299)
 creature2.Name.enGB.set('Young Wolf')

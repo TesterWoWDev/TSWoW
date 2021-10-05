@@ -1,6 +1,5 @@
-import { creature1, creature2, creature3, creature4, creature5, creature6, creature7, RareCreature1, RareCreature2, RareCreature3, RareCreature4 } from "./zone-1-creatures";
+import { creature2, creature3, creature4, creature5, creature6, creature7, RareCreature1, RareCreature2, RareCreature3, RareCreature4 } from "./zone-1-creatures";
 import { spawnMultipleNPCs, spawnNPC } from "../../functions/spawning-functions";
-import { BanditNpc } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 
 spawnMultipleNPCs(creature2.ID,5,0,[
     [-7835.86,212.092,0.858356,1.09706],
