@@ -12,6 +12,7 @@ import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
 import { SQL } from "wotlkdata/sql/SQLFiles";
 import { BoarSkin, BoarskinSatchel } from "./zone-1-items"
+import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
 
 export let StrangeEtherealCrate = std.Items.create(MODNAME,'strangecrate01',36771)
 StrangeEtherealCrate.Name.enGB.set('Strange Ethereal Crate')
@@ -154,9 +155,29 @@ BagQuest01.Questgiver.addEnder(BoarQuestGiver01.ID)
 BagQuest01.Rewards.Money.set(2525)
 BagQuest01.Objectives.Item.add(BoarSkin.ID,25)
 BagQuest01.Rewards.Item.add(BoarskinSatchel.ID,1)
+BagQuest01.Rewards.Difficulty.set6() // Testing EXP on Quest Reward
 
 BagQuest01.Text.Objective.enGB.set('I understand that it can be quite difficult to continue on your journey without ample room to carry supplies, hero. I have a deal for you. If you can bring me 25 Boarskins from the boars in the surrounding area, I can fashion them into a bag for you so that you can carry more materials in the future. What do you say? Do we have a deal?')
 BagQuest01.Text.Incomplete.enGB.set('Have you managed to get the boar skins that I require to fashion into a bag?')
 BagQuest01.Text.Description.enGB.set('Bring 25 Boar Skins to Jethel.')
 BagQuest01.Text.Reward.enGB.set('Oh these will be perfect, just give me one moment and I\'ll be ready for you!')
 BagQuest01.Text.Title.enGB.set('Useful Little Boars')
+
+
+export let ExpTestQuest01 = std.Quests.create(MODNAME,'expquest01-quest')
+ExpTestQuest01.Flags.set(8)
+ExpTestQuest01.MinLevel.set(1)
+ExpTestQuest01.QuestLevel.set(1)
+SQL.quest_template_addon.add(ExpTestQuest01.ID).SpecialFlags.set(1)
+ExpTestQuest01.Questgiver.addStarter(BoarQuestGiver01.ID)
+ExpTestQuest01.Questgiver.addEnder(BoarQuestGiver01.ID)
+
+ExpTestQuest01.Rewards.Money.set(-10000)
+ExpTestQuest01.Objectives.Item.add(ExpScroll.ID,1)
+ExpTestQuest01.Rewards.Difficulty.set7() // Testing EXP on Quest Reward
+
+ExpTestQuest01.Text.Objective.enGB.set('One of the biggest challenges that you will face is growing in power, and in this case, I may be able to help you. If you can find me experience scrolls, I happen to know how to read them and I can transfer the experience to you... for a fee.')
+ExpTestQuest01.Text.Incomplete.enGB.set('Have you managed to find a scroll of experience?')
+ExpTestQuest01.Text.Description.enGB.set('Bring 1 Experience Scroll to the quest giver.')
+ExpTestQuest01.Text.Reward.enGB.set('Experience shall give you power beyond your wildest dreams. This will help me as much as it shall help you.')
+ExpTestQuest01.Text.Title.enGB.set('Experience is Key')

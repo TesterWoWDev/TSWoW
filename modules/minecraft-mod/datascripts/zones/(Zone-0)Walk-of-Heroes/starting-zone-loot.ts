@@ -4,6 +4,7 @@ import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test";
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
 import { SmallRedPouch, SmallBluePouch, SmallBlackPouch, SmallGreenPouch, BrownLeatherSatchel, DarnassianBleu, ShinyRedApple, RefreshingSpringWater, Dirk, TornNote, BoarSkin } from "../(Zone-1)Bramblewood/zone-1-items";
 import { Boar01Loot, startingZoneWolfBossLoot } from "./starting-zone-creatures";
+import { ExpScroll } from "./starting-zone-items";
 
 // Creature 1 = Ravaging Worg
 addLootToCreature(startingZoneWolfBossLoot,[
@@ -23,5 +24,5 @@ addLootToCreature(startingZoneWolfBossLoot,[
 
 //Boar Loot
 addLootToCreature(Boar01Loot,[
-    BoarSkin.ID
-],[100],7)  
+    BoarSkin.ID,                    ExpScroll.ID
+],[100,1],7)  

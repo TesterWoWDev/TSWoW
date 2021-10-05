@@ -9,6 +9,7 @@ import { addLootToCreature, addLootToCreatureSingleChance } from "../../function
 import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll";
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
 import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll";
+import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items";
 //Pearl, Epaulet, Chain, Metal, Reinforced Metal, Stick,Dust
 //Cloth, Leather, Mail
 
@@ -34,8 +35,8 @@ addLootToCreature(creature1Loot,[
 ],[1,1],1)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature1Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,            ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -54,8 +55,9 @@ addLootToCreature(creature2Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature2Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,
+    ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -75,8 +77,8 @@ addLootToCreature(creature3Loot,[
 ],[100],7)  
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature3Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -95,8 +97,8 @@ addLootToCreature(creature4Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature4Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -119,8 +121,8 @@ addLootToCreature(creature5Loot,[
 ],[3,2,2,0.25],1)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature5Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -140,8 +142,8 @@ addLootToCreature(creature6Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature6Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -160,8 +162,8 @@ addLootToCreature(creature7Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature7Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -177,8 +179,8 @@ addLootToCreature(creature8Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature8Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -194,8 +196,8 @@ addLootToCreature(creature9Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature9Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
+],[5,1,1],8)    
 
 
 
@@ -211,8 +213,8 @@ addLootToCreature(creature10Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature10Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)     
+    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
+],[5,1,1],8)     
 
 
 
@@ -239,8 +241,8 @@ addLootToCreatureSingleChance(RareCreature1Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(RareCreature1Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID
-],[5,5,5,5,3],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
+],[5,5,5,5,3,5],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(RareCreature1Loot,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
@@ -284,8 +286,8 @@ addLootToCreatureSingleChance(RareCreature2Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(RareCreature2Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID
-],[5,5,5,5,3],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
+],[5,5,5,5,3,5],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(RareCreature2Loot,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
@@ -329,8 +331,8 @@ addLootToCreatureSingleChance(RareCreature3Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(RareCreature3Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID
-],[5,5,5,5,3],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
+],[5,5,5,5,3,5],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(RareCreature3Loot,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
@@ -371,8 +373,8 @@ addLootToCreatureSingleChance(RareCreature4Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(RareCreature4Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID
-],[5,5,5,5,3],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
+],[5,5,5,5,3,5],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(RareCreature4Loot,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
@@ -416,8 +418,8 @@ addLootToCreatureSingleChance(DemiBosscreature1Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(DemiBosscreature1Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID
-],[5,5,5,5,3],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
+],[5,5,5,5,3,5],0)
 
 // Demiboss Creature 2 - Widow Fae
 // Group 1 Loot Percentage = 9% + 35% + 7% + + 4.625% + 23% = 78.625%
