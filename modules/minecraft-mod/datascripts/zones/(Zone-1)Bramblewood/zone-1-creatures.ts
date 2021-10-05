@@ -37,7 +37,6 @@ creature1.Stats.ManaMod.set(1)
 SQL.creature_equip_template.add(creature1.ID,1).ItemID1.set(25)
 SQL.creature_equip_template.add(creature1.ID,2).ItemID1.set(869)
 SQL.creature_equip_template.add(creature1.ID,3).ItemID1.set(1194)
-SQL.creature_template.add(creature1.ID).KillCredit1.set(BanditNpc.ID)
 export let creature1Loot = creature1.NormalLoot
 
 export let creature2 = std.CreatureTemplates.create(MODNAME,'Placeholder-creature2',299)
