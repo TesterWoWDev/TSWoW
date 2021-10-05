@@ -157,7 +157,7 @@ spawnMultipleNPCWithTimer(Zone3Creature3.ID,5,0,[
     [-8725.576172,451.572174,14.900697,5.284564],
     [-8731.882812,436.176575,14.470108,4.652320],
     [-8750.331055,419.934113,15.325910,4.487387],
-    [-8774.732422,410.628662,14.418610,3.132575],],60)
+    [-8774.732422,410.628662,14.418610,3.132575],],180)
     
 export let Zone3RareCreature1 = std.CreatureTemplates.create(MODNAME,'zone3rare1',32082)
 Zone3RareCreature1.Name.enGB.set('Mother Shiva')
@@ -179,5 +179,5 @@ Zone3RareCreature1.Stats.ExperienceMod.set(10)
 Zone3RareCreature1.Stats.HealthMod.set(35)
 Zone3RareCreature1.Stats.ManaMod.set(3)
 export let Zone3RareCreature1Loot = Zone3RareCreature1.NormalLoot
-spawnMultipleNPCWithTimer(Zone3Creature3.ID,15,0,[
+spawnMultipleNPCWithTimer(Zone3RareCreature1.ID,15,0,[
         [-8785.416016,489.123932,14.433434,5.704753],],300)

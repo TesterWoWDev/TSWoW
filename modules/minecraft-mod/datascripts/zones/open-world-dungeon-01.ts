@@ -8,6 +8,7 @@ import { MODNAME } from "../modname"
 
 export let Shadowbolt = std.Spells.create(MODNAME,'shadowbolt-spell',25307)
 export let ShadowVolley = std.Spells.create(MODNAME,'shadowvolley-spell',25586)
+ShadowVolley.Effects.get(0).BasePoints.set(749)
 export let ShadowPain = std.Spells.create(MODNAME,'pain-spell',25367)
 
 //Items and Loot
