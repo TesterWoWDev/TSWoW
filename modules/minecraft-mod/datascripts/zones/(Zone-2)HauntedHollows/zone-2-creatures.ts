@@ -23,11 +23,11 @@ Zone2Creature1.Models.clearAll()
 Zone2Creature1.Models.addIds(27976)
 //Spells
     //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    Zone2Creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+    Zone2Creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,11000,15000,11000,15000,100).row.event_flags.set(1)
     Zone2Creature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    Zone2Creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+    Zone2Creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,3000,7000,3000,7000,100).row.event_flags.set(1)
     Zone2Creature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    Zone2Creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+    Zone2Creature1.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,5000,7000,5000,7000,100).row.event_flags.set(1)
     Zone2Creature1.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
     Zone2Creature1.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(VenomSpit.ID,2,7)
@@ -120,11 +120,11 @@ export let Zone2Creature5 = std.CreatureTemplates.create(MODNAME,'zone2creature5
 Zone2Creature5.Name.enGB.set('Banshee')
 //Spells
     //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,11000,15000,11000,15000,100).row.event_flags.set(1)
     Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,3000,7000,3000,7000,100).row.event_flags.set(1)
     Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,5000,7000,5000,7000,100).row.event_flags.set(1)
     Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
     Zone2Creature5.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(16868,2,7)

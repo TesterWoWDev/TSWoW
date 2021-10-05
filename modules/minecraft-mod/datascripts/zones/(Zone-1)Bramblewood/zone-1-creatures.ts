@@ -154,11 +154,11 @@ creature7.Models.addIds(983,1079,5293)
 //Spells
     creature7.Scripts.onUpdateOoc(0,0,0,0).Target.setSelf().Action.setCast(Rank1FrostArmor.ID,0,0).row.event_flags.set(1)
     //timed calls
-    creature7.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,8000,13000,100).row.event_flags.set(1)
+    creature7.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,8000,13000,8000,13000,100).row.event_flags.set(1)
     creature7.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    creature7.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,13000,15000,100).row.event_flags.set(1)
+    creature7.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,13000,15000,13000,15000,100).row.event_flags.set(1)
     creature7.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    creature7.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,3000,3000,100).row.event_flags.set(1)
+    creature7.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,3000,3000,3000,3000,100).row.event_flags.set(1)
     creature7.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
     creature7.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Rank1FireBlast.ID,0,0)
