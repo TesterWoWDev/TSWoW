@@ -193,9 +193,9 @@ let spellsList = [
     [[0]/*Empty Slot*/],
     [[0/*Druid*/],
         [8921,774,8936],                        // Moonfire (1),            Rejuvenation (1),       Regrowth (1)
-        [339,5178,2921,5229],                   // Entangling Roots (1),    Wrath (3),              Starfire (1),           Enrage 
+        [339,5178,2921,5229,768,1082],          // Entangling Roots (1),    Wrath (3),              Starfire (1),           Enrage,             Cat Form,       Claw
         [770,8925],                             // Faerie Fire,             Moonfire (3)
-        [5211,768,1082,6808,5487,779,1079],     // Bash,                    Cat Form,               Claw,                   Maul,               Bear Form,      Swipe (Bear),       Rip (1)
+        [5211,6808,5487,779,1079,6795],         // Bash,                    Maul,                   Bear Form,              Swipe (Bear),       Rip (1),        Growl
         [16914,6780],                           // Hurricane (1),           Wrath (6),         
         [8928,8950,5188],                       // Moonfire (6),            Starfire (3),           Healing Touch (4)
         [5215,1822,5217,5221,1850],             // Prowl,                   Rake (1),               Tigers Fury (1),        Shred (1),          Dash (1)
