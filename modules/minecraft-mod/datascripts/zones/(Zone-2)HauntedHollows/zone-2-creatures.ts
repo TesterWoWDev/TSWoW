@@ -110,6 +110,55 @@ spawnMultipleNPCWithTimer(Zone2Creature1.ID,5,0,[
     [-8956.512695,-475.510529,7.917710,2.107352],
     [-8710.021484,-341.958008,14.851360,0.838924],],120)
 
+export let Zone2Creature5 = std.CreatureTemplates.create(MODNAME,'zone2creature5',10463)
+Zone2Creature5.Name.enGB.set('Banshee')
+//Spells
+    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
+    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+    //combat loop
+    Zone2Creature5.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(16868,2,7)
+    Zone2Creature5.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(16838,2,7)
+    Zone2Creature5.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(31651,2,7)
+//End of Spells
+Zone2Creature5.Level.set(5,7)
+Zone2Creature5.FactionTemplate.set(48)
+Zone2Creature5.DamageSchool.setNormal()
+Zone2Creature5.Stats.ArmorMod.set(5)
+Zone2Creature5.Stats.DamageMod.set(3)
+Zone2Creature5.Stats.ExperienceMod.set(1)
+Zone2Creature5.Stats.HealthMod.set(3)
+Zone2Creature5.Stats.ManaMod.set(10)
+Zone2Creature5.HoverHeight.set(20)
+export let Zone2Creature5Loot = Zone2Creature1.NormalLoot
+spawnMultipleNPCWithTimer(Zone2Creature5.ID,0,0,[
+   [-8802.156250,-330.854858,45.844994,2.605298],
+   [-8840.711914,-313.506897,36.274029,2.558174],
+   [-8892.166992,-312.432159,42.135883,1.855242],
+   [-8880.636719,-291.729034,60.729183,1.313317],
+   [-8881.927734,-204.440491,41.447739,1.969125],
+   [-8881.020508,-155.014816,33.029987,2.738816],
+   [-8919.038086,-158.044815,47.759109,3.143296],
+   [-8936.422852,-155.972229,46.891975,2.911603],
+   [-8998.254883,-127.481735,54.663258,0.661437],
+   [-8901.038086,-159.602219,73.681000,5.362048],
+   [-8891.075195,-227.749939,52.785183,4.568797],
+   [-8890.271484,-310.490570,42.908848,4.855467],
+   [-8845.958984,-286.501770,60.009918,0.567193],
+   [-8778.326172,-221.284607,38.560051,6.280964],
+   [-8761.030273,-263.948090,31.395800,5.754747],
+   [-8726.009766,-289.137085,52.277412,6.002147],
+   [-8665.083008,-314.434265,41.644272,0.641803],
+   [-8643.256836,-257.755920,28.313303,1.387932],
+   [-8639.659180,-202.830795,38.685268,6.139591],
+   [-8608.503906,-213.603668,55.462543,5.098941],
+   [-8637.185547,-304.159729,53.384892,3.496730],],120)
+
+
 export let SmallSpider = std.CreatureTemplates.create(MODNAME,'smallspider-creature',721)
 SmallSpider.Name.enGB.set('Skitterer')
 SmallSpider.FactionTemplate.set(32)
