@@ -2,7 +2,7 @@ let spellsList = [
     [[0]], //must be here? I guess?
     [[0/*Warrior*/],
         [100,772,78,3127,6673,750],          // Charge (1),             Rend (1),               Heroic Strike (1),      Parry,                  Battle Shout (1),           Plate Mail
-        [284,6546],                          // Heroic Strike (2),      Rend (2),
+        [284,6546,355,71],                   // Heroic Strike (2),      Rend (2),      Taunt (1),          Defensive Stance
         [285,6343,845],                      // Heroic Strike (3),      Thunderclap (1),        Cleave(1)
         [34428,5308],                        // Victory Rush,           Execute (1)
         [5242,6178,7369],                    // Battle Shout (2),       Charge (2),             Cleave(2)
@@ -24,7 +24,7 @@ let spellsList = [
     ],
     [[0/*Paladin*/],
         [3127,635,750,20271,35395],          // Parry,                  Holy Light (1),         Plate Mail,             Judgement of Light,     Crusader Strike
-        [639,853,465,7294],                  // Holy Light (2),         Hammer of Justice (1),  Devotion Aura,          Retribution Aura,
+        [639,853,465,7294,62124,25780],      // Holy Light (2),         Hammer of Justice (1),  Devotion Aura,          Retribution Aura,       Hand of Reckoning
         [26573,879],                         // Consecration (1),       Exorcism (1)
         [647,19750,24275],                   // Holy Light (3),         Flash of Light (1),     Hammer of Wrath (1)
         [1152,20165,5614],                   // Purify,                 Seal of Light,          Exorcism (2)
@@ -193,9 +193,9 @@ let spellsList = [
     [[0]/*Empty Slot*/],
     [[0/*Druid*/],
         [8921,774,8936],                        // Moonfire (1),            Rejuvenation (1),       Regrowth (1)
-        [339,5178,2921,5229],                   // Entangling Roots (1),    Wrath (3),              Starfire (1),           Enrage 
+        [339,5178,2921,5229,768,1082],          // Entangling Roots (1),    Wrath (3),              Starfire (1),           Enrage,             Cat Form,       Claw
         [770,8925],                             // Faerie Fire,             Moonfire (3)
-        [5211,768,1082,6808,5487,779,1079],     // Bash,                    Cat Form,               Claw,                   Maul,               Bear Form,      Swipe (Bear),       Rip (1)
+        [5211,6808,5487,779,1079,6795],         // Bash,                    Maul,                   Bear Form,              Swipe (Bear),       Rip (1),        Growl
         [16914,6780],                           // Hurricane (1),           Wrath (6),         
         [8928,8950,5188],                       // Moonfire (6),            Starfire (3),           Healing Touch (4)
         [5215,1822,5217,5221,1850],             // Prowl,                   Rake (1),               Tigers Fury (1),        Shred (1),          Dash (1)
