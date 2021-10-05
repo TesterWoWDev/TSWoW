@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { questGiver03 } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
-import { startingQuest08, startingQuest09, startingQuest10 } from "../(Zone-0)Walk-of-Heroes/starting-zone-quests"
+import { SatchelofPower } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
+import { startingQuest08, startingQuest09, startingQuest10, startingQuest11 } from "../(Zone-0)Walk-of-Heroes/starting-zone-quests"
 import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToGobChestMultiDrop } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
@@ -136,3 +137,22 @@ startingQuest10.Text.Incomplete.enGB.set('I understand your concern hero, but th
 startingQuest10.Text.Description.enGB.set('Collect 10 Vials of Poison')
 startingQuest10.Text.Reward.enGB.set('You must really care for this town... pity.')
 startingQuest10.Text.Title.enGB.set('Experiment Gone Wrong')
+
+
+
+
+startingQuest11.Flags.set(1)
+startingQuest11.MinLevel.set(1)
+startingQuest11.QuestLevel.set(1)
+
+startingQuest11.Questgiver.addStarter(questGiver03.ID)
+startingQuest11.Questgiver.addEnder(questGiver03.ID)
+
+startingQuest11.Rewards.Item.add(SatchelofPower.ID,1)
+startingQuest11.Rewards.Item.add(OrbofPower.ID,1)
+
+startingQuest11.Text.Objective.enGB.set('You have done well hero, and it is time that you are given a... bone of sorts. I will provide you with a powerful item that will assist you as you continue to assist us on our journey. Just be weary, never betray your duty...')
+startingQuest11.Text.Incomplete.enGB.set('Truly, this is for you.')
+startingQuest11.Text.Description.enGB.set('Claim your duty and your bag.')
+startingQuest11.Text.Reward.enGB.set('Yes... all yours... no strings attached.')
+startingQuest11.Text.Title.enGB.set('No Strings Attached')
