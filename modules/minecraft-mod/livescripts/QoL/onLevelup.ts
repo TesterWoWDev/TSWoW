@@ -45,8 +45,8 @@ let spellsList = [
         [27139,48785,48819,31884],           // Holy Light (11),        Flash of Light (9),     Consecration (7+8),     Avenging Wrath
     ],
     [[0/*Hunter*/],
-        [3127,8737,1978,3044,982,1515,883],         // Parry,               Mail,                   Serpent Sting (1),      Arcane Shot (1),      Revive Pet,           Tame Beast,         Call Pet
-        [136,13795],                                // Mend Pet (1),        Immolation Trap (1)
+        [3127,8737,1978,3044,982,1515,883,136,6691],// Parry,               Mail,                   Serpent Sting (1),      Arcane Shot (1),      Revive Pet,           Tame Beast,         Call Pet,       Feed Pet,       Mend Pet
+        [136,13795],                                // Immolation Trap (1)
         [34026,13549,56641,14281],                  // Kill Command,        Serpent Sting (2),      Steady Shot (1),        Arcane Shot (2)
         [3111,781,5116],                            // Mend Pet (2),        Disengage,              Concussive Shot,
         [1499,14302,1510,14282],                    // Freezing Trap,       Immolation Trap (2),    Volley (1),             Arcane Shot (3)
@@ -170,9 +170,9 @@ let spellsList = [
     ],
     [[0/*Warlock*/],
         [172,688,348],          // Corruption (1),          Imp,                    Immolate (1) 
-        [5782,6201],            // Fear (1),                Healthstone
+        [5782,6201,1120],       // Drain Soul(1),           Fear (1),                Healthstone
         [1454,1014,689],        // Life Tap (1),            Curse of Agony,         Drain Life (1)
-        [1120,5740,705],        // Drain Soul (1),          Rain of Fire,           Shadowbolt (3)
+        [5740,705],             // Rain of Fire,            Shadowbolt (3)
         [7648,1490,18868],      // Corruption (4),          Curse of Elements (1),  Shadowburn
         [11687,11665],          // Life Tap (4),            Immolate (5)
         [6217,29722],           // Curse of Agony (3),      Incinerate (1)

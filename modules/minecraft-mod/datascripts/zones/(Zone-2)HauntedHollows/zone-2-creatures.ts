@@ -32,13 +32,13 @@ Zone2Creature1.Models.addIds(27976)
     Zone2Creature1.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Decay.ID,2,7)
 //End of Spells
 Zone2Creature1.MovementType.setRandomMovement()
-Zone2Creature1.Level.set(2,4)
+Zone2Creature1.Level.set(3,5)
 Zone2Creature1.FactionTemplate.set(48)
 Zone2Creature1.DamageSchool.setNormal()
 Zone2Creature1.Stats.ArmorMod.set(5)
 Zone2Creature1.Stats.DamageMod.set(3)
 Zone2Creature1.Stats.ExperienceMod.set(1)
-Zone2Creature1.Stats.HealthMod.set(4)
+Zone2Creature1.Stats.HealthMod.set(3)
 Zone2Creature1.Stats.ManaMod.set(10)
 export let Zone2Creature1Loot = Zone2Creature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone2Creature1.ID,5,0,[
