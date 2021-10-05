@@ -27,7 +27,7 @@ export let DeathknightQuest01 = std.Quests.create(MODNAME,'dkquest01-quest')
 
 DeathknightQuest01.Flags.set(1)
 DeathknightQuest01.MinLevel.set(1)
-DeathknightQuest01.QuestLevel.set(1)
+DeathknightQuest01.QuestLevel.set(20)
 DeathknightQuest01.Questgiver.addStarter(questGiver03.ID)
 DeathknightQuest01.Questgiver.addEnder(DeathknightQuestGiver01.ID)
 
@@ -50,7 +50,7 @@ export let DeathknightQuest02 = std.Quests.create(MODNAME,'dkquest02-quest')
 DeathknightQuest02.Flags.set(8)
 SQL.quest_template_addon.add(DeathknightQuest02.ID).SpecialFlags.set(1)
 DeathknightQuest02.MinLevel.set(1)
-DeathknightQuest02.QuestLevel.set(1)
+DeathknightQuest02.QuestLevel.set(20)
 DeathknightQuest02.Questgiver.addStarter(DeathknightQuestGiver01.ID)
 DeathknightQuest02.Questgiver.addEnder(DeathknightQuestGiver01.ID)
 

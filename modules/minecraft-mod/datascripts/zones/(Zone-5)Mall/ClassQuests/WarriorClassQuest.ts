@@ -25,7 +25,7 @@ export let WarriorQuest01 = std.Quests.create(MODNAME,'warriorquest01-quest')
 
 WarriorQuest01.Flags.set(1)
 WarriorQuest01.MinLevel.set(1)
-WarriorQuest01.QuestLevel.set(1)
+WarriorQuest01.QuestLevel.set(20)
 WarriorQuest01.Questgiver.addStarter(questGiver03.ID)
 WarriorQuest01.Questgiver.addEnder(WarriorQuestGiver01.ID)
 
@@ -46,7 +46,7 @@ export let WarriorQuest02 = std.Quests.create(MODNAME,'warriorquest02-quest')
 WarriorQuest02.Flags.set(8)
 SQL.quest_template_addon.add(WarriorQuest02.ID).SpecialFlags.set(1)
 WarriorQuest02.MinLevel.set(1)
-WarriorQuest02.QuestLevel.set(1)
+WarriorQuest02.QuestLevel.set(20)
 WarriorQuest02.Questgiver.addStarter(WarriorQuestGiver01.ID)
 WarriorQuest02.Questgiver.addEnder(WarriorQuestGiver01.ID)
 

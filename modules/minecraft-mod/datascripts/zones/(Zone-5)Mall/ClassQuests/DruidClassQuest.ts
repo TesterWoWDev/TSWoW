@@ -25,7 +25,7 @@ export let DruidQuest01 = std.Quests.create(MODNAME,'druidquest01-quest')
 
 DruidQuest01.Flags.set(1)
 DruidQuest01.MinLevel.set(1)
-DruidQuest01.QuestLevel.set(1)
+DruidQuest01.QuestLevel.set(20)
 DruidQuest01.Questgiver.addStarter(questGiver03.ID)
 DruidQuest01.Questgiver.addEnder(DruidQuestGiver01.ID)
 
@@ -47,7 +47,7 @@ export let DruidQuest02 = std.Quests.create(MODNAME,'druidquest02-quest')
 DruidQuest02.Flags.set(8)
 SQL.quest_template_addon.add(DruidQuest02.ID).SpecialFlags.set(1)
 DruidQuest02.MinLevel.set(1)
-DruidQuest02.QuestLevel.set(1)
+DruidQuest02.QuestLevel.set(20)
 DruidQuest02.Questgiver.addStarter(DruidQuestGiver01.ID)
 DruidQuest02.Questgiver.addEnder(DruidQuestGiver01.ID)
 

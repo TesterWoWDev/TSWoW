@@ -25,7 +25,7 @@ export let ShamanQuest01 = std.Quests.create(MODNAME,'shamanquest01-quest')
 
 ShamanQuest01.Flags.set(1)
 ShamanQuest01.MinLevel.set(1)
-ShamanQuest01.QuestLevel.set(1)
+ShamanQuest01.QuestLevel.set(20)
 ShamanQuest01.Questgiver.addStarter(questGiver03.ID)
 ShamanQuest01.Questgiver.addEnder(ShamanQuestGiver01.ID)
 
@@ -46,7 +46,7 @@ export let ShamanQuest02 = std.Quests.create(MODNAME,'shamanquest02-quest')
 ShamanQuest02.Flags.set(8)
 SQL.quest_template_addon.add(ShamanQuest02.ID).SpecialFlags.set(1)
 ShamanQuest02.MinLevel.set(1)
-ShamanQuest02.QuestLevel.set(1)
+ShamanQuest02.QuestLevel.set(20)
 ShamanQuest02.Questgiver.addStarter(ShamanQuestGiver01.ID)
 ShamanQuest02.Questgiver.addEnder(ShamanQuestGiver01.ID)
 

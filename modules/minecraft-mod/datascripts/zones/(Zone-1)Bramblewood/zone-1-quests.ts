@@ -107,7 +107,7 @@ spawnMultiGobTimer(EtherealCrate.ID,[
 
 startingQuest07.Flags.set(1)
 startingQuest07.MinLevel.set(1)
-startingQuest07.QuestLevel.set(1)
+startingQuest07.QuestLevel.set(5)
 
 startingQuest07.Questgiver.addStarter(questGiver03.ID)
 startingQuest07.Questgiver.addEnder(questGiver03.ID)
@@ -147,7 +147,7 @@ spawnNPC(BoarQuestGiver01.ID,0,0,[-8263.850,-122.315,0.9015,2.32])
 export let BagQuest01 = std.Quests.create(MODNAME,'bagquest01-quest')
 BagQuest01.Flags.set(8)
 BagQuest01.MinLevel.set(1)
-BagQuest01.QuestLevel.set(1)
+BagQuest01.QuestLevel.set(5)
 SQL.quest_template_addon.add(BagQuest01.ID).SpecialFlags.set(1)
 BagQuest01.Questgiver.addStarter(BoarQuestGiver01.ID)
 BagQuest01.Questgiver.addEnder(BoarQuestGiver01.ID)

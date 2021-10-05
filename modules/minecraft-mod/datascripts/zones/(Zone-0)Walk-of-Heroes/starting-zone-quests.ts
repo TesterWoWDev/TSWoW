@@ -36,7 +36,7 @@ export let startingQuest11 = std.Quests.create(MODNAME,'startingquest11-quest')
 
 startingQuest01.Flags.set(1)
 startingQuest01.MinLevel.set(1)
-startingQuest01.QuestLevel.set(1)
+startingQuest01.QuestLevel.set(5)
 
 startingQuest01.Objectives.Entity.add(startingZoneWolfBoss.ID,1)//kill quest
 startingQuest01.Objectives.Item.add(AgathasLockbox.ID,1)//return item quest
@@ -65,7 +65,7 @@ startingQuest01.Text.Title.enGB.set('A Grim Fate')
 
 startingQuest02.Flags.set(1)
 startingQuest02.MinLevel.set(1)
-startingQuest02.QuestLevel.set(1)
+startingQuest02.QuestLevel.set(5)
 
 startingQuest02.Questgiver.addBoth(questGiver01.ID)
 
@@ -94,7 +94,7 @@ startingQuest02.Text.Title.enGB.set('Gathering : a Tutorial')
 
 startingQuest03.Flags.set(1)
 startingQuest03.MinLevel.set(1)
-startingQuest03.QuestLevel.set(1)
+startingQuest03.QuestLevel.set(5)
 
 startingQuest03.Questgiver.addStarter(questGiver01.ID)
 startingQuest03.Questgiver.addEnder(questGiver02.ID)
@@ -118,7 +118,7 @@ startingQuest03.Text.Title.enGB.set('Fractal Spem')
 
 startingQuest04.Flags.set(1)
 startingQuest04.MinLevel.set(1)
-startingQuest04.QuestLevel.set(1)
+startingQuest04.QuestLevel.set(5)
 
 startingQuest04.Questgiver.addStarter(questGiver02.ID)
 startingQuest04.Questgiver.addEnder(questGiver02.ID)
@@ -150,7 +150,7 @@ startingQuest04.Text.Title.enGB.set('Crafting : a Tutorial')
 
 startingQuest05.Flags.set(1)
 startingQuest05.MinLevel.set(1)
-startingQuest05.QuestLevel.set(1)
+startingQuest05.QuestLevel.set(5)
 
 startingQuest05.Questgiver.addStarter(questGiver02.ID)
 startingQuest05.Questgiver.addEnder(questGiver03.ID)
@@ -177,7 +177,7 @@ startingQuest05.Text.Title.enGB.set('Shandralis')
 
 startingQuest06.Flags.set(1)
 startingQuest06.MinLevel.set(1)
-startingQuest06.QuestLevel.set(1)
+startingQuest06.QuestLevel.set(5)
 
 startingQuest06.Questgiver.addStarter(questGiver03.ID)
 startingQuest06.Questgiver.addEnder(questGiver03.ID)

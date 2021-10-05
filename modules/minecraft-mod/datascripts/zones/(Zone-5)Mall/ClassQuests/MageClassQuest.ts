@@ -25,7 +25,7 @@ export let MageQuest01 = std.Quests.create(MODNAME,'magequest01-quest')
 
 MageQuest01.Flags.set(1)
 MageQuest01.MinLevel.set(1)
-MageQuest01.QuestLevel.set(1)
+MageQuest01.QuestLevel.set(20)
 MageQuest01.Questgiver.addStarter(questGiver03.ID)
 MageQuest01.Questgiver.addEnder(MageQuestGiver01.ID)
 
@@ -46,7 +46,7 @@ export let MageQuest02 = std.Quests.create(MODNAME,'magequest02-quest')
 MageQuest02.Flags.set(8)
 SQL.quest_template_addon.add(MageQuest02.ID).SpecialFlags.set(1)
 MageQuest02.MinLevel.set(1)
-MageQuest02.QuestLevel.set(1)
+MageQuest02.QuestLevel.set(20)
 MageQuest02.Questgiver.addStarter(MageQuestGiver01.ID)
 MageQuest02.Questgiver.addEnder(MageQuestGiver01.ID)
 

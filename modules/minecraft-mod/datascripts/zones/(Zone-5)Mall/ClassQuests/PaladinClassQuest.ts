@@ -25,7 +25,7 @@ export let PaladinQuest01 = std.Quests.create(MODNAME,'paladinquest01-quest')
 
 PaladinQuest01.Flags.set(1)
 PaladinQuest01.MinLevel.set(1)
-PaladinQuest01.QuestLevel.set(1)
+PaladinQuest01.QuestLevel.set(20)
 PaladinQuest01.Questgiver.addStarter(questGiver03.ID)
 PaladinQuest01.Questgiver.addEnder(PaladinQuestGiver01.ID)
 
@@ -46,7 +46,7 @@ export let PaladinQuest02 = std.Quests.create(MODNAME,'paladinquest02-quest')
 PaladinQuest02.Flags.set(8)
 SQL.quest_template_addon.add(PaladinQuest02.ID).SpecialFlags.set(1)
 PaladinQuest02.MinLevel.set(1)
-PaladinQuest02.QuestLevel.set(1)
+PaladinQuest02.QuestLevel.set(20)
 PaladinQuest02.Questgiver.addStarter(PaladinQuestGiver01.ID)
 PaladinQuest02.Questgiver.addEnder(PaladinQuestGiver01.ID)
 

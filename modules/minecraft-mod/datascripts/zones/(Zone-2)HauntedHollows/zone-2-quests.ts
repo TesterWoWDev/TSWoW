@@ -15,7 +15,7 @@ import { Zone2Creature1 } from "./zone-2-creatures"
 
 startingQuest08.Flags.set(1)
 startingQuest08.MinLevel.set(1)
-startingQuest08.QuestLevel.set(1)
+startingQuest08.QuestLevel.set(10)
 
 startingQuest08.Questgiver.addStarter(questGiver03.ID)
 startingQuest08.Questgiver.addEnder(questGiver03.ID)
@@ -120,7 +120,7 @@ spawnMultiGobTimer(PoisonBottleObj.ID,[
 
 startingQuest10.Flags.set(1)
 startingQuest10.MinLevel.set(1)
-startingQuest10.QuestLevel.set(1)
+startingQuest10.QuestLevel.set(10)
 
 startingQuest10.Questgiver.addStarter(questGiver04.ID)
 startingQuest10.Questgiver.addEnder(questGiver03.ID)
@@ -143,7 +143,7 @@ startingQuest10.Text.Title.enGB.set('Experiment Gone Wrong')
 
 startingQuest11.Flags.set(1)
 startingQuest11.MinLevel.set(1)
-startingQuest11.QuestLevel.set(1)
+startingQuest11.QuestLevel.set(10)
 
 startingQuest11.Questgiver.addStarter(questGiver03.ID)
 startingQuest11.Questgiver.addEnder(questGiver03.ID)

@@ -25,7 +25,7 @@ export let RogueQuest01 = std.Quests.create(MODNAME,'roguequest01-quest')
 
 RogueQuest01.Flags.set(1)
 RogueQuest01.MinLevel.set(1)
-RogueQuest01.QuestLevel.set(1)
+RogueQuest01.QuestLevel.set(20)
 RogueQuest01.Questgiver.addStarter(questGiver03.ID)
 RogueQuest01.Questgiver.addEnder(RogueQuestGiver01.ID)
 
@@ -46,7 +46,7 @@ export let RogueQuest02 = std.Quests.create(MODNAME,'roguequest02-quest')
 RogueQuest02.Flags.set(8)
 SQL.quest_template_addon.add(RogueQuest02.ID).SpecialFlags.set(1)
 RogueQuest02.MinLevel.set(1)
-RogueQuest02.QuestLevel.set(1)
+RogueQuest02.QuestLevel.set(20)
 RogueQuest02.Questgiver.addStarter(RogueQuestGiver01.ID)
 RogueQuest02.Questgiver.addEnder(RogueQuestGiver01.ID)
 

@@ -25,7 +25,7 @@ export let HunterQuest01 = std.Quests.create(MODNAME,'hunterquest01-quest')
 
 HunterQuest01.Flags.set(1)
 HunterQuest01.MinLevel.set(1)
-HunterQuest01.QuestLevel.set(1)
+HunterQuest01.QuestLevel.set(20)
 HunterQuest01.Questgiver.addStarter(questGiver03.ID)
 HunterQuest01.Questgiver.addEnder(HunterQuestGiver01.ID)
 
@@ -46,7 +46,7 @@ export let HunterQuest02 = std.Quests.create(MODNAME,'hunterquest02-quest')
 HunterQuest02.Flags.set(8)
 SQL.quest_template_addon.add(HunterQuest02.ID).SpecialFlags.set(1)
 HunterQuest02.MinLevel.set(1)
-HunterQuest02.QuestLevel.set(1)
+HunterQuest02.QuestLevel.set(20)
 HunterQuest02.Questgiver.addStarter(HunterQuestGiver01.ID)
 HunterQuest02.Questgiver.addEnder(HunterQuestGiver01.ID)
 
