@@ -1,7 +1,9 @@
 import { std } from "tswow-stdlib"
 import { SQL_creature_loot_template } from "wotlkdata/sql/types/creature_loot_template"
+import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
 import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
 import { addWaypoint, spawnMultipleNPCWithTimer, spawnNPCWithTimer } from "../functions/spawning-functions"
+import { Zone2Creature5 } from "./(Zone-2)HauntedHollows/zone-2-creatures"
 import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 
 
@@ -56,3 +58,4 @@ addWaypoint(TeremustheDevourerGUID,[
     [-7947.986816,57.004776,0.385031,1.939295,0],
     [-7993.659180,110.397179,0.385031,2.355556,0],
     [-8059.353027,163.871964,0.385031,2.595102,0]])
+    SQL_creature_template_movement.add(TeremustheDevourer.ID).Flight.set(1)

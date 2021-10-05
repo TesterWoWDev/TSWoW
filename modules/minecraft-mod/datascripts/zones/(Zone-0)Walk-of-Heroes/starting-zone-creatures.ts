@@ -2,6 +2,7 @@ import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { SQL_broadcast_text } from "wotlkdata/sql/types/broadcast_text"
 import { SQL_creature_template_addon } from "wotlkdata/sql/types/creature_template_addon"
+import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
 import { SQL_creature_text } from "wotlkdata/sql/types/creature_text"
 import { SQL_smart_scripts } from "wotlkdata/sql/types/smart_scripts"
 import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
@@ -27,6 +28,7 @@ WoodcuttingTree.NormalLoot.addItem(FightingStick01.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(FightingStick02.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(FightingStick03.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(tierOneBaseResources[5],25,1,1,false,3,1)
+SQL_creature_template_movement.add(WoodcuttingTree.ID).Rooted.set(1)
 
 
 export let TalkingCitizen = std.CreatureTemplates.create(MODNAME,'talkingcitizen-creature',39686)

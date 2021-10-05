@@ -1,5 +1,6 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
 import { spawnGob, spawnMultipleNPCWithTimer } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 
@@ -157,6 +158,7 @@ spawnMultipleNPCWithTimer(Zone2Creature5.ID,0,0,[
    [-8639.659180,-202.830795,38.685268,6.139591],
    [-8608.503906,-213.603668,55.462543,5.098941],
    [-8637.185547,-304.159729,53.384892,3.496730],],120)
+SQL_creature_template_movement.add(Zone2Creature5.ID).Flight.set(1)
 
 
 export let SmallSpider = std.CreatureTemplates.create(MODNAME,'smallspider-creature',721)
