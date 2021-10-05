@@ -71,7 +71,7 @@ LostAge.RequiredLevel.set(6)
 
 //Creature Spawns (Normal Mobs)
 export let DungeonMob01 = std.CreatureTemplates.create(MODNAME,'dungeonmob01',3271)
-DungeonMob01.Name.enGB.set('Suzu\'ven Cultist')
+DungeonMob01.Name.enGB.set('Suzu\'ven Demonspawn')
     DungeonMob01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
     DungeonMob01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
     DungeonMob01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
@@ -90,6 +90,9 @@ DungeonMob01.Stats.DamageMod.set(30)
 DungeonMob01.Stats.ExperienceMod.set(1)
 DungeonMob01.Stats.HealthMod.set(30)
 DungeonMob01.Stats.ManaMod.set(10)
+DungeonMob01.Rank.setElite()
+DungeonMob01.Models.clearAll()
+DungeonMob01.Models.addIds(18373)
 export let DungeonMob01Loot = DungeonMob01.NormalLoot
 spawnMultipleNPCWithTimer(DungeonMob01.ID,5,0,[
     [-8743.326172,585.324890,-15.320604,2.583537],
