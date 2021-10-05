@@ -109,7 +109,7 @@ spawnMultipleNPCWithTimer(Zone2Creature1.ID,5,0,[
     [-8956.194336,-494.921509,11.799611,3.375770],
     [-8966.097656,-485.147491,11.982493,1.125604],
     [-8956.512695,-475.510529,7.917710,2.107352],
-    [-8710.021484,-341.958008,14.851360,0.838924],],120)
+    [-8710.021484,-341.958008,14.851360,0.838924],],300)
 
 export let Zone2Creature5 = std.CreatureTemplates.create(MODNAME,'zone2creature5',10463)
 Zone2Creature5.Name.enGB.set('Banshee')

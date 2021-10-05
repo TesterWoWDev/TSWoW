@@ -164,7 +164,7 @@ BagQuest01.Text.Reward.enGB.set('Oh these will be perfect, just give me one mome
 BagQuest01.Text.Title.enGB.set('Useful Little Boars')
 
 
-export let ExpTestQuest01 = std.Quests.create(MODNAME,'expquest1-quest')
+export let ExpTestQuest01 = std.Quests.create(MODNAME,'expquest01-quest')
 ExpTestQuest01.Flags.set(8)
 ExpTestQuest01.MinLevel.set(1)
 ExpTestQuest01.QuestLevel.set(1)
@@ -175,7 +175,6 @@ ExpTestQuest01.Questgiver.addEnder(BoarQuestGiver01.ID)
 ExpTestQuest01.Rewards.Money.set(-10000)
 ExpTestQuest01.Objectives.Item.add(ExpScroll.ID,1)
 ExpTestQuest01.Rewards.Difficulty.set6() // Testing EXP on Quest Reward
-
 
 ExpTestQuest01.Text.Objective.enGB.set('One of the biggest challenges that you will face is growing in power, and in this case, I may be able to help you. If you can find me experience scrolls, I happen to know how to read them and I can transfer the experience to you... for a fee.')
 ExpTestQuest01.Text.Incomplete.enGB.set('Have you managed to find a scroll of experience?')
