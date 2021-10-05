@@ -271,7 +271,7 @@ SQL.broadcast_text.add(broadcastindex++).Text.set('AWOO!').Flags.set(1)
 SQL.creature_text.add(RareCreature2.ID,1,1).Text.set('I SMELL...FRESH MEAT!').BroadcastTextId.set(broadcastindex).Probability.set(100).Type.set(14)
 SQL.broadcast_text.add(broadcastindex++).Text.set('I SMELL...FRESH MEAT!').Flags.set(1)
 
-SQL.smart_scripts.add(RareCreature2.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(29544).target_type.set(2).comment.set('Fear')
+//SQL.smart_scripts.add(RareCreature2.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(29544).target_type.set(2).comment.set('Fear')
 SQL.smart_scripts.add(RareCreature2.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(4280).target_type.set(2).comment.set('Consume Flesh')
 SQL.smart_scripts.add(RareCreature2.ID,0,5,0).event_type.set(1).event_chance.set(100).event_param1.set(13000).event_param2.set(18000).event_param3.set(60000).event_param4.set(75000).action_type.set(11).action_param1.set(64062).target_type.set(1).comment.set('Steroid Shout')
 SQL.smart_scripts.add(RareCreature2.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(100000).event_param4.set(100000).action_type.set(11).action_param1.set(4238).target_type.set(1).comment.set('HP Shout')
