@@ -81,7 +81,6 @@ DungeonMob01.Name.enGB.set('Suzu\'ven Demonspawn')
     DungeonMob01.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Shadowbolt.ID,2,7)
     DungeonMob01.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(ShadowVolley.ID,2,7)
     DungeonMob01.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(ShadowPain.ID,2,7)
-DungeonMob01.MovementType.setRandomMovement()
 DungeonMob01.Level.set(10,10)
 DungeonMob01.FactionTemplate.set(48)
 DungeonMob01.DamageSchool.setNormal()
@@ -94,7 +93,7 @@ DungeonMob01.Rank.setElite()
 DungeonMob01.Models.clearAll()
 DungeonMob01.Models.addIds(18373)
 export let DungeonMob01Loot = DungeonMob01.NormalLoot
-spawnMultipleNPCWithTimer(DungeonMob01.ID,5,0,[
+spawnMultipleNPCWithTimer(DungeonMob01.ID,0,0,[
     [-8743.326172,585.324890,-15.320604,2.583537],
     [-8740.042969,591.431702,-15.456429,3.549577],
     [-8746.310547,593.816345,-16.625267,4.547027],],300)
