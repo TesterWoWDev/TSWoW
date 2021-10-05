@@ -174,7 +174,7 @@ ExpTestQuest01.Questgiver.addEnder(BoarQuestGiver01.ID)
 
 ExpTestQuest01.Rewards.Money.set(-10000)
 ExpTestQuest01.Objectives.Item.add(ExpScroll.ID,1)
-ExpTestQuest01.Rewards.Difficulty.set10() // Testing EXP on Quest Reward
+ExpTestQuest01.Rewards.Difficulty.set6() // Testing EXP on Quest Reward
 
 
 BagQuest01.Text.Objective.enGB.set('One of the biggest challenges that you will face is growing in power, and in this case, I may be able to help you. If you can find me experience scrolls, I happen to know how to read them and I can transfer the experience to you... for a fee.')
