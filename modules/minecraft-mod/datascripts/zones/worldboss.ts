@@ -14,9 +14,10 @@ TeremustheDevourer.Stats.DamageMod.set(10)
 TeremustheDevourer.Stats.ArmorMod.set(100)
 TeremustheDevourer.MovementType.setWaypoint()
 TeremustheDevourer.HoverHeight.set(1)
+TeremustheDevourer.MovementSpeed.set(10,10)
 SQL_creature_loot_template.add(TeremustheDevourer.ID,OrbofPower.ID).MinCount.set(3).MaxCount.set(3).GroupId.set(8).Chance.set(75)
 
-let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,1000,0,
+let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,200,0,
     [-8114.068848,407.7459,40.214,4.38],3600)
 
 /*addWaypoint(TeremustheDevourerGUID,[
