@@ -1,9 +1,11 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { DBC_ItemExtendedCost } from "wotlkdata/dbc/types/ItemExtendedCost"
+import { OrganicMatter } from "../(Zone-0)Walk-of-Heroes/starting-zone-alchemyrecipes"
 import { creature2, creature3 } from "../(Zone-1)Bramblewood/zone-1-creatures"
 import { setFaction, setName, setLevel, removeQuests } from "../../functions/npc-functions"
 import { addWaypoint, addWaypoints, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
+import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
 import { OrbofPower } from "./ClassQuests/ARarePowerOrb"
 
@@ -134,6 +136,17 @@ spawnMultipleNPCWithTimer(OrbOfPowerVendor.ID,0,0,[
 DBC_ItemExtendedCost.add(5000).ItemID.set([OrbofPower.ID]).ItemCount.set([10])
 OrbOfPowerVendor.addVendorItem(34170,0,0,5000)
 
+export let OrganicMatterVendor = std.CreatureTemplates.create(MODNAME,'organicmob-creature',3562)
+OrganicMatterVendor.Name.enGB.set('Organic Tim')
+OrganicMatterVendor.Models.clearAll()
+OrganicMatterVendor.Models.addIds(21891)
+OrganicMatterVendor.FactionTemplate.set(35)
+spawnMultipleNPCWithTimer(OrganicMatterVendor.ID,0,0,[
+    [-8166.573,-2.096447,0.082,2.345]],10)
+DBC_ItemExtendedCost.add(5001).ItemID.set([OrganicMatter.ID]).ItemCount.set([1])
+OrganicMatterVendor.addVendorItem(tierOneClothMaterial,0,0,5001)
+OrganicMatterVendor.addVendorItem(tierOneMailMaterial,0,0,5001)
+OrganicMatterVendor.addVendorItem(tierOneLeatherMaterial,0,0,5001)
 
 
 
