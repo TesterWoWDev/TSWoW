@@ -95,7 +95,7 @@ Fawn01.SkinningLoot.addItem(Teeth.ID,25,1,4,false,2)
 Fawn01.SkinningLoot.addItem(DeerSkin.ID,100,1,2)
 Fawn01.UnitFlags.Skinnable.mark()
 
-export let BanditNpc = std.CreatureTemplates.create(MODNAME,'banditnpc-creature3',116)
+export let BanditNpc = std.CreatureTemplates.create(MODNAME,'banditnpc-creature3',229)
 BanditNpc.Name.enGB.set('Bandit')
 BanditNpc.FactionTemplate.set(32) //Fights with Faction 31
 BanditNpc.Models.clearAll()
@@ -118,7 +118,7 @@ addLootToCreature(BanditNpcLoot,[
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
 
-export let BanditBossNpc = std.CreatureTemplates.create(MODNAME,'banditboss-creature3',116)
+export let BanditBossNpc = std.CreatureTemplates.create(MODNAME,'banditboss-creature3',229)
 BanditBossNpc.Name.enGB.set('Unruly Bandit')
 BanditBossNpc.FactionTemplate.set(48) //Fights with Faction 31
 BanditBossNpc.Models.clearAll()
