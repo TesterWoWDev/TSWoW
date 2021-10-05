@@ -1,3 +1,4 @@
+import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set"
 import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem"
@@ -19,8 +20,8 @@ addLootToCreature(Zone2Creature1Loot,[
 addLootToCreature(Zone2Creature1Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
     ShadowMistGloves.ID,            CleverHat.ID,                   PotencyRing.ID,
-    GuileRing.ID
-],[1,1,1,1,1,1,1],1)
+    GuileRing.ID,                   ExpScroll.ID
+],[1,1,1,1,1,1,1,1],1)
 addLootToCreatureSingleChance(Zone2Creature1Loot,[
     undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
     undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
