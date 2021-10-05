@@ -238,6 +238,7 @@ export let SuperApple = std.Items.create(MODNAME,'superapple',46691)
 SuperApple.Name.enGB.set('Super Apple')
 SuperApple.Quality.setBlue()
 SuperApple.DisplayInfo.copyFrom(ShinyRedApple.ID)
+SuperApple.HolidayID.set(0)
 
 export let HealthPotion = std.Spells.load(2330)
 HealthPotion.Reagents.clearAll()
