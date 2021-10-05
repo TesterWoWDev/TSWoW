@@ -113,8 +113,7 @@ spawnMultiGobTimer(PoisonBottleObj.ID,[
     [-8948.253906,-150.426605,14.480653,3.535162],
     [-8953.395508,-149.993347,14.731019,3.209222],
     [-8956.549805,-160.472260,14.652415,3.806124],
-    [-8966.603516,-163.034485,14.622370,3.189587],
-],10)
+    [-8966.603516,-163.034485,14.622370,3.189587],],10)
 
 
 
@@ -132,7 +131,7 @@ startingQuest10.Rewards.Money.set(4059)
 startingQuest10.Objectives.Item.add(VialofPoison.ID,10)
 startingQuest10.Rewards.Item.add(OrbofPower.ID,1)
 
-startingQuest10.Text.Objective.enGB.set('I am impressed that you made it this far hero, but this is where most adventurer journeys end. As you can see, the grounds have been plagued with an experiment gone wrong, and I know that your "council member" wishes for you to return with the poison that has corrupted these citizens he sent me before... Very well, if you wish to die, be my guest.')
+startingQuest10.Text.Objective.enGB.set('I am impressed that you made it this far hero, but this is where most adventurer journeys end. As you can see, the grounds have been plagued with an experiment gone wrong, and I know that your council member wishes for you to return with the poison that has corrupted these citizens he sent me before... Very well, if you wish to die, be my guest.')
 startingQuest10.Text.Incomplete.enGB.set('I understand your concern hero, but this is to protect our town. Quickly, we must make haste.')
 startingQuest10.Text.Description.enGB.set('Collect 10 Vials of Poison')
 startingQuest10.Text.Reward.enGB.set('You must really care for this town... pity.')
