@@ -34,9 +34,9 @@ Zone3Creature1.Level.set(7,9)
 Zone3Creature1.FactionTemplate.set(48)
 Zone3Creature1.DamageSchool.setNormal()
 Zone3Creature1.Stats.ArmorMod.set(5)
-Zone3Creature1.Stats.DamageMod.set(10)
+Zone3Creature1.Stats.DamageMod.set(30)
 Zone3Creature1.Stats.ExperienceMod.set(1)
-Zone3Creature1.Stats.HealthMod.set(6)
+Zone3Creature1.Stats.HealthMod.set(30)
 Zone3Creature1.Stats.ManaMod.set(10)
 export let Zone3Creature1Loot = Zone3Creature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone3Creature1.ID,5,0,[
@@ -72,9 +72,9 @@ Zone3Creature2.Level.set(7,9)
 Zone3Creature2.FactionTemplate.set(48)
 Zone3Creature2.DamageSchool.setNormal()
 Zone3Creature2.Stats.ArmorMod.set(5)
-Zone3Creature2.Stats.DamageMod.set(10)
+Zone3Creature2.Stats.DamageMod.set(30)
 Zone3Creature2.Stats.ExperienceMod.set(1)
-Zone3Creature2.Stats.HealthMod.set(6)
+Zone3Creature2.Stats.HealthMod.set(30)
 Zone3Creature2.Stats.ManaMod.set(10)
 export let Zone3Creature2Loot = Zone3Creature2.NormalLoot
 spawnMultipleNPCWithTimer(Zone3Creature2.ID,5,0,[
@@ -125,9 +125,9 @@ Zone3Creature3.Level.set(7,9)
 Zone3Creature3.FactionTemplate.set(48)
 Zone3Creature3.DamageSchool.setNormal()
 Zone3Creature3.Stats.ArmorMod.set(5)
-Zone3Creature3.Stats.DamageMod.set(10)
+Zone3Creature3.Stats.DamageMod.set(30)
 Zone3Creature3.Stats.ExperienceMod.set(1)
-Zone3Creature3.Stats.HealthMod.set(6)
+Zone3Creature3.Stats.HealthMod.set(30)
 Zone3Creature3.Stats.ManaMod.set(10)
 export let Zone3Creature3Loot = Zone3Creature3.NormalLoot
 spawnMultipleNPCWithTimer(Zone3Creature3.ID,5,0,[
@@ -174,9 +174,9 @@ SQL.smart_scripts.add(Zone3RareCreature1.ID,0,6,0).event_type.set(1).event_chanc
 
 Zone3RareCreature1.DamageSchool.setNormal()
 Zone3RareCreature1.Stats.ArmorMod.set(5)
-Zone3RareCreature1.Stats.DamageMod.set(10)
+Zone3RareCreature1.Stats.DamageMod.set(50)
 Zone3RareCreature1.Stats.ExperienceMod.set(10)
-Zone3RareCreature1.Stats.HealthMod.set(15)
+Zone3RareCreature1.Stats.HealthMod.set(35)
 Zone3RareCreature1.Stats.ManaMod.set(3)
 export let Zone3RareCreature1Loot = Zone3RareCreature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone3Creature3.ID,15,0,[
