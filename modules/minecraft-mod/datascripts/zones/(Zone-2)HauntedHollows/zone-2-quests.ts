@@ -65,10 +65,6 @@ startingQuest09.Text.Reward.enGB.set('You\'re... alive?')
 startingQuest09.Text.Title.enGB.set('Forgotten Requests')
 
 
-
-
-)
-
 export let VialofPoison = std.Items.create(MODNAME,'poisonvial',1130)
 VialofPoison.Name.enGB.set('Vial of Toxic Tonic')
 VialofPoison.Quality.setBlue()

@@ -1,5 +1,5 @@
 import { SQL } from "wotlkdata/sql/SQLFiles";
-import { startingQuest01, startingQuest02, startingQuest03, startingQuest04, startingQuest05, startingQuest06, startingQuest07, startingQuest08 } from "./(Zone-0)Walk-of-Heroes/starting-zone-quests";
+import { startingQuest01, startingQuest02, startingQuest03, startingQuest04, startingQuest05, startingQuest06, startingQuest07, startingQuest08, startingQuest09, startingQuest10 } from "./(Zone-0)Walk-of-Heroes/starting-zone-quests";
 import { BagQuest01 } from "./(Zone-1)Bramblewood/zone-1-quests";
 import { DeathknightQuest01, DeathknightQuest02 } from "./(Zone-5)Mall/ClassQuests/DeathKnightClassQuest";
 import { DruidQuest01, DruidQuest02 } from "./(Zone-5)Mall/ClassQuests/DruidClassQuest";
@@ -18,7 +18,9 @@ import { WarriorQuest01, WarriorQuest02 } from "./(Zone-5)Mall/ClassQuests/Warri
  SQL.quest_template_addon.add(startingQuest04.ID).NextQuestID.set(startingQuest05.ID).PrevQuestID.set(startingQuest03.ID).ExclusiveGroup.set(0)
  SQL.quest_template_addon.add(startingQuest05.ID).NextQuestID.set(startingQuest06.ID).PrevQuestID.set(startingQuest04.ID).ExclusiveGroup.set(0)
  SQL.quest_template_addon.add(startingQuest06.ID).NextQuestID.set(startingQuest07.ID).PrevQuestID.set(startingQuest05.ID).ExclusiveGroup.set(0)
- SQL.quest_template_addon.add(startingQuest07.ID).NextQuestID.set(startingQuest08.ID).PrevQuestID.set(startingQuest05.ID).ExclusiveGroup.set(0)
+ SQL.quest_template_addon.add(startingQuest07.ID).NextQuestID.set(startingQuest08.ID).PrevQuestID.set(startingQuest06.ID).ExclusiveGroup.set(0)
+ SQL.quest_template_addon.add(startingQuest08.ID).NextQuestID.set(startingQuest09.ID).PrevQuestID.set(startingQuest07.ID).ExclusiveGroup.set(0)
+ SQL.quest_template_addon.add(startingQuest09.ID).NextQuestID.set(startingQuest10.ID).PrevQuestID.set(startingQuest08.ID).ExclusiveGroup.set(0)
 
 
 
