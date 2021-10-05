@@ -129,7 +129,7 @@ startingQuest04.Objectives.Item.add(tierOneClothGear[6],1)
 
 startingQuest04.StartItem.set(SatchelofResources.ID)
 
-startingQuest04.Text.Objective.enGB.set('It is here at this lake, that I have found peace in doing the most mundane tasks. Fortunately, you are not a scripted NPC and you have free will. There is an icon on your minimap that looks like a piece of armor, click that and craft a pair of bracers for me.')
+startingQuest04.Text.Objective.enGB.set('It is here at this lake, that I have found peace in doing the most mundane tasks. Fortunately, you are not a scripted NPC and you have free will. There is an icon on your minimap that looks like a piece of armor, click that and craft a pair of gloves for me.')
 startingQuest04.Text.Incomplete.enGB.set('Hero, please open the crafting menu on your minimap; it is the icon that looks like a piece of body armor.')
 startingQuest04.Text.Description.enGB.set('Craft a pair of bracers for Fractal Spem using the Crafting Menu on your minimap.')
 startingQuest04.Text.Reward.enGB.set('Very good hero, you have learned the basics of utilizing the crafting menu. You will gather many resources on your journey, and that crafting menu will be your best friend!')
