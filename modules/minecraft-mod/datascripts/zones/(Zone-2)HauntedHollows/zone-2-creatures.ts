@@ -115,6 +115,7 @@ SmallSpider.Name.enGB.set('Skitterer')
 SmallSpider.FactionTemplate.set(32)
 SmallSpider.Models.clearAll()
 SmallSpider.Models.addIds(18923)
+SmallSpider.Scale.set(0.1)
 spawnMultipleNPCWithTimer(SmallSpider.ID,10,0,[
     [-8535.717773,-227.021484,-0.054578,2.874787],
     [-8552.239258,-230.836487,0.035730,2.902276],
