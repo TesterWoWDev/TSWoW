@@ -13,12 +13,13 @@ TeremustheDevourer.Stats.HealthMod.set(60)
 TeremustheDevourer.Stats.DamageMod.set(10)
 TeremustheDevourer.Stats.ArmorMod.set(100)
 TeremustheDevourer.MovementType.setWaypoint()
-TeremustheDevourer.HoverHeight.set(0)
+TeremustheDevourer.HoverHeight.set(1)
 SQL_creature_loot_template.add(TeremustheDevourer.ID,OrbofPower.ID).MinCount.set(3).MaxCount.set(3).GroupId.set(8).Chance.set(75)
 
-let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,0,0,
-    [-8118.032227,167.130127,0.385031,1.114623],3600)
-addWaypoint(TeremustheDevourerGUID,[
+let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,1000,0,
+    [-8114.068848,407.7459,40.214,4.38],3600)
+
+/*addWaypoint(TeremustheDevourerGUID,[
     [-8118.032227,167.130127,0.385031,1.114623,0],
     [-8118.032227,167.130127,0.385031,1.114623,0],
     [-8096.434082,211.146317,0.385031,1.114623,0],
@@ -57,5 +58,5 @@ addWaypoint(TeremustheDevourerGUID,[
     [-7969.661621,15.519738,0.385031,0.584482,0],
     [-7947.986816,57.004776,0.385031,1.939295,0],
     [-7993.659180,110.397179,0.385031,2.355556,0],
-    [-8059.353027,163.871964,0.385031,2.595102,0]])
+    [-8059.353027,163.871964,0.385031,2.595102,0]])*/
     SQL_creature_template_movement.add(TeremustheDevourer.ID).Flight.set(1)
