@@ -25,4 +25,4 @@ addLootToCreature(startingZoneWolfBossLoot,[
 //Boar Loot
 addLootToCreature(Boar01Loot,[
     BoarSkin.ID,                    ExpScroll.ID
-],[100,1],7)  
+],[100,3],7)  

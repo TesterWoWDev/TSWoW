@@ -36,7 +36,7 @@ addLootToCreature(creature1Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature1Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,            ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -57,7 +57,7 @@ addLootToCreature(creature2Loot,[
 addLootToCreature(creature2Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,
     ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -78,7 +78,7 @@ addLootToCreature(creature3Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature3Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -98,7 +98,7 @@ addLootToCreature(creature4Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature4Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -122,7 +122,7 @@ addLootToCreature(creature5Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature5Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -143,7 +143,7 @@ addLootToCreature(creature6Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature6Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -163,7 +163,7 @@ addLootToCreature(creature7Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature7Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -180,7 +180,7 @@ addLootToCreature(creature8Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature8Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -197,7 +197,7 @@ addLootToCreature(creature9Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature9Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,1],8)    
+],[5,1,3],8)    
 
 
 
@@ -214,7 +214,7 @@ addLootToCreature(creature10Loot,[
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature10Loot,[
     DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,1],8)     
+],[5,1,3],8)     
 
 
 
