@@ -24,7 +24,7 @@ let spellsList = [
     ],
     [[0/*Paladin*/],
         [3127,635,750,20271,35395],          // Parry,                  Holy Light (1),         Plate Mail,             Judgement of Light,     Crusader Strike
-        [639,853,465,7294],                  // Holy Light (2),         Hammer of Justice (1),  Devotion Aura,          Retribution Aura,
+        [639,853,465,7294,62124,25780],                  // Holy Light (2),         Hammer of Justice (1),  Devotion Aura,          Retribution Aura,     Hand of Reckoning
         [26573,879],                         // Consecration (1),       Exorcism (1)
         [647,19750,24275],                   // Holy Light (3),         Flash of Light (1),     Hammer of Wrath (1)
         [1152,20165,5614],                   // Purify,                 Seal of Light,          Exorcism (2)
