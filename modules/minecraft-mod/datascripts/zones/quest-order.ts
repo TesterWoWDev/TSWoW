@@ -1,6 +1,6 @@
 import { SQL } from "wotlkdata/sql/SQLFiles";
 import { startingQuest01, startingQuest02, startingQuest03, startingQuest04, startingQuest05, startingQuest06, startingQuest07, startingQuest08, startingQuest09, startingQuest10 } from "./(Zone-0)Walk-of-Heroes/starting-zone-quests";
-import { BagQuest01 } from "./(Zone-1)Bramblewood/zone-1-quests";
+import { BagQuest01, ExpTestQuest01 } from "./(Zone-1)Bramblewood/zone-1-quests";
 import { DeathknightQuest01, DeathknightQuest02 } from "./(Zone-5)Mall/ClassQuests/DeathKnightClassQuest";
 import { DruidQuest01, DruidQuest02 } from "./(Zone-5)Mall/ClassQuests/DruidClassQuest";
 import { HunterQuest01, HunterQuest02 } from "./(Zone-5)Mall/ClassQuests/HunterClassQuest";
@@ -49,3 +49,4 @@ import { WarriorQuest01, WarriorQuest02 } from "./(Zone-5)Mall/ClassQuests/Warri
 
  //Side Quests
  SQL.quest_template_addon.add(BagQuest01.ID).NextQuestID.set(0).PrevQuestID.set(startingQuest05.ID).ExclusiveGroup.set(0).SpecialFlags.set(1)
+ SQL.quest_template_addon.add(ExpTestQuest01.ID).NextQuestID.set(0).PrevQuestID.set(startingQuest05.ID).ExclusiveGroup.set(0).SpecialFlags.set(1)
