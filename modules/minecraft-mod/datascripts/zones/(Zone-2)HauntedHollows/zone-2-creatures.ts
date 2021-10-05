@@ -1,5 +1,6 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL_creature_template } from "wotlkdata/sql/types/creature_template"
 import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
 import { spawnGob, spawnMultipleNPCWithTimer } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
@@ -43,6 +44,7 @@ Zone2Creature1.Stats.DamageMod.set(15)
 Zone2Creature1.Stats.ExperienceMod.set(1)
 Zone2Creature1.Stats.HealthMod.set(15)
 Zone2Creature1.Stats.ManaMod.set(10)
+SQL_creature_template.add(Zone2Creature1.ID).ExperienceModifier.set(10)
 export let Zone2Creature1Loot = Zone2Creature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone2Creature1.ID,5,0,[
     [-8705.208008,-289.991180,17.072584,5.460984],
@@ -141,6 +143,7 @@ Zone2Creature5.Stats.HealthMod.set(15)
 Zone2Creature5.Stats.ManaMod.set(10)
 Zone2Creature5.HoverHeight.set(1)
 Zone2Creature5.MovementType.setRandomMovement()
+//SQL_creature_template.add(Zone2Creature5.ID).ExperienceModifier.set(10)
 export let Zone2Creature5Loot = Zone2Creature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone2Creature5.ID,10,0,[
    [-8802.156250,-330.854858,45.844994,2.605298],
@@ -451,6 +454,7 @@ Zone2RareCreature2.Stats.DamageMod.set(40)
 Zone2RareCreature2.Stats.ExperienceMod.set(10)
 Zone2RareCreature2.Stats.HealthMod.set(25)
 Zone2RareCreature2.Stats.ManaMod.set(3)
+
 export let Zone2RareCreature2Loot = Zone2RareCreature2.NormalLoot
 spawnMultipleNPCWithTimer(Zone2RareCreature2.ID,5,0,[
     [-9001.918945,-105.752357,-6.326611,3.140157],],600)
