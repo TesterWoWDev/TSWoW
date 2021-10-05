@@ -8,7 +8,7 @@ import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
 import { ArdentCustodian, BiteofSerrakis, BoarSkin, BowofSearingArrows, BrownLeatherSatchel, BurstofKnowledge, CircleofFlame, DarkIronPulverizer, DarkwaterTalwar, DarnassianBleu, DazzlingLongsword, DeadmansHand, DeerSkin, EskhandarsLeftClaw, EskhandarsRightClaw, FangoftheCrystalSpider, FieryWarAxe, FlameWrath, ForceofWill, GalgannsFireblaster, GalgannsFirehammer, GoblinDragonGun, Grimclaw, GutRipper, HerodsShoulder, Ironfoe, IronweaveBelt, IronweaveBoots, IronweaveBracers, IronweaveCowl, IronweaveGloves, IronweaveMantle, IronweavePants, IronweaveRobe, LordGeneralsSword, MantleofDoan, Naglering, Nightblade, RabbitSkin, RagingBerserkersHelm, RefreshingSpringWater, RobeofDoan, SavageGladiatorChain, SavageGladiatorGreaves, SavageGladiatorGrips, SavageGladiatorHelm, SavageGladiatorLeggings, ScarletLeggings, Shadowfang, ShinyRedApple, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, StaffofJordan, StrikeoftheHydra, Teeth, TheGreenTower, UnderworldBand, WraithScythe } from "../(Zone-1)Bramblewood/zone-1-items"
 import { LoggingPileLogs } from "../(Zone-5)Mall/mall-resource-spawns"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
-import { addWaypoint, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
+import { addWaypoint, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC, spawnNPCWithTimer } from "../../functions/spawning-functions"
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial, tierOneBaseResources } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
 import { FireStick, FightingStick01, FightingStick02, FightingStick03 } from "./starting-zone-items"
@@ -213,7 +213,7 @@ startingZoneWolfBoss.Stats.DamageMod.set(2)
 startingZoneWolfBoss.Stats.ExperienceMod.set(1)
 startingZoneWolfBoss.Stats.HealthMod.set(3)
 startingZoneWolfBoss.Stats.ManaMod.set(1)
-spawnNPC(startingZoneWolfBoss.ID,8,0,[-8668.536,-23.10,31.13,3.61])
+spawnNPCWithTimer(startingZoneWolfBoss.ID,8,0,[-8668.536,-23.10,31.13,3.61],35)
 export let startingZoneWolfBossLoot = startingZoneWolfBoss.NormalLoot
 
 export let ghostlyFigure01 = std.CreatureTemplates.create(MODNAME,'ghostlyfigure01-creature',299)
