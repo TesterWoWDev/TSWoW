@@ -427,7 +427,7 @@ Zone2RareCreature1.Stats.DamageMod.set(40)
 Zone2RareCreature1.Stats.ExperienceMod.set(10)
 Zone2RareCreature1.Stats.HealthMod.set(22)
 Zone2RareCreature1.Stats.ManaMod.set(3)
-SQL_creature_template.add(Zone2RareCreature1.ID).ExperienceModifier.set(6)
+Zone2RareCreature1.Stats.ExperienceMod.set(6)
 export let Zone2RareCreature1Loot = Zone2RareCreature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone2RareCreature1.ID,2,0,[
 [-8964.411133,-461.275055,9.358535,5.135061],],600)
@@ -454,7 +454,7 @@ Zone2RareCreature2.Stats.DamageMod.set(40)
 Zone2RareCreature2.Stats.ExperienceMod.set(10)
 Zone2RareCreature2.Stats.HealthMod.set(25)
 Zone2RareCreature2.Stats.ManaMod.set(3)
-SQL_creature_template.add(Zone2RareCreature2.ID).ExperienceModifier.set(6)
+Zone2RareCreature2.Stats.ExperienceMod.set(6)
 
 export let Zone2RareCreature2Loot = Zone2RareCreature2.NormalLoot
 spawnMultipleNPCWithTimer(Zone2RareCreature2.ID,5,0,[
