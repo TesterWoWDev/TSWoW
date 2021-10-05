@@ -1,5 +1,5 @@
 import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set";
-import { Bosscreature1Loot, creature10Loot, creature1Loot, creature2Loot, creature3Loot, creature4Loot, creature5Loot, creature6Loot, creature7Loot, creature8Loot, creature9Loot, DemiBosscreature1Loot, DemiBosscreature2Loot, RareCreature1Loot, RareCreature2Loot, RareCreature3Loot, RareCreature4Loot } from "./zone-1-creatures";
+import { Bosscreature1Loot, creature10Loot, creature2Loot, creature3Loot, creature4Loot, creature5Loot, creature6Loot, creature7Loot, creature8Loot, creature9Loot, DemiBosscreature1Loot, DemiBosscreature2Loot, RareCreature1Loot, RareCreature2Loot, RareCreature3Loot, RareCreature4Loot } from "./zone-1-creatures";
 import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set";
 import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem";
 import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, FangoftheCrystalSpider, GoblinDragonGun, DarkwaterTalwar, BiteofSerrakis, Grimclaw, Shadowfang, StrikeoftheHydra, GalgannsFireblaster, GalgannsFirehammer, RagingBerserkersHelm, HerodsShoulder, ScarletLeggings, DeadmansHand, RobeofDoan, MantleofDoan, SavageGladiatorChain, SavageGladiatorLeggings, SavageGladiatorHelm, SavageGladiatorGrips, SavageGladiatorGreaves, DarkIronPulverizer, IronweaveRobe, IronweaveCowl, IronweavePants, IronweaveGloves, IronweaveMantle, IronweaveBelt, IronweaveBoots, IronweaveBracers, WraithScythe, ForceofWill, LordGeneralsSword, Naglering, FlameWrath, BurstofKnowledge, CircleofFlame, BrownLeatherSatchel, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, DarnassianBleu, RefreshingSpringWater, ShinyRedApple, Dirk, TornNote, LargeCandle, MagicCandle, MeltedCandle, BladedPickaxe, BoarSkin } from "./zone-1-items";
@@ -18,27 +18,6 @@ import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items";
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Creature 1 = Humanoid - Bandit
-// Group 1 Loot Percentage = 9% + 14% + 43% = 66%
-addLootToCreature(creature1Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[5,2,2])
-addLootToCreature(creature1Loot,tierOneBaseResources,[3,3,2,3,1,2,0])
-/*Bags and Food - Group 0*/
-addLootToCreature(creature1Loot,[
-    SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             DarnassianBleu.ID,
-    ShinyRedApple.ID,               RefreshingSpringWater.ID
-],[1,1,0.5,0.5,0,10,10,18],0)
-/*Weapons and Misc Drops - Group 1*/
-addLootToCreature(creature1Loot,[
-    Dirk.ID,                        TornNote.ID
-],[1,1],1)
-/*Quest Requirements - Group 8*/
-addLootToCreature(creature1Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,            ExpScroll.ID
-],[5,1,3],8)    
-
-
 
 // Creature 2 - Animal - Young Wolf
 // Group 1 Loot Percentage = 6% + 13% + 41% = 60%
