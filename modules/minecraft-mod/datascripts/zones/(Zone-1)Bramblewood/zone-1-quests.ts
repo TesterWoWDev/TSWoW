@@ -154,6 +154,7 @@ BagQuest01.Questgiver.addEnder(BoarQuestGiver01.ID)
 BagQuest01.Rewards.Money.set(2525)
 BagQuest01.Objectives.Item.add(BoarSkin.ID,25)
 BagQuest01.Rewards.Item.add(BoarskinSatchel.ID,1)
+BagQuest01.Rewards.Difficulty.set6() // Testing EXP on Quest Reward
 
 BagQuest01.Text.Objective.enGB.set('I understand that it can be quite difficult to continue on your journey without ample room to carry supplies, hero. I have a deal for you. If you can bring me 25 Boarskins from the boars in the surrounding area, I can fashion them into a bag for you so that you can carry more materials in the future. What do you say? Do we have a deal?')
 BagQuest01.Text.Incomplete.enGB.set('Have you managed to get the boar skins that I require to fashion into a bag?')
