@@ -2,7 +2,7 @@ let spellsList = [
     [[0]], //must be here? I guess?
     [[0/*Warrior*/],
         [100,772,78,3127,6673,750],          // Charge (1),             Rend (1),               Heroic Strike (1),      Parry,                  Battle Shout (1),           Plate Mail
-        [284,6546],                          // Heroic Strike (2),      Rend (2),
+        [284,6546,355,71],                   // Heroic Strike (2),      Rend (2),      Taunt (1),          Defensive Stance
         [285,6343,845],                      // Heroic Strike (3),      Thunderclap (1),        Cleave(1)
         [34428,5308],                        // Victory Rush,           Execute (1)
         [5242,6178,7369],                    // Battle Shout (2),       Charge (2),             Cleave(2)
