@@ -118,7 +118,7 @@ addLootToCreature(BanditNpcLoot,[
     ShinyRedApple.ID,               RefreshingSpringWater.ID
 ],[1,1,0.5,0.5,0,10,10,18],0)
 
-export let BanditBossNpc = std.CreatureTemplates.create(MODNAME,'banditboss-creature3',299)
+export let BanditBossNpc = std.CreatureTemplates.create(MODNAME,'banditboss-creature3',116)
 BanditBossNpc.Name.enGB.set('Unruly Bandit')
 BanditBossNpc.FactionTemplate.set(48) //Fights with Faction 31
 BanditBossNpc.Models.clearAll()
@@ -636,7 +636,7 @@ spawnMultipleNPCWithTimer(BanditNpc.ID,5,0,[
     [-8155.258301,-143.772705,0.536027,2.859935],
     [-8165.055176,-158.862701,4.650616,4.214749],
     [-8172.538086,-138.023895,-2.176677,2.954185],
-    [-8188.282227,-126.753784,1.124124,3.994838],],30)
+    [-8188.282227,-126.753784,1.124124,3.994838]],30)
     
 spawnMultipleNPCWithTimer(BanditBossNpc.ID,0,0,[
     [-8114.638672,-112.206512,0.463341,2.844230],
