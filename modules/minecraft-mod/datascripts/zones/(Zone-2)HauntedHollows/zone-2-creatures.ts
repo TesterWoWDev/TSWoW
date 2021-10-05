@@ -13,6 +13,8 @@ WebEnemy.AuraDescription.enGB.set('Covered in webs.')
 export let Decay = std.Spells.create(MODNAME,'decay-spell',3584)
 Decay.Name.enGB.set('Infectious Wound')
 Decay.AuraDescription.enGB.set('Infected...')
+Decay.Duration.set(14000,0,14000)
+Decay.Effects.get(0).ChainAmplitude.set(2000)
 
 //Normal Creature Spawns
 export let Zone2Creature1 = std.CreatureTemplates.create(MODNAME,'zone2creature1',299)
