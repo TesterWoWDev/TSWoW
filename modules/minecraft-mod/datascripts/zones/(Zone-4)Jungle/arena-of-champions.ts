@@ -1,6 +1,6 @@
 import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
 import { makeResourceNode } from "../../functions/resource-node-functions"
-import { spawnGob } from "../../functions/spawning-functions"
+import { spawnGob, spawnGobTimer } from "../../functions/spawning-functions"
 import { tierFourBaseResources, tierFourMailMaterial, tierFourLeatherMaterial, tierFourClothMaterial } from "../../items/armor/tier4-set"
 import { LargeSackofCoins, MassiveSackofCoins, SmallSackofCoins } from "../../items/currencies"
 import { EyeofGruul, DragonspineTrophy, MoroesLuckyPocketWatch, RomulosPoisonVial, LightningCapacitor, VioletEye, Sulfuras, Thunderfury, WarglaiveMH, WarglaiveOH, Thoridal } from "./zone-4-items"
@@ -28,7 +28,7 @@ addLoot(ArenaofChampionsChest,[SmallSackofCoins.ID,LargeSackofCoins.ID,MassiveSa
 
 
 
-spawnGob(ArenaofChampionsChest.ID,[-8595.069,1488.233,-75.437,5.249]) // Chest Spawn (Needs a Timer)
+spawnGobTimer(ArenaofChampionsChest.ID,[-8595.069,1488.233,-75.437,5.249],60000) // Chest Spawn (Needs a Timer)
 // Make it go by world time, every day, a chest will spawn at 7:00AM EST and 7:00PM EST
 // Monday = 7-7
 // Tuesday = 5-5
