@@ -6,6 +6,11 @@ import { SpiritI, ProtectionI, AgilityI, IntellectI, StaminaI, StrengthI } from 
 export let RavenLordMount = std.Items.load(32768)
 RavenLordMount.RequiredLevel.set(3)
 
+let conjuredfood = std.Items.load(3772)
+conjuredfood.RequiredLevel.set(1)
+let conjuredwater = std.Items.load(1487)
+conjuredwater.RequiredLevel.set(1)
+
 export let BoarskinSatchel = std.Items.create(MODNAME,'boarskinsatchel',4498)
 BoarskinSatchel.Name.enGB.set('Boar Skin Satchel')
 BoarskinSatchel.Quality.setGreen()
