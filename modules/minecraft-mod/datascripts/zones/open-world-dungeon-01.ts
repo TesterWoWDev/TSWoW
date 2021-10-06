@@ -404,17 +404,24 @@ spawnMultipleNPCWithTimer(SummonedSkeleton.ID,2,0,[
     [-8872.885742,694.826599,-18.178885,5.438910],
     [-8872.309570,691.556091,-18.691048,5.399641],],1200)
 
+export let LightningRing = std.Spells.create(MODNAME,'lightningring-spell',50840)
+export let WoePillar = std.Spells.create(MODNAME,'woevolley-spell',50761)
+WoePillar.Effects.get(0).BasePoints.set(1566)
+WoePillar.Effects.get(0).DieSides.set(121)
+WoePillar.Effects.get(0).Radius.set(20,0,20)
+export let TetherLightning = std.Spells.create(MODNAME,'tetherlightning-spell',50895)
+
 export let SentinelMob = std.CreatureTemplates.create(MODNAME,'sentinelmob',3271)
-SentinelMob.Name.enGB.set('Suzu\'ven Demonspawn')
+SentinelMob.Name.enGB.set('Harrowing Sentinel')
 SentinelMob.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
 SentinelMob.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
 SentinelMob.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
 SentinelMob.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
 SentinelMob.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
 SentinelMob.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
-SentinelMob.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Shadowbolt.ID,2,7)
-SentinelMob.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(ShadowVolley.ID,2,7)
-SentinelMob.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(ShadowPain.ID,2,7)
+SentinelMob.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(LightningRing.ID,2,7)
+SentinelMob.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(WoePillar.ID,2,7)
+SentinelMob.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(TetherLightning.ID,2,7)
 SentinelMob.Level.set(13,13)
 SentinelMob.FactionTemplate.set(48)
 SentinelMob.DamageSchool.setNormal()
@@ -463,3 +470,68 @@ addLootToCreatureSingleChance(SentinelMobLoot,[
 addLootToCreatureSingleChance(SentinelMobLoot,[
     OrbofPower.ID
 ],5,3)
+
+
+
+export let r2ConsumeSpell = std.Spells.create(MODNAME,'r2consumespell-spell',49381)
+export let r2BossShadowVolley = std.Spells.create(MODNAME,'r2bossshadowvolley-spell',25586)
+r2BossShadowVolley.Effects.get(0).BasePoints.set(2566)
+r2BossShadowVolley.Effects.get(0).DieSides.set(321)
+export let r2DrainLife = std.Spells.create(MODNAME,'r2drainlife-spell',49617)
+
+export let DungeonBoss02 = std.CreatureTemplates.create(MODNAME,'dungeonboss02',3271)
+DungeonBoss02.Name.enGB.set('Seren the Invincible')
+DungeonBoss02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+DungeonBoss02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+DungeonBoss02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+DungeonBoss02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+DungeonBoss02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+DungeonBoss02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+DungeonBoss02.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(r2DrainLife.ID,2,7)
+DungeonBoss02.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(r2BossShadowVolley.ID,2,7)
+DungeonBoss02.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(r2ConsumeSpell.ID,2,7)
+DungeonBoss02.Level.set(17,17)
+DungeonBoss02.FactionTemplate.set(48)
+DungeonBoss02.DamageSchool.setNormal()
+DungeonBoss02.Stats.ArmorMod.set(5)
+DungeonBoss02.Stats.DamageMod.set(75)
+DungeonBoss02.Stats.ExperienceMod.set(30)
+DungeonBoss02.Stats.HealthMod.set(100)
+DungeonBoss02.Stats.ManaMod.set(25)
+DungeonBoss02.Rank.setRareElite()
+DungeonBoss02.Models.clearAll()
+DungeonBoss02.Models.addIds(16632)
+DungeonBoss02.Scale.set(1.75)
+export let DungeonBoss02Loot = DungeonBoss02.NormalLoot
+spawnMultipleNPCWithTimer(DungeonBoss02.ID,0,0,[
+    [-8925.356,642.169,-17.079,0.3456]],3600)
+
+addLootToCreature(DungeonBoss02Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
+addLootToCreature(DungeonBoss02Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
+
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(DungeonBoss02Loot,[
+    ReignLeggings.ID,           TrackerBelt.ID,          Noose.ID,               SporeReed.ID,
+    RenewalHammer.ID,           WildMagic.ID,            UnbrokenChain.ID,       PhosphoSword.ID,
+    DestructiveMaul.ID,         Bladefist.ID,            Fathomstone.ID,         ArgentSentinel.ID,
+    ObliterativeBoots.ID,       VigilanteRing.ID,        Naaru.ID,               LostAge.ID
+],0.5,1)
+addLootToCreatureSingleChance(DungeonBoss02Loot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(DungeonBoss02Loot,[
+    OrbofPower.ID
+],100,3)
