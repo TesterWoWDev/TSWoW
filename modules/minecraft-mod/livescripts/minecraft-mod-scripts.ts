@@ -6,7 +6,7 @@ import { Dueling } from "./QoL/onDuel"
 import { Killstreaks } from "./QoL/Killstreak"
 import { onLoginEvents } from "./QoL/onLogin"
 import { itemLearnSpell } from "./item/item-learn-spell"
-import { creatureDeathTest } from "./creature/creature-death-test"
+import { creatureDeathTest } from "./creature/creature-death-apply-buff"
 import { reviveFix } from "./QoL/revive"
 
 export function Main(events: TSEventHandlers) {
