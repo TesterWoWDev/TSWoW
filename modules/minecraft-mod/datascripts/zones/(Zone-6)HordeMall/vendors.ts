@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib"
-import { spawnMultipleNPCWithTimer } from "../../../functions/spawning-functions"
-import { MODNAME } from "../../../modname"
+import { spawnMultipleNPCWithTimer } from "../../functions/spawning-functions"
+import { MODNAME } from "../../modname"
 
 export let C2ClothArmorVendor01 = std.CreatureTemplates.create(MODNAME,'c2clothvendor01-creature',3562)
 C2ClothArmorVendor01.Name.enGB.set('Theresa Thatcher')
