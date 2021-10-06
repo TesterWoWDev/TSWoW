@@ -1,7 +1,5 @@
 import { std } from "tswow-stdlib"
-import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { MODNAME } from "../../modname"
-import { ChampionsSatchel } from "./ravaging-worg-champion-scroll"
 
 /*Creature - Worg Champion*/
 export let MurlocChampionCreature = std.CreatureTemplates.create(MODNAME,'murlocchampioncreature-creature',299)
@@ -121,18 +119,3 @@ DancingFlamesRapier.Stats.addCritRating(12)
 DancingFlamesRapier.Spells.clearAll()
 DancingFlamesRapier.Spells.add(chancemurloc1m.ID)
 DancingFlamesRapier.Spells.get(0).Trigger.set(1)
-
-/*Adding the loot to the boss*/
-
-/*Bags - Group 0*/
-addLootToCreature(MurlocChampionCreatureLoot,[
-    ChampionsSatchel.ID,               
-],[5],0)
-/*Epic Items - Group 1*/
-addLootToCreatureSingleChance(MurlocChampionCreatureLoot,[
-    StaffofFlames.ID,       DancingFlamesRapier.ID,       
-],50,1)
-
-
-
-//create boss script here

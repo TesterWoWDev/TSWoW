@@ -1,7 +1,5 @@
 import { std } from "tswow-stdlib"
-import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { MODNAME } from "../../modname"
-import { ChampionsSatchel } from "./ravaging-worg-champion-scroll"
 
 /*Creature - Worg Champion*/
 export let KoboldChampionCreature = std.CreatureTemplates.create(MODNAME,'koboldchampioncreature-creature',299)
@@ -121,18 +119,3 @@ DancingFlamesRapier.Stats.addCritRating(12)
 DancingFlamesRapier.Spells.clearAll()
 DancingFlamesRapier.Spells.add(chancekobold1m.ID)
 DancingFlamesRapier.Spells.get(0).Trigger.set(1)
-
-/*Adding the loot to the boss*/
-
-/*Bags - Group 0*/
-addLootToCreature(KoboldChampionCreatureLoot,[
-    ChampionsSatchel.ID,               
-],[5],0)
-/*Epic Items - Group 1*/
-addLootToCreatureSingleChance(KoboldChampionCreatureLoot,[
-    StaffofFlames.ID,       DancingFlamesRapier.ID,       
-],50,1)
-
-
-
-//create boss script here

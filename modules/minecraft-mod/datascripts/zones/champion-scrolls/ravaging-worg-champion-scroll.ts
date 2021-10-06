@@ -1,7 +1,9 @@
 import { std } from "tswow-stdlib"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { MODNAME } from "../../modname"
-import { DancingFlamesRapier, StaffofFlames } from "../(Zone-0)Walk-of-Heroes/starting-zone-item-learn-spell"
+import { Advocate, Avalanche, Bulwarkshield, Crusher, DancingBlades, Eyepatch, FuryOffhand, HeavenlyPurpose, Introspection, Medivh01, Medivh02, Medivh03, Medivh04, Mojoshield, NaturalRegenHelm, PrimalFury, rohk, Valanyr } from "./champion-scroll-loot"
+import { KoboldChampionCreatureLoot } from "./kobold-champion-scroll"
+import { MurlocChampionCreatureLoot } from "./murloc-champion-scroll"
 
 /*Creature - Worg Champion*/
 export let WorgChampionCreature = std.CreatureTemplates.create(MODNAME,'worgchampioncreature-creature',299)
@@ -84,20 +86,3 @@ chanceWorg1C.Description.enGB.set('Your attacks and abilties have the chance to 
 chanceWorg1C.AuraDescription.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
 chanceWorg1C.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
 
-
-/*Item Creation - Champion Boss Loot*/
-export let ChampionsSatchel = std.Items.create(MODNAME,'championsatchel',805)
-ChampionsSatchel.Quality.setBlue()
-ChampionsSatchel.ContainerSlots.set(24)
-
-
-/*Adding the loot to the boss*/
-
-/*Bags - Group 0*/
-addLootToCreature(WorgChampionCreatureLoot,[
-    ChampionsSatchel.ID,               
-],[5],0)
-/*Epic Items - Group 1*/
-addLootToCreatureSingleChance(WorgChampionCreatureLoot,[
-    StaffofFlames.ID,       DancingFlamesRapier.ID,       
-],50,1)
