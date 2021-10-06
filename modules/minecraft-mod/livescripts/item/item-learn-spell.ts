@@ -5,8 +5,8 @@ let itemIDs:TSArray<uint64> = [
     GetID("item_template","minecraft-mod","strangeblade"),  //           Homeage                 Lexaeus Strange Blade           Summon Naked Women
 
     GetID("item_template","minecraft-mod","volatilepower"), //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
-    GetID("item_template","minecraft-mod","miserymace"), //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
-    GetID("item_template","minecraft-mod","heartpit")  //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
+    GetID("item_template","minecraft-mod","miserymace"),    //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
+    GetID("item_template","minecraft-mod","heartpit")       //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
 
 ]
 let spellIDs:TSArray<uint64> = [
