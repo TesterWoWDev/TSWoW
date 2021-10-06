@@ -1,7 +1,9 @@
 import { std } from "tswow-stdlib"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { MODNAME } from "../../modname"
-import { DancingFlamesRapier, StaffofFlames } from "../(Zone-0)Walk-of-Heroes/starting-zone-item-learn-spell"
+import { Advocate, Avalanche, Bulwarkshield, Crusher, DancingBlades, Eyepatch, FuryOffhand, HeavenlyPurpose, Introspection, Medivh01, Medivh02, Medivh03, Medivh04, Mojoshield, NaturalRegenHelm, PrimalFury, rohk, Valanyr } from "./champion-scroll-loot"
+import { KoboldChampionCreatureLoot } from "./kobold-champion-scroll"
+import { MurlocChampionCreatureLoot } from "./murloc-champion-scroll"
 
 /*Creature - Worg Champion*/
 export let WorgChampionCreature = std.CreatureTemplates.create(MODNAME,'worgchampioncreature-creature',299)
@@ -93,11 +95,43 @@ ChampionsSatchel.ContainerSlots.set(24)
 
 /*Adding the loot to the boss*/
 
-/*Bags - Group 0*/
+
+
+
+
+//Worg Loot
 addLootToCreature(WorgChampionCreatureLoot,[
     ChampionsSatchel.ID,               
-],[5],0)
-/*Epic Items - Group 1*/
+],[10],0)
 addLootToCreatureSingleChance(WorgChampionCreatureLoot,[
-    StaffofFlames.ID,       DancingFlamesRapier.ID,       
-],50,1)
+    HeavenlyPurpose.ID,         PrimalFury.ID,              Introspection.ID,
+    FuryOffhand.ID,             NaturalRegenHelm.ID,        Mojoshield.ID,
+    Bulwarkshield.ID,           Advocate.ID,                Avalanche.ID,  
+    DancingBlades.ID,           rohk.ID,                    Crusher.ID,
+    Eyepatch.ID,                Medivh01.ID,                Medivh02.ID,
+    Medivh03.ID,                Medivh04.ID,                Valanyr.ID
+],0.5,1)
+//Murloc Loot
+addLootToCreature(MurlocChampionCreatureLoot,[
+    ChampionsSatchel.ID,               
+],[10],0)
+addLootToCreatureSingleChance(MurlocChampionCreatureLoot,[
+    HeavenlyPurpose.ID,         PrimalFury.ID,              Introspection.ID,
+    FuryOffhand.ID,             NaturalRegenHelm.ID,        Mojoshield.ID,
+    Bulwarkshield.ID,           Advocate.ID,                Avalanche.ID,  
+    DancingBlades.ID,           rohk.ID,                    Crusher.ID,
+    Eyepatch.ID,                Medivh01.ID,                Medivh02.ID,
+    Medivh03.ID,                Medivh04.ID,                Valanyr.ID
+],0.5,1)
+//Kobold Loot
+addLootToCreature(KoboldChampionCreatureLoot,[
+    ChampionsSatchel.ID,               
+],[10],0)
+addLootToCreatureSingleChance(KoboldChampionCreatureLoot,[
+    HeavenlyPurpose.ID,         PrimalFury.ID,              Introspection.ID,
+    FuryOffhand.ID,             NaturalRegenHelm.ID,        Mojoshield.ID,
+    Bulwarkshield.ID,           Advocate.ID,                Avalanche.ID,  
+    DancingBlades.ID,           rohk.ID,                    Crusher.ID,
+    Eyepatch.ID,                Medivh01.ID,                Medivh02.ID,
+    Medivh03.ID,                Medivh04.ID,                Valanyr.ID
+],0.5,1)
