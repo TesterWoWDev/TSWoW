@@ -234,11 +234,10 @@ export function onLevelup(events:TSEventHandlers){
 
 function learnSpells(player:TSPlayer){
     let level = player.GetLevel()
-    for(let j=0;j<=20;j++){
+    for(let j=1;j<=20;j++){
         let spells = spellsList[player.GetClass()][j]
-        for(let i=0;i<spells.length;i++){
-            if(spells[i] != 0)
-            if(i <= level){
+        for(let i=1;i<spells.length;i++){
+            if(j <= level){
                 player.LearnSpell(spells[i])
             }
             else{
