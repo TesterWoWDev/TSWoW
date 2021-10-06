@@ -31,7 +31,6 @@ coredata/datasets/default/database
 coredata/datasets/default/default.dataset.yaml
 coredata/datasets/default/ids.txt
 coredata/datasets/default/luaxml
-coredata/datasets/default/luaxml_source
 coredata/datasets/default/maps
 coredata/datasets/default/mmaps
 coredata/datasets/default/mysql
