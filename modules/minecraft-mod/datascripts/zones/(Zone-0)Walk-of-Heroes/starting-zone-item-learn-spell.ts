@@ -35,7 +35,14 @@ FuryHammer.Cooldown.set(30000,0,0,0)
 FuryHammer.InterruptFlags.clearAll()
 FuryHammer.Effects.get(0).TriggerSpell.set(FuryHammerEffect.ID)
 
-
+export let ThreatSpell = std.Spells.create(MODNAME,'threatspell-spell',25063)
+ThreatSpell.Name.enGB.set('I want to Tank!')
+ThreatSpell.AuraDescription.enGB.set('I really want to tank! Notice me senpai!')
+ThreatSpell.Effects.get(0).BasePoints.set(499)
+ThreatSpell.Effects.get(0).DieSides.set(1)
+ThreatSpell.Attributes.isPassive.clear()
+ThreatSpell.Attributes.isHiddenInSpellbook.clear()
+ThreatSpell.Icon.set('Interface\\Icons\\Spell_Nature_EnchantArmor')
 
 
 
