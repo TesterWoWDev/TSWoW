@@ -124,7 +124,7 @@ Zone2Creature5.Name.enGB.set('Banshee')
     Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
     Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,3000,7000,3000,7000,100).row.event_flags.set(1)
     Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,5000,7000,5000,7000,100).row.event_flags.set(1)
+    Zone2Creature5.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,5000,7000,5000,7000,20).row.event_flags.set(1)
     Zone2Creature5.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
     Zone2Creature5.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(16868,2,7)

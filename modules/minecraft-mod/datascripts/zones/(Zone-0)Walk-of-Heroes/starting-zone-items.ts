@@ -4,6 +4,18 @@ import { SQL_playercreateinfo_item } from "wotlkdata/sql/types/playercreateinfo_
 import { tierOneBaseResources, tierOneClothMaterial } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
 
+export let DeadlyPoison = std.Items.load(2892)
+DeadlyPoison.RequiredLevel.set(1)
+export let CrippPoison = std.Items.load(3775)
+CrippPoison.RequiredLevel.set(1)
+export let MindPoison = std.Items.load(5237)
+MindPoison.RequiredLevel.set(1)
+export let Instant = std.Items.load(6947)
+Instant.RequiredLevel.set(1)
+export let WoundPoison = std.Items.load(10918)
+WoundPoison.RequiredLevel.set(1)
+
+
 export let ExpScroll = std.Items.create(MODNAME,'expscroll',2455)
 ExpScroll.Name.enGB.set('Experience Scroll')
 ExpScroll.Quality.setWhite()
@@ -93,6 +105,8 @@ SatchelofPower.Name.enGB.set('Satchel of Limitless Potential')
 SatchelofPower.Description.enGB.set('The power you have been secretly missing all along -Unknown')
 SatchelofPower.RequiredLevel.set(5)
 SatchelofPower.ContainerSlots.set(18)
+SatchelofPower.MaxCount.set(1)
+SatchelofPower.Bonding.setBindsOnPickup()
 SatchelofPower.Quality.setBlue()
 SatchelofPower.Stats.addSpellPower(225)
 SatchelofPower.Stats.addAttackPower(225)
