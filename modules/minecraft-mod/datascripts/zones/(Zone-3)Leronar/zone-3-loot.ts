@@ -5,7 +5,8 @@ import { addLootToCreature, addLootToCreatureSingleChance } from "../../function
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
 import { stringItem } from "../../items/string"
-import { Zone3Creature2Loot, Zone3Creature3Loot } from "./zone-3-creatures"
+import { Zone3Creature2Loot, Zone3Creature3Loot, Zone3RareCreature1Loot } from "./zone-3-creatures"
+import { ShivanFeather } from "./zone-3items"
 
 
 addLootToCreature(Zone3Creature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
@@ -99,3 +100,34 @@ addLootToCreatureSingleChance(Zone3Creature2Loot,[
     undiscoveredOranges[5],
 ],2,2)
 
+
+
+addLootToCreature(Zone3RareCreature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
+addLootToCreature(Zone3RareCreature1Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
+/*Bags and Armor*/
+addLootToCreature(Zone3RareCreature1Loot,[
+    BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
+    GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
+    FleshhideShoulders.ID,          stringItem.ID,                  ShivanFeather.ID
+],[2,2,2,2,2,2,2,1,20],0)
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreature(Zone3RareCreature1Loot,[
+    FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
+    ShadowMistGloves.ID,            CleverHat.ID,                   PotencyRing.ID,
+    GuileRing.ID,                   ExpScroll.ID
+],[2,2,2,2,2,2,2,2],1)
+addLootToCreatureSingleChance(Zone3RareCreature1Loot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
