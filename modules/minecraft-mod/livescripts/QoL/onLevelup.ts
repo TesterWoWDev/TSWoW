@@ -2,20 +2,20 @@ let spellsList = [
     [[0]], //must be here? I guess?
     [[0/*Warrior*/],
         [100,772,78,3127,6673,750],          // Charge (1),             Rend (1),               Heroic Strike (1),      Parry,                  Battle Shout (1),           Plate Mail
-        [284,6546,355,71],                   // Heroic Strike (2),      Rend (2),      Taunt (1),          Defensive Stance
-        [285,6343,845],                      // Heroic Strike (3),      Thunderclap (1),        Cleave(1)
+        [284,6546,355,71],                   // Heroic Strike (2),      Rend (2),               Taunt (1),              Defensive Stance
+        [285,6343,845,23881,674],            // Heroic Strike (3),      Thunderclap (1),        Cleave(1),              Bloodthirst,            Dual Wield    
         [34428,5308],                        // Victory Rush,           Execute (1)
         [5242,6178,7369],                    // Battle Shout (2),       Charge (2),             Cleave(2)
-        [8198,6547],                         // Thunder Clap (2),       Rend(3),
+        [8198,6547,21552],                   // Thunder Clap (2),       Rend(3),                Mortal Strike (3)            
         [1608,20658,11608],                  // Heroic Strike (4)       Execute (2)             Cleave(3)
         [8204,6548],                         // Thunder Clap (3),       Rend (4)
         [11564,6192,1719],                   // Heroic Strike (5),      Battle Shout (3),       Recklessness
         [20230,72,6572,2565,12678],          // Retaliation,            Shield Bash,            Revenge(1),             Shield Block,           Stance Mastery
         [8205,11565,11572,11609],            // Thunder Clap (4),       Heroic Strike (6),      Rend(5),                Cleave(4)
-        [11578,20660,6574],                  // Charge (3),             Execute (3),            Revenge(2)
+        [11578,20660,6574,47486],            // Charge (3),             Execute (3),            Revenge(2),             Mortal Strike (8)
         [11566,11580,11573,7379],            // Heroic Strike (7),      Thunder Clap (5),       Rend(6),                Revenge(3)
         [11549,20661,11600,871],             // Battle Shout (4),       Execute (4),            Revenge(4),             Shield Wall
-        [674,11567,11581,11550],             // Dual Wield,             Heroic Strike(8),       Thunder Clap (6),       Battle Shout (5)
+        [11567,11581,11550],                 // Dual Wield,             Heroic Strike(8),       Thunder Clap (6),       Battle Shout (5)
         [20662,20569,23920,11601],           // Execute (5),            Cleave(5),              Spell Reflection,       Revenge(5)
         [25286,25264,11551,25231,25288],     // Heroic Strike (9),      Thunder Clap (7),       Battle Shout (6),       Cleave(6),              Revenge(6)
         [25234,47487],                       // Execute (6),            Shield Slam (1-7)
@@ -76,7 +76,7 @@ let spellsList = [
         [3127],                             // Parry
         [5277,2983],                        // Evasion (1),                 Sprint (1)
         [1860],                             // Safe Fall
-        [27441,2591],                       // Ambush (7),                  Backstab (4)
+        [27441,2591,57993],                 // Ambush (7),                  Backstab (4),           Envenom
         [51723,31224],                      // Fan of Knives,               Cloak of Shadows
         [26862],                            // Sinister Strike (10)
         [1842],                             // Disarm Trap
@@ -93,7 +93,7 @@ let spellsList = [
         [2061,14914],                   // Flash Heal (1),              Holy Fire (1)
         [598,8122],                     // Smite (3),                   Psychic Scream (1)
         [600,6075,992],                 // Power Word Shield (3),       Renew (3),              Shadow Word Pain (4)
-        [15237,1004,8104],              // Holy Nova,                   Smite (5),              Mind Blast (4)
+        [15237,1004,8104,15473],        // Holy Nova,                   Smite (5),              Mind Blast (4),             Shadowform
         [3747,15264,32379],             // Power Word Shield (4),       Holy Fire (4),          Shadow Word Death (1)
         [19238,19279],                  // Desperate Prayer (2),        Devouring Plague (5)
         [15431,48171],                  // Holy Nova (2),               Resurrection (7)
