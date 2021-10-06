@@ -1,9 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL_creature_loot_template } from "wotlkdata/sql/types/creature_loot_template"
 import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
-import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
-import { addWaypoint, spawnMultipleNPCWithTimer, spawnNPCWithTimer } from "../functions/spawning-functions"
-import { Zone2Creature5 } from "./(Zone-2)HauntedHollows/zone-2-creatures"
+import { spawnNPCWithTimer } from "../functions/spawning-functions"
 import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 
 
@@ -17,7 +15,7 @@ TeremustheDevourer.HoverHeight.set(1)
 TeremustheDevourer.MovementSpeed.set(10,10)
 SQL_creature_loot_template.add(TeremustheDevourer.ID,OrbofPower.ID).MinCount.set(3).MaxCount.set(3).GroupId.set(8).Chance.set(75)
 
-let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,200,0,
+let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,300,0,
     [-8114.068848,407.7459,40.214,4.38],3600)
 
 /*addWaypoint(TeremustheDevourerGUID,[

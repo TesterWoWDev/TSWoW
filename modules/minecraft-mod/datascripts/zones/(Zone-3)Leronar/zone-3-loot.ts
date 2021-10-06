@@ -1,29 +1,28 @@
 import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
+import { Zone2Creature5Loot as Zone3Creature1Loot } from "../(Zone-2)HauntedHollows/zone-2-creatures"
+import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, FerventHelm, AwarenessHelm, SatyrBow, ShadowMistGloves, CleverHat, PotencyRing, GuileRing } from "../(Zone-2)HauntedHollows/zone-2-items"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
-import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set"
-import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem"
+import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
+import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
 import { stringItem } from "../../items/string"
-import { Zone2Creature1Loot, Zone2Creature5Loot, Zone2RareCreature1Loot } from "./zone-2-creatures"
-import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, AwarenessHelm, CleverHat, FerventHelm, GuileRing, PotencyRing, SatyrBow, ShadowMistGloves } from "./zone-2-items"
+import { Zone3Creature2Loot, Zone3Creature3Loot } from "./zone-3-creatures"
 
 
-
-
-addLootToCreature(Zone2Creature5Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
-addLootToCreature(Zone2Creature5Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
+addLootToCreature(Zone3Creature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
+addLootToCreature(Zone3Creature1Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
 /*Bags and Armor*/
-addLootToCreature(Zone2Creature5Loot,[
+addLootToCreature(Zone3Creature1Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
     FleshhideShoulders.ID,          stringItem.ID
 ],[2,2,2,2,2,2,2,1],0)
 /*Weapons and Misc Drops - Group 1*/
-addLootToCreature(Zone2Creature5Loot,[
+addLootToCreature(Zone3Creature1Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
     ShadowMistGloves.ID,            CleverHat.ID,                   PotencyRing.ID,
     GuileRing.ID,                   ExpScroll.ID
 ],[2,2,2,2,2,2,2,2],1)
-addLootToCreatureSingleChance(Zone2Creature5Loot,[
+addLootToCreatureSingleChance(Zone3Creature1Loot,[
     undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
     undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
     undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
@@ -39,21 +38,22 @@ addLootToCreatureSingleChance(Zone2Creature5Loot,[
     undiscoveredOranges[5],
 ],2,2)
 
-addLootToCreature(Zone2RareCreature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
-addLootToCreature(Zone2RareCreature1Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
+
+addLootToCreature(Zone3Creature3Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
+addLootToCreature(Zone3Creature3Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
 /*Bags and Armor*/
-addLootToCreature(Zone2RareCreature1Loot,[
+addLootToCreature(Zone3Creature3Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
     FleshhideShoulders.ID,          stringItem.ID
-],[10,10,10,10,10,10,10,20],0)
+],[2,2,2,2,2,2,2,1],0)
 /*Weapons and Misc Drops - Group 1*/
-addLootToCreature(Zone2RareCreature1Loot,[
+addLootToCreature(Zone3Creature3Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
     ShadowMistGloves.ID,            CleverHat.ID,                   PotencyRing.ID,
     GuileRing.ID,                   ExpScroll.ID
-],[10,10,10,10,10,10,10,10],1)
-addLootToCreatureSingleChance(Zone2RareCreature1Loot,[
+],[2,2,2,2,2,2,2,2],1)
+addLootToCreatureSingleChance(Zone3Creature3Loot,[
     undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
     undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
     undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
@@ -69,21 +69,21 @@ addLootToCreatureSingleChance(Zone2RareCreature1Loot,[
     undiscoveredOranges[5],
 ],2,2)
 
-addLootToCreature(Zone2Creature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[5,5,5])
-addLootToCreature(Zone2Creature1Loot,tierTwoBaseResources,[4,4,4,4,4,4,4])
+addLootToCreature(Zone3Creature2Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
+addLootToCreature(Zone3Creature2Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
 /*Bags and Armor*/
-addLootToCreature(Zone2Creature1Loot,[
+addLootToCreature(Zone3Creature2Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
     FleshhideShoulders.ID,          stringItem.ID
-],[1,1,0.5,0.5,0.5,0.5,0.5,10],0)
+],[2,2,2,2,2,2,2,1],0)
 /*Weapons and Misc Drops - Group 1*/
-addLootToCreature(Zone2Creature1Loot,[
+addLootToCreature(Zone3Creature2Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
     ShadowMistGloves.ID,            CleverHat.ID,                   PotencyRing.ID,
     GuileRing.ID,                   ExpScroll.ID
-],[1,1,1,1,1,1,1,1],1)
-addLootToCreatureSingleChance(Zone2Creature1Loot,[
+],[2,2,2,2,2,2,2,2],1)
+addLootToCreatureSingleChance(Zone3Creature2Loot,[
     undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
     undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
     undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
@@ -97,5 +97,5 @@ addLootToCreatureSingleChance(Zone2Creature1Loot,[
     undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
     undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
     undiscoveredOranges[5],
-],1,2)
+],2,2)
 

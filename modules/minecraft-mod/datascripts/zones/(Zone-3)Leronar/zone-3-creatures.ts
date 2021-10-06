@@ -1,6 +1,5 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
-import { SQL_creature_template } from "wotlkdata/sql/types/creature_template"
 import { spawnMultipleNPCWithTimer } from "../../functions/spawning-functions"
 import { MODNAME } from "../../modname"
 
@@ -9,10 +8,15 @@ let broadcastindex = 101000
 export let ChainLightning = std.Spells.create(MODNAME,'chainlightning-spell',10605)
 export let ShockLightning = std.Spells.create(MODNAME,'shocklightning-spell',26415)
 export let Thunderstorm = std.Spells.create(MODNAME,'thunderstorm-spell',51490)
+Thunderstorm.Effects.get(2).EffectType.set(0)   //remove knockback
+Thunderstorm.Effects.get(0).BasePoints.set(219) //Damage reduction
 
 export let VoidStrike = std.Spells.create(MODNAME,'voidstrike-spell',52633)
+VoidStrike.Effects.get(0).BasePoints.set(29) //30% weapon damage
 export let Concuss = std.Spells.create(MODNAME,'concuss-spell',52719)
 export let Destroy = std.Spells.create(MODNAME,'destroy-spell',52771)
+Destroy.Effects.get(0).BasePoints.set(9)   //base weapon % reduction
+Destroy.Effects.get(2).BasePoints.set(129) //dot reduction
 
 //Normal Creature Spawns
 export let Zone3Creature1 = std.CreatureTemplates.create(MODNAME,'zone3creature1',3271)
@@ -36,10 +40,10 @@ Zone3Creature1.FactionTemplate.set(48)
 Zone3Creature1.DamageSchool.setNormal()
 Zone3Creature1.Stats.ArmorMod.set(5)
 Zone3Creature1.Stats.DamageMod.set(30)
-Zone3Creature1.Stats.ExperienceMod.set(1)
+Zone3Creature1.Stats.ExperienceMod.set(7)
 Zone3Creature1.Stats.HealthMod.set(30)
 Zone3Creature1.Stats.ManaMod.set(10)
-SQL_creature_template.add(Zone3Creature1.ID).ExperienceModifier.set(7)
+ 
 export let Zone3Creature1Loot = Zone3Creature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone3Creature1.ID,5,0,[
     [-8539.776367,109.379311,15.396795,2.732026],
@@ -75,10 +79,9 @@ Zone3Creature2.FactionTemplate.set(48)
 Zone3Creature2.DamageSchool.setNormal()
 Zone3Creature2.Stats.ArmorMod.set(5)
 Zone3Creature2.Stats.DamageMod.set(30)
-Zone3Creature2.Stats.ExperienceMod.set(1)
 Zone3Creature2.Stats.HealthMod.set(30)
 Zone3Creature2.Stats.ManaMod.set(10)
-SQL_creature_template.add(Zone3Creature2.ID).ExperienceModifier.set(7)
+Zone3Creature2.Stats.ExperienceMod.set(7)
 export let Zone3Creature2Loot = Zone3Creature2.NormalLoot
 spawnMultipleNPCWithTimer(Zone3Creature2.ID,5,0,[
     [-8438.496094,141.671585,4.920695,3.804087],
@@ -129,10 +132,9 @@ Zone3Creature3.FactionTemplate.set(48)
 Zone3Creature3.DamageSchool.setNormal()
 Zone3Creature3.Stats.ArmorMod.set(5)
 Zone3Creature3.Stats.DamageMod.set(30)
-Zone3Creature3.Stats.ExperienceMod.set(1)
 Zone3Creature3.Stats.HealthMod.set(30)
 Zone3Creature3.Stats.ManaMod.set(10)
-SQL_creature_template.add(Zone3Creature3.ID).ExperienceModifier.set(7)
+Zone3Creature3.Stats.ExperienceMod.set(7)
 export let Zone3Creature3Loot = Zone3Creature3.NormalLoot
 spawnMultipleNPCWithTimer(Zone3Creature3.ID,5,0,[
     [-8754.365234,458.828003,15.050779,3.030472],
@@ -179,10 +181,9 @@ SQL.smart_scripts.add(Zone3RareCreature1.ID,0,6,0).event_type.set(1).event_chanc
 Zone3RareCreature1.DamageSchool.setNormal()
 Zone3RareCreature1.Stats.ArmorMod.set(5)
 Zone3RareCreature1.Stats.DamageMod.set(50)
-Zone3RareCreature1.Stats.ExperienceMod.set(10)
 Zone3RareCreature1.Stats.HealthMod.set(35)
 Zone3RareCreature1.Stats.ManaMod.set(3)
-SQL_creature_template.add(Zone3RareCreature1.ID).ExperienceModifier.set(10)
+Zone3RareCreature1.Stats.ExperienceMod.set(10)
 export let Zone3RareCreature1Loot = Zone3RareCreature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone3RareCreature1.ID,15,0,[
         [-8785.416016,489.123932,14.433434,5.704753],],300)
