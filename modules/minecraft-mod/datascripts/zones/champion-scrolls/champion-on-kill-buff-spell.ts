@@ -8,7 +8,7 @@ ChampionOnKillSpell.AuraDescription.enGB.set('All stats increased by $s1 and exp
 ChampionOnKillSpell.Duration.set(6000000,0,6000000)
 ChampionOnKillSpell.Effects.get(0).BasePoints.set(99)
 ChampionOnKillSpell.Effects.get(1).EffectType.setApplyAura()
-ChampionOnKillSpell.Effects.get(1).BasePoints.set(50)
+ChampionOnKillSpell.Effects.get(1).BasePoints.set(99)
 ChampionOnKillSpell.Effects.get(1).DieSides.set(1)
 ChampionOnKillSpell.Effects.get(1).ImplicitTargetA.setUnitCaster()
 ChampionOnKillSpell.Effects.get(1).AuraType.setModXpPct()
