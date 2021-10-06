@@ -1,6 +1,7 @@
 import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
 import { Zone2Creature5Loot as Zone3Creature1Loot } from "../(Zone-2)HauntedHollows/zone-2-creatures"
 import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, FerventHelm, AwarenessHelm, SatyrBow, ShadowMistGloves, CleverHat, PotencyRing, GuileRing } from "../(Zone-2)HauntedHollows/zone-2-items"
+import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
@@ -124,3 +125,6 @@ addLootToCreatureSingleChance(Zone3RareCreature1Loot,[
     SunwellVial.ID,         VolatilePower.ID,           DragonscaleBlade.ID,    MiseryMace.ID,
     HeartPit.ID
 ],0.5,2)
+addLootToCreatureSingleChance(Zone3RareCreature1Loot,[
+    OrbofPower.ID
+],5,3)
