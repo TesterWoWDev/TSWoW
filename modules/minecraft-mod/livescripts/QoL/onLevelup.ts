@@ -46,7 +46,7 @@ let spellsList = [
     ],
     [[0/*Hunter*/],
         [3127,8737,1978,3044,982,1515,883,136,6691],// Parry,               Mail,                   Serpent Sting (1),      Arcane Shot (1),      Revive Pet,           Tame Beast,         Call Pet,       Feed Pet,       Mend Pet
-        [136,13795],                                // Immolation Trap (1)
+        [136,13795,674],                                // Immolation Trap (1)
         [34026,13549,56641,14281],                  // Kill Command,        Serpent Sting (2),      Steady Shot (1),        Arcane Shot (2)
         [3111,781,5116],                            // Mend Pet (2),        Disengage,              Concussive Shot,
         [1499,14302,1510,14282],                    // Freezing Trap,       Immolation Trap (2),    Volley (1),             Arcane Shot (3)
@@ -127,7 +127,7 @@ let spellsList = [
     [[0/*Shaman*/],
         [8042,8050,8056,403,331,8737],     // Earth Shock (1),          Flame Shock (1),            Frost Shock (1),            Lightning Bolt (1),         Healing Wave (1),           Mail
         [915,324,8024,8033,10399],         // Lightning Bolt (4),       Lightning shield,           Flametongue Weapon (1),     Frostbrand Weapon (1),      Rockbiter Weapon (4)
-        [943,8058,52127],                  // Lightning Bolt (5),       Frost Shock (2),            Water Shield
+        [943,8058,52127,674],                  // Lightning Bolt (5),       Frost Shock (2),            Water Shield
         [8046,8053,10466],                 // Earth Shock (4),          Flame Shock (3),            Lesser Healing Wave (4)
         [66843,6364,8075,8512,5675],       // Call of Ancestors,        Searing Totem (1),          Strength of Earth (1),      Windfury Totem (1),         Mana Spring Totem
         [421,10622,51991],                 // Chain Lightning (1),      Chain Heal (2),             Earthliving Weapon (3)
@@ -194,20 +194,20 @@ let spellsList = [
     [[0/*Druid*/],
         [8921,774,8936],                        // Moonfire (1),            Rejuvenation (1),       Regrowth (1)
         [339,5178,2921,5229,768,1082],          // Entangling Roots (1),    Wrath (3),              Starfire (1),           Enrage,             Cat Form,       Claw
-        [770,8925],                             // Faerie Fire,             Moonfire (3)
-        [5211,6808,5487,779,1079,6795],         // Bash,                    Maul,                   Bear Form,              Swipe (Bear),       Rip (1),        Growl
+        [770,8925,674],                             // Faerie Fire,             Moonfire (3)
+        [5211,6808,5487,779,1079,6795,33876,33878], // Bash,                    Maul,                   Bear Form,              Swipe (Bear),       Rip (1),        Growl
         [16914,6780],                           // Hurricane (1),           Wrath (6),         
         [8928,8950,5188],                       // Moonfire (6),            Starfire (3),           Healing Touch (4)
         [5215,1822,5217,5221,1850],             // Prowl,                   Rake (1),               Tigers Fury (1),        Shred (1),          Dash (1)
         [9912,9835,2090],                       // Wrath (8),               Moonfire (10),          Rejuvenation (4)
         [5201,9745,8992,9493],                  // Claw (3),                Maul (5),               Shred (3),              Rip (3)
-        [27012,9750,50763],                     // Hurricane (4),           Regrowth (6),           Revive (7)
-        [26986,6787,62078],                     // Starfire (8),            Ravage (2),             Swipe Cat
+        [27012,9750,50763,33983],               // Hurricane (4),           Regrowth (6),           Revive (7)
+        [26986,6787,62078,33987],               // Starfire (8),            Ravage (2),             Swipe Cat
         [9005,9634,22827],                      // Pounce,                  Dire Bear Form,         Ferocious Bite (2)
         [20719,9904,26997,9840],                // Feline Grace,            Rake (4),               Swipe Bear (6),         Rejuvenation (9)
         [9827,27001,740],                       // Pounce (3),              Shred (6),              Tranquility
         [22570,9896,9888,33763],                // Maim (1),                Rip (6),                Healing Touch (9),      Lifebloom (1)
-        [48463,24248,25299],                    // Moonfire (14),           Ferocious Bite (6),     Rejuvenation (11)
+        [48463,24248,25299,48566,48564],        // Moonfire (14),           Ferocious Bite (6),     Rejuvenation (11)
         [48461,48574,48443],                    // Wrath (12),              Rake (7),               Regrowth (12)
         [48465,50464],                          // Starfire (10),           Nourish (1)
         [53308,49800],                          // Entangling Roots (8),    Rip (9)
