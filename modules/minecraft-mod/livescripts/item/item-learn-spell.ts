@@ -5,8 +5,8 @@ let itemIDs:TSArray<uint64> = [
     GetID("item_template","minecraft-mod","strangeblade"),  //           Homeage                 Lexaeus Strange Blade           Summon Naked Women
 
     GetID("item_template","minecraft-mod","volatilepower"), //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
-    GetID("item_template","minecraft-mod","miserymace"),    //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
-    GetID("item_template","minecraft-mod","heartpit")       //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
+    //GetID("item_template","minecraft-mod","miserymace"),    //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
+    //GetID("item_template","minecraft-mod","heartpit")       //           Zone 3                  Volatile Robe                   Chance to Increase SP by 590.
 
 ]
 let spellIDs:TSArray<uint64> = [
@@ -16,8 +16,8 @@ let spellIDs:TSArray<uint64> = [
     GetID("Spell","minecraft-mod","lexaeusspell-spell"),    //             Homeage                 On Use - Summon Naked People                Strange Blade
 
     GetID("Spell","minecraft-mod","chancepower1c-spell"),  //             Zone 3                  Chance on Spell Cast                        Volatile Robe
-    GetID("Spell","minecraft-mod","chancechainheal-spell"),//             Zone 3                  Chance on Spell Cast                        Volatile Robe
-    GetID("Spell","minecraft-mod","chancechainheal-spell") //             Zone 3                  Chance on Spell Cast                        Volatile Robe
+    //GetID("Spell","minecraft-mod","chancechainheal-spell"),//             Zone 3                  Chance on Spell Cast                        Volatile Robe
+    //GetID("Spell","minecraft-mod","chancechainheal-spell") //             Zone 3                  Chance on Spell Cast                        Volatile Robe
 
 ]
 let spellNames = [
@@ -27,8 +27,8 @@ let spellNames = [
     "Simp",                         //          Homeage             Spell Name              Lexaeus Sword
 
     "Increasing Power",             //          Zone 3              Spell Name              Volatile Robe
-    "Chain Life",                   //          Zone 3              Spell Name              Misery Mace
-    "Chain Life"                    //          Zone 3              Spell Name              Heart of Pit
+    //"Chain Life",                   //          Zone 3              Spell Name              Misery Mace
+    //"Chain Life"                    //          Zone 3              Spell Name              Heart of Pit
 
 ]
 
