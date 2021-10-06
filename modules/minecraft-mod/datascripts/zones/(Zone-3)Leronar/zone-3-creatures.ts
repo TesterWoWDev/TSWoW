@@ -38,7 +38,7 @@ Zone3Creature1.Stats.DamageMod.set(30)
 Zone3Creature1.Stats.ExperienceMod.set(1)
 Zone3Creature1.Stats.HealthMod.set(30)
 Zone3Creature1.Stats.ManaMod.set(10)
-Zone3Creature1.Stats.ExperienceMod.set(7)
+ 
 export let Zone3Creature1Loot = Zone3Creature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone3Creature1.ID,5,0,[
     [-8539.776367,109.379311,15.396795,2.732026],
