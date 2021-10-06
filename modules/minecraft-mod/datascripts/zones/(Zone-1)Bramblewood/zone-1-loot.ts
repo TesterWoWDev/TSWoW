@@ -10,6 +10,7 @@ import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll";
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
 import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll";
 import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items";
+import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb";
 //Pearl, Epaulet, Chain, Metal, Reinforced Metal, Stick,Dust
 //Cloth, Leather, Mail
 
@@ -229,7 +230,7 @@ addLootToCreatureSingleChance(RareCreature1Loot,[
     BowofSearingArrows.ID,          UnderworldBand.ID,                  GutRipper.ID,
     Ironfoe.ID,                     EskhandarsRightClaw.ID,             EskhandarsLeftClaw.ID
 ],0.025,1)
-/*Rare Items - Group 0*/      
+/*Rare Items - Group 2*/      
 addLootToCreatureSingleChance(RareCreature1Loot,[
     FangoftheCrystalSpider.ID,      GoblinDragonGun.ID,                 DarkwaterTalwar.ID,
     BiteofSerrakis.ID,              Grimclaw.ID,                        Shadowfang.ID,
@@ -244,6 +245,9 @@ addLootToCreatureSingleChance(RareCreature1Loot,[
     ForceofWill.ID,                 LordGeneralsSword.ID,               Naglering.ID,
     FlameWrath.ID,                  BurstofKnowledge.ID,                CircleofFlame.ID
 ],0.2,2)
+addLootToCreatureSingleChance(RareCreature1Loot,[
+    OrbofPower.ID
+],1,3)
 
 // Rare Creature 2 - Fang (Rare Wolf)
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
@@ -289,6 +293,9 @@ addLootToCreatureSingleChance(RareCreature2Loot,[
     ForceofWill.ID,                 LordGeneralsSword.ID,               Naglering.ID,
     FlameWrath.ID,                  BurstofKnowledge.ID,                CircleofFlame.ID
 ],0.2,2)
+addLootToCreatureSingleChance(RareCreature2Loot,[
+    OrbofPower.ID
+],1,3)
 
 // Rare Creature 3 - Murglegurgle (Rare Murloc)
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
@@ -334,6 +341,9 @@ addLootToCreatureSingleChance(RareCreature3Loot,[
     ForceofWill.ID,                 LordGeneralsSword.ID,               Naglering.ID,
     FlameWrath.ID,                  BurstofKnowledge.ID,                CircleofFlame.ID
 ],0.2,2)
+addLootToCreatureSingleChance(RareCreature3Loot,[
+    OrbofPower.ID
+],1,3)
 
 // Rare Creature 4 - Unknown
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
@@ -376,6 +386,9 @@ addLootToCreatureSingleChance(RareCreature4Loot,[
     ForceofWill.ID,                 LordGeneralsSword.ID,               Naglering.ID,
     FlameWrath.ID,                  BurstofKnowledge.ID,                CircleofFlame.ID
 ],0.2,2)
+addLootToCreatureSingleChance(RareCreature4Loot,[
+    OrbofPower.ID
+],1,3)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -399,6 +412,9 @@ addLootToCreature(DemiBosscreature1Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
 ],[5,5,5,5,3,5],0)
+addLootToCreatureSingleChance(DemiBosscreature1Loot,[
+    OrbofPower.ID
+],1,3)
 
 // Demiboss Creature 2 - Widow Fae
 // Group 1 Loot Percentage = 9% + 35% + 7% + + 4.625% + 23% = 78.625%
@@ -416,6 +432,9 @@ addLootToCreature(DemiBosscreature2Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID
 ],[5,5,5,5,3],0)
+addLootToCreatureSingleChance(DemiBosscreature2Loot,[
+    OrbofPower.ID
+],1,3)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -439,3 +458,6 @@ addLootToCreature(Bosscreature1Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
     SmallGreenPouch.ID,             BrownLeatherSatchel.ID
 ],[5,5,5,5,3],0)
+addLootToCreatureSingleChance(Bosscreature1Loot,[
+    OrbofPower.ID
+],1,3)

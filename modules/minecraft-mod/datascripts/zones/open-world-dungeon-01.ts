@@ -5,6 +5,7 @@ import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tie
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../items/armor/tier2-set"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../items/gems/tier1-gem"
 import { MODNAME } from "../modname"
+import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 
 export let Shadowbolt = std.Spells.create(MODNAME,'shadowbolt-spell',25307)
 export let ShadowVolley = std.Spells.create(MODNAME,'shadowvolley-spell',25586)
@@ -127,3 +128,6 @@ addLootToCreatureSingleChance(DungeonMob01Loot,[
     undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
     undiscoveredOranges[5],
 ],2,2)
+addLootToCreatureSingleChance(DungeonMob01Loot,[
+    OrbofPower.ID
+],0.5,3)
