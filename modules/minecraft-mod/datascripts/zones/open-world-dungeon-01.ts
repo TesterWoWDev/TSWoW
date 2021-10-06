@@ -12,6 +12,7 @@ export let Shadowbolt = std.Spells.create(MODNAME,'shadowbolt-spell',25307)
 export let ShadowVolley = std.Spells.create(MODNAME,'shadowvolley-spell',25586)
 ShadowVolley.Effects.get(0).BasePoints.set(566)
 ShadowVolley.Effects.get(0).DieSides.set(121)
+ShadowVolley.Effects.get(0).Radius.set(20,0,20)
 export let ShadowPain = std.Spells.create(MODNAME,'pain-spell',25367)
 
 //Items and Loot
@@ -71,6 +72,17 @@ Naaru.RequiredLevel.set(6)
 export let LostAge = std.Items.create(MODNAME,'lostage',30008)
 LostAge.RequiredLevel.set(6)
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Room 1
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //Creature Spawns (Normal Mobs)
@@ -331,3 +343,123 @@ spawnMultipleNPCWithTimer(AgitatedBloodMite.ID,5,0,[
     [-8777.691406,666.983765,-19.205202,5.487263],
     [-8777.301758,663.503418,-19.334749,5.275207],
     [-8773.991211,662.825195,-18.933674,5.345892]],1200)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Room 2
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export let SummonedSkeleton = std.CreatureTemplates.create(MODNAME,'skeletonbones',3271)
+SummonedSkeleton.Name.enGB.set('Animated Bones')
+SummonedSkeleton.Level.set(9,9)
+SummonedSkeleton.FactionTemplate.set(48)
+SummonedSkeleton.DamageSchool.setNormal()
+SummonedSkeleton.Stats.ArmorMod.set(10)
+SummonedSkeleton.Stats.DamageMod.set(30)
+SummonedSkeleton.Stats.ExperienceMod.set(4)
+SummonedSkeleton.Stats.HealthMod.set(12)
+SummonedSkeleton.Stats.ManaMod.set(10)
+SummonedSkeleton.Models.clearAll()
+SummonedSkeleton.Models.addIds(30363)
+spawnMultipleNPCWithTimer(SummonedSkeleton.ID,2,0,[
+    [-8852.720703,650.377197,-18.361275,4.900900],
+    [-8852.268555,648.018433,-18.690559,3.927008],
+    [-8854.642578,649.275208,-19.048063,3.467550],
+    [-8855.084961,646.072998,-18.534111,3.534309],
+    [-8857.874023,645.372620,-18.955378,2.136300],
+    [-8857.786133,647.435974,-19.047812,1.189895],
+    [-8860.289062,648.565979,-18.537807,1.731819],
+    [-8875.995117,640.206970,-18.975773,4.347199],
+    [-8877.486328,639.445618,-19.048018,4.170486],
+    [-8875.992188,637.864136,-19.048018,4.166559],
+    [-8877.998047,636.887451,-19.048018,2.851017],
+    [-8879.333984,636.632019,-19.047190,1.818218],
+    [-8878.758789,637.876831,-19.047190,0.946426],
+    [-8882.127930,638.777283,-19.001978,3.110198],
+    [-8898.390625,629.826538,-19.048256,4.335425],
+    [-8897.975586,627.373535,-19.032854,4.237251],
+    [-8899.788086,627.054993,-19.065437,3.923093],
+    [-8899.572266,625.399109,-19.054993,2.674309],
+    [-8901.452148,627.957336,-19.056793,1.853568],
+    [-8903.952148,626.536804,-18.730326,2.285537],
+    [-8904.664062,628.988586,-18.193815,2.890294],
+    [-8900.323242,679.645752,-19.048077,1.818225],
+    [-8898.370117,680.179382,-19.048077,1.672926],
+    [-8899.762695,680.036621,-19.048077,1.672926],
+    [-8899.938477,681.861938,-19.047918,0.651909],
+    [-8898.558594,683.466553,-18.953476,5.717727],
+    [-8895.698242,681.108337,-19.047762,5.607772],
+    [-8893.462891,682.746277,-17.947693,0.345603],
+    [-8878.061523,689.948364,-18.949837,1.606164],
+    [-8875.910156,690.511108,-19.048334,1.582602],
+    [-8878.877930,691.849304,-19.048334,1.178122],
+    [-8876.916016,692.819885,-19.048035,0.498753],
+    [-8876.484375,694.569580,-18.436691,6.149693],
+    [-8872.885742,694.826599,-18.178885,5.438910],
+    [-8872.309570,691.556091,-18.691048,5.399641],],1200)
+
+export let SentinelMob = std.CreatureTemplates.create(MODNAME,'sentinelmob',3271)
+SentinelMob.Name.enGB.set('Suzu\'ven Demonspawn')
+SentinelMob.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+SentinelMob.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+SentinelMob.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+SentinelMob.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+SentinelMob.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+SentinelMob.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+SentinelMob.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Shadowbolt.ID,2,7)
+SentinelMob.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(ShadowVolley.ID,2,7)
+SentinelMob.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(ShadowPain.ID,2,7)
+SentinelMob.Level.set(13,13)
+SentinelMob.FactionTemplate.set(48)
+SentinelMob.DamageSchool.setNormal()
+SentinelMob.Scale.set(0.25)
+SentinelMob.Stats.ArmorMod.set(5)
+SentinelMob.Stats.DamageMod.set(30)
+SentinelMob.Stats.ExperienceMod.set(15)
+SentinelMob.Stats.HealthMod.set(60)
+SentinelMob.Stats.ManaMod.set(10)
+SentinelMob.Rank.setElite()
+SentinelMob.Models.clearAll()
+SentinelMob.Models.addIds(27897)
+export let SentinelMobLoot = SentinelMob.NormalLoot
+spawnMultipleNPCWithTimer(SentinelMob.ID,0,0,[
+    [-8869.997070,648.229126,-17.079538,1.998873],
+    [-8883.800781,681.033997,-17.079538,5.167956],
+    [-8861.091797,688.948364,-17.079538,5.089416],
+    [-8848.622070,660.045471,-17.079538,2.057785],
+    [-8891.041016,640.974426,-17.079294,2.026369],
+    [-8906.180664,668.699890,-17.078783,5.105127]],300)
+addLootToCreature(SentinelMobLoot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[2,2,2],4)
+addLootToCreature(SentinelMobLoot,tierThreeBaseResources,[2,2,2,2,2,2,2],4)
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(SentinelMobLoot,[
+    ReignLeggings.ID,           TrackerBelt.ID,          Noose.ID,               SporeReed.ID,
+    RenewalHammer.ID,           WildMagic.ID,            UnbrokenChain.ID,       PhosphoSword.ID,
+    DestructiveMaul.ID,         Bladefist.ID,            Fathomstone.ID,         ArgentSentinel.ID,
+    ObliterativeBoots.ID,       VigilanteRing.ID,        Naaru.ID,               LostAge.ID
+],0.5,1)
+addLootToCreatureSingleChance(SentinelMobLoot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(SentinelMobLoot,[
+    OrbofPower.ID
+],5,3)
