@@ -8,10 +8,14 @@ let broadcastindex = 101000
 export let ChainLightning = std.Spells.create(MODNAME,'chainlightning-spell',10605)
 export let ShockLightning = std.Spells.create(MODNAME,'shocklightning-spell',26415)
 export let Thunderstorm = std.Spells.create(MODNAME,'thunderstorm-spell',51490)
+Thunderstorm.Effects.get(2).EffectType.set(0)   //remove knockback
+Thunderstorm.Effects.get(0).BasePoints.set(219) //Damage reduction
 
 export let VoidStrike = std.Spells.create(MODNAME,'voidstrike-spell',52633)
 export let Concuss = std.Spells.create(MODNAME,'concuss-spell',52719)
 export let Destroy = std.Spells.create(MODNAME,'destroy-spell',52771)
+Destroy.Effects.get(0).BasePoints.set(9)   //base weapon % reduction
+Destroy.Effects.get(2).BasePoints.set(129) //dot reduction
 
 //Normal Creature Spawns
 export let Zone3Creature1 = std.CreatureTemplates.create(MODNAME,'zone3creature1',3271)
