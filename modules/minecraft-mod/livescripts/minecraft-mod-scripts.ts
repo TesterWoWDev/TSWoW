@@ -22,4 +22,10 @@ export function Main(events: TSEventHandlers) {
     reviveFix(events)
     creatureDeathApplyBuff(events)
     creatureDeathSummon(events)
+
+    events.Player.OnCommand((player,command,found)=>{
+        if(command.get().startsWith("asdasd")){
+            player.SetFreeTalentPoints(5)
+        }
+    })
 }
