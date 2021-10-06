@@ -63,6 +63,7 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         item.DisenchantID.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
+        item.Bonding.setBindsOnEquip()
         armSpell.forEach((value,index)=>{
             item.Spells.add(value).Trigger.set(armTrigger[index])
         })
@@ -95,6 +96,7 @@ export function createTrinket(levelrequirement:number,tier:string,quality:number
         item.DisenchantID.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
+        item.Bonding.setBindsOnEquip()
         armSpell.forEach((value,index)=>{
             item.Spells.add(value).Trigger.set(armTrigger[index])
         })
@@ -120,6 +122,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.RandomProperty.set(randomPropID)
         item.DisenchantID.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
+        item.Bonding.setBindsOnEquip()
         item.Flags.set(0)
         wepSpell.forEach((value,index)=>{
             item.Spells.add(value).Trigger.set(wepTrigger[index])
