@@ -1,9 +1,9 @@
 let tableOfSpawns:TSArray<uint32> = [
-    1,
+    GetID("creature_template","minecraft-mod","zone2creature1"),
 ]
 
 export function creatureDeathTest(events: TSEventHandlers) {
-    events.CreatureID.OnDeath(creatureToDie, (creature,killer)=>{
+    events.CreatureID.OnDeath(GetID("creature_template","minecraft-mod","webbed-zone2"), (creature,killer)=>{
         creature.SpawnCreature(tableOfSpawns[randNum(tableOfSpawns.length)],creature.GetX(),creature.GetY(),creature.GetZ(),0,2,120)
     })  
 }
