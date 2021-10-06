@@ -1,5 +1,7 @@
 let table:TSArray<uint32> = [
     GetID("creature_template","minecraft-mod","worgchampioncreature-creature"),
+    GetID("creature_template","minecraft-mod","koboldchampioncreature-creature"),
+    GetID("creature_template","minecraft-mod","murlocchampioncreature-creature"),
 ]
 
 export function creatureDeathTest(events: TSEventHandlers) {

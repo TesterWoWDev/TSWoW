@@ -6,7 +6,7 @@ import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tier
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
 import { stringItem } from "../../items/string"
 import { Zone3Creature2Loot, Zone3Creature3Loot, Zone3RareCreature1Loot } from "./zone-3-creatures"
-import { ShivanFeather } from "./zone-3items"
+import { ShivanFeather } from "./zone-3-items"
 
 
 addLootToCreature(Zone3Creature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
