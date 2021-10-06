@@ -6,8 +6,9 @@ import { Dueling } from "./QoL/onDuel"
 import { Killstreaks } from "./QoL/Killstreak"
 import { onLoginEvents } from "./QoL/onLogin"
 import { itemLearnSpell } from "./item/item-learn-spell"
-import { creatureDeathTest } from "./creature/creature-death-apply-buff"
 import { reviveFix } from "./QoL/revive"
+import { creatureDeathApplyBuff } from "./creature/creature-death-apply-buff"
+import { creatureDeathSummon } from "./creature/creature-death-summon"
 
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
@@ -17,7 +18,8 @@ export function Main(events: TSEventHandlers) {
     onLevelup(events)
     Killstreaks(events)
     Dueling(events)
-    itemLearnSpell(events)
-    creatureDeathTest(events)      
+    itemLearnSpell(events)  
     reviveFix(events)
+    creatureDeathApplyBuff(events)
+    creatureDeathSummon(events)
 }
