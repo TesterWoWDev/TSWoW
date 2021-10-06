@@ -154,7 +154,7 @@ BossShadowVolley.Effects.get(0).BasePoints.set(1566)
 BossShadowVolley.Effects.get(0).DieSides.set(321)
 export let DrainLife = std.Spells.create(MODNAME,'drainlife-spell',49617)
 
-export let DungeonBoss01 = std.CreatureTemplates.create(MODNAME,'dungeonmob01',3271)
+export let DungeonBoss01 = std.CreatureTemplates.create(MODNAME,'dungeonboss01',3271)
 DungeonBoss01.Name.enGB.set('Ageth the Unmaker')
 DungeonBoss01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
 DungeonBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
@@ -178,8 +178,8 @@ DungeonBoss01.Models.clearAll()
 DungeonBoss01.Models.addIds(16632)
 DungeonBoss01.Scale.set(1.75)
 export let DungeonBoss01Loot = DungeonBoss01.NormalLoot
-spawnMultipleNPCWithTimer(DungeonMob01.ID,0,0,[
-    [-8804.438477,714.525452,-18.029036,5.177031]],3600)
+spawnMultipleNPCWithTimer(DungeonBoss01.ID,0,0,[
+    [-8813.744141,662.621155,-17.837614,0.315410]],3600)
 
 addLootToCreature(DungeonBoss01Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
 addLootToCreature(DungeonBoss01Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
@@ -224,7 +224,7 @@ AgitatedBloodMite.Stats.HealthMod.set(12)
 AgitatedBloodMite.Stats.ManaMod.set(10)
 AgitatedBloodMite.Models.clearAll()
 AgitatedBloodMite.Models.addIds(15983)
-spawnMultipleNPCWithTimer(DungeonMob01.ID,0,0,[
+spawnMultipleNPCWithTimer(AgitatedBloodMite.ID,5,0,[
     [-8757.743164,648.013611,-17.827976,3.107503],
     [-8759.208008,646.306824,-17.937799,3.107503],
     [-8762.167969,649.587280,-18.194265,2.930789],
