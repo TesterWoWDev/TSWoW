@@ -8,8 +8,8 @@ import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, Mord
 
 
 
-addLootToCreature(Zone2Creature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[2,2,2])
-addLootToCreature(Zone2Creature1Loot,tierTwoBaseResources,[3,3,2,3,1,2,1])
+addLootToCreature(Zone2Creature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[5,5,5])
+addLootToCreature(Zone2Creature1Loot,tierTwoBaseResources,[4,4,4,4,4,4,4])
 /*Bags and Armor*/
 addLootToCreature(Zone2Creature1Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
@@ -36,5 +36,5 @@ addLootToCreatureSingleChance(Zone2Creature1Loot,[
     undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
     undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
     undiscoveredOranges[5],
-],0.1,2)
+],1,2)
 
