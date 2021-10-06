@@ -143,7 +143,7 @@ Zone2Creature5.Stats.ManaMod.set(10)
 Zone2Creature5.HoverHeight.set(1)
 Zone2Creature5.MovementType.setRandomMovement()
 Zone2Creature5.Stats.ExperienceMod.set(4)
-export let Zone2Creature5Loot = Zone2Creature1.NormalLoot
+export let Zone2Creature5Loot = Zone2Creature5.NormalLoot
 spawnMultipleNPCWithTimer(Zone2Creature5.ID,10,0,[
    [-8802.156250,-330.854858,45.844994,2.605298],
    [-8840.711914,-313.506897,36.274029,2.558174],
