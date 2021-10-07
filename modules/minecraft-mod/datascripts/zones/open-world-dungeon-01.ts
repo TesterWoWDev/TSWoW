@@ -541,6 +541,8 @@ spawnMultipleNPCWithTimer(SentinelMob.ID,0,0,[
     [-8861.091797,688.948364,-17.079538,5.089416],
     [-8848.622070,660.045471,-17.079538,2.057785],
     [-8891.041016,640.974426,-17.079294,2.026369],
+    [-8706.897461,606.845886,-18.139137,3.571591],
+    [-8725.962891,555.761536,-18.144554,1.996855],
     [-8906.180664,668.699890,-17.078783,5.105127]],300)
     SentinelMobLoot.makeUnique(false)
 addLootToCreature(SentinelMobLoot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[2,2,2],4)
