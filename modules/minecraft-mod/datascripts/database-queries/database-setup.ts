@@ -1,10 +1,10 @@
 import { SQL } from "wotlkdata/sql/SQLFiles"
 
-SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE IF EXISTS `minecraft_recipes`')
+SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `minecraft_recipes`')
 //invasions
-SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE IF EXISTS `invasions`')
-SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE IF EXISTS `invasions_bosses`')
-SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE IF EXISTS `invasions_spawners`')
+SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `invasions`')
+SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `invasions_bosses`')
+SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `invasions_spawners`')
 
 //clears
 SQL.Databases.world_dest.writeEarly('DELETE FROM `item_enchantment_template` WHERE entry >= 8700')
