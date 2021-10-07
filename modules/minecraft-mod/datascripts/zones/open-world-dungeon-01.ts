@@ -1,4 +1,5 @@
 import { std } from "tswow-stdlib"
+import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
 import { addLootToGobChest, addLootToGobChestSingleChanceMultiGroup, addLootToGobChestSingleChance } from "../functions/gob-functions"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../functions/npc-functions"
 import { makeResourceNode } from "../functions/resource-node-functions"
@@ -358,6 +359,70 @@ spawnMultipleNPCWithTimer(AgitatedBloodMite.ID,5,0,[
     [-8777.301758,663.503418,-19.334749,5.275207],
     [-8773.991211,662.825195,-18.933674,5.345892]],1200)
     AgitatedBloodMite.NormalLoot.makeUnique(false)
+
+export let DungeonMob02 = std.CreatureTemplates.create(MODNAME,'dungeonmob02banshee',10463)
+DungeonMob02.Name.enGB.set('Tormented Banshee')
+//Spells
+    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
+    DungeonMob02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,11000,15000,11000,15000,100).row.event_flags.set(1)
+    DungeonMob02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+    DungeonMob02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,3000,7000,3000,7000,100).row.event_flags.set(1)
+    DungeonMob02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+    //combat loop
+    DungeonMob02.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(16868,2,7)
+    DungeonMob02.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(37500,2,7)
+//End of Spells
+DungeonMob02.Level.set(10,13)
+DungeonMob02.FactionTemplate.set(48)
+DungeonMob02.DamageSchool.setNormal()
+DungeonMob02.Stats.ArmorMod.set(5)
+DungeonMob02.Stats.DamageMod.set(40)
+DungeonMob02.Stats.ExperienceMod.set(10)
+DungeonMob02.Stats.HealthMod.set(60)
+DungeonMob02.Stats.ManaMod.set(10)
+DungeonMob02.Rank.setElite()
+DungeonMob02.HoverHeight.set(1)
+DungeonMob02.MovementType.setRandomMovement()
+DungeonMob02.Stats.ExperienceMod.set(4)
+export let DungeonMob02Loot = DungeonMob02.NormalLoot
+DungeonMob02.NormalLoot.makeUnique(false)
+spawnMultipleNPCWithTimer(DungeonMob02.ID,10,0,[
+    [-8798.952148,646.615112,-12.577168,0.800160],
+    [-8768.009766,660.008728,-13.705646,1.990039],
+    [-8812.773438,697.803040,-13.725410,3.560836],
+    [-8867.517578,662.877075,-8.754834,3.753258],
+    [-8920.761719,654.439148,-8.973216,3.254530]],120)
+SQL_creature_template_movement.add(DungeonMob02.ID).Flight.set(1)
+addLootToCreature(DungeonMob02Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[10,10,10],3)
+addLootToCreature(DungeonMob02Loot,tierOneBaseResources,[5,5,5,5,5,5,5],3)
+addLootToCreature(DungeonMob02Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[2,2,2],4)
+addLootToCreature(DungeonMob02Loot,tierTwoBaseResources,[2,2,2,2,2,2,2],4)
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(DungeonMob02Loot,[
+    ReignLeggings.ID,           TrackerBelt.ID,          Noose.ID,               SporeReed.ID,
+    RenewalHammer.ID,           WildMagic.ID,            UnbrokenChain.ID,       PhosphoSword.ID,
+    DestructiveMaul.ID,         Bladefist.ID,            Fathomstone.ID,         ArgentSentinel.ID,
+    ObliterativeBoots.ID,       VigilanteRing.ID,        Naaru.ID,               LostAge.ID
+],0.5,1)
+addLootToCreatureSingleChance(DungeonMob02Loot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(DungeonMob02Loot,[
+    OrbofPower.ID
+],0.5,3)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -380,7 +380,7 @@ spawnMultipleNPCWithTimer(WoodcuttingTree02.ID,0,0,[
     [-8524.039062,91.092819,25.066723,5.069595]],60)
 
 //Normal Creature Spawns
-export let Zone3RareCreature2 = std.CreatureTemplates.create(MODNAME,'zone3creature1',3271)
+export let Zone3RareCreature2 = std.CreatureTemplates.create(MODNAME,'zone3rarecreature2',3271)
 Zone3RareCreature2.Name.enGB.set('Tyde Windsage')
 Zone3RareCreature2.Rank.setRare()
 Zone3RareCreature2.AIName.SmartAI()
