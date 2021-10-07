@@ -1,12 +1,24 @@
 import { std } from "tswow-stdlib"
+import { addLootToGobChest, addLootToGobChestSingleChanceMultiGroup, addLootToGobChestSingleChance } from "../functions/gob-functions"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../functions/npc-functions"
-import { spawnMultipleNPCWithTimer } from "../functions/spawning-functions"
+import { makeResourceNode } from "../functions/resource-node-functions"
+import { spawnMultiGobTimer, spawnMultipleNPCWithTimer } from "../functions/spawning-functions"
 import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/armor/tier1-set"
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../items/armor/tier2-set"
 import { tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial, tierThreeBaseResources } from "../items/armor/tier3-set"
+import { LargeSackofCoins } from "../items/currencies"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../items/gems/tier1-gem"
 import { MODNAME } from "../modname"
+import { VolatilePower, DragonscaleBlade, MiseryMace, HeartPit, LurkerCord, LurkerGrasp, LurkerBelt, LurkerGirdle, RavagerCuff, RavagerWrap, Ravagerband, Ravagerbracer, Gliderwrap, Gliderboots, Glidersabatons, Glidergreaves, LostTreads, Commendation, Contempt, FocusingCrystal, SunwellVial } from "./(Zone-3)Leronar/zone-3-items"
 import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
+
+
+
+
+
+
+
+
 
 export let Shadowbolt = std.Spells.create(MODNAME,'shadowbolt-spell',25307)
 export let ShadowVolley = std.Spells.create(MODNAME,'shadowvolley-spell',25586)
@@ -630,3 +642,56 @@ addLootToCreatureSingleChance(DungeonBoss02Loot,[
 addLootToCreatureSingleChance(DungeonBoss02Loot,[
     OrbofPower.ID
 ],100,3)
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                Dungeon Chest Loot Must Always Remain at Bottom
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+export let OpenWorldDungeonChest01 = makeResourceNode('Ancient Chest',9069,57,'openworlddungeonchest01-chest')
+spawnMultiGobTimer(OpenWorldDungeonChest01.ID,[
+    [-8814.077148,652.743408,-17.329342,0.416527],
+    [-8781.975586,720.315796,-15.189892,3.530630],
+    [-8826.964844,714.795288,-15.188274,5.144623],
+    [-8923.068359,636.437134,-17.078632,0.416514],
+    [-8928.217773,648.075134,-17.078632,0.416514]],600)
+OpenWorldDungeonChest01.Size.set(0.5)
+addLootToGobChest(OpenWorldDungeonChest01,tierThreeBaseResources,[2,2,2,2,2,2,2])
+/*Base Resources - Group 5*/  
+addLootToGobChestSingleChanceMultiGroup(OpenWorldDungeonChest01,[
+    tierThreeMailMaterial,            tierThreeLeatherMaterial,             tierThreeClothMaterial]
+,10,1,3,5)
+/*Epic Items - Group 0*/      
+addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
+    DungeonItem01.ID,               DungeonItem02.ID,               DungeonItem03.ID,
+    DungeonItem04.ID,               DungeonItem05.ID,               DungeonItem06.ID,
+    DungeonItem07.ID,               DungeonItem08.ID,               DungeonItem09.ID,
+    DungeonItem10.ID,               DungeonItem11.ID,               DungeonItem12.ID,
+    DungeonItem13.ID,               DungeonItem14.ID,               DungeonItem15.ID,
+    DungeonItem16.ID,               DungeonItem17.ID,               DungeonItem18.ID,
+    DungeonItem19.ID,               DungeonItem20.ID,               VolatilePower.ID,
+    DragonscaleBlade.ID,            MiseryMace.ID,                  HeartPit.ID
+],0.0125)
+/*Rare Items - Group 0*/      
+addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
+    ReignLeggings.ID,               TrackerBelt.ID,                 Noose.ID,
+    SporeReed.ID,                   RenewalHammer.ID,               WildMagic.ID,
+    UnbrokenChain.ID,               PhosphoSword.ID,                DestructiveMaul.ID,
+    Bladefist.ID,                   Fathomstone.ID,                 ArgentSentinel.ID,
+    ObliterativeBoots.ID,           VigilanteRing.ID,               Naaru.ID,
+    LostAge.ID
+],0.2)
+/*Semi Rare Armor - Group 1*/
+addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
+    LurkerCord.ID,                  LurkerGrasp.ID,                 LurkerBelt.ID,
+    LurkerGirdle.ID,                RavagerCuff.ID,                 RavagerWrap.ID,
+    Ravagerband.ID,                 Ravagerbracer.ID,               Gliderwrap.ID,
+    Gliderboots.ID,                 Glidersabatons.ID,              Glidergreaves.ID,
+    LostTreads.ID,                  Commendation.ID,                Contempt.ID,
+    FocusingCrystal.ID,             SunwellVial.ID
+],0.5,1)
+/*Money Bags*/
+addLootToGobChest(OpenWorldDungeonChest01,[
+    LargeSackofCoins.ID
+],[15],8)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
