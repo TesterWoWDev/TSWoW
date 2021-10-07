@@ -9,4 +9,4 @@ export let stringItem = std.Items.create(MODNAME,'string', 2934)
 
 
 
-SQL.Databases.world_dest.write('UPDATE `item_template` SET `armor` = (armor * 0.1) WHERE `entry` > 65000)')
+SQL.Databases.world_dest.write('UPDATE `item_template` SET `armor` = (armor * 0.1) WHERE `entry` > 0)')
