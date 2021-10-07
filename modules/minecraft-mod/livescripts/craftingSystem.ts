@@ -11,11 +11,16 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
             if(message.itemIDs[i] != 0){
                 if(i == 4){
                     console.log(message.itemIDs[i])
-                    let item = player.GetItemByEntry(message.itemIDs[i])
-                    if(item.GetClass() == 2 || item.GetClass() == 4){
-                        isEnchant = true
-                        fillVal = -1
+                    if(player.HasItem(message.itemIDs[i],1,false)){
+                        let item = player.GetItemByEntry(message.itemIDs[i])
+                        if(item.GetClass() == 2 || item.GetClass() == 4){
+                            isEnchant = true
+                            fillVal = -1
+                        }else{
+                            player.SendAreaTriggerMessage("Remove the items from your bank!")
+                        }
                     }
+                    
                 }
             }
             posString = posString + "pos"+(i+1)+" = " + fillVal + " AND "                
@@ -69,7 +74,7 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                             }
                             let item = player.GetItemByPos(message.positions[i].bagslot[0],message.positions[i].bagslot[1])
                             if(item.IsNull()){
-                                player.SendAreaTriggerMessage("stop trying to break shit")
+                                player.SendAreaTriggerMessage("Your item was null? track whatever you did. call ghost")
                                 return
                             }else{
                                 if(item.GetEntry() == itemID){
