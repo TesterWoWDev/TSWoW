@@ -16,6 +16,7 @@ let GemQuality1 = 1
 //Crush Gem Items
 export let GemDust = std.Items.create(MODNAME,'gemdust',2318)
 GemDust.Name.enGB.set('Gem Dust')
+GemDust.Description.enGB.set('Place these all around any resource in the crafting menu to upgrade the tier of the resource.')
 GemDust.Quality.setPurple()
 GemDust.MaxStack.set(9999)
 GemDust.DisplayInfo.copyFrom(29475)

@@ -1,4 +1,4 @@
-import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
+import { ExpScroll, EyeofDestiny } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
 import { Zone2Creature5Loot as Zone3Creature1Loot } from "../(Zone-2)HauntedHollows/zone-2-creatures"
 import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, FerventHelm, AwarenessHelm, SatyrBow, ShadowMistGloves, CleverHat, PotencyRing, GuileRing } from "../(Zone-2)HauntedHollows/zone-2-items"
 import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
@@ -9,7 +9,7 @@ import { stringItem } from "../../items/string"
 import { harpyScroll } from "../champion-scrolls/harpy-champion-scroll"
 import { quailboarScroll } from "../champion-scrolls/quailboar-champion-scroll"
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll"
-import { SavageWolfLoot, Zone3Creature2Loot, Zone3Creature3Loot, Zone3RareCreature1Loot } from "./zone-3-creatures"
+import { SavageWolfLoot, Zone3Creature2Loot, Zone3Creature3Loot, Zone3RareCreature1Loot, Zone3RareCreature2Loot } from "./zone-3-creatures"
 import { Commendation, Contempt, DragonscaleBlade, FocusingCrystal, Gliderboots, Glidergreaves, Glidersabatons, Gliderwrap, HeartPit, LostTreads, LurkerBelt, LurkerCord, LurkerGirdle, LurkerGrasp, MiseryMace, Ravagerband, Ravagerbracer, RavagerCuff, RavagerWrap, ShivanFeather, SunwellVial, VolatilePower } from "./zone-3-items"
 
 
@@ -113,8 +113,8 @@ addLootToCreature(Zone3RareCreature1Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
     FleshhideShoulders.ID,          stringItem.ID,                  ShivanFeather.ID,
-    harpyScroll.ID
-],[2,2,2,2,2,2,2,1,5],0)
+    harpyScroll.ID,                 EyeofDestiny.ID
+],[2,2,2,2,2,2,2,1,5,0.05],0)
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreature(Zone3RareCreature1Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
@@ -162,3 +162,30 @@ addLootToCreatureSingleChance(SavageWolfLoot,[
     undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
     undiscoveredOranges[5],
 ],2,2)
+
+addLootToCreature(Zone3RareCreature2Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])
+addLootToCreature(Zone3RareCreature2Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
+/*Bags and Armor*/
+addLootToCreature(Zone3RareCreature2Loot,[
+    BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
+    GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
+    FleshhideShoulders.ID,          stringItem.ID,                  quailboarScroll.ID,
+    EyeofDestiny.ID
+],[2,2,2,2,2,2,2,5,0.05],0)
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreature(Zone3RareCreature2Loot,[
+    FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
+    ShadowMistGloves.ID,            CleverHat.ID,                   PotencyRing.ID,
+    GuileRing.ID,                   ExpScroll.ID
+],[2,2,2,2,2,2,2,2],1)
+addLootToCreatureSingleChance(Zone3RareCreature2Loot,[
+    LurkerCord.ID,          LurkerGrasp.ID,             LurkerBelt.ID,          LurkerGirdle.ID,
+    RavagerCuff.ID,         RavagerWrap.ID,             Ravagerband.ID,         Ravagerbracer.ID,
+    Gliderwrap.ID,          Gliderboots.ID,             Glidersabatons.ID,      Glidergreaves.ID,
+    LostTreads.ID,          Commendation.ID,            Contempt.ID,            FocusingCrystal.ID,
+    SunwellVial.ID,         VolatilePower.ID,           DragonscaleBlade.ID,    MiseryMace.ID,
+    HeartPit.ID
+],0.5,2)
+addLootToCreatureSingleChance(Zone3RareCreature2Loot,[
+    OrbofPower.ID
+],5,3)

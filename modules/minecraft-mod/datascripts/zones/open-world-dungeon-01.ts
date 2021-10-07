@@ -1,12 +1,26 @@
 import { std } from "tswow-stdlib"
+import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
+import { addLootToGobChest, addLootToGobChestSingleChanceMultiGroup, addLootToGobChestSingleChance } from "../functions/gob-functions"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../functions/npc-functions"
-import { spawnMultipleNPCWithTimer } from "../functions/spawning-functions"
+import { makeResourceNode } from "../functions/resource-node-functions"
+import { spawnMultiGobTimer, spawnMultipleNPCWithTimer } from "../functions/spawning-functions"
 import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../items/armor/tier1-set"
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../items/armor/tier2-set"
 import { tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial, tierThreeBaseResources } from "../items/armor/tier3-set"
+import { LargeSackofCoins } from "../items/currencies"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../items/gems/tier1-gem"
 import { MODNAME } from "../modname"
+import { EyeofDestiny } from "./(Zone-0)Walk-of-Heroes/starting-zone-items"
+import { VolatilePower, DragonscaleBlade, MiseryMace, HeartPit, LurkerCord, LurkerGrasp, LurkerBelt, LurkerGirdle, RavagerCuff, RavagerWrap, Ravagerband, Ravagerbracer, Gliderwrap, Gliderboots, Glidersabatons, Glidergreaves, LostTreads, Commendation, Contempt, FocusingCrystal, SunwellVial } from "./(Zone-3)Leronar/zone-3-items"
 import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
+
+
+
+
+
+
+
+
 
 export let Shadowbolt = std.Spells.create(MODNAME,'shadowbolt-spell',25307)
 export let ShadowVolley = std.Spells.create(MODNAME,'shadowvolley-spell',25586)
@@ -109,6 +123,7 @@ DungeonMob01.Rank.setElite()
 DungeonMob01.Models.clearAll()
 DungeonMob01.Models.addIds(18373)
 export let DungeonMob01Loot = DungeonMob01.NormalLoot
+DungeonMob01Loot.makeUnique(false)
 spawnMultipleNPCWithTimer(DungeonMob01.ID,0,0,[
     [-8743.326172,585.324890,-15.320604,2.583537],
     [-8759.154297,646.166260,-17.919151,2.659830],
@@ -161,6 +176,7 @@ addLootToCreatureSingleChance(DungeonMob01Loot,[
 
 
 export let ConsumeSpell = std.Spells.create(MODNAME,'consumespell-spell',49381)
+ConsumeSpell.Duration.set(10000,0,10000)
 export let BossShadowVolley = std.Spells.create(MODNAME,'bossshadowvolley-spell',25586)
 BossShadowVolley.Effects.get(0).BasePoints.set(1566)
 BossShadowVolley.Effects.get(0).DieSides.set(321)
@@ -192,7 +208,7 @@ DungeonBoss01.Scale.set(1.75)
 export let DungeonBoss01Loot = DungeonBoss01.NormalLoot
 spawnMultipleNPCWithTimer(DungeonBoss01.ID,0,0,[
     [-8813.744141,662.621155,-17.837614,0.315410]],3600)
-
+    DungeonBoss01Loot.makeUnique(false)
 addLootToCreature(DungeonBoss01Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
 addLootToCreature(DungeonBoss01Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
 addLootToCreature(DungeonBoss01Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10],4)
@@ -343,6 +359,71 @@ spawnMultipleNPCWithTimer(AgitatedBloodMite.ID,5,0,[
     [-8777.691406,666.983765,-19.205202,5.487263],
     [-8777.301758,663.503418,-19.334749,5.275207],
     [-8773.991211,662.825195,-18.933674,5.345892]],1200)
+    AgitatedBloodMite.NormalLoot.makeUnique(false)
+
+export let DungeonMob02 = std.CreatureTemplates.create(MODNAME,'dungeonmob02banshee',10463)
+DungeonMob02.Name.enGB.set('Tormented Banshee')
+//Spells
+    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
+    DungeonMob02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,11000,15000,11000,15000,100).row.event_flags.set(1)
+    DungeonMob02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+    DungeonMob02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,3000,7000,3000,7000,100).row.event_flags.set(1)
+    DungeonMob02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+    //combat loop
+    DungeonMob02.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(16868,2,7)
+    DungeonMob02.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(37500,2,7)
+//End of Spells
+DungeonMob02.Level.set(10,13)
+DungeonMob02.FactionTemplate.set(48)
+DungeonMob02.DamageSchool.setNormal()
+DungeonMob02.Stats.ArmorMod.set(5)
+DungeonMob02.Stats.DamageMod.set(40)
+DungeonMob02.Stats.ExperienceMod.set(10)
+DungeonMob02.Stats.HealthMod.set(60)
+DungeonMob02.Stats.ManaMod.set(10)
+DungeonMob02.Rank.setElite()
+DungeonMob02.HoverHeight.set(1)
+DungeonMob02.MovementType.setRandomMovement()
+DungeonMob02.Stats.ExperienceMod.set(4)
+export let DungeonMob02Loot = DungeonMob02.NormalLoot
+DungeonMob02.NormalLoot.makeUnique(false)
+spawnMultipleNPCWithTimer(DungeonMob02.ID,10,0,[
+    [-8798.952148,646.615112,-12.577168,0.800160],
+    [-8768.009766,660.008728,-13.705646,1.990039],
+    [-8812.773438,697.803040,-13.725410,3.560836],
+    [-8867.517578,662.877075,-8.754834,3.753258],
+    [-8920.761719,654.439148,-8.973216,3.254530]],120)
+SQL_creature_template_movement.add(DungeonMob02.ID).Flight.set(1)
+addLootToCreature(DungeonMob02Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[10,10,10],3)
+addLootToCreature(DungeonMob02Loot,tierOneBaseResources,[5,5,5,5,5,5,5],3)
+addLootToCreature(DungeonMob02Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[2,2,2],4)
+addLootToCreature(DungeonMob02Loot,tierTwoBaseResources,[2,2,2,2,2,2,2],4)
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(DungeonMob02Loot,[
+    ReignLeggings.ID,           TrackerBelt.ID,          Noose.ID,               SporeReed.ID,
+    RenewalHammer.ID,           WildMagic.ID,            UnbrokenChain.ID,       PhosphoSword.ID,
+    DestructiveMaul.ID,         Bladefist.ID,            Fathomstone.ID,         ArgentSentinel.ID,
+    ObliterativeBoots.ID,       VigilanteRing.ID,        Naaru.ID,               LostAge.ID
+],0.5,1)
+addLootToCreatureSingleChance(DungeonMob02Loot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(DungeonMob02Loot,[
+    OrbofPower.ID
+],0.5,3)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -354,6 +435,90 @@ spawnMultipleNPCWithTimer(AgitatedBloodMite.ID,5,0,[
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export let DungeonItem01 = std.Items.create(MODNAME,'dungeonitem01',32327)
+DungeonItem01.RequiredLevel.set(6)
+DungeonItem01.Socket.clearAll()
+DungeonItem01.Quality.setBlue()
+export let DungeonItem02 = std.Items.create(MODNAME,'dungeonitem02',32280)
+DungeonItem02.RequiredLevel.set(6)
+DungeonItem02.Socket.clearAll()
+DungeonItem02.Quality.setBlue()
+export let DungeonItem03 = std.Items.create(MODNAME,'dungeonitem03',32512)
+DungeonItem03.RequiredLevel.set(6)
+DungeonItem03.Socket.clearAll()
+DungeonItem03.Quality.setBlue()
+export let DungeonItem04 = std.Items.create(MODNAME,'dungeonitem04',32338)
+DungeonItem04.RequiredLevel.set(6)
+DungeonItem04.Socket.clearAll()
+DungeonItem04.Quality.setBlue()
+export let DungeonItem05 = std.Items.create(MODNAME,'dungeonitem05',32341)
+DungeonItem05.RequiredLevel.set(6)
+DungeonItem05.Socket.clearAll()
+DungeonItem05.Quality.setBlue()
+export let DungeonItem06 = std.Items.create(MODNAME,'dungeonitem06',32354)
+DungeonItem06.RequiredLevel.set(6)
+DungeonItem06.Socket.clearAll()
+DungeonItem06.Quality.setBlue()
+export let DungeonItem07 = std.Items.create(MODNAME,'dungeonitem07',32517)
+DungeonItem07.RequiredLevel.set(6)
+DungeonItem07.Socket.clearAll()
+DungeonItem07.Quality.setBlue()
+export let DungeonItem08 = std.Items.create(MODNAME,'dungeonitem08',32362)
+DungeonItem08.RequiredLevel.set(6)
+DungeonItem08.Socket.clearAll()
+DungeonItem08.Quality.setBlue()
+export let DungeonItem09 = std.Items.create(MODNAME,'dungeonitem09',32331)
+DungeonItem09.RequiredLevel.set(6)
+DungeonItem09.Socket.clearAll()
+DungeonItem09.Quality.setBlue()
+export let DungeonItem10 = std.Items.create(MODNAME,'dungeonitem10',32235)
+DungeonItem10.RequiredLevel.set(6)
+DungeonItem10.Socket.clearAll()
+DungeonItem10.Quality.setBlue()
+export let DungeonItem11 = std.Items.create(MODNAME,'dungeonitem11',32471)
+DungeonItem11.RequiredLevel.set(6)
+DungeonItem11.Socket.clearAll()
+DungeonItem11.Quality.setBlue()
+export let DungeonItem12 = std.Items.create(MODNAME,'dungeonitem12',32854)
+DungeonItem12.RequiredLevel.set(6)
+DungeonItem12.Socket.clearAll()
+DungeonItem12.Quality.setBlue()
+export let DungeonItem13 = std.Items.create(MODNAME,'dungeonitem13',31326)
+DungeonItem13.RequiredLevel.set(6)
+DungeonItem13.Socket.clearAll()
+DungeonItem13.Quality.setBlue()
+export let DungeonItem14 = std.Items.create(MODNAME,'dungeonitem14',31319)
+DungeonItem14.RequiredLevel.set(6)
+DungeonItem14.Socket.clearAll()
+DungeonItem14.Quality.setBlue()
+export let DungeonItem15 = std.Items.create(MODNAME,'dungeonitem15',31333)
+DungeonItem15.RequiredLevel.set(6)
+DungeonItem15.Socket.clearAll()
+DungeonItem15.Quality.setBlue()
+export let DungeonItem16 = std.Items.create(MODNAME,'dungeonitem16',31331)
+DungeonItem16.RequiredLevel.set(6)
+DungeonItem16.Socket.clearAll()
+DungeonItem16.Quality.setBlue()
+export let DungeonItem17 = std.Items.create(MODNAME,'dungeonitem17',31342)
+DungeonItem17.RequiredLevel.set(6)
+DungeonItem17.Socket.clearAll()
+DungeonItem17.Quality.setBlue()
+export let DungeonItem18 = std.Items.create(MODNAME,'dungeonitem18',34622)
+DungeonItem18.RequiredLevel.set(6)
+DungeonItem18.Socket.clearAll()
+DungeonItem18.Quality.setBlue()
+export let DungeonItem19 = std.Items.create(MODNAME,'dungeonitem19',37835)
+DungeonItem19.RequiredLevel.set(6)
+DungeonItem19.Socket.clearAll()
+DungeonItem19.Quality.setBlue()
+export let DungeonItem20 = std.Items.create(MODNAME,'dungeonitem20',44312)
+DungeonItem20.RequiredLevel.set(6)
+DungeonItem20.Socket.clearAll()
+DungeonItem20.Quality.setBlue()
+
+
+
 
 export let SummonedSkeleton = std.CreatureTemplates.create(MODNAME,'skeletonbones',3271)
 SummonedSkeleton.Name.enGB.set('Animated Bones')
@@ -403,6 +568,7 @@ spawnMultipleNPCWithTimer(SummonedSkeleton.ID,2,0,[
     [-8876.484375,694.569580,-18.436691,6.149693],
     [-8872.885742,694.826599,-18.178885,5.438910],
     [-8872.309570,691.556091,-18.691048,5.399641],],1200)
+    AgitatedBloodMite.NormalLoot.makeUnique(false)
 
 export let LightningRing = std.Spells.create(MODNAME,'lightningring-spell',50840)
 export let WoePillar = std.Spells.create(MODNAME,'woevolley-spell',50761)
@@ -441,17 +607,23 @@ spawnMultipleNPCWithTimer(SentinelMob.ID,0,0,[
     [-8861.091797,688.948364,-17.079538,5.089416],
     [-8848.622070,660.045471,-17.079538,2.057785],
     [-8891.041016,640.974426,-17.079294,2.026369],
+    [-8706.897461,606.845886,-18.139137,3.571591],
+    [-8725.962891,555.761536,-18.144554,1.996855],
     [-8906.180664,668.699890,-17.078783,5.105127]],300)
+    SentinelMobLoot.makeUnique(false)
 addLootToCreature(SentinelMobLoot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[2,2,2],4)
 addLootToCreature(SentinelMobLoot,tierThreeBaseResources,[2,2,2,2,2,2,2],4)
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(SentinelMobLoot,[
-    ReignLeggings.ID,           TrackerBelt.ID,          Noose.ID,               SporeReed.ID,
-    RenewalHammer.ID,           WildMagic.ID,            UnbrokenChain.ID,       PhosphoSword.ID,
-    DestructiveMaul.ID,         Bladefist.ID,            Fathomstone.ID,         ArgentSentinel.ID,
-    ObliterativeBoots.ID,       VigilanteRing.ID,        Naaru.ID,               LostAge.ID
-],0.5,1)
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.25,1)
 addLootToCreatureSingleChance(SentinelMobLoot,[
     undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
     undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
@@ -505,17 +677,20 @@ DungeonBoss02.Scale.set(1.75)
 export let DungeonBoss02Loot = DungeonBoss02.NormalLoot
 spawnMultipleNPCWithTimer(DungeonBoss02.ID,0,0,[
     [-8925.356,642.169,-17.079,0.3456]],3600)
-
+    DungeonBoss02Loot.makeUnique(false)
 addLootToCreature(DungeonBoss02Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
 addLootToCreature(DungeonBoss02Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
 
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(DungeonBoss02Loot,[
-    ReignLeggings.ID,           TrackerBelt.ID,          Noose.ID,               SporeReed.ID,
-    RenewalHammer.ID,           WildMagic.ID,            UnbrokenChain.ID,       PhosphoSword.ID,
-    DestructiveMaul.ID,         Bladefist.ID,            Fathomstone.ID,         ArgentSentinel.ID,
-    ObliterativeBoots.ID,       VigilanteRing.ID,        Naaru.ID,               LostAge.ID
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
 ],0.5,1)
 addLootToCreatureSingleChance(DungeonBoss02Loot,[
     undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
@@ -535,3 +710,149 @@ addLootToCreatureSingleChance(DungeonBoss02Loot,[
 addLootToCreatureSingleChance(DungeonBoss02Loot,[
     OrbofPower.ID
 ],100,3)
+
+export let DungeonItem21 = std.Items.create(MODNAME,'dungeonitem21',28484)
+DungeonItem21.RequiredLevel.set(6)
+DungeonItem21.Quality.setBlue()
+DungeonItem21.RequiredSpell.set(0)
+export let DungeonItem22 = std.Items.create(MODNAME,'dungeonitem22',28485)
+DungeonItem22.RequiredLevel.set(6)
+DungeonItem22.Quality.setBlue()
+DungeonItem22.RequiredSpell.set(0)
+export let DungeonItem23 = std.Items.create(MODNAME,'dungeonitem23',23565)
+DungeonItem23.RequiredLevel.set(6)
+DungeonItem23.Quality.setBlue()
+DungeonItem23.RequiredSpell.set(0)
+export let DungeonItem24 = std.Items.create(MODNAME,'dungeonitem24',23564)
+DungeonItem24.RequiredLevel.set(6)
+DungeonItem24.Quality.setBlue()
+DungeonItem24.RequiredSpell.set(0)
+
+export let DungeonItem25 = std.Items.create(MODNAME,'dungeonitem25',28439)
+DungeonItem25.RequiredLevel.set(6)
+DungeonItem25.Quality.setBlue()
+DungeonItem25.RequiredSpell.set(0)
+export let DungeonItem26 = std.Items.create(MODNAME,'dungeonitem26',28442)
+DungeonItem26.RequiredLevel.set(6)
+DungeonItem26.Quality.setBlue()
+DungeonItem26.RequiredSpell.set(0)
+export let DungeonItem27 = std.Items.create(MODNAME,'dungeonitem27',28430)
+DungeonItem27.RequiredLevel.set(6)
+DungeonItem27.Quality.setBlue()
+DungeonItem27.RequiredSpell.set(0)
+export let DungeonItem28 = std.Items.create(MODNAME,'dungeonitem28',28427)
+DungeonItem28.RequiredLevel.set(6)
+DungeonItem28.Quality.setBlue()
+DungeonItem28.RequiredSpell.set(0)
+
+export let DungeonItem29 = std.Items.create(MODNAME,'dungeonitem29',21869)
+DungeonItem29.RequiredLevel.set(6)
+DungeonItem29.Quality.setBlue()
+DungeonItem29.RequiredSpell.set(0)
+export let DungeonItem30 = std.Items.create(MODNAME,'dungeonitem30',21870)
+DungeonItem30.RequiredLevel.set(6)
+DungeonItem30.Quality.setBlue()
+DungeonItem30.RequiredSpell.set(0)
+export let DungeonItem31 = std.Items.create(MODNAME,'dungeonitem31',21871)
+DungeonItem31.RequiredLevel.set(6)
+DungeonItem31.Quality.setBlue()
+DungeonItem31.RequiredSpell.set(0)
+
+export let DungeonItem32 = std.Items.create(MODNAME,'dungeonitem32',21846)
+DungeonItem32.RequiredLevel.set(6)
+DungeonItem32.Quality.setBlue()
+DungeonItem32.RequiredSpell.set(0)
+export let DungeonItem33 = std.Items.create(MODNAME,'dungeonitem33',21847)
+DungeonItem33.RequiredLevel.set(6)
+DungeonItem33.Quality.setBlue()
+DungeonItem33.RequiredSpell.set(0)
+export let DungeonItem34 = std.Items.create(MODNAME,'dungeonitem34',21818)
+DungeonItem34.RequiredLevel.set(6)
+DungeonItem34.Quality.setBlue()
+DungeonItem34.RequiredSpell.set(0)
+
+export let DungeonItem35 = std.Items.create(MODNAME,'dungeonitem35',23838)
+DungeonItem35.RequiredLevel.set(6)
+DungeonItem35.Quality.setBlue()
+DungeonItem35.RequiredSpell.set(0)
+export let DungeonItem36 = std.Items.create(MODNAME,'dungeonitem36',23839)
+DungeonItem36.RequiredLevel.set(6)
+DungeonItem36.Quality.setBlue()
+DungeonItem36.RequiredSpell.set(0)
+
+export let DarkSteel = std.Items.create(MODNAME,'darksteel',23445)
+DarkSteel.Name.enGB.set('Dark Steel')
+DarkSteel.Quality.setOrange()
+DarkSteel.MaxStack.set(9999)
+export let DarkLeather = std.Items.create(MODNAME,'darkleather',12810)
+DarkLeather.Name.enGB.set('Dark Leather')
+DarkLeather.Quality.setOrange()
+DarkLeather.MaxStack.set(9999)
+export let DarkCloth = std.Items.create(MODNAME,'darkcloth',23854)
+DarkCloth.Name.enGB.set('Dark Cloth')
+DarkCloth.Quality.setOrange()
+DarkCloth.MaxStack.set(9999)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                Dungeon Chest Loot Must Always Remain at Bottom
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+export let OpenWorldDungeonChest01 = makeResourceNode('Ancient Chest',9069,57,'openworlddungeonchest01-chest')
+spawnMultiGobTimer(OpenWorldDungeonChest01.ID,[
+    [-8814.077148,652.743408,-17.329342,0.416527],
+    [-8781.975586,720.315796,-15.189892,3.530630],
+    [-8826.964844,714.795288,-15.188274,5.144623],
+    [-8923.068359,636.437134,-17.078632,0.416514],
+    [-8928.217773,648.075134,-17.078632,0.416514],
+    [-8735.500000,555.899597,-15.236025,0.458514]],1800)
+OpenWorldDungeonChest01.Size.set(0.5)
+addLootToGobChest(OpenWorldDungeonChest01,tierThreeBaseResources,[2,2,2,2,2,2,2])
+/*Base Resources - Group 5*/  
+addLootToGobChestSingleChanceMultiGroup(OpenWorldDungeonChest01,[
+    tierThreeMailMaterial,            tierThreeLeatherMaterial,             tierThreeClothMaterial]
+,10,1,3,5)
+/*Epic Items - Group 0*/      
+addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
+    DungeonItem01.ID,               DungeonItem02.ID,               DungeonItem03.ID,
+    DungeonItem04.ID,               DungeonItem05.ID,               DungeonItem06.ID,
+    DungeonItem07.ID,               DungeonItem08.ID,               DungeonItem09.ID,
+    DungeonItem10.ID,               DungeonItem11.ID,               DungeonItem12.ID,
+    DungeonItem13.ID,               DungeonItem14.ID,               DungeonItem15.ID,
+    DungeonItem16.ID,               DungeonItem17.ID,               DungeonItem18.ID,
+    DungeonItem19.ID,               DungeonItem20.ID,               VolatilePower.ID,
+    DragonscaleBlade.ID,            MiseryMace.ID,                  HeartPit.ID,
+    DungeonItem21.ID,               DungeonItem22.ID,               DungeonItem23.ID,
+    DungeonItem24.ID,               DungeonItem25.ID,               DungeonItem26.ID,
+    DungeonItem27.ID,               DungeonItem28.ID,               DungeonItem29.ID,
+    DungeonItem30.ID,               DungeonItem31.ID,               DungeonItem32.ID,
+    DungeonItem33.ID,               DungeonItem34.ID,               DungeonItem35.ID,
+    DungeonItem36.ID               
+],0.0125)
+/*Rare Items - Group 0*/      
+addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
+    ReignLeggings.ID,               TrackerBelt.ID,                 Noose.ID,
+    SporeReed.ID,                   RenewalHammer.ID,               WildMagic.ID,
+    UnbrokenChain.ID,               PhosphoSword.ID,                DestructiveMaul.ID,
+    Bladefist.ID,                   Fathomstone.ID,                 ArgentSentinel.ID,
+    ObliterativeBoots.ID,           VigilanteRing.ID,               Naaru.ID,
+    LostAge.ID
+],0.2)
+/*Semi Rare Armor - Group 1*/
+addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
+    LurkerCord.ID,                  LurkerGrasp.ID,                 LurkerBelt.ID,
+    LurkerGirdle.ID,                RavagerCuff.ID,                 RavagerWrap.ID,
+    Ravagerband.ID,                 Ravagerbracer.ID,               Gliderwrap.ID,
+    Gliderboots.ID,                 Glidersabatons.ID,              Glidergreaves.ID,
+    LostTreads.ID,                  Commendation.ID,                Contempt.ID,
+    FocusingCrystal.ID,             SunwellVial.ID
+],0.5,1)
+/*Ultra Rares*/
+addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
+    DarkSteel.ID,                   DarkLeather.ID,                 DarkCloth.ID,
+    EyeofDestiny.ID
+],0.05,3)
+/*Money Bags*/
+addLootToGobChest(OpenWorldDungeonChest01,[
+    LargeSackofCoins.ID
+],[15],8)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////

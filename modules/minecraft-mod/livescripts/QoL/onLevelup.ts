@@ -125,25 +125,25 @@ let spellsList = [
         [49895,49930,49921,51425,45529,47568],  // Death Coil (5),         Blood Strike (6),        Plague Strike (6),      Obliterate (4),         Blood Tap,        Empower Rune Weapon
     ],
     [[0/*Shaman*/],
-        [8042,8050,8056,403,331,8737],     // Earth Shock (1),          Flame Shock (1),            Frost Shock (1),            Lightning Bolt (1),         Healing Wave (1),           Mail
-        [915,324,8024,8033,10399],         // Lightning Bolt (4),       Lightning shield,           Flametongue Weapon (1),     Frostbrand Weapon (1),      Rockbiter Weapon (4)
-        [943,8058,52127,674],                  // Lightning Bolt (5),       Frost Shock (2),            Water Shield
-        [8046,8053,10466],                 // Earth Shock (4),          Flame Shock (3),            Lesser Healing Wave (4)
-        [66843,6364,8075,8512,5675],       // Call of Ancestors,        Searing Totem (1),          Strength of Earth (1),      Windfury Totem (1),         Mana Spring Totem
+        [8042,8050,8056,403,331,8737],     // Earth Shock (1),          Flame Shock (1),            Frost Shock (1),                Lightning Bolt (1),         Healing Wave (1),           Mail
+        [915,324,8024,8033,10399],         // Lightning Bolt (4),       Lightning shield,           Flametongue Weapon (1),         Frostbrand Weapon (1),      Rockbiter Weapon (4)
+        [943,8058,52127,674],              // Lightning Bolt (5),       Frost Shock (2),            Water Shield
+        [8046,8053,10466,913],             // Earth Shock (4),          Flame Shock (3),            Lesser Healing Wave (4),        Healing Wave (4)
+        [66843,6364,8075,8512,5675],       // Call of Ancestors,        Searing Totem (1),          Strength of Earth (1),          Windfury Totem (1),         Mana Spring Totem
         [421,10622,51991],                 // Chain Lightning (1),      Chain Heal (2),             Earthliving Weapon (3)
         [10431,16342],                     // Lightning Shield (6),     Flametongue Weapon (6)
-        [15208],                           // Lightning Bolt (10)
+        [15208,10395],                     // Lightning Bolt (10),        Healing Wave (8)
         [2860,25567],                      // Chain Lightning (3),      Healing Stream Totem (6)
         [51505,16355,10413],               // Lava Burst,               Frostbrand Weapon (4),      Earth Shock (6)
-        [2645,20608],                      // Ghost Wolf,               Reincarnation
-        [10473,58704,58643,58744],         // Frost Shock (4),          Searing Totem (10),         Strength of Earth (8),      Mana Spring Totem (8)
+        [2645,20608,49276,25422],          // Ghost Wolf,               Reincarnation,              Lesser Healing Wave (9),        Chain Heal (4)
+        [10473,58704,58643,58744],         // Frost Shock (4),          Searing Totem (10),         Strength of Earth (8),          Mana Spring Totem (8)
         [2894,58785],                      // Fire Elemental Totem,     Flametongue Weapon (8)
-        [25449,49233],                     // Lightning Bolt (12),      Flame Shock (9)
+        [25449,49233,25396],               // Lightning Bolt (12),      Flame Shock (9),            Healing Wave (12)
         [58796,49277],                     // Frostbrand Weapon (9),    Ancestral Spirit (7)
-        [49271,61300],                     // Chain Lightning (8),      Riptide (3)
+        [49271,61300,55459],               // Chain Lightning (8),      Riptide (3),                Chain Heal (7)
         [49238,49236],                     // Lightning Bolt (14),      Frost Shock (7)
         [60043,49231],                     // Lava Burst (2),           Earth Shock (10)
-        [59158,49284],                     // Thunderstorm (3),         Earth Shield
+        [59158,49284,49273],               // Thunderstorm (3),         Earth Shield,               Healing Wave 14
         [51514,58804],                     // Hex,                      Windfury Weapon (8)    
     ],
     [[0/*Mage*/],
@@ -198,7 +198,7 @@ let spellsList = [
         [5211,6808,5487,779,1079,6795,33876,33878], // Bash,                    Maul,                   Bear Form,              Swipe (Bear),       Rip (1),        Growl,      Mangle (1)
         [16914,6780],                           // Hurricane (1),           Wrath (6),         
         [8928,8950,5188],                       // Moonfire (6),            Starfire (3),           Healing Touch (4)
-        [5215,1822,5217,5221,1850],             // Prowl,                   Rake (1),               Tigers Fury (1),        Shred (1),          Dash (1)
+        [5215,1822,5217,5221,1850,48438,33763],             // Prowl,                   Rake (1),               Tigers Fury (1),        Shred (1),          Dash (1),           Wild Growth
         [9912,9835,2090],                       // Wrath (8),               Moonfire (10),          Rejuvenation (4)
         [5201,9745,8992,9493],                  // Claw (3),                Maul (5),               Shred (3),              Rip (3)
         [27012,9750,50763,33983,1824],          // Hurricane (4),           Regrowth (6),           Revive (7),             Rake (3),           Mangle (3)
@@ -206,7 +206,7 @@ let spellsList = [
         [9005,9634,22827],                      // Pounce,                  Dire Bear Form,         Ferocious Bite (2)
         [20719,9904,26997,9840],                // Feline Grace,            Rake (4),               Swipe Bear (6),         Rejuvenation (9)
         [9827,27001,740],                       // Pounce (3),              Shred (6),              Tranquility
-        [22570,9896,9888,33763],                // Maim (1),                Rip (6),                Healing Touch (9),      Lifebloom (1)
+        [22570,9896,9888,48451],                // Maim (1),                Rip (6),                Healing Touch (9),      Lifebloom (1)
         [48463,24248,25299,48566,48564],        // Moonfire (14),           Ferocious Bite (6),     Rejuvenation (11),      Mangle (5)
         [48461,48574,48443],                    // Wrath (12),              Rake (7),               Regrowth (12)
         [48465,50464],                          // Starfire (10),           Nourish (1)

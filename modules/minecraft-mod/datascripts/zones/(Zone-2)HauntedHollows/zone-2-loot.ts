@@ -1,4 +1,4 @@
-import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
+import { ExpScroll, EyeofDestiny } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
 import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set"
@@ -46,8 +46,8 @@ addLootToCreature(Zone2RareCreature2Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
 addLootToCreature(Zone2RareCreature2Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
-    FleshhideShoulders.ID,          stringItem.ID
-],[10,10,10,10,10,10,10,20],0)
+    FleshhideShoulders.ID,          stringItem.ID,                  EyeofDestiny.ID
+],[10,10,10,10,10,10,10,20,0.05],0)
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreature(Zone2RareCreature2Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
@@ -79,8 +79,8 @@ addLootToCreature(Zone2RareCreature1Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
 addLootToCreature(Zone2RareCreature1Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
-    FleshhideShoulders.ID,          stringItem.ID
-],[10,10,10,10,10,10,10,20],0)
+    FleshhideShoulders.ID,          stringItem.ID,                  EyeofDestiny.ID
+],[10,10,10,10,10,10,10,20,0.05],0)
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreature(Zone2RareCreature1Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,

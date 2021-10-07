@@ -3,24 +3,13 @@ import { MODNAME } from "../../modname"
 
 // Magic Spells
 export let Rank1Frostbolt = std.Spells.create(MODNAME,'Rank1Frostbolt-spell',116)
-Rank1Frostbolt.Name.enGB.set('Frostbolt')
-Rank1Frostbolt.Effects.get(0).BasePoints.set(-21)
-Rank1Frostbolt.Effects.get(1).BasePoints.set(14)
-Rank1Frostbolt.CastTime.set(3000,0,3000)
-Rank1Frostbolt.Effects.get(0).BonusMultiplier.set(0)
+
 export let Rank1FireBlast = std.Spells.create(MODNAME,'Rank1FireBlast-spell',60871)
-Rank1FireBlast.Name.enGB.set('Fire Blast')
-Rank1FireBlast.Effects.get(0).BasePoints.set(34)
-Rank1FireBlast.Effects.get(0).BonusMultiplier.set(0)
+
 export let Rank1FrostNova = std.Spells.create(MODNAME,'Rank1FrostNova-spell',122)
-Rank1FrostNova.Name.enGB.set('Frost Nova')
-Rank1FrostNova.Effects.get(0).BasePoints.set(17)
-Rank1FrostNova.Duration.set(4500,0,4500)
-Rank1FrostNova.Effects.get(0).BonusMultiplier.set(0)
+
 export let Rank1FrostArmor = std.Spells.create(MODNAME,'Rank1FrostArmor-spell',168)
-Rank1FrostArmor.Name.enGB.set('Frost Armor')
-Rank1FrostArmor.Effects.get(0).BasePoints.set(17)
-Rank1FrostArmor.Duration.set(120000,0,120000)
+
 
 // Melee + Combat Spells
 export let Rank1BoarCharge = std.Spells.create(MODNAME,'Rank1BoarCharge-spell',3385)
@@ -50,3 +39,22 @@ export let Rank1Whirlwind = std.Spells.create(MODNAME,'Rank1Whirlwind-spell',670
 Rank1Whirlwind.Name.enGB.set('Whirlwind')
 
 
+/*export let Rank1Frostbolt = std.Spells.create(MODNAME,'Rank1Frostbolt-spell',116)
+Rank1Frostbolt.Name.enGB.set('Frostbolt')
+Rank1Frostbolt.Effects.get(0).BasePoints.set(-21)
+Rank1Frostbolt.Effects.get(1).BasePoints.set(14)
+Rank1Frostbolt.CastTime.set(3000,0,3000)
+Rank1Frostbolt.Effects.get(0).BonusMultiplier.set(0)
+export let Rank1FireBlast = std.Spells.create(MODNAME,'Rank1FireBlast-spell',60871)
+Rank1FireBlast.Name.enGB.set('Fire Blast')
+Rank1FireBlast.Effects.get(0).BasePoints.set(34)
+Rank1FireBlast.Effects.get(0).BonusMultiplier.set(0)
+export let Rank1FrostNova = std.Spells.create(MODNAME,'Rank1FrostNova-spell',122)
+Rank1FrostNova.Name.enGB.set('Frost Nova')
+Rank1FrostNova.Effects.get(0).BasePoints.set(17)
+Rank1FrostNova.Duration.set(4500,0,4500)
+Rank1FrostNova.Effects.get(0).BonusMultiplier.set(0)
+export let Rank1FrostArmor = std.Spells.create(MODNAME,'Rank1FrostArmor-spell',168)
+Rank1FrostArmor.Name.enGB.set('Frost Armor')
+Rank1FrostArmor.Effects.get(0).BasePoints.set(17)
+Rank1FrostArmor.Duration.set(120000,0,120000) */

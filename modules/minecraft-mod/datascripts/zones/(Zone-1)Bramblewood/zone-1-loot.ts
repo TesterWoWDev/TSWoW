@@ -9,8 +9,9 @@ import { addLootToCreature, addLootToCreatureSingleChance } from "../../function
 import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll";
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
 import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll";
-import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items";
+import { ExpScroll, EyeofDestiny } from "../(Zone-0)Walk-of-Heroes/starting-zone-items";
 import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb";
+
 //Pearl, Epaulet, Chain, Metal, Reinforced Metal, Stick,Dust
 //Cloth, Leather, Mail
 
@@ -221,8 +222,9 @@ addLootToCreatureSingleChance(RareCreature1Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(RareCreature1Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
-],[5,5,5,5,3,5],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID,
+    EyeofDestiny.ID
+],[5,5,5,5,3,5,0.05],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(RareCreature1Loot,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
@@ -269,8 +271,9 @@ addLootToCreatureSingleChance(RareCreature2Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(RareCreature2Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
-],[5,5,5,5,3,5],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID,
+    EyeofDestiny.ID
+],[5,5,5,5,3,5,0.05],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(RareCreature2Loot,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
@@ -317,8 +320,9 @@ addLootToCreatureSingleChance(RareCreature3Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(RareCreature3Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
-],[5,5,5,5,3,5],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID,
+    EyeofDestiny.ID
+],[5,5,5,5,3,5,0.05],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(RareCreature3Loot,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,
@@ -362,8 +366,9 @@ addLootToCreatureSingleChance(RareCreature4Loot,undiscoveredOranges,0.125)
 /*Bags - Group 0*/
 addLootToCreature(RareCreature4Loot,[
     SmallRedPouch.ID,               SmallBluePouch.ID,                  SmallBlackPouch.ID,
-    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID
-],[5,5,5,5,3,5],0)
+    SmallGreenPouch.ID,             BrownLeatherSatchel.ID,             ExpScroll.ID,
+    EyeofDestiny.ID
+],[5,5,5,5,3,5,0.05],0)
 /*Epic Items - Group 1*/
 addLootToCreatureSingleChance(RareCreature4Loot,[
     DazzlingLongsword.ID,           Nightblade.ID,                      FieryWarAxe.ID,

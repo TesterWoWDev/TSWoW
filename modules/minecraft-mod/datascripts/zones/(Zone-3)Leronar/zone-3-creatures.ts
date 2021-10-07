@@ -44,7 +44,7 @@ Zone3Creature1.DamageSchool.setNormal()
 Zone3Creature1.Stats.ArmorMod.set(5)
 Zone3Creature1.Stats.DamageMod.set(30)
 Zone3Creature1.Stats.ExperienceMod.set(7)
-Zone3Creature1.Stats.HealthMod.set(30)
+Zone3Creature1.Stats.HealthMod.set(20)
 Zone3Creature1.Stats.ManaMod.set(10)
  
 export let Zone3Creature1Loot = Zone3Creature1.NormalLoot
@@ -69,12 +69,9 @@ Zone3Creature2.Name.enGB.set('Fenspindle Ravager')
     Zone3Creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
     Zone3Creature2.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
     Zone3Creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    Zone3Creature2.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    Zone3Creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
     //combat loop
     Zone3Creature2.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(VoidStrike.ID,2,7)
     Zone3Creature2.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(Destroy.ID,2,7)
-    Zone3Creature2.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Concuss.ID,2,7)
 //End of Spells
 Zone3Creature2.MovementType.setRandomMovement()
 Zone3Creature2.Level.set(7,9)
@@ -82,7 +79,7 @@ Zone3Creature2.FactionTemplate.set(48)
 Zone3Creature2.DamageSchool.setNormal()
 Zone3Creature2.Stats.ArmorMod.set(5)
 Zone3Creature2.Stats.DamageMod.set(30)
-Zone3Creature2.Stats.HealthMod.set(30)
+Zone3Creature2.Stats.HealthMod.set(20)
 Zone3Creature2.Stats.ManaMod.set(10)
 Zone3Creature2.Stats.ExperienceMod.set(7)
 export let Zone3Creature2Loot = Zone3Creature2.NormalLoot
@@ -178,7 +175,7 @@ Zone3RareCreature1.AIName.SmartAI()
 
 SQL.smart_scripts.add(Zone3RareCreature1.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(52870).target_type.set(2).comment.set('Windstrike')
 SQL.smart_scripts.add(Zone3RareCreature1.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(52873).target_type.set(2).comment.set('Rend')
-SQL.smart_scripts.add(Zone3RareCreature1.ID,0,5,0).event_type.set(1).event_chance.set(100).event_param1.set(13000).event_param2.set(18000).event_param3.set(60000).event_param4.set(75000).action_type.set(11).action_param1.set(52905).target_type.set(2).comment.set('Thunderbolt')
+SQL.smart_scripts.add(Zone3RareCreature1.ID,0,5,0).event_type.set(0).event_chance.set(100).event_param1.set(13000).event_param2.set(18000).event_param3.set(60000).event_param4.set(75000).action_type.set(11).action_param1.set(52905).target_type.set(2).comment.set('Thunderbolt')
 SQL.smart_scripts.add(Zone3RareCreature1.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(100000).event_param4.set(100000).action_type.set(11).action_param1.set(52943).target_type.set(1).comment.set('Lightning Whirl')
 
 Zone3RareCreature1.DamageSchool.setNormal()
@@ -378,3 +375,22 @@ spawnMultipleNPCWithTimer(WoodcuttingTree02.ID,0,0,[
     [-8484.403320,178.279068,12.765023,5.580104],
     [-8452.666016,196.519913,20.410664,0.926618],
     [-8524.039062,91.092819,25.066723,5.069595]],60)
+
+//Normal Creature Spawns
+export let Zone3RareCreature2 = std.CreatureTemplates.create(MODNAME,'zone3rarecreature2',3271)
+Zone3RareCreature2.Name.enGB.set('Tyde Windsage')
+Zone3RareCreature2.Rank.setRare()
+Zone3RareCreature2.AIName.SmartAI()
+SQL.smart_scripts.add(Zone3RareCreature1.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(50257).target_type.set(2).comment.set('Scalding Blast')
+SQL.smart_scripts.add(Zone3RareCreature1.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(50303).target_type.set(2).comment.set('SwineFlu')
+SQL.smart_scripts.add(Zone3RareCreature1.ID,0,5,0).event_type.set(0).event_chance.set(100).event_param1.set(13000).event_param2.set(18000).event_param3.set(60000).event_param4.set(75000).action_type.set(11).action_param1.set(50328).target_type.set(2).comment.set('Leeching Poison')
+SQL.smart_scripts.add(Zone3RareCreature1.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(100000).event_param4.set(100000).action_type.set(11).action_param1.set(50347).target_type.set(1).comment.set('Rush')
+Zone3RareCreature2.DamageSchool.setNormal()
+Zone3RareCreature2.Stats.ArmorMod.set(5)
+Zone3RareCreature2.Stats.DamageMod.set(50)
+Zone3RareCreature2.Stats.HealthMod.set(35)
+Zone3RareCreature2.Stats.ManaMod.set(3)
+Zone3RareCreature2.Stats.ExperienceMod.set(10)
+export let Zone3RareCreature2Loot = Zone3RareCreature2.NormalLoot //Copy Avian Loot
+spawnMultipleNPCWithTimer(Zone3RareCreature2.ID,0,0,[
+        [-8610.512695,181.409393,15.189332,0.007321],],300)
