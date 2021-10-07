@@ -643,6 +643,21 @@ addLootToCreatureSingleChance(DungeonBoss02Loot,[
     OrbofPower.ID
 ],100,3)
 
+export let DungeonItem21 = std.Items.create(MODNAME,'dungeonitem21',28484)
+DungeonItem21.RequiredLevel.set(6)
+DungeonItem21.Quality.setBlue()
+export let DungeonItem22 = std.Items.create(MODNAME,'dungeonitem22',28485)
+DungeonItem22.RequiredLevel.set(6)
+DungeonItem22.Quality.setBlue()
+export let DungeonItem23 = std.Items.create(MODNAME,'dungeonitem23',23565)
+DungeonItem23.RequiredLevel.set(6)
+DungeonItem23.Quality.setBlue()
+export let DungeonItem24 = std.Items.create(MODNAME,'dungeonitem24',23564)
+DungeonItem24.RequiredLevel.set(6)
+DungeonItem24.Quality.setBlue()
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                Dungeon Chest Loot Must Always Remain at Bottom
@@ -669,7 +684,9 @@ addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
     DungeonItem13.ID,               DungeonItem14.ID,               DungeonItem15.ID,
     DungeonItem16.ID,               DungeonItem17.ID,               DungeonItem18.ID,
     DungeonItem19.ID,               DungeonItem20.ID,               VolatilePower.ID,
-    DragonscaleBlade.ID,            MiseryMace.ID,                  HeartPit.ID
+    DragonscaleBlade.ID,            MiseryMace.ID,                  HeartPit.ID,
+    DungeonItem21.ID,               DungeonItem22.ID,               DungeonItem23.ID,
+    DungeonItem24.ID
 ],0.0125)
 /*Rare Items - Group 0*/      
 addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
