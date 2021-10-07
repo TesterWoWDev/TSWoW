@@ -10,7 +10,6 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
             let fillVal = message.itemIDs[i]
             if(message.itemIDs[i] != 0){
                 if(i == 4){
-                    console.log(message.itemIDs[i])
                     if(player.HasItem(message.itemIDs[i],1,false)){
                         let item = player.GetItemByEntry(message.itemIDs[i])
                         if(item.GetClass() == 2 || item.GetClass() == 4){
@@ -74,6 +73,7 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                             }
                             let item = player.GetItemByPos(message.positions[i].bagslot[0],message.positions[i].bagslot[1])
                             if(item.IsNull()){
+                                console.log("Null item crafting: bag:" + message.positions[i].bagslot[0] + " slot:" + message.positions[i].bagslot[1] + " player:"+player.GetName())
                                 player.SendAreaTriggerMessage("Your item was null? track whatever you did. call ghost")
                                 return
                             }else{
