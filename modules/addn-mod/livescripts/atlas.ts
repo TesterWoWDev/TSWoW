@@ -3,7 +3,7 @@ import { creatureNameMessage, creatureNoExistMessage, itemLootFinishMessage, ite
 export function Atlas(events: TSEventHandlers) {
     events.Addon.OnMessageID(creatureNameMessage,(player,msg)=>{ 
         let check = -2
-        let entry = msg.entry.replace("\\\\",'').replace(';','').replace("'",'\\\'').replace('/','').replace('"','').replace('+','').replace('-','')
+        let entry = msg.entry.replace("\\\\",'').replace(';','').replace("'",'\\\\\'').replace('/','').replace('"','').replace('+','').replace('-','')
         let lootID = 0;
         console.log("Player: "+player.GetName() + " AccountID: "+player.GetAccountId()+" Message: "+msg.entry+" isName: "+msg.isName + " Formatted: " + entry)
         if(entry.length > 0){
