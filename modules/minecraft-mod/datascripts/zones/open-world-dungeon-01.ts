@@ -10,6 +10,7 @@ import { tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial
 import { LargeSackofCoins } from "../items/currencies"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../items/gems/tier1-gem"
 import { MODNAME } from "../modname"
+import { EyeofDestiny } from "../recipes/herbalism/dark-steel"
 import { VolatilePower, DragonscaleBlade, MiseryMace, HeartPit, LurkerCord, LurkerGrasp, LurkerBelt, LurkerGirdle, RavagerCuff, RavagerWrap, Ravagerband, Ravagerbracer, Gliderwrap, Gliderboots, Glidersabatons, Glidergreaves, LostTreads, Commendation, Contempt, FocusingCrystal, SunwellVial } from "./(Zone-3)Leronar/zone-3-items"
 import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 
@@ -844,6 +845,11 @@ addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
     LostTreads.ID,                  Commendation.ID,                Contempt.ID,
     FocusingCrystal.ID,             SunwellVial.ID
 ],0.5,1)
+/*Ultra Rares*/
+addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
+    DarkSteel.ID,                   DarkLeather.ID,                 DarkCloth.ID,
+    EyeofDestiny.ID
+],0.05,3)
 /*Money Bags*/
 addLootToGobChest(OpenWorldDungeonChest01,[
     LargeSackofCoins.ID
