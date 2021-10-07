@@ -109,6 +109,7 @@ DungeonMob01.Rank.setElite()
 DungeonMob01.Models.clearAll()
 DungeonMob01.Models.addIds(18373)
 export let DungeonMob01Loot = DungeonMob01.NormalLoot
+DungeonMob01Loot.makeUnique(false)
 spawnMultipleNPCWithTimer(DungeonMob01.ID,0,0,[
     [-8743.326172,585.324890,-15.320604,2.583537],
     [-8759.154297,646.166260,-17.919151,2.659830],
