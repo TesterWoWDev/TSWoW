@@ -10,6 +10,8 @@ harpyCreature.Models.addIds(3022)
 harpyCreature.Scale.set(5)
 harpyCreature.Level.set(15,15)
 harpyCreature.Rank.setElite()
+export let stormforged = std.CreatureTemplates.load(30060)
+stormforged.Level.set(15,15)
 //Spells
 export let harpySpell1 = std.Spells.create(MODNAME,'harpyspell1-spell',55847)
 harpySpell1.Name.enGB.set('Shadow Void')
