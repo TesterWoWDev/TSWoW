@@ -362,15 +362,6 @@ CrushGempurple07.Effects.get(0).ItemType.set(GemDust.ID)
 CrushGempurple07.Reagents.add(undiscoveredPurples[6],1)
 CrushGempurple07.RequiresSpellFocus.set(0)
 purple07.Spells.add(CrushGempurple07.ID,0,0,0,0,100,0)
-export let purple08 = std.Items.load(undiscoveredPurples[7])
-export let CrushGempurple08 = std.Spells.create(MODNAME,'crushgempurple08',8604)
-CrushGempurple08.Name.enGB.set('Crush Gem')
-CrushGempurple08.Description.enGB.set('Crush into powder.')
-CrushGempurple08.Reagents.clearAll()
-CrushGempurple08.Effects.get(0).ItemType.set(GemDust.ID)
-CrushGempurple08.Reagents.add(undiscoveredPurples[7],1)
-CrushGempurple08.RequiresSpellFocus.set(0)
-purple08.Spells.add(CrushGempurple08.ID,0,0,0,0,100,0)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
