@@ -646,18 +646,71 @@ addLootToCreatureSingleChance(DungeonBoss02Loot,[
 export let DungeonItem21 = std.Items.create(MODNAME,'dungeonitem21',28484)
 DungeonItem21.RequiredLevel.set(6)
 DungeonItem21.Quality.setBlue()
+DungeonItem21.RequiredSpell.set(0)
 export let DungeonItem22 = std.Items.create(MODNAME,'dungeonitem22',28485)
 DungeonItem22.RequiredLevel.set(6)
 DungeonItem22.Quality.setBlue()
+DungeonItem22.RequiredSpell.set(0)
 export let DungeonItem23 = std.Items.create(MODNAME,'dungeonitem23',23565)
 DungeonItem23.RequiredLevel.set(6)
 DungeonItem23.Quality.setBlue()
+DungeonItem23.RequiredSpell.set(0)
 export let DungeonItem24 = std.Items.create(MODNAME,'dungeonitem24',23564)
 DungeonItem24.RequiredLevel.set(6)
 DungeonItem24.Quality.setBlue()
+DungeonItem24.RequiredSpell.set(0)
 
+export let DungeonItem25 = std.Items.create(MODNAME,'dungeonitem25',28439)
+DungeonItem25.RequiredLevel.set(6)
+DungeonItem25.Quality.setBlue()
+DungeonItem25.RequiredSpell.set(0)
+export let DungeonItem26 = std.Items.create(MODNAME,'dungeonitem26',28442)
+DungeonItem26.RequiredLevel.set(6)
+DungeonItem26.Quality.setBlue()
+DungeonItem26.RequiredSpell.set(0)
+export let DungeonItem27 = std.Items.create(MODNAME,'dungeonitem27',28430)
+DungeonItem27.RequiredLevel.set(6)
+DungeonItem27.Quality.setBlue()
+DungeonItem27.RequiredSpell.set(0)
+export let DungeonItem28 = std.Items.create(MODNAME,'dungeonitem28',28427)
+DungeonItem28.RequiredLevel.set(6)
+DungeonItem28.Quality.setBlue()
+DungeonItem28.RequiredSpell.set(0)
 
+export let DungeonItem29 = std.Items.create(MODNAME,'dungeonitem29',21869)
+DungeonItem29.RequiredLevel.set(6)
+DungeonItem29.Quality.setBlue()
+DungeonItem29.RequiredSpell.set(0)
+export let DungeonItem30 = std.Items.create(MODNAME,'dungeonitem30',21870)
+DungeonItem30.RequiredLevel.set(6)
+DungeonItem30.Quality.setBlue()
+DungeonItem30.RequiredSpell.set(0)
+export let DungeonItem31 = std.Items.create(MODNAME,'dungeonitem31',21871)
+DungeonItem31.RequiredLevel.set(6)
+DungeonItem31.Quality.setBlue()
+DungeonItem31.RequiredSpell.set(0)
 
+export let DungeonItem32 = std.Items.create(MODNAME,'dungeonitem32',21846)
+DungeonItem32.RequiredLevel.set(6)
+DungeonItem32.Quality.setBlue()
+DungeonItem32.RequiredSpell.set(0)
+export let DungeonItem33 = std.Items.create(MODNAME,'dungeonitem33',21847)
+DungeonItem33.RequiredLevel.set(6)
+DungeonItem33.Quality.setBlue()
+DungeonItem33.RequiredSpell.set(0)
+export let DungeonItem34 = std.Items.create(MODNAME,'dungeonitem34',21818)
+DungeonItem34.RequiredLevel.set(6)
+DungeonItem34.Quality.setBlue()
+DungeonItem34.RequiredSpell.set(0)
+
+export let DungeonItem35 = std.Items.create(MODNAME,'dungeonitem35',23838)
+DungeonItem35.RequiredLevel.set(6)
+DungeonItem35.Quality.setBlue()
+DungeonItem35.RequiredSpell.set(0)
+export let DungeonItem36 = std.Items.create(MODNAME,'dungeonitem36',23839)
+DungeonItem36.RequiredLevel.set(6)
+DungeonItem36.Quality.setBlue()
+DungeonItem36.RequiredSpell.set(0)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                Dungeon Chest Loot Must Always Remain at Bottom
@@ -686,7 +739,11 @@ addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
     DungeonItem19.ID,               DungeonItem20.ID,               VolatilePower.ID,
     DragonscaleBlade.ID,            MiseryMace.ID,                  HeartPit.ID,
     DungeonItem21.ID,               DungeonItem22.ID,               DungeonItem23.ID,
-    DungeonItem24.ID
+    DungeonItem24.ID,               DungeonItem25.ID,               DungeonItem26.ID,
+    DungeonItem27.ID,               DungeonItem28.ID,               DungeonItem29.ID,
+    DungeonItem30.ID,               DungeonItem31.ID,               DungeonItem32.ID,
+    DungeonItem33.ID,               DungeonItem34.ID,               DungeonItem35.ID,
+    DungeonItem36.ID               
 ],0.0125)
 /*Rare Items - Group 0*/      
 addLootToGobChestSingleChance(OpenWorldDungeonChest01,[
