@@ -6,7 +6,7 @@ let spellsList = [
         [285,6343,845,23881,674],            // Heroic Strike (3),      Thunderclap (1),        Cleave(1),              Bloodthirst,            Dual Wield    
         [34428,5308],                        // Victory Rush,           Execute (1)
         [5242,6178,7369],                    // Battle Shout (2),       Charge (2),             Cleave(2)
-        [8198,6547,21552,2458,1680],                   // Thunder Clap (2),       Rend(3),                Mortal Strike (3),        Berserker Stance,           Whirlwind           
+        [8198,6547,21552,2458,1680],         // Thunder Clap (2),       Rend(3),                Mortal Strike (3),      Berserker Stance,       Whirlwind           
         [1608,20658,11608],                  // Heroic Strike (4)       Execute (2)             Cleave(3)
         [8204,6548],                         // Thunder Clap (3),       Rend (4)
         [11564,6192,1719],                   // Heroic Strike (5),      Battle Shout (3),       Recklessness
