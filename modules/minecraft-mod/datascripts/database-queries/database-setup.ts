@@ -16,6 +16,23 @@ SQL.Databases.world_dest.writeEarly('CREATE TABLE `invasions_spawners` (`entry` 
 
 SQL.Databases.world_source.writeEarly('DELETE FROM `creature_loot_template` WHERE Entry = 299')
 
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `armor` = (armor * 0.1) WHERE `entry` > 0')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `itemlevel` = (requiredlevel * 8.759) WHERE `entry` > 0')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `socketcolor_1` = (0) WHERE `entry` > 0')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `socketcolor_2` = (0) WHERE `entry` > 0')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `socketcolor_3` = (0) WHERE `entry` > 0')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `socketbonus` = (0) WHERE `entry` > 0')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `ammotype` = (2) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (2)')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `ammotype` = (2) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (3)')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `ammotype` = (2) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (18)')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `spellid_5` = (46699) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (2)')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `spellid_5` = (46699) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (3)')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `spellid_5` = (46699) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (18)')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `spelltrigger_5` = (1) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (2)')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `spelltrigger_5` = (1) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (3)')
+SQL.Databases.world_source.writeEarly('UPDATE `item_template` SET `spelltrigger_5` = (1) WHERE `entry` > 0 AND `class` = (2) AND `subclass` = (18)')
+
 SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).position_z.set(31.1351).map.set(725).name.set('start')
+
 //in bin/sql/custom/world/item_level setup is a auto-set required level sql
 //as well as item required rep and skills
