@@ -194,7 +194,7 @@ DungeonBoss01.Scale.set(1.75)
 export let DungeonBoss01Loot = DungeonBoss01.NormalLoot
 spawnMultipleNPCWithTimer(DungeonBoss01.ID,0,0,[
     [-8813.744141,662.621155,-17.837614,0.315410]],3600)
-
+    DungeonBoss01Loot.makeUnique(false)
 addLootToCreature(DungeonBoss01Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
 addLootToCreature(DungeonBoss01Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
 addLootToCreature(DungeonBoss01Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10],4)
@@ -345,6 +345,7 @@ spawnMultipleNPCWithTimer(AgitatedBloodMite.ID,5,0,[
     [-8777.691406,666.983765,-19.205202,5.487263],
     [-8777.301758,663.503418,-19.334749,5.275207],
     [-8773.991211,662.825195,-18.933674,5.345892]],1200)
+    AgitatedBloodMite.NormalLoot.makeUnique(false)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -489,6 +490,7 @@ spawnMultipleNPCWithTimer(SummonedSkeleton.ID,2,0,[
     [-8876.484375,694.569580,-18.436691,6.149693],
     [-8872.885742,694.826599,-18.178885,5.438910],
     [-8872.309570,691.556091,-18.691048,5.399641],],1200)
+    AgitatedBloodMite.NormalLoot.makeUnique(false)
 
 export let LightningRing = std.Spells.create(MODNAME,'lightningring-spell',50840)
 export let WoePillar = std.Spells.create(MODNAME,'woevolley-spell',50761)
@@ -528,6 +530,7 @@ spawnMultipleNPCWithTimer(SentinelMob.ID,0,0,[
     [-8848.622070,660.045471,-17.079538,2.057785],
     [-8891.041016,640.974426,-17.079294,2.026369],
     [-8906.180664,668.699890,-17.078783,5.105127]],300)
+    SentinelMobLoot.makeUnique(false)
 addLootToCreature(SentinelMobLoot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[2,2,2],4)
 addLootToCreature(SentinelMobLoot,tierThreeBaseResources,[2,2,2,2,2,2,2],4)
 /*Bags and Armor*/
@@ -594,7 +597,7 @@ DungeonBoss02.Scale.set(1.75)
 export let DungeonBoss02Loot = DungeonBoss02.NormalLoot
 spawnMultipleNPCWithTimer(DungeonBoss02.ID,0,0,[
     [-8925.356,642.169,-17.079,0.3456]],3600)
-
+    DungeonBoss02Loot.makeUnique(false)
 addLootToCreature(DungeonBoss02Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
 addLootToCreature(DungeonBoss02Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
 
