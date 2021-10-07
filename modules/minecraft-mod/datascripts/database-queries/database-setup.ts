@@ -16,8 +16,8 @@ SQL.Databases.world_dest.writeEarly('CREATE TABLE `invasions_spawners` (`entry` 
 
 SQL.Databases.world_source.writeEarly('DELETE FROM `creature_loot_template` WHERE Entry = 299')
 
-SQL.Databases.world_dest.writeEarly('UPDATE `item_template` SET `armor` = (armor * 0.25) WHERE `entry` > 0')
-SQL.Databases.world_dest.writeEarly('UPDATE `item_template` SET `itemlevel` = (requiredlevel * 8.759) WHERE `entry` > 0')
+SQL.Databases.world_dest.writeLate('UPDATE `item_template` SET `armor` = (armor * 0.25) WHERE `entry` > 0')
+SQL.Databases.world_dest.writeLate('UPDATE `item_template` SET `itemlevel` = (requiredlevel * 8.759) WHERE `entry` > 0')
 SQL.Databases.world_dest.writeEarly('UPDATE `item_template` SET `socketcolor_1` = (0) WHERE `entry` > 0')
 SQL.Databases.world_dest.writeEarly('UPDATE `item_template` SET `socketcolor_2` = (0) WHERE `entry` > 0')
 SQL.Databases.world_dest.writeEarly('UPDATE `item_template` SET `socketcolor_3` = (0) WHERE `entry` > 0')
