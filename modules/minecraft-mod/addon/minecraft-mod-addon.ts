@@ -128,6 +128,7 @@ import { Events, SendToServer } from "./lib/Events"
     }
     function select(frame:WoWAPI.Frame){
         let itemid = GetCursorInfo()[1]
+        console.log(itemid)
         if(itemid != null){
         let info = GetItemInfo(itemid)
             if(info != null){

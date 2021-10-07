@@ -10,6 +10,7 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
             let fillVal = message.itemIDs[i]
             if(message.itemIDs[i] != 0){
                 if(i == 4){
+                    console.log(message.itemIDs[i])
                     let item = player.GetItemByEntry(message.itemIDs[i])
                     if(item.GetClass() == 2 || item.GetClass() == 4){
                         isEnchant = true
