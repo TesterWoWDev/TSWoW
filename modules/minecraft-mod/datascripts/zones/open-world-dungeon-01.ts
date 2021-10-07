@@ -356,6 +356,90 @@ spawnMultipleNPCWithTimer(AgitatedBloodMite.ID,5,0,[
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+export let DungeonItem01 = std.Items.create(MODNAME,'dungeonitem01',32327)
+DungeonItem01.RequiredLevel.set(6)
+DungeonItem01.Socket.clearAll()
+DungeonItem01.Quality.setBlue()
+export let DungeonItem02 = std.Items.create(MODNAME,'dungeonitem02',32280)
+DungeonItem02.RequiredLevel.set(6)
+DungeonItem02.Socket.clearAll()
+DungeonItem02.Quality.setBlue()
+export let DungeonItem03 = std.Items.create(MODNAME,'dungeonitem03',32512)
+DungeonItem03.RequiredLevel.set(6)
+DungeonItem03.Socket.clearAll()
+DungeonItem03.Quality.setBlue()
+export let DungeonItem04 = std.Items.create(MODNAME,'dungeonitem04',32338)
+DungeonItem04.RequiredLevel.set(6)
+DungeonItem04.Socket.clearAll()
+DungeonItem04.Quality.setBlue()
+export let DungeonItem05 = std.Items.create(MODNAME,'dungeonitem05',32341)
+DungeonItem05.RequiredLevel.set(6)
+DungeonItem05.Socket.clearAll()
+DungeonItem05.Quality.setBlue()
+export let DungeonItem06 = std.Items.create(MODNAME,'dungeonitem06',32354)
+DungeonItem06.RequiredLevel.set(6)
+DungeonItem06.Socket.clearAll()
+DungeonItem06.Quality.setBlue()
+export let DungeonItem07 = std.Items.create(MODNAME,'dungeonitem07',32517)
+DungeonItem07.RequiredLevel.set(6)
+DungeonItem07.Socket.clearAll()
+DungeonItem07.Quality.setBlue()
+export let DungeonItem08 = std.Items.create(MODNAME,'dungeonitem08',32362)
+DungeonItem08.RequiredLevel.set(6)
+DungeonItem08.Socket.clearAll()
+DungeonItem08.Quality.setBlue()
+export let DungeonItem09 = std.Items.create(MODNAME,'dungeonitem09',32331)
+DungeonItem09.RequiredLevel.set(6)
+DungeonItem09.Socket.clearAll()
+DungeonItem09.Quality.setBlue()
+export let DungeonItem10 = std.Items.create(MODNAME,'dungeonitem10',32235)
+DungeonItem10.RequiredLevel.set(6)
+DungeonItem10.Socket.clearAll()
+DungeonItem10.Quality.setBlue()
+export let DungeonItem11 = std.Items.create(MODNAME,'dungeonitem11',32471)
+DungeonItem11.RequiredLevel.set(6)
+DungeonItem11.Socket.clearAll()
+DungeonItem11.Quality.setBlue()
+export let DungeonItem12 = std.Items.create(MODNAME,'dungeonitem12',32854)
+DungeonItem12.RequiredLevel.set(6)
+DungeonItem12.Socket.clearAll()
+DungeonItem12.Quality.setBlue()
+export let DungeonItem13 = std.Items.create(MODNAME,'dungeonitem13',31326)
+DungeonItem13.RequiredLevel.set(6)
+DungeonItem13.Socket.clearAll()
+DungeonItem13.Quality.setBlue()
+export let DungeonItem14 = std.Items.create(MODNAME,'dungeonitem14',31319)
+DungeonItem14.RequiredLevel.set(6)
+DungeonItem14.Socket.clearAll()
+DungeonItem14.Quality.setBlue()
+export let DungeonItem15 = std.Items.create(MODNAME,'dungeonitem15',31333)
+DungeonItem15.RequiredLevel.set(6)
+DungeonItem15.Socket.clearAll()
+DungeonItem15.Quality.setBlue()
+export let DungeonItem16 = std.Items.create(MODNAME,'dungeonitem16',31331)
+DungeonItem16.RequiredLevel.set(6)
+DungeonItem16.Socket.clearAll()
+DungeonItem16.Quality.setBlue()
+export let DungeonItem17 = std.Items.create(MODNAME,'dungeonitem17',31342)
+DungeonItem17.RequiredLevel.set(6)
+DungeonItem17.Socket.clearAll()
+DungeonItem17.Quality.setBlue()
+export let DungeonItem18 = std.Items.create(MODNAME,'dungeonitem18',34622)
+DungeonItem18.RequiredLevel.set(6)
+DungeonItem18.Socket.clearAll()
+DungeonItem18.Quality.setBlue()
+export let DungeonItem19 = std.Items.create(MODNAME,'dungeonitem19',37835)
+DungeonItem19.RequiredLevel.set(6)
+DungeonItem19.Socket.clearAll()
+DungeonItem19.Quality.setBlue()
+export let DungeonItem20 = std.Items.create(MODNAME,'dungeonitem20',44312)
+DungeonItem20.RequiredLevel.set(6)
+DungeonItem20.Socket.clearAll()
+DungeonItem20.Quality.setBlue()
+
+
+
+
 export let SummonedSkeleton = std.CreatureTemplates.create(MODNAME,'skeletonbones',3271)
 SummonedSkeleton.Name.enGB.set('Animated Bones')
 SummonedSkeleton.Level.set(9,9)
@@ -448,11 +532,14 @@ addLootToCreature(SentinelMobLoot,tierThreeBaseResources,[2,2,2,2,2,2,2],4)
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(SentinelMobLoot,[
-    ReignLeggings.ID,           TrackerBelt.ID,          Noose.ID,               SporeReed.ID,
-    RenewalHammer.ID,           WildMagic.ID,            UnbrokenChain.ID,       PhosphoSword.ID,
-    DestructiveMaul.ID,         Bladefist.ID,            Fathomstone.ID,         ArgentSentinel.ID,
-    ObliterativeBoots.ID,       VigilanteRing.ID,        Naaru.ID,               LostAge.ID
-],0.5,1)
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.25,1)
 addLootToCreatureSingleChance(SentinelMobLoot,[
     undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
     undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
@@ -513,10 +600,13 @@ addLootToCreature(DungeonBoss02Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(DungeonBoss02Loot,[
-    ReignLeggings.ID,           TrackerBelt.ID,          Noose.ID,               SporeReed.ID,
-    RenewalHammer.ID,           WildMagic.ID,            UnbrokenChain.ID,       PhosphoSword.ID,
-    DestructiveMaul.ID,         Bladefist.ID,            Fathomstone.ID,         ArgentSentinel.ID,
-    ObliterativeBoots.ID,       VigilanteRing.ID,        Naaru.ID,               LostAge.ID
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
 ],0.5,1)
 addLootToCreatureSingleChance(DungeonBoss02Loot,[
     undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
