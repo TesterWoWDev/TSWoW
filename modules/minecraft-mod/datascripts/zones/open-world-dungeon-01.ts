@@ -779,6 +779,19 @@ DungeonItem36.RequiredLevel.set(6)
 DungeonItem36.Quality.setBlue()
 DungeonItem36.RequiredSpell.set(0)
 
+export let DarkSteel = std.Items.create(MODNAME,'darksteel',2318)
+DarkSteel.Name.enGB.set('Dark Steel')
+DarkSteel.Quality.setPurple()
+DarkSteel.MaxStack.set(9999)
+export let DarkLeather = std.Items.create(MODNAME,'darkleather',2318)
+DarkLeather.Name.enGB.set('Dark Steel')
+DarkLeather.Quality.setPurple()
+DarkLeather.MaxStack.set(9999)
+export let DarkCloth = std.Items.create(MODNAME,'darkcloth',2318)
+DarkCloth.Name.enGB.set('Dark Steel')
+DarkCloth.Quality.setPurple()
+DarkCloth.MaxStack.set(9999)
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                Dungeon Chest Loot Must Always Remain at Bottom
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
