@@ -4,6 +4,7 @@ import { addLootToCreature, addLootToCreatureSingleChance } from "../../function
 import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set"
 import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem"
 import { stringItem } from "../../items/string"
+import { EyeofDestiny } from "../../recipes/herbalism/dark-steel"
 import { Zone2Creature1Loot, Zone2Creature5Loot, Zone2RareCreature1Loot, Zone2RareCreature2Loot } from "./zone-2-creatures"
 import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, AwarenessHelm, CleverHat, FerventHelm, GuileRing, PotencyRing, SatyrBow, ShadowMistGloves } from "./zone-2-items"
 
@@ -46,8 +47,8 @@ addLootToCreature(Zone2RareCreature2Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
 addLootToCreature(Zone2RareCreature2Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
-    FleshhideShoulders.ID,          stringItem.ID
-],[10,10,10,10,10,10,10,20],0)
+    FleshhideShoulders.ID,          stringItem.ID,                  EyeofDestiny.ID
+],[10,10,10,10,10,10,10,20,0.05],0)
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreature(Zone2RareCreature2Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
@@ -79,8 +80,8 @@ addLootToCreature(Zone2RareCreature1Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
 addLootToCreature(Zone2RareCreature1Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
-    FleshhideShoulders.ID,          stringItem.ID
-],[10,10,10,10,10,10,10,20],0)
+    FleshhideShoulders.ID,          stringItem.ID,                  EyeofDestiny.ID
+],[10,10,10,10,10,10,10,20,0.05],0)
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreature(Zone2RareCreature1Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,

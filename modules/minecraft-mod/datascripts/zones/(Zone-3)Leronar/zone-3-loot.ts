@@ -6,6 +6,7 @@ import { addLootToCreature, addLootToCreatureSingleChance } from "../../function
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
 import { stringItem } from "../../items/string"
+import { EyeofDestiny } from "../../recipes/herbalism/dark-steel"
 import { harpyScroll } from "../champion-scrolls/harpy-champion-scroll"
 import { quailboarScroll } from "../champion-scrolls/quailboar-champion-scroll"
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll"
@@ -113,8 +114,8 @@ addLootToCreature(Zone3RareCreature1Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
     FleshhideShoulders.ID,          stringItem.ID,                  ShivanFeather.ID,
-    harpyScroll.ID
-],[2,2,2,2,2,2,2,1,5],0)
+    harpyScroll.ID,                 EyeofDestiny.ID
+],[2,2,2,2,2,2,2,1,5,0.05],0)
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreature(Zone3RareCreature1Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
@@ -169,8 +170,9 @@ addLootToCreature(Zone3RareCreature2Loot,tierTwoBaseResources,[6,6,6,6,6,6,6])
 addLootToCreature(Zone3RareCreature2Loot,[
     BloodiedPouch.ID,               SilkyCape.ID,                   Carapace.ID,
     GluttonCleaver.ID,              DeathmageSash.ID,               MordeshEye.ID,
-    FleshhideShoulders.ID,          stringItem.ID,                  quailboarScroll.ID
-],[2,2,2,2,2,2,2,5],0)
+    FleshhideShoulders.ID,          stringItem.ID,                  quailboarScroll.ID,
+    EyeofDestiny.ID
+],[2,2,2,2,2,2,2,5,0.05],0)
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreature(Zone3RareCreature2Loot,[
     FerventHelm.ID,                 AwarenessHelm.ID,               SatyrBow.ID,
