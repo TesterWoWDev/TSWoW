@@ -10,7 +10,7 @@ import { tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial
 import { LargeSackofCoins } from "../items/currencies"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../items/gems/tier1-gem"
 import { MODNAME } from "../modname"
-import { EyeofDestiny } from "../recipes/herbalism/dark-steel"
+import { EyeofDestiny } from "./(Zone-0)Walk-of-Heroes/starting-zone-items"
 import { VolatilePower, DragonscaleBlade, MiseryMace, HeartPit, LurkerCord, LurkerGrasp, LurkerBelt, LurkerGirdle, RavagerCuff, RavagerWrap, Ravagerband, Ravagerbracer, Gliderwrap, Gliderboots, Glidersabatons, Glidergreaves, LostTreads, Commendation, Contempt, FocusingCrystal, SunwellVial } from "./(Zone-3)Leronar/zone-3-items"
 import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 

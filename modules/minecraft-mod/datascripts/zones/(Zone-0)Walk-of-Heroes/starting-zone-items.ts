@@ -4,6 +4,13 @@ import { SQL_playercreateinfo_item } from "wotlkdata/sql/types/playercreateinfo_
 import { tierOneBaseResources, tierOneClothMaterial } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
 
+
+export let EyeofDestiny = std.Items.create(MODNAME,'eyeofdestiny',21221)
+EyeofDestiny.Name.enGB.set('Eye of Destiny')
+EyeofDestiny.Quality.setOrange()
+EyeofDestiny.Description.enGB.set('What can be learned from an eye as old as time..?')
+EyeofDestiny.StartQuest.set(0)
+
 export let DeadlyPoison = std.Items.load(2892)
 DeadlyPoison.RequiredLevel.set(1)
 export let CrippPoison = std.Items.load(3775)

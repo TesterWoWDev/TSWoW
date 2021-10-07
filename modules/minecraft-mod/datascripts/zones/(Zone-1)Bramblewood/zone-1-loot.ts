@@ -9,9 +9,9 @@ import { addLootToCreature, addLootToCreatureSingleChance } from "../../function
 import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll";
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
 import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll";
-import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items";
+import { ExpScroll, EyeofDestiny } from "../(Zone-0)Walk-of-Heroes/starting-zone-items";
 import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb";
-import { EyeofDestiny } from "../../recipes/herbalism/dark-steel";
+
 //Pearl, Epaulet, Chain, Metal, Reinforced Metal, Stick,Dust
 //Cloth, Leather, Mail
 

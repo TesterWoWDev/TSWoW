@@ -1,10 +1,9 @@
-import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
+import { ExpScroll, EyeofDestiny } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
 import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set"
 import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem"
 import { stringItem } from "../../items/string"
-import { EyeofDestiny } from "../../recipes/herbalism/dark-steel"
 import { Zone2Creature1Loot, Zone2Creature5Loot, Zone2RareCreature1Loot, Zone2RareCreature2Loot } from "./zone-2-creatures"
 import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, AwarenessHelm, CleverHat, FerventHelm, GuileRing, PotencyRing, SatyrBow, ShadowMistGloves } from "./zone-2-items"
 

@@ -3,12 +3,6 @@ import { createRecipe } from "../../functions/recipe-functions";
 import { MODNAME } from "../../modname";
 import { DarkSteel, DarkLeather, DarkCloth } from "../../zones/open-world-dungeon-01";
 
-export let EyeofDestiny = std.Items.create(MODNAME,'eyeofdestiny',21221)
-EyeofDestiny.Name.enGB.set('Eye of Destiny')
-EyeofDestiny.Quality.setOrange()
-EyeofDestiny.Description.enGB.set('What can be learned from an eye as old as time..?')
-EyeofDestiny.StartQuest.set(0)
-
 export let DarkSteelGloves = std.Items.create(MODNAME,'darksteelgloves',28505)
 DarkSteelGloves.Name.enGB.set('Dark Steel Gloves')
 DarkSteelGloves.Quality.setOrange()
