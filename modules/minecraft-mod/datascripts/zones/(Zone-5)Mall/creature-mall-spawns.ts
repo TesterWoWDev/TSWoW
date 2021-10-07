@@ -1,6 +1,6 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
-import { DBC_ItemExtendedCost } from "wotlkdata/dbc/types/ItemExtendedCost"
+import { DBC } from "wotlkdata"
 import { OrganicMatter } from "../(Zone-0)Walk-of-Heroes/starting-zone-alchemyrecipes"
 import { creature2, creature3 } from "../(Zone-1)Bramblewood/zone-1-creatures"
 import { setFaction, setName, setLevel, removeQuests, addLootToCreatureSingleChance, addLootToCreature } from "../../functions/npc-functions"
@@ -134,7 +134,7 @@ OrbOfPowerVendor.Models.addIds(21891)
 OrbOfPowerVendor.FactionTemplate.set(35)
 spawnMultipleNPCWithTimer(OrbOfPowerVendor.ID,0,0,[
     [-8302.053711,-267.736298,17.274397,6.243299]],10)
-DBC_ItemExtendedCost.add(5000).ItemID.set([OrbofPower.ID]).ItemCount.set([10]).HonorPoints.set(0).ArenaPoints.set(0)
+DBC.ItemExtendedCost.add(5000).ItemID.set([OrbofPower.ID]).ItemCount.set([10]).HonorPoints.set(0).ArenaPoints.set(0)
 OrbOfPowerVendor.addVendorItem(34170,0,0,5000)
 
 export let OrganicMatterVendor = std.CreatureTemplates.create(MODNAME,'organicmob-creature',3562)
@@ -144,7 +144,7 @@ OrganicMatterVendor.Models.addIds(21891)
 OrganicMatterVendor.FactionTemplate.set(35)
 spawnMultipleNPCWithTimer(OrganicMatterVendor.ID,0,0,[
     [-8166.573,-2.096447,0.082,2.345]],10)
-DBC_ItemExtendedCost.add(5001).ItemID.set([OrganicMatter.ID]).ItemCount.set([1]).HonorPoints.set(0).ArenaPoints.set(0)
+DBC.ItemExtendedCost.add(5001).ItemID.set([OrganicMatter.ID]).ItemCount.set([1]).HonorPoints.set(0).ArenaPoints.set(0)
 OrganicMatterVendor.addVendorItem(tierOneClothMaterial,0,0,5001)
 OrganicMatterVendor.addVendorItem(tierOneMailMaterial,0,0,5001)
 OrganicMatterVendor.addVendorItem(tierOneLeatherMaterial,0,0,5001)
