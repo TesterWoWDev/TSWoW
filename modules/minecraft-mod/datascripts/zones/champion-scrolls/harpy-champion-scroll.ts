@@ -6,7 +6,7 @@ export let harpyCreature = std.CreatureTemplates.create(MODNAME,'harpycreature-c
 harpyCreature.Name.enGB.set('Scallion')
 harpyCreature.Subname.enGB.set('Champion of the Harpys')
 harpyCreature.Models.clearAll()
-harpyCreature.Models.addIds(6098)
+harpyCreature.Models.addIds(3022)
 harpyCreature.Scale.set(5)
 harpyCreature.Level.set(15,15)
 harpyCreature.Rank.setElite()
