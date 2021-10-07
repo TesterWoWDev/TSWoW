@@ -1,12 +1,9 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
-import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
 import { LoggingPileLogs } from "../(Zone-5)Mall/mall-resource-spawns"
 import { spawnMultipleNPCWithTimer } from "../../functions/spawning-functions"
 import { tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { MODNAME } from "../../modname"
-
-let broadcastindex = 101000
 
 export let ChainLightning = std.Spells.create(MODNAME,'chainlightning-spell',10605)
 export let ShockLightning = std.Spells.create(MODNAME,'shocklightning-spell',26415)
@@ -283,7 +280,7 @@ WoodcuttingTree02.Level.set(1,1)
 WoodcuttingTree02.MovementSpeed.set(0,0)
 WoodcuttingTree02.NormalLoot.addItem(LoggingPileLogs.ID,100,1,3,false,1,1)
 WoodcuttingTree02.NormalLoot.addItem(tierTwoBaseResources[5],25,1,1,false,3,1)
-SQL_creature_template_movement.add(WoodcuttingTree02.ID).Rooted.set(1)
+SQL.creature_template_movement.add(WoodcuttingTree02.ID).Rooted.set(1)
 spawnMultipleNPCWithTimer(WoodcuttingTree02.ID,0,0,[
     [-8383.847656,127.971878,10.790754,2.030104],
     [-8396.234375,176.823792,7.468387,1.837682],

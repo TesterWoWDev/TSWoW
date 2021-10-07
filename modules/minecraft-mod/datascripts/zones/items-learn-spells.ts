@@ -1,6 +1,4 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata/sql/SQLFiles"
-import { MODNAME } from "../modname"
 
 //
 export let DaggerFoK = std.Items.load(2092)

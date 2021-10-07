@@ -2,7 +2,7 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../../../modname"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
-import { addWaypoint, addWaypoints, spawnGob, spawnMultipleNPCWithTimer, spawnNPC, spawnNPCWithTimer } from "../../../functions/spawning-functions"
+import { addWaypoint, spawnGob, spawnNPC, spawnNPCWithTimer } from "../../../functions/spawning-functions"
 import { DeathknightQuestGiver01 } from "./DeathKnightClassQuest"
 import { DruidQuestGiver01 } from "./DruidClassQuest"
 import { HunterQuestGiver01 } from "./HunterClassQuest"
@@ -13,8 +13,6 @@ import { RogueQuestGiver01 } from "./RogueClassQuest"
 import { ShamanQuestGiver01 } from "./ShamanClassQuest"
 import { WarlockQuestGiver01 } from "./WarlockClassQuest"
 import { WarriorQuestGiver01 } from "./WarriorClassQuest"
-import { SQL_npc_vendor } from "wotlkdata/sql/types/npc_vendor"
-import { SQL_waypoint_data } from "wotlkdata/sql/types/waypoint_data"
 import { setFaction } from "../../../functions/npc-functions"
 
 spawnNPC(questGiver03.ID,0,0,[-8292.411133,-271.135468,17.274445,1.4686858]) //Quest Giver 3 Spawn
@@ -73,21 +71,17 @@ Amulet05.RequiredLevel.set(1)
 export let AmuletVendor = std.CreatureTemplates.create(MODNAME,'druid01-creature',3562)
 AmuletVendor.Name.enGB.set('Maggie the Wise')
 AmuletVendor.FactionTemplate.set(35)
-SQL_npc_vendor.add(AmuletVendor.ID,Amulet01.ID,0).incrtime.set(3600).maxcount.set(2)
-SQL_npc_vendor.add(AmuletVendor.ID,Amulet02.ID,0).incrtime.set(3600).maxcount.set(2)
-SQL_npc_vendor.add(AmuletVendor.ID,Amulet03.ID,0).incrtime.set(3600).maxcount.set(2)
-SQL_npc_vendor.add(AmuletVendor.ID,Amulet04.ID,0).incrtime.set(3600).maxcount.set(2)
-SQL_npc_vendor.add(AmuletVendor.ID,Amulet05.ID,0).incrtime.set(3600).maxcount.set(2)
+AmuletVendor.addVendorItem(Amulet01.ID,2,3600,0)
+AmuletVendor.addVendorItem(Amulet02.ID,2,3600,0)
+AmuletVendor.addVendorItem(Amulet03.ID,2,3600,0)
+AmuletVendor.addVendorItem(Amulet04.ID,2,3600,0)
+AmuletVendor.addVendorItem(Amulet05.ID,2,3600,0)
 
 spawnNPC(3562,0,0,[-8186.291504,13.517035,0.115301,5.435018]) //Reagent Vendor at City Exit
 setFaction(3562,35)
 spawnNPC(AmuletVendor.ID,0,0,[-8182.976074,16.767733,0.099456,5.533191]) //Amulet Vendor at City Exit
 
-
-
-
 spawnGob(532751, [-8299.083008,20.426346,12.764252,0.761878])//NpcSpawnPortal
-
 
 export let AdventurerMageTower = std.CreatureTemplates.create(MODNAME,'adventurermagetower-creature',39686)
 AdventurerMageTower.Name.enGB.set('Foreign Adventurer')

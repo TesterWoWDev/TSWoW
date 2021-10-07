@@ -1,11 +1,10 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { DBC_ItemExtendedCost } from "wotlkdata/dbc/types/ItemExtendedCost"
-import { SQL_npc_vendor } from "wotlkdata/sql/types/npc_vendor"
 import { OrganicMatter } from "../(Zone-0)Walk-of-Heroes/starting-zone-alchemyrecipes"
 import { creature2, creature3 } from "../(Zone-1)Bramblewood/zone-1-creatures"
 import { setFaction, setName, setLevel, removeQuests, addLootToCreatureSingleChance, addLootToCreature } from "../../functions/npc-functions"
-import { addWaypoint, addWaypoints, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
+import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { MODNAME } from "../../modname"
@@ -229,7 +228,7 @@ spawnNPC(190,0,0,[-8692.114,-63.498,31.134,2.118])
     setFaction(190,35)
 spawnNPC(152,0,0,[-8695.802,-63.248,31.134,1.568])
     setFaction(152,35)
-SQL_npc_vendor.add(152,46978,0)
+SQL.npc_vendor.add(152,46978,0)
 // spawnNPC(78,0,0,[-8699.836,-63.277,31.134,1.627])
 //     setFaction(78,35)
 //end start zone vendors

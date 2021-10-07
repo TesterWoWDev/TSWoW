@@ -1,7 +1,6 @@
 
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
-import { SQL_quest_template_addon } from "wotlkdata/sql/types/quest_template_addon"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { RavenLordMount } from "../../(Zone-1)Bramblewood/zone-1-items"
 import { MODNAME } from "../../../modname"

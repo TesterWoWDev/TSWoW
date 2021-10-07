@@ -1,6 +1,5 @@
 import { std } from "tswow-stdlib"
-import { SQL_creature_loot_template } from "wotlkdata/sql/types/creature_loot_template"
-import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
+import { SQL } from "wotlkdata/sql/SQLFiles"
 import { spawnNPCWithTimer } from "../functions/spawning-functions"
 import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 
@@ -13,7 +12,7 @@ TeremustheDevourer.Stats.ArmorMod.set(100)
 TeremustheDevourer.MovementType.setWaypoint()
 TeremustheDevourer.HoverHeight.set(1)
 TeremustheDevourer.MovementSpeed.set(10,10)
-SQL_creature_loot_template.add(TeremustheDevourer.ID,OrbofPower.ID).MinCount.set(3).MaxCount.set(3).GroupId.set(8).Chance.set(75)
+TeremustheDevourer.NormalLoot.addItem(OrbofPower.ID,75,3,3,undefined,8)
 
 let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,300,0,
     [-8114.068848,407.7459,40.214,4.38],3600)
@@ -58,4 +57,4 @@ let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,300,0,
     [-7947.986816,57.004776,0.385031,1.939295,0],
     [-7993.659180,110.397179,0.385031,2.355556,0],
     [-8059.353027,163.871964,0.385031,2.595102,0]])*/
-    SQL_creature_template_movement.add(TeremustheDevourer.ID).Flight.set(1)
+    SQL.creature_template_movement.add(TeremustheDevourer.ID).Flight.set(1)

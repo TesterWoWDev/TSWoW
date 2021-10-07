@@ -1,7 +1,6 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { SQL_playercreateinfo_item } from "wotlkdata/sql/types/playercreateinfo_item"
-import { tierOneBaseResources, tierOneClothMaterial } from "../../items/armor/tier1-set"
+import { tierOneClothMaterial } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
 
 
@@ -122,12 +121,12 @@ SatchelofPower.Stats.addHasteRating(50)
 SatchelofPower.Stats.addHitRating(50)
 SatchelofPower.Stats.addStamina(200)
 
-SQL_playercreateinfo_item.add(0,0,StartingVest.ID).amount.set(1)
-SQL_playercreateinfo_item.add(0,0,StartingBoots.ID).amount.set(1)
-SQL_playercreateinfo_item.add(0,0,StartingCloak.ID).amount.set(1)
-SQL_playercreateinfo_item.add(0,0,StartingGloves.ID).amount.set(1)
-SQL_playercreateinfo_item.add(0,0,StartingPants.ID).amount.set(1)
-SQL_playercreateinfo_item.add(0,0,StartingRing.ID).amount.set(1)
+SQL.playercreateinfo_item.add(0,0,StartingVest.ID).amount.set(1)
+SQL.playercreateinfo_item.add(0,0,StartingBoots.ID).amount.set(1)
+SQL.playercreateinfo_item.add(0,0,StartingCloak.ID).amount.set(1)
+SQL.playercreateinfo_item.add(0,0,StartingGloves.ID).amount.set(1)
+SQL.playercreateinfo_item.add(0,0,StartingPants.ID).amount.set(1)
+SQL.playercreateinfo_item.add(0,0,StartingRing.ID).amount.set(1)
 
 
 export let AgathasLockbox = std.Items.create(MODNAME,'agathaslockbox',4632)

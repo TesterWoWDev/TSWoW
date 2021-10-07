@@ -1,11 +1,5 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { SQL_broadcast_text } from "wotlkdata/sql/types/broadcast_text"
-import { SQL_creature_template_addon } from "wotlkdata/sql/types/creature_template_addon"
-import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
-import { SQL_creature_text } from "wotlkdata/sql/types/creature_text"
-import { SQL_smart_scripts } from "wotlkdata/sql/types/smart_scripts"
-import { SQL_waypoint_scripts } from "wotlkdata/sql/types/waypoint_scripts"
 import { ArdentCustodian, BiteofSerrakis, BoarSkin, BowofSearingArrows, BrownLeatherSatchel, BurstofKnowledge, CircleofFlame, DarkIronPulverizer, DarkwaterTalwar, DarnassianBleu, DazzlingLongsword, DeadmansHand, DeerSkin, EskhandarsLeftClaw, EskhandarsRightClaw, FangoftheCrystalSpider, FieryWarAxe, FlameWrath, ForceofWill, GalgannsFireblaster, GalgannsFirehammer, GoblinDragonGun, Grimclaw, GutRipper, HerodsShoulder, Ironfoe, IronweaveBelt, IronweaveBoots, IronweaveBracers, IronweaveCowl, IronweaveGloves, IronweaveMantle, IronweavePants, IronweaveRobe, LordGeneralsSword, MantleofDoan, Naglering, Nightblade, RabbitSkin, RagingBerserkersHelm, RefreshingSpringWater, RobeofDoan, SavageGladiatorChain, SavageGladiatorGreaves, SavageGladiatorGrips, SavageGladiatorHelm, SavageGladiatorLeggings, ScarletLeggings, Shadowfang, ShinyRedApple, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, StaffofJordan, StrikeoftheHydra, Teeth, TheGreenTower, UnderworldBand, WraithScythe } from "../(Zone-1)Bramblewood/zone-1-items"
 import { LoggingPileLogs } from "../(Zone-5)Mall/mall-resource-spawns"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
@@ -28,7 +22,7 @@ WoodcuttingTree.NormalLoot.addItem(FightingStick01.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(FightingStick02.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(FightingStick03.ID,0.5,1,1,false,2,1)
 WoodcuttingTree.NormalLoot.addItem(tierOneBaseResources[5],25,1,1,false,3,1)
-SQL_creature_template_movement.add(WoodcuttingTree.ID).Rooted.set(1)
+SQL.creature_template_movement.add(WoodcuttingTree.ID).Rooted.set(1)
 
 
 export let TalkingCitizen = std.CreatureTemplates.create(MODNAME,'talkingcitizen-creature',39686)
@@ -36,7 +30,7 @@ TalkingCitizen.Name.enGB.set('Heroic Citizen')
 TalkingCitizen.FactionTemplate.set(35)
 TalkingCitizen.Models.clearAll()
 TalkingCitizen.Models.addIds(23082,1526,1501,21621)
-SQL_creature_template_addon.add(TalkingCitizen.ID).emote.set(1)
+SQL.creature_template_addon.add(TalkingCitizen.ID).emote.set(1)
 
 export let WelcomeCreature = std.CreatureTemplates.create(MODNAME,'welcomecreature-creature',28951)
 WelcomeCreature.Name.enGB.set('Gnarsh Thicchoof')
@@ -44,13 +38,13 @@ WelcomeCreature.FactionTemplate.set(35)
 WelcomeCreature.Models.clearAll()
 WelcomeCreature.Models.addIds(2100)
 WelcomeCreature.AIName.SmartAI()
-SQL_broadcast_text.add(100000).Text.set("Welcome!").Flags.set(1).EmoteID1.set(0)
-SQL_broadcast_text.add(100001).Text.set("Greetings, $c!").Flags.set(1).EmoteID1.set(0)
-SQL_broadcast_text.add(100002).Text.set("Let me know if you need help finding anything, $c.").Flags.set(1).EmoteID1.set(0)
-SQL_creature_text.add(WelcomeCreature.ID,0,1).Text.set("Welcome!").Type.set(12).Probability.set(100).BroadcastTextId.set(100000)
-SQL_creature_text.add(WelcomeCreature.ID,0,2).Text.set("Greetings, $c!").Type.set(12).Probability.set(100).BroadcastTextId.set(100001)
-SQL_creature_text.add(WelcomeCreature.ID,0,3).Text.set("Let me know if you need help finding anything, $c.").Type.set(12).Probability.set(100).BroadcastTextId.set(100002)
-SQL_smart_scripts.add(WelcomeCreature.ID,0,0,0).event_type.set(10).event_chance.set(100).event_param1.set(1).event_param2.set(5).event_param3.set(30000).event_param4.set(120000).event_param5.set(1).action_type.set(1).target_type.set(7)
+SQL.broadcast_text.add(100000).Text.set("Welcome!").Flags.set(1).EmoteID1.set(0)
+SQL.broadcast_text.add(100001).Text.set("Greetings, $c!").Flags.set(1).EmoteID1.set(0)
+SQL.broadcast_text.add(100002).Text.set("Let me know if you need help finding anything, $c.").Flags.set(1).EmoteID1.set(0)
+SQL.creature_text.add(WelcomeCreature.ID,0,1).Text.set("Welcome!").Type.set(12).Probability.set(100).BroadcastTextId.set(100000)
+SQL.creature_text.add(WelcomeCreature.ID,0,2).Text.set("Greetings, $c!").Type.set(12).Probability.set(100).BroadcastTextId.set(100001)
+SQL.creature_text.add(WelcomeCreature.ID,0,3).Text.set("Let me know if you need help finding anything, $c.").Type.set(12).Probability.set(100).BroadcastTextId.set(100002)
+SQL.smart_scripts.add(WelcomeCreature.ID,0,0,0).event_type.set(10).event_chance.set(100).event_param1.set(1).event_param2.set(5).event_param3.set(30000).event_param4.set(120000).event_param5.set(1).action_type.set(1).target_type.set(7)
 spawnNPC(WelcomeCreature.ID,0,0,[-8737.058594,-69.216385,31.271191,3.145761])
 
 export let StandingCitizen = std.CreatureTemplates.create(MODNAME,'standingcitizen-creature',39686)
@@ -58,7 +52,7 @@ StandingCitizen.Name.enGB.set('Heroic Citizen')
 StandingCitizen.FactionTemplate.set(35)
 StandingCitizen.Models.clearAll()
 StandingCitizen.Models.addIds(23082,1526,1501,21621)
-SQL_creature_template_addon.add(StandingCitizen.ID).emote.set(0)
+SQL.creature_template_addon.add(StandingCitizen.ID).emote.set(0)
 
 export let DandotheRiled = std.CreatureTemplates.create(MODNAME,'dando-creature',39686)
 DandotheRiled.Name.enGB.set('Dando the Riled')
@@ -77,8 +71,8 @@ addWaypoint(DandotheRiledGUID,[[-8743.039062,-86.155716,31.135164,2.109006,0],
 addWaypoint(DandotheRiledGUID,[[-8701.031250,-43.527889,31.135210,2.717688,0],
     [-8716.988281,-44.429104,31.147694,3.931129,0],
     [-8747.326172,-71.871475,31.134922,3.907567,20000]])
-SQL_broadcast_text.add(90000).Text.set('Are you kidding me? These prices are absolutely outrageous. How do you expect new players to afford any of this crap?!').EmoteID1.set(1)
-SQL_waypoint_scripts.add(DandotheRiled.ID).id.set(6).delay.set(5).command.set(0).datalong.set(0).dataint.set(90000)
+SQL.broadcast_text.add(90000).Text.set('Are you kidding me? These prices are absolutely outrageous. How do you expect new players to afford any of this crap?!').EmoteID1.set(1)
+SQL.waypoint_scripts.add(DandotheRiled.ID).id.set(6).delay.set(5).command.set(0).datalong.set(0).dataint.set(90000)
 
 export let Rabbit01 = std.CreatureTemplates.create(MODNAME,'rabbit01-creature',721)
 Rabbit01.Name.enGB.set('Wild Hare')

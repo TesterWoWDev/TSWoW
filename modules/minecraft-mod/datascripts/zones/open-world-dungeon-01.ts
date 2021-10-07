@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { SQL_creature_template_movement } from "wotlkdata/sql/types/creature_template_movement"
+import { SQL } from "wotlkdata/sql/SQLFiles"
 import { addLootToGobChest, addLootToGobChestSingleChanceMultiGroup, addLootToGobChestSingleChance } from "../functions/gob-functions"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../functions/npc-functions"
 import { makeResourceNode } from "../functions/resource-node-functions"
@@ -393,7 +393,8 @@ spawnMultipleNPCWithTimer(DungeonMob02.ID,10,0,[
     [-8812.773438,697.803040,-13.725410,3.560836],
     [-8867.517578,662.877075,-8.754834,3.753258],
     [-8920.761719,654.439148,-8.973216,3.254530]],120)
-SQL_creature_template_movement.add(DungeonMob02.ID).Flight.set(1)
+    
+SQL.creature_template_movement.add(DungeonMob02.ID).Flight.set(1)
 addLootToCreature(DungeonMob02Loot,[tierOneClothMaterial,tierOneLeatherMaterial,tierOneMailMaterial],[10,10,10],3)
 addLootToCreature(DungeonMob02Loot,tierOneBaseResources,[5,5,5,5,5,5,5],3)
 addLootToCreature(DungeonMob02Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[2,2,2],4)
