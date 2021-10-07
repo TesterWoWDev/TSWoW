@@ -162,6 +162,7 @@ addLootToCreatureSingleChance(DungeonMob01Loot,[
 
 
 export let ConsumeSpell = std.Spells.create(MODNAME,'consumespell-spell',49381)
+ConsumeSpell.Duration.set(10000,0,10000)
 export let BossShadowVolley = std.Spells.create(MODNAME,'bossshadowvolley-spell',25586)
 BossShadowVolley.Effects.get(0).BasePoints.set(1566)
 BossShadowVolley.Effects.get(0).DieSides.set(321)
