@@ -10,6 +10,7 @@ import { WorgChampionCreatureLoot } from "./ravaging-worg-champion-scroll"
 
 /*Item Creation - Champion Boss Loot*/
 export let ChampionsSatchel = std.Items.create(MODNAME,'championsatchel',805)
+ChampionsSatchel.Name.enGB.set('Champions Satchel')
 ChampionsSatchel.Quality.setBlue()
 ChampionsSatchel.ContainerSlots.set(24)
 
