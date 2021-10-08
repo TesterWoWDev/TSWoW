@@ -857,3 +857,175 @@ addLootToGobChest(OpenWorldDungeonChest01,[
 ],[15],8)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export let RisenRavager = std.CreatureTemplates.create(MODNAME,'risenravager',3271)
+RisenRavager.Name.enGB.set('Risen Ravager')
+RisenRavager.Level.set(12,12)
+RisenRavager.FactionTemplate.set(48)
+RisenRavager.DamageSchool.setNormal()
+RisenRavager.Stats.ArmorMod.set(1)
+RisenRavager.Stats.DamageMod.set(25)
+RisenRavager.Stats.ExperienceMod.set(10)
+RisenRavager.Stats.HealthMod.set(10)
+RisenRavager.Stats.ManaMod.set(10)
+RisenRavager.Models.clearAll()
+RisenRavager.Models.addIds(829)
+RisenRavager.Scale.set(1)
+export let RisenRavagerLoot = RisenRavager.NormalLoot
+spawnMultipleNPCWithTimer(RisenRavager.ID,2,0,[
+    [-8982.760742,631.077637,-9.805208,0.112170],
+    [-8982.345703,633.235107,-9.862338,0.646241],
+    [-8979.838867,634.948669,-10.102848,0.681584],
+    [-8979.116211,634.873413,-10.142712,0.681584],
+    [-8974.176758,632.492004,-10.298597,0.732634],
+    [-8972.748047,632.982422,-10.197169,1.506252],
+    [-8975.616211,636.565979,-10.672174,1.506252],
+    [-8975.616211,636.565979,-10.672174,1.506252],
+    [-8971.637695,640.607971,-11.290502,1.510179],
+    [-8973.417969,641.894714,-11.601798,2.315212],
+    [-8975.598633,641.073975,-10.859719,2.154206],
+    [-8974.137695,644.688110,-11.532078,1.573011],
+    [-8972.327148,646.521118,-11.622564,1.506252],
+    [-8974.058594,649.921082,-11.305696,1.749725],
+    [-8971.919922,651.350586,-10.927354,1.843973],
+    [-8971.919922,651.350586,-10.927354,1.843973],
+    [-8975.048828,654.345032,-10.775536,2.570467],
+    [-8975.734375,658.064026,-11.048238,2.456584],
+    [-8975.856445,658.163696,-11.098074,2.456584],
+    [-8980.675781,657.617432,-11.180152,2.660788],
+    [-8980.675781,657.617432,-11.180152,2.660788],
+    [-8982.085938,662.600586,-11.854362,2.507635],
+    [-8985.376953,661.941040,-11.089398,2.601883],
+    [-8985.500977,664.093140,-11.206018,2.091374],
+    [-8985.500977,664.093140,-11.206018,2.091374],
+    [-8990.800781,665.913147,-10.699533,2.052104],
+    [-8989.838867,668.977051,-10.289649,2.052104],
+    [-8989.838867,668.977051,-10.289649,2.052104],
+    [-8993.406250,670.803223,-10.015284,1.427712],
+    [-8992.906250,672.894531,-9.632645,1.262778],
+    [-8991.447266,673.929565,-9.371442,1.227435],
+    [-8992.527344,676.442017,-9.441696,1.227435],
+    [-8989.752930,677.755249,-9.208472,1.227435],
+    [-8990.834961,680.534607,-9.807166,1.227435],
+    [-8989.333008,681.355164,-9.716150,1.227435],
+    [-8989.998047,683.483398,-10.124415,1.227435],
+    [-8988.189453,684.565308,-9.780212,1.227435],
+    [-8989.363281,688.669556,-10.153674,0.689437],
+    [-8987.654297,688.610718,-10.100965,0.689437],
+    [-8986.847656,691.833435,-10.008644,0.830809],
+    [-8986.847656,691.833435,-10.008644,0.830809],
+    [-8982.005859,695.368408,-11.513579,0.693364],
+    [-8981.751953,698.121704,-11.050340,0.693364],
+    [-8978.672852,698.380493,-12.089729,0.257468],
+    [-8978.672852,698.380493,-12.089729,0.257468],
+    [-8975.001953,701.231689,-12.799412,0.147513],
+    [-8972.615234,701.798645,-13.131451,6.147955],
+    [-8970.401367,703.469360,-13.095102,6.144029],
+    [-8968.877930,700.436401,-13.257692,5.700280],
+    [-8966.858398,700.824097,-13.646138,5.566763],
+    [-8964.270508,699.863342,-13.821949,5.001279],
+    [-8961.310547,698.276550,-13.660394,5.060184],
+    [-8961.310547,698.276550,-13.660394,5.060184],
+    [-8963.250977,693.646057,-12.749532,5.060184],
+    [-8963.250977,693.646057,-12.749532,5.060184],
+    [-8959.796875,690.943237,-13.179111,5.802384],
+    [-8959.796875,690.943237,-13.179111,5.802384],
+    [-8958.110352,685.798767,-12.751946,5.778822],
+    [-8955.517578,685.768921,-12.769022,5.554986],
+    [-8955.517578,685.768921,-12.769022,5.554986],
+    [-8955.081055,682.290283,-12.304727,5.649233],
+    [-8952.185547,682.726013,-12.757603,5.649233],
+    [-8951.495117,678.901123,-12.312183,5.649233],
+    [-8951.495117,678.901123,-12.312183,5.649233],
+    [-8947.537109,677.047119,-13.697893,5.900559],
+    [-8946.034180,675.526489,-14.249252,0.375283],
+    [-8945.617188,675.394409,-14.385116,0.646245],
+    [-8940.432617,674.229919,-15.909534,0.336013],
+    [-8939.906250,675.441406,-16.199835,0.453823],
+    [-8939.906250,675.441406,-16.199835,0.453823],
+    [-8938.754883,679.507324,-16.147734,0.512727],
+    [-8934.448242,678.722351,-16.871792,0.497019],
+    [-8934.448242,678.722351,-16.871792,0.497019],
+    [-8932.783203,683.616455,-17.108524,0.497019],
+    [-8930.703125,682.916748,-17.464298,0.394918],
+    [-8927.498047,681.061646,-17.215406,6.195084],
+    [-8925.944336,682.393738,-17.405228,0.013999],
+    [-8924.376953,684.509888,-17.782642,6.065493],
+    [-8924.376953,684.509888,-17.782642,6.065493],
+    [-8921.805664,688.135864,-17.571384,5.197631],
+    [-8922.552734,685.775330,-17.854378,5.185851],
+    [-8919.639648,680.051270,-17.487516,5.181924]],600)
+RisenRavagerLoot.makeUnique(false)
+
+export let BrittleBones = std.Spells.create(MODNAME,'brittlebones-spell',32441)
+BrittleBones.Duration.set(5000,0,5000)
+export let RainofBones = std.Spells.create(MODNAME,'rainofbones-spell',37098)
+export let BoneGrinder = std.Spells.create(MODNAME,'bonegrinder-spell',43951)
+
+export let ScythemawDestroyer = std.CreatureTemplates.create(MODNAME,'scythemawdestroyer',3271)
+ScythemawDestroyer.Name.enGB.set('Scythemaw Destroyer')
+ScythemawDestroyer.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+ScythemawDestroyer.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+ScythemawDestroyer.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+ScythemawDestroyer.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+ScythemawDestroyer.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+ScythemawDestroyer.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+ScythemawDestroyer.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(BrittleBones.ID,2,7)
+ScythemawDestroyer.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(RainofBones.ID,2,7)
+ScythemawDestroyer.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(BoneGrinder.ID,2,7)
+ScythemawDestroyer.Level.set(15,15)
+ScythemawDestroyer.FactionTemplate.set(48)
+ScythemawDestroyer.DamageSchool.setNormal()
+ScythemawDestroyer.Scale.set(1)
+ScythemawDestroyer.Stats.ArmorMod.set(25)
+ScythemawDestroyer.Stats.DamageMod.set(40)
+ScythemawDestroyer.Stats.ExperienceMod.set(25)
+ScythemawDestroyer.Stats.HealthMod.set(65)
+ScythemawDestroyer.Stats.ManaMod.set(10)
+ScythemawDestroyer.Rank.setElite()
+ScythemawDestroyer.Models.clearAll()
+ScythemawDestroyer.Models.addIds(14706)
+ScythemawDestroyer.Scale.set(1)
+export let ScythemawDestroyerLoot = ScythemawDestroyer.NormalLoot
+spawnMultipleNPCWithTimer(ScythemawDestroyer.ID,2,0,[
+    [-8927.415039,683.349365,-17.649937,3.485466],
+    [-8942.821289,673.623779,-15.470843,3.599349],
+    [-8957.847656,686.295715,-12.792575,2.165997],
+    [-8975.251953,700.493347,-12.604589,3.595422],
+    [-8986.131836,692.557739,-10.118654,4.392600],
+    [-8991.078125,674.938599,-9.299158,4.585022],
+    [-8981.920898,660.721191,-11.593039,5.704208],
+    [-8970.933594,649.180664,-10.987558,4.746025],
+    [-8975.859375,632.992371,-10.309290,2.939614]],300)
+ScythemawDestroyerLoot.makeUnique(false)
+addLootToCreature(ScythemawDestroyerLoot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[2,2,2],4)
+addLootToCreature(ScythemawDestroyerLoot,tierThreeBaseResources,[2,2,2,2,2,2,2],4)
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(ScythemawDestroyerLoot,[
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.25,1)
+addLootToCreatureSingleChance(ScythemawDestroyerLoot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(ScythemawDestroyerLoot,[
+    OrbofPower.ID
+],5,3)
