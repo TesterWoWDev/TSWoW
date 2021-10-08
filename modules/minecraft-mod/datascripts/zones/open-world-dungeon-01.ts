@@ -1209,3 +1209,42 @@ addLootToCreatureSingleChance(DungeonBoss03Loot,[
 addLootToCreatureSingleChance(DungeonBoss03Loot,[
     OrbofPower.ID
 ],100,3)
+
+
+export let OpenWorldDungeonQuestGiver01 = std.CreatureTemplates.create(MODNAME,'openworldquestgiver01',30368)
+OpenWorldDungeonQuestGiver01.Name.enGB.set('Mitch Powers')
+OpenWorldDungeonQuestGiver01.Models.clearAll()
+OpenWorldDungeonQuestGiver01.Models.addIds(12911)
+OpenWorldDungeonQuestGiver01.Level.set(13,13)
+OpenWorldDungeonQuestGiver01.FactionTemplate.set(35)
+OpenWorldDungeonQuestGiver01.DamageSchool.setNormal()
+OpenWorldDungeonQuestGiver01.Stats.ArmorMod.set(1)
+OpenWorldDungeonQuestGiver01.Stats.DamageMod.set(214)
+OpenWorldDungeonQuestGiver01.Stats.ExperienceMod.set(1)
+OpenWorldDungeonQuestGiver01.Stats.HealthMod.set(155)
+OpenWorldDungeonQuestGiver01.Stats.ManaMod.set(1)
+OpenWorldDungeonQuestGiver01.NPCFlags.QuestGiver.mark()
+spawnMultipleNPCWithTimer(OpenWorldDungeonQuestGiver01.ID,0,0,[
+    [-8786.554,561.652,10.753,2.7496]],3600)
+
+//Repeatable Dungeon Quest 01
+export let OpenWorldQuest01 = std.Quests.create(MODNAME,'openworldquest01')
+OpenWorldQuest01.Flags.set(1)
+OpenWorldQuest01.MinLevel.set(1)
+OpenWorldQuest01.QuestLevel.set(40)
+OpenWorldQuest01.Questgiver.addStarter(OpenWorldDungeonQuestGiver01.ID)
+OpenWorldQuest01.Questgiver.addEnder(OpenWorldDungeonQuestGiver01.ID)
+OpenWorldQuest01.Objectives.Entity.add(DungeonMob01.ID,25)
+OpenWorldQuest01.Objectives.Entity.add(DungeonMob02.ID,10)
+OpenWorldQuest01.Objectives.Entity.add(DungeonBoss01.ID,1)
+OpenWorldQuest01.Rewards.Money.set(52532)
+OpenWorldQuest01.Rewards.ChoiceItem.add(tierThreeClothMaterial,5)
+OpenWorldQuest01.Rewards.ChoiceItem.add(tierThreeLeatherMaterial,5)
+OpenWorldQuest01.Rewards.ChoiceItem.add(tierThreeMailMaterial,5)
+OpenWorldQuest01.Rewards.Item.add(OrbofPower.ID,1)
+OpenWorldQuest01.Text.Objective.enGB.set('I am impressed that you managed to venture out this way $c, and it is time for you to do what I was unable to do. If you can manage it, please enter the dungeon and dispatch the enemies within.')
+OpenWorldQuest01.Text.Incomplete.enGB.set('Destroy the menace within the dungeon.')
+OpenWorldQuest01.Text.Description.enGB.set('Enter the dungeon and slay 25 demonspawns, 10 banshees, and Argan the Destroyer')
+OpenWorldQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waiting for you. Welcome.')
+OpenWorldQuest01.Text.Title.enGB.set('Entering the Dungeon')
+
