@@ -1032,3 +1032,180 @@ addLootToCreatureSingleChance(ScythemawDestroyerLoot,[
 addLootToCreatureSingleChance(ScythemawDestroyerLoot,[
     OrbofPower.ID
 ],5,3)
+
+
+
+export let PoisonedCloud = std.Spells.create(MODNAME,'poisonedcloud-spell',23861)
+export let PoisonVolley = std.Spells.create(MODNAME,'poisonvolley-spell',29293)
+export let BurningBlaze = std.Spells.create(MODNAME,'burningblaze-spell',58759)
+
+export let ApothecaryAcolyte = std.CreatureTemplates.create(MODNAME,'apothecaryacolyte',3271)
+ApothecaryAcolyte.Name.enGB.set('Apothecary Scholar')
+ApothecaryAcolyte.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+ApothecaryAcolyte.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+ApothecaryAcolyte.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+ApothecaryAcolyte.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+ApothecaryAcolyte.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+ApothecaryAcolyte.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+ApothecaryAcolyte.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(PoisonedCloud.ID,2,7)
+ApothecaryAcolyte.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(PoisonVolley.ID,2,7)
+ApothecaryAcolyte.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(BurningBlaze.ID,2,7)
+ApothecaryAcolyte.Level.set(18,18)
+ApothecaryAcolyte.FactionTemplate.set(48)
+ApothecaryAcolyte.DamageSchool.setNormal()
+ApothecaryAcolyte.Scale.set(1)
+ApothecaryAcolyte.Stats.ArmorMod.set(25)
+ApothecaryAcolyte.Stats.DamageMod.set(40)
+ApothecaryAcolyte.Stats.ExperienceMod.set(25)
+ApothecaryAcolyte.Stats.HealthMod.set(75)
+ApothecaryAcolyte.Stats.ManaMod.set(10)
+ApothecaryAcolyte.Rank.setElite()
+ApothecaryAcolyte.Models.clearAll()
+ApothecaryAcolyte.Models.addIds(16237)
+ApothecaryAcolyte.Scale.set(1)
+export let ApothecaryAcolyteLoot = ApothecaryAcolyte.NormalLoot
+spawnMultipleNPCWithTimer(ApothecaryAcolyte.ID,0,0,[
+    [-9011.136719,642.505737,-9.465117,3.802162],
+    [-9014.806641,639.109680,-9.465117,1.088611],
+    [-9015.661133,642.680542,-9.465117,5.581089],
+    [-8992.369141,629.776245,-9.465713,4.622905],
+    [-8993.721680,623.943665,-9.465713,1.120024],
+    [-9010.689453,623.455750,-9.465713,3.480147],
+    [-9011.354492,617.423767,-9.465713,2.612281],
+    [-9014.100586,614.164856,-9.465713,2.337392],
+    [-9010.541016,603.463196,-9.465375,4.689657],
+    [-9013.341797,603.468689,-9.465375,4.717144],
+    [-9005.053711,603.508118,-9.465375,4.717144],
+    [-9002.954102,603.518127,-9.465375,4.717144],
+    [-9002.096680,597.292664,-9.465375,4.728924],
+    [-9004.896484,597.246338,-9.465375,4.728924],
+    [-9006.738281,586.701477,-9.465373,0.051869],
+    [-9006.626953,584.380127,-9.465373,0.047942],
+    [-8996.293945,592.329651,-9.465373,4.548286],
+    [-8994.320312,592.256653,-9.465373,4.709288],
+    [-8986.916992,595.436951,-9.465373,0.746950],
+    [-8983.991211,598.328308,-9.465373,3.837493],
+    [-8987.238281,611.537048,-9.465373,5.176596],
+    [-8989.361328,608.193909,-9.465373,0.330687],
+    [-8986.473633,615.066284,-9.465373,1.033618],
+    [-8988.176758,618.145569,-9.465373,0.118629],
+    [-8982.706055,572.665527,-4.194689,5.156953],
+    [-8984.414062,569.370361,-4.194689,0.150037],
+    [-8984.305664,566.456299,-4.194689,0.000812],
+    [-8984.057617,564.135376,-4.194689,0.405292],
+    [-8985.181641,547.204651,-4.194689,4.230189],
+    [-8986.994141,544.744690,-4.194689,1.261384],
+    [-9005.160156,545.242981,-4.194689,3.272004],
+    [-9011.642578,543.798523,-4.194689,0.212878],
+    [-9013.918945,555.916260,-4.193851,1.783674],
+    [-9011.466797,558.437134,-4.193851,3.495843],
+    [-9012.632812,561.216248,-4.193851,3.778586],
+    [-9012.559570,565.994080,-4.193851,2.549438],
+    [-9012.559570,565.994080,-4.193851,2.549438],
+    [-9011.467773,568.384399,-4.193851,3.287712],
+    [-9014.243164,572.374329,-4.193851,4.281242],
+    [-8999.005859,570.001953,-4.193798,1.226042],
+    [-8995.913086,569.424438,-4.193798,1.587325],
+    [-9000.337891,529.224060,-3.954185,2.447341],
+    [-9002.001953,531.850220,-3.899040,5.663543],
+    [-8991.238281,522.712524,-3.908976,1.233895],
+    [-8994.373047,526.912964,-3.937281,0.405300]],300)
+    ApothecaryAcolyteLoot.makeUnique(false)
+addLootToCreature(ApothecaryAcolyteLoot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[2,2,2],4)
+addLootToCreature(ApothecaryAcolyteLoot,tierThreeBaseResources,[2,2,2,2,2,2,2],4)
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(ApothecaryAcolyteLoot,[
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.25,1)
+addLootToCreatureSingleChance(ApothecaryAcolyteLoot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(ApothecaryAcolyteLoot,[
+    OrbofPower.ID
+],5,3)
+
+export let PowerBurn = std.Spells.create(MODNAME,'powerburn-spell',62129)
+PowerBurn.Effects.get(0).BasePoints.set(2129)
+PowerBurn.Effects.get(1).BasePoints.set(14)
+PowerBurn.Effects.get(2).BasePoints.set(469)
+export let SoulScream = std.Spells.create(MODNAME,'soulscream-spell',41545)
+export let SoulStrike = std.Spells.create(MODNAME,'soulstrike-spell',32315)
+
+export let DungeonBoss03 = std.CreatureTemplates.create(MODNAME,'dungeonboss03',3271)
+DungeonBoss03.Name.enGB.set('The Professor')
+DungeonBoss03.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+DungeonBoss03.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+DungeonBoss03.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+DungeonBoss03.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+DungeonBoss03.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+DungeonBoss03.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+DungeonBoss03.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(SoulScream.ID,2,7)
+DungeonBoss03.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(PowerBurn.ID,2,7)
+DungeonBoss03.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(SoulStrike.ID,2,7)
+DungeonBoss03.Level.set(19,19)
+DungeonBoss03.FactionTemplate.set(48)
+DungeonBoss03.DamageSchool.setNormal()
+DungeonBoss03.Stats.ArmorMod.set(5)
+DungeonBoss03.Stats.DamageMod.set(110)
+DungeonBoss03.Stats.ExperienceMod.set(30)
+DungeonBoss03.Stats.HealthMod.set(150)
+DungeonBoss03.Stats.ManaMod.set(25)
+DungeonBoss03.Rank.setRareElite()
+DungeonBoss03.Models.clearAll()
+DungeonBoss03.Models.addIds(30881)
+DungeonBoss03.Scale.set(1)
+export let DungeonBoss03Loot = DungeonBoss03.NormalLoot
+spawnMultipleNPCWithTimer(DungeonBoss03.ID,0,0,[
+    [-8998.505859,577.777466,-3.098353,4.728919]],3600)
+    DungeonBoss02Loot.makeUnique(false)
+addLootToCreature(DungeonBoss03Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
+addLootToCreature(DungeonBoss03Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
+
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(DungeonBoss03Loot,[
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.5,1)
+addLootToCreatureSingleChance(DungeonBoss03Loot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(DungeonBoss03Loot,[
+    OrbofPower.ID
+],100,3)
