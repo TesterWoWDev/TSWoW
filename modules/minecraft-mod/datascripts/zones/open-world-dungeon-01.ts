@@ -1172,7 +1172,7 @@ DungeonBoss03.Stats.ManaMod.set(25)
 DungeonBoss03.Rank.setRareElite()
 DungeonBoss03.Models.clearAll()
 DungeonBoss03.Models.addIds(30881)
-DungeonBoss03.Scale.set(1)
+DungeonBoss03.Scale.set(0.5)
 export let DungeonBoss03Loot = DungeonBoss03.NormalLoot
 spawnMultipleNPCWithTimer(DungeonBoss03.ID,0,0,[
     [-8998.505859,577.777466,-3.098353,4.728919]],3600)
