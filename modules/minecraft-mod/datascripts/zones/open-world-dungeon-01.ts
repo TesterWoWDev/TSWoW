@@ -959,6 +959,9 @@ RisenRavagerLoot.makeUnique(false)
 
 export let BrittleBones = std.Spells.create(MODNAME,'brittlebones-spell',32441)
 BrittleBones.Duration.set(5000,0,5000)
+export let RoB = std.Spells.load(37091)
+RoB.Effects.get(1).BasePoints.set(798)
+RoB.Effects.get(1).DieSides.set(220)
 export let RainofBones = std.Spells.create(MODNAME,'rainofbones-spell',37098)
 export let BoneGrinder = std.Spells.create(MODNAME,'bonegrinder-spell',43951)
 
