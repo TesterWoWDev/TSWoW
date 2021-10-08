@@ -15,8 +15,6 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                         if(item.GetClass() == 2 || item.GetClass() == 4){
                             isEnchant = true
                             fillVal = -1
-                        }else{
-                            player.SendAreaTriggerMessage("Remove the items from your bank!")
                         }
                     }
                     
