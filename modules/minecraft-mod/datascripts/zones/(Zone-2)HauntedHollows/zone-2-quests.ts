@@ -1,15 +1,13 @@
 import { std } from "tswow-stdlib"
 import { questGiver03 } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
-import { SatchelofPower } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
 import { startingQuest08, startingQuest09, startingQuest10, startingQuest11 } from "../(Zone-0)Walk-of-Heroes/starting-zone-quests"
-import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToGobChestMultiDrop } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
-import { spawnGobTimer, spawnMultiGobTimer, spawnMultipleNPCWithTimer } from "../../functions/spawning-functions"
-import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set"
+import { spawnMultipleNPCWithTimer, spawnMultiGobTimer } from "../../functions/spawning-functions"
+import { tierTwoClothMaterial, tierTwoMailMaterial, tierTwoLeatherMaterial } from "../../items/armor/tier2-set"
 import { MODNAME } from "../../modname"
+import { OrbofPower, SatchelofPower } from "../item-manifest"
 import { Zone2Creature1 } from "./zone-2-creatures"
-
 
 
 

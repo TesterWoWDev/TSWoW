@@ -1,9 +1,9 @@
 import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
 import { makeResourceNode } from "../../functions/resource-node-functions"
-import { spawnGob, spawnGobTimer } from "../../functions/spawning-functions"
+import { spawnGobTimer } from "../../functions/spawning-functions"
 import { tierFourBaseResources, tierFourMailMaterial, tierFourLeatherMaterial, tierFourClothMaterial } from "../../items/armor/tier4-set"
-import { LargeSackofCoins, MassiveSackofCoins, SmallSackofCoins } from "../../items/currencies"
-import { EyeofGruul, DragonspineTrophy, MoroesLuckyPocketWatch, RomulosPoisonVial, LightningCapacitor, VioletEye, Sulfuras, Thunderfury, WarglaiveMH, WarglaiveOH, Thoridal } from "./zone-4-items"
+import { SmallSackofCoins, LargeSackofCoins, MassiveSackofCoins } from "../../items/currencies"
+import { EyeofGruul, DragonspineTrophy, MoroesLuckyPocketWatch, RomulosPoisonVial, LightningCapacitor, VioletEye, Sulfuras, Thunderfury, WarglaiveMH, WarglaiveOH, Thoridal } from "../item-manifest"
 
 export let ArenaofChampionsChest = makeResourceNode('Arena Champion\'s Chest',259,57,'arenachampion-chest')
 ArenaofChampionsChest.Size.set(1.25)

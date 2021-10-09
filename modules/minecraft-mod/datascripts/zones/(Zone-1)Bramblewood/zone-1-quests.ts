@@ -1,18 +1,15 @@
-//Starting Quest 7 - Kobold Mines
-
-import { Boar01, questGiver03 } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { std } from "tswow-stdlib"
+import { SQL } from "wotlkdata"
+import { questGiver03 } from "../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { startingQuest07 } from "../(Zone-0)Walk-of-Heroes/starting-zone-quests"
-import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToGobChest } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { spawnMultiGobTimer, spawnNPC } from "../../functions/spawning-functions"
 import { tierOneClothMaterial, tierOneMailMaterial, tierOneLeatherMaterial } from "../../items/armor/tier1-set"
-import { creature4, creature5 } from "./zone-1-creatures"
-import { std } from "tswow-stdlib"
 import { MODNAME } from "../../modname"
-import { SQL } from "wotlkdata/sql/SQLFiles";
-import { BoarSkin, BoarskinSatchel } from "./zone-1-items"
-import { ExpScroll } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
+import { OrbofPower, BoarSkin, BoarskinSatchel, ExpScroll } from "../item-manifest"
+import { creature4, creature5 } from "./zone-1-creatures"
+
 
 export let StrangeEtherealCrate = std.Items.create(MODNAME,'strangecrate01',36771)
 StrangeEtherealCrate.Name.enGB.set('Strange Ethereal Crate')

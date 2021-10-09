@@ -1,28 +1,9 @@
 import { std } from "tswow-stdlib"
-import { ShinyRedApple } from "../(Zone-1)Bramblewood/zone-1-items"
-import { GrainSack } from "../(Zone-5)Mall/mall-resource-spawns"
 import { addLootToGobChest } from "../../functions/gob-functions"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { spawnMultiGobTimer } from "../../functions/spawning-functions"
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
-import { MODNAME } from "../../modname"
-
-//Resource Items
-export let RedFlower01 = std.Items.create(MODNAME,'redflower01',785)
-RedFlower01.Name.enGB.set('Hibiscus Flower')
-RedFlower01.Quality.setWhite()
-RedFlower01.MaxStack.set(500)
-export let BlueFlower01 = std.Items.create(MODNAME,'blueflower01',44207)
-BlueFlower01.Name.enGB.set('Tulip Flower')
-BlueFlower01.Quality.setWhite()
-BlueFlower01.MaxStack.set(500)
-BlueFlower01.Price.set(60,80)
-export let ImmortalFlower = std.Items.create(MODNAME,'immortalflower',19295)
-ImmortalFlower.Name.enGB.set('Immortal Flower')
-ImmortalFlower.Quality.setBlue()
-ImmortalFlower.Stats.addStamina(13)
-ImmortalFlower.Stats.addIntellect(7)
-ImmortalFlower.Stats.addSpellPower(32)
+import { RedFlower01, ImmortalFlower, BlueFlower01, GrainSack, SuperApple, ShinyRedApple, OrganicMatter } from "../item-manifest"
 
 //Resource Nodes
 export let ResourceFlower01 = makeResourceNode('Hibiscus Flower',75536,57,'flower01-chest')
@@ -234,11 +215,6 @@ addLootToGobChest(ResourceFlower02,[
     BlueFlower01.ID,    ImmortalFlower.ID
 ],[100,0.5],1)
 
-export let SuperApple = std.Items.create(MODNAME,'superapple',46691)
-SuperApple.Name.enGB.set('Super Apple')
-SuperApple.Quality.setBlue()
-SuperApple.DisplayInfo.copyFrom(ShinyRedApple.ID)
-SuperApple.HolidayID.set(0)
 
 export let HealthPotion = std.Spells.load(2330)
 HealthPotion.Reagents.clearAll()
@@ -269,12 +245,6 @@ SuperAppleSpell.Icon.set('Interface\\Icons\\INV_Misc_Food_19')
 
 
 //Blacksmithing - make resources destroy into "organic matter" - trade with compost bin to get resources
-
-export let OrganicMatter = std.Items.create(MODNAME,'organicmatter',765)
-OrganicMatter.Name.enGB.set('Organic Matter')
-OrganicMatter.Quality.setWhite()
-OrganicMatter.MaxStack.set(9999)
-OrganicMatter.DisplayInfo.copyFrom(39342)
 
 export let Blacksmithing = std.Spells.load(51300)
 Blacksmithing.Name.enGB.set('Resource Refining')

@@ -1,9 +1,9 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
-import { LoggingPileLogs } from "../(Zone-5)Mall/mall-resource-spawns"
 import { spawnMultipleNPCWithTimer } from "../../functions/spawning-functions"
 import { tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { MODNAME } from "../../modname"
+import { LoggingPileLogs } from "../item-manifest"
 
 export let ChainLightning = std.Spells.create(MODNAME,'chainlightning-spell',10605)
 export let ShockLightning = std.Spells.create(MODNAME,'shocklightning-spell',26415)

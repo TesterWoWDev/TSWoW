@@ -1,11 +1,8 @@
-
 import { std } from "tswow-stdlib"
+import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { MODNAME } from "../../../modname"
-import { SQL } from "wotlkdata"
-import { OrbofPower, PowerToken } from "./ARarePowerOrb"
-import { RavenLordMount } from "../../(Zone-1)Bramblewood/zone-1-items"
-//Class Trainer Quest - Shaman
+import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
 export let ShamanQuestGiver01 = std.CreatureTemplates.create(MODNAME,'shaman01-creature',30368)
 ShamanQuestGiver01.Name.enGB.set('Shaman Disciple')

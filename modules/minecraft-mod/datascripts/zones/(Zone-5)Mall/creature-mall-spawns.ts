@@ -1,14 +1,13 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { DBC } from "wotlkdata"
-import { OrganicMatter } from "../(Zone-0)Walk-of-Heroes/starting-zone-alchemyrecipes"
 import { creature2, creature3 } from "../(Zone-1)Bramblewood/zone-1-creatures"
 import { setFaction, setName, setLevel, removeQuests, addLootToCreatureSingleChance, addLootToCreature } from "../../functions/npc-functions"
 import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../functions/spawning-functions"
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { MODNAME } from "../../modname"
-import { ItemReward07, ItemReward08, ItemReward09, ItemReward10, ItemReward11, ItemReward12, ItemReward13, ItemReward14, ItemReward15, ItemReward16, ItemReward17, ItemReward18, ItemReward19, ItemReward20, ItemReward21, ItemReward22, ItemReward23, ItemReward24, ItemReward25, ItemReward26, ItemReward27, ItemReward28, ItemReward29, ItemReward30, ItemReward31, ItemReward32, ItemReward33, ItemReward34, ItemReward35, ItemReward36, ItemReward37, ItemReward38, ItemReward39, ItemReward40, OrbofPower } from "./ClassQuests/ARarePowerOrb"
+import { PulseStaff, Vindicator, SavageBlade, SpikyBearTrap, Edgeblade, Satchel, ItemReward07, ItemReward08, ItemReward09, ItemReward10, ItemReward11, ItemReward12, ItemReward13, ItemReward14, ItemReward15, ItemReward16, ItemReward17, ItemReward18, ItemReward19, ItemReward20, ItemReward21, ItemReward22, ItemReward23, ItemReward24, ItemReward25, ItemReward26, ItemReward27, ItemReward28, ItemReward29, ItemReward30, ItemReward31, ItemReward32, ItemReward33, ItemReward34, ItemReward35, ItemReward36, ItemReward37, ItemReward38, ItemReward39, ItemReward40, OrbofPower, OrganicMatter } from "../item-manifest"
 
 let broadcastindex = 87000
 
@@ -191,20 +190,6 @@ setFaction(28951,35)
 spawnMultipleNPCWithTimer(29491,0,0,[
     [-8465.306,-176.7459,0.660,1.25]],10)
 setFaction(29491,35)
-
-export let PulseStaff = std.Items.create(MODNAME,'pulsestaff',28782)
-PulseStaff.Name.enGB.set('Teasing Stick')
-export let Vindicator = std.Items.create(MODNAME,'vindicator',29458)
-Vindicator.Name.enGB.set('Olaf\'s Lost Shield')
-export let Satchel = std.Items.create(MODNAME,'satchelbearsack',34845)
-Satchel.Name.enGB.set('Giant Bear Sack')
-Satchel.MaxCount.set(0)
-export let SavageBlade = std.Items.create(MODNAME,'savageblade',32369)
-SavageBlade.Name.enGB.set('Bearhunter')
-export let SpikyBearTrap = std.Items.create(MODNAME,'spikybeartrap',32375)
-SpikyBearTrap.Name.enGB.set('Guardsmans Shield')
-export let Edgeblade = std.Items.create(MODNAME,'spikybeartrap',18822)
-Edgeblade.Name.enGB.set('Abnormal Blade')
 
 export let GrizzlyBen = std.CreatureTemplates.create(MODNAME,'oldben',17347)
 GrizzlyBen.Name.enGB.set('Grizzled Ben')

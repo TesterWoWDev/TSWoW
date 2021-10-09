@@ -14,6 +14,7 @@ import { ShamanQuestGiver01 } from "./ShamanClassQuest"
 import { WarlockQuestGiver01 } from "./WarlockClassQuest"
 import { WarriorQuestGiver01 } from "./WarriorClassQuest"
 import { setFaction } from "../../../functions/npc-functions"
+import { Amulet01, Amulet02, Amulet03, Amulet04, Amulet05 } from "../../item-manifest"
 
 spawnNPC(questGiver03.ID,0,0,[-8292.411133,-271.135468,17.274445,1.4686858]) //Quest Giver 3 Spawn
 
@@ -40,33 +41,6 @@ spawnNPC(DeathknightQuestGiver01.ID,0,0,[-8325.328125,-121.336845,0.852532,5.242
 spawnNPC(33251,0,0,[-8326.202148,-124.327225,0.852532,0.117808]) //Deathknight Trainer
 spawnGob(190557, [-8326.202148,-124.327225,0.852532,0.117808])//runeforge
 //spawnNPC(22060,0,0,[-8144.066406,21.116680,0.641976,3.220194]) //Rogue Ganker
-
-export let Amulet01 = std.Items.create(MODNAME,'newamulet01',21712)
-Amulet01.Quality.setBlue()
-Amulet01.Price.set(151211,359521,1)
-Amulet01.RequiredLevel.set(7)
-
-export let Amulet02 = std.Items.create(MODNAME,'newamulet02',7722)
-Amulet02.Quality.setGreen()
-Amulet02.Price.set(79523,91517,1)
-Amulet02.RequiredLevel.set(5)
-
-export let Amulet03 = std.Items.create(MODNAME,'newamulet03',9641)
-Amulet03.Quality.setGreen()
-Amulet03.Price.set(22692,25326,1)
-Amulet03.RequiredLevel.set(1)
-
-export let Amulet04 = std.Items.create(MODNAME,'newamulet04',1443)
-Amulet04.Quality.setBlue()
-Amulet04.Price.set(121256,192526,1)
-Amulet04.RequiredLevel.set(7)
-
-export let Amulet05 = std.Items.create(MODNAME,'newamulet05',10711)
-Amulet05.Quality.setBlue()
-Amulet05.Price.set(34546,39636,1)
-Amulet05.RequiredLevel.set(1)
-
-
 
 export let AmuletVendor = std.CreatureTemplates.create(MODNAME,'druid01-creature',3562)
 AmuletVendor.Name.enGB.set('Maggie the Wise')

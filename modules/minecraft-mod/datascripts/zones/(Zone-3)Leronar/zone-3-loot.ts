@@ -1,7 +1,3 @@
-import { ExpScroll, EyeofDestiny } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
-import { Zone2Creature5Loot as Zone3Creature1Loot } from "../(Zone-2)HauntedHollows/zone-2-creatures"
-import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, FerventHelm, AwarenessHelm, SatyrBow, ShadowMistGloves, CleverHat, PotencyRing, GuileRing } from "../(Zone-2)HauntedHollows/zone-2-items"
-import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
@@ -9,8 +5,8 @@ import { stringItem } from "../../items/string"
 import { harpyScroll } from "../champion-scrolls/harpy-champion-scroll"
 import { quailboarScroll } from "../champion-scrolls/quailboar-champion-scroll"
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll"
-import { SavageWolfLoot, Zone3Creature2Loot, Zone3Creature3Loot, Zone3RareCreature1Loot, Zone3RareCreature2Loot } from "./zone-3-creatures"
-import { Commendation, Contempt, DragonscaleBlade, FocusingCrystal, Gliderboots, Glidergreaves, Glidersabatons, Gliderwrap, HeartPit, LostTreads, LurkerBelt, LurkerCord, LurkerGirdle, LurkerGrasp, MiseryMace, Ravagerband, Ravagerbracer, RavagerCuff, RavagerWrap, ShivanFeather, SunwellVial, VolatilePower } from "./zone-3-items"
+import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, FerventHelm, AwarenessHelm, SatyrBow, ShadowMistGloves, CleverHat, PotencyRing, GuileRing, ExpScroll, ShivanFeather, EyeofDestiny, LurkerCord, LurkerGrasp, LurkerBelt, LurkerGirdle, RavagerCuff, RavagerWrap, Ravagerband, Ravagerbracer, Gliderwrap, Gliderboots, Glidersabatons, Glidergreaves, LostTreads, Commendation, Contempt, FocusingCrystal, SunwellVial, VolatilePower, DragonscaleBlade, MiseryMace, HeartPit, OrbofPower } from "../item-manifest"
+import { Zone3Creature1Loot, Zone3Creature3Loot, Zone3Creature2Loot, Zone3RareCreature1Loot, SavageWolfLoot, Zone3RareCreature2Loot } from "./zone-3-creatures"
 
 
 addLootToCreature(Zone3Creature1Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])

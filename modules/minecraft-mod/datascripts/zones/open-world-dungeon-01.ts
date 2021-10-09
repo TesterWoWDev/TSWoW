@@ -10,9 +10,7 @@ import { tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial
 import { LargeSackofCoins } from "../items/currencies"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../items/gems/tier1-gem"
 import { MODNAME } from "../modname"
-import { EyeofDestiny } from "./(Zone-0)Walk-of-Heroes/starting-zone-items"
-import { VolatilePower, DragonscaleBlade, MiseryMace, HeartPit, LurkerCord, LurkerGrasp, LurkerBelt, LurkerGirdle, RavagerCuff, RavagerWrap, Ravagerband, Ravagerbracer, Gliderwrap, Gliderboots, Glidersabatons, Glidergreaves, LostTreads, Commendation, Contempt, FocusingCrystal, SunwellVial } from "./(Zone-3)Leronar/zone-3-items"
-import { ItemReward01, ItemReward02, ItemReward03, ItemReward04, ItemReward05, ItemReward06, OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
+import { ReignLeggings, TrackerBelt, Noose, SporeReed, RenewalHammer, WildMagic, UnbrokenChain, PhosphoSword, DestructiveMaul, Bladefist, Fathomstone, ArgentSentinel, ObliterativeBoots, VigilanteRing, Naaru, LostAge, DungeonItem01, DungeonItem02, DungeonItem03, DungeonItem04, DungeonItem05, DungeonItem06, DungeonItem07, DungeonItem08, DungeonItem09, DungeonItem10, DungeonItem11, DungeonItem12, DungeonItem13, DungeonItem14, DungeonItem15, DungeonItem16, DungeonItem17, DungeonItem18, DungeonItem19, DungeonItem20, DungeonItem21, DungeonItem22, DungeonItem23, DungeonItem24, DungeonItem25, DungeonItem26, DungeonItem27, DungeonItem28, DungeonItem29, DungeonItem30, DungeonItem31, DungeonItem32, DungeonItem33, DungeonItem34, DungeonItem35, DungeonItem36, DarkSteel, DarkLeather, DarkCloth, Commendation, Contempt, DragonscaleBlade, EyeofDestiny, FocusingCrystal, Gliderboots, Glidergreaves, Glidersabatons, Gliderwrap, HeartPit, ItemReward01, ItemReward02, ItemReward03, ItemReward04, ItemReward05, ItemReward06, LostTreads, LurkerBelt, LurkerCord, LurkerGirdle, LurkerGrasp, MiseryMace, OrbofPower, Ravagerband, Ravagerbracer, RavagerCuff, RavagerWrap, SunwellVial, VolatilePower } from "./item-manifest"
 
 
 
@@ -28,63 +26,6 @@ ShadowVolley.Effects.get(0).BasePoints.set(566)
 ShadowVolley.Effects.get(0).DieSides.set(121)
 ShadowVolley.Effects.get(0).Radius.set(20,0,20)
 export let ShadowPain = std.Spells.create(MODNAME,'pain-spell',25367)
-
-//Items and Loot
-export let ReignLeggings = std.Items.create(MODNAME,'reignleggings',24359)
-ReignLeggings.Quality.setBlue()
-ReignLeggings.RequiredLevel.set(4)
-
-export let TrackerBelt = std.Items.create(MODNAME,'trackerbelt',24360)
-TrackerBelt.Quality.setBlue()
-TrackerBelt.RequiredLevel.set(4)
-
-export let Noose = std.Items.create(MODNAME,'noose',27546)
-Noose.Quality.setBlue()
-Noose.RequiredLevel.set(4)
-
-export let SporeReed = std.Items.create(MODNAME,'reed',24380)
-SporeReed.Quality.setBlue()
-SporeReed.RequiredLevel.set(4)
-
-export let RenewalHammer = std.Items.create(MODNAME,'renewalhammer',24378)
-RenewalHammer.Quality.setBlue()
-RenewalHammer.RequiredLevel.set(4)
-
-export let WildMagic = std.Items.create(MODNAME,'wildmagic',32078)
-WildMagic.RequiredLevel.set(6)
-WildMagic.Class.setClothEquip()
-
-export let UnbrokenChain = std.Items.create(MODNAME,'unbrokenchain',29349)
-UnbrokenChain.RequiredLevel.set(6)
-
-export let PhosphoSword = std.Items.create(MODNAME,'phosphoswrd',27673)
-PhosphoSword.RequiredLevel.set(6)
-PhosphoSword.Quality.setPurple()
-
-export let DestructiveMaul = std.Items.create(MODNAME,'destructivemaul',27524)
-DestructiveMaul.RequiredLevel.set(6)
-DestructiveMaul.Quality.setPurple()
-
-export let Bladefist = std.Items.create(MODNAME,'bladefist',29348)
-Bladefist.RequiredLevel.set(6)
-
-export let Fathomstone = std.Items.create(MODNAME,'fathomstone',30049)
-Fathomstone.RequiredLevel.set(6)
-
-export let ArgentSentinel = std.Items.create(MODNAME,'argentsentinel',30084)
-ArgentSentinel.RequiredLevel.set(6)
-
-export let ObliterativeBoots = std.Items.create(MODNAME,'obliterativeboots',30081)
-ObliterativeBoots.RequiredLevel.set(6)
-
-export let VigilanteRing = std.Items.create(MODNAME,'vigilante',33058)
-VigilanteRing.RequiredLevel.set(6)
-
-export let Naaru = std.Items.create(MODNAME,'naaru',33058)
-Naaru.RequiredLevel.set(6)
-
-export let LostAge = std.Items.create(MODNAME,'lostage',30008)
-LostAge.RequiredLevel.set(6)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -436,91 +377,6 @@ addLootToCreatureSingleChance(DungeonMob02Loot,[
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-export let DungeonItem01 = std.Items.create(MODNAME,'dungeonitem01',32327)
-DungeonItem01.RequiredLevel.set(6)
-DungeonItem01.Socket.clearAll()
-DungeonItem01.Quality.setBlue()
-export let DungeonItem02 = std.Items.create(MODNAME,'dungeonitem02',32280)
-DungeonItem02.RequiredLevel.set(6)
-DungeonItem02.Socket.clearAll()
-DungeonItem02.Quality.setBlue()
-export let DungeonItem03 = std.Items.create(MODNAME,'dungeonitem03',32512)
-DungeonItem03.RequiredLevel.set(6)
-DungeonItem03.Socket.clearAll()
-DungeonItem03.Quality.setBlue()
-export let DungeonItem04 = std.Items.create(MODNAME,'dungeonitem04',32338)
-DungeonItem04.RequiredLevel.set(6)
-DungeonItem04.Socket.clearAll()
-DungeonItem04.Quality.setBlue()
-export let DungeonItem05 = std.Items.create(MODNAME,'dungeonitem05',32341)
-DungeonItem05.RequiredLevel.set(6)
-DungeonItem05.Socket.clearAll()
-DungeonItem05.Quality.setBlue()
-export let DungeonItem06 = std.Items.create(MODNAME,'dungeonitem06',32354)
-DungeonItem06.RequiredLevel.set(6)
-DungeonItem06.Socket.clearAll()
-DungeonItem06.Quality.setBlue()
-export let DungeonItem07 = std.Items.create(MODNAME,'dungeonitem07',32517)
-DungeonItem07.RequiredLevel.set(6)
-DungeonItem07.Socket.clearAll()
-DungeonItem07.Quality.setBlue()
-export let DungeonItem08 = std.Items.create(MODNAME,'dungeonitem08',32362)
-DungeonItem08.RequiredLevel.set(6)
-DungeonItem08.Socket.clearAll()
-DungeonItem08.Quality.setBlue()
-export let DungeonItem09 = std.Items.create(MODNAME,'dungeonitem09',32331)
-DungeonItem09.RequiredLevel.set(6)
-DungeonItem09.Socket.clearAll()
-DungeonItem09.Quality.setBlue()
-export let DungeonItem10 = std.Items.create(MODNAME,'dungeonitem10',32235)
-DungeonItem10.RequiredLevel.set(6)
-DungeonItem10.Socket.clearAll()
-DungeonItem10.Quality.setBlue()
-export let DungeonItem11 = std.Items.create(MODNAME,'dungeonitem11',32471)
-DungeonItem11.RequiredLevel.set(6)
-DungeonItem11.Socket.clearAll()
-DungeonItem11.Quality.setBlue()
-export let DungeonItem12 = std.Items.create(MODNAME,'dungeonitem12',32854)
-DungeonItem12.RequiredLevel.set(6)
-DungeonItem12.Socket.clearAll()
-DungeonItem12.Quality.setBlue()
-export let DungeonItem13 = std.Items.create(MODNAME,'dungeonitem13',31326)
-DungeonItem13.RequiredLevel.set(6)
-DungeonItem13.Socket.clearAll()
-DungeonItem13.Quality.setBlue()
-export let DungeonItem14 = std.Items.create(MODNAME,'dungeonitem14',31319)
-DungeonItem14.RequiredLevel.set(6)
-DungeonItem14.Socket.clearAll()
-DungeonItem14.Quality.setBlue()
-export let DungeonItem15 = std.Items.create(MODNAME,'dungeonitem15',31333)
-DungeonItem15.RequiredLevel.set(6)
-DungeonItem15.Socket.clearAll()
-DungeonItem15.Quality.setBlue()
-export let DungeonItem16 = std.Items.create(MODNAME,'dungeonitem16',31331)
-DungeonItem16.RequiredLevel.set(6)
-DungeonItem16.Socket.clearAll()
-DungeonItem16.Quality.setBlue()
-export let DungeonItem17 = std.Items.create(MODNAME,'dungeonitem17',31342)
-DungeonItem17.RequiredLevel.set(6)
-DungeonItem17.Socket.clearAll()
-DungeonItem17.Quality.setBlue()
-export let DungeonItem18 = std.Items.create(MODNAME,'dungeonitem18',34622)
-DungeonItem18.RequiredLevel.set(6)
-DungeonItem18.Socket.clearAll()
-DungeonItem18.Quality.setBlue()
-export let DungeonItem19 = std.Items.create(MODNAME,'dungeonitem19',37835)
-DungeonItem19.RequiredLevel.set(6)
-DungeonItem19.Socket.clearAll()
-DungeonItem19.Quality.setBlue()
-export let DungeonItem20 = std.Items.create(MODNAME,'dungeonitem20',44312)
-DungeonItem20.RequiredLevel.set(6)
-DungeonItem20.Socket.clearAll()
-DungeonItem20.Quality.setBlue()
-
-
-
-
 export let SummonedSkeleton = std.CreatureTemplates.create(MODNAME,'skeletonbones',3271)
 SummonedSkeleton.Name.enGB.set('Animated Bones')
 SummonedSkeleton.Level.set(9,9)
@@ -711,89 +567,6 @@ addLootToCreatureSingleChance(DungeonBoss02Loot,[
 addLootToCreatureSingleChance(DungeonBoss02Loot,[
     OrbofPower.ID
 ],100,3)
-
-export let DungeonItem21 = std.Items.create(MODNAME,'dungeonitem21',28484)
-DungeonItem21.RequiredLevel.set(6)
-DungeonItem21.Quality.setBlue()
-DungeonItem21.RequiredSpell.set(0)
-export let DungeonItem22 = std.Items.create(MODNAME,'dungeonitem22',28485)
-DungeonItem22.RequiredLevel.set(6)
-DungeonItem22.Quality.setBlue()
-DungeonItem22.RequiredSpell.set(0)
-export let DungeonItem23 = std.Items.create(MODNAME,'dungeonitem23',23565)
-DungeonItem23.RequiredLevel.set(6)
-DungeonItem23.Quality.setBlue()
-DungeonItem23.RequiredSpell.set(0)
-export let DungeonItem24 = std.Items.create(MODNAME,'dungeonitem24',23564)
-DungeonItem24.RequiredLevel.set(6)
-DungeonItem24.Quality.setBlue()
-DungeonItem24.RequiredSpell.set(0)
-
-export let DungeonItem25 = std.Items.create(MODNAME,'dungeonitem25',28439)
-DungeonItem25.RequiredLevel.set(6)
-DungeonItem25.Quality.setBlue()
-DungeonItem25.RequiredSpell.set(0)
-export let DungeonItem26 = std.Items.create(MODNAME,'dungeonitem26',28442)
-DungeonItem26.RequiredLevel.set(6)
-DungeonItem26.Quality.setBlue()
-DungeonItem26.RequiredSpell.set(0)
-export let DungeonItem27 = std.Items.create(MODNAME,'dungeonitem27',28430)
-DungeonItem27.RequiredLevel.set(6)
-DungeonItem27.Quality.setBlue()
-DungeonItem27.RequiredSpell.set(0)
-export let DungeonItem28 = std.Items.create(MODNAME,'dungeonitem28',28427)
-DungeonItem28.RequiredLevel.set(6)
-DungeonItem28.Quality.setBlue()
-DungeonItem28.RequiredSpell.set(0)
-
-export let DungeonItem29 = std.Items.create(MODNAME,'dungeonitem29',21869)
-DungeonItem29.RequiredLevel.set(6)
-DungeonItem29.Quality.setBlue()
-DungeonItem29.RequiredSpell.set(0)
-export let DungeonItem30 = std.Items.create(MODNAME,'dungeonitem30',21870)
-DungeonItem30.RequiredLevel.set(6)
-DungeonItem30.Quality.setBlue()
-DungeonItem30.RequiredSpell.set(0)
-export let DungeonItem31 = std.Items.create(MODNAME,'dungeonitem31',21871)
-DungeonItem31.RequiredLevel.set(6)
-DungeonItem31.Quality.setBlue()
-DungeonItem31.RequiredSpell.set(0)
-
-export let DungeonItem32 = std.Items.create(MODNAME,'dungeonitem32',21846)
-DungeonItem32.RequiredLevel.set(6)
-DungeonItem32.Quality.setBlue()
-DungeonItem32.RequiredSpell.set(0)
-export let DungeonItem33 = std.Items.create(MODNAME,'dungeonitem33',21847)
-DungeonItem33.RequiredLevel.set(6)
-DungeonItem33.Quality.setBlue()
-DungeonItem33.RequiredSpell.set(0)
-export let DungeonItem34 = std.Items.create(MODNAME,'dungeonitem34',21818)
-DungeonItem34.RequiredLevel.set(6)
-DungeonItem34.Quality.setBlue()
-DungeonItem34.RequiredSpell.set(0)
-
-export let DungeonItem35 = std.Items.create(MODNAME,'dungeonitem35',23838)
-DungeonItem35.RequiredLevel.set(6)
-DungeonItem35.Quality.setBlue()
-DungeonItem35.RequiredSpell.set(0)
-export let DungeonItem36 = std.Items.create(MODNAME,'dungeonitem36',23839)
-DungeonItem36.RequiredLevel.set(6)
-DungeonItem36.Quality.setBlue()
-DungeonItem36.RequiredSpell.set(0)
-
-export let DarkSteel = std.Items.create(MODNAME,'darksteel',23445)
-DarkSteel.Name.enGB.set('Dark Steel')
-DarkSteel.Quality.setOrange()
-DarkSteel.MaxStack.set(9999)
-export let DarkLeather = std.Items.create(MODNAME,'darkleather',12810)
-DarkLeather.Name.enGB.set('Dark Leather')
-DarkLeather.Quality.setOrange()
-DarkLeather.MaxStack.set(9999)
-export let DarkCloth = std.Items.create(MODNAME,'darkcloth',23854)
-DarkCloth.Name.enGB.set('Dark Cloth')
-DarkCloth.Quality.setOrange()
-DarkCloth.MaxStack.set(9999)
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                Dungeon Chest Loot Must Always Remain at Bottom
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1290,3 +1063,7 @@ OpenWorldQuest03.Text.Incomplete.enGB.set('Destroy the menace within the dungeon
 OpenWorldQuest03.Text.Description.enGB.set('Enter the dungeon and slay the bosses within.')
 OpenWorldQuest03.Text.Reward.enGB.set('This is proven to be a difficult challenge, but I am glad that you have prevailed.')
 OpenWorldQuest03.Text.Title.enGB.set('Dungeoneering Pioneer')
+
+
+
+

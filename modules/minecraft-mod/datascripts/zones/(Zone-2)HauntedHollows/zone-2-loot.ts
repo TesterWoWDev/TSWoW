@@ -1,13 +1,9 @@
-import { ExpScroll, EyeofDestiny } from "../(Zone-0)Walk-of-Heroes/starting-zone-items"
-import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
-import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set"
-import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem"
+import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
+import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
 import { stringItem } from "../../items/string"
-import { Zone2Creature1Loot, Zone2Creature5Loot, Zone2RareCreature1Loot, Zone2RareCreature2Loot } from "./zone-2-creatures"
-import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, AwarenessHelm, CleverHat, FerventHelm, GuileRing, PotencyRing, SatyrBow, ShadowMistGloves } from "./zone-2-items"
-
-
+import { BloodiedPouch, SilkyCape, Carapace, GluttonCleaver, DeathmageSash, MordeshEye, FleshhideShoulders, FerventHelm, AwarenessHelm, SatyrBow, ShadowMistGloves, CleverHat, PotencyRing, GuileRing, ExpScroll, EyeofDestiny, OrbofPower } from "../item-manifest"
+import { Zone2Creature5Loot, Zone2RareCreature2Loot, Zone2RareCreature1Loot, Zone2Creature1Loot } from "./zone-2-creatures"
 
 
 addLootToCreature(Zone2Creature5Loot,[tierTwoClothMaterial,tierTwoLeatherMaterial,tierTwoMailMaterial],[10,10,10])

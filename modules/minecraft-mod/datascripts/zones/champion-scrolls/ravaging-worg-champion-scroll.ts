@@ -1,9 +1,5 @@
 import { std } from "tswow-stdlib"
-import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { MODNAME } from "../../modname"
-import { Advocate, Avalanche, Bulwarkshield, Crusher, DancingBlades, Eyepatch, FuryOffhand, HeavenlyPurpose, Introspection, Medivh01, Medivh02, Medivh03, Medivh04, Mojoshield, NaturalRegenHelm, PrimalFury, rohk, Valanyr } from "./champion-scroll-loot"
-import { KoboldChampionCreatureLoot } from "./kobold-champion-scroll"
-import { MurlocChampionCreatureLoot } from "./murloc-champion-scroll"
 
 /*Creature - Worg Champion*/
 export let WorgChampionCreature = std.CreatureTemplates.create(MODNAME,'worgchampioncreature-creature',299)

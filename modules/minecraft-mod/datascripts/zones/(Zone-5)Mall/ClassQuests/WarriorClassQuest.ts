@@ -1,11 +1,8 @@
-
 import { std } from "tswow-stdlib"
+import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
 import { MODNAME } from "../../../modname"
-import { SQL } from "wotlkdata"
-import { OrbofPower, PowerToken } from "./ARarePowerOrb"
-import { RavenLordMount } from "../../(Zone-1)Bramblewood/zone-1-items"
-//Class Trainer Quest - Warrior
+import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
 export let WarriorQuestGiver01 = std.CreatureTemplates.create(MODNAME,'warrior01-creature',30368)
 WarriorQuestGiver01.Name.enGB.set('Warrior Disciple')

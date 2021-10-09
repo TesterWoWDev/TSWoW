@@ -1,12 +1,13 @@
 import { std } from "tswow-stdlib"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
 import { MODNAME } from "../../modname"
-import { HeavenlyPurpose, PrimalFury, Introspection, FuryOffhand, NaturalRegenHelm, Mojoshield, Bulwarkshield, Advocate, Avalanche, DancingBlades, rohk, Crusher, Eyepatch, Medivh01, Medivh02, Medivh03, Medivh04, Valanyr } from "./champion-scroll-loot"
+import { HeavenlyPurpose, PrimalFury, Introspection, FuryOffhand, NaturalRegenHelm, Mojoshield, Bulwarkshield, Advocate, Avalanche, DancingBlades, rohk, Crusher, Eyepatch, Medivh01, Medivh02, Medivh03, Medivh04, Valanyr } from "../item-manifest"
 import { harpyCreatureLoot } from "./harpy-champion-scroll"
 import { KoboldChampionCreatureLoot } from "./kobold-champion-scroll"
 import { MurlocChampionCreatureLoot } from "./murloc-champion-scroll"
 import { quailboarCreatureLoot } from "./quailboar-champion-scroll"
 import { WorgChampionCreatureLoot } from "./ravaging-worg-champion-scroll"
+
 
 /*Item Creation - Champion Boss Loot*/
 export let ChampionsSatchel = std.Items.create(MODNAME,'championsatchel',805)

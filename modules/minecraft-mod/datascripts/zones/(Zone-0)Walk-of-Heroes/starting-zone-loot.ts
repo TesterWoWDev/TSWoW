@@ -1,10 +1,9 @@
-import { addLootToCreature } from "../../functions/npc-functions";
-import { SmallSackofCoins } from "../../items/currencies";
-import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test";
-import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
-import { SmallRedPouch, SmallBluePouch, SmallBlackPouch, SmallGreenPouch, BrownLeatherSatchel, DarnassianBleu, ShinyRedApple, RefreshingSpringWater, Dirk, TornNote, BoarSkin } from "../(Zone-1)Bramblewood/zone-1-items";
-import { Boar01Loot, startingZoneWolfBossLoot } from "./starting-zone-creatures";
-import { ExpScroll } from "./starting-zone-items";
+import { addLootToCreature } from "../../functions/npc-functions"
+import { SmallSackofCoins } from "../../items/currencies"
+import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test"
+import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll"
+import { SmallRedPouch, SmallBluePouch, SmallBlackPouch, SmallGreenPouch, BrownLeatherSatchel, DarnassianBleu, ShinyRedApple, RefreshingSpringWater, BoarSkin, ExpScroll } from "../item-manifest"
+import { startingZoneWolfBossLoot, Boar01Loot } from "./starting-zone-creatures"
 
 // Creature 1 = Ravaging Worg
 addLootToCreature(startingZoneWolfBossLoot,[

@@ -1,19 +1,18 @@
-import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set";
-import { Bosscreature1Loot, creature10Loot, creature2Loot, creature3Loot, creature4Loot, creature5Loot, creature6Loot, creature7Loot, creature8Loot, creature9Loot, DemiBosscreature1Loot, DemiBosscreature2Loot, RareCreature1Loot, RareCreature2Loot, RareCreature3Loot, RareCreature4Loot } from "./zone-1-creatures";
-import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial } from "../../items/armor/tier2-set";
-import { undiscoveredBlues, undiscoveredGreens, undiscoveredOranges, undiscoveredPurples, undiscoveredReds, undiscoveredYellows } from "../../items/gems/tier1-gem";
-import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, FangoftheCrystalSpider, GoblinDragonGun, DarkwaterTalwar, BiteofSerrakis, Grimclaw, Shadowfang, StrikeoftheHydra, GalgannsFireblaster, GalgannsFirehammer, RagingBerserkersHelm, HerodsShoulder, ScarletLeggings, DeadmansHand, RobeofDoan, MantleofDoan, SavageGladiatorChain, SavageGladiatorLeggings, SavageGladiatorHelm, SavageGladiatorGrips, SavageGladiatorGreaves, DarkIronPulverizer, IronweaveRobe, IronweaveCowl, IronweavePants, IronweaveGloves, IronweaveMantle, IronweaveBelt, IronweaveBoots, IronweaveBracers, WraithScythe, ForceofWill, LordGeneralsSword, Naglering, FlameWrath, BurstofKnowledge, CircleofFlame, BrownLeatherSatchel, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, DarnassianBleu, RefreshingSpringWater, ShinyRedApple, Dirk, TornNote, LargeCandle, MagicCandle, MeltedCandle, BladedPickaxe, BoarSkin } from "./zone-1-items";
-import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test";
-import { SmallSackofCoins } from "../../items/currencies";
-import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions";
-import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll";
-import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
-import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll";
-import { ExpScroll, EyeofDestiny } from "../(Zone-0)Walk-of-Heroes/starting-zone-items";
-import { OrbofPower } from "../(Zone-5)Mall/ClassQuests/ARarePowerOrb";
 
 //Pearl, Epaulet, Chain, Metal, Reinforced Metal, Stick,Dust
 //Cloth, Leather, Mail
+
+import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
+import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial, tierOneBaseResources } from "../../items/armor/tier1-set"
+import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
+import { SmallSackofCoins } from "../../items/currencies"
+import { undiscoveredReds, undiscoveredGreens, undiscoveredYellows, undiscoveredPurples, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
+import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test"
+import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll"
+import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll"
+import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll"
+import { SmallRedPouch, SmallBluePouch, SmallBlackPouch, SmallGreenPouch, BrownLeatherSatchel, DarnassianBleu, ShinyRedApple, RefreshingSpringWater, ExpScroll, BoarSkin, MeltedCandle, LargeCandle, MagicCandle, BladedPickaxe, EyeofDestiny, DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, FangoftheCrystalSpider, GoblinDragonGun, DarkwaterTalwar, BiteofSerrakis, Grimclaw, Shadowfang, StrikeoftheHydra, GalgannsFireblaster, GalgannsFirehammer, RagingBerserkersHelm, HerodsShoulder, ScarletLeggings, DeadmansHand, RobeofDoan, MantleofDoan, SavageGladiatorChain, SavageGladiatorLeggings, SavageGladiatorHelm, SavageGladiatorGrips, SavageGladiatorGreaves, DarkIronPulverizer, IronweaveRobe, IronweaveCowl, IronweavePants, IronweaveGloves, IronweaveMantle, IronweaveBelt, IronweaveBoots, IronweaveBracers, WraithScythe, ForceofWill, LordGeneralsSword, Naglering, FlameWrath, BurstofKnowledge, CircleofFlame, OrbofPower } from "../item-manifest"
+import { creature2Loot, creature3Loot, creature4Loot, creature5Loot, creature6Loot, creature7Loot, creature8Loot, creature9Loot, creature10Loot, RareCreature1Loot, RareCreature2Loot, RareCreature3Loot, RareCreature4Loot, DemiBosscreature1Loot, DemiBosscreature2Loot, Bosscreature1Loot } from "./zone-1-creatures"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
