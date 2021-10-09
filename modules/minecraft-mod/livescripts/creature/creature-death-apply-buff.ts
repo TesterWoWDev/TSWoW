@@ -4,7 +4,6 @@ let table:TSArray<uint32> = [
     GetID("creature_template","minecraft-mod","murlocchampioncreature-creature"),
     GetID("creature_template","minecraft-mod","harpycreature-creature"),
     GetID("creature_template","minecraft-mod","quailboarcreature-creature"),
-    
 ]
 
 export function creatureDeathApplyBuff(events: TSEventHandlers) {

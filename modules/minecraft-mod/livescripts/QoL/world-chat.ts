@@ -20,9 +20,7 @@ export function worldChat(events:TSEventHandlers){
             }
             else if(faction == 1){
                 teamIcon = a
-            }
-            
-            
+            }  
             SendWorldMessage("[World] [" + teamIcon + "|cff" + colors[player.GetClass()]+ "|Hplayer:" + player.GetName() + "|h" + player.GetName() + "|h|r]: |cffffffff"+message+"|r")
         }
     }) 
