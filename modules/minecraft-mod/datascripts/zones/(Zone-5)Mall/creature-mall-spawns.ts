@@ -8,7 +8,7 @@ import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../fu
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { MODNAME } from "../../modname"
-import { ItemReward07, ItemReward08, ItemReward09, ItemReward10, ItemReward11, ItemReward12, ItemReward13, OrbofPower } from "./ClassQuests/ARarePowerOrb"
+import { ItemReward07, ItemReward08, ItemReward09, ItemReward10, ItemReward11, ItemReward12, ItemReward13, ItemReward14, ItemReward15, ItemReward16, ItemReward17, ItemReward18, ItemReward19, ItemReward20, ItemReward21, ItemReward22, ItemReward23, ItemReward24, ItemReward25, ItemReward26, ItemReward27, ItemReward28, ItemReward29, ItemReward30, ItemReward31, ItemReward32, ItemReward33, ItemReward34, ItemReward35, ItemReward36, ItemReward37, ItemReward38, ItemReward39, ItemReward40, OrbofPower } from "./ClassQuests/ARarePowerOrb"
 
 let broadcastindex = 87000
 
@@ -135,6 +135,7 @@ OrbOfPowerVendor.FactionTemplate.set(35)
 spawnMultipleNPCWithTimer(OrbOfPowerVendor.ID,0,0,[
     [-8302.053711,-267.736298,17.274397,6.243299]],10)
 DBC.ItemExtendedCost.add(5000).ItemID.set([OrbofPower.ID]).ItemCount.set([10]).HonorPoints.set(0).ArenaPoints.set(0)
+DBC.ItemExtendedCost.add(5001).ItemID.set([OrbofPower.ID]).ItemCount.set([3]).HonorPoints.set(0).ArenaPoints.set(0)
 OrbOfPowerVendor.addVendorItem(34170,0,0,5000)
 OrbOfPowerVendor.addVendorItem(ItemReward07.ID,0,0,5000)
 OrbOfPowerVendor.addVendorItem(ItemReward08.ID,0,0,5000)
@@ -143,6 +144,33 @@ OrbOfPowerVendor.addVendorItem(ItemReward10.ID,0,0,5000)
 OrbOfPowerVendor.addVendorItem(ItemReward11.ID,0,0,5000)
 OrbOfPowerVendor.addVendorItem(ItemReward12.ID,0,0,5000)
 OrbOfPowerVendor.addVendorItem(ItemReward13.ID,0,0,5000)
+OrbOfPowerVendor.addVendorItem(ItemReward14.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward15.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward16.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward17.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward18.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward19.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward20.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward21.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward22.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward23.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward24.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward25.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward26.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward27.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward28.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward29.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward30.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward31.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward32.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward33.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward34.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward35.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward36.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward37.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward38.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward39.ID,0,0,5001)
+OrbOfPowerVendor.addVendorItem(ItemReward40.ID,0,0,5001)
 
 export let OrganicMatterVendor = std.CreatureTemplates.create(MODNAME,'organicmob-creature',3562)
 OrganicMatterVendor.Name.enGB.set('Organic Tim')
