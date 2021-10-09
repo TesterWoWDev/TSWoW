@@ -1,5 +1,4 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata"
 import { MODNAME } from "../modname"
 
 export let stringItem = std.Items.create(MODNAME,'string', 2934)
