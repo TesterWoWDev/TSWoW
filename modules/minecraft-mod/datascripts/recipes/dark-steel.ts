@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib";
-import { createRecipe } from "../../functions/recipe-functions";
-import { MODNAME } from "../../modname";
-import { DarkSteel, DarkLeather, DarkCloth } from "../../zones/open-world-dungeon-01";
+import { createRecipe } from "../functions/recipe-functions";
+import { MODNAME } from "../modname";
+import { DarkSteel, DarkLeather, DarkCloth } from "../zones/open-world-dungeon-01";
 
 export let DarkSteelGloves = std.Items.create(MODNAME,'darksteelgloves',28505)
 DarkSteelGloves.Name.enGB.set('Dark Steel Gloves')
