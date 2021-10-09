@@ -1,12 +1,10 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata/sql/SQLFiles"
-import { ArdentCustodian, BiteofSerrakis, BoarSkin, BowofSearingArrows, BrownLeatherSatchel, BurstofKnowledge, CircleofFlame, DarkIronPulverizer, DarkwaterTalwar, DarnassianBleu, DazzlingLongsword, DeadmansHand, DeerSkin, EskhandarsLeftClaw, EskhandarsRightClaw, FangoftheCrystalSpider, FieryWarAxe, FlameWrath, ForceofWill, GalgannsFireblaster, GalgannsFirehammer, GoblinDragonGun, Grimclaw, GutRipper, HerodsShoulder, Ironfoe, IronweaveBelt, IronweaveBoots, IronweaveBracers, IronweaveCowl, IronweaveGloves, IronweaveMantle, IronweavePants, IronweaveRobe, LordGeneralsSword, MantleofDoan, Naglering, Nightblade, RabbitSkin, RagingBerserkersHelm, RefreshingSpringWater, RobeofDoan, SavageGladiatorChain, SavageGladiatorGreaves, SavageGladiatorGrips, SavageGladiatorHelm, SavageGladiatorLeggings, ScarletLeggings, Shadowfang, ShinyRedApple, SmallBlackPouch, SmallBluePouch, SmallGreenPouch, SmallRedPouch, StaffofJordan, StrikeoftheHydra, Teeth, TheGreenTower, UnderworldBand, WraithScythe } from "../(Zone-1)Bramblewood/zone-1-items"
-import { LoggingPileLogs } from "../(Zone-5)Mall/mall-resource-spawns"
+import { SQL } from "wotlkdata"
 import { addLootToCreature, addLootToCreatureSingleChance } from "../../functions/npc-functions"
-import { addWaypoint, spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC, spawnNPCWithTimer } from "../../functions/spawning-functions"
-import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial, tierOneBaseResources } from "../../items/armor/tier1-set"
+import { spawnNPC, addWaypoint, spawnNPCWithTimer, spawnMultipleNPCWithTimer, spawnMultipleNPCs } from "../../functions/spawning-functions"
+import { tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { MODNAME } from "../../modname"
-import { FireStick, FightingStick01, FightingStick02, FightingStick03 } from "./starting-zone-items"
+import { LoggingPileLogs, FireStick, FightingStick01, FightingStick02, FightingStick03, Teeth, RabbitSkin, DeerSkin, SmallRedPouch, SmallBluePouch, SmallBlackPouch, SmallGreenPouch, BrownLeatherSatchel, DarnassianBleu, ShinyRedApple, RefreshingSpringWater, BoarSkin, DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, FangoftheCrystalSpider, GoblinDragonGun, DarkwaterTalwar, BiteofSerrakis, Grimclaw, Shadowfang, StrikeoftheHydra, GalgannsFireblaster, GalgannsFirehammer, RagingBerserkersHelm, HerodsShoulder, ScarletLeggings, DeadmansHand, RobeofDoan, MantleofDoan, SavageGladiatorChain, SavageGladiatorLeggings, SavageGladiatorHelm, SavageGladiatorGrips, SavageGladiatorGreaves, DarkIronPulverizer, IronweaveRobe, IronweaveCowl, IronweavePants, IronweaveGloves, IronweaveMantle, IronweaveBelt, IronweaveBoots, IronweaveBracers, WraithScythe, ForceofWill, LordGeneralsSword, Naglering, FlameWrath, BurstofKnowledge, CircleofFlame } from "../item-manifest"
 
 export let WoodcuttingTree = std.CreatureTemplates.create(MODNAME,'woodcuttingtree-creature',721)
 WoodcuttingTree.Name.enGB.set('Tree')

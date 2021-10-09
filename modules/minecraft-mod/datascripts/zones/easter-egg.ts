@@ -1,48 +1,11 @@
 import { std } from "tswow-stdlib"
-import { MODNAME } from "../modname"
-import { addLootToGobChest, addLootToGobChestSingleChance, addLootToGobChestSingleChanceMultiGroup } from "../functions/gob-functions"
+import { addLootToGobChestSingleChanceMultiGroup, addLootToGobChest, addLootToGobChestSingleChance } from "../functions/gob-functions"
 import { makeResourceNode } from "../functions/resource-node-functions"
-import { tierOneBaseResources, tierOneMailMaterial, tierOneLeatherMaterial, tierOneClothMaterial } from "../items/armor/tier1-set"
-import { DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw } from "./(Zone-1)Bramblewood/zone-1-items"
 import { spawnMultiGobTimer } from "../functions/spawning-functions"
+import { tierOneBaseResources, tierOneMailMaterial, tierOneLeatherMaterial, tierOneClothMaterial } from "../items/armor/tier1-set"
+import { MODNAME } from "../modname"
+import { UnTestedBoots, FallenAngelCloak, DazzlingLongsword, Nightblade, FieryWarAxe, ArdentCustodian, StaffofJordan, TheGreenTower, BowofSearingArrows, UnderworldBand, GutRipper, Ironfoe, EskhandarsRightClaw, EskhandarsLeftClaw, WornFlannelShirt, BrokenChickenShoulders, RampagingLeggings, UndyingGauntlets, StrangeBlade } from "./item-manifest"
 
-//Items
-export let UnTestedBoots = std.Items.create(MODNAME,'untestedboots',1121)
-UnTestedBoots.Name.enGB.set("Un-Tested Boots")
-UnTestedBoots.Quality.setBlue()
-UnTestedBoots.MaxCount.set(1)
-UnTestedBoots.RequiredLevel.set(0)
-UnTestedBoots.Stats.addStamina(12)
-UnTestedBoots.Stats.addAgility(9)
-UnTestedBoots.Stats.addAttackPower(20)
-UnTestedBoots.Price.set(1,1)
-UnTestedBoots.Class.setClothEquip()
-export let FallenAngelCloak = std.Items.create(MODNAME,'fallencloak',3980)
-FallenAngelCloak.Name.enGB.set("Cloak of the Fallen Angel")
-FallenAngelCloak.Quality.setBlue()
-FallenAngelCloak.MaxCount.set(1)
-FallenAngelCloak.RequiredLevel.set(0)
-FallenAngelCloak.Stats.addStamina(7)
-FallenAngelCloak.Stats.addIntellect(11)
-FallenAngelCloak.Stats.addSpellPower(18)
-FallenAngelCloak.Stats.addCritRating(7)
-FallenAngelCloak.Price.set(1,1)
-export let WornFlannelShirt = std.Items.create(MODNAME,'flannelshirt',41248)
-WornFlannelShirt.Name.enGB.set("Well-Made Flannel")
-WornFlannelShirt.Quality.setBlue()
-WornFlannelShirt.MaxCount.set(1)
-WornFlannelShirt.RequiredLevel.set(0)
-WornFlannelShirt.Stats.addStamina(3)
-WornFlannelShirt.Stats.addAttackPower(7)
-WornFlannelShirt.Stats.addSpellPower(7)
-WornFlannelShirt.Stats.addCritRating(5)
-WornFlannelShirt.Price.set(1,1)
-WornFlannelShirt.Class.setClothEquip()
-export let StrangeBlade = std.Items.create(MODNAME,'strangeblade',5191)
-StrangeBlade.Name.enGB.set("Strange Blade")
-StrangeBlade.RequiredLevel.set(1)
-StrangeBlade.Quality.setBlue()
-StrangeBlade.Price.set(1,1)
 //Direct Equip Spells
 export let SlowFallSpell = std.Spells.create(MODNAME,'slowfallspell-spell',130) //caster
 SlowFallSpell.Name.enGB.set('Slow Fall (Permanent)')
@@ -65,29 +28,6 @@ HealthSpell.Effects.get(0).AuraType.setModIncreaseHealthPercent()
 HealthSpell.Effects.get(1).AuraType.set(0)
 HealthSpell.Effects.get(2).AuraType.set(0)
 HealthSpell.Duration.set(-1,0,-1)
-//
-export let BrokenChickenShoulders = std.Items.create(MODNAME,'chickenshoulders',5404)
-BrokenChickenShoulders.Name.enGB.set("Cracked Chicken Shell Shoulderguards")
-BrokenChickenShoulders.RequiredLevel.set(1)
-BrokenChickenShoulders.Quality.setBlue()
-BrokenChickenShoulders.Price.set(1,1)
-BrokenChickenShoulders.Spells.add(SlowFallSpell.ID).Trigger.set(1)
-BrokenChickenShoulders.Class.setClothEquip()
-export let RampagingLeggings = std.Items.create(MODNAME,'rampaginglegs',6587)
-RampagingLeggings.Name.enGB.set("Leggings of Brutal Rampage")
-RampagingLeggings.RequiredLevel.set(1)
-RampagingLeggings.Quality.setBlue()
-RampagingLeggings.Price.set(1,1)
-RampagingLeggings.Spells.add(DamageSpell.ID).Trigger.set(1)
-RampagingLeggings.Class.setClothEquip()
-export let UndyingGauntlets = std.Items.create(MODNAME,'undyinggauntlets',10413)
-UndyingGauntlets.Name.enGB.set("Gauntlets of the Undying")
-UndyingGauntlets.RequiredLevel.set(1)
-UndyingGauntlets.Quality.setBlue()
-UndyingGauntlets.Price.set(1,1)
-UndyingGauntlets.Spells.add(HealthSpell.ID).Trigger.set(1)
-UndyingGauntlets.ItemSet.set(0)
-UndyingGauntlets.Class.setClothEquip()
 
 //Game Objects
 export let ForgottenBoots = makeResourceNode('Forgotten Boots',86691,57,'forgottenboots-chest')

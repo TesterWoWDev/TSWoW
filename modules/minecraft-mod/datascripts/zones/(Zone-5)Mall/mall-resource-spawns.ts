@@ -1,36 +1,8 @@
 import { makeResourceNode } from "../../functions/resource-node-functions"
-import { std } from "tswow-stdlib"
-import { MODNAME } from "../../modname"
-import { ShinyRedApple, RefreshingSpringWater } from "../(Zone-1)Bramblewood/zone-1-items";
 import { SmallSackofCoins } from "../../items/currencies";
 import { addLootToGobChestMultiDrop } from "../../functions/gob-functions";
 import { spawnMultiGobTimer } from "../../functions/spawning-functions";
-
-/*Item Creation Zone*/
-export let LoggingPileLogs = std.Items.create(MODNAME,'logpilelogs',44208)
-LoggingPileLogs.Name.enGB.set('Logs')
-LoggingPileLogs.Quality.setWhite()
-LoggingPileLogs.MaxStack.set(9999)
-LoggingPileLogs.Price.set(60,80)
-
-export let GrainSack = std.Items.create(MODNAME,'grainsack',8838)
-GrainSack.Name.enGB.set('Grain')
-GrainSack.Quality.setWhite()
-GrainSack.MaxStack.set(9999)
-GrainSack.Price.set(60,80)
-
-export let MaturePumpkin = std.Items.create(MODNAME,'mpumpkin',4656)
-MaturePumpkin.Name.enGB.set('Matured Pumpkin')
-MaturePumpkin.Quality.setWhite()
-MaturePumpkin.MaxStack.set(9999)
-MaturePumpkin.Price.set(55,95)
-
-export let WatermelonItem = std.Items.create(MODNAME,'rwatermelon',4538)
-WatermelonItem.Name.enGB.set('Watermelon')
-WatermelonItem.Quality.setWhite()
-WatermelonItem.MaxStack.set(9999)
-WatermelonItem.Price.set(55,95)
-WatermelonItem.RequiredLevel.set(0)
+import { WatermelonItem, MaturePumpkin, LoggingPileLogs, GrainSack, RefreshingSpringWater, ShinyRedApple } from "../item-manifest";
 
 /*Object Creation Zone*/
 export let Watermelon = makeResourceNode('Ripe Watermelon',85636,57,'watermelon-chest')

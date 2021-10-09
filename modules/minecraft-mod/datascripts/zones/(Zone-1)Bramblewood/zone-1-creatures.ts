@@ -1,8 +1,8 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata"
 import { MODNAME } from "../../modname"
-import { Rank1Frostbolt, Rank1FireBlast, Rank1FrostArmor, Rank1FrostNova, Rank1BoarCharge, Rank1Strike, Rank1Bite, Rank1Gore, Rank1Whirlwind } from "./zone-1-creature-spells"
-import { BoarSkin, Teeth } from "./zone-1-items"
+import { BoarSkin, Teeth } from "../item-manifest"
+import { Rank1Bite, Rank1Gore, Rank1BoarCharge, Rank1FrostArmor, Rank1FireBlast, Rank1FrostNova, Rank1Frostbolt } from "./zone-1-creature-spells"
 
 let broadcastindex = 85000
 

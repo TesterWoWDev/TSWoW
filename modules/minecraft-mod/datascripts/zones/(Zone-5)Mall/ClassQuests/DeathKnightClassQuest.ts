@@ -1,12 +1,11 @@
 
+//Class Trainer Quest - Deathknight
+
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
-import { RavenLordMount } from "../../(Zone-1)Bramblewood/zone-1-items"
 import { MODNAME } from "../../../modname"
-import { OrbofPower, PowerToken } from "./ARarePowerOrb"
-
-//Class Trainer Quest - Deathknight
+import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
 export let DeathknightQuestGiver01 = std.CreatureTemplates.create(MODNAME,'dk01-creature',30368)
 DeathknightQuestGiver01.Name.enGB.set('Deathknight Disciple')

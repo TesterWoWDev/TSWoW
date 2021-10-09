@@ -1,15 +1,15 @@
-import { makeResourceNode } from "../../functions/resource-node-functions";
-import { spawnGobTimer, spawnMultiGobTimer, spawnMultipleGobs } from "../../functions/spawning-functions";
-
-import { SQL } from "wotlkdata/sql/SQLFiles";
-import { AgathasLockbox, BlackMalice, CavedwellerBracers, ChantingBlade, Cruelbarb, CrystallineCuffs, CursedFelblade, DefiasArmor, DefiasBelt, Defiasboot, DefiasGlove, DefiasLeg, FamilySeal, GoldGloves, JewelRing, NobleRobe, RobeofEvocation, ShadowfangWeapon, SmiteAxe, startingResource01, SubterraneanCape, WalkingBoots } from "./starting-zone-items";
-import { startingQuest01, startingQuest02 } from "./starting-zone-quests";
-import { addLootToGobChest, addLootToGobChestMultiDrop } from "../../functions/gob-functions";
-import { BowlofFruit, GrainSack, SackofGrains } from "../(Zone-5)Mall/mall-resource-spawns";
-import { ShinyRedApple, RefreshingSpringWater } from "../(Zone-1)Bramblewood/zone-1-items";
-import { SmallSackofCoins } from "../../items/currencies";
 
 /*Ambient Object Spawns*/
+
+import { SQL } from "wotlkdata"
+import { SackofGrains, BowlofFruit } from "../(Zone-5)Mall/mall-resource-spawns"
+import { addLootToGobChest, addLootToGobChestMultiDrop } from "../../functions/gob-functions"
+import { makeResourceNode } from "../../functions/resource-node-functions"
+import { spawnMultipleGobs, spawnGobTimer, spawnMultiGobTimer } from "../../functions/spawning-functions"
+import { SmallSackofCoins } from "../../items/currencies"
+import { AgathasLockbox, startingResource01, ShinyRedApple, RefreshingSpringWater, GrainSack, SubterraneanCape, CrystallineCuffs, CursedFelblade, RobeofEvocation, CavedwellerBracers, ChantingBlade, NobleRobe, WalkingBoots, JewelRing, GoldGloves, SmiteAxe, DefiasArmor, DefiasBelt, Defiasboot, DefiasGlove, DefiasLeg, Cruelbarb, FamilySeal, ShadowfangWeapon, BlackMalice } from "../item-manifest"
+import { startingQuest01, startingQuest02 } from "./starting-zone-quests"
+
 /*Tables*/
 spawnMultipleGobs(507606, [
     [-8764.805664,-73.719604,31.736753,3.942945], 
