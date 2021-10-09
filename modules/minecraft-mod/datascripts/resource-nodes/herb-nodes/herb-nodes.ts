@@ -1,6 +1,7 @@
-import { Silverleaf, Earthroot, WildSteelbloom, Mageroyal, Peacebloom } from "../../zones/(Zone-1)Bramblewood/zone-1-items"
+
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { tierOneBaseResources } from "../../items/armor/tier1-set"
+import { Silverleaf, Earthroot, WildSteelbloom, Mageroyal, Peacebloom } from "../../zones/item-manifest"
 
 export let herbNode1 = makeResourceNode('herb Vein 1',270,29,'tier1')
     herbNode1.Loot.addItem(Silverleaf.ID,100,1,2)

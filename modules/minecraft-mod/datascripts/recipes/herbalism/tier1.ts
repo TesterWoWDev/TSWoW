@@ -4,7 +4,7 @@ import { tierTwoBaseResources, tierTwoClothMaterial, tierTwoLeatherMaterial, tie
 import { tierThreeBaseResources, tierThreeMailMaterial, tierThreeLeatherMaterial, tierThreeClothMaterial } from "../../items/armor/tier3-set";
 import { tierFourBaseResources, tierFourMailMaterial, tierFourLeatherMaterial, tierFourClothMaterial } from "../../items/armor/tier4-set";
 import { GemDust } from "../../items/gems/tier1-gem";
-import { DiscoloredHealingPotion, LesserHealingPotion, MinorHealingPotion, MinorRejuvenationPotion } from "../../zones/(Zone-1)Bramblewood/zone-1-items";
+import { MinorHealingPotion, LesserHealingPotion, DiscoloredHealingPotion, MinorRejuvenationPotion } from "../../zones/item-manifest";
 
 //healing potions
 let crystalVial = 8925
