@@ -124,6 +124,7 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.RequiredDisenchantSkill.set(0)
         item.Bonding.setBindsOnEquip()
         item.Flags.set(0)
+        item.Material.set(7)
         wepSpell.forEach((value,index)=>{
             item.Spells.add(value).Trigger.set(wepTrigger[index])
         })
@@ -134,7 +135,6 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.ItemLevel.set(costval)
         costval = costval*2
         if(ids[i][0] == 2){//weapon
-            item.Material.setMetal()
             if(ids[i][2] == 17){//2h
                 item.Damage.addPhysical(costval*levelrequirement*1.5,costval*levelrequirement*2.2)
                 item.Delay.set(2800)
