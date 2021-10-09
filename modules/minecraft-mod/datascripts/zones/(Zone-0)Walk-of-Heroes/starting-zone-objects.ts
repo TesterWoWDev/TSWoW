@@ -8,8 +8,7 @@ import { makeResourceNode } from "../../functions/resource-node-functions"
 import { spawnMultipleGobs, spawnGobTimer, spawnMultiGobTimer } from "../../functions/spawning-functions"
 import { SmallSackofCoins } from "../../items/currencies"
 import { AgathasLockbox, startingResource01, ShinyRedApple, RefreshingSpringWater, GrainSack, SubterraneanCape, CrystallineCuffs, CursedFelblade, RobeofEvocation, CavedwellerBracers, ChantingBlade, NobleRobe, WalkingBoots, JewelRing, GoldGloves, SmiteAxe, DefiasArmor, DefiasBelt, Defiasboot, DefiasGlove, DefiasLeg, Cruelbarb, FamilySeal, ShadowfangWeapon, BlackMalice } from "../item-manifest"
-import { startingQuest01, startingQuest02 } from "./starting-zone-quests"
-
+import { startingQuest01, startingQuest02 } from "../quest-manifest"
 /*Tables*/
 spawnMultipleGobs(507606, [
     [-8764.805664,-73.719604,31.736753,3.942945], 

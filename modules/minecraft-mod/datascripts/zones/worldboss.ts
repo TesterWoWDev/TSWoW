@@ -1,8 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
 import { spawnNPCWithTimer } from "../functions/spawning-functions"
-import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
-
+import { OrbofPower } from "./item-manifest"
 
 export let TeremustheDevourer = std.CreatureTemplates.load(7846)
 TeremustheDevourer.Level.set(30)
