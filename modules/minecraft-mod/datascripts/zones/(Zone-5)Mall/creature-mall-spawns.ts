@@ -8,7 +8,7 @@ import { spawnMultipleNPCs, spawnMultipleNPCWithTimer, spawnNPC } from "../../fu
 import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "../../items/armor/tier1-set"
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { MODNAME } from "../../modname"
-import { OrbofPower } from "./ClassQuests/ARarePowerOrb"
+import { ItemReward07, ItemReward08, ItemReward09, ItemReward10, ItemReward11, ItemReward12, ItemReward13, OrbofPower } from "./ClassQuests/ARarePowerOrb"
 
 let broadcastindex = 87000
 
@@ -136,6 +136,13 @@ spawnMultipleNPCWithTimer(OrbOfPowerVendor.ID,0,0,[
     [-8302.053711,-267.736298,17.274397,6.243299]],10)
 DBC.ItemExtendedCost.add(5000).ItemID.set([OrbofPower.ID]).ItemCount.set([10]).HonorPoints.set(0).ArenaPoints.set(0)
 OrbOfPowerVendor.addVendorItem(34170,0,0,5000)
+OrbOfPowerVendor.addVendorItem(ItemReward07.ID,0,0,5000)
+OrbOfPowerVendor.addVendorItem(ItemReward08.ID,0,0,5000)
+OrbOfPowerVendor.addVendorItem(ItemReward09.ID,0,0,5000)
+OrbOfPowerVendor.addVendorItem(ItemReward10.ID,0,0,5000)
+OrbOfPowerVendor.addVendorItem(ItemReward11.ID,0,0,5000)
+OrbOfPowerVendor.addVendorItem(ItemReward12.ID,0,0,5000)
+OrbOfPowerVendor.addVendorItem(ItemReward13.ID,0,0,5000)
 
 export let OrganicMatterVendor = std.CreatureTemplates.create(MODNAME,'organicmob-creature',3562)
 OrganicMatterVendor.Name.enGB.set('Organic Tim')

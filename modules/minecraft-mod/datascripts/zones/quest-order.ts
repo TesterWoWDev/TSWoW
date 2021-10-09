@@ -11,7 +11,7 @@ import { RogueQuest01, RogueQuest02 } from "./(Zone-5)Mall/ClassQuests/RogueClas
 import { ShamanQuest01, ShamanQuest02 } from "./(Zone-5)Mall/ClassQuests/ShamanClassQuest";
 import { WarlockQuest01, WarlockQuest02 } from "./(Zone-5)Mall/ClassQuests/WarlockClassQuest";
 import { WarriorQuest01, WarriorQuest02 } from "./(Zone-5)Mall/ClassQuests/WarriorClassQuest";
-import { OpenWorldQuest01, OpenWorldQuest02 } from "./open-world-dungeon-01";
+import { OpenWorldQuest01, OpenWorldQuest02, OpenWorldQuest03 } from "./open-world-dungeon-01";
 
  SQL.quest_template_addon.add(startingQuest01.ID).NextQuestID.set(startingQuest02.ID).PrevQuestID.set(0).ExclusiveGroup.set(0)
  SQL.quest_template_addon.add(startingQuest02.ID).NextQuestID.set(startingQuest03.ID).PrevQuestID.set(startingQuest01.ID).ExclusiveGroup.set(0)
@@ -54,3 +54,4 @@ import { OpenWorldQuest01, OpenWorldQuest02 } from "./open-world-dungeon-01";
  SQL.quest_template_addon.add(ExpTestQuest01.ID).NextQuestID.set(0).PrevQuestID.set(startingQuest05.ID).ExclusiveGroup.set(0).SpecialFlags.set(1)
  SQL.quest_template_addon.add(OpenWorldQuest01.ID).NextQuestID.set(0).PrevQuestID.set(startingQuest09.ID).ExclusiveGroup.set(0).SpecialFlags.set(1)
  SQL.quest_template_addon.add(OpenWorldQuest02.ID).NextQuestID.set(0).PrevQuestID.set(startingQuest09.ID).ExclusiveGroup.set(0).SpecialFlags.set(1)
+ SQL.quest_template_addon.add(OpenWorldQuest03.ID).NextQuestID.set(0).PrevQuestID.set(startingQuest09.ID).ExclusiveGroup.set(0)

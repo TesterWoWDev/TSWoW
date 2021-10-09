@@ -12,7 +12,7 @@ import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscovered
 import { MODNAME } from "../modname"
 import { EyeofDestiny } from "./(Zone-0)Walk-of-Heroes/starting-zone-items"
 import { VolatilePower, DragonscaleBlade, MiseryMace, HeartPit, LurkerCord, LurkerGrasp, LurkerBelt, LurkerGirdle, RavagerCuff, RavagerWrap, Ravagerband, Ravagerbracer, Gliderwrap, Gliderboots, Glidersabatons, Glidergreaves, LostTreads, Commendation, Contempt, FocusingCrystal, SunwellVial } from "./(Zone-3)Leronar/zone-3-items"
-import { OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
+import { ItemReward01, ItemReward02, ItemReward03, ItemReward04, ItemReward05, ItemReward06, OrbofPower } from "./(Zone-5)Mall/ClassQuests/ARarePowerOrb"
 
 
 
@@ -1268,3 +1268,25 @@ OpenWorldQuest02.Text.Description.enGB.set('Enter the dungeon and slay the bosse
 OpenWorldQuest02.Text.Reward.enGB.set('This is proven to be a difficult challenge, but I am glad that you have prevailed.')
 OpenWorldQuest02.Text.Title.enGB.set('Dungeon Mastery')
 
+export let OpenWorldQuest03 = std.Quests.create(MODNAME,'openworldquest03')
+OpenWorldQuest03.Flags.set(1)
+OpenWorldQuest03.MinLevel.set(1)
+OpenWorldQuest03.QuestLevel.set(80)
+OpenWorldQuest03.Questgiver.addStarter(OpenWorldDungeonQuestGiver01.ID)
+OpenWorldQuest03.Questgiver.addEnder(OpenWorldDungeonQuestGiver01.ID)
+OpenWorldQuest03.Objectives.Entity.add(DungeonBoss01.ID,1)
+OpenWorldQuest03.Objectives.Entity.add(DungeonBoss02.ID,1)
+OpenWorldQuest03.Objectives.Entity.add(DungeonBoss03.ID,1)
+OpenWorldQuest03.Rewards.Money.set(153696)
+OpenWorldQuest03.Rewards.ChoiceItem.add(ItemReward01.ID,1)
+OpenWorldQuest03.Rewards.ChoiceItem.add(ItemReward02.ID,1)
+OpenWorldQuest03.Rewards.ChoiceItem.add(ItemReward03.ID,1)
+OpenWorldQuest03.Rewards.ChoiceItem.add(ItemReward04.ID,1)
+OpenWorldQuest03.Rewards.ChoiceItem.add(ItemReward05.ID,1)
+OpenWorldQuest03.Rewards.ChoiceItem.add(ItemReward06.ID,1)
+OpenWorldQuest03.Rewards.Item.add(OrbofPower.ID,1)
+OpenWorldQuest03.Text.Objective.enGB.set('I am impressed that you managed to venture out this way $c, and it is time for you to do what I was unable to do. If you can manage it, please enter the dungeon and dispatch the enemies within.')
+OpenWorldQuest03.Text.Incomplete.enGB.set('Destroy the menace within the dungeon.')
+OpenWorldQuest03.Text.Description.enGB.set('Enter the dungeon and slay the bosses within.')
+OpenWorldQuest03.Text.Reward.enGB.set('This is proven to be a difficult challenge, but I am glad that you have prevailed.')
+OpenWorldQuest03.Text.Title.enGB.set('Dungeoneering Pioneer')
