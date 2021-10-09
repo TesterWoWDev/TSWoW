@@ -19,6 +19,7 @@ export function createGem(quality:number,modprefix:string,name:string,displayinf
         gem.row.GemProperties.set(gemProp)
         gem.ItemLevel.set(itemlevel)
         gem.Quality.set(quality)
+        gem.Material.set(8)
         return gem.ID
 }
 
@@ -42,6 +43,7 @@ export function createAllUndiscoverGems(gemCount: number, gemName: string, gemDi
         let gem = std.Items.create(MODNAME,gemName.toLowerCase().replace(' ','-') + '-'+i,2934)
         gem.Name.enGB.set('Unrefined '+gemName)
         gem.DisplayInfo.setID(gemDisplayID)
+        gem.Material.set(8)
         allGemIDs.push(gem.ID)
     }
     return allGemIDs

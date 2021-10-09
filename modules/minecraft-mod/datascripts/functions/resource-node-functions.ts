@@ -40,7 +40,7 @@ export function setupMiningNode(miningNode: GameObjectChest, metalID: number, re
     miningNode.Loot.addItem(armorGem,5,1,1)
     gemIDArray.forEach((value: number[],index,arr)=>{//all gem colors
         value.forEach(element => {//specific gem colors
-            miningNode.Loot.addItem(element,1,1,0.1)//specific gems
+            miningNode.Loot.addItem(element,1,1,1)//specific gems
         });
     })
     return miningNode.row.entry.get()
@@ -49,8 +49,8 @@ export function setupMiningNode(miningNode: GameObjectChest, metalID: number, re
 export function makePool(poolEntry:number, node: GameObjectChest, maxLimit:number, respawnRate:number, gobPositions:number[][]){
     SQL.pool_template.add(poolEntry).max_limit.set(maxLimit)
     gobPositions.forEach((element,index) => {
-        let gobGUID = node.spawn(MODNAME,poolEntry+'spawn'+index,Pos(725,element[0],element[1],element[2],element[3]))
-        gobGUID.SpawnTimeSecs.set(respawnRate)
-        SQL.pool_members.add(1,gobGUID.row.guid.get()).poolSpawnId.set(poolEntry).chance.set(100)
+        let gob = node.spawn(MODNAME,poolEntry+'spawn'+index,Pos(725,element[0],element[1],element[2],element[3]))
+        gob.SpawnTimeSecs.set(respawnRate)
+        SQL.pool_members.add(1,gob.row.guid.get()).poolSpawnId.set(poolEntry).chance.set(100)
     })
 }
