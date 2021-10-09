@@ -16,5 +16,3 @@ SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).positi
 
 //2 custom sql files in bin/sql/custom/world
 DBC.MapDifficulty.add(1000).MapID.set(725).Difficulty.set(0).Message.enGB.set(' ').RaidDuration.set(0).MaxPlayers.set(0).Difficultystring.set(' ')
-
-SQL.Databases.auth.writeEarly('INSERT INTO `rbac_linked_permissions` VALUES (195,24),(195,25),(195,26),(195,27),(195,28),(195,29),(195,51);')
