@@ -2,7 +2,6 @@ import { handleCraftMessages } from "./craftingSystem"
 import { creature1Script } from "./creature/creature1-test"
 import { onLevelup } from "./QoL/onLevelup"
 import { worldChat } from "./QoL/world-chat"
-import { Dueling } from "./QoL/onDuel"
 import { Killstreaks } from "./QoL/Killstreak"
 import { onLoginEvents } from "./QoL/onLogin"
 import { itemLearnSpell } from "./item/item-learn-spell"
@@ -17,7 +16,6 @@ export function Main(events: TSEventHandlers) {
     creature1Script(events)
     onLevelup(events)
     Killstreaks(events)
-    Dueling(events)
     itemLearnSpell(events)  
     reviveFix(events)
     creatureDeathApplyBuff(events)
