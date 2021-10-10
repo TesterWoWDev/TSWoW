@@ -134,7 +134,7 @@ OrbOfPowerVendor.FactionTemplate.set(35)
 spawnMultipleNPCWithTimer(OrbOfPowerVendor.ID,0,0,[
     [-8302.053711,-267.736298,17.274397,6.243299]],10)
 DBC.ItemExtendedCost.add(5000).ItemID.set([OrbofPower.ID]).ItemCount.set([10]).HonorPoints.set(0).ArenaPoints.set(0)
-DBC.ItemExtendedCost.add(5001).ItemID.set([OrbofPower.ID]).ItemCount.set([3]).HonorPoints.set(0).ArenaPoints.set(0)
+DBC.ItemExtendedCost.add(5002).ItemID.set([OrbofPower.ID]).ItemCount.set([3]).HonorPoints.set(0).ArenaPoints.set(0)
 OrbOfPowerVendor.addVendorItem(34170,0,0,5000)
 OrbOfPowerVendor.addVendorItem(ItemReward07.ID,0,0,5000)
 OrbOfPowerVendor.addVendorItem(ItemReward08.ID,0,0,5000)
