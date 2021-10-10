@@ -199,7 +199,6 @@ BoarQuestGiver01.Stats.DamageMod.set(1)
 BoarQuestGiver01.Stats.ExperienceMod.set(1)
 BoarQuestGiver01.Stats.HealthMod.set(1)
 BoarQuestGiver01.Stats.ManaMod.set(1)
-BoarQuestGiver01.NPCFlags.QuestGiver.mark()
 spawnNPC(BoarQuestGiver01.ID,0,0,[-8263.850,-122.315,0.9015,2.32])
 
 export let questGiver04 = std.CreatureTemplates.create(MODNAME,'questgiver04-creature',30368)
