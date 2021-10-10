@@ -112,16 +112,16 @@ export let Zone3Creature3 = std.CreatureTemplates.create(MODNAME,'zone3creature3
 Zone3Creature3.Name.enGB.set('Windravager Harpy')
 //Spells
 //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-Zone3Creature2.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-Zone3Creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-Zone3Creature2.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
-Zone3Creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-Zone3Creature2.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-Zone3Creature2.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+Zone3Creature3.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+Zone3Creature3.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+Zone3Creature3.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+Zone3Creature3.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+Zone3Creature3.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+Zone3Creature3.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
 //combat loop
-Zone3Creature2.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(VoidStrike.ID,2,7)
-Zone3Creature2.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(Destroy.ID,2,7)
-Zone3Creature2.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(Concuss.ID,2,7)
+Zone3Creature3.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(43996,2,7)
+Zone3Creature3.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(44142,2,7)
+Zone3Creature3.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(38135,2,7)
 //End of Spells
 Zone3Creature3.MovementType.setRandomMovement()
 Zone3Creature3.Level.set(5,7)
