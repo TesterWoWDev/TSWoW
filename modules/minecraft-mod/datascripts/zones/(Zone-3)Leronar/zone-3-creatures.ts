@@ -120,7 +120,7 @@ Zone3Creature3.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000
 Zone3Creature3.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
 //combat loop
 Zone3Creature3.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(43996,2,7)
-Zone3Creature3.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(44142,2,7)
+Zone3Creature3.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(44120,2,7)
 Zone3Creature3.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(38135,2,7)
 //End of Spells
 Zone3Creature3.MovementType.setRandomMovement()
