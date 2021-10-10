@@ -974,8 +974,195 @@ addLootToCreatureSingleChance(DungeonBoss03Loot,[
 addLootToCreatureSingleChance(DungeonBoss03Loot,[
     OrbofPower.ID
 ],100,3)
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//                                                  The Council
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+export let CouncilBoss01 = std.CreatureTemplates.create(MODNAME,'councilboss01',299)
+CouncilBoss01.Name.enGB.set('Lieutenant Commander Springraven')
+CouncilBoss01.Subname.enGB.set('Coven of the Damned')
+CouncilBoss01.Models.clearAll()
+CouncilBoss01.Models.addIds(3223)
+CouncilBoss01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+CouncilBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+CouncilBoss01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+CouncilBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+CouncilBoss01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+CouncilBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+CouncilBoss01.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(37859,2,7)
+CouncilBoss01.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(37788,2,7)
+CouncilBoss01.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(37640,2,7)//may need tuned
+CouncilBoss01.Level.set(7,7)
+CouncilBoss01.FactionTemplate.set(48)
+CouncilBoss01.DamageSchool.setNormal()
+CouncilBoss01.Stats.ArmorMod.set(5)
+CouncilBoss01.Stats.DamageMod.set(110)
+CouncilBoss01.Stats.ExperienceMod.set(30)
+CouncilBoss01.Stats.HealthMod.set(150)
+CouncilBoss01.Stats.ManaMod.set(25)
+CouncilBoss01.Rank.setRareElite()
+SQL.creature_equip_template.add(CouncilBoss01.ID,1).ItemID1.set(7721)
+SQL.creature_equip_template.add(CouncilBoss01.ID,1).ItemID2.set(7726)
+export let CouncilBoss01Loot = CouncilBoss01.NormalLoot
+spawnMultipleNPCWithTimer(CouncilBoss01.ID,0,0,[
+    [-9063.556641,505.916321,-4.038810,0.027225]],3600)
+    CouncilBoss01Loot.makeUnique(false)
+addLootToCreature(CouncilBoss01Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
+addLootToCreature(CouncilBoss01Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
 
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(CouncilBoss01Loot,[
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.5,1)
+addLootToCreatureSingleChance(CouncilBoss01Loot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(CouncilBoss01Loot,[
+    OrbofPower.ID
+],100,3)
 
+export let CouncilBoss02 = std.CreatureTemplates.create(MODNAME,'councilboss02',299)
+CouncilBoss02.Name.enGB.set('Widow Fae')
+CouncilBoss02.Subname.enGB.set('Coven of the Damned')
+CouncilBoss02.Models.clearAll()
+CouncilBoss02.Models.addIds(17121)
+CouncilBoss02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+CouncilBoss02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+CouncilBoss02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+CouncilBoss02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+CouncilBoss02.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+CouncilBoss02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+CouncilBoss02.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(37632,2,7)
+CouncilBoss02.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(37621,2,7)
+CouncilBoss02.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(37540,2,7)
+CouncilBoss02.Level.set(7,7)
+CouncilBoss02.FactionTemplate.set(48)
+CouncilBoss02.DamageSchool.setNormal()
+CouncilBoss02.Stats.ArmorMod.set(5)
+CouncilBoss02.Stats.DamageMod.set(110)
+CouncilBoss02.Stats.ExperienceMod.set(30)
+CouncilBoss02.Stats.HealthMod.set(150)
+CouncilBoss02.Stats.ManaMod.set(25)
+CouncilBoss02.Rank.setRareElite()
+SQL.creature_equip_template.add(CouncilBoss02.ID,1).ItemID1.set(19355)
+export let CouncilBoss02Loot = CouncilBoss02.NormalLoot
+spawnMultipleNPCWithTimer(CouncilBoss02.ID,0,0,[
+    [-9063.827148,514.786133,-4.040724,6.259360]],3600)
+    CouncilBoss02Loot.makeUnique(false)
+addLootToCreature(CouncilBoss02Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
+addLootToCreature(CouncilBoss02Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
 
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(CouncilBoss02Loot,[
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.5,1)
+addLootToCreatureSingleChance(CouncilBoss02Loot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(CouncilBoss02Loot,[
+    OrbofPower.ID
+],100,3)
+//Boss Creature Spawns
+export let CouncilBoss03 = std.CreatureTemplates.create(MODNAME,'councilboss03',299)
+CouncilBoss03.Name.enGB.set('Maxim Wintergrave')
+CouncilBoss03.Subname.enGB.set('Coven of the Damned')
+CouncilBoss03.Models.clearAll()
+CouncilBoss03.Models.addIds(2042)
+CouncilBoss03.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+CouncilBoss03.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+CouncilBoss03.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+CouncilBoss03.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+CouncilBoss03.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+CouncilBoss03.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+CouncilBoss03.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(37396,2,7)
+CouncilBoss03.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(22572,2,7)
+CouncilBoss03.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(22574,2,7)
+CouncilBoss03.Level.set(7,7)
+CouncilBoss03.FactionTemplate.set(48)
+CouncilBoss03.DamageSchool.setNormal()
+CouncilBoss03.Stats.ArmorMod.set(5)
+CouncilBoss03.Stats.DamageMod.set(110)
+CouncilBoss03.Stats.ExperienceMod.set(30)
+CouncilBoss03.Stats.HealthMod.set(150)
+CouncilBoss03.Stats.ManaMod.set(25)
+CouncilBoss03.Rank.setRareElite()
+SQL.creature_equip_template.add(CouncilBoss03.ID,1).ItemID1.set(6174)
+export let CouncilBoss03Loot = CouncilBoss03.NormalLoot
+spawnMultipleNPCWithTimer(CouncilBoss03.ID,0,0,[
+    [-9063.713867,523.429810,-3.872571,6.282922]],3600)
+    CouncilBoss03Loot.makeUnique(false)
+addLootToCreature(CouncilBoss03Loot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
+addLootToCreature(CouncilBoss03Loot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
+
+/*Bags and Armor*/
+/*Weapons and Misc Drops - Group 1*/
+addLootToCreatureSingleChance(CouncilBoss03Loot,[
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.5,1)
+addLootToCreatureSingleChance(CouncilBoss03Loot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(CouncilBoss03Loot,[
+    OrbofPower.ID
+],100,3)
