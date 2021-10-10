@@ -34,6 +34,7 @@ export class creatureNoExistMessage {
 export class blackjackPlayerMessage {
     @MsgPrimitive
         value: uint32 = 0
+    @MsgPrimitive
         bet: uint32 = 0
 }
 
@@ -43,4 +44,18 @@ export class blackjackSendHandMessage {
         cards: TSArray<uint32> = []
     @MsgPrimitive
         bet: uint32 = 0
+}
+
+@Message
+export class requestClassSpellsMessage {
+    @MsgPrimitive
+        xx: uint32 = 0
+}
+
+@Message
+export class sendClassSpellsMessage {
+    @MsgPrimitive
+        level: uint32 = 0
+    @MsgPrimitive
+        spellID: uint32 = 0
 }
