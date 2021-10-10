@@ -569,7 +569,7 @@ spawnMultiGobTimer(OpenWorldDungeonChest01.ID,[
     [-8826.964844,714.795288,-15.188274,5.144623],
     [-8923.068359,636.437134,-17.078632,0.416514],
     [-8928.217773,648.075134,-17.078632,0.416514],
-    [-8735.500000,555.899597,-15.236025,0.458514]],1800)
+    [-8735.500000,555.899597,-15.536025,0.458514]],1800)
 OpenWorldDungeonChest01.Size.set(0.5)
 addLootToGobChest(OpenWorldDungeonChest01,tierThreeBaseResources,[2,2,2,2,2,2,2])
 /*Base Resources - Group 5*/  
