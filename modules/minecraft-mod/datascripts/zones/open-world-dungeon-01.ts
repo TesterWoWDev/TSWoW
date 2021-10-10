@@ -12,14 +12,6 @@ import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscovered
 import { MODNAME } from "../modname"
 import { ReignLeggings, TrackerBelt, Noose, SporeReed, RenewalHammer, WildMagic, UnbrokenChain, PhosphoSword, DestructiveMaul, Bladefist, Fathomstone, ArgentSentinel, ObliterativeBoots, VigilanteRing, Naaru, LostAge, DungeonItem01, DungeonItem02, DungeonItem03, DungeonItem04, DungeonItem05, DungeonItem06, DungeonItem07, DungeonItem08, DungeonItem09, DungeonItem10, DungeonItem11, DungeonItem12, DungeonItem13, DungeonItem14, DungeonItem15, DungeonItem16, DungeonItem17, DungeonItem18, DungeonItem19, DungeonItem20, DungeonItem21, DungeonItem22, DungeonItem23, DungeonItem24, DungeonItem25, DungeonItem26, DungeonItem27, DungeonItem28, DungeonItem29, DungeonItem30, DungeonItem31, DungeonItem32, DungeonItem33, DungeonItem34, DungeonItem35, DungeonItem36, DarkSteel, DarkLeather, DarkCloth, Commendation, Contempt, DragonscaleBlade, EyeofDestiny, FocusingCrystal, Gliderboots, Glidergreaves, Glidersabatons, Gliderwrap, HeartPit, ItemReward01, ItemReward02, ItemReward03, ItemReward04, ItemReward05, ItemReward06, LostTreads, LurkerBelt, LurkerCord, LurkerGirdle, LurkerGrasp, MiseryMace, OrbofPower, Ravagerband, Ravagerbracer, RavagerCuff, RavagerWrap, SunwellVial, VolatilePower } from "./item-manifest"
 
-
-
-
-
-
-
-
-
 export let Shadowbolt = std.Spells.create(MODNAME,'shadowbolt-spell',25307)
 export let ShadowVolley = std.Spells.create(MODNAME,'shadowvolley-spell',25586)
 ShadowVolley.Effects.get(0).BasePoints.set(566)
@@ -52,7 +44,7 @@ DungeonMob01.Name.enGB.set('Suzu\'ven Demonspawn')
     DungeonMob01.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(Shadowbolt.ID,2,7)
     DungeonMob01.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(ShadowVolley.ID,2,7)
     DungeonMob01.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(ShadowPain.ID,2,7)
-DungeonMob01.Level.set(10,10)
+DungeonMob01.Level.set(6,6)
 DungeonMob01.FactionTemplate.set(48)
 DungeonMob01.DamageSchool.setNormal()
 DungeonMob01.Stats.ArmorMod.set(5)
@@ -134,7 +126,7 @@ DungeonBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.eve
 DungeonBoss01.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(DrainLife.ID,2,7)
 DungeonBoss01.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(BossShadowVolley.ID,2,7)
 DungeonBoss01.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(ConsumeSpell.ID,2,7)
-DungeonBoss01.Level.set(15,15)
+DungeonBoss01.Level.set(7,7)
 DungeonBoss01.FactionTemplate.set(48)
 DungeonBoss01.DamageSchool.setNormal()
 DungeonBoss01.Stats.ArmorMod.set(5)
@@ -183,7 +175,7 @@ addLootToCreatureSingleChance(DungeonBoss01Loot,[
 
 export let AgitatedBloodMite = std.CreatureTemplates.create(MODNAME,'bloodmite',3271)
 AgitatedBloodMite.Name.enGB.set('Agitated Bloodmite')
-AgitatedBloodMite.Level.set(7,7)
+AgitatedBloodMite.Level.set(5,5)
 AgitatedBloodMite.FactionTemplate.set(48)
 AgitatedBloodMite.DamageSchool.setNormal()
 AgitatedBloodMite.Stats.ArmorMod.set(10)
@@ -314,7 +306,7 @@ DungeonMob02.Name.enGB.set('Tormented Banshee')
     DungeonMob02.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(16868,2,7)
     DungeonMob02.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(37500,2,7)
 //End of Spells
-DungeonMob02.Level.set(10,13)
+DungeonMob02.Level.set(6,6)
 DungeonMob02.FactionTemplate.set(48)
 DungeonMob02.DamageSchool.setNormal()
 DungeonMob02.Stats.ArmorMod.set(5)
@@ -379,7 +371,7 @@ addLootToCreatureSingleChance(DungeonMob02Loot,[
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export let SummonedSkeleton = std.CreatureTemplates.create(MODNAME,'skeletonbones',3271)
 SummonedSkeleton.Name.enGB.set('Animated Bones')
-SummonedSkeleton.Level.set(9,9)
+SummonedSkeleton.Level.set(5,5)
 SummonedSkeleton.FactionTemplate.set(48)
 SummonedSkeleton.DamageSchool.setNormal()
 SummonedSkeleton.Stats.ArmorMod.set(10)
@@ -445,7 +437,7 @@ SentinelMob.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event
 SentinelMob.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(LightningRing.ID,2,7)
 SentinelMob.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(WoePillar.ID,2,7)
 SentinelMob.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(TetherLightning.ID,2,7)
-SentinelMob.Level.set(13,13)
+SentinelMob.Level.set(6,6)
 SentinelMob.FactionTemplate.set(48)
 SentinelMob.DamageSchool.setNormal()
 SentinelMob.Scale.set(0.25)
@@ -519,7 +511,7 @@ DungeonBoss02.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.eve
 DungeonBoss02.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(r2DrainLife.ID,2,7)
 DungeonBoss02.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(r2BossShadowVolley.ID,2,7)
 DungeonBoss02.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(r2ConsumeSpell.ID,2,7)
-DungeonBoss02.Level.set(17,17)
+DungeonBoss02.Level.set(7,7)
 DungeonBoss02.FactionTemplate.set(48)
 DungeonBoss02.DamageSchool.setNormal()
 DungeonBoss02.Stats.ArmorMod.set(5)
@@ -633,7 +625,7 @@ addLootToGobChest(OpenWorldDungeonChest01,[
 
 export let RisenRavager = std.CreatureTemplates.create(MODNAME,'risenravager',3271)
 RisenRavager.Name.enGB.set('Risen Ravager')
-RisenRavager.Level.set(12,12)
+RisenRavager.Level.set(5,5)
 RisenRavager.FactionTemplate.set(48)
 RisenRavager.DamageSchool.setNormal()
 RisenRavager.Stats.ArmorMod.set(1)
@@ -749,7 +741,7 @@ ScythemawDestroyer.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).ro
 ScythemawDestroyer.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(BrittleBones.ID,2,7)
 ScythemawDestroyer.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(RainofBones.ID,2,7)
 ScythemawDestroyer.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(BoneGrinder.ID,2,7)
-ScythemawDestroyer.Level.set(15,15)
+ScythemawDestroyer.Level.set(6,6)
 ScythemawDestroyer.FactionTemplate.set(48)
 ScythemawDestroyer.DamageSchool.setNormal()
 ScythemawDestroyer.Scale.set(1)
@@ -823,7 +815,7 @@ ApothecaryAcolyte.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row
 ApothecaryAcolyte.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(PoisonedCloud.ID,2,7)
 ApothecaryAcolyte.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(PoisonVolley.ID,2,7)
 ApothecaryAcolyte.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(BurningBlaze.ID,2,7)
-ApothecaryAcolyte.Level.set(18,18)
+ApothecaryAcolyte.Level.set(6,6)
 ApothecaryAcolyte.FactionTemplate.set(48)
 ApothecaryAcolyte.DamageSchool.setNormal()
 ApothecaryAcolyte.Scale.set(1)
@@ -934,7 +926,7 @@ DungeonBoss03.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.eve
 DungeonBoss03.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(SoulScream.ID,2,7)
 DungeonBoss03.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(PowerBurn.ID,2,7)
 DungeonBoss03.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(SoulStrike.ID,2,7)
-DungeonBoss03.Level.set(19,19)
+DungeonBoss03.Level.set(7,7)
 DungeonBoss03.FactionTemplate.set(48)
 DungeonBoss03.DamageSchool.setNormal()
 DungeonBoss03.Stats.ArmorMod.set(5)

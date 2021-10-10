@@ -38,9 +38,9 @@ Zone2Creature1.Level.set(3,5)
 Zone2Creature1.FactionTemplate.set(48)
 Zone2Creature1.DamageSchool.setNormal()
 Zone2Creature1.Stats.ArmorMod.set(5)
-Zone2Creature1.Stats.DamageMod.set(15)
-Zone2Creature1.Stats.HealthMod.set(15)
-Zone2Creature1.Stats.ManaMod.set(10)
+Zone2Creature1.Stats.DamageMod.set(4)
+Zone2Creature1.Stats.HealthMod.set(4)
+Zone2Creature1.Stats.ManaMod.set(2)
 Zone2Creature1.Stats.ExperienceMod.set(4)
 export let Zone2Creature1Loot = Zone2Creature1.NormalLoot
 spawnMultipleNPCWithTimer(Zone2Creature1.ID,5,0,[
@@ -134,9 +134,9 @@ Zone2Creature5.Level.set(5,7)
 Zone2Creature5.FactionTemplate.set(48)
 Zone2Creature5.DamageSchool.setNormal()
 Zone2Creature5.Stats.ArmorMod.set(5)
-Zone2Creature5.Stats.DamageMod.set(12)
-Zone2Creature5.Stats.HealthMod.set(15)
-Zone2Creature5.Stats.ManaMod.set(10)
+Zone2Creature5.Stats.DamageMod.set(4)
+Zone2Creature5.Stats.HealthMod.set(4)
+Zone2Creature5.Stats.ManaMod.set(4)
 Zone2Creature5.HoverHeight.set(1)
 Zone2Creature5.MovementType.setRandomMovement()
 Zone2Creature5.Stats.ExperienceMod.set(4)
@@ -420,9 +420,9 @@ SQL.smart_scripts.add(Zone2RareCreature1.ID,0,5,0).event_type.set(0).event_chanc
 
 Zone2RareCreature1.DamageSchool.setNormal()
 Zone2RareCreature1.Stats.ArmorMod.set(5)
-Zone2RareCreature1.Stats.DamageMod.set(40)
+Zone2RareCreature1.Stats.DamageMod.set(4)
 Zone2RareCreature1.Stats.ExperienceMod.set(10)
-Zone2RareCreature1.Stats.HealthMod.set(22)
+Zone2RareCreature1.Stats.HealthMod.set(15)
 Zone2RareCreature1.Stats.ManaMod.set(3)
 
 export let Zone2RareCreature1Loot = Zone2RareCreature1.NormalLoot
@@ -447,9 +447,9 @@ SQL.smart_scripts.add(Zone2RareCreature1.ID,0,5,0).event_type.set(0).event_chanc
 
 Zone2RareCreature2.DamageSchool.setNormal()
 Zone2RareCreature2.Stats.ArmorMod.set(5)
-Zone2RareCreature2.Stats.DamageMod.set(40)
+Zone2RareCreature2.Stats.DamageMod.set(20)
 Zone2RareCreature2.Stats.ExperienceMod.set(10)
-Zone2RareCreature2.Stats.HealthMod.set(25)
+Zone2RareCreature2.Stats.HealthMod.set(20)
 Zone2RareCreature2.Stats.ManaMod.set(3)
 
 
