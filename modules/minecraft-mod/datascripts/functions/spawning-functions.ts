@@ -43,7 +43,6 @@ export function spawnNPCWithTimer(id:number, wanderDistance:number, equipmentID:
 }
 
 export function spawnMultipleNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:number[][], respawnTime:number){
-    let npc = std.CreatureTemplates.load(id);
     let guids: number[] = []
     position.forEach((value,index)=>{
         let guid = spawnNPCWithTimer(id,wanderDistance,equipmentID,value,respawnTime,index)
