@@ -1,9 +1,14 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata/sql/SQLFiles"
-import { spawnMultipleNPCWithTimer } from "../functions/spawning-functions"
+import { addLootToCreature, addLootToCreatureSingleChance } from "../functions/npc-functions"
+import { spawnMultiGobTimer, spawnMultipleNPCWithTimer } from "../functions/spawning-functions"
+import { tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial, tierThreeBaseResources } from "../items/armor/tier3-set"
+import { undiscoveredReds, undiscoveredGreens, undiscoveredPurples, undiscoveredYellows, undiscoveredBlues, undiscoveredOranges } from "../items/gems/tier1-gem"
 import { MODNAME } from "../modname"
 import { Fawn01 } from "./(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { Bosscreature1 } from "./(Zone-1)Bramblewood/zone-1-creatures"
 import { Zone3RareCreature1 } from "./(Zone-3)Leronar/zone-3-creatures"
+import { CircleofFlame, DungeonItem01, DungeonItem02, DungeonItem03, DungeonItem04, DungeonItem05, DungeonItem06, DungeonItem07, DungeonItem08, DungeonItem09, DungeonItem10, DungeonItem11, DungeonItem12, DungeonItem13, DungeonItem14, DungeonItem15, DungeonItem16, DungeonItem17, DungeonItem18, DungeonItem19, DungeonItem20, OrbofPower } from "./item-manifest"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -254,3 +259,397 @@ export let SisterCreature03Loot = Zone3RareCreature1.NormalLoot
 spawnMultipleNPCWithTimer(SisterCreature03.ID,50,0,[
     [-8746.520508,524.943848,34.778702,3.020098]],300)
 SQL.creature_template_movement.add(SisterCreature03.ID).Flight.set(1)
+
+
+
+
+//Toxic Weaponry
+export let Venom = std.Spells.create(MODNAME,'venom-spell',21992)//15283
+Venom.row.RangeIndex.set(6)
+Venom.Name.enGB.set('Venom')
+Venom.Visual.setID(5283)
+Venom.Description.enGB.set('Sufferring massive venom damage every second.')
+Venom.Effects.get(1).BasePoints.set(149)
+Venom.Effects.get(0).BasePoints.set(149)
+Venom.Effects.get(0).AuraType.setPeriodicDamage()
+Venom.Effects.get(0).ChainAmplitude.set(1000)
+Venom.Duration.set(10000,0,10000)
+export let Venom1M = std.Spells.create(MODNAME,'venom1m-spell',67670) //melee
+Venom1M.Name.enGB.set('Venom')
+Venom1M.Description.enGB.set('Your attacks and abilties have the chance to apply Venom to the target.')
+Venom1M.AuraDescription.enGB.set('Your attacks and abilties have the chance to apply Venom to the target.')
+Venom1M.Duration.set(-1,0,-1)
+Venom1M.Effects.get(0).TriggerSpell.set(Venom.ID)
+export let Venom1C = std.Spells.create(MODNAME,'venom1c-spell',67672) //caster
+Venom1C.Name.enGB.set('Venom')
+Venom1C.Description.enGB.set('Your attacks and abilties have the chance to apply Venom to the target.')
+Venom1C.AuraDescription.enGB.set('Your attacks and abilties have the chance to apply Venom to the target.')
+Venom1C.Duration.set(-1,0,-1)
+Venom1C.Effects.get(0).TriggerSpell.set(Venom.ID)
+
+
+export let ToxicStaffoftheDead = std.Items.create(MODNAME,'toxicstaffofthedead',42390)
+ToxicStaffoftheDead.Name.enGB.set('Toxic Staff of the Dead')
+ToxicStaffoftheDead.Damage.clearAll()
+ToxicStaffoftheDead.Damage.addPhysical(75,131)
+ToxicStaffoftheDead.RequiredLevel.set(7)
+ToxicStaffoftheDead.Quality.setPurple()
+ToxicStaffoftheDead.Armor.set(0)
+ToxicStaffoftheDead.Stats.clearAll()
+ToxicStaffoftheDead.Stats.addStamina(21)
+ToxicStaffoftheDead.Stats.addIntellect(53)
+ToxicStaffoftheDead.Stats.addHasteRating(36)
+ToxicStaffoftheDead.Stats.addSpellPower(100)
+ToxicStaffoftheDead.Spells.add(Venom1C.ID).Trigger.set(1)
+ToxicStaffoftheDead.ClassMask.set(-1)
+export let ToxicBladeoftheDead = std.Items.create(MODNAME,'toxicbladeofthedead',37081)
+ToxicBladeoftheDead.Name.enGB.set('Toxic Blade of the Dead')
+ToxicBladeoftheDead.Damage.clearAll()
+ToxicBladeoftheDead.Damage.addPhysical(75,131)
+ToxicBladeoftheDead.RequiredLevel.set(7)
+ToxicBladeoftheDead.Quality.setPurple()
+ToxicBladeoftheDead.Armor.set(0)
+ToxicBladeoftheDead.Stats.clearAll()
+ToxicBladeoftheDead.Stats.addStamina(21)
+ToxicBladeoftheDead.Stats.addStrength(53)
+ToxicBladeoftheDead.Stats.addAgility(36)
+ToxicBladeoftheDead.Stats.addAttackPower(100)
+ToxicBladeoftheDead.Spells.add(Venom1M.ID).Trigger.set(1)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                              Open World Dungeon
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+export let ReanimatedBones = std.CreatureTemplates.create(MODNAME,'reanimatedbones',201)
+ReanimatedBones.Name.enGB.set('Reanimated Bones')
+ReanimatedBones.Level.set(5,5)
+ReanimatedBones.FactionTemplate.set(48)
+ReanimatedBones.DamageSchool.setNormal()
+ReanimatedBones.Stats.ArmorMod.set(1)
+ReanimatedBones.Stats.DamageMod.set(25)
+ReanimatedBones.Stats.ExperienceMod.set(10)
+ReanimatedBones.Stats.HealthMod.set(10)
+ReanimatedBones.Stats.ManaMod.set(10)
+ReanimatedBones.Models.clearAll()
+ReanimatedBones.Models.addIds(829)
+ReanimatedBones.Scale.set(1)
+export let ReanimatedBonesLoot = ReanimatedBones.NormalLoot
+spawnMultipleNPCWithTimer(ReanimatedBones.ID,2,0,[
+    [-9044.378906,529.766296,-6.938820,3.037406],
+    [-9049.376953,501.069092,-6.934989,5.959089],
+    [-9048.470703,500.799500,-6.936394,6.092606],
+    [-9042.569336,499.240356,-6.932172,5.578172],
+    [-9043.467773,496.701385,-6.943649,3.347641],
+    [-9047.283203,496.571350,-6.952114,3.932763],
+    [-9048.025391,495.053619,-6.958200,4.871313],
+    [-9048.263672,490.240662,-6.965780,4.081989],
+    [-9051.085938,489.404755,-6.965780,3.104168],
+    [-9052.666016,490.796417,-6.965780,1.981048],
+    [-9053.194336,492.699524,-6.965639,1.607984],
+    [-9054.304688,497.856750,-6.948492,2.727176],
+    [-9057.014648,497.838196,-6.947388,3.626458],
+    [-9058.233398,496.627899,-6.950663,4.215506],
+    [-9059.947266,492.450989,-6.964107,4.663181],
+    [-9060.127930,489.195038,-6.965908,4.242994],
+    [-9062.060547,493.964508,-6.963614,2.754664],
+    [-9064.364258,493.829590,-6.952267,2.990284],
+    [-9065.999023,496.605133,-6.953685,1.553005],
+    [-9065.050781,499.582428,-6.973459,0.335637],
+    [-9061.888672,499.222351,-6.956704,0.080384],
+    [-9059.765625,501.441528,-6.942124,0.708702],
+    [-9044.893555,530.885803,-6.941984,1.313456],
+    [-9044.265625,533.261108,-6.950162,1.462682],
+    [-9046.420898,534.851746,-6.958858,2.526896],
+    [-9047.487305,537.003479,-6.965568,1.395923],
+    [-9047.575195,540.527405,-6.965568,2.283423],
+    [-9049.508789,538.847229,-6.965568,4.714230],
+    [-9049.068359,536.077271,-6.962019,4.568931],
+    [-9049.068359,536.077271,-6.962019,3.712847],
+    [-9051.165039,534.471069,-6.956275,4.977337],
+    [-9053.209961,530.854858,-6.944217,3.614672],
+    [-9055.386719,531.667725,-6.946507,2.157758],
+    [-9055.718750,533.835449,-6.954525,1.325236],
+    [-9058.669922,532.423340,-6.951829,3.343709],
+    [-9059.638672,532.081299,-6.951141,3.952393],
+    [-9062.554688,531.695374,-6.938908,1.922137],
+    [-9062.893555,533.171814,-6.942676,1.498022],
+    [-9062.141602,538.365356,-6.959346,1.529438],
+    [-9062.750000,540.051636,-6.957169,2.550456],
+    [-9065.487305,540.192444,-6.945790,3.905268],
+    [-9066.422852,538.099731,-6.941106,4.678883],
+    [-9066.169922,534.375122,-6.936794,4.883085],
+    [-9064.466797,531.133850,-6.935610,5.888391],
+    [-9071.246094,524.572327,-7.012173,4.981258],
+    [-9070.419922,520.499207,-7.030069,4.164445],
+    [-9071.272461,520.431519,-7.030069,2.263781],
+    [-9072.834961,522.326477,-7.030069,2.365883],
+    [-9076.046875,523.386658,-7.008232,3.975950],
+    [-9076.550781,521.984619,-6.986494,4.757420],
+    [-9077.391602,520.062073,-6.975321,3.327994],
+    [-9080.853516,519.544617,-6.966884,3.288724],
+    [-9076.443359,517.774902,-6.985156,5.385737],
+    [-9074.447266,515.574890,-7.009340,4.246909],
+    [-9075.868164,515.072021,-6.991562,2.923512],
+    [-9076.024414,512.308533,-6.997588,5.032307],
+    [-9078.346680,511.202545,-7.010879,3.182694],
+    [-9080.239258,511.746338,-7.004428,3.280869],
+    [-9080.623047,509.680023,-7.028791,4.722073],
+    [-9079.528320,507.265686,-7.030236,5.059792],
+    [-9080.093750,506.368378,-7.030236,3.689272],
+    [-9081.292969,504.206696,-7.030236,5.538883],
+    [-9079.308594,504.369141,-7.030236,1.164215],
+    [-9078.331055,506.189911,-7.030236,0.378817],
+    [-9075.977539,506.628265,-7.030236,5.853042],
+    [-9073.077148,504.551788,-7.022215,5.554592],
+    [-9070.804688,503.804413,-7.007496,0.398450],
+    [-9069.495117,505.669006,-7.004374,1.274169]],600)
+ReanimatedBonesLoot.makeUnique(false)
+
+export let TheGravekeeperBoss = std.CreatureTemplates.create(MODNAME,'gravekeeperboss',299)
+TheGravekeeperBoss.Name.enGB.set('Gravekeeper')
+TheGravekeeperBoss.Subname.enGB.set('Shadow of the Betrayer')
+TheGravekeeperBoss.Models.clearAll()
+TheGravekeeperBoss.Models.addIds(21322)
+TheGravekeeperBoss.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
+TheGravekeeperBoss.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
+TheGravekeeperBoss.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
+TheGravekeeperBoss.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
+TheGravekeeperBoss.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
+TheGravekeeperBoss.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
+TheGravekeeperBoss.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(44268,2,7)
+TheGravekeeperBoss.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(55276,2,7)
+TheGravekeeperBoss.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(55292,2,7)
+TheGravekeeperBoss.Level.set(8,8)
+TheGravekeeperBoss.Scale.set(0.175)
+TheGravekeeperBoss.FactionTemplate.set(48)
+TheGravekeeperBoss.DamageSchool.setNormal()
+TheGravekeeperBoss.Stats.ArmorMod.set(5)
+TheGravekeeperBoss.Stats.DamageMod.set(110)
+TheGravekeeperBoss.Stats.ExperienceMod.set(30)
+TheGravekeeperBoss.Stats.HealthMod.set(150)
+TheGravekeeperBoss.Stats.ManaMod.set(25)
+TheGravekeeperBoss.Rank.setRareElite()
+SQL.creature_equip_template.add(TheGravekeeperBoss.ID,1).ItemID1.set(6174)
+export let TheGravekeeperBossLoot = TheGravekeeperBoss.NormalLoot
+spawnMultipleNPCWithTimer(TheGravekeeperBoss.ID,0,0,[
+    [-8923.800781,512.502869,-0.946779,3.167006]],3600)
+    TheGravekeeperBossLoot.makeUnique(false)
+addLootToCreature(TheGravekeeperBossLoot,[tierThreeClothMaterial,tierThreeLeatherMaterial,tierThreeMailMaterial],[4,4,4],3)
+addLootToCreature(TheGravekeeperBossLoot,tierThreeBaseResources,[2,2,2,2,2,2,2],3)
+addLootToCreatureSingleChance(TheGravekeeperBossLoot,[
+    DungeonItem01.ID,           DungeonItem02.ID,           DungeonItem03.ID,
+    DungeonItem04.ID,           DungeonItem05.ID,           DungeonItem06.ID,
+    DungeonItem07.ID,           DungeonItem08.ID,           DungeonItem09.ID,
+    DungeonItem10.ID,           DungeonItem11.ID,           DungeonItem12.ID,
+    DungeonItem13.ID,           DungeonItem14.ID,           DungeonItem15.ID,
+    DungeonItem16.ID,           DungeonItem17.ID,           DungeonItem18.ID,
+    DungeonItem19.ID,           DungeonItem20.ID
+],0.5,1)
+addLootToCreatureSingleChance(TheGravekeeperBossLoot,[
+    undiscoveredReds[0],            undiscoveredReds[1],            undiscoveredReds[2],
+    undiscoveredReds[3],            undiscoveredReds[4],            undiscoveredReds[5],
+    undiscoveredReds[6],            undiscoveredReds[7],            undiscoveredGreens[0],
+    undiscoveredGreens[1],          undiscoveredGreens[2],          undiscoveredGreens[3],
+    undiscoveredGreens[4],          undiscoveredGreens[5],          undiscoveredGreens[6],
+    undiscoveredPurples[0],         undiscoveredPurples[1],         undiscoveredPurples[2],
+    undiscoveredPurples[3],         undiscoveredPurples[4],         undiscoveredPurples[5],
+    undiscoveredPurples[6],         undiscoveredYellows[0],         undiscoveredYellows[1],
+    undiscoveredYellows[2],         undiscoveredYellows[3],         undiscoveredYellows[4],
+    undiscoveredBlues[0],           undiscoveredBlues[1],           undiscoveredBlues[2],
+    undiscoveredBlues[3],           undiscoveredOranges[0],         undiscoveredOranges[1],
+    undiscoveredOranges[2],         undiscoveredOranges[3],         undiscoveredOranges[4],
+    undiscoveredOranges[5],
+],2,2)
+addLootToCreatureSingleChance(TheGravekeeperBossLoot,[
+    OrbofPower.ID
+],100,3)
+
+//Create 4 stones from each zone
+export let Stone01 = std.Items.create(MODNAME,'stone01',17031) 
+export let Stone02 = std.Items.create(MODNAME,'stone02',17031) 
+export let Stone03 = std.Items.create(MODNAME,'stone03',17031)    
+export let Stone04 = std.Items.create(MODNAME,'stone04',17031)   
+
+export let WorldDestroyer = std.CreatureTemplates.create(MODNAME,'worlddestroyer',20403)
+WorldDestroyer.Name.enGB.set('Agent of Suzu\'ven')
+WorldDestroyer.Subname.enGB.set('World Destroyer')
+WorldDestroyer.Scale.set(1)
+WorldDestroyer.FactionTemplate.set(48)
+WorldDestroyer.MovementType.setRandomMovement()
+WorldDestroyer.Level.set(25,25)
+WorldDestroyer.Rank.setRare()
+WorldDestroyer.AIName.SmartAI()
+SQL.smart_scripts.add(WorldDestroyer.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(52870).target_type.set(2).comment.set('Windstrike')
+SQL.smart_scripts.add(WorldDestroyer.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(52873).target_type.set(2).comment.set('Rend')
+SQL.smart_scripts.add(WorldDestroyer.ID,0,5,0).event_type.set(0).event_chance.set(100).event_param1.set(13000).event_param2.set(18000).event_param3.set(60000).event_param4.set(75000).action_type.set(11).action_param1.set(52905).target_type.set(2).comment.set('Thunderbolt')
+SQL.smart_scripts.add(WorldDestroyer.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(100000).event_param4.set(100000).action_type.set(11).action_param1.set(52943).target_type.set(1).comment.set('Lightning Whirl')
+WorldDestroyer.DamageSchool.setNormal()
+WorldDestroyer.Stats.ArmorMod.set(5)
+WorldDestroyer.Stats.DamageMod.set(175)
+WorldDestroyer.Stats.HealthMod.set(150)
+WorldDestroyer.Stats.ManaMod.set(3)
+WorldDestroyer.Stats.ExperienceMod.set(100)
+WorldDestroyer.HoverHeight.set(1)
+export let WorldDestroyerLoot = WorldDestroyer.NormalLoot
+WorldDestroyerLoot.makeUnique(false)
+SQL.creature_template_movement.add(WorldDestroyer.ID).Flight.set(1)
+addLootToCreatureSingleChance(WorldDestroyerLoot,[
+    OrbofPower.ID
+],100,1)
+
+export let SummonWorldDestroyer = std.Spells.create(MODNAME,'summonworlddestroyer-spell',66170)
+SummonWorldDestroyer.Name.enGB.set('Incite Ritual')
+SummonWorldDestroyer.Description.enGB.set('Summon an ancient enemy.')
+SummonWorldDestroyer.Reagents.clearAll()
+SummonWorldDestroyer.Visual.setID(4800)
+SummonWorldDestroyer.Reagents.add(Stone01.ID,1)
+SummonWorldDestroyer.Reagents.add(Stone02.ID,1)
+SummonWorldDestroyer.Reagents.add(Stone03.ID,1)
+SummonWorldDestroyer.Reagents.add(Stone04.ID,1)
+SummonWorldDestroyer.Effects.get(0).MiscValueA.set(WorldDestroyer.ID)
+SummonWorldDestroyer.Effects.get(0).BasePoints.set(0)
+SummonWorldDestroyer.Effects.get(0).DieSides.set(1)
+SummonWorldDestroyer.Effects.get(0).ItemType.set(0)
+SummonWorldDestroyer.RequiresSpellFocus.set(1584)
+   
+Stone01.Name.enGB.set('Stone of Mind')
+Stone01.Description.enGB.set('The remains of an ancient tablet depicting the power of the mind and it\'s connection to the soul of the world.')
+Stone01.Quality.setOrange()
+Stone01.MaxStack.set(1)
+Stone01.Spells.clearAll()
+Stone01.Spells.add(SummonWorldDestroyer.ID).Trigger.set(0).spellcooldown_1.set(30000)           
+Stone02.Name.enGB.set('Stone of Body')
+Stone02.Description.enGB.set('The remains of an ancient tablet depicting the power of the body and it\'s connection to the soul of the world.')
+Stone02.Quality.setOrange()
+Stone02.MaxStack.set(1)
+Stone02.Spells.clearAll()
+Stone02.Spells.add(SummonWorldDestroyer.ID).Trigger.set(0).spellcooldown_1.set(30000)        
+Stone03.Name.enGB.set('Stone of Soul')
+Stone03.Description.enGB.set('The remains of an ancient tablet depicting the power of the soul and it\'s connection to the soul of the world.')
+Stone03.Quality.setOrange()
+Stone03.MaxStack.set(1)
+Stone03.Spells.clearAll()
+Stone03.Spells.add(SummonWorldDestroyer.ID).Trigger.set(0).spellcooldown_1.set(30000)         
+Stone04.Name.enGB.set('Stone of Will')
+Stone04.Description.enGB.set('The remains of an ancient tablet depicting the power of will and it\'s dominion over the mind, body, and soul.')
+Stone04.Quality.setOrange()
+Stone04.MaxStack.set(1)
+Stone04.Spells.clearAll()
+Stone04.Spells.add(SummonWorldDestroyer.ID).Trigger.set(0).spellcooldown_1.set(30000)        
+
+
+//Spell Focus Spawn
+export let TemporalFocusSpot = std.GameObjectTemplates.load(193565)
+TemporalFocusSpot.Size.set(0.1)
+TemporalFocusSpot.Name.enGB.set('Temporal Focus Spot')
+
+spawnMultiGobTimer(TemporalFocusSpot.ID,[
+    [-8854.297852,397.104858,6.127038,6.233972]],600)
+
+//How Would I even do this when I want to create the spell thats getting applied to the item but it needs the item to be created for the spell to work???
+export let TemporalStone = std.Items.create(MODNAME,'temporalstone',17031)                                                                                                        // This needs to be added to the loot tables of all creatures,
+export let EmpoweredTemporalStone = std.Items.create(MODNAME,'ancienttablet',17032)                                                                                               // Create rift monsters that randomly spawn that you can kill to get the temporal stones
+
+export let InterceptorCreature = std.CreatureTemplates.create(MODNAME,'interceptorcreature01',18096)
+InterceptorCreature.Name.enGB.set('Temporal Interceptor')
+InterceptorCreature.Scale.set(1)
+InterceptorCreature.FactionTemplate.set(48)
+InterceptorCreature.MovementType.setRandomMovement()
+InterceptorCreature.Level.set(10,10)
+InterceptorCreature.Rank.setRare()
+InterceptorCreature.AIName.SmartAI()
+SQL.smart_scripts.add(InterceptorCreature.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(52870).target_type.set(2).comment.set('Windstrike')
+SQL.smart_scripts.add(InterceptorCreature.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(52873).target_type.set(2).comment.set('Rend')
+SQL.smart_scripts.add(InterceptorCreature.ID,0,5,0).event_type.set(0).event_chance.set(100).event_param1.set(13000).event_param2.set(18000).event_param3.set(60000).event_param4.set(75000).action_type.set(11).action_param1.set(52905).target_type.set(2).comment.set('Thunderbolt')
+SQL.smart_scripts.add(InterceptorCreature.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(100000).event_param4.set(100000).action_type.set(11).action_param1.set(52943).target_type.set(1).comment.set('Lightning Whirl')
+InterceptorCreature.DamageSchool.setNormal()
+InterceptorCreature.Stats.ArmorMod.set(5)
+InterceptorCreature.Stats.DamageMod.set(75)
+InterceptorCreature.Stats.HealthMod.set(50)
+InterceptorCreature.Stats.ManaMod.set(3)
+InterceptorCreature.Stats.ExperienceMod.set(10)
+InterceptorCreature.HoverHeight.set(1)
+export let InterceptorCreatureLoot = InterceptorCreature.NormalLoot
+InterceptorCreatureLoot.makeUnique(false)
+SQL.creature_template_movement.add(InterceptorCreature.ID).Flight.set(1)
+addLootToCreatureSingleChance(InterceptorCreatureLoot,[
+    OrbofPower.ID
+],5,1)
+addLootToCreatureSingleChance(InterceptorCreatureLoot,[
+    EmpoweredTemporalStone.ID
+],100,2)
+
+
+export let TimeWarden = std.CreatureTemplates.create(MODNAME,'timewarden',30875)
+TimeWarden.Name.enGB.set('Akion\'la the Time Warden')
+TimeWarden.Scale.set(1)
+TimeWarden.FactionTemplate.set(48)
+TimeWarden.MovementType.setRandomMovement()
+TimeWarden.Level.set(20,20)
+TimeWarden.Rank.setRare()
+TimeWarden.AIName.SmartAI()
+SQL.smart_scripts.add(TimeWarden.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(52870).target_type.set(2).comment.set('Windstrike')
+SQL.smart_scripts.add(TimeWarden.ID,0,4,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(7000).event_param3.set(8000).event_param4.set(10000).action_type.set(11).action_param1.set(52873).target_type.set(2).comment.set('Rend')
+SQL.smart_scripts.add(TimeWarden.ID,0,5,0).event_type.set(0).event_chance.set(100).event_param1.set(13000).event_param2.set(18000).event_param3.set(60000).event_param4.set(75000).action_type.set(11).action_param1.set(52905).target_type.set(2).comment.set('Thunderbolt')
+SQL.smart_scripts.add(TimeWarden.ID,0,6,0).event_type.set(1).event_chance.set(100).event_param1.set(1000).event_param2.set(1000).event_param3.set(100000).event_param4.set(100000).action_type.set(11).action_param1.set(52943).target_type.set(1).comment.set('Lightning Whirl')
+TimeWarden.DamageSchool.setNormal()
+TimeWarden.Stats.ArmorMod.set(5)
+TimeWarden.Stats.DamageMod.set(75)
+TimeWarden.Stats.HealthMod.set(50)
+TimeWarden.Stats.ManaMod.set(3)
+TimeWarden.Stats.ExperienceMod.set(10)
+TimeWarden.HoverHeight.set(1)
+export let TimeWardenLoot = TimeWarden.NormalLoot
+TimeWardenLoot.makeUnique(false)
+SQL.creature_template_movement.add(TimeWarden.ID).Flight.set(1)
+addLootToCreatureSingleChance(TimeWardenLoot,[
+    OrbofPower.ID
+],100,1)
+
+export let TemporalCombine = std.Spells.create(MODNAME,'temporalcombine-spell',66170) //have the combination spell summon a creature that you have to kill for the tablet?
+TemporalCombine.Name.enGB.set('Fuse Temporal Stones')
+TemporalCombine.Description.enGB.set('Combine 3 Temporal Stones together to create an ancient summoners tablet. I\'m sure nothing could go wrong..?')
+TemporalCombine.Reagents.clearAll()
+TemporalCombine.Visual.setID(4800)
+TemporalCombine.Reagents.add(TemporalStone.ID,3)
+TemporalCombine.Effects.get(0).MiscValueA.set(InterceptorCreature.ID)
+TemporalCombine.Effects.get(0).BasePoints.set(0)
+TemporalCombine.Effects.get(0).DieSides.set(1)
+TemporalCombine.Effects.get(0).ItemType.set(0)
+TemporalCombine.RequiresSpellFocus.set(1584)
+
+export let TemporalSummon = std.Spells.create(MODNAME,'temporalsummon-spell',66170)
+TemporalSummon.Name.enGB.set('Incite Ritual')
+TemporalSummon.Description.enGB.set('Summon an ancient enemy.')
+TemporalSummon.Visual.setID(4800)
+TemporalSummon.Reagents.clearAll()
+TemporalSummon.Reagents.add(EmpoweredTemporalStone.ID,1)
+TemporalSummon.Effects.get(0).MiscValueA.set(TimeWarden.ID)
+TemporalSummon.Effects.get(0).BasePoints.set(0)
+TemporalSummon.Effects.get(0).DieSides.set(1)
+TemporalSummon.Effects.get(0).ItemType.set(0)
+TemporalSummon.RequiresSpellFocus.set(1584)
+
+TemporalStone.Name.enGB.set('Temporal Stone')
+TemporalStone.Description.enGB.set('Some remains of an ancient tablet.')
+TemporalStone.Quality.setPurple()
+TemporalStone.MaxStack.set(3)
+TemporalStone.Spells.clearAll()
+TemporalStone.Spells.add(TemporalCombine.ID).Trigger.set(0).spellcooldown_1.set(30000)
+
+EmpoweredTemporalStone.Name.enGB.set('Ancient Tablet')
+EmpoweredTemporalStone.Description.enGB.set('An ancient tablet depicting a summoning ritual for a powerful beast.')
+EmpoweredTemporalStone.Quality.setPurple()
+EmpoweredTemporalStone.MaxStack.set(3)
+EmpoweredTemporalStone.Spells.clearAll()
+EmpoweredTemporalStone.Spells.add(TemporalSummon.ID).Trigger.set(0).spellcooldown_1.set(30000)
+
+
+
+
+//Need to add ancient tablets + stones to loot tables for creatures.
