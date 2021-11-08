@@ -54,3 +54,4 @@ node.yaml
 node_modules
 bin/changes
 node.conf
+client.log
