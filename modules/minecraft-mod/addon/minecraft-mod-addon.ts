@@ -1,5 +1,5 @@
 import { craftMessage, returnCraftItemMessage, bagSlotCombo, showScreen } from "../shared/Messages"
-import { SendCompiledServerMessage } from "./lib/AddonMessage"
+
 import { Events } from "./lib/Events"
 
     let choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
@@ -167,12 +167,7 @@ import { Events } from "./lib/Events"
      }
 
     function updateProduct(purchase:uint32) {
-        let pkt = new craftMessage()
-            pkt.itemIDs = itemIDs
-            pkt.positions = choices
-            pkt.purchase = purchase
-            pkt.enchants = enchants
-            SendCompiledServerMessage(pkt)
+        new craftMessage(itemIDs,choices,purchase,enchants).write().Send()
     }
 
     Events.AddOns.OnMessage(mframe,returnCraftItemMessage,message=>{

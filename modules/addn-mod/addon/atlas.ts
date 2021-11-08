@@ -1,7 +1,7 @@
-import {  creatureNameMessage, creatureNoExistMessage, itemLootFinishMessage, itemLootMessage } from "../shared/Messages";
+import {  creatureNameMessage, creatureNoExistMessage, creatureNoExistMessageID, itemLootFinishMessage, itemLootFinishMessageID, itemLootMessage, itemLootMessageID } from "../shared/Messages";
 import { Events } from "./lib/Events";
 import {SetupModelZoomDragRotation} from "./CustomAddonFunctions"
-import { SendCompiledServerMessage } from "./lib/AddonMessage";
+
 export function atlas(){
     let itemArray = [];
     let allButtons = [];
@@ -165,38 +165,40 @@ export function atlas(){
                 insets : { left : -4, right : -4, top : -4, bottom : -4 }})
         
 
-    Events.AddOns.OnMessage(mframe,itemLootMessage,(msg)=>{
-        itemArray.push([msg.itemID,msg.itemCountMin,msg.itemCountMax,msg.dropChance])
-    });
+     OnCustomPacket(itemLootMessageID,(packet)=>{
+        let customPacket = new itemLootMessage(0,0,0,0)
+        customPacket.read(packet);
+    })
 
-    Events.AddOns.OnMessage(mframe,itemLootFinishMessage,(msg)=>{
+    OnCustomPacket(itemLootFinishMessageID,(packet)=>{
+        let customPacket = new itemLootFinishMessage(0)
+        customPacket.read(packet);
         let max = Math.ceil(itemArray.length/(columns*rows))
         if(max == 0){
             max=1
         }
         pageCt.SetText("Page " + (page+1) + "/"+max)
         Portrait.SetPosition(0,0,0)
-        Portrait.SetCreature(msg.entry)
+        Portrait.SetCreature(customPacket.entry)
         Portrait.Show()
         createButtons()
-    });
+    })
 
-    Events.AddOns.OnMessage(mframe,creatureNoExistMessage,(msg)=>{
+    OnCustomPacket(creatureNoExistMessageID,(packet)=>{
         console.log("DOES NOT EXIST!!!")
         Portrait.Hide()
     });
 
     function searchLoot(){
-        let pkt = new creatureNameMessage()
-            pkt.entry = searchBox.GetText();
+        let pkt = new creatureNameMessage(1,searchBox.GetText())
         if(pkt.entry.length > 0){
             if(Number(pkt.entry) > 0){
                 pkt.isName = 0;
                 pkt.entry = Number(pkt.entry).toString()
-            }  
-            resetFrames()
-            pageCt.SetText("Page 1/1")
-            SendCompiledServerMessage(pkt)
+            } 
+        pkt.write().Send(); 
+        resetFrames()
+        pageCt.SetText("Page 1/1") 
         }
     }
 

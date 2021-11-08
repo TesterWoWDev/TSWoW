@@ -1,4 +1,4 @@
-import { requestClassSpellsMessage, sendClassSpellsMessage } from "../shared/Messages";
+import { requestClassSpellsMessage, requestClassSpellsMessageID, sendClassSpellsMessage } from "../shared/Messages";
 
 const spellsList = [
     [[0]], //must be here? I guess?
@@ -218,16 +218,15 @@ const spellsList = [
 ]
 
 export function toBeLearnedSpellsPane(events:TSEventHandlers){
-    events.Addon.OnMessageID(requestClassSpellsMessage,(player,message)=>{
+    events.PacketID.OnCustom(requestClassSpellsMessageID,(_,packet,player)=>{
         let curSpells = spellsList[player.GetClass()]
         for(let i=1;i<curSpells.length;i++){
             let curLevelSpells = curSpells[i]
             for(let j=0;j<curLevelSpells.length;j++){
-                let pkt = new sendClassSpellsMessage()
-                pkt.level = i
-                pkt.spellID = curLevelSpells[j]
-                if(curLevelSpells[j] != 0)//skip over bad spells
-                player.SendData(pkt)
+                let spell = curLevelSpells[j]
+                if(spell != 0){
+                    new sendClassSpellsMessage(i,curLevelSpells[j]).write().SendToPlayer(player);
+                }
             }
         }
     })

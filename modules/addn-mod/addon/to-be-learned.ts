@@ -1,6 +1,4 @@
-import { requestClassSpellsMessage, sendClassSpellsMessage } from "../shared/Messages";
-import { SendCompiledServerMessage } from "./lib/AddonMessage";
-import { Events } from "./lib/Events";
+import { requestClassSpellsMessage, sendClassSpellsMessage, sendClassSpellsMessageID } from "../shared/Messages";
 
 export function toBeLearnedSpellsPane(){
     let curSpells = []
@@ -36,8 +34,10 @@ export function toBeLearnedSpellsPane(){
             mframe.Hide()
         })
 
-        SendCompiledServerMessage(new requestClassSpellsMessage())//request spells onlogin
-    Events.AddOns.OnMessage(mframe,sendClassSpellsMessage,msg=>{
-        curSpells[msg.level].push(msg.spellID)
-    })
+        new requestClassSpellsMessage(0).write().Send();
+        OnCustomPacket(sendClassSpellsMessageID,(packet)=>{
+            let customPacket = new sendClassSpellsMessage(0,0)
+            customPacket.read(packet);
+            curSpells[customPacket.level].push(customPacket.spellID)
+        })
 }
