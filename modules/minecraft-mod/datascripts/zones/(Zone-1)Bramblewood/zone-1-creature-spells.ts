@@ -16,7 +16,9 @@ export let Rank1BoarCharge = std.Spells.create(MODNAME,'Rank1BoarCharge-spell',3
 Rank1BoarCharge.Name.enGB.set('Boar Charge')
 Rank1BoarCharge.AuraDescription.enGB.set('Increases Speed by $s1%.')
 Rank1BoarCharge.Effects.get(0).BasePoints.set(74)
-Rank1BoarCharge.Duration.set(3000,0,3000)
+Rank1BoarCharge.Duration.modRefCopy(val=>{
+    val.set(3000,0,3000)
+})
 
 export let Rank1Strike = std.Spells.create(MODNAME,'Rank1Strike-spell',12057)
 Rank1Strike.Name.enGB.set('Strike')
@@ -33,7 +35,9 @@ Rank1Gore.Name.enGB.set('Gore')
 Rank1Gore.Description.enGB.set('Inflicts $s2 damage to an enemy every 3s for $d.')
 Rank1Gore.AuraDescription.enGB.set('Bleeding for $s1 damage every 3 seconds.')
 Rank1Gore.Effects.get(1).BasePoints.set(4)
-Rank1Gore.Duration.set(9000,0,9000)
+Rank1Gore.Duration.modRefCopy(val=>{
+    val.set(9000,0,9000)
+})
 
 export let Rank1Whirlwind = std.Spells.create(MODNAME,'Rank1Whirlwind-spell',67037)
 Rank1Whirlwind.Name.enGB.set('Whirlwind')

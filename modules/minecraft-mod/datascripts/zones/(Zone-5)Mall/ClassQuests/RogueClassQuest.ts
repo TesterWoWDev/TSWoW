@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { spawnNPC } from "../../../functions/spawning-functions"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
@@ -10,21 +11,21 @@ RogueQuestGiver01.Models.clearAll()
 RogueQuestGiver01.Models.addIds(21835)
 RogueQuestGiver01.Level.set(10,10)
 RogueQuestGiver01.FactionTemplate.set(35)
-RogueQuestGiver01.DamageSchool.setNormal()
+RogueQuestGiver01.DamageSchool.Normal.set()
 RogueQuestGiver01.Stats.ArmorMod.set(1)
 RogueQuestGiver01.Stats.DamageMod.set(1)
 RogueQuestGiver01.Stats.ExperienceMod.set(1)
 RogueQuestGiver01.Stats.HealthMod.set(1)
 RogueQuestGiver01.Stats.ManaMod.set(1)
-RogueQuestGiver01.NPCFlags.QuestGiver.mark()
-
+RogueQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
+spawnNPC(RogueQuestGiver01.ID,0,0,{map:725,x:-8283.104492,y:-264.669922,z:-5.097000,o:1.967425},)
 export let RogueQuest01 = std.Quests.create(MODNAME,'roguequest01-quest')
 
 RogueQuest01.Flags.set(1)
 RogueQuest01.MinLevel.set(1)
 RogueQuest01.QuestLevel.set(20)
-RogueQuest01.Questgiver.addStarter(questGiver03.ID)
-RogueQuest01.Questgiver.addEnder(RogueQuestGiver01.ID)
+RogueQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
+RogueQuest01.Questgiver.addCreatureEnder(RogueQuestGiver01.ID,false)
 
 RogueQuest01.Rewards.Money.set(441)
 
@@ -35,17 +36,14 @@ RogueQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waiting 
 RogueQuest01.Text.Title.enGB.set('Technique and Form')
 
 
-
-
-
 export let RogueQuest02 = std.Quests.create(MODNAME,'roguequest02-quest')
 
 RogueQuest02.Flags.set(8)
 SQL.quest_template_addon.add(RogueQuest02.ID).SpecialFlags.set(1)
 RogueQuest02.MinLevel.set(1)
 RogueQuest02.QuestLevel.set(20)
-RogueQuest02.Questgiver.addStarter(RogueQuestGiver01.ID)
-RogueQuest02.Questgiver.addEnder(RogueQuestGiver01.ID)
+RogueQuest02.Questgiver.addCreatureStarter(RogueQuestGiver01.ID)
+RogueQuest02.Questgiver.addCreatureEnder(RogueQuestGiver01.ID,false)
 
 RogueQuest02.Rewards.Money.set(200000)
 RogueQuest02.Objectives.Item.add(OrbofPower.ID,10)

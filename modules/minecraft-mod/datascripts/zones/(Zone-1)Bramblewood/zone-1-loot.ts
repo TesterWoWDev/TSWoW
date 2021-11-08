@@ -7,7 +7,6 @@ import { tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial, tier
 import { tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial, tierTwoBaseResources } from "../../items/armor/tier2-set"
 import { SmallSackofCoins } from "../../items/currencies"
 import { undiscoveredReds, undiscoveredGreens, undiscoveredYellows, undiscoveredPurples, undiscoveredBlues, undiscoveredOranges } from "../../items/gems/tier1-gem"
-import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test"
 import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll"
 import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll"
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll"
@@ -35,9 +34,9 @@ addLootToCreature(creature2Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature2Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,
+    SmallSackofCoins.ID,
     ExpScroll.ID
-],[5,1,3],8)    
+],[1,3],8)    
 
 
 
@@ -57,8 +56,8 @@ addLootToCreature(creature3Loot,[
 ],[100],7)  
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature3Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,3],8)    
+    SmallSackofCoins.ID,                ExpScroll.ID
+],[1,3],8)    
 
 
 
@@ -77,8 +76,8 @@ addLootToCreature(creature4Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature4Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,3],8)    
+    SmallSackofCoins.ID,                ExpScroll.ID
+],[1,3],8)    
 
 
 
@@ -101,8 +100,8 @@ addLootToCreature(creature5Loot,[
 ],[3,2,2,0.25],1)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature5Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,3],8)    
+    SmallSackofCoins.ID,                ExpScroll.ID
+],[1,3],8)    
 
 
 
@@ -122,8 +121,8 @@ addLootToCreature(creature6Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature6Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,3],8)    
+    SmallSackofCoins.ID,                ExpScroll.ID
+],[1,3],8)    
 
 
 
@@ -142,8 +141,8 @@ addLootToCreature(creature7Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature7Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,3],8)    
+    SmallSackofCoins.ID,                ExpScroll.ID
+],[1,3],8)    
 
 
 
@@ -159,8 +158,8 @@ addLootToCreature(creature8Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature8Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,3],8)    
+    SmallSackofCoins.ID,                ExpScroll.ID
+],[1,3],8)    
 
 
 
@@ -176,8 +175,8 @@ addLootToCreature(creature9Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature9Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,3],8)    
+    SmallSackofCoins.ID,                ExpScroll.ID
+],[1,3],8)    
 
 
 
@@ -193,8 +192,8 @@ addLootToCreature(creature10Loot,[
 ],[1,1,0.5,0.5,0,10,10,18],0)
 /*Quest Requirements - Group 8*/
 addLootToCreature(creature10Loot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID,                ExpScroll.ID
-],[5,1,3],8)     
+    SmallSackofCoins.ID,                ExpScroll.ID
+],[1,3],8)     
 
 
 

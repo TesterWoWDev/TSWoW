@@ -1,5 +1,5 @@
-import { DBC } from "wotlkdata/dbc/DBCFiles"
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { DBC } from "wotlkdata"
+import { SQL } from "wotlkdata"
 
 SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `minecraft_recipes`')
 //invasions

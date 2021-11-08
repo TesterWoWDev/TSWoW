@@ -9,34 +9,51 @@ MurlocChampionCreature.Models.clearAll()
 MurlocChampionCreature.Models.addIds(15396)
 MurlocChampionCreature.Scale.set(5)
 MurlocChampionCreature.Level.set(10,10)
-MurlocChampionCreature.Rank.setElite()
+MurlocChampionCreature.Rank.ELITE.set()
 //Spells
 export let MurlocChampionFrostbolt = std.Spells.create(MODNAME,'Rank1Frostbolt-spell',116)
 MurlocChampionFrostbolt.Name.enGB.set('Frostbolt')
 MurlocChampionFrostbolt.Effects.get(0).BasePoints.set(-31)
 MurlocChampionFrostbolt.Effects.get(1).BasePoints.set(812)
-MurlocChampionFrostbolt.CastTime.set(3000,0,3000)
+MurlocChampionFrostbolt.CastTime.modRefCopy(val=>val.set(3000,0,3000))
 export let MurlocChampionFireblast = std.Spells.create(MODNAME,'Rank1FireBlast-spell',60871)
 MurlocChampionFireblast.Name.enGB.set('Fire Blast')
 MurlocChampionFireblast.Effects.get(0).BasePoints.set(1340)
 export let MurlocChampionNova = std.Spells.create(MODNAME,'Rank1FrostNova-spell',122)
 MurlocChampionNova.Name.enGB.set('Frost Nova')
 MurlocChampionNova.Effects.get(0).BasePoints.set(617)
-MurlocChampionNova.Duration.set(3000,0,3000)
-    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    MurlocChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-    MurlocChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    MurlocChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
-    MurlocChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    MurlocChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    MurlocChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
-    //combat loop
-    MurlocChampionCreature.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(MurlocChampionFrostbolt.ID,2,7)
-    MurlocChampionCreature.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(MurlocChampionFireblast.ID,2,7)
-    MurlocChampionCreature.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(MurlocChampionNova.ID,2,7)
+MurlocChampionNova.Duration.modRefCopy(val=>val.set(3000,0,3000))
+
+MurlocChampionCreature.Scripts.onUpdateIc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setCreateTimedEvent(0,0,0,11000,15000,100)
+        script.Action.setCreateTimedEvent(1,0,0,3000,7000,100)
+        script.Action.setCreateTimedEvent(2,0,0,5000,7000,100)
+        
+    })
+    MurlocChampionCreature.Scripts.onUpdateOoc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setRemoveTimedEvent(0)
+        script.Action.setRemoveTimedEvent(1)
+		script.Action.setRemoveTimedEvent(2)
+		
+    })
+    MurlocChampionCreature.Scripts.onTimedEventTriggered(0,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(MurlocChampionFrostbolt.ID,2,7)
+    })
+	MurlocChampionCreature.Scripts.onTimedEventTriggered(1,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(MurlocChampionFireblast.ID,2,7)
+    })
+	MurlocChampionCreature.Scripts.onTimedEventTriggered(2,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(MurlocChampionNova.ID,2,7)
+    })
+
 //End of Spells
 MurlocChampionCreature.FactionTemplate.set(48)
-MurlocChampionCreature.DamageSchool.setNormal()
+MurlocChampionCreature.DamageSchool.Normal.set()
 MurlocChampionCreature.Stats.ArmorMod.set(125)
 MurlocChampionCreature.Stats.DamageMod.set(65)
 MurlocChampionCreature.Stats.ExperienceMod.set(30)
@@ -59,7 +76,10 @@ MurlocScroll.FlagsExtra.set(0)
 MurlocScroll.MaxCount.set(1)
 MurlocScroll.RequiredLevel.set(1)
 MurlocScroll.Spells.clearAll()
-MurlocScroll.Spells.add(MurlocChampion.ID,undefined,undefined,-1)
+MurlocScroll.Spells.addMod(spell=>{
+    spell.Spell.set(MurlocChampion.ID)
+    spell.Charges.set(-1)
+})
 
 /*Spell Scripts - Champion Boss Items*/
 export let MurlocCreatureSpawn = std.CreatureTemplates.create(MODNAME,'murloccreaturespawn-creature',8776)

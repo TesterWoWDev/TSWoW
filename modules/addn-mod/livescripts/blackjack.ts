@@ -1,5 +1,4 @@
-import { count } from "console";
-import { blackjackPlayerMessage, blackjackSendHandMessage } from "../shared/Messages";
+import { blackjackPlayerMessage, blackjackPlayerMessageID, blackjackSendHandMessage } from "../shared/Messages";
 
 class Player {
     cards: TSArray<uint32> = []
@@ -14,8 +13,10 @@ export function Blackjack(events: TSEventHandlers) {
         }
     })
 
-    events.Addon.OnMessageID(blackjackPlayerMessage,(player,message)=>{
-        let val = message.value
+    events.PacketID.OnCustom(blackjackPlayerMessageID,(_,packet,player)=>{
+        let pkt = new blackjackPlayerMessage(0,0)
+        pkt.read(packet)
+        let val = pkt.value
         if(val == 0){
             joinPlayer(player)
         }else if(val == 1){
@@ -27,9 +28,9 @@ export function Blackjack(events: TSEventHandlers) {
         }else if(val == 4){
             checkLose(player)
         }else if(val == 5){
-            addPlayerBet(player,message.bet)
+            addPlayerBet(player,pkt.bet)
         }else if(val == 6){
-            setPlayerBet(player,message.bet)
+            setPlayerBet(player,pkt.bet)
         }else if(val == 7){
             sendPlayerData(player)   
         }else if(val == 100){
@@ -112,10 +113,8 @@ function setPlayerBet(player:TSPlayer,bet:uint32){
 }
 
 function sendPlayerData(player:TSPlayer){
-    let pkt = new blackjackSendHandMessage()
     let cur = currentPlayers[player.GetGUIDLow()]
-    pkt.cards = cur.cards
-    pkt.bet = cur.curBet
+    new blackjackSendHandMessage(cur.cards,cur.curBet).write().SendToPlayer(player);
 }
 
 

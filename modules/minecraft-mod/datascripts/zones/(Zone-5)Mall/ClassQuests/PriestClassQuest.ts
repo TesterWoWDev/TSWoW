@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { spawnNPC } from "../../../functions/spawning-functions"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
@@ -10,21 +11,21 @@ PriestQuestGiver01.Models.clearAll()
 PriestQuestGiver01.Models.addIds(21835)
 PriestQuestGiver01.Level.set(10,10)
 PriestQuestGiver01.FactionTemplate.set(35)
-PriestQuestGiver01.DamageSchool.setNormal()
+PriestQuestGiver01.DamageSchool.Normal.set()
 PriestQuestGiver01.Stats.ArmorMod.set(1)
 PriestQuestGiver01.Stats.DamageMod.set(1)
 PriestQuestGiver01.Stats.ExperienceMod.set(1)
 PriestQuestGiver01.Stats.HealthMod.set(1)
 PriestQuestGiver01.Stats.ManaMod.set(1)
-PriestQuestGiver01.NPCFlags.QuestGiver.mark()
-
+PriestQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
+spawnNPC(PriestQuestGiver01.ID,0,0,{map:725,x:-8210.161133,y:-209.308029,z:3.408000,o:2.847071},)
 export let PriestQuest01 = std.Quests.create(MODNAME,'priestquest01-quest')
 
 PriestQuest01.Flags.set(1)
 PriestQuest01.MinLevel.set(1)
 PriestQuest01.QuestLevel.set(20)
-PriestQuest01.Questgiver.addStarter(questGiver03.ID)
-PriestQuest01.Questgiver.addEnder(PriestQuestGiver01.ID)
+PriestQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
+PriestQuest01.Questgiver.addCreatureEnder(PriestQuestGiver01.ID,false)
 
 PriestQuest01.Rewards.Money.set(441)
 
@@ -35,17 +36,14 @@ PriestQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waiting
 PriestQuest01.Text.Title.enGB.set('Technique and Form')
 
 
-
-
-
 export let PriestQuest02 = std.Quests.create(MODNAME,'priestquest02-quest')
 
 PriestQuest02.Flags.set(8)
 SQL.quest_template_addon.add(PriestQuest02.ID).SpecialFlags.set(1)
 PriestQuest02.MinLevel.set(1)
 PriestQuest02.QuestLevel.set(20)
-PriestQuest02.Questgiver.addStarter(PriestQuestGiver01.ID)
-PriestQuest02.Questgiver.addEnder(PriestQuestGiver01.ID)
+PriestQuest02.Questgiver.addCreatureStarter(PriestQuestGiver01.ID)
+PriestQuest02.Questgiver.addCreatureEnder(PriestQuestGiver01.ID,false)
 
 PriestQuest02.Rewards.Money.set(200000)
 PriestQuest02.Objectives.Item.add(OrbofPower.ID,10)

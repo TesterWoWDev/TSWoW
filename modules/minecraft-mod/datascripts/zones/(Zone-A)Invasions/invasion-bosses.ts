@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata"
 import { MODNAME } from "../../modname"
 import { BossDummySpell1, InvasionBossStrike, InvasionWhirlwind } from "./invasion-creature-spells"
 
@@ -8,23 +8,38 @@ InvasionBoss01.Name.enGB.set('Galitrax the Destroyer')
 InvasionBoss01.Models.clearAll()
 InvasionBoss01.Models.addIds(18527)
 //Spells
-    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    InvasionBoss01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-    InvasionBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    InvasionBoss01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
-    InvasionBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    InvasionBoss01.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    InvasionBoss01.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
-    //combat loop
-    InvasionBoss01.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(BossDummySpell1.ID,2,7)
-    InvasionBoss01.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(InvasionBossStrike.ID,2,7)
-    InvasionBoss01.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(InvasionWhirlwind.ID,2,7)
+    InvasionBoss01.Scripts.onUpdateIc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setCreateTimedEvent(0,0,0,11000,15000,100)
+        script.Action.setCreateTimedEvent(1,0,0,3000,7000,100)
+        script.Action.setCreateTimedEvent(2,0,0,5000,7000,100)
+        
+    })
+    InvasionBoss01.Scripts.onUpdateOoc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setRemoveTimedEvent(0)
+        script.Action.setRemoveTimedEvent(1)
+		script.Action.setRemoveTimedEvent(2)
+		
+    })
+    InvasionBoss01.Scripts.onTimedEventTriggered(0,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(BossDummySpell1.ID,2,7)
+    })
+	InvasionBoss01.Scripts.onTimedEventTriggered(1,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(InvasionBossStrike.ID,2,7)
+    })
+	InvasionBoss01.Scripts.onTimedEventTriggered(2,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(InvasionWhirlwind.ID,2,7)
+    })
 //End of Spells
-InvasionBoss01.MovementType.setRandomMovement()
+InvasionBoss01.MovementType.RANDOM_MOVEMENT.set()
 InvasionBoss01.Level.set(8,8)
-InvasionBoss01.Rank.setBoss()
+InvasionBoss01.Rank.BOSS.set()
 InvasionBoss01.FactionTemplate.set(48)
-InvasionBoss01.DamageSchool.setNormal()
+InvasionBoss01.DamageSchool.Normal.set()
 InvasionBoss01.Stats.ArmorMod.set(8)
 InvasionBoss01.Stats.DamageMod.set(60)
 InvasionBoss01.Stats.ExperienceMod.set(5)

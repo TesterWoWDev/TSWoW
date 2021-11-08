@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { spawnNPC } from "../../../functions/spawning-functions"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
@@ -10,21 +11,21 @@ WarlockQuestGiver01.Models.clearAll()
 WarlockQuestGiver01.Models.addIds(21835)
 WarlockQuestGiver01.Level.set(10,10)
 WarlockQuestGiver01.FactionTemplate.set(35)
-WarlockQuestGiver01.DamageSchool.setNormal()
+WarlockQuestGiver01.DamageSchool.Normal.set()
 WarlockQuestGiver01.Stats.ArmorMod.set(1)
 WarlockQuestGiver01.Stats.DamageMod.set(1)
 WarlockQuestGiver01.Stats.ExperienceMod.set(1)
 WarlockQuestGiver01.Stats.HealthMod.set(1)
 WarlockQuestGiver01.Stats.ManaMod.set(1)
-WarlockQuestGiver01.NPCFlags.QuestGiver.mark()
-
+WarlockQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
+spawnNPC(WarlockQuestGiver01.ID,0,0,{map:725,x:-8499.652344,y:-202.778442,z:-6.027380,o:2.038107},)
 export let WarlockQuest01 = std.Quests.create(MODNAME,'warlockquest01-quest')
 
 WarlockQuest01.Flags.set(1)
 WarlockQuest01.MinLevel.set(1)
 WarlockQuest01.QuestLevel.set(20)
-WarlockQuest01.Questgiver.addStarter(questGiver03.ID)
-WarlockQuest01.Questgiver.addEnder(WarlockQuestGiver01.ID)
+WarlockQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
+WarlockQuest01.Questgiver.addCreatureEnder(WarlockQuestGiver01.ID,false)
 
 WarlockQuest01.Rewards.Money.set(441)
 
@@ -35,17 +36,14 @@ WarlockQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waitin
 WarlockQuest01.Text.Title.enGB.set('Technique and Form')
 
 
-
-
-
 export let WarlockQuest02 = std.Quests.create(MODNAME,'warlockquest02-quest')
 
 WarlockQuest02.Flags.set(8)
 SQL.quest_template_addon.add(WarlockQuest02.ID).SpecialFlags.set(1)
 WarlockQuest02.MinLevel.set(1)
 WarlockQuest02.QuestLevel.set(20)
-WarlockQuest02.Questgiver.addStarter(WarlockQuestGiver01.ID)
-WarlockQuest02.Questgiver.addEnder(WarlockQuestGiver01.ID)
+WarlockQuest02.Questgiver.addCreatureStarter(WarlockQuestGiver01.ID)
+WarlockQuest02.Questgiver.addCreatureEnder(WarlockQuestGiver01.ID,false)
 
 WarlockQuest02.Rewards.Money.set(200000)
 WarlockQuest02.Objectives.Item.add(OrbofPower.ID,10)

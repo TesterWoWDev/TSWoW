@@ -1,4 +1,4 @@
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata"
 
 SQL.player_xp_for_level.filter({}).forEach((value,index,array)=>{
     if(index <= 20)

@@ -1,7 +1,5 @@
-import { std } from "tswow-stdlib"
-import { MODNAME } from "../../modname"
 import { generateGearRecipes, generateWeaponRecipes } from "../../functions/recipe-functions"
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata"
 import { stringItem } from "../string"
 import { expSpell3 } from "../../spells/experience-rate-spells"
 import { clothTierThreeItemEnchantmentIndex, leatherTierThreeItemEnchantmentIndex, mailTierThreeItemEnchantmentIndex, trinketTierThreeItemEnchantmentIndex, weaponTierThreeItemEnchantmentIndex } from "../RandomProperties/tier3-properties"
@@ -36,31 +34,3 @@ generateGearRecipes(tierThreeBaseResources[0],tierThreeClothMaterial,tierThreeBa
 generateWeaponRecipes(tierThreeBaseResources[0],tierThreeBaseResources[5],tierThreeBaseResources[3],tierThreeBaseResources[4],stringItem.ID,tierThreeWeapons)
 
 SQL.disenchant_loot_template.add(102,tierThreeBaseResources[6]).Chance.set(100).MinCount.set(1).MaxCount.set(3).LootMode.set(1).GroupId.set(1).Reference.set(0).Comment.set('Tier 3 Disenchant - Dust')
-
-//remove below
-let vendor = std.CreatureTemplates.create(MODNAME,'cacheme3',3482)
-vendor.Name.enGB.set('Armor Npc 3')
-vendor.Subname.enGB.set('will be removed')
-vendor.FactionTemplate.set(35)
-
-SQL.Databases.world_dest.writeEarly('DELETE FROM npc_vendor WHERE entry = ' + vendor.ID + '')
-
-vendor.Vendor.addItem(stringItem.ID)
-vendor.Vendor.addItem(tierThreeMailMaterial)
-vendor.Vendor.addItem(tierThreeLeatherMaterial)
-vendor.Vendor.addItem(tierThreeClothMaterial)
-tierThreeMailGear.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})
-tierThreeLeatherGear.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})
-tierThreeClothGear.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})
-tierThreeWeapons.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})
-tierThreeBaseResources.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})

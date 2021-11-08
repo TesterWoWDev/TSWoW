@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { spawnNPC } from "../../../functions/spawning-functions"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
@@ -10,21 +11,21 @@ ShamanQuestGiver01.Models.clearAll()
 ShamanQuestGiver01.Models.addIds(21835)
 ShamanQuestGiver01.Level.set(10,10)
 ShamanQuestGiver01.FactionTemplate.set(35)
-ShamanQuestGiver01.DamageSchool.setNormal()
+ShamanQuestGiver01.DamageSchool.Normal.set()
 ShamanQuestGiver01.Stats.ArmorMod.set(1)
 ShamanQuestGiver01.Stats.DamageMod.set(1)
 ShamanQuestGiver01.Stats.ExperienceMod.set(1)
 ShamanQuestGiver01.Stats.HealthMod.set(1)
 ShamanQuestGiver01.Stats.ManaMod.set(1)
-ShamanQuestGiver01.NPCFlags.QuestGiver.mark()
-
+ShamanQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
+spawnNPC(ShamanQuestGiver01.ID,0,0,{map:725,x:-8364.425781,y:-266.700806,z:10.418685,o:1.767146},)
 export let ShamanQuest01 = std.Quests.create(MODNAME,'shamanquest01-quest')
 
 ShamanQuest01.Flags.set(1)
 ShamanQuest01.MinLevel.set(1)
 ShamanQuest01.QuestLevel.set(20)
-ShamanQuest01.Questgiver.addStarter(questGiver03.ID)
-ShamanQuest01.Questgiver.addEnder(ShamanQuestGiver01.ID)
+ShamanQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
+ShamanQuest01.Questgiver.addCreatureEnder(ShamanQuestGiver01.ID,false)
 
 ShamanQuest01.Rewards.Money.set(441)
 
@@ -35,17 +36,14 @@ ShamanQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waiting
 ShamanQuest01.Text.Title.enGB.set('Technique and Form')
 
 
-
-
-
 export let ShamanQuest02 = std.Quests.create(MODNAME,'shamanquest02-quest')
 
 ShamanQuest02.Flags.set(8)
 SQL.quest_template_addon.add(ShamanQuest02.ID).SpecialFlags.set(1)
 ShamanQuest02.MinLevel.set(1)
 ShamanQuest02.QuestLevel.set(20)
-ShamanQuest02.Questgiver.addStarter(ShamanQuestGiver01.ID)
-ShamanQuest02.Questgiver.addEnder(ShamanQuestGiver01.ID)
+ShamanQuest02.Questgiver.addCreatureStarter(ShamanQuestGiver01.ID)
+ShamanQuest02.Questgiver.addCreatureEnder(ShamanQuestGiver01.ID,false)
 
 ShamanQuest02.Rewards.Money.set(200000)
 ShamanQuest02.Objectives.Item.add(OrbofPower.ID,10)

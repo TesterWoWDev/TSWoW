@@ -1,17 +1,17 @@
 /*
  * This file is part of tswow (https://github.com/tswow/).
  * Copyright (C) 2020 tswow <https://github.com/tswow/>
- * 
- * This program is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU General Public License as 
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, version 3.
- * 
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License 
+ *
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 #pragma once
@@ -22,8 +22,12 @@
 #include "TSString.h"
 #include "TSClasses.h"
 #include "TSUnit.h"
-#include "base64.h"
+#include "TSOutfit.h"
 
+class TSJsonObject;
+class TSJsonArray;
+class TSBattleground;
+class TSBattlegroundPlayer;
 struct TSMail;
 class TC_GAME_API TSPlayer : public TSUnit {
 public:
@@ -128,7 +132,6 @@ public:
 	uint32 GetGossipTextId(TSWorldObject obj);
 	TSUnit GetSelection();
 	uint32 GetGMRank();
-	uint32 GetMoney();
 	uint32 GetGuildId();
 	uint32 GetTeam();
 	uint32 GetItemCount(uint32 entry, bool checkinBank);
@@ -164,7 +167,12 @@ public:
 	void SetArenaPoints(uint32 arenaP);
 	void SetHonorPoints(uint32 honorP);
 	void SetLifetimeKills(uint32 val);
-	void SetCoinage(uint32 amt);
+
+    void SetMoney(uint32 amt);
+    uint32 GetMoney();
+    bool GiveMoney(uint32 amt);
+    bool TakeMoney(uint32 amt);
+
 	void SetBindPoint(float x, float y, float z, uint32 mapId, uint32 areaId);
 	void SetKnownTitle(uint32 id);
 	void ResetPetTalents(int32 pType);
@@ -192,14 +200,14 @@ public:
 	void UnbindInstance(uint32 map, uint32 difficulty);
 	void UnbindAllInstances();
 	void LeaveBattleground(bool teleToEntryPoint);
-	uint32 DurabilityRepair(uint16 position, bool cost, float discountMod, bool guildBank);
+	uint32 DurabilityRepair(uint16 position, bool cost, float discountMod);
 	uint32 DurabilityRepairAll(bool cost, float discountMod, bool guildBank);
 	void DurabilityPointLossForEquipSlot(int32 slot);
 	void DurabilityPointsLossAll(int32 points, bool inventory);
 	void DurabilityPointsLoss(TSItem item, int32 points);
 	void DurabilityLoss(TSItem item, double percent);
 	void DurabilityLossAll(double percent, bool inventory);
-	void KillPlayer();
+	void KillPlayer(bool durability = false);
 	void RemoveFromGroup();
 	uint32 ResetTalentsCost();
 	void ResetTalents(bool no_cost);
@@ -227,15 +235,17 @@ public:
 	void ToggleAFK();
 	TSItem EquipItem(TSItem item, uint32 slot, uint32 entry);
 	bool CanEquipItem(TSItem item, uint32 slot, uint32 entry);
+	float GetAverageItemLevel();
 	void UnsetKnownTitle(uint32 id);
 	void AdvanceSkillsToMax();
 	void AdvanceAllSkills(uint32 step);
 	void AdvanceSkill(uint32 _skillId, uint32 _step);
 	bool Teleport(uint32 mapId, float x, float y, float z, float o);
 	void AddLifetimeKills(uint32 val);
-	TSItem AddItem(uint32 itemId, uint32 itemCount);
-	void AddItemToSlotRaw(uint8 bag, uint8 slot, uint32 itemId, uint32 count);
-	void RemoveItem(TSItem item, uint32 itemCount, uint32 itemId);
+	TSItem AddItem(uint32 itemId, uint32 itemCount, int32 propertyId = -1);
+	void AddItemToSlotRaw(uint8 bag, uint8 slot, uint32 itemId, uint32 count, int32 propertyId = -1);
+  void RemoveItem(TSItem item, uint32 itemCount = 1);
+	void RemoveItemByEntry(uint32 entry, uint32 itemCount = 1);
 	void RemoveLifetimeKills(uint32 val);
 	void ResetSpellCooldown(uint32 spellId, bool update);
 	void ResetTypeCooldowns(uint32 category, bool update);
@@ -250,10 +260,11 @@ public:
 	void ModifyMoney(int32 amt);
 	void LearnSpell(uint32 id);
 	void LearnTalent(uint32 id, uint32 rank);
+	void LearnClassSpells(bool trainer, bool quests);
 	void ResurrectPlayer(float percent, bool sickness);
-	void GossipMenuAddItem(uint32 _icon, TSString msg, uint32 _sender, uint32 _intid, bool _code, TSString _promptMsg, uint32 _money);
+	void GossipMenuAddItem(uint32 _icon, TSString msg, uint32 _sender = 0, uint32 _intid = 0, bool _code = false, TSString _promptMsg = JSTR(""), uint32 _money = 0);
 	void GossipComplete();
-	void GossipSendMenu(uint32 npc_text, TSObject sender, uint32 menu_id);
+	void GossipSendMenu(uint32 npc_text, TSObject sender, uint32 menu_id = 0);
 	void GossipClearMenu();
 	void StartTaxi(uint32 pathId);
 	void GossipSendPOI(float x, float y, uint32 icon, uint32 flags, uint32 data, TSString iconText);
@@ -261,28 +272,36 @@ public:
 	void SendQuestTemplate(uint32 questId, bool activateAccept);
 	void SpawnBones();
 	void RemovedInsignia(TSPlayer looter);
+    TSBattlegroundPlayer GetBattlegroundPlayer();
+    TSBattleground GetBattleground();
+
 	bool GroupInvite(TSPlayer invited);
 	TSGroup GroupCreate(TSPlayer invited);
 	void SendCinematicStart(uint32 CinematicSequenceId);
 	void SendMovieStart(uint32 MovieId);
 	void SendMail(uint8 senderType, uint64 from, TSString subject, TSString body, uint32 money = 0, uint32 cod = 0, uint32 delay = 0, TSArray<TSItem> items = TSArray<TSItem>());
 
-	template <typename T>
-	void SendData(std::shared_ptr<T> value)
-	{
-		uint8_t arr[250];
-		BinReader<uint8_t> bin(arr,250);
-		bin.Write<uint32_t>(0,17688);
-		bin.Write<uint16_t>(4,value->opcode());
-		value->Write(arr+6);
-		char *carr = (char*)arr;
-		uint8_t b85arr[250];
-		
-		int b85len = encodeBase64((uint8_t*)carr,value->GetSize()+6,b85arr);
-		std::string outstr((char*)b85arr,b85len);
-		SendAddonMessage(JSTR(""),TSString(outstr),7,*this);
-	}
+  uint8 GetHairStyle();
+  void SetHairStyle(uint8 style);
+
+  uint8 GetHairColor();
+  void SetHairColor(uint8 color);
+
+  uint8 GetFacialStyle();
+  void SetFacialStyle(uint8 style);
+
+  uint8 GetSkinColor();
+  void SetSkinColor(uint8 color);
+
+  uint8 GetFace();
+  void SetFace(uint8 face);
+
+  void SendUpdateWorldState(uint32 worldState, uint32 value);
+
+  void SendUpdateEventStates(uint32 eventId);
 
 	TSArray<TSMail> GetMails();
 	void RemoveMail(uint32 id);
+
+	TSOutfit GetOutfitCopy(uint32_t settings = Outfit::EVERYTHING, int32_t race = -1, int32_t gender = -1);
 };

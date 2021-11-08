@@ -1,7 +1,5 @@
-import { std } from "tswow-stdlib"
-import { MODNAME } from "../../modname"
 import { generateGearRecipes, generateWeaponRecipes } from "../../functions/recipe-functions"
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata"
 import { stringItem } from "../string"
 import { expSpell4 } from "../../spells/experience-rate-spells"
 import { clothTierFourItemEnchantmentIndex, leatherTierFourItemEnchantmentIndex, mailTierFourItemEnchantmentIndex, trinketTierFourItemEnchantmentIndex, weaponTierFourItemEnchantmentIndex } from "../RandomProperties/tier4-properties"
@@ -35,31 +33,3 @@ generateGearRecipes(tierFourBaseResources[0],tierFourClothMaterial,tierFourBaseR
 generateWeaponRecipes(tierFourBaseResources[0],tierFourBaseResources[5],tierFourBaseResources[3],tierFourBaseResources[4],stringItem.ID,tierFourWeapons)
 
 SQL.disenchant_loot_template.add(103,tierFourBaseResources[6]).Chance.set(100).MinCount.set(1).MaxCount.set(3).LootMode.set(1).GroupId.set(1).Reference.set(0).Comment.set('Tier 4 Disenchant - Dust')
-
-//remove below
-let vendor = std.CreatureTemplates.create(MODNAME,'cacheme4',3482)
-vendor.Name.enGB.set('Armor Npc 4')
-vendor.Subname.enGB.set('will be removed')
-vendor.FactionTemplate.set(35)
-
-SQL.Databases.world_dest.writeEarly('DELETE FROM npc_vendor WHERE entry = ' + vendor.ID + '')
-
-vendor.Vendor.addItem(stringItem.ID)
-vendor.Vendor.addItem(tierFourMailMaterial)
-vendor.Vendor.addItem(tierFourLeatherMaterial)
-vendor.Vendor.addItem(tierFourClothMaterial)
-tierFourMailGear.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})
-tierFourLeatherGear.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})
-tierFourClothGear.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})
-tierFourWeapons.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})
-tierFourBaseResources.forEach((value,index,array)=>{
-    vendor.Vendor.addItem(value)
-})

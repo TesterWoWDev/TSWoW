@@ -1,4 +1,4 @@
-import { spellValuesFinish, spellValuesIncoming, spellValuesMessage } from "../shared/Messages"
+import { spellValuesFinish, spellValuesFinishID, spellValuesIncoming, spellValuesIncomingID, spellValuesMessage, spellValuesMessageID } from "../shared/Messages"
 import { Events } from "./lib/Events"
 let spellInfo = []
 let buttons = []
@@ -7,13 +7,15 @@ let mframe = CreateFrame('Frame','mainaddon',UIParent)
     mframe.SetHeight(768)
     mframe.SetPoint("TOPRIGHT",60,-120)
 
-Events.AddOns.OnMessage(mframe,spellValuesIncoming,msg=>{
+OnCustomPacket(spellValuesIncomingID,(packet)=>{
     hideOldSpells()
 })
-Events.AddOns.OnMessage(mframe,spellValuesMessage,msg=>{
-  spellInfo.push([msg.spellID,msg.spellCt,msg.spellName])  
+OnCustomPacket(spellValuesMessageID,(packet)=>{
+    let customPacket = new spellValuesMessage(0,0,"")
+    customPacket.read(packet);
+    spellInfo.push([customPacket.spellID,customPacket.spellCt,customPacket.spellName])  
 })
-Events.AddOns.OnMessage(mframe,spellValuesFinish,msg=>{
+OnCustomPacket(spellValuesFinishID,(packet)=>{
     showSpells()
 })
 

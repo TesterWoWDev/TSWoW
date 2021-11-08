@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { spawnNPC } from "../../../functions/spawning-functions"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
@@ -11,21 +12,21 @@ HunterQuestGiver01.Models.clearAll()
 HunterQuestGiver01.Models.addIds(21835)
 HunterQuestGiver01.Level.set(10,10)
 HunterQuestGiver01.FactionTemplate.set(35)
-HunterQuestGiver01.DamageSchool.setNormal()
+HunterQuestGiver01.DamageSchool.Normal.set()
 HunterQuestGiver01.Stats.ArmorMod.set(1)
 HunterQuestGiver01.Stats.DamageMod.set(1)
 HunterQuestGiver01.Stats.ExperienceMod.set(1)
 HunterQuestGiver01.Stats.HealthMod.set(1)
 HunterQuestGiver01.Stats.ManaMod.set(1)
-HunterQuestGiver01.NPCFlags.QuestGiver.mark()
-
+HunterQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
+spawnNPC(HunterQuestGiver01.ID,0,0,{map:725,x:-8331.346680,y:-41.606926,z:0.549585,o:1.441206})
 export let HunterQuest01 = std.Quests.create(MODNAME,'hunterquest01-quest')
 
 HunterQuest01.Flags.set(1)
 HunterQuest01.MinLevel.set(1)
 HunterQuest01.QuestLevel.set(20)
-HunterQuest01.Questgiver.addStarter(questGiver03.ID)
-HunterQuest01.Questgiver.addEnder(HunterQuestGiver01.ID)
+HunterQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
+HunterQuest01.Questgiver.addCreatureEnder(HunterQuestGiver01.ID,false)
 
 HunterQuest01.Rewards.Money.set(441)
 
@@ -36,17 +37,14 @@ HunterQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waiting
 HunterQuest01.Text.Title.enGB.set('Technique and Form')
 
 
-
-
-
 export let HunterQuest02 = std.Quests.create(MODNAME,'hunterquest02-quest')
 
 HunterQuest02.Flags.set(8)
 SQL.quest_template_addon.add(HunterQuest02.ID).SpecialFlags.set(1)
 HunterQuest02.MinLevel.set(1)
 HunterQuest02.QuestLevel.set(20)
-HunterQuest02.Questgiver.addStarter(HunterQuestGiver01.ID)
-HunterQuest02.Questgiver.addEnder(HunterQuestGiver01.ID)
+HunterQuest02.Questgiver.addCreatureStarter(HunterQuestGiver01.ID)
+HunterQuest02.Questgiver.addCreatureEnder(HunterQuestGiver01.ID,false)
 
 HunterQuest02.Rewards.Money.set(200000)
 HunterQuest02.Objectives.Item.add(OrbofPower.ID,10)

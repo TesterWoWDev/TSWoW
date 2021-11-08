@@ -1,4 +1,4 @@
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata"
 
 export function generateGearRecipes(gem: Number, material: Number, epulet: Number, chain: Number,itemID: Number[]) {
     let zero = 0
