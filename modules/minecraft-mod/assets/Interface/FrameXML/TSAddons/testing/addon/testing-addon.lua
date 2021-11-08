@@ -2,11 +2,10 @@
 require("lualib_bundle");
 local ____exports = {}
 local ____Messages = require("TSAddons.testing.shared.Messages")
-local spellValuesFinish = ____Messages.spellValuesFinish
-local spellValuesIncoming = ____Messages.spellValuesIncoming
+local spellValuesFinishID = ____Messages.spellValuesFinishID
+local spellValuesIncomingID = ____Messages.spellValuesIncomingID
 local spellValuesMessage = ____Messages.spellValuesMessage
-local ____Events = require("Events")
-local Events = ____Events.Events
+local spellValuesMessageID = ____Messages.spellValuesMessageID
 local spellInfo, buttons, mframe, showSpells, hideOldSpells
 function showSpells()
     do
@@ -67,24 +66,23 @@ mframe = CreateFrame("Frame", "mainaddon", UIParent)
 mframe:SetWidth(512)
 mframe:SetHeight(768)
 mframe:SetPoint("TOPRIGHT", 60, -120)
-Events.AddOns:OnMessage(
-    mframe,
-    spellValuesIncoming,
-    function(msg)
+OnCustomPacket(
+    spellValuesIncomingID,
+    function(packet)
         hideOldSpells()
     end
 )
-Events.AddOns:OnMessage(
-    mframe,
-    spellValuesMessage,
-    function(msg)
-        __TS__ArrayPush(spellInfo, {msg.spellID, msg.spellCt, msg.spellName})
+OnCustomPacket(
+    spellValuesMessageID,
+    function(packet)
+        local customPacket = __TS__New(spellValuesMessage, 0, 0, "")
+        customPacket:read(packet)
+        __TS__ArrayPush(spellInfo, {customPacket.spellID, customPacket.spellCt, customPacket.spellName})
     end
 )
-Events.AddOns:OnMessage(
-    mframe,
-    spellValuesFinish,
-    function(msg)
+OnCustomPacket(
+    spellValuesFinishID,
+    function(packet)
         showSpells()
     end
 )

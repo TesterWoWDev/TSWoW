@@ -4,155 +4,127 @@ tstl_register_module(
     "TSAddons.minecraft-mod.shared.Messages",
     function()
         local ____exports = {}
-        ____exports.bagSlotCombo = __TS__Class()
-        local bagSlotCombo = ____exports.bagSlotCombo
-        bagSlotCombo.name = "bagSlotCombo"
-
-function bagSlotCombo.GetID() return 9 end
-function bagSlotCombo.prototype.GetID() return 9 end
-function bagSlotCombo.prototype.GetSize() return 9 end
-function bagSlotCombo.prototype.Read(self,r,o)
-    r:ReadArray(o+0,self.bagslot,4,2,function(oo) return r:ReadI32(oo) end);
-end
-
-function bagSlotCombo.prototype.Write(self,r,o)
-    r:WriteArray(0+o,self.bagslot,4,2,function(oo,v) return r:WriteI32(oo,v) end);
-end
-
-require('Events').addConstructor(bagSlotCombo);
-
-        function bagSlotCombo.prototype.____constructor(self)
-            self.bagslot = {0, 0}
-        end
-        __TS__Decorate(
-            {
-                MsgPrimitiveArray(2)
-            },
-            bagSlotCombo.prototype,
-            "bagslot",
-            nil
-        )
-        bagSlotCombo = __TS__Decorate({Message}, bagSlotCombo)
+        ____exports.craftMessageID = 11
+        ____exports.empty = {0, 0}
         ____exports.craftMessage = __TS__Class()
         local craftMessage = ____exports.craftMessage
         craftMessage.name = "craftMessage"
-
-function craftMessage.GetID() return 10 end
-function craftMessage.prototype.GetID() return 10 end
-function craftMessage.prototype.GetSize() return 140 end
-function craftMessage.prototype.Read(self,r,o)
-    r:ReadArray(o+0,self.itemIDs,4,9,function(oo) return r:ReadI32(oo) end);
-    r:ReadClassArray(o+37,self.positions,9,9,function() return __TS__New(bagSlotCombo) end);
-    self.purchase = r:ReadU32(o+119);
-    r:ReadArray(o+123,self.enchants,4,4,function(oo) return r:ReadI32(oo) end);
-end
-
-function craftMessage.prototype.Write(self,r,o)
-    r:WriteArray(0+o,self.itemIDs,4,9,function(oo,v) return r:WriteI32(oo,v) end);
-    r:WriteClassArray(37+o,self.positions,9,9);
-    r:WriteU32(119+o,self.purchase);
-    r:WriteArray(123+o,self.enchants,4,4,function(oo,v) return r:WriteI32(oo,v) end);
-end
-
-require('Events').addConstructor(craftMessage);
-
-        function craftMessage.prototype.____constructor(self)
+        function craftMessage.prototype.____constructor(self, itemIDs, positions, purchase, enchants)
             self.itemIDs = {0, 0, 0, 0, 0, 0, 0, 0, 0}
-            self.positions = {
-                __TS__New(____exports.bagSlotCombo),
-                __TS__New(____exports.bagSlotCombo),
-                __TS__New(____exports.bagSlotCombo),
-                __TS__New(____exports.bagSlotCombo),
-                __TS__New(____exports.bagSlotCombo),
-                __TS__New(____exports.bagSlotCombo),
-                __TS__New(____exports.bagSlotCombo),
-                __TS__New(____exports.bagSlotCombo),
-                __TS__New(____exports.bagSlotCombo)
-            }
+            self.positions = {____exports.empty, ____exports.empty, ____exports.empty, ____exports.empty, ____exports.empty, ____exports.empty, ____exports.empty, ____exports.empty, ____exports.empty}
             self.purchase = 0
             self.enchants = {0, 0, 0, 0, 0}
+            self.itemIDs = itemIDs
+            self.positions = positions
+            self.purchase = purchase
+            self.enchants = enchants
         end
-        __TS__Decorate(
-            {
-                MsgPrimitiveArray(9)
-            },
-            craftMessage.prototype,
-            "itemIDs",
-            nil
-        )
-        __TS__Decorate(
-            {
-                MsgClassArray(9)
-            },
-            craftMessage.prototype,
-            "positions",
-            nil
-        )
-        __TS__Decorate({MsgPrimitive}, craftMessage.prototype, "purchase", nil)
-        __TS__Decorate(
-            {
-                MsgPrimitiveArray(4)
-            },
-            craftMessage.prototype,
-            "enchants",
-            nil
-        )
-        craftMessage = __TS__Decorate({Message}, craftMessage)
+        function craftMessage.prototype.read(self, read)
+            do
+                local i = 0
+                while i < 9 do
+                    self.itemIDs[i + 1] = read:ReadUInt32()
+                    i = i + 1
+                end
+            end
+            do
+                local i = 0
+                while i < 9 do
+                    local val1 = read:ReadUInt32()
+                    local val2 = read:ReadUInt32()
+                    local bag = {val1, val2}
+                    self.positions[i + 1] = bag
+                    i = i + 1
+                end
+            end
+            self.purchase = read:ReadUInt32()
+            do
+                local i = 0
+                while i < 4 do
+                    self.enchants[i + 1] = read:ReadUInt32()
+                    i = i + 1
+                end
+            end
+        end
+        function craftMessage.prototype.write(self)
+            local packet = MakeCustomPacket(____exports.craftMessageID, 160)
+            do
+                local i = 0
+                while i < 9 do
+                    packet:WriteUInt32(self.itemIDs[i + 1])
+                    i = i + 1
+                end
+            end
+            do
+                local i = 0
+                while i < 9 do
+                    packet:WriteUInt32(self.positions[i + 1][1])
+                    packet:WriteUInt32(self.positions[i + 1][2])
+                    i = i + 1
+                end
+            end
+            packet:WriteUInt32(self.purchase)
+            do
+                local i = 0
+                while i < 4 do
+                    packet:WriteUInt32(self.enchants[i + 1])
+                    i = i + 1
+                end
+            end
+            return packet
+        end
+        ____exports.returnCraftItemMessageID = 12
         ____exports.returnCraftItemMessage = __TS__Class()
         local returnCraftItemMessage = ____exports.returnCraftItemMessage
         returnCraftItemMessage.name = "returnCraftItemMessage"
-
-function returnCraftItemMessage.GetID() return 11 end
-function returnCraftItemMessage.prototype.GetID() return 11 end
-function returnCraftItemMessage.prototype.GetSize() return 25 end
-function returnCraftItemMessage.prototype.Read(self,r,o)
-    self.craftItem = r:ReadU32(o+0);
-    self.craftItemCount = r:ReadU32(o+4);
-    r:ReadArray(o+8,self.enchantNum,4,4,function(oo) return r:ReadI32(oo) end);
-end
-
-function returnCraftItemMessage.prototype.Write(self,r,o)
-    r:WriteU32(0+o,self.craftItem);
-    r:WriteU32(4+o,self.craftItemCount);
-    r:WriteArray(8+o,self.enchantNum,4,4,function(oo,v) return r:WriteI32(oo,v) end);
-end
-
-require('Events').addConstructor(returnCraftItemMessage);
-
-        function returnCraftItemMessage.prototype.____constructor(self)
+        function returnCraftItemMessage.prototype.____constructor(self, craftItem, craftItemCount, enchantNum)
             self.craftItem = 0
             self.craftItemCount = 0
             self.enchantNum = {0, 0, 0, 0, 0}
+            self.craftItem = craftItem
+            self.craftItemCount = craftItemCount
+            self.enchantNum = enchantNum
         end
-        __TS__Decorate({MsgPrimitive}, returnCraftItemMessage.prototype, "craftItem", nil)
-        __TS__Decorate({MsgPrimitive}, returnCraftItemMessage.prototype, "craftItemCount", nil)
-        __TS__Decorate(
-            {
-                MsgPrimitiveArray(4)
-            },
-            returnCraftItemMessage.prototype,
-            "enchantNum",
-            nil
-        )
-        returnCraftItemMessage = __TS__Decorate({Message}, returnCraftItemMessage)
+        function returnCraftItemMessage.prototype.read(self, read)
+            self.craftItem = read:ReadUInt32()
+            self.craftItemCount = read:ReadUInt32()
+            do
+                local i = 0
+                while i < 5 do
+                    self.enchantNum[i + 1] = read:ReadUInt32()
+                    i = i + 1
+                end
+            end
+        end
+        function returnCraftItemMessage.prototype.write(self)
+            local packet = MakeCustomPacket(____exports.returnCraftItemMessageID, 35)
+            packet:WriteUInt32(self.craftItem)
+            packet:WriteUInt32(self.craftItemCount)
+            do
+                local i = 0
+                while i < 5 do
+                    packet:WriteUInt32(self.enchantNum[i + 1])
+                    i = i + 1
+                end
+            end
+            return packet
+        end
+        ____exports.showScreenID = 13
         ____exports.showScreen = __TS__Class()
         local showScreen = ____exports.showScreen
         showScreen.name = "showScreen"
-
-function showScreen.GetID() return 12 end
-function showScreen.prototype.GetID() return 12 end
-function showScreen.prototype.GetSize() return 0 end
-function showScreen.prototype.Read(self,r,o)
-end
-
-function showScreen.prototype.Write(self,r,o)
-end
-
-require('Events').addConstructor(showScreen);
-
-        function showScreen.prototype.____constructor(self)
+        function showScreen.prototype.____constructor(self, value)
+            self.value = 0
+            self.value = value
         end
-        showScreen = __TS__Decorate({Message}, showScreen)
+        function showScreen.prototype.read(self, read)
+            self.value = read:ReadUInt32()
+        end
+        function showScreen.prototype.write(self)
+            local packet = MakeCustomPacket(____exports.showScreenID, 5)
+            packet:WriteUInt32(self.value)
+            return packet
+        end
         return ____exports
     end
 )

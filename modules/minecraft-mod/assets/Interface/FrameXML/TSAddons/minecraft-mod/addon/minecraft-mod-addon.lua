@@ -3,11 +3,10 @@ require("lualib_bundle");
 local ____exports = {}
 local ____Messages = require("TSAddons.minecraft-mod.shared.Messages")
 local craftMessage = ____Messages.craftMessage
+local empty = ____Messages.empty
 local returnCraftItemMessage = ____Messages.returnCraftItemMessage
-local bagSlotCombo = ____Messages.bagSlotCombo
-local showScreen = ____Messages.showScreen
-local ____AddonMessage = require("AddonMessage")
-local SendCompiledServerMessage = ____AddonMessage.SendCompiledServerMessage
+local returnCraftItemMessageID = ____Messages.returnCraftItemMessageID
+local showScreenID = ____Messages.showScreenID
 local ____Events = require("Events")
 local Events = ____Events.Events
 local choices, itemIDs, buttons, enchants, latestBagSlot, mframe, showBtn, showTex, showText, frameToggle, buttonCreate, select, deselect, updateProduct, closeAll, pasTime, waitFrame, waiter
@@ -64,8 +63,7 @@ function select(frame)
             buttons[__TS__Number(
                 frame:GetName()
             ) + 1][2]:SetTexture(info[10])
-            local m = __TS__New(bagSlotCombo)
-            m.bagslot = latestBagSlot
+            local m = latestBagSlot
             choices[__TS__Number(
                 frame:GetName()
             ) + 1] = m
@@ -112,7 +110,7 @@ function deselect(frame)
     ) + 1][2]:SetTexture("")
     choices[__TS__Number(
         frame:GetName()
-    ) + 1] = __TS__New(bagSlotCombo)
+    ) + 1] = empty
     itemIDs[__TS__Number(
         frame:GetName()
     ) + 1] = 0
@@ -125,12 +123,7 @@ function deselect(frame)
     GameTooltip:Hide()
 end
 function updateProduct(purchase)
-    local pkt = __TS__New(craftMessage)
-    pkt.itemIDs = itemIDs
-    pkt.positions = choices
-    pkt.purchase = purchase
-    pkt.enchants = enchants
-    SendCompiledServerMessage(pkt)
+    __TS__New(craftMessage, itemIDs, choices, purchase, enchants):write():Send()
 end
 function closeAll()
     do
@@ -148,17 +141,7 @@ function closeAll()
     showBtn:SetScript("OnEnter", nil)
     showBtn:SetScript("OnLeave", nil)
     buttons = {}
-    choices = {
-        __TS__New(bagSlotCombo),
-        __TS__New(bagSlotCombo),
-        __TS__New(bagSlotCombo),
-        __TS__New(bagSlotCombo),
-        __TS__New(bagSlotCombo),
-        __TS__New(bagSlotCombo),
-        __TS__New(bagSlotCombo),
-        __TS__New(bagSlotCombo),
-        __TS__New(bagSlotCombo)
-    }
+    choices = {empty, empty, empty, empty, empty, empty, empty, empty, empty}
     itemIDs = {0, 0, 0, 0, 0, 0, 0, 0, 0}
     mframe:Hide()
 end
@@ -176,21 +159,11 @@ function waiter(delay)
         end
     )
 end
-choices = {
-    __TS__New(bagSlotCombo),
-    __TS__New(bagSlotCombo),
-    __TS__New(bagSlotCombo),
-    __TS__New(bagSlotCombo),
-    __TS__New(bagSlotCombo),
-    __TS__New(bagSlotCombo),
-    __TS__New(bagSlotCombo),
-    __TS__New(bagSlotCombo),
-    __TS__New(bagSlotCombo)
-}
+choices = {empty, empty, empty, empty, empty, empty, empty, empty, empty}
 itemIDs = {0, 0, 0, 0, 0, 0, 0, 0, 0}
 buttons = {}
 enchants = {0, 0, 0, 0}
-latestBagSlot = {0, 0}
+latestBagSlot = empty
 local frameToggleCheck = 0
 mframe = CreateFrame("Frame", "minecraftMframe", UIParent)
 mframe:SetWidth(300)
@@ -248,17 +221,7 @@ craftBtn:HookScript(
     function(frame, evName, btnDown)
         PlaySoundFile("Sound\\Interface\\GM_ChatWarning.wav")
         updateProduct(1)
-        choices = {
-            __TS__New(bagSlotCombo),
-            __TS__New(bagSlotCombo),
-            __TS__New(bagSlotCombo),
-            __TS__New(bagSlotCombo),
-            __TS__New(bagSlotCombo),
-            __TS__New(bagSlotCombo),
-            __TS__New(bagSlotCombo),
-            __TS__New(bagSlotCombo),
-            __TS__New(bagSlotCombo)
-        }
+        choices = {empty, empty, empty, empty, empty, empty, empty, empty, empty}
         itemIDs = {0, 0, 0, 0, 0, 0, 0, 0, 0}
         enchants = {0, 0, 0, 0}
         do
@@ -304,10 +267,11 @@ frameToggle:SetScript(
         buttonCreate()
     end
 )
-Events.AddOns:OnMessage(
-    mframe,
-    returnCraftItemMessage,
-    function(message)
+OnCustomPacket(
+    returnCraftItemMessageID,
+    function(packet)
+        local message = __TS__New(returnCraftItemMessage, 0, 0, {0, 0, 0, 0, 0})
+        message:read(packet)
         if message.craftItem ~= 0 then
             showTex:SetTexture(
                 ({
@@ -387,10 +351,9 @@ Events.Container:OnItemLocked(
         end
     end
 )
-Events.AddOns:OnMessage(
-    mframe,
-    showScreen,
-    function(msg)
+OnCustomPacket(
+    showScreenID,
+    function(packet)
         frameToggleCheck = 1
     end
 )
@@ -461,20 +424,10 @@ __TS__ArrayForEach(
         button:SetScript(
             "OnClick",
             function(frame, button, down)
-                choices = {
-                    __TS__New(bagSlotCombo),
-                    __TS__New(bagSlotCombo),
-                    __TS__New(bagSlotCombo),
-                    __TS__New(bagSlotCombo),
-                    __TS__New(bagSlotCombo),
-                    __TS__New(bagSlotCombo),
-                    __TS__New(bagSlotCombo),
-                    __TS__New(bagSlotCombo),
-                    __TS__New(bagSlotCombo)
-                }
+                choices = {empty, empty, empty, empty, empty, empty, empty, empty, empty}
                 itemIDs = {0, 0, 0, 0, 0, 0, 0, 0, 0}
                 enchants = {0, 0, 0, 0}
-                latestBagSlot = {0, 0}
+                latestBagSlot = empty
                 __TS__ArrayForEach(
                     buttons,
                     function(____, element, i)
