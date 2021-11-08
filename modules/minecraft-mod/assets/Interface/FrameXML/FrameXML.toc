@@ -142,6 +142,28 @@ MovieFrame.xml
 VehicleMenuBar.xml
 AlternatePowerBar.xml
 AnimationSystem.lua
+## tsaddon-begin-lib
+LualibBundle.lua
+RequireStub.lua
+Events.lua
+json.lua
+## tsaddon-end-lib
+## tsaddon-begin: addn-mod
+TSAddons\addn-mod\shared\Messages.lua
+TSAddons\addn-mod\addon\to-be-learned.lua
+TSAddons\addn-mod\addon\CustomAddonFunctions.lua
+TSAddons\addn-mod\addon\atlas.lua
+TSAddons\addn-mod\addon\all-stats.lua
+TSAddons\addn-mod\addon\addn-mod-addon.lua
+## tsaddon-end: addn-mod
+## tsaddon-begin: minecraft-mod
+TSAddons\minecraft-mod\shared\Messages.lua
+TSAddons\minecraft-mod\addon\minecraft-mod-addon.lua
+## tsaddon-end: minecraft-mod
+## tsaddon-begin: testing
+TSAddons\testing\shared\Messages.lua
+TSAddons\testing\addon\testing-addon.lua
+## tsaddon-end: testing
 
 ## add new modules above here
 LocalizationPost.xml

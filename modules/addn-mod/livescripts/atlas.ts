@@ -29,8 +29,7 @@ export function Atlas(events: TSEventHandlers) {
                 while(query.GetRow()) {
                     if(query.GetUInt32(2) == 0){
                         if(query.GetFloat(3) > 0){
-                            let pkt = new itemLootMessage(query.GetUInt32(1),query.GetInt8(7),query.GetInt8(8),query.GetFloat(3))
-                        pkt.write().SendToPlayer(player);
+                            new itemLootMessage(query.GetUInt32(1),query.GetInt8(7),query.GetInt8(8),query.GetFloat(3)).write().SendToPlayer(player);
                         check = 1
                         }
                     }
@@ -47,9 +46,9 @@ export function Atlas(events: TSEventHandlers) {
             new creatureNoExistMessage(0).write().SendToPlayer(player);
             return;
         }
-        if(check = 1){
+        if(check == 1){
             let v = ToUInt32(entry)
-            let pkt = new itemLootFinishMessage(v).write().SendToPlayer(player)
+            new itemLootFinishMessage(v).write().SendToPlayer(player)
             player.SendCreatureQueryPacket(v) 
         }
     })

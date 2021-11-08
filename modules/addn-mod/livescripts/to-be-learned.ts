@@ -1,4 +1,4 @@
-import { requestClassSpellsMessage, requestClassSpellsMessageID, sendClassSpellsMessage } from "../shared/Messages";
+import { requestClassSpellsMessageID, sendClassSpellsMessage } from "../shared/Messages";
 
 const spellsList = [
     [[0]], //must be here? I guess?
