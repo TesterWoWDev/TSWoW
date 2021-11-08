@@ -11,7 +11,7 @@ TeremustheDevourer.Stats.ArmorMod.set(100)
 TeremustheDevourer.MovementType.WAYPOINT.set()
 TeremustheDevourer.HoverHeight.set(1)
 TeremustheDevourer.MovementSpeed.set(10,10)
-TeremustheDevourer.NormalLoot.modRef(table=>{
+TeremustheDevourer.NormalLoot.modRefCopy(table=>{
     table.addItem(OrbofPower.ID,75,3,3,undefined,8)
 })
 

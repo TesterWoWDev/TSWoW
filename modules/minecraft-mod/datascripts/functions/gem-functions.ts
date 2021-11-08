@@ -14,7 +14,7 @@ export let orangeColorCode = '|cffffa500'
 export function createGem(quality:number,modprefix:string,name:string,displayinfo:number,description:string,gemProp:number,itemlevel:number):number{
     let gem = std.Items.create(MODNAME,modprefix,2934)
         gem.Name.enGB.set(name)
-        gem.DisplayInfo.modRef(value=>displayinfo)
+        gem.DisplayInfo.modRefCopy(value=>displayinfo)
         gem.Description.enGB.set(description)
         gem.row.GemProperties.set(gemProp)
         gem.ItemLevel.set(itemlevel)
@@ -42,7 +42,7 @@ export function createAllUndiscoverGems(gemCount: number, gemName: string, gemDi
     for(let i=0;i<gemCount;i++){
         let gem = std.Items.create(MODNAME,gemName.toLowerCase().replace(' ','-') + '-'+i,2934)
         gem.Name.enGB.set('Unrefined '+gemName)
-        gem.DisplayInfo.modRef(value=>gemDisplayID)
+        gem.DisplayInfo.modRefCopy(value=>gemDisplayID)
         gem.Material.set(8)
         allGemIDs.push(gem.ID)
     }

@@ -6,14 +6,14 @@ export let chanceStun1 = std.Spells.create(MODNAME,'chanceStun1-spell',15283)
 chanceStun1.Name.enGB.set('Smashed')
 chanceStun1.Description.enGB.set('Stunned for 1 second.')
 chanceStun1.AuraDescription.enGB.set('Stunned for 1 second.')
-chanceStun1.Duration.modRef(value=>{
+chanceStun1.Duration.modRefCopy(value=>{
     value.set(1000,0,1000)
 })
 export let chanceStun1M = std.Spells.create(MODNAME,'chanceStun1M-spell',67670) //melee
 chanceStun1M.Name.enGB.set('Smashed')
 chanceStun1M.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 1 second.')
 chanceStun1M.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 1 second.')
-chanceStun1M.Duration.modRef(value=>{
+chanceStun1M.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceStun1M.Effects.get(0).TriggerSpell.set(chanceStun1.ID)
@@ -21,7 +21,7 @@ export let chanceStun1C = std.Spells.create(MODNAME,'chanceStun1C-spell',67672) 
 chanceStun1C.Name.enGB.set('Smashed')
 chanceStun1C.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 1 second.')
 chanceStun1C.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 1 second.')
-chanceStun1C.Duration.modRef(value=>{
+chanceStun1C.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceStun1C.Effects.get(0).TriggerSpell.set(chanceStun1.ID)
@@ -30,14 +30,14 @@ export let chanceStun2 = std.Spells.create(MODNAME,'chanceStun2-spell',15283)
 chanceStun2.Name.enGB.set('Smashed')
 chanceStun2.Description.enGB.set('Stunned for 2 seconds.')
 chanceStun2.AuraDescription.enGB.set('Stunned for 2 seconds.')
-chanceStun2.Duration.modRef(value=>{
+chanceStun2.Duration.modRefCopy(value=>{
     value.set(2000,0,2000)
 })
 export let chanceStun2M = std.Spells.create(MODNAME,'chanceStun2M-spell',67670) //melee
 chanceStun2M.Name.enGB.set('Smashed')
 chanceStun2M.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
 chanceStun2M.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
-chanceStun2M.Duration.modRef(value=>{
+chanceStun2M.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceStun2M.Effects.get(0).TriggerSpell.set(chanceStun2.ID)
@@ -45,7 +45,7 @@ export let chanceStun2C = std.Spells.create(MODNAME,'chanceStun2C-spell',67672) 
 chanceStun2C.Name.enGB.set('Smashed')
 chanceStun2C.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
 chanceStun2C.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
-chanceStun2C.Duration.modRef(value=>{
+chanceStun2C.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceStun2C.Effects.get(0).TriggerSpell.set(chanceStun2.ID)
@@ -54,14 +54,14 @@ export let chanceStun3 = std.Spells.create(MODNAME,'chanceStun3-spell',15283)
 chanceStun3.Name.enGB.set('Smashed')
 chanceStun3.Description.enGB.set('Stunned for 2 seconds.')
 chanceStun3.AuraDescription.enGB.set('Stunned for 2 seconds.')
-chanceStun3.Duration.modRef(value=>{
+chanceStun3.Duration.modRefCopy(value=>{
     value.set(2000,0,2000)
 })
 export let chanceStun3M = std.Spells.create(MODNAME,'chanceStun3M-spell',67670) //melee
 chanceStun3M.Name.enGB.set('Smashed')
 chanceStun3M.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
 chanceStun3M.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
-chanceStun3M.Duration.modRef(value=>{
+chanceStun3M.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceStun3M.Effects.get(0).TriggerSpell.set(chanceStun3.ID)
@@ -69,7 +69,7 @@ export let chanceStun3C = std.Spells.create(MODNAME,'chanceStun3C-spell',67672) 
 chanceStun3C.Name.enGB.set('Smashed')
 chanceStun3C.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
 chanceStun3C.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
-chanceStun3C.Duration.modRef(value=>{
+chanceStun3C.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceStun3C.Effects.get(0).TriggerSpell.set(chanceStun3.ID)
@@ -78,14 +78,14 @@ export let chanceStun4 = std.Spells.create(MODNAME,'chanceStun4-spell',15283)
 chanceStun4.Name.enGB.set('Smashed')
 chanceStun4.Description.enGB.set('Stunned for 2 seconds.')
 chanceStun4.AuraDescription.enGB.set('Stunned for 2 seconds.')
-chanceStun4.Duration.modRef(value=>{
+chanceStun4.Duration.modRefCopy(value=>{
     value.set(2000,0,2000)
 })
 export let chanceStun4M = std.Spells.create(MODNAME,'chanceStun4M-spell',67670) //melee
 chanceStun4M.Name.enGB.set('Smashed')
 chanceStun4M.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
 chanceStun4M.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
-chanceStun4M.Duration.modRef(value=>{
+chanceStun4M.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceStun4M.Effects.get(0).TriggerSpell.set(chanceStun4.ID)
@@ -93,7 +93,7 @@ export let chanceStun4C = std.Spells.create(MODNAME,'chanceStun4C-spell',67672) 
 chanceStun4C.Name.enGB.set('Smashed')
 chanceStun4C.Description.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
 chanceStun4C.AuraDescription.enGB.set('Your attacks and abilties have the chance to stun your target for 2 seconds.')
-chanceStun4C.Duration.modRef(value=>{
+chanceStun4C.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceStun4C.Effects.get(0).TriggerSpell.set(chanceStun4.ID)
@@ -105,7 +105,7 @@ export let chanceHeal1 = std.Spells.create(MODNAME,'chanceHeal1-spell',2054)
 chanceHeal1.Name.enGB.set('Revitalized')
 chanceHeal1.Description.enGB.set('Heals the caster for 100.')
 chanceHeal1.AuraDescription.enGB.set('Heals the caster for 100.')
-chanceHeal1.CastTime.modRef(val=>{
+chanceHeal1.CastTime.modRefCopy(val=>{
     val.set(-100000,0,-100000)
 })
 chanceHeal1.Effects.get(0).BasePoints.set(99)
@@ -115,7 +115,7 @@ export let chanceHeal1M = std.Spells.create(MODNAME,'chanceHeal1M-spell',67670) 
 chanceHeal1M.Name.enGB.set('Revitalized')
 chanceHeal1M.Description.enGB.set('Heals the caster for 100.')
 chanceHeal1M.AuraDescription.enGB.set('Heals the caster for 100.')
-chanceHeal1M.Duration.modRef(value=>{
+chanceHeal1M.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceHeal1M.Effects.get(0).TriggerSpell.set(2054)//(chanceHeal1.ID)
@@ -123,7 +123,7 @@ export let chanceHeal1C = std.Spells.create(MODNAME,'chanceHeal1C-spell',67672) 
 chanceHeal1C.Name.enGB.set('Revitalized')
 chanceHeal1C.Description.enGB.set('Heals the caster for 100.')
 chanceHeal1C.AuraDescription.enGB.set('Heals the caster for 100.')
-chanceHeal1C.Duration.modRef(value=>{
+chanceHeal1C.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceHeal1C.Effects.get(0).TriggerSpell.set(2054)//(chanceHeal1.ID)
@@ -168,7 +168,7 @@ export let chanceLightning1 = std.Spells.create(MODNAME,'chanceLightning1-spell'
 chanceLightning1.row.RangeIndex.set(6)
 chanceLightning1.Name.enGB.set('Thunderfury')
 chanceLightning1.Effects.get(1).BasePoints.set(99)
-chanceLightning1.Duration.modRef(val=>{
+chanceLightning1.Duration.modRefCopy(val=>{
     val.set(5000,0,5000)
 })
 
@@ -176,7 +176,7 @@ export let chanceLightning1M = std.Spells.create(MODNAME,'chanceLightning1M-spel
 chanceLightning1M.Name.enGB.set('thundered')
 chanceLightning1M.Description.enGB.set('Your attacks and abilties have the chance to thunder.')
 chanceLightning1M.AuraDescription.enGB.set('Your attacks and abilties have the chance to thunder.')
-chanceLightning1M.Duration.modRef(value=>{
+chanceLightning1M.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceLightning1M.Effects.get(0).TriggerSpell.set(chanceLightning1.ID)
@@ -184,7 +184,7 @@ export let chanceLightning1C = std.Spells.create(MODNAME,'chanceLightning1C-spel
 chanceLightning1C.Name.enGB.set('thundered')
 chanceLightning1C.Description.enGB.set('Your attacks and abilties have the chance to thunder.')
 chanceLightning1C.AuraDescription.enGB.set('Your attacks and abilties have the chance to thunder.')
-chanceLightning1C.Duration.modRef(value=>{
+chanceLightning1C.Duration.modRefCopy(value=>{
     value.set(-1,0,-1)
 })
 chanceLightning1C.Effects.get(0).TriggerSpell.set(chanceLightning1.ID)

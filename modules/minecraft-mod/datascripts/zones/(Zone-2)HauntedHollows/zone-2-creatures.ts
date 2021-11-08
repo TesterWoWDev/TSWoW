@@ -10,7 +10,7 @@ WebEnemy.AuraDescription.enGB.set('Covered in webs.')
 export let Decay = std.Spells.create(MODNAME,'decay-spell',3584)
 Decay.Name.enGB.set('Infectious Wound')
 Decay.AuraDescription.enGB.set('Infected...')
-Decay.Duration.modRef(val=>val.set(14000,0,14000))
+Decay.Duration.modRefCopy(val=>val.set(14000,0,14000))
 Decay.Effects.get(0).ChainAmplitude.set(2000)
 
 //Normal Creature Spawns
@@ -125,7 +125,7 @@ spawnMultipleNPCWithTimer(Zone2Creature1.ID,5,0,[{map:725,x: -8705.208008,y:-289
     ],300)
     
 export let BansheeShriek = std.Spells.create(MODNAME,'bansheeshriek-spell',31651)
-BansheeShriek.Duration.modRef(val=>val.set(8000,0,8000))
+BansheeShriek.Duration.modRefCopy(val=>val.set(8000,0,8000))
 
 export let Zone2Creature5 = std.CreatureTemplates.create(MODNAME,'zone2creature5',10463)
 Zone2Creature5.Name.enGB.set('Banshee')

@@ -23,7 +23,7 @@ WorgChampionGore.Name.enGB.set('Gore')
 WorgChampionGore.Description.enGB.set('Inflicts $s2 damage to an enemy every 3s for $d.')
 WorgChampionGore.AuraDescription.enGB.set('Bleeding for $s1 damage every 3 seconds.')
 WorgChampionGore.Effects.get(1).BasePoints.set(337)
-WorgChampionGore.Duration.modRef(val=>val.set(15000,0,15000))
+WorgChampionGore.Duration.modRefCopy(val=>val.set(15000,0,15000))
     WorgChampionCreature.Scripts.onUpdateIc(0,0,0,0,script=>{
 	script.row.event_flags.set(1)
         script.Action.setCreateTimedEvent(0,0,0,11000,15000,100)

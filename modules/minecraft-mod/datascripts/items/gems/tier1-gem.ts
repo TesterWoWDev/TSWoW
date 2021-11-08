@@ -18,7 +18,7 @@ GemDust.Name.enGB.set('Gem Dust')
 GemDust.Description.enGB.set('Place these all around any resource in the crafting menu to upgrade the tier of the resource.')
 GemDust.Quality.PURPLE.set()
 GemDust.MaxStack.set(9999)
-GemDust.DisplayInfo.modRef(val=>val.copyFromTemplate(29475))
+GemDust.DisplayInfo.modRefCopy(val=>val.copyFromTemplate(29475))
 
 // Red Gems 
 let red1 = createGem(GemQuality1,'tier1-red1','Teardrop Blood Garnet',35930,'',GemPropertyIndex,10)

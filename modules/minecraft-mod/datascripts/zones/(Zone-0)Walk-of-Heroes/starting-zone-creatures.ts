@@ -14,7 +14,7 @@ WoodcuttingTree.Models.clearAll()
 WoodcuttingTree.Models.addIds(16977)
 WoodcuttingTree.Level.set(1,1)
 WoodcuttingTree.MovementSpeed.set(0,0)
-WoodcuttingTree.NormalLoot.modRef(table=>{
+WoodcuttingTree.NormalLoot.modRefCopy(table=>{
     table.addItem(LoggingPileLogs.ID,100,1,3,false,1,1)
     table.addItem(FireStick.ID,0.5,1,1,false,2,1)
     table.addItem(FightingStick01.ID,0.5,1,1,false,2,1)
@@ -78,7 +78,7 @@ SQL.waypoint_scripts.add(DandotheRiled.ID).id.set(6).delay.set(5).command.set(0)
 export let Rabbit01 = std.CreatureTemplates.create(MODNAME,'rabbit01-creature',721)
 Rabbit01.Name.enGB.set('Wild Hare')
 Rabbit01.FactionTemplate.set(32)
-Rabbit01.SkinningLoot.modRef(table=>{
+Rabbit01.SkinningLoot.modRefCopy(table=>{
     table.addItem(Teeth.ID,25,1,4,false,2)
     table.addItem(RabbitSkin.ID,100,1,2)
 })
@@ -88,7 +88,7 @@ export let Fawn01 = std.CreatureTemplates.create(MODNAME,'fawn-creature',890)
 Fawn01.Name.enGB.set('Fawn')
 Fawn01.FactionTemplate.set(32)
 Fawn01.Scale.set(2)
-Fawn01.SkinningLoot.modRef(table=>{
+Fawn01.SkinningLoot.modRefCopy(table=>{
     table.addItem(Teeth.ID,25,1,4,false,2)
     table.addItem(DeerSkin.ID,100,1,2)
 })
@@ -154,7 +154,7 @@ Boar01.Stats.DamageMod.set(1)
 Boar01.Stats.ExperienceMod.set(2)
 Boar01.Stats.HealthMod.set(1)
 Boar01.Stats.ManaMod.set(1)
-Boar01.SkinningLoot.modRef(table=>{
+Boar01.SkinningLoot.modRefCopy(table=>{
     table.addItem(BoarSkin.ID,100,1,2)
 })
 Boar01.UnitFlags.SKINNABLE.set(true)

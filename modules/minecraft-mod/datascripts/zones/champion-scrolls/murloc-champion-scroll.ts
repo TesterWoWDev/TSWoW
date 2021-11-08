@@ -15,14 +15,14 @@ export let MurlocChampionFrostbolt = std.Spells.create(MODNAME,'Rank1Frostbolt-s
 MurlocChampionFrostbolt.Name.enGB.set('Frostbolt')
 MurlocChampionFrostbolt.Effects.get(0).BasePoints.set(-31)
 MurlocChampionFrostbolt.Effects.get(1).BasePoints.set(812)
-MurlocChampionFrostbolt.CastTime.modRef(val=>val.set(3000,0,3000))
+MurlocChampionFrostbolt.CastTime.modRefCopy(val=>val.set(3000,0,3000))
 export let MurlocChampionFireblast = std.Spells.create(MODNAME,'Rank1FireBlast-spell',60871)
 MurlocChampionFireblast.Name.enGB.set('Fire Blast')
 MurlocChampionFireblast.Effects.get(0).BasePoints.set(1340)
 export let MurlocChampionNova = std.Spells.create(MODNAME,'Rank1FrostNova-spell',122)
 MurlocChampionNova.Name.enGB.set('Frost Nova')
 MurlocChampionNova.Effects.get(0).BasePoints.set(617)
-MurlocChampionNova.Duration.modRef(val=>val.set(3000,0,3000))
+MurlocChampionNova.Duration.modRefCopy(val=>val.set(3000,0,3000))
 
 MurlocChampionCreature.Scripts.onUpdateIc(0,0,0,0,script=>{
 	script.row.event_flags.set(1)

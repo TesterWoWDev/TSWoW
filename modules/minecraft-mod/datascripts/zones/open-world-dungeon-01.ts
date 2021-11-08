@@ -16,7 +16,7 @@ export let Shadowbolt = std.Spells.create(MODNAME,'shadowbolt-spell',25307)
 export let ShadowVolley = std.Spells.create(MODNAME,'shadowvolley-spell',25586)
 ShadowVolley.Effects.get(0).BasePoints.set(566)
 ShadowVolley.Effects.get(0).DieSides.set(121)
-ShadowVolley.Effects.get(0).Radius.modRef(val=>val.set(20,0,20))
+ShadowVolley.Effects.get(0).Radius.modRefCopy(val=>val.set(20,0,20))
 export let ShadowPain = std.Spells.create(MODNAME,'pain-spell',25367)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,7 +126,7 @@ addLootToCreatureSingleChance(DungeonMob01Loot,[
 
 
 export let ConsumeSpell = std.Spells.create(MODNAME,'consumespell-spell',49381)
-ConsumeSpell.Duration.modRef(val=>{
+ConsumeSpell.Duration.modRefCopy(val=>{
     val.set(10000,0,10000)
 })
 export let BossShadowVolley = std.Spells.create(MODNAME,'bossshadowvolley-spell',25586)
@@ -471,7 +471,7 @@ export let LightningRing = std.Spells.create(MODNAME,'lightningring-spell',50840
 export let WoePillar = std.Spells.create(MODNAME,'woevolley-spell',50761)
 WoePillar.Effects.get(0).BasePoints.set(1566)
 WoePillar.Effects.get(0).DieSides.set(121)
-WoePillar.Effects.get(0).Radius.modRef(val=>{
+WoePillar.Effects.get(0).Radius.modRefCopy(val=>{
     val.set(20,0,20)
 })
 export let TetherLightning = std.Spells.create(MODNAME,'tetherlightning-spell',50895)
@@ -808,7 +808,7 @@ spawnMultipleNPCWithTimer(RisenRavager.ID,2,0,[{map:725,x: -8982.760742,y:631.07
     ],600)
 
 export let BrittleBones = std.Spells.create(MODNAME,'brittlebones-spell',32441)
-BrittleBones.Duration.modRef(val=>{
+BrittleBones.Duration.modRefCopy(val=>{
     val.set(5000,0,5000)
 })
 export let RoB = std.Spells.load(37091)

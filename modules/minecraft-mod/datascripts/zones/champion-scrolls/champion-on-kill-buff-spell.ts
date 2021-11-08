@@ -5,7 +5,7 @@ export let ChampionOnKillSpell = std.Spells.create(MODNAME,'championkill-spell',
 ChampionOnKillSpell.Name.enGB.set('Champion')
 ChampionOnKillSpell.Description.enGB.set('You have beaten a Champion Scroll Challenge.')
 ChampionOnKillSpell.AuraDescription.enGB.set('All stats increased by $s1 and experience gained has been increased by $s2%.')
-ChampionOnKillSpell.Duration.modRef(val=>val.set(6000000,0,6000000))
+ChampionOnKillSpell.Duration.modRefCopy(val=>val.set(6000000,0,6000000))
 ChampionOnKillSpell.Effects.get(0).BasePoints.set(99)
 ChampionOnKillSpell.Effects.get(1).Type.APPLY_AURA.set()
 ChampionOnKillSpell.Effects.get(1).BasePoints.set(99)

@@ -20,7 +20,7 @@ FanofKnives.Mana.setEnergy(10)
 FanofKnives.Cooldown.set(0,0,0,0)
 export let FelFlamestrike = std.Spells.create(MODNAME,'felflamestrike-spell',39139)
 FelFlamestrike.Name.enGB.set('Flamestrike')
-FelFlamestrike.CastTime.modRef(val=>{
+FelFlamestrike.CastTime.modRefCopy(val=>{
     val.set(3000,0,3000)
 })
 FelFlamestrike.Mana.setMana(0,0,0,0,0)
@@ -31,7 +31,7 @@ FuryHammerEffect.Effects.get(0).BasePoints.set(119)
 FuryHammerEffect.Effects.get(0).DieSides.set(33)
 export let FuryHammer = std.Spells.create(MODNAME,'furyhammer-spell',61575)
 FuryHammer.Name.enGB.set('Storm of Fury')
-FuryHammer.CastTime.modRef(val=>{
+FuryHammer.CastTime.modRefCopy(val=>{
     val.set(3000,0,3000)
 })
 FuryHammer.Mana.setMana(0,0,0,0,0)

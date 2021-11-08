@@ -19,7 +19,7 @@ export function makeResourceNode(name:string,displayID:number,lockID:number,modP
 }
 
 export function setupMiningNode(miningNode: GameObjectChest, metalID: number, refinedMetalID: number, armorGem:number, gemIDArray: number[][]):number {
-    miningNode.Loot.modRef(table=>{
+    miningNode.Loot.modRefCopy(table=>{
         table.addItem(metalID,50,1,2)
         table.addItem(refinedMetalID,20,1,2)
         table.addItem(armorGem,5,1,1)

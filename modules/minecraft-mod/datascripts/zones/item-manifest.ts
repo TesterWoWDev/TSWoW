@@ -58,13 +58,13 @@ export let OrganicMatter = std.Items.create(MODNAME,'organicmatter',765)
 OrganicMatter.Name.enGB.set('Organic Matter')
 OrganicMatter.Quality.WHITE.set()
 OrganicMatter.MaxStack.set(9999)
-OrganicMatter.DisplayInfo.modRef((val: { copyFromTemplate: (arg0: number) => any })=>val.copyFromTemplate(39342))
+OrganicMatter.DisplayInfo.modRefCopy((val: { copyFromTemplate: (arg0: number) => any })=>val.copyFromTemplate(39342))
 export let ExpScroll = std.Items.create(MODNAME,'expscroll',2455)
 ExpScroll.Name.enGB.set('Experience Scroll')
 ExpScroll.Quality.WHITE.set()
 ExpScroll.Spells.clearAll()
 ExpScroll.RequiredLevel.set(1)
-ExpScroll.DisplayInfo.modRef(val=>val.copyFromTemplate(10621))
+ExpScroll.DisplayInfo.modRefCopy(val=>val.copyFromTemplate(10621))
 export let FireStick = std.Items.create(MODNAME,'firestick',18755)
 FireStick.Name.enGB.set('Lost Rifle')
 FireStick.AmmoType.ARROW.set()
@@ -260,7 +260,7 @@ StrangeEtherealCrate.MaxStack.set(500)
 StrangeEtherealCrate.Spells.clearAll()
 export let EtherealPortalBag = std.Items.create(MODNAME,'etherealportalbag',4498)
 EtherealPortalBag.Quality.BLUE.set()
-EtherealPortalBag.DisplayInfo.modRef(val=>val.copyFromTemplate(38186))
+EtherealPortalBag.DisplayInfo.modRefCopy(val=>val.copyFromTemplate(38186))
 EtherealPortalBag.ContainerSlots.set(12)
 
 export let RavenLordMount = std.Items.load(32768)
@@ -304,17 +304,17 @@ export let DeerSkin = std.Items.create(MODNAME,'deerskin',2318)
 DeerSkin.Name.enGB.set('Deer Skin')
 DeerSkin.Quality.GRAY.set()
 DeerSkin.MaxStack.set(9999)
-DeerSkin.DisplayInfo.modRef(val=>val.copyFromTemplate(9591))
+DeerSkin.DisplayInfo.modRefCopy(val=>val.copyFromTemplate(9591))
 export let Teeth = std.Items.create(MODNAME,'teeth',2318)
 Teeth.Name.enGB.set('Sharp Tooth')
 Teeth.Quality.GRAY.set()
 Teeth.MaxStack.set(9999)
-Teeth.DisplayInfo.modRef(val=>val.copyFromTemplate(7073))
+Teeth.DisplayInfo.modRefCopy(val=>val.copyFromTemplate(7073))
 export let RabbitSkin = std.Items.create(MODNAME,'rabbitskin',2318)
 RabbitSkin.Name.enGB.set('Rabbit Skin')
 RabbitSkin.Quality.GRAY.set()
 RabbitSkin.MaxStack.set(9999)
-RabbitSkin.DisplayInfo.modRef(val=>val.copyFromTemplate(3862))
+RabbitSkin.DisplayInfo.modRefCopy(val=>val.copyFromTemplate(3862))
 export let Silverleaf = std.Items.create(MODNAME,'silverleaf',765)
 Silverleaf.Quality.WHITE.set()
 Silverleaf.MaxStack.set(500)
@@ -354,7 +354,7 @@ ShinyRedApple.Quality.WHITE.set()
 export let SuperApple = std.Items.create(MODNAME,'superapple',46691)
 SuperApple.Name.enGB.set('Super Apple')
 SuperApple.Quality.BLUE.set()
-SuperApple.DisplayInfo.modRef(val=>val.copyFromTemplate(ShinyRedApple.ID))
+SuperApple.DisplayInfo.modRefCopy(val=>val.copyFromTemplate(ShinyRedApple.ID))
 SuperApple.Holiday.set(0)
 export let RefreshingSpringWater = std.Items.create(MODNAME,'refreshingspringwater',159)
 RefreshingSpringWater.Quality.WHITE.set()
@@ -1669,7 +1669,7 @@ GuileRing.Stats.addHitRating(19)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export let ShivanFeather = std.Items.create(MODNAME,'shivanfeather',43465)
 ShivanFeather.Name.enGB.set('Shivan Feather')
-ShivanFeather.DisplayInfo.modRef(val=>val.copyFromTemplate(37877))
+ShivanFeather.DisplayInfo.modRefCopy(val=>val.copyFromTemplate(37877))
 ShivanFeather.Quality.PURPLE.set()
 ShivanFeather.Spells.clear(0)
 ShivanFeather.Spells.addMod(spell=>{
@@ -1733,7 +1733,7 @@ SunwellVial.RequiredLevel.set(11)
 export let chancePower1C = std.Spells.create(MODNAME,'chancepower1c-spell',67672) //caster
 chancePower1C.Name.enGB.set('Elusive Power')
 chancePower1C.Description.enGB.set('Your attacks and abilties have the chance to increase spellpower by 590.')
-chancePower1C.Duration.modRef(val=>{
+chancePower1C.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
 chancePower1C.Effects.get(0).TriggerSpell.set(67669)
@@ -1756,7 +1756,7 @@ ChainHealTest.Effects.get(0).DieSides.set(128)
 export let chanceChainHeal = std.Spells.create(MODNAME,'chancechainheal-spell',67672) //caster
 chanceChainHeal.Name.enGB.set('Infinite Life')
 chanceChainHeal.Description.enGB.set('Your attacks and abilties have the chance to heal all nearby friendly units.')
-chanceChainHeal.Duration.modRef(val=>{
+chanceChainHeal.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
 chanceChainHeal.Effects.get(0).TriggerSpell.set(ChainHealTest.ID)
@@ -3185,7 +3185,7 @@ Valanyr.Socket.clearAll()
 export let SlowFallSpell = std.Spells.create(MODNAME,'slowfallspell-spell',130) //caster
 SlowFallSpell.Name.enGB.set('Slow Fall (Permanent)')
 SlowFallSpell.Description.enGB.set('Chickens can\'t fly though.')
-SlowFallSpell.Duration.modRef(val=>{
+SlowFallSpell.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
 export let DamageSpell = std.Spells.create(MODNAME,'damagespell-spell',71188) //caster
@@ -3195,7 +3195,7 @@ DamageSpell.AuraDescription.enGB.set('Increases total damage dealt by $s1%.')
 DamageSpell.Effects.get(0).BasePoints.set(1)
 DamageSpell.Effects.get(1).Aura.set(0)
 DamageSpell.Effects.get(2).Aura.set(0)
-DamageSpell.Duration.modRef(val=>{
+DamageSpell.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
 export let HealthSpell = std.Spells.create(MODNAME,'healthspell-spell',71188) //caster
@@ -3206,7 +3206,7 @@ HealthSpell.Effects.get(0).BasePoints.set(1)
 HealthSpell.Effects.get(0).Aura.MOD_INCREASE_HEALTH_PERCENT.set()
 HealthSpell.Effects.get(1).Aura.set(0)
 HealthSpell.Effects.get(2).Aura.set(0)
-HealthSpell.Duration.modRef(val=>{
+HealthSpell.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
 
@@ -3335,7 +3335,7 @@ export let MovementSpell = std.Spells.create(MODNAME,'movementspell-spell',9175)
 MovementSpell.Name.enGB.set('Movement Speed Increased (25%)')
 MovementSpell.Description.enGB.set('Gotta go fast, brrrrr!')
 MovementSpell.Effects.get(0).BasePoints.set(24)
-MovementSpell.Duration.modRef(val=>{
+MovementSpell.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
 export let FallenCloakSpell = std.Spells.create(MODNAME,'fallencloak-spell',62950) //caster
@@ -3347,7 +3347,7 @@ export let WornFlannelSpell = std.Spells.create(MODNAME,'flannelspell-spell',709
 WornFlannelSpell.Name.enGB.set('Summon Girlfriend')
 WornFlannelSpell.Description.enGB.set('Summons your girlfriend to simp over while she fights for you.')
 WornFlannelSpell.Cooldown.set(600000,0,0,0)
-WornFlannelSpell.Duration.modRef(val=>{
+WornFlannelSpell.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
 WornFlannelSpell.Effects.get(0).MiscValueA.set(GirlfriendMob.ID)
@@ -3355,10 +3355,10 @@ export let LexaeusSpell = std.Spells.create(MODNAME,'lexaeusspell-spell',70907) 
 LexaeusSpell.Name.enGB.set('Summon Nudes')
 LexaeusSpell.Description.enGB.set('Summons a bunch of random naked people.. idk man, leave me alone')
 LexaeusSpell.Cooldown.set(600000,0,0,0)
-LexaeusSpell.Duration.modRef(val=>{
+LexaeusSpell.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
-LexaeusSpell.Duration.modRef(val=>{
+LexaeusSpell.Duration.modRefCopy(val=>{
     val.set(-1,0,-1)
 })
 LexaeusSpell.Effects.get(0).MiscValueA.set(NakedLexMob01.ID)
