@@ -1,17 +1,17 @@
 /*
  * This file is part of tswow (https://github.com/tswow/).
  * Copyright (C) 2020 tswow <https://github.com/tswow/>
- * 
- * This program is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU General Public License as 
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, version 3.
- * 
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License 
+ *
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 #pragma once
@@ -54,4 +54,22 @@ public:
     void WriteULong(uint32 _ulong);
     void WriteFloat(float _val);
     void WriteDouble(double _val);
+};
+
+namespace WorldPackets {
+    namespace WorldState {
+        class InitWorldStates;
+    }
+}
+class TC_GAME_API TSWorldStatePacket
+{
+public:
+    WorldPackets::WorldState::InitWorldStates* m_ws;
+    TSWorldStatePacket(WorldPackets::WorldState::InitWorldStates* ws);
+    void push(int32 variableId, int32 value);
+    uint32 length();
+    int32 GetVariable(uint32 index);
+    int32 GetValue(uint32 index);
+    void Remove(uint32 index);
+    void Clear();
 };

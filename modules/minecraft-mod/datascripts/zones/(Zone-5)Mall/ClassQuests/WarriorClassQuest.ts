@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { spawnNPC } from "../../../functions/spawning-functions"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
@@ -10,21 +11,21 @@ WarriorQuestGiver01.Models.clearAll()
 WarriorQuestGiver01.Models.addIds(21835)
 WarriorQuestGiver01.Level.set(10,10)
 WarriorQuestGiver01.FactionTemplate.set(35)
-WarriorQuestGiver01.DamageSchool.setNormal()
+WarriorQuestGiver01.DamageSchool.Normal.set()
 WarriorQuestGiver01.Stats.ArmorMod.set(1)
 WarriorQuestGiver01.Stats.DamageMod.set(1)
 WarriorQuestGiver01.Stats.ExperienceMod.set(1)
 WarriorQuestGiver01.Stats.HealthMod.set(1)
 WarriorQuestGiver01.Stats.ManaMod.set(1)
-WarriorQuestGiver01.NPCFlags.QuestGiver.mark()
-
+WarriorQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
+spawnNPC(WarriorQuestGiver01.ID,0,0,{map:725,x:-8435.265625,y:-283.853180,z:13.002136,o:5.792310},)
 export let WarriorQuest01 = std.Quests.create(MODNAME,'warriorquest01-quest')
 
 WarriorQuest01.Flags.set(1)
 WarriorQuest01.MinLevel.set(1)
 WarriorQuest01.QuestLevel.set(20)
-WarriorQuest01.Questgiver.addStarter(questGiver03.ID)
-WarriorQuest01.Questgiver.addEnder(WarriorQuestGiver01.ID)
+WarriorQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
+WarriorQuest01.Questgiver.addCreatureEnder(WarriorQuestGiver01.ID,false)
 
 WarriorQuest01.Rewards.Money.set(441)
 
@@ -35,17 +36,14 @@ WarriorQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waitin
 WarriorQuest01.Text.Title.enGB.set('Technique and Form')
 
 
-
-
-
 export let WarriorQuest02 = std.Quests.create(MODNAME,'warriorquest02-quest')
 
 WarriorQuest02.Flags.set(8)
 SQL.quest_template_addon.add(WarriorQuest02.ID).SpecialFlags.set(1)
 WarriorQuest02.MinLevel.set(1)
 WarriorQuest02.QuestLevel.set(20)
-WarriorQuest02.Questgiver.addStarter(WarriorQuestGiver01.ID)
-WarriorQuest02.Questgiver.addEnder(WarriorQuestGiver01.ID)
+WarriorQuest02.Questgiver.addCreatureStarter(WarriorQuestGiver01.ID)
+WarriorQuest02.Questgiver.addCreatureEnder(WarriorQuestGiver01.ID,false)
 
 WarriorQuest02.Rewards.Money.set(200000)
 WarriorQuest02.Objectives.Item.add(OrbofPower.ID,10)

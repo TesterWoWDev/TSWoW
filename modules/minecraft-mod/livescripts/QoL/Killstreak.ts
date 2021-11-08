@@ -31,8 +31,8 @@ class PlayerKillstreak extends DBTable {
 
 export function Killstreaks(events: TSEventHandlers) {
 	events.Player.OnPVPKill((killer,killed)=>{
-		let killCount = killer.GetData().GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killer.GetGUIDLow())).killCount++		
-		let pastKills = killed.GetData().GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killed.GetGUIDLow())).killCount
+		let killCount = killer.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killer.GetGUIDLow())).killCount++		
+		let pastKills = killed.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killed.GetGUIDLow())).killCount
         if(killCount%5 == 0){
             let m = (killCount/5) | 0
             if(m <= auraSpells.length){
@@ -49,8 +49,8 @@ export function Killstreaks(events: TSEventHandlers) {
             SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Now on a killstreak of "+(killCount+1))
         }
 
-        killed.GetData().GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killed.GetGUIDLow())).killCount = 0
-        killer.GetData().GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killer.GetGUIDLow())).save();
-		killed.GetData().GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killed.GetGUIDLow())).save();
+        killed.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killed.GetGUIDLow())).killCount = 0
+        killer.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killer.GetGUIDLow())).save();
+		killed.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killed.GetGUIDLow())).save();
 	});
 }

@@ -9,32 +9,49 @@ KoboldChampionCreature.Models.clearAll()
 KoboldChampionCreature.Models.addIds(2153)
 KoboldChampionCreature.Scale.set(5)
 KoboldChampionCreature.Level.set(10,10)
-KoboldChampionCreature.Rank.setElite()
+KoboldChampionCreature.Rank.ELITE.set()
 //Spells
 export let KoboldChampionSpell1 = std.Spells.create(MODNAME,'koboldchampionspell1-spell',53167)
 KoboldChampionSpell1.Name.enGB.set('Forked Lightning')
 KoboldChampionSpell1.Effects.get(0).BasePoints.set(1812)
-KoboldChampionSpell1.CastTime.set(1000,0,1000)
+KoboldChampionSpell1.CastTime.modRef(val=>val.set(1000,0,1000))
 export let KoboldChampionSpell2 = std.Spells.create(MODNAME,'koboldchampionspell2-spell',55100)
 KoboldChampionSpell2.Name.enGB.set('Numbing Roar')
 export let KoboldChampionSpell3 = std.Spells.create(MODNAME,'koboldchampionspell3-spell',55276)
 KoboldChampionSpell3.Name.enGB.set('Puncture')
 KoboldChampionSpell3.Effects.get(0).BasePoints.set(617)
-KoboldChampionSpell3.Duration.set(3000,0,3000)
-    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    KoboldChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-    KoboldChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    KoboldChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
-    KoboldChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    KoboldChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    KoboldChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
-    //combat loop
-    KoboldChampionCreature.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(KoboldChampionSpell1.ID,2,7)
-    KoboldChampionCreature.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(KoboldChampionSpell2.ID,2,7)
-    KoboldChampionCreature.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(KoboldChampionSpell3.ID,2,7)
+KoboldChampionSpell3.Duration.modRef(val=>val.set(3000,0,3000))
+
+    KoboldChampionCreature.Scripts.onUpdateIc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setCreateTimedEvent(0,0,0,11000,15000,100)
+        script.Action.setCreateTimedEvent(1,0,0,3000,7000,100)
+        script.Action.setCreateTimedEvent(2,0,0,5000,7000,100)
+        
+    })
+    KoboldChampionCreature.Scripts.onUpdateOoc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setRemoveTimedEvent(0)
+        script.Action.setRemoveTimedEvent(1)
+		script.Action.setRemoveTimedEvent(2)
+		
+    })
+    KoboldChampionCreature.Scripts.onTimedEventTriggered(0,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(KoboldChampionSpell1.ID,2,7)
+    })
+	KoboldChampionCreature.Scripts.onTimedEventTriggered(1,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(KoboldChampionSpell2.ID,2,7)
+    })
+	KoboldChampionCreature.Scripts.onTimedEventTriggered(2,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(KoboldChampionSpell3.ID,2,7)
+    })
+
 //End of Spells
 KoboldChampionCreature.FactionTemplate.set(48)
-KoboldChampionCreature.DamageSchool.setNormal()
+KoboldChampionCreature.DamageSchool.Normal.set()
 KoboldChampionCreature.Stats.ArmorMod.set(125)
 KoboldChampionCreature.Stats.DamageMod.set(65)
 KoboldChampionCreature.Stats.ExperienceMod.set(30)
@@ -57,7 +74,10 @@ KoboldScroll.FlagsExtra.set(0)
 KoboldScroll.MaxCount.set(1)
 KoboldScroll.RequiredLevel.set(1)
 KoboldScroll.Spells.clearAll()
-KoboldScroll.Spells.add(KoboldChampion.ID,undefined,undefined,-1)
+KoboldScroll.Spells.addMod(spell=>{
+    spell.Spell.set(KoboldChampion.ID)
+    spell.Charges.set(-1)
+})
 
 /*Spell Scripts - Champion Boss Items*/
 export let KoboldCreatureSpawn = std.CreatureTemplates.create(MODNAME,'koboldcreaturespawn-creature',8776)

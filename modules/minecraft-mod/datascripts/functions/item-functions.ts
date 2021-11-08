@@ -1,7 +1,5 @@
 import { std } from "tswow-stdlib"
-import { DBC } from "wotlkdata/dbc/DBCFiles"
-import { ItemTemplate } from "../../../tswow-stdlib/datascripts/build/Item/ItemTemplate"
-import { AttachedLootSet } from "../../../tswow-stdlib/datascripts/build/Loot/Loot"
+import { DBC } from "wotlkdata"
 import { MODNAME } from "../modname"
 
 //tiername,parent,prefix,[itemnames]
@@ -22,7 +20,7 @@ export function createMaterial(QualityValue:number,tier:string,itemName:string,d
     let item = std.Items.create(MODNAME, tier + '-' + itemName.toLowerCase().replace(' ','-'), parentItem)
         item.Quality.set(QualityValue)
         item.Name.enGB.set(itemName)
-        item.DisplayInfo.setID(displayInfoID)
+        item.DisplayInfo.set(displayInfoID)
         item.Description.enGB.set(description)
         item.ItemLevel.set(0)
         item.MaxStack.set(900)
@@ -35,7 +33,7 @@ export function createBaseResources(QualityValue:number,tier:string,itemPrefix:s
         let item = std.Items.create(MODNAME, tier + '-' + Names[i].toLowerCase().replace(' ','-'), 2934)
         item.Quality.set(QualityValue)
         item.Name.enGB.set(itemPrefix + ' ' + Names[i])
-        item.DisplayInfo.setID(displayIDs[i])
+        item.DisplayInfo.set(displayIDs[i])
         //item.Description.enGB.set(description)
         item.ItemLevel.set(0)
         item.MaxStack.set(900)
@@ -57,15 +55,18 @@ export function createGear(levelrequirement:number,tier:string,quality:number,st
         item.Description.enGB.set('')
         item.RequiredLevel.set(levelrequirement)
         item.Name.enGB.set(names[i])
-        item.DisplayInfo.setID(display[i])
+        item.DisplayInfo.set(display[i])
         item.Durability.set(20)
         item.RandomProperty.set(randomPropID)
-        item.DisenchantID.set(disenchantID)
+        item.Disenchant.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
-        item.Bonding.setBindsOnEquip()
+        item.Bonding.BINDS_ON_EQUIP.set()
         armSpell.forEach((value,index)=>{
-            item.Spells.add(value).Trigger.set(armTrigger[index])
+            item.Spells.addMod(itemSpell=>{
+                itemSpell.Spell.set(value)
+                itemSpell.Trigger.set(armTrigger[index])
+            })
         })
         
         let costval = (costs[i]/2)*statMultiplier
@@ -90,20 +91,24 @@ export function createTrinket(levelrequirement:number,tier:string,quality:number
         item.Description.enGB.set('')
         item.RequiredLevel.set(levelrequirement)
         item.Name.enGB.set(name)
-        item.DisplayInfo.setID(display)
+        item.DisplayInfo.set(display)
         item.Durability.set(20)
         item.RandomProperty.set(randomPropID)
-        item.DisenchantID.set(disenchantID)
+        item.Disenchant.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
         item.Flags.set(0)
-        item.Bonding.setBindsOnEquip()
+        item.Bonding.BINDS_ON_EQUIP.set()
         armSpell.forEach((value,index)=>{
-            item.Spells.add(value).Trigger.set(armTrigger[index])
+            item.Spells.addMod(itemSpell=>{
+                itemSpell.Spell.set(value)
+                itemSpell.Trigger.set(armTrigger[index])
+            })
         })
         item.Price.set(((levelrequirement*levelrequirement)*100), ((levelrequirement*levelrequirement)*150)) //sellprice + buyprice
         item.ItemLevel.set(costs/2*quality)
     return item.ID
 }
+
 export function createWeapons(levelrequirement:number,tier:string,quality:number,statMultiplier:number,disenchantID:number,randomPropID:number,names:string[],display:number[],wepSpell:number[],wepTrigger:number[]):number[]{
     let ids = [[2,7,13],[2,4,13],[2,0,13],[2,15,13],[2,8,17],[2,5,17],[2,1,17],[4,0,23],[2,6,17],[2,2,26],[2,10,17],[2,19,26],[4,6,14],[2,13,13]]
     let costs = [7,7,7,4,15,15,15,7,15,5,6,5,11,7]
@@ -117,16 +122,20 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
         item.Description.enGB.set('')
         item.RequiredLevel.set(levelrequirement)
         item.Name.enGB.set(names[i])
-        item.DisplayInfo.setID(display[i])
+        item.DisplayInfo.set(display[i])
         item.Durability.set(20)
         item.RandomProperty.set(randomPropID)
-        item.DisenchantID.set(disenchantID)
+        item.Disenchant.set(disenchantID)
+        //item.DisenchantID.set(disenchantID)
         item.RequiredDisenchantSkill.set(0)
-        item.Bonding.setBindsOnEquip()
+        item.Bonding.BINDS_ON_EQUIP.set()
         item.Flags.set(0)
         item.Material.set(7)
         wepSpell.forEach((value,index)=>{
-            item.Spells.add(value).Trigger.set(wepTrigger[index])
+            item.Spells.addMod(itemSpell=>{
+                itemSpell.Spell.set(value)
+                itemSpell.Trigger.set(wepTrigger[index])
+            })
         })
 
         let costval = (costs[i]/2)*statMultiplier
@@ -190,13 +199,13 @@ export function createWeapons(levelrequirement:number,tier:string,quality:number
     return returnIDs
 }
 
-export function addLootToItem(loot: AttachedLootSet<ItemTemplate> , items: number[], chances: number[],groupID?:number) {
-    if(groupID == null){
-        groupID = 0
-    }
-    items.forEach((value,index)=>{
-        if(chances[index] > 0) {
-            loot.addItem(value,chances[index],1,1,false,groupID,0)
-        }
-    })
-}
+// export function addLootToItem(loot: , items: number[], chances: number[],groupID?:number) {
+//     if(groupID == null){
+//         groupID = 0
+//     }
+//     items.forEach((value,index)=>{
+//         if(chances[index] > 0) {
+//             loot.addItem(value,chances[index],1,1,false,groupID,0)
+//         }
+//     })
+// }

@@ -1,5 +1,6 @@
 import { craftMessage, returnCraftItemMessage, bagSlotCombo, showScreen } from "../shared/Messages"
-import { Events, SendToServer } from "./lib/Events"
+import { SendCompiledServerMessage } from "./lib/AddonMessage"
+import { Events } from "./lib/Events"
 
     let choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
     let itemIDs = [0,0,0,0,0,0,0,0,0]
@@ -171,7 +172,7 @@ import { Events, SendToServer } from "./lib/Events"
             pkt.positions = choices
             pkt.purchase = purchase
             pkt.enchants = enchants
-        SendToServer(pkt)
+            SendCompiledServerMessage(pkt)
     }
 
     Events.AddOns.OnMessage(mframe,returnCraftItemMessage,message=>{

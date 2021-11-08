@@ -1,24 +1,25 @@
 import { std } from "tswow-stdlib";
-import { Pos } from "tswow-stdlib/Misc/Position";
-import { SQL } from "wotlkdata/sql/SQLFiles";
+import { Position } from "tswow-stdlib/Misc/Position";
+import { SQL } from "wotlkdata";
 import { MODNAME } from "../modname";
 
-export function spawnNPC(id: number, wanderDistance:number, equipmentID:number, position:number[], index?:number) {
+export function spawnNPC(id: number, wanderDistance:number, equipmentID:number, position:Position, index?:number) {
     if(index == null){
         index = 0
     }
-    let npc = std.CreatureTemplates.load(id);
-    let spawn = npc.spawn(MODNAME,id+"creature-spawn"+index,Pos(725,position[0],position[1],position[2],position[3]))
-    spawn.row.equipment_id.set(equipmentID)
-    if(wanderDistance > 0){
-        spawn.WanderDistance.set(wanderDistance);
-        spawn.MovementType.setRandomMovement()
-    }
-    return spawn.GUID
-
+    let guid = 0
+    std.CreatureTemplates.load(id).Spawns.addMod(MODNAME,id+"creature-spawn"+index,position,instance=>{
+        instance.row.equipment_id.set(equipmentID)
+        if(wanderDistance > 0){
+            instance.WanderDistance.set(wanderDistance);
+            instance.MovementType.RANDOM_MOVEMENT.set()
+        }
+        guid = instance.ID
+    })
+    return guid
 }
 
-export function spawnMultipleNPCs(id:number,wanderDistance:number, equipmentID:number, positions:number[][]){
+export function spawnMultipleNPCs(id:number,wanderDistance:number, equipmentID:number, positions:Position[]){
     let guids = []
     for (let i = 0; i < positions.length; i++) {
         let spawn = spawnNPC(id,wanderDistance,equipmentID,positions[i],i);
@@ -27,23 +28,24 @@ export function spawnMultipleNPCs(id:number,wanderDistance:number, equipmentID:n
     return guids
 }
 
-export function spawnNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:number[], respawnTime:number,index?:number){
+export function spawnNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:Position, respawnTime:number,index?:number){
     if(index == null){
         index = 0
     }
-    let npc = std.CreatureTemplates.load(id);
-    let spawn = npc.spawn(MODNAME,id+"creature-spawn"+index,Pos(725,position[0],position[1],position[2],position[3]))
-    spawn.row.equipment_id.set(equipmentID)
-    spawn.SpawnTime.set(respawnTime)
-    if(wanderDistance > 0){
-        spawn.WanderDistance.set(wanderDistance);
-        spawn.MovementType.setRandomMovement()
-    }
-    return spawn.GUID
+    let guid = 0
+    std.CreatureTemplates.load(id).Spawns.addMod(MODNAME,id+"creature-spawn"+index,position,instance=>{
+        instance.row.equipment_id.set(equipmentID)
+        if(wanderDistance > 0){
+            instance.WanderDistance.set(wanderDistance)
+            instance.MovementType.RANDOM_MOVEMENT.set()
+            instance.SpawnTime.set(respawnTime)
+        }
+        guid = instance.ID
+    })
+    return guid
 }
 
-export function spawnMultipleNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:number[][], respawnTime:number){
-    let npc = std.CreatureTemplates.load(id);
+export function spawnMultipleNPCWithTimer(id:number, wanderDistance:number, equipmentID:number,position:Position[], respawnTime:number){
     let guids: number[] = []
     position.forEach((value,index)=>{
         let guid = spawnNPCWithTimer(id,wanderDistance,equipmentID,value,respawnTime,index)
@@ -54,32 +56,36 @@ export function spawnMultipleNPCWithTimer(id:number, wanderDistance:number, equi
 }
 
 
-export function spawnGob(id: number, position:number[], index?:number) {
+export function spawnGob(id: number, position:Position, index?:number) {
     if(index == null){
         index = 0
     }
-    let gob = std.GameObjectTemplates.load(id);
-    let s = gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(725,position[0],position[1],position[2],position[3]))
-    return s.row.guid.get()
+    let guid = 0
+    let s = std.GameObjectTemplates.Plain.load(id).Spawns.addMod(MODNAME,id+"gob-spawn"+index,position,instance=>{
+        guid = instance.ID
+    })
+    return guid
 }
 
-export function spawnMultipleGobs(id:number, positions:number[][]){
+export function spawnMultipleGobs(id:number, positions:Position[]){
     for (let i = 0; i < positions.length; i++) {
         spawnGob(id,positions[i],i);
     }
 }
 
-export function spawnGobTimer(id: number, position:number[], spawnSecs:number, index?:number) {
+export function spawnGobTimer(id: number, position:Position, spawnSecs:number, index?:number) {
     if(index == null){
         index = 0
     }
-    let gob = std.GameObjectTemplates.load(id);
-    let spawn = gob.spawn(MODNAME,id+"gob-spawn"+index,Pos(725,position[0],position[1],position[2],position[3])).SpawnTimeSecs.set(spawnSecs);
-    return spawn.row.guid.get()
+    let guid = 0
+    std.GameObjectTemplates.Plain.load(id).Spawns.addMod(MODNAME,id+"gob-spawn"+index,position,instance=>{
+        instance.SpawnTimeSecs.set(spawnSecs)
+        guid = instance.ID
+    })
+    return guid
 }
 
-export function spawnMultiGobTimer(id: number, position:number[][], spawnSecs:number) {
-    let gob = std.GameObjectTemplates.load(id);
+export function spawnMultiGobTimer(id: number, position:Position[], spawnSecs:number) {
     let guids: number[] = []
     position.forEach((value,index)=>{
         let guid = spawnGobTimer(id,value,spawnSecs,index)

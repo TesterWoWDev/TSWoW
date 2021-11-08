@@ -1,4 +1,4 @@
-import { GameObjectChest } from "tswow-stdlib/GameObject/Types/GameObjectChest"
+import { GameObjectChest } from "tswow-stdlib/GameObject/GameObjectTemplate"
 import { makeResourceNode } from "../../functions/resource-node-functions"
 import { spawnGobTimer } from "../../functions/spawning-functions"
 import { tierFourBaseResources, tierFourMailMaterial, tierFourLeatherMaterial, tierFourClothMaterial } from "../../items/armor/tier4-set"
@@ -28,7 +28,8 @@ addLoot(ArenaofChampionsChest,[SmallSackofCoins.ID,LargeSackofCoins.ID,MassiveSa
 
 
 
-spawnGobTimer(ArenaofChampionsChest.ID,[-8595.069,1488.233,-75.437,5.249],60000) // Chest Spawn (Needs a Timer)
+spawnGobTimer(ArenaofChampionsChest.ID,{map:725,x:-8595.069,y:1488.233,z:-75.437,o:5.249}
+    ,60000) // Chest Spawn (Needs a Timer)
 // Make it go by world time, every day, a chest will spawn at 7:00AM EST and 7:00PM EST
 // Monday = 7-7
 // Tuesday = 5-5
@@ -40,38 +41,16 @@ spawnGobTimer(ArenaofChampionsChest.ID,[-8595.069,1488.233,-75.437,5.249],60000)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function addLoot(chest: GameObjectChest, items: number[], chances: number[],groupID?:number) {
     if(groupID == null){
         groupID = 0
     }
-    items.forEach((value,index)=>{
-        if(chances[index] > 0) {
-            chest.Loot.addItem(value,chances[index],1,1,false,groupID,1)
-        }
+    chest.Loot.modRefCopy(table=>{
+        items.forEach((value,index)=>{
+            if(chances[index] > 0) {
+                table.addItem(value,chances[index],1,1,false,groupID,1)
+            }
+        })
     })
 
 }
@@ -80,10 +59,10 @@ function addLootSingleChance(chest: GameObjectChest,items:number[],chance:number
     if(groupID == null){
         groupID = 0
     }
-    items.forEach((value,index)=>{
-        if(chance > 0) {
-            chest.Loot.addItem(value,chance,1,1,false,groupID,1)
-        }
+    chest.Loot.modRefCopy(table=>{
+        items.forEach((value,index)=>{
+            table.addItem(value,chance,1,1,false,groupID,1)
+        })
     })
 }
 
@@ -91,9 +70,11 @@ function addLootSingleChanceMultiGroup(chest: GameObjectChest,items:number[],cha
     if(groupID == null){
         groupID = 0
     }
-    items.forEach((value,index)=>{
-        if(chance > 0) {
-            chest.Loot.addItem(value,chance,min,max,false,groupID,1)
-        }
+    chest.Loot.modRefCopy(table=>{
+        items.forEach((value,index)=>{
+            if(chance > 0) {
+                table.addItem(value,chance,min,max,false,groupID,1)
+            }
+        })
     })
 }

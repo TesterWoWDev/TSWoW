@@ -1,5 +1,0 @@
-addn-mod
-minecraft-mod
-tester-mod
-testing
-tswow-stdlib

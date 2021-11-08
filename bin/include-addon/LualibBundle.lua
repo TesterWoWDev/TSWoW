@@ -116,12 +116,10 @@ end
 function __TS__ArrayForEach(arr, callbackFn)
     do
         local i = 0
-		if(arr ~= nil)then
-			while i < #arr do
-				callbackFn(_G, arr[i + 1], i, arr)
-				i = i + 1
-			end
-		end
+        while i < #arr do
+            callbackFn(_G, arr[i + 1], i, arr)
+            i = i + 1
+        end
     end
 end
 
@@ -544,6 +542,12 @@ function __TS__ClassExtends(target, base)
         target.prototype.__tostring = base.prototype.__tostring
     end
 end
+
+-- @tswow-begin missing __TS__Delete
+function __TS__Delete(target, key)
+    table.remove(target,key)
+end
+-- @tswow-end
 
 -- @tswow-begin: disable decorators
 function __TS__Decorate(decorators, target, key, desc)

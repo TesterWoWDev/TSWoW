@@ -1,6 +1,7 @@
 import {  creatureNameMessage, creatureNoExistMessage, itemLootFinishMessage, itemLootMessage } from "../shared/Messages";
-import { Events, SendToServer } from "./lib/Events";
+import { Events } from "./lib/Events";
 import {SetupModelZoomDragRotation} from "./CustomAddonFunctions"
+import { SendCompiledServerMessage } from "./lib/AddonMessage";
 export function atlas(){
     let itemArray = [];
     let allButtons = [];
@@ -195,7 +196,7 @@ export function atlas(){
             }  
             resetFrames()
             pageCt.SetText("Page 1/1")
-            SendToServer(pkt)
+            SendCompiledServerMessage(pkt)
         }
     }
 

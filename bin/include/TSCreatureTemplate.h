@@ -1,30 +1,29 @@
 /*
  * This file is part of tswow (https://github.com/tswow/).
  * Copyright (C) 2020 tswow <https://github.com/tswow/>
- * 
- * This program is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU General Public License as 
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, version 3.
- * 
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License 
+ *
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 #pragma once
 
 #include "TSBase.h"
 #include "TSMain.h"
-#include "TSStorage.h"
 #include "TSEntity.h"
 #include "TSString.h"
 
 struct CreatureTemplate;
 
-class TC_GAME_API TSCreatureTemplate
+class TC_GAME_API TSCreatureTemplate : public TSEntityProvider
 {
 public:
     CreatureTemplate * ct;
@@ -111,11 +110,10 @@ public:
     uint32      GetFirstValidModelID() const;
     uint32      GetFirstInvisibleModel() const;
     uint32      GetFirstVisibleModel() const;
-    TSStorage * GetData();
+    TSEntity * GetData();
     uint32      GetRequiredLootSkill() const;
     bool        GetIsExotic() const;
     bool        GetIsTameable(bool canTameExotic) const;
-    TS_ENTITY_DATA_DECL(TSCreatureTemplate)
 
     // CreatureMovementData
     uint32    GetGroundMovement();

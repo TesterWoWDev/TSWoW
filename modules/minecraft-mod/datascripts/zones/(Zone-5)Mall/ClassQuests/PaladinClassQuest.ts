@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { spawnNPC } from "../../../functions/spawning-functions"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
@@ -11,21 +12,21 @@ PaladinQuestGiver01.Models.clearAll()
 PaladinQuestGiver01.Models.addIds(21835)
 PaladinQuestGiver01.Level.set(10,10)
 PaladinQuestGiver01.FactionTemplate.set(35)
-PaladinQuestGiver01.DamageSchool.setNormal()
+PaladinQuestGiver01.DamageSchool.Normal.set()
 PaladinQuestGiver01.Stats.ArmorMod.set(1)
 PaladinQuestGiver01.Stats.DamageMod.set(1)
 PaladinQuestGiver01.Stats.ExperienceMod.set(1)
 PaladinQuestGiver01.Stats.HealthMod.set(1)
 PaladinQuestGiver01.Stats.ManaMod.set(1)
-PaladinQuestGiver01.NPCFlags.QuestGiver.mark()
-
+PaladinQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
+spawnNPC(PaladinQuestGiver01.ID,0,0,{map:725,x:-8398.767578,y:-153.386414,z:0.806448,o:4.205809},)
 export let PaladinQuest01 = std.Quests.create(MODNAME,'paladinquest01-quest')
 
 PaladinQuest01.Flags.set(1)
 PaladinQuest01.MinLevel.set(1)
 PaladinQuest01.QuestLevel.set(20)
-PaladinQuest01.Questgiver.addStarter(questGiver03.ID)
-PaladinQuest01.Questgiver.addEnder(PaladinQuestGiver01.ID)
+PaladinQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
+PaladinQuest01.Questgiver.addCreatureEnder(PaladinQuestGiver01.ID,false)
 
 PaladinQuest01.Rewards.Money.set(441)
 
@@ -36,17 +37,14 @@ PaladinQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waitin
 PaladinQuest01.Text.Title.enGB.set('Technique and Form')
 
 
-
-
-
 export let PaladinQuest02 = std.Quests.create(MODNAME,'paladinquest02-quest')
 
 PaladinQuest02.Flags.set(8)
 SQL.quest_template_addon.add(PaladinQuest02.ID).SpecialFlags.set(1)
 PaladinQuest02.MinLevel.set(1)
 PaladinQuest02.QuestLevel.set(20)
-PaladinQuest02.Questgiver.addStarter(PaladinQuestGiver01.ID)
-PaladinQuest02.Questgiver.addEnder(PaladinQuestGiver01.ID)
+PaladinQuest02.Questgiver.addCreatureStarter(PaladinQuestGiver01.ID)
+PaladinQuest02.Questgiver.addCreatureEnder(PaladinQuestGiver01.ID,false)
 
 PaladinQuest02.Rewards.Money.set(200000)
 PaladinQuest02.Objectives.Item.add(OrbofPower.ID,10)

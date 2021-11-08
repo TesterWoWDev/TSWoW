@@ -1,4 +1,3 @@
-import { count } from "console";
 import { blackjackPlayerMessage, blackjackSendHandMessage } from "../shared/Messages";
 
 class Player {

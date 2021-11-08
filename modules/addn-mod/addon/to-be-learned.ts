@@ -1,9 +1,9 @@
 import { requestClassSpellsMessage, sendClassSpellsMessage } from "../shared/Messages";
-import { Events, SendToServer } from "./lib/Events";
+import { SendCompiledServerMessage } from "./lib/AddonMessage";
+import { Events } from "./lib/Events";
 
 export function toBeLearnedSpellsPane(){
     let curSpells = []
-    SendToServer(new requestClassSpellsMessage())//request spells onlogin
     let mframe = CreateFrame('Frame','spellpane',UIParent);
         mframe.SetWidth(512)
         mframe.SetHeight(768)
@@ -36,6 +36,7 @@ export function toBeLearnedSpellsPane(){
             mframe.Hide()
         })
 
+        SendCompiledServerMessage(new requestClassSpellsMessage())//request spells onlogin
     Events.AddOns.OnMessage(mframe,sendClassSpellsMessage,msg=>{
         curSpells[msg.level].push(msg.spellID)
     })

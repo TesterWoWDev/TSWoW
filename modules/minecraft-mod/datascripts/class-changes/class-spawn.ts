@@ -1,4 +1,4 @@
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata"
 
 SQL.playercreateinfo.filter({}).forEach((value,index,arr)=>{
     if(value.class.get() == 6){

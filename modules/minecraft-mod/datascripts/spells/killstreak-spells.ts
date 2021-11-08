@@ -9,14 +9,15 @@ for(let i=1;i<=15;i++){
     spell.Description.enGB.set('You are a '+names[i])
     spell.AuraDescription.enGB.set('You are a '+names[i] + '. You have a bounty of an extra '+(i*5)+' honor on your head.')
     spell.Effects.clearAll()
-    let e = spell.Effects.add()
-    e.EffectType.setApplyAura()
-    e.ImplicitTargetA.setSrcCaster()
-    e.DieSides.set(1)
-    spell.Duration.setID(21)
-    spell.Visual.clear()
+    spell.Effects.addMod(eff=>{
+        eff.Type.APPLY_AURA.set()
+        eff.ImplicitTargetA.SRC_CASTER.set()
+        eff.DieSides.set(1)
+    })    
+    spell.Duration.set(21)
+    spell.Visual.set(0)
     spell.row.Attributes.set(0x80000000);
-    spell.Icon.set("Achievement_PVP_H_"+padLeadingZeros(i,2))
+    spell.Icon.setPath("Achievement_PVP_H_"+padLeadingZeros(i,2))
 }
 
 function padLeadingZeros(num:number, size:number) {

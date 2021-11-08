@@ -77,11 +77,11 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                             }else{
                                 if(item.GetEntry() == itemID){
                                     if(!(isEnchant && i==4)){
-                                        player.RemoveItem(item,1,itemID)
+                                        player.RemoveItem(item,1)
                                     }   
                                 }
                                 else{
-                                    player.RemoveItem(CreateItem(itemID,1),1,itemID)
+                                    player.RemoveItem(CreateItem(itemID,1),1)
                                 }
                             }
                         }
@@ -94,7 +94,7 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                         //possibly try to add tochest, see if that adds random affix
                         let itema = player.AddItem(pkt.craftItem,pkt.craftItemCount)
                         if(itema.IsNull()){
-                            player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,0,[item])
+                            player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,[item])
                         }
                     }
                     item.SetEnchantment(message.enchants[0],0)

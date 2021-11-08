@@ -4,13 +4,13 @@ tstl_register_module(
     "Events",
     function()
         local ____exports = {}
-        local ____BinReader = require("BinReader")
-        local BinReader = ____BinReader.BinReader
         local EventHolder = __TS__Class()
         EventHolder.name = "EventHolder"
         function EventHolder.prototype.____constructor(self)
             self.events = {}
             self.messageEvents = {}
+            self.registeredAddonMessage = false
+            self.registeredBufferedMessage = false
         end
         local eventHolders = {}
         local messageHolders = {}
@@ -45,42 +45,6 @@ tstl_register_module(
             end
             frame:RegisterEvent(name)
             __TS__ArrayPush(holder.events[name], callback)
-        end
-        local function buildMessage(value)
-            local bin = __TS__New(
-                BinReader,
-                value:GetSize() + 6
-            )
-            bin:WriteU32(0, 1007688)
-            bin:WriteU16(
-                4,
-                value:GetID()
-            )
-            value:Write(bin, 6)
-            return base64_encode(bin.str)
-        end
-        function ____exports.SendToPlayer(player, value)
-            SendAddonMessage(
-                "",
-                buildMessage(value),
-                "WHISPER",
-                player
-            )
-        end
-        function ____exports.SendToChannel(channel, value)
-            SendAddonMessage(
-                "",
-                buildMessage(value),
-                channel
-            )
-        end
-        function ____exports.SendToServer(value)
-            SendAddonMessage(
-                "",
-                buildMessage(value),
-                "WHISPER",
-                GetUnitName("player", false)
-            )
         end
         ____exports.Events = {
             AchievementInfo = {
@@ -139,63 +103,6 @@ tstl_register_module(
                 end
             },
             AddOns = {
-                OnMessage = function(self, frame, cls, handler)
-                    if (eventHolders[frame:GetName()] == nil) or (eventHolders[frame:GetName()].events.CHAT_MSG_ADDON == nil) then
-                        ____exports.addEvent(
-                            frame,
-                            "CHAT_MSG_ADDON",
-                            function(prefix, msg, ____type, player)
-                                if player ~= GetUnitName("player", false) then
-                                    return
-                                end
-                                if #msg < 6 then
-                                    return
-                                end
-                                do
-                                    local i = 0
-                                    while i < #msg do
-                                        local byte = __TS__StringCharCodeAt(msg, i)
-                                        if ((((((byte >= 48) and (byte <= 57)) or ((byte >= 65) and (byte <= 90))) or ((byte >= 97) and (byte <= 122))) or (byte == 43)) or (byte == 47)) or (byte == 61) then
-                                        else
-                                            return
-                                        end
-                                        i = i + 1
-                                    end
-                                end
-                                msg = base64_decode(msg)
-                                local bin = __TS__New(BinReader, 0)
-                                bin.str = msg
-                                if __TS__StringLen(msg) < 6 then
-                                    return
-                                end
-                                if bin:ReadU32(0) ~= 17688 then
-                                    return
-                                end
-                                local opcode = bin:ReadU16(4)
-                                local cls = messageHolders[opcode]
-                                if cls == nil then
-                                    return
-                                end
-                                local item = __TS__New(messageHolders[opcode])
-                                item:Read(bin, 6)
-                                __TS__ArrayForEach(
-                                    eventHolders[frame:GetName()].messageEvents[opcode],
-                                    function(____, x)
-                                        x(item)
-                                    end
-                                )
-                            end
-                        )
-                    end
-                    local holder = eventHolders[frame:GetName()]
-                    if not holder.messageEvents[cls:GetID()] then
-                        holder.messageEvents[cls:GetID()] = {}
-                    end
-                    __TS__ArrayPush(
-                        holder.messageEvents[cls:GetID()],
-                        handler
-                    )
-                end,
                 OnAddonLoaded = function(self, frame, callback)
                     ____exports.addEvent(frame, "ADDON_LOADED", callback)
                 end

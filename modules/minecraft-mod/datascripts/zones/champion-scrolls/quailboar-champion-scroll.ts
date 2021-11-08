@@ -9,31 +9,47 @@ quailboarCreature.Models.clearAll()
 quailboarCreature.Models.addIds(6098)
 quailboarCreature.Scale.set(5)
 quailboarCreature.Level.set(15,15)
-quailboarCreature.Rank.setElite()
+quailboarCreature.Rank.ELITE.set()
 //Spells
 export let quailboarSpell1 = std.Spells.create(MODNAME,'quailboarspell1-spell',55323)
 quailboarSpell1.Name.enGB.set('Shadow Vortex')
 quailboarSpell1.Effects.get(0).BasePoints.set(1812)
-quailboarSpell1.CastTime.set(1000,0,1000)
+quailboarSpell1.CastTime.modRef(val=>val.set(1000,0,1000))
 export let quailboarSpell2 = std.Spells.create(MODNAME,'quailboarspell2-spell',55359)
 quailboarSpell2.Name.enGB.set('Living Bomb')
 quailboarSpell2.Effects.get(0).BasePoints.set(1299)
 export let quailboarSpell3 = std.Spells.create(MODNAME,'quailboarspell3-spell',55530)
 quailboarSpell3.Name.enGB.set('Charge')
-    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    quailboarCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-    quailboarCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    quailboarCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
-    quailboarCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    quailboarCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    quailboarCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
-    //combat loop
-    quailboarCreature.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(quailboarSpell1.ID,2,7)
-    quailboarCreature.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(quailboarSpell2.ID,2,7)
-    quailboarCreature.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(quailboarSpell3.ID,2,7)
+
+    quailboarCreature.Scripts.onUpdateIc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setCreateTimedEvent(0,0,0,11000,15000,100)
+        script.Action.setCreateTimedEvent(1,0,0,3000,7000,100)
+        script.Action.setCreateTimedEvent(2,0,0,5000,7000,100)
+        
+    })
+    quailboarCreature.Scripts.onUpdateOoc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setRemoveTimedEvent(0)
+        script.Action.setRemoveTimedEvent(1)
+		script.Action.setRemoveTimedEvent(2)
+		
+    })
+    quailboarCreature.Scripts.onTimedEventTriggered(0,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(quailboarSpell1.ID,2,7)
+    })
+	quailboarCreature.Scripts.onTimedEventTriggered(1,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(quailboarSpell2.ID,2,7)
+    })
+	quailboarCreature.Scripts.onTimedEventTriggered(2,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(quailboarSpell3.ID,2,7)
+    })
 //End of Spells
 quailboarCreature.FactionTemplate.set(48)
-quailboarCreature.DamageSchool.setNormal()
+quailboarCreature.DamageSchool.Normal.set()
 quailboarCreature.Stats.ArmorMod.set(125)
 quailboarCreature.Stats.DamageMod.set(65)
 quailboarCreature.Stats.ExperienceMod.set(30)
@@ -56,7 +72,10 @@ quailboarScroll.FlagsExtra.set(0)
 quailboarScroll.MaxCount.set(1)
 quailboarScroll.RequiredLevel.set(1)
 quailboarScroll.Spells.clearAll()
-quailboarScroll.Spells.add(quailboar.ID,undefined,undefined,-1)
+quailboarScroll.Spells.addMod(spell=>{
+    spell.Spell.set(quailboar.ID)
+    spell.Charges.set(-1)
+})
 
 /*Spell Scripts - Champion Boss Items*/
 export let quailboarCreatureSpawn = std.CreatureTemplates.create(MODNAME,'quailboarcreaturespawn-creature',8776)

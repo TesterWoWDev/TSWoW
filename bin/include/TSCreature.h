@@ -1,17 +1,17 @@
 /*
  * This file is part of tswow (https://github.com/tswow/).
  * Copyright (C) 2020 tswow <https://github.com/tswow/>
- * 
- * This program is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU General Public License as 
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, version 3.
- * 
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License 
+ *
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 #pragma once
@@ -25,6 +25,9 @@
 #include "TSClasses.h"
 #include "TSPosition.h"
 #include "TSCreatureTemplate.h"
+#include "TSOutfit.h"
+
+class TSOutfit;
 
 class TC_GAME_API TSCreature : public TSUnit {
 public:
@@ -62,6 +65,7 @@ public:
     float GetAttackDistance(TSUnit _target);
     uint32 GetRespawnDelay();
     float GetWanderRadius();
+    void UpdateLevelDependantStats();
     uint32 GetWaypointPath();
     uint32 GetCurrentWaypointId();
     uint32 GetDefaultMovementType();
@@ -114,4 +118,22 @@ public:
     uint32 GetCreatureFamily();
     TSLoot GetLoot();
     TSCreatureTemplate GetTemplate();
+    void SetOutfit(TSOutfit const& outfit);
+    TSOutfit GetOutfit();
+    TSOutfit GetOutfitCopy(
+          Outfit settings = Outfit::EVERYTHING
+        , int32_t race = -1, int32_t gender = -1
+    );
+
+    void FireSmartEvent(uint32 e, TSUnit unit, uint32 var0, uint32 var1, bool bvar, TSSpellInfo spell, TSGameObject gobj);
+    bool IsAIEnabled();
+    void SetLootRecipient(TSUnit unit, bool withGroup = true);
+
+    uint32_t GetMainhand();
+    uint32_t GetOffhand();
+    uint32_t GetRanged();
+
+    void SetMainhand(uint32_t mainhand);
+    void SetOffhand(uint32_t offhand);
+    void SetRanged(uint32_t ranged);
 };
