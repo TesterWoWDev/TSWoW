@@ -44,9 +44,9 @@ export function Killstreaks(events: TSEventHandlers) {
         }
         if(pastKills > 5){
             //killer.ModifyHonorPoints(pastKills*5)
-            SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has ENDED |cffff0000"+killed.GetName() + "|r's killstreak of "+(pastKills+1))
+            //SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has ENDED |cffff0000"+killed.GetName() + "|r's killstreak of "+(pastKills+1))
         }else{
-            SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Now on a killstreak of "+(killCount+1))
+            //SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Now on a killstreak of "+(killCount+1))
         }
 
         killed.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK,new PlayerKillstreak(killed.GetGUIDLow())).killCount = 0

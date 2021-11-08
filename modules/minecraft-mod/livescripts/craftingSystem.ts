@@ -1,7 +1,12 @@
-import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Messages";
+import { craftMessage, craftMessageID, empty, returnCraftItemMessage, showScreen } from "../shared/Messages";
 
     export function handleCraftMessages(events:TSEventHandlers){
-    events.Addon.OnMessageID(craftMessage,(player,message)=>{
+        events.PacketID.OnCustom(craftMessageID,(_,packet,player)=>{
+        let v:TSArray<uint32> = [0,0,0,0,0,0,0,0,0]
+        let vv:TSArray<TSArray<uint32>> = [empty,empty,empty,empty,empty,empty,empty,empty,empty]
+        let vvv:TSArray<uint32> = [0,0,0,0,0]
+        let message = new craftMessage(v,vv,0,vvv)
+        message.read(packet)
         let check = 0
         let queryString = "SELECT craftID,craftCount,req1,cnt1,req2,cnt2,req3,cnt3,req4,cnt4,req5,cnt5,req6,cnt6,req7,cnt7,req8,cnt8,req9,cnt9 FROM minecraft_recipes WHERE "
         let posString = ""
@@ -24,7 +29,8 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
         }
         posString = posString.substring(0,posString.length-4)
         let result = QueryWorld(queryString + posString)
-        let pkt = new returnCraftItemMessage()
+        let va:TSArray<uint32> = [0,0,0,0,0]
+        let pkt = new returnCraftItemMessage(0,0,va)
         while(result.GetRow()){
             check = 1    
             if(isEnchant){
@@ -62,16 +68,16 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                     for(let i=0;i<message.positions.length;i++){
                         if(message.itemIDs[i] != 0){
                             let itemID = message.itemIDs[i]
-                            if(message.positions[i].bagslot[0] == 0){
-                                message.positions[i].bagslot[0] = 255
-                                message.positions[i].bagslot[1] += 22
+                            if(message.positions[i][0] == 0){
+                                message.positions[i][0] = 255
+                                message.positions[i][1] += 22
                             }else{
-                                message.positions[i].bagslot[0] += 18
-                                message.positions[i].bagslot[1] += -1
+                                message.positions[i][0] += 18
+                                message.positions[i][1] += -1
                             }
-                            let item = player.GetItemByPos(message.positions[i].bagslot[0],message.positions[i].bagslot[1])
+                            let item = player.GetItemByPos(message.positions[i][0],message.positions[i][1])
                             if(item.IsNull()){
-                                console.log("Null item crafting: bag:" + message.positions[i].bagslot[0] + " slot:" + message.positions[i].bagslot[1] + " player:"+player.GetName())
+                                console.log("Null item crafting: bag:" + message.positions[i][0] + " slot:" + message.positions[i][1] + " player:"+player.GetName())
                                 player.SendAreaTriggerMessage("Your item was null? track whatever you did. call ghost")
                                 return
                             }else{
@@ -88,13 +94,13 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                     }
                     let item = CreateItem(pkt.craftItem,pkt.craftItemCount)
                     if(isEnchant){
-                        item = player.GetItemByPos(message.positions[4].bagslot[0],message.positions[4].bagslot[1])
+                        item = player.GetItemByPos(message.positions[4][0],message.positions[4][1])
                     }else{
                         //add a check if added, else mail
                         //possibly try to add tochest, see if that adds random affix
                         let itema = player.AddItem(pkt.craftItem,pkt.craftItemCount)
                         if(itema.IsNull()){
-                            player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,[item])
+                            //player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,[item])
                         }
                     }
                     item.SetEnchantment(message.enchants[0],0)
@@ -103,7 +109,7 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
                     item.SetEnchantment(message.enchants[3],4)
                     item.SetEnchantment(message.enchants[4],5)
                     item.SetEnchantment(1,6)
-                    player.SendData(new showScreen())
+                    new showScreen(0).write().SendToPlayer(player)
                     pkt.craftItem = 0                  
                 }else{
                     player.SendAreaTriggerMessage('You do not have the required materials!')
@@ -117,6 +123,6 @@ import { craftMessage, returnCraftItemMessage, showScreen } from "../shared/Mess
             player.SendBroadcastMessage('That wasn\'t a valid pattern!')
         }
         pkt.enchantNum = message.enchants
-        player.SendData(pkt)
+        pkt.write().SendToPlayer(player)
     })
 }
