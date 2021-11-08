@@ -45,18 +45,15 @@ function buffChoice(player: TSPlayer) {
 }
 
 function showBuffs(player: TSPlayer){
-    player.SendData(new spellValuesIncoming())
+    new spellValuesIncoming(0).write().SendToPlayer(player)
     let charItems = player.GetObject<playerBuffs>("playerBuffs",new playerBuffs());
     console.log("All buffs:")
     for(let i=0;i<charItems.currentBuffs.length;i++){
-        let pkt = new spellValuesMessage()
-            pkt.spellID = charItems.currentBuffs[i]
-            pkt.spellCt = charItems.currentBuffsCount[i]
-            pkt.spellName = charItems.currentBuffsName[i]
+        let pkt = new spellValuesMessage(charItems.currentBuffs[i],charItems.currentBuffsCount[i],charItems.currentBuffsName[i])
         console.log(pkt.spellName + " ID: " + pkt.spellID + " #: "+ pkt.spellCt)
-        player.SendData(pkt)
+        pkt.write().SendToPlayer(player)
     }
-    player.SendData(new spellValuesFinish())
+    new spellValuesFinish(0).write().SendToPlayer(player)
     console.log("-----")
 }
 
