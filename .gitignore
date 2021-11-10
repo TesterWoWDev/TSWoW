@@ -57,3 +57,4 @@ node.conf
 client.log
 node.conf
 Crashes
+modules/default/realms/realm/realm.realm.conf
