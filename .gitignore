@@ -30,19 +30,15 @@ modules/default/datasets/dataset/Buildings
 modules/default/datasets/dataset/database
 modules/default/datasets/dataset/default.dataset.yaml
 modules/default/datasets/dataset/ids.txt
-modules/default/datasets/dataset/luaxml
 modules/default/datasets/dataset/maps
 modules/default/datasets/dataset/mmaps
 modules/default/datasets/dataset/mysql
 modules/default/datasets/dataset/mysql_plain
-modules/default/datasets/dataset/dbc
 modules/default/datasets/dataset/vmaps
-coredata/realms/tswow/Crashes
-coredata/realms/tswow/DBErrors.log
-coredata/realms/tswow/realmid
-coredata/realms/tswow/Server.log
-coredata/realms/tswow/tswow.realm.yaml
-coredata/realms/tswow/worldserver.conf.dist
+modules/default/realms/realm/GM.log
+modules/default/realms/realm/realm.realm.conf
+modules/default/realms/realm/worldserver.conf
+
 
 coredata/IDs.ts
 coredata/terminal-history.txt
@@ -57,4 +53,3 @@ node.conf
 client.log
 node.conf
 Crashes
-modules/default/realms/realm/realm.realm.conf
