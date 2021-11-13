@@ -28,6 +28,8 @@ coredata/database
 Auth.log
 modules/default/datasets/dataset/Buildings
 modules/default/datasets/dataset/database
+modules/default/datasets/dataset/dbc
+modules/default/datasets/dataset/luaxml
 modules/default/datasets/dataset/default.dataset.yaml
 modules/default/datasets/dataset/ids.txt
 modules/default/datasets/dataset/maps
