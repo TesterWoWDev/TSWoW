@@ -1,5 +1,4 @@
-import {  creatureNameMessage, creatureNoExistMessage, creatureNoExistMessageID, itemLootFinishMessage, itemLootFinishMessageID, itemLootMessage, itemLootMessageID } from "../shared/Messages";
-import { Events } from "./lib/Events";
+import {  creatureNameMessage, creatureNoExistMessageID, itemLootFinishMessage, itemLootFinishMessageID, itemLootMessage, itemLootMessageID } from "../shared/Messages";
 import {SetupModelZoomDragRotation} from "./CustomAddonFunctions"
 
 export function atlas(){
@@ -168,6 +167,7 @@ export function atlas(){
      OnCustomPacket(itemLootMessageID,(packet)=>{
         let customPacket = new itemLootMessage(0,0,0,0)
         customPacket.read(packet);
+        itemArray.push([customPacket.itemID, customPacket.itemCountMin, customPacket.itemCountMax, customPacket.dropChance])
     })
 
     OnCustomPacket(itemLootFinishMessageID,(packet)=>{
@@ -233,6 +233,7 @@ export function atlas(){
                     }
                 let text2 = button.CreateFontString('','OVERLAY','GameTooltipText')
                     text2.SetPoint("CENTER",0,-30)
+                    item[4] = Math.floor(item[4]*10000)/10000
                     text2.SetText("Drop %: "+item[4]+"%")
                 button.HookScript("OnEnter",(self)=>{
                     GameTooltip.ClearLines()

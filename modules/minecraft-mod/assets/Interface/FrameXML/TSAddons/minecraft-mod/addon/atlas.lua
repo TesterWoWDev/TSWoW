@@ -1,17 +1,17 @@
 --[[ Generated with https://github.com/TypeScriptToLua/TypeScriptToLua ]]
 require("lualib_bundle");
 tstl_register_module(
-    "TSAddons.addn-mod.addon.atlas",
+    "TSAddons.minecraft-mod.addon.atlas",
     function()
         local ____exports = {}
-        local ____Messages = require("TSAddons.addn-mod.shared.Messages")
-        local creatureNameMessage = ____Messages.creatureNameMessage
-        local creatureNoExistMessageID = ____Messages.creatureNoExistMessageID
-        local itemLootFinishMessage = ____Messages.itemLootFinishMessage
-        local itemLootFinishMessageID = ____Messages.itemLootFinishMessageID
-        local itemLootMessage = ____Messages.itemLootMessage
+        local ____Messages = require("TSAddons.minecraft-mod.shared.Messages")
         local itemLootMessageID = ____Messages.itemLootMessageID
-        local ____CustomAddonFunctions = require("TSAddons.addn-mod.addon.CustomAddonFunctions")
+        local itemLootMessage = ____Messages.itemLootMessage
+        local itemLootFinishMessageID = ____Messages.itemLootFinishMessageID
+        local itemLootFinishMessage = ____Messages.itemLootFinishMessage
+        local creatureNoExistMessageID = ____Messages.creatureNoExistMessageID
+        local creatureNameMessage = ____Messages.creatureNameMessage
+        local ____CustomAddonFunctions = require("TSAddons.minecraft-mod.addon.CustomAddonFunctions")
         local SetupModelZoomDragRotation = ____CustomAddonFunctions.SetupModelZoomDragRotation
         function ____exports.atlas()
             local itemArray, allButtons, page, columns, rows, mframe, pageCt, searchBox, searchLoot, resetFrames, createButtons, clearButtons
@@ -75,7 +75,6 @@ tstl_register_module(
                         end
                         local text2 = button:CreateFontString("", "OVERLAY", "GameTooltipText")
                         text2:SetPoint("CENTER", 0, -30)
-                        item[4] = math.floor(item[4] * 10000) / 10000
                         text2:SetText(
                             ("Drop %: " .. tostring(item[4])) .. "%"
                         )
@@ -304,6 +303,7 @@ tstl_register_module(
             OnCustomPacket(
                 itemLootMessageID,
                 function(packet)
+                    print(1)
                     local customPacket = __TS__New(itemLootMessage, 0, 0, 0, 0)
                     customPacket:read(packet)
                     __TS__ArrayPush(itemArray, {customPacket.itemID, customPacket.itemCountMin, customPacket.itemCountMax, customPacket.dropChance})
@@ -312,6 +312,7 @@ tstl_register_module(
             OnCustomPacket(
                 itemLootFinishMessageID,
                 function(packet)
+                    print(2)
                     local customPacket = __TS__New(itemLootFinishMessage, 0)
                     customPacket:read(packet)
                     local max = math.ceil(#itemArray / (columns * rows))
@@ -330,6 +331,7 @@ tstl_register_module(
             OnCustomPacket(
                 creatureNoExistMessageID,
                 function(packet)
+                    print(3)
                     print("DOES NOT EXIST!!!")
                     Portrait:Hide()
                 end

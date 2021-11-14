@@ -4,12 +4,13 @@ export function Atlas(events: TSEventHandlers) {
     events.PacketID.OnCustom(creatureNameMessageID,(_,packet,player)=>{
         let msg = new creatureNameMessage(0,"")
         msg.read(packet)
-        let check = -2
+        let check = 0
         let entry = msg.entry.split("\\\\").join("").split(";").join("").split("/").join("").split("\"").join("\\\\\"").split("'").join("\\\\\'")
         let lootID = 0;
         console.log("Player: "+player.GetName() + " AccountID: "+player.GetAccountId()+" Message: "+msg.entry+" isName: "+msg.isName + " Formatted: " + entry)
         if(entry.length > 0){
             if(msg.isName == 1){
+                check = -1
                 let query = QueryWorld("SELECT `entry` FROM `creature_template` WHERE `name` = '" + entry + "'");
                 while(query.GetRow()){
                     entry = query.GetString(0)
@@ -30,11 +31,11 @@ export function Atlas(events: TSEventHandlers) {
                     if(query.GetUInt32(2) == 0){
                         if(query.GetFloat(3) > 0){
                             new itemLootMessage(query.GetUInt32(1),query.GetInt8(7),query.GetInt8(8),query.GetFloat(3)).write().SendToPlayer(player);
-                        check = 1
+                            check = 1
                         }
                     }
                 }
-                if(check = 0){
+                if(check == 0){
                     new creatureNoExistMessage(0).write().SendToPlayer(player);
                     return;
                 }
@@ -48,7 +49,8 @@ export function Atlas(events: TSEventHandlers) {
         }
         if(check == 1){
             let v = ToUInt32(entry)
-            new itemLootFinishMessage(v).write().SendToPlayer(player)
+            let msgL = new itemLootFinishMessage(v)
+            msgL.write().SendToPlayer(player)
             player.SendCreatureQueryPacket(v) 
         }
     })

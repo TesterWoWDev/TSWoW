@@ -45,7 +45,7 @@ tstl_register_module(
             self.dropChance = read:ReadDouble()
         end
         function itemLootMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 20)
+            local packet = MakeCustomPacket(____exports.itemLootMessageID, 20)
             packet:WriteUInt32(self.itemID)
             packet:WriteUInt32(self.itemCountMin)
             packet:WriteUInt32(self.itemCountMax)
@@ -64,7 +64,7 @@ tstl_register_module(
             self.entry = read:ReadUInt32()
         end
         function itemLootFinishMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 5)
+            local packet = MakeCustomPacket(____exports.itemLootFinishMessageID, 5)
             packet:WriteUInt32(self.entry)
             return packet
         end
@@ -80,7 +80,7 @@ tstl_register_module(
             self.finish = read:ReadUInt32()
         end
         function creatureNoExistMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 5)
+            local packet = MakeCustomPacket(____exports.creatureNoExistMessageID, 5)
             packet:WriteUInt32(self.finish)
             return packet
         end
@@ -99,7 +99,7 @@ tstl_register_module(
             self.bet = read:ReadUInt32()
         end
         function blackjackPlayerMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 40)
+            local packet = MakeCustomPacket(____exports.blackjackPlayerMessageID, 40)
             packet:WriteUInt32(self.value)
             packet:WriteUInt32(self.bet)
             return packet
@@ -125,7 +125,7 @@ tstl_register_module(
             self.bet = read:ReadUInt32()
         end
         function blackjackSendHandMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 40)
+            local packet = MakeCustomPacket(____exports.blackjackSendHandMessageID, 40)
             do
                 local i = 0
                 while i < 10 do
@@ -148,7 +148,7 @@ tstl_register_module(
             self.value = read:ReadUInt32()
         end
         function requestClassSpellsMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 5)
+            local packet = MakeCustomPacket(____exports.requestClassSpellsMessageID, 5)
             packet:WriteUInt32(self.value)
             return packet
         end
@@ -167,7 +167,7 @@ tstl_register_module(
             self.spellID = read:ReadUInt32()
         end
         function sendClassSpellsMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 5)
+            local packet = MakeCustomPacket(____exports.sendClassSpellsMessageID, 5)
             packet:WriteUInt32(self.level)
             packet:WriteUInt32(self.spellID)
             return packet
