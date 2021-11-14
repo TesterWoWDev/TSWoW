@@ -3,7 +3,7 @@ import { ClassType } from "tswow-stdlib/Class/ClassType"
 
 let classes:ClassType[] = ['WARRIOR','PALADIN','HUNTER','ROGUE','PRIEST','DEATH_KNIGHT','SHAMAN','MAGE','WARLOCK','DRUID']
 classes.forEach((value,index,array)=>{
-    std.EquipSkills.Bows.enableAutolearn(value)
+    // std.EquipSkills.Bows.enableAutolearn(value)
     // std.EquipSkills.Daggers.enableAutolearn(value)
     // std.EquipSkills.FistWeapons.enableAutolearn(value)
     // std.EquipSkills.Guns.enableAutolearn(value)

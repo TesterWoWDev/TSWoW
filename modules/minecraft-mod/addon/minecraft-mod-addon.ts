@@ -278,7 +278,6 @@ let unrefinedGem = 'INV_Enchant_ShardShadowfrostLarge'
 
 let recipes = [[mat,mat,mat,mat,'',mat,'','',''],[mat,chain,mat,mat,gem,mat,'',mat,''],[epulet,'',epulet,mat,'',mat,'','',''],[mat,chain,mat,mat,mat,mat,'','',''],[mat,'',mat,mat,mat,mat,mat,mat,mat,],['',mat,'',mat,'',mat,'',mat,''],[mat,'',mat,mat,'',mat,'','',''],['','','',mat,mat,mat,'','',''],[mat,mat,mat,mat,'',mat,mat,'',mat],['','','',mat,'',mat,mat,'',mat],['',gem,'',mat,'',mat,'',mat,''],['',mat,'',mat,gem,mat,'',mat,''],['',metal,'','',metal,'','',stick,''],['','','','',metal,metal,'',stick,''],['','','','',metal,'','',stick,metal],['','','','',metal,'','',stick,''],['',reinforcedMetal,'','',reinforcedMetal,'','',stick,''],['','','','',reinforcedMetal,reinforcedMetal,'',stick,''],['','','','',reinforcedMetal,'','',stick,reinforcedMetal],['','',reinforcedMetal,'',reinforcedMetal,'',stick,'',''],['',gem,'','',stick,'','',stick,''],['',stick,'',metal,'',metal,'','',''],['',stick,'','',string,stick,'',stick,''],[stick,'',stick,'',reinforcedMetal,'',stick,'',stick],['',dust,'',dust,unrefinedGem,dust,'',dust,''],['','','',stick,stick,'',gem,stick,''],['','','','',gem,'','',stick,''],['skipforblank']]//maybe add a spot for enchant
 let recipeIcons = ['INV_Misc_Desecrated_PlateHelm','INV_Jewelry_Necklace_06','INV_Misc_Desecrated_PlateShoulder','INV_Misc_Cape_19','INV_Misc_Desecrated_PlateChest','INV_Misc_Desecrated_PlateBracer','INV_Misc_Desecrated_PlateGloves','INV_Misc_Desecrated_PlateBelt','INV_Misc_Desecrated_PlatePants','INV_Misc_Desecrated_PlateBoots','INV_Jewelry_Ring_03','INV_Jewelry_Talisman_01','INV_Sword_01','INV_Mace_03','INV_Axe_03','INV_Weapon_ShortBlade_14','INV_Sword_2H_Blacksmithing_03','INV_Mace_84','INV_Axe_60','INV_Weapon_Halberd15','INV_Staff_13','INV_Weapon_Hand_01','INV_Weapon_Bow_01','INV_Shield_17','INV_Enchant_FormulaEpic_01','INV_Misc_Book_01','INV_Wand_07']
-let recipeTooltips = ['Head','Neck','Shoulder','Cloak','Chest','Wrists','Hands','Waist','Pants','Boots','Ring','Trinket','1H Sword','1H Mace','1H Axe','Dagger','2H Sword','2H Mace','2H Axe','Polearm','Staff','Fist Weapon','Bow','Shield','Discover Gem','Book','Wand',]
 let mframeRecipe = CreateFrame('Frame','mframerecipe',mframe)
     mframeRecipe.SetWidth(260)
     mframeRecipe.SetHeight(400)
@@ -302,15 +301,6 @@ let extexRecipe = exitbutnRecipe.CreateTexture('exittexrec','BACKGROUND')
     extexRecipe.SetTexture("Interface\\Calendar\\EventNotification.blp")
     extexRecipe.SetAllPoints(exitbutnRecipe)
     extexRecipe.SetPoint("CENTER",0,0)
-    exitbutnRecipe.SetScript("OnEnter",(self)=>{
-        GameTooltip.ClearLines()
-        GameTooltip.SetOwner(exitbutnRecipe,'CENTER')
-        GameTooltip.SetText("Example Recipes")
-        GameTooltip.Show()
-    })     
-    exitbutnRecipe.SetScript("OnLeave",()=>{
-        GameTooltip.Hide()
-    })
     exitbutnRecipe.HookScript("OnClick",(frame,evName,btnDown)=>{
         if(mframeRecipe.IsShown()){
             mframeRecipe.Hide()
@@ -323,15 +313,7 @@ let extexRecipe = exitbutnRecipe.CreateTexture('exittexrec','BACKGROUND')
         let button = CreateFrame('Button','recipebut',mframeRecipe)
             button.SetSize(45,45)
             button.SetPoint('CENTER',mframeRecipe,'TOPLEFT',55+((button.GetWidth()+5)*(Math.floor(index%4))),-50-((button.GetHeight()+5)*(Math.floor(index/4))))
-            button.SetScript("OnEnter",(self)=>{
-                GameTooltip.ClearLines()
-                GameTooltip.SetOwner(button,'CENTER')
-                GameTooltip.SetText(recipeTooltips[index])
-                GameTooltip.Show()
-            })     
-            button.SetScript("OnLeave",()=>{
-                GameTooltip.Hide()
-            })
+            button.CreateTexture
             let butRecipe = button.CreateTexture('tex','BACKGROUND')
                 butRecipe.SetAllPoints(button)
                 butRecipe.SetTexture('Interface/Icons/'+recipeIcons[index])//set to 

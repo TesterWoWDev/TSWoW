@@ -63,26 +63,383 @@ declare const enum Class /** @realType: uint8 */ {
 }
 declare type ClassID = Class | uint8
 
-declare const enum Outfit {} /** TSOutfit.h:Outfit */
-declare const enum SpellCastResult {} /** SharedDefines.h:SpellCastResult */
-declare const enum EquipmentSlots {} /** Player.h:EquipmentSlots */
+declare const enum Outfit /**@realType:uint32_t*/ {
+    SOUND_ID   = 0x1,
+    GUILD      = 0x2,
+    CLASS      = 0x4,
+
+    HEAD       = 0x8,
+    SHOULDERS  = 0x10,
+    BODY       = 0x20,
+    CHEST      = 0x40,
+    WAIST      = 0x80,
+    LEGS       = 0x100,
+    FEET       = 0x200,
+    WRISTS     = 0x400,
+    HANDS      = 0x800,
+    BACK       = 0x1000,
+    MAINHAND   = 0x2000,
+    OFFHAND    = 0x4000,
+    RANGED     = 0x8000,
+
+    WEAPONS = MAINHAND | OFFHAND | RANGED,
+    ARMOR = HEAD | SHOULDERS | BODY | CHEST | WAIST
+                 | LEGS | FEET | WRISTS | HANDS | BACK,
+    GEAR = WEAPONS | ARMOR,
+    EVERYTHING = GEAR | SOUND_ID | GUILD | CLASS
+}
+declare const enum SpellCastResult /**@realType:uint8*/ {
+    SPELL_FAILED_SUCCESS = 0,
+    SPELL_FAILED_AFFECTING_COMBAT = 1,
+    SPELL_FAILED_ALREADY_AT_FULL_HEALTH = 2,
+    SPELL_FAILED_ALREADY_AT_FULL_MANA = 3,
+    SPELL_FAILED_ALREADY_AT_FULL_POWER = 4,
+    SPELL_FAILED_ALREADY_BEING_TAMED = 5,
+    SPELL_FAILED_ALREADY_HAVE_CHARM = 6,
+    SPELL_FAILED_ALREADY_HAVE_SUMMON = 7,
+    SPELL_FAILED_ALREADY_OPEN = 8,
+    SPELL_FAILED_AURA_BOUNCED = 9,
+    SPELL_FAILED_AUTOTRACK_INTERRUPTED = 10,
+    SPELL_FAILED_BAD_IMPLICIT_TARGETS = 11,
+    SPELL_FAILED_BAD_TARGETS = 12,
+    SPELL_FAILED_CANT_BE_CHARMED = 13,
+    SPELL_FAILED_CANT_BE_DISENCHANTED = 14,
+    SPELL_FAILED_CANT_BE_DISENCHANTED_SKILL = 15,
+    SPELL_FAILED_CANT_BE_MILLED = 16,
+    SPELL_FAILED_CANT_BE_PROSPECTED = 17,
+    SPELL_FAILED_CANT_CAST_ON_TAPPED = 18,
+    SPELL_FAILED_CANT_DUEL_WHILE_INVISIBLE = 19,
+    SPELL_FAILED_CANT_DUEL_WHILE_STEALTHED = 20,
+    SPELL_FAILED_CANT_STEALTH = 21,
+    SPELL_FAILED_CASTER_AURASTATE = 22,
+    SPELL_FAILED_CASTER_DEAD = 23,
+    SPELL_FAILED_CHARMED = 24,
+    SPELL_FAILED_CHEST_IN_USE = 25,
+    SPELL_FAILED_CONFUSED = 26,
+    SPELL_FAILED_DONT_REPORT = 27,
+    SPELL_FAILED_EQUIPPED_ITEM = 28,
+    SPELL_FAILED_EQUIPPED_ITEM_CLASS = 29,
+    SPELL_FAILED_EQUIPPED_ITEM_CLASS_MAINHAND = 30,
+    SPELL_FAILED_EQUIPPED_ITEM_CLASS_OFFHAND = 31,
+    SPELL_FAILED_ERROR = 32,
+    SPELL_FAILED_FIZZLE = 33,
+    SPELL_FAILED_FLEEING = 34,
+    SPELL_FAILED_FOOD_LOWLEVEL = 35,
+    SPELL_FAILED_HIGHLEVEL = 36,
+    SPELL_FAILED_HUNGER_SATIATED = 37,
+    SPELL_FAILED_IMMUNE = 38,
+    SPELL_FAILED_INCORRECT_AREA = 39,
+    SPELL_FAILED_INTERRUPTED = 40,
+    SPELL_FAILED_INTERRUPTED_COMBAT = 41,
+    SPELL_FAILED_ITEM_ALREADY_ENCHANTED = 42,
+    SPELL_FAILED_ITEM_GONE = 43,
+    SPELL_FAILED_ITEM_NOT_FOUND = 44,
+    SPELL_FAILED_ITEM_NOT_READY = 45,
+    SPELL_FAILED_LEVEL_REQUIREMENT = 46,
+    SPELL_FAILED_LINE_OF_SIGHT = 47,
+    SPELL_FAILED_LOWLEVEL = 48,
+    SPELL_FAILED_LOW_CASTLEVEL = 49,
+    SPELL_FAILED_MAINHAND_EMPTY = 50,
+    SPELL_FAILED_MOVING = 51,
+    SPELL_FAILED_NEED_AMMO = 52,
+    SPELL_FAILED_NEED_AMMO_POUCH = 53,
+    SPELL_FAILED_NEED_EXOTIC_AMMO = 54,
+    SPELL_FAILED_NEED_MORE_ITEMS = 55,
+    SPELL_FAILED_NOPATH = 56,
+    SPELL_FAILED_NOT_BEHIND = 57,
+    SPELL_FAILED_NOT_FISHABLE = 58,
+    SPELL_FAILED_NOT_FLYING = 59,
+    SPELL_FAILED_NOT_HERE = 60,
+    SPELL_FAILED_NOT_INFRONT = 61,
+    SPELL_FAILED_NOT_IN_CONTROL = 62,
+    SPELL_FAILED_NOT_KNOWN = 63,
+    SPELL_FAILED_NOT_MOUNTED = 64,
+    SPELL_FAILED_NOT_ON_TAXI = 65,
+    SPELL_FAILED_NOT_ON_TRANSPORT = 66,
+    SPELL_FAILED_NOT_READY = 67,
+    SPELL_FAILED_NOT_SHAPESHIFT = 68,
+    SPELL_FAILED_NOT_STANDING = 69,
+    SPELL_FAILED_NOT_TRADEABLE = 70,
+    SPELL_FAILED_NOT_TRADING = 71,
+    SPELL_FAILED_NOT_UNSHEATHED = 72,
+    SPELL_FAILED_NOT_WHILE_GHOST = 73,
+    SPELL_FAILED_NOT_WHILE_LOOTING = 74,
+    SPELL_FAILED_NO_AMMO = 75,
+    SPELL_FAILED_NO_CHARGES_REMAIN = 76,
+    SPELL_FAILED_NO_CHAMPION = 77,
+    SPELL_FAILED_NO_COMBO_POINTS = 78,
+    SPELL_FAILED_NO_DUELING = 79,
+    SPELL_FAILED_NO_ENDURANCE = 80,
+    SPELL_FAILED_NO_FISH = 81,
+    SPELL_FAILED_NO_ITEMS_WHILE_SHAPESHIFTED = 82,
+    SPELL_FAILED_NO_MOUNTS_ALLOWED = 83,
+    SPELL_FAILED_NO_PET = 84,
+    SPELL_FAILED_NO_POWER = 85,
+    SPELL_FAILED_NOTHING_TO_DISPEL = 86,
+    SPELL_FAILED_NOTHING_TO_STEAL = 87,
+    SPELL_FAILED_ONLY_ABOVEWATER = 88,
+    SPELL_FAILED_ONLY_DAYTIME = 89,
+    SPELL_FAILED_ONLY_INDOORS = 90,
+    SPELL_FAILED_ONLY_MOUNTED = 91,
+    SPELL_FAILED_ONLY_NIGHTTIME = 92,
+    SPELL_FAILED_ONLY_OUTDOORS = 93,
+    SPELL_FAILED_ONLY_SHAPESHIFT = 94,
+    SPELL_FAILED_ONLY_STEALTHED = 95,
+    SPELL_FAILED_ONLY_UNDERWATER = 96,
+    SPELL_FAILED_OUT_OF_RANGE = 97,
+    SPELL_FAILED_PACIFIED = 98,
+    SPELL_FAILED_POSSESSED = 99,
+    SPELL_FAILED_REAGENTS = 100,
+    SPELL_FAILED_REQUIRES_AREA = 101,
+    SPELL_FAILED_REQUIRES_SPELL_FOCUS = 102,
+    SPELL_FAILED_ROOTED = 103,
+    SPELL_FAILED_SILENCED = 104,
+    SPELL_FAILED_SPELL_IN_PROGRESS = 105,
+    SPELL_FAILED_SPELL_LEARNED = 106,
+    SPELL_FAILED_SPELL_UNAVAILABLE = 107,
+    SPELL_FAILED_STUNNED = 108,
+    SPELL_FAILED_TARGETS_DEAD = 109,
+    SPELL_FAILED_TARGET_AFFECTING_COMBAT = 110,
+    SPELL_FAILED_TARGET_AURASTATE = 111,
+    SPELL_FAILED_TARGET_DUELING = 112,
+    SPELL_FAILED_TARGET_ENEMY = 113,
+    SPELL_FAILED_TARGET_ENRAGED = 114,
+    SPELL_FAILED_TARGET_FRIENDLY = 115,
+    SPELL_FAILED_TARGET_IN_COMBAT = 116,
+    SPELL_FAILED_TARGET_IS_PLAYER = 117,
+    SPELL_FAILED_TARGET_IS_PLAYER_CONTROLLED = 118,
+    SPELL_FAILED_TARGET_NOT_DEAD = 119,
+    SPELL_FAILED_TARGET_NOT_IN_PARTY = 120,
+    SPELL_FAILED_TARGET_NOT_LOOTED = 121,
+    SPELL_FAILED_TARGET_NOT_PLAYER = 122,
+    SPELL_FAILED_TARGET_NO_POCKETS = 123,
+    SPELL_FAILED_TARGET_NO_WEAPONS = 124,
+    SPELL_FAILED_TARGET_NO_RANGED_WEAPONS = 125,
+    SPELL_FAILED_TARGET_UNSKINNABLE = 126,
+    SPELL_FAILED_THIRST_SATIATED = 127,
+    SPELL_FAILED_TOO_CLOSE = 128,
+    SPELL_FAILED_TOO_MANY_OF_ITEM = 129,
+    SPELL_FAILED_TOTEM_CATEGORY = 130,
+    SPELL_FAILED_TOTEMS = 131,
+    SPELL_FAILED_TRY_AGAIN = 132,
+    SPELL_FAILED_UNIT_NOT_BEHIND = 133,
+    SPELL_FAILED_UNIT_NOT_INFRONT = 134,
+    SPELL_FAILED_WRONG_PET_FOOD = 135,
+    SPELL_FAILED_NOT_WHILE_FATIGUED = 136,
+    SPELL_FAILED_TARGET_NOT_IN_INSTANCE = 137,
+    SPELL_FAILED_NOT_WHILE_TRADING = 138,
+    SPELL_FAILED_TARGET_NOT_IN_RAID = 139,
+    SPELL_FAILED_TARGET_FREEFORALL = 140,
+    SPELL_FAILED_NO_EDIBLE_CORPSES = 141,
+    SPELL_FAILED_ONLY_BATTLEGROUNDS = 142,
+    SPELL_FAILED_TARGET_NOT_GHOST = 143,
+    SPELL_FAILED_TRANSFORM_UNUSABLE = 144,
+    SPELL_FAILED_WRONG_WEATHER = 145,
+    SPELL_FAILED_DAMAGE_IMMUNE = 146,
+    SPELL_FAILED_PREVENTED_BY_MECHANIC = 147,
+    SPELL_FAILED_PLAY_TIME = 148,
+    SPELL_FAILED_REPUTATION = 149,
+    SPELL_FAILED_MIN_SKILL = 150,
+    SPELL_FAILED_NOT_IN_ARENA = 151,
+    SPELL_FAILED_NOT_ON_SHAPESHIFT = 152,
+    SPELL_FAILED_NOT_ON_STEALTHED = 153,
+    SPELL_FAILED_NOT_ON_DAMAGE_IMMUNE = 154,
+    SPELL_FAILED_NOT_ON_MOUNTED = 155,
+    SPELL_FAILED_TOO_SHALLOW = 156,
+    SPELL_FAILED_TARGET_NOT_IN_SANCTUARY = 157,
+    SPELL_FAILED_TARGET_IS_TRIVIAL = 158,
+    SPELL_FAILED_BM_OR_INVISGOD = 159,
+    SPELL_FAILED_EXPERT_RIDING_REQUIREMENT = 160,
+    SPELL_FAILED_ARTISAN_RIDING_REQUIREMENT = 161,
+    SPELL_FAILED_NOT_IDLE = 162,
+    SPELL_FAILED_NOT_INACTIVE = 163,
+    SPELL_FAILED_PARTIAL_PLAYTIME = 164,
+    SPELL_FAILED_NO_PLAYTIME = 165,
+    SPELL_FAILED_NOT_IN_BATTLEGROUND = 166,
+    SPELL_FAILED_NOT_IN_RAID_INSTANCE = 167,
+    SPELL_FAILED_ONLY_IN_ARENA = 168,
+    SPELL_FAILED_TARGET_LOCKED_TO_RAID_INSTANCE = 169,
+    SPELL_FAILED_ON_USE_ENCHANT = 170,
+    SPELL_FAILED_NOT_ON_GROUND = 171,
+    SPELL_FAILED_CUSTOM_ERROR = 172,
+    SPELL_FAILED_CANT_DO_THAT_RIGHT_NOW = 173,
+    SPELL_FAILED_TOO_MANY_SOCKETS = 174,
+    SPELL_FAILED_INVALID_GLYPH = 175,
+    SPELL_FAILED_UNIQUE_GLYPH = 176,
+    SPELL_FAILED_GLYPH_SOCKET_LOCKED = 177,
+    SPELL_FAILED_NO_VALID_TARGETS = 178,
+    SPELL_FAILED_ITEM_AT_MAX_CHARGES = 179,
+    SPELL_FAILED_NOT_IN_BARBERSHOP = 180,
+    SPELL_FAILED_FISHING_TOO_LOW = 181,
+    SPELL_FAILED_ITEM_ENCHANT_TRADE_WINDOW = 182,
+    SPELL_FAILED_SUMMON_PENDING = 183,
+    SPELL_FAILED_MAX_SOCKETS = 184,
+    SPELL_FAILED_PET_CAN_RENAME = 185,
+    SPELL_FAILED_TARGET_CANNOT_BE_RESURRECTED = 186,
+    SPELL_FAILED_UNKNOWN = 187, // actually doesn't exist in client
+
+    SPELL_CAST_OK = 255 // custom value, must not be sent to client
+}
+declare const enum EquipmentSlots /**@realType:uint8*/ {
+    EQUIPMENT_SLOT_START        = 0,
+    EQUIPMENT_SLOT_HEAD         = 0,
+    EQUIPMENT_SLOT_NECK         = 1,
+    EQUIPMENT_SLOT_SHOULDERS    = 2,
+    EQUIPMENT_SLOT_BODY         = 3,
+    EQUIPMENT_SLOT_CHEST        = 4,
+    EQUIPMENT_SLOT_WAIST        = 5,
+    EQUIPMENT_SLOT_LEGS         = 6,
+    EQUIPMENT_SLOT_FEET         = 7,
+    EQUIPMENT_SLOT_WRISTS       = 8,
+    EQUIPMENT_SLOT_HANDS        = 9,
+    EQUIPMENT_SLOT_FINGER1      = 10,
+    EQUIPMENT_SLOT_FINGER2      = 11,
+    EQUIPMENT_SLOT_TRINKET1     = 12,
+    EQUIPMENT_SLOT_TRINKET2     = 13,
+    EQUIPMENT_SLOT_BACK         = 14,
+    EQUIPMENT_SLOT_MAINHAND     = 15,
+    EQUIPMENT_SLOT_OFFHAND      = 16,
+    EQUIPMENT_SLOT_RANGED       = 17,
+    EQUIPMENT_SLOT_TABARD       = 18,
+    EQUIPMENT_SLOT_END          = 19
+}
 declare const enum InventorySlots /**@realType:uint32*/{
     INVENTORY_SLOT_BAG_1 = 19,
     INVENTORY_SLOT_BAG_2 = 20,
     INVENTORY_SLOT_BAG_3 = 21,
     INVENTORY_SLOT_BAG_4 = 22
 }
-declare const enum CorpseType {} /** Corpse.h:CorpseType */
-declare const enum CreatureFamily {} /** SharedDefines.h:CreatureFamily */
-declare const enum RemoveMethod {} /** SharedDefines.h:RemoveMethod */
-declare const enum QuestFlags {} /** QuestDef.h:QuestFlags */
-declare const enum TeamId {} /** SharedDefines.h:TeamId */
-declare const enum WeatherType {} /** SharedDefines.h:WeatherType */
-declare const enum GOState {} /** SharedDefines.h:GOState */
-declare const enum LootState {} /** GameObject.h:LootState */
-declare const enum TempSummonType {} /** ObjectDefines.h:TempSummonType */
-declare const enum TypeID {} /** ObjectGuid.h:TypeID */
-declare const enum CurrentSpellTypes {} /** Unit.h:CurrentSpellTypes */
+declare const enum CorpseType /**@realType:uint32*/ {
+    CORPSE_BONES             = 0,
+    CORPSE_RESURRECTABLE_PVE = 1,
+    CORPSE_RESURRECTABLE_PVP = 2
+}
+declare const enum CreatureFamily /**@realType:uint32*/ {
+    CREATURE_FAMILY_NONE                = 0,
+    CREATURE_FAMILY_WOLF                = 1,
+    CREATURE_FAMILY_CAT                 = 2,
+    CREATURE_FAMILY_SPIDER              = 3,
+    CREATURE_FAMILY_BEAR                = 4,
+    CREATURE_FAMILY_BOAR                = 5,
+    CREATURE_FAMILY_CROCOLISK           = 6,
+    CREATURE_FAMILY_CARRION_BIRD        = 7,
+    CREATURE_FAMILY_CRAB                = 8,
+    CREATURE_FAMILY_GORILLA             = 9,
+    CREATURE_FAMILY_HORSE_CUSTOM        = 10,   // Does not exist in DBC but used for horse like beasts in DB
+    CREATURE_FAMILY_RAPTOR              = 11,
+    CREATURE_FAMILY_TALLSTRIDER         = 12,
+    CREATURE_FAMILY_FELHUNTER           = 15,
+    CREATURE_FAMILY_VOIDWALKER          = 16,
+    CREATURE_FAMILY_SUCCUBUS            = 17,
+    CREATURE_FAMILY_DOOMGUARD           = 19,
+    CREATURE_FAMILY_SCORPID             = 20,
+    CREATURE_FAMILY_TURTLE              = 21,
+    CREATURE_FAMILY_IMP                 = 23,
+    CREATURE_FAMILY_BAT                 = 24,
+    CREATURE_FAMILY_HYENA               = 25,
+    CREATURE_FAMILY_BIRD_OF_PREY        = 26,
+    CREATURE_FAMILY_WIND_SERPENT        = 27,
+    CREATURE_FAMILY_REMOTE_CONTROL      = 28,
+    CREATURE_FAMILY_FELGUARD            = 29,
+    CREATURE_FAMILY_DRAGONHAWK          = 30,
+    CREATURE_FAMILY_RAVAGER             = 31,
+    CREATURE_FAMILY_WARP_STALKER        = 32,
+    CREATURE_FAMILY_SPOREBAT            = 33,
+    CREATURE_FAMILY_NETHER_RAY          = 34,
+    CREATURE_FAMILY_SERPENT             = 35,
+    CREATURE_FAMILY_MOTH                = 37,
+    CREATURE_FAMILY_CHIMAERA            = 38,
+    CREATURE_FAMILY_DEVILSAUR           = 39,
+    CREATURE_FAMILY_GHOUL               = 40,
+    CREATURE_FAMILY_SILITHID            = 41,
+    CREATURE_FAMILY_WORM                = 42,
+    CREATURE_FAMILY_RHINO               = 43,
+    CREATURE_FAMILY_WASP                = 44,
+    CREATURE_FAMILY_CORE_HOUND          = 45,
+    CREATURE_FAMILY_SPIRIT_BEAST        = 46
+}
+declare const enum RemoveMethod /**@realType:uint8*/ {
+    GROUP_REMOVEMETHOD_DEFAULT  = 0,
+    GROUP_REMOVEMETHOD_KICK     = 1,
+    GROUP_REMOVEMETHOD_LEAVE    = 2,
+    GROUP_REMOVEMETHOD_KICK_LFG = 3
+}
+declare const enum QuestFlags /**@realType:uint32*/ {
+    // Flags used at server and sent to client
+    QUEST_FLAGS_NONE                    = 0x00000000,
+    QUEST_FLAGS_STAY_ALIVE              = 0x00000001,   // Not used currently
+    QUEST_FLAGS_PARTY_ACCEPT            = 0x00000002,   // Not used currently. If player in party, all players that can accept this quest will receive confirmation box to accept quest CMSG_QUEST_CONFIRM_ACCEPT/SMSG_QUEST_CONFIRM_ACCEPT
+    QUEST_FLAGS_EXPLORATION             = 0x00000004,   // Not used currently
+    QUEST_FLAGS_SHARABLE                = 0x00000008,   // Can be shared: Player::CanShareQuest()
+    QUEST_FLAGS_HAS_CONDITION           = 0x00000010,   // Not used currently
+    QUEST_FLAGS_HIDE_REWARD_POI         = 0x00000020,   // Not used currently: Unsure of content
+    QUEST_FLAGS_RAID                    = 0x00000040,   // Can be completed while in raid
+    QUEST_FLAGS_TBC                     = 0x00000080,   // Not used currently: Available if TBC expansion enabled only
+    QUEST_FLAGS_NO_MONEY_FROM_XP        = 0x00000100,   // Not used currently: Experience is not converted to gold at max level
+    QUEST_FLAGS_HIDDEN_REWARDS          = 0x00000200,   // Items and money rewarded only sent in SMSG_QUESTGIVER_OFFER_REWARD (not in SMSG_QUEST_GIVER_QUEST_DETAILS or in client quest log(SMSG_QUEST_QUERY_RESPONSE))
+    QUEST_FLAGS_TRACKING                = 0x00000400,   // These quests are automatically rewarded on quest complete and they will never appear in quest log client side.
+    QUEST_FLAGS_DEPRECATE_REPUTATION    = 0x00000800,   // Not used currently
+    QUEST_FLAGS_DAILY                   = 0x00001000,   // Used to know quest is Daily one
+    QUEST_FLAGS_FLAGS_PVP               = 0x00002000,   // Having this quest in log forces PvP flag
+    QUEST_FLAGS_UNAVAILABLE             = 0x00004000,   // Used on quests that are not generically available
+    QUEST_FLAGS_WEEKLY                  = 0x00008000,
+    QUEST_FLAGS_AUTOCOMPLETE            = 0x00010000,   // auto complete
+    QUEST_FLAGS_DISPLAY_ITEM_IN_TRACKER = 0x00020000,   // Displays usable item in quest tracker
+    QUEST_FLAGS_OBJ_TEXT                = 0x00040000,   // use Objective text as Complete text
+    QUEST_FLAGS_AUTO_ACCEPT             = 0x00080000,   // The client recognizes this flag as auto-accept. However, NONE of the current quests (3.3.5a) have this flag. Maybe blizz used to use it, or will use it in the future.
+
+    // ... 4.x added flags up to 0x80000000 - all unknown for now
+}
+declare const enum TeamId /**@realType:uint32*/ {
+    TEAM_ALLIANCE = 0,
+    TEAM_HORDE,
+    TEAM_NEUTRAL
+}
+declare const enum WeatherType /**@realType:uint32*/ {
+    WEATHER_TYPE_FINE       = 0,
+    WEATHER_TYPE_RAIN       = 1,
+    WEATHER_TYPE_SNOW       = 2,
+    WEATHER_TYPE_STORM      = 3,
+    WEATHER_TYPE_THUNDERS   = 86,
+    WEATHER_TYPE_BLACKRAIN  = 90
+}
+declare const enum GOState /**@realType:uint8*/ {
+    GO_STATE_ACTIVE             = 0,                        // show in world as used and not reset (closed door open)
+    GO_STATE_READY              = 1,                        // show in world as ready (closed door close)
+    GO_STATE_DESTROYED          = 2                         // show the object in-game as already used and not yet reset (e.g. door opened by a cannon blast)
+}
+declare const enum LootState /**@realType:uint32*/ {
+    GO_NOT_READY = 0,
+    GO_READY,                                               // can be ready but despawned, and then not possible activate until spawn
+    GO_ACTIVATED,
+    GO_JUST_DEACTIVATED
+}
+declare const enum TempSummonType /**@realType:uint32*/ {
+    TEMPSUMMON_TIMED_OR_DEAD_DESPAWN       = 1,             // despawns after a specified time OR when the creature disappears
+    TEMPSUMMON_TIMED_OR_CORPSE_DESPAWN     = 2,             // despawns after a specified time OR when the creature dies
+    TEMPSUMMON_TIMED_DESPAWN               = 3,             // despawns after a specified time
+    TEMPSUMMON_TIMED_DESPAWN_OUT_OF_COMBAT = 4,             // despawns after a specified time after the creature is out of combat
+    TEMPSUMMON_CORPSE_DESPAWN              = 5,             // despawns instantly after death
+    TEMPSUMMON_CORPSE_TIMED_DESPAWN        = 6,             // despawns after a specified time after death
+    TEMPSUMMON_DEAD_DESPAWN                = 7,             // despawns when the creature disappears
+    TEMPSUMMON_MANUAL_DESPAWN              = 8              // despawns when UnSummon() is called
+}
+declare const enum TypeID /**@realType:uint32*/ {
+    TYPEID_OBJECT        = 0,
+    TYPEID_ITEM          = 1,
+    TYPEID_CONTAINER     = 2,
+    TYPEID_UNIT          = 3,
+    TYPEID_PLAYER        = 4,
+    TYPEID_GAMEOBJECT    = 5,
+    TYPEID_DYNAMICOBJECT = 6,
+    TYPEID_CORPSE        = 7
+}
+declare const enum CurrentSpellTypes /**@realType:uint8*/ {
+    CURRENT_MELEE_SPELL             = 0,
+    CURRENT_GENERIC_SPELL           = 1,
+    CURRENT_CHANNELED_SPELL         = 2,
+    CURRENT_AUTOREPEAT_SPELL        = 3
+}
 declare const enum Powers /**@realType:int8 */ {
     POWER_HEALTH                        = -2,
     POWER_MANA                          = 0,
@@ -93,12 +450,82 @@ declare const enum Powers /**@realType:int8 */ {
     POWER_RUNE                          = 5,
     POWER_RUNIC_POWER                   = 6,
 } /**@realType:int8 */
-declare const enum CreatureType {} /** SharedDefines.h:CreatureType */
-declare const enum LocaleConstant {} /** Common.h:LocaleConstant */
-declare const enum UnitMoveType {} /** UnitDefines.h:UnitMoveType */
-declare const enum MovementGeneratorType {} /** MovementDefines.h:MovementGeneratorType */
-declare const enum SheathState {} /** UnitDefines.h:SheathState */
-declare const enum SpellSchools {} /** SharedDefines.h:SpellSchools */
+declare const enum CreatureType /**@realType:uint32*/ {
+    CREATURE_TYPE_BEAST            = 1,
+    CREATURE_TYPE_DRAGONKIN        = 2,
+    CREATURE_TYPE_DEMON            = 3,
+    CREATURE_TYPE_ELEMENTAL        = 4,
+    CREATURE_TYPE_GIANT            = 5,
+    CREATURE_TYPE_UNDEAD           = 6,
+    CREATURE_TYPE_HUMANOID         = 7,
+    CREATURE_TYPE_CRITTER          = 8,
+    CREATURE_TYPE_MECHANICAL       = 9,
+    CREATURE_TYPE_NOT_SPECIFIED    = 10,
+    CREATURE_TYPE_TOTEM            = 11,
+    CREATURE_TYPE_NON_COMBAT_PET   = 12,
+    CREATURE_TYPE_GAS_CLOUD        = 13
+}
+declare const enum LocaleConstant /**@realType:uint8*/ {
+    LOCALE_enUS = 0,
+    LOCALE_koKR = 1,
+    LOCALE_frFR = 2,
+    LOCALE_deDE = 3,
+    LOCALE_zhCN = 4,
+    LOCALE_zhTW = 5,
+    LOCALE_esES = 6,
+    LOCALE_esMX = 7,
+    LOCALE_ruRU = 8,
+
+    TOTAL_LOCALES
+}
+declare const enum UnitMoveType /**@realType:uint32*/ {
+    MOVE_WALK           = 0,
+    MOVE_RUN            = 1,
+    MOVE_RUN_BACK       = 2,
+    MOVE_SWIM           = 3,
+    MOVE_SWIM_BACK      = 4,
+    MOVE_TURN_RATE      = 5,
+    MOVE_FLIGHT         = 6,
+    MOVE_FLIGHT_BACK    = 7,
+    MOVE_PITCH_RATE     = 8
+}
+declare const enum MovementGeneratorType /**@realType:uint8*/ {
+    IDLE_MOTION_TYPE                = 0,     // IdleMovementGenerator.h
+    RANDOM_MOTION_TYPE              = 1,     // RandomMovementGenerator.h
+    WAYPOINT_MOTION_TYPE            = 2,     // WaypointMovementGenerator.h
+    MAX_DB_MOTION_TYPE              = 3,     // Below motion types can't be set in DB.
+    CONFUSED_MOTION_TYPE            = 4,     // ConfusedMovementGenerator.h
+    CHASE_MOTION_TYPE               = 5,     // ChaseMovementGenerator.h
+    HOME_MOTION_TYPE                = 6,     // HomeMovementGenerator.h
+    FLIGHT_MOTION_TYPE              = 7,     // FlightPathMovementGenerator.h
+    POINT_MOTION_TYPE               = 8,     // PointMovementGenerator.h
+    FLEEING_MOTION_TYPE             = 9,     // FleeingMovementGenerator.h
+    DISTRACT_MOTION_TYPE            = 10,    // IdleMovementGenerator.h
+    ASSISTANCE_MOTION_TYPE          = 11,    // PointMovementGenerator.h
+    ASSISTANCE_DISTRACT_MOTION_TYPE = 12,    // IdleMovementGenerator.h
+    TIMED_FLEEING_MOTION_TYPE       = 13,    // FleeingMovementGenerator.h
+    FOLLOW_MOTION_TYPE              = 14,    // FollowMovementGenerator.h
+    ROTATE_MOTION_TYPE              = 15,    // IdleMovementGenerator.h
+    EFFECT_MOTION_TYPE              = 16,
+    SPLINE_CHAIN_MOTION_TYPE        = 17,    // SplineChainMovementGenerator.h
+    FORMATION_MOTION_TYPE           = 18,    // FormationMovementGenerator.h
+    MAX_MOTION_TYPE                          // SKIP
+}
+declare const enum SheathState /**@realType:uint8*/ {
+    SHEATH_STATE_UNARMED  = 0,                              // non prepared weapon
+    SHEATH_STATE_MELEE    = 1,                              // prepared melee weapon
+    SHEATH_STATE_RANGED   = 2                               // prepared ranged weapon
+}
+declare const enum SpellSchools /**@realType:uint32*/ {
+    SPELL_SCHOOL_NORMAL                 = 0, // TITLE Physical
+    SPELL_SCHOOL_HOLY                   = 1, // TITLE Holy
+    SPELL_SCHOOL_FIRE                   = 2, // TITLE Fire
+    SPELL_SCHOOL_NATURE                 = 3, // TITLE Nature
+    SPELL_SCHOOL_FROST                  = 4, // TITLE Frost
+    SPELL_SCHOOL_SHADOW                 = 5, // TITLE Shadow
+    SPELL_SCHOOL_ARCANE                 = 6, // TITLE Arcane
+    MAX_SPELL_SCHOOL                    = 7  // SKIP
+}
 declare const enum SpellSchoolMask /**@realType:uint32 */ {
     SPELL_SCHOOL_MASK_NONE    = 0,
     SPELL_SCHOOL_MASK_NORMAL  = 1,
@@ -109,8 +536,35 @@ declare const enum SpellSchoolMask /**@realType:uint32 */ {
     SPELL_SCHOOL_MASK_SHADOW  = 32,
     SPELL_SCHOOL_MASK_ARCANE  = 64,
 }
-declare const enum GossipOptionIcon {} /** GossipDef.h:GossipOptionIcon */
-declare const enum ProgressType {} /** AchievementMgr.h:ProgressType */
+declare const enum GossipOptionIcon /**@realType:uint32*/ {
+    GOSSIP_ICON_CHAT                = 0,                    // white chat bubble
+    GOSSIP_ICON_VENDOR              = 1,                    // brown bag
+    GOSSIP_ICON_TAXI                = 2,                    // flightmarker (paperplane)
+    GOSSIP_ICON_TRAINER             = 3,                    // brown book (trainer)
+    GOSSIP_ICON_INTERACT_1          = 4,                    // golden interaction wheel
+    GOSSIP_ICON_INTERACT_2          = 5,                    // golden interaction wheel
+    GOSSIP_ICON_MONEY_BAG           = 6,                    // brown bag (with gold coin in lower corner)
+    GOSSIP_ICON_TALK                = 7,                    // white chat bubble (with "..." inside)
+    GOSSIP_ICON_TABARD              = 8,                    // white tabard
+    GOSSIP_ICON_BATTLE              = 9,                    // two crossed swords
+    GOSSIP_ICON_DOT                 = 10,                   // yellow dot/point
+    GOSSIP_ICON_CHAT_11             = 11,                   // white chat bubble
+    GOSSIP_ICON_CHAT_12             = 12,                   // white chat bubble
+    GOSSIP_ICON_CHAT_13             = 13,                   // white chat bubble
+    GOSSIP_ICON_UNK_14              = 14,                   // INVALID - DO NOT USE
+    GOSSIP_ICON_UNK_15              = 15,                   // INVALID - DO NOT USE
+    GOSSIP_ICON_CHAT_16             = 16,                   // white chat bubble
+    GOSSIP_ICON_CHAT_17             = 17,                   // white chat bubble
+    GOSSIP_ICON_CHAT_18             = 18,                   // white chat bubble
+    GOSSIP_ICON_CHAT_19             = 19,                   // white chat bubble
+    GOSSIP_ICON_CHAT_20             = 20,                   // white chat bubble
+    GOSSIP_ICON_MAX
+}
+declare const enum ProgressType /**@realType:uint32*/ {
+    PROGRESS_SET,
+    PROGRESS_ACCUMULATE,
+    PROGRESS_HIGHEST
+}
 
 declare interface TSMutable<T> {
     constructor(field: T);
@@ -3456,60 +3910,145 @@ declare class TSWorldPacket {
      */
     SetOpcode(opcode : uint32) : void
 
-    ReadInt8(): int8
-    ReadInt8(index: uint32): int8
-    WriteInt8(value: int8): void
-    WriteInt8(index: uint32, value: int8): void
+    /**
+     * Reads and returns a signed 8-bit integer value from the [WorldPacket].
+     *
+     * @return int8 value
+     */
+    ReadByte() : int8
 
-    ReadUInt8(): uint8
-    ReadUInt8(index: uint32): uint8
-    WriteUInt8(value: uint8): void
-    WriteUInt8(index: uint32, value: uint8): void
+    /**
+     * Reads and returns an unsigned 8-bit integer value from the [WorldPacket].
+     *
+     * @return uint8 value
+     */
+    ReadUByte() : uint8
 
-    ReadInt16(): int16
-    ReadInt16(index: uint32): int16
-    WriteInt16(value: int16): void
-    WriteInt16(index: int32, value: int16): void
+    /**
+     * Reads and returns a signed 16-bit integer value from the [WorldPacket].
+     *
+     * @return int16 value
+     */
+    ReadShort() : int16
 
-    ReadUInt16(): uint16
-    ReadUInt16(index: uint32): uint16
-    WriteUInt16(value: uint16): void
-    WriteUInt16(index: uint32, value: uint16): void
+    /**
+     * Reads and returns an unsigned 16-bit integer value from the [WorldPacket].
+     *
+     * @return uint16 value
+     */
+    ReadUShort() : uint16
 
-    ReadInt32(): int32
-    ReadInt32(index: uint32): int32
-    WriteInt16(value: int32): void
-    WriteInt16(index: int32, value: int32): void
+    /**
+     * Reads and returns a signed 32-bit integer value from the [WorldPacket].
+     *
+     * @return int32 value
+     */
+    ReadLong() : int32
 
-    ReadUInt32(): uint32
-    ReadUInt32(index: uint32): uint32
-    WriteUInt32(value: uint32): void
-    WriteUInt32(index: uint32, value: uint32): void
+    /**
+     * Reads and returns an unsigned 32-bit integer value from the [WorldPacket].
+     *
+     * @return uint32 value
+     */
+    ReadULong() : uint32
 
-    ReadInt64(): int64
-    ReadInt64(index: uint64): int64
-    WriteInt16(value: int64): void
-    WriteInt16(index: int32, value: int64): void
+    /**
+     * Reads and returns a single-precision floating-point value from the [WorldPacket].
+     *
+     * @return float value
+     */
+    ReadFloat() : float
 
-    ReadUInt64(): uint64
-    ReadUInt64(index: uint32): uint64
-    WriteUInt64(value: uint64): void
-    WriteUInt64(index: uint32, value: uint64): void
+    /**
+     * Reads and returns a double-precision floating-point value from the [WorldPacket].
+     *
+     * @return double value
+     */
+    ReadDouble() : double
 
-    ReadFloat(): float
-    ReadFloat(index: uint32): float
-    WriteFloat(value: float): void
-    WriteFloat(index: uint32, value: float): void
+    /**
+     * Reads and returns an unsigned 64-bit integer value from the [WorldPacket].
+     *
+     * @return uint64 value : value returned as string
+     */
+    ReadGUID() : uint64
 
-    ReadDouble(): double
-    ReadDouble(index: uint32): double
-    WriteDouble(value: double): void
-    WriteDouble(index: uint32, value: double): void
+    /**
+     * Reads and returns a string value from the [WorldPacket].
+     *
+     * @return string value
+     */
+    ReadString() : string
 
-    ReadString(): string
-    ReadString(index: uint32): string
-    WriteString(value: string): void
-    WriteString(index: uint32, value: string): void
+    /**
+     * Writes an unsigned 64-bit integer value to the [WorldPacket].
+     *
+     * @param uint64 value : the value to be written to the [WorldPacket]
+     */
+    WriteGUID(guid : uint64) : void
+
+    /**
+     * Writes a string to the [WorldPacket].
+     *
+     * @param string value : the string to be written to the [WorldPacket]
+     */
+    WriteString(_val : string) : void
+
+    /**
+     * Writes a signed 8-bit integer value to the [WorldPacket].
+     *
+     * @param int8 value : the int8 value to be written to the [WorldPacket]
+     */
+    WriteByte(byte : int8) : void
+
+    /**
+     * Writes an unsigned 8-bit integer value to the [WorldPacket].
+     *
+     * @param uint8 value : the uint8 value to be written to the [WorldPacket]
+     */
+    WriteUByte(byte : uint8) : void
+
+    /**
+     * Writes a signed 16-bit integer value to the [WorldPacket].
+     *
+     * @param int16 value : the int16 value to be written to the [WorldPacket]
+     */
+    WriteShort(_short : int16) : void
+
+    /**
+     * Writes an unsigned 16-bit integer value to the [WorldPacket].
+     *
+     * @param uint16 value : the uint16 value to be written to the [WorldPacket]
+     */
+    WriteUShort(_ushort : uint16) : void
+
+    /**
+     * Writes a signed 32-bit integer value to the [WorldPacket].
+     *
+     * @param int32 value : the int32 value to be written to the [WorldPacket]
+     */
+    WriteLong(_long : int32) : void
+
+    /**
+     * Writes an unsigned 32-bit integer value to the [WorldPacket].
+     *
+     * @param uint32 value : the uint32 value to be written to the [WorldPacket]
+     */
+    WriteULong(_ulong : uint32) : void
+
+    /**
+     * Writes a 32-bit floating-point value to the [WorldPacket].
+     *
+     * @param float value : the float value to be written to the [WorldPacket]
+     */
+    WriteFloat(_val : float) : void
+
+    /**
+     * Writes a 64-bit floating-point value to the [WorldPacket].
+     *
+     * @param double value : the double value to be written to the [WorldPacket]
+     */
+    WriteDouble(_val : double) : void
 }
 
 declare interface TSQuest {
@@ -3624,18 +4163,11 @@ declare interface TSQuest {
     GetType() : uint32
 }
 
-declare interface TSMapManager {
-    GetPlayer(guid: uint64): TSPlayer
-    GetPlayer(name: string): TSPlayer
-    GetMap(mapid: uint32, instanceId?: uint32): TSMap
-}
-
 declare interface TSMap extends TSEntityProvider, TSWorldEntityProvider<TSMap> {
     IsNull() : bool
     HasInstance(): bool
     GetInstance(): TSInstance
     GetUnits(): TSArray<TSWorldObject>
-    DoDelayed(callback: (map: TSMap, mgr: TSMapManager)=>void): void;
     /**
      * @param entry only return gameobjects of this entry.
      * Leave out to select all gameobjects.
@@ -7280,42 +7812,6 @@ declare namespace _hidden {
             , handled: TSMutable<bool>
         )=>void)
         OnAreaTrigger(callback: (bg: TSBattleground,player: TSPlayer,trigger: uint32, handled: TSMutable<bool>)=>void)
-        OnAddGameObject(callback: (
-              bg: TSBattleground
-            , type: uint32
-            , entry: TSMutable<uint32>
-            , goState: TSMutable<uint8>
-            , x: TSMutable<float>
-            , y: TSMutable<float>
-            , z: TSMutable<float>
-            , o: TSMutable<float>
-            , rot0: TSMutable<float>
-            , rot1: TSMutable<float>
-            , rot2: TSMutable<float>
-            , rot3: TSMutable<float>
-        )=>void);
-
-        OnAddCreature(callback: (
-              bg: TSBattleground
-            , type: uint32
-            , entry: TSMutable<uint32>
-            , x: TSMutable<float>
-            , y: TSMutable<float>
-            , z: TSMutable<float>
-            , o: TSMutable<float>
-            , respawnTime: TSMutable<uint32>
-        )=>void);
-
-        OnAddSpiritGuide(callback: (
-              bg: TSBattleground
-            , type: uint32
-            , entry: TSMutable<uint32>
-            , teamId: TSMutable<uint8>
-            , x: TSMutable<float>
-            , y: TSMutable<float>
-            , z: TSMutable<float>
-            , o: TSMutable<float>
-        )=>void);
     }
 
     export class BattlegroundID<T> {
@@ -7354,42 +7850,6 @@ declare namespace _hidden {
             , handled: TSMutable<bool>
         )=>void)
         OnAreaTrigger(id: uint32, callback: (bg: TSBattleground,player: TSPlayer,trigger: uint32, handled: TSMutable<bool>)=>void)
-        OnAddGameObject(id: uint32, callback: (
-            bg: TSBattleground
-          , type: uint32
-          , entry: TSMutable<uint32>
-          , goState: TSMutable<uint8>
-          , x: TSMutable<float>
-          , y: TSMutable<float>
-          , z: TSMutable<float>
-          , o: TSMutable<float>
-          , rot0: TSMutable<float>
-          , rot1: TSMutable<float>
-          , rot2: TSMutable<float>
-          , rot3: TSMutable<float>
-      )=>void);
-
-      OnAddCreature(id: uint32, callback: (
-            bg: TSBattleground
-          , type: uint32
-          , entry: TSMutable<uint32>
-          , x: TSMutable<float>
-          , y: TSMutable<float>
-          , z: TSMutable<float>
-          , o: TSMutable<float>
-          , respawnTime: TSMutable<uint32>
-      )=>void);
-
-      OnAddSpiritGuide(id: uint32, callback: (
-            bg: TSBattleground
-          , type: uint32
-          , entry: TSMutable<uint32>
-          , teamId: TSMutable<uint8>
-          , x: TSMutable<float>
-          , y: TSMutable<float>
-          , z: TSMutable<float>
-          , o: TSMutable<float>
-      )=>void);
     }
 
     export class Packets {
@@ -7408,16 +7868,6 @@ declare namespace _hidden {
             , player: TSPlayer
             ) => void
         )
-    }
-
-    export class WorldPackets {
-        OnReceive(callback: (packet: TSWorldPacket, player: TSPlayer)=>void);
-        OnSend(callback: (packet: TSWorldPacket, player: TSPlayer)=>void);
-    }
-
-    export class WorldPacketID {
-        OnReceive(opcode: uint32, callback: (packet: TSWorldPacket, player: TSPlayer)=>void);
-        OnSend(opcode: uint32, callback: (packet: TSWorldPacket, player: TSPlayer)=>void);
     }
 
     export class GameEvents<T> {
@@ -7511,7 +7961,6 @@ declare namespace _hidden {
         OnCreate(callback: (map: TSMap)=>void)
         OnReload(callback: (map: TSMap)=>void)
         OnUpdate(callback: (map: TSMap, diff: uint32)=>void)
-        OnUpdateDelayed(callback: (map: TSMap, diff: uint32, mgr: TSMapManager)=>void)
         OnPlayerEnter(callback: (map: TSMap, player: TSPlayer)=>void)
         OnPlayerLeave(callback: (map: TSMap, player: TSPlayer)=>void)
         OnCreatureCreate(callback: (map: TSMap, creature: TSCreature, cancel: TSMutable<bool>)=>void)
@@ -7524,7 +7973,6 @@ declare namespace _hidden {
     export class MapID<T> {
         OnCreate(map: uint32, callback: (map: TSMap)=>void)
         OnUpdate(map: uint32, callback: (map: TSMap, diff: uint32)=>void)
-        OnUpdateDelayed(map: uint32, callback: (map: TSMap, diff: uint32, mgr: TSMapManager)=>void)
         OnPlayerEnter(map: uint32, callback: (map: TSMap, player: TSPlayer)=>void)
         OnPlayerLeave(map: uint32, callback: (map: TSMap, player: TSPlayer)=>void)
         OnCreatureCreate(map: uint32, callback: (map: TSMap, creature: TSCreature, cancel: TSMutable<bool>)=>void)
@@ -7636,8 +8084,6 @@ declare class TSEventHandlers {
     InstanceID: _hidden.InstanceID<void>;
     Packets: _hidden.Packets;
     PacketID: _hidden.PacketID;
-    WorldPackets: _hidden.WorldPackets;
-    WorldPacketID: _hidden.WorldPacketID;
 }
 
 declare class TSDictionary<K,V> {
