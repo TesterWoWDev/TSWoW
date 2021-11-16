@@ -3,7 +3,7 @@ export class creatureNameMessage {
     isName: uint32 = 1;
     entry: string = "name";
 
-    constructor(isName: uint32, entry: string) {
+    constructor(isName:uint32,entry:string) {
         this.isName = isName;
         this.entry = entry;
     }
@@ -14,7 +14,7 @@ export class creatureNameMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(creatureNameMessageID,0)
+        let packet = MakeCustomPacket(creatureNameMessageID,50)
         packet.WriteUInt32(this.isName);
         packet.WriteString(this.entry);
         return packet;
@@ -23,49 +23,38 @@ export class creatureNameMessage {
 
 export const itemLootMessageID = 2;
 export class itemLootMessage {
-    itemID: uint32 = 0;
-    itemCountMin: uint32 = 0;
-    itemCountMax: uint32 = 0;
-    dropChance: double = 0;
-    constructor(itemID: uint32, itemCountMin: uint32,itemCountMax: uint32,dropChance: double) {
-        this.itemID = itemID;
-        this.itemCountMin = itemCountMin;
-        this.itemCountMax = itemCountMax;
-        this.dropChance = dropChance;
+    size: uint32 = 0;
+    entryID: uint32 = 0;
+    arr: TSArray<TSArray<double>> = [<TSArray<double>>[1,1,1,1]]
+    constructor() {
+        this.size = 0
+        this.entryID = 0
+        this.arr = <TSArray<TSArray<double>>>[<TSArray<double>>[1,1,1,1]]
     }
-
     read(read: TSPacketRead): void {
-        this.itemID = read.ReadUInt32();
-        this.itemCountMin = read.ReadUInt32();
-        this.itemCountMax = read.ReadUInt32();
-        this.dropChance = read.ReadDouble();
+        this.arr.pop()
+        this.size = read.ReadUInt32();
+        this.entryID = read.ReadUInt32();
+        for(let i=0;i<this.size;i++){
+            let id = read.ReadDouble()
+            let min = read.ReadDouble()
+            let max = read.ReadDouble();
+            let dropChance = read.ReadDouble();
+            this.arr.push(<TSArray<double>>[id,min,max,dropChance])
+        }
     }
 
     write(): TSPacketWrite {
         let packet = MakeCustomPacket(itemLootMessageID,0)
-        packet.WriteUInt32(this.itemID);
-        packet.WriteUInt32(this.itemCountMin);
-        packet.WriteUInt32(this.itemCountMax);
-        packet.WriteDouble(this.dropChance);
-        return packet;
-    }
-}
+        packet.WriteUInt32(this.size);
+        packet.WriteUInt32(this.entryID);
+        for(let i=0;i<this.size;i++){
+            packet.WriteDouble(this.arr[i][0])
+            packet.WriteDouble(this.arr[i][1])
+            packet.WriteDouble(this.arr[i][2])
+            packet.WriteDouble(this.arr[i][3])
 
-export const itemLootFinishMessageID = 3;
-export class itemLootFinishMessage {
-    entry: uint32 = 0;
-
-    constructor(entry: uint32) {
-        this.entry = entry;
-    }
-
-    read(read: TSPacketRead): void {
-        this.entry = read.ReadUInt32();
-    }
-
-    write(): TSPacketWrite {
-        let packet = MakeCustomPacket(itemLootFinishMessageID,0)
-        packet.WriteUInt32(this.entry);
+        }
         return packet;
     }
 }

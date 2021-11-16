@@ -1,4 +1,4 @@
-import {  creatureNameMessage, creatureNoExistMessageID, itemLootFinishMessage, itemLootFinishMessageID, itemLootMessage, itemLootMessageID } from "../shared/Messages";
+import {  creatureNameMessage, creatureNoExistMessageID, itemLootMessage, itemLootMessageID } from "../shared/Messages";
 import {SetupModelZoomDragRotation} from "./CustomAddonFunctions"
 
 export function atlas(){
@@ -165,21 +165,16 @@ export function atlas(){
         
 
      OnCustomPacket(itemLootMessageID,(packet)=>{
-        let customPacket = new itemLootMessage(0,0,0,0)
+        let customPacket = new itemLootMessage()
         customPacket.read(packet);
-        itemArray.push([customPacket.itemID, customPacket.itemCountMin, customPacket.itemCountMax, customPacket.dropChance])
-    })
-
-    OnCustomPacket(itemLootFinishMessageID,(packet)=>{
-        let customPacket = new itemLootFinishMessage(0)
-        customPacket.read(packet);
+        itemArray = customPacket.arr;
         let max = Math.ceil(itemArray.length/(columns*rows))
         if(max == 0){
             max=1
         }
         pageCt.SetText("Page " + (page+1) + "/"+max)
         Portrait.SetPosition(0,0,0)
-        Portrait.SetCreature(customPacket.entry)
+        Portrait.SetCreature(customPacket.entryID)
         Portrait.Show()
         createButtons()
     })
@@ -194,7 +189,6 @@ export function atlas(){
         if(pkt.entry.length > 0){
             if(Number(pkt.entry) > 0){
                 pkt.isName = 0;
-                pkt.entry = Number(pkt.entry).toString()
             } 
         pkt.write().Send(); 
         resetFrames()

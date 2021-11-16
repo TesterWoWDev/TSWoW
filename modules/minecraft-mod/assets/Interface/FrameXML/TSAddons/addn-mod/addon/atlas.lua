@@ -7,8 +7,6 @@ tstl_register_module(
         local ____Messages = require("TSAddons.addn-mod.shared.Messages")
         local creatureNameMessage = ____Messages.creatureNameMessage
         local creatureNoExistMessageID = ____Messages.creatureNoExistMessageID
-        local itemLootFinishMessage = ____Messages.itemLootFinishMessage
-        local itemLootFinishMessageID = ____Messages.itemLootFinishMessageID
         local itemLootMessage = ____Messages.itemLootMessage
         local itemLootMessageID = ____Messages.itemLootMessageID
         local ____CustomAddonFunctions = require("TSAddons.addn-mod.addon.CustomAddonFunctions")
@@ -24,9 +22,6 @@ tstl_register_module(
                 if #pkt.entry > 0 then
                     if __TS__Number(pkt.entry) > 0 then
                         pkt.isName = 0
-                        pkt.entry = tostring(
-                            __TS__Number(pkt.entry)
-                        )
                     end
                     pkt:write():Send()
                     resetFrames()
@@ -304,16 +299,9 @@ tstl_register_module(
             OnCustomPacket(
                 itemLootMessageID,
                 function(packet)
-                    local customPacket = __TS__New(itemLootMessage, 0, 0, 0, 0)
+                    local customPacket = __TS__New(itemLootMessage)
                     customPacket:read(packet)
-                    __TS__ArrayPush(itemArray, {customPacket.itemID, customPacket.itemCountMin, customPacket.itemCountMax, customPacket.dropChance})
-                end
-            )
-            OnCustomPacket(
-                itemLootFinishMessageID,
-                function(packet)
-                    local customPacket = __TS__New(itemLootFinishMessage, 0)
-                    customPacket:read(packet)
+                    itemArray = customPacket.arr
                     local max = math.ceil(#itemArray / (columns * rows))
                     if max == 0 then
                         max = 1
@@ -322,7 +310,7 @@ tstl_register_module(
                         (("Page " .. tostring(page + 1)) .. "/") .. tostring(max)
                     )
                     Portrait:SetPosition(0, 0, 0)
-                    Portrait:SetCreature(customPacket.entry)
+                    Portrait:SetCreature(customPacket.entryID)
                     Portrait:Show()
                     createButtons()
                 end

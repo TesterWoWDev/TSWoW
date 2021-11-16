@@ -19,7 +19,7 @@ tstl_register_module(
             self.entry = read:ReadString()
         end
         function creatureNameMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 0)
+            local packet = MakeCustomPacket(____exports.creatureNameMessageID, 50)
             packet:WriteUInt32(self.isName)
             packet:WriteString(self.entry)
             return packet
@@ -28,44 +28,44 @@ tstl_register_module(
         ____exports.itemLootMessage = __TS__Class()
         local itemLootMessage = ____exports.itemLootMessage
         itemLootMessage.name = "itemLootMessage"
-        function itemLootMessage.prototype.____constructor(self, itemID, itemCountMin, itemCountMax, dropChance)
-            self.itemID = 0
-            self.itemCountMin = 0
-            self.itemCountMax = 0
-            self.dropChance = 0
-            self.itemID = itemID
-            self.itemCountMin = itemCountMin
-            self.itemCountMax = itemCountMax
-            self.dropChance = dropChance
+        function itemLootMessage.prototype.____constructor(self)
+            self.size = 0
+            self.entryID = 0
+            self.arr = {{1, 1, 1, 1}}
+            self.size = 0
+            self.entryID = 0
+            self.arr = {{1, 1, 1, 1}}
         end
         function itemLootMessage.prototype.read(self, read)
-            self.itemID = read:ReadUInt32()
-            self.itemCountMin = read:ReadUInt32()
-            self.itemCountMax = read:ReadUInt32()
-            self.dropChance = read:ReadDouble()
+            table.remove(self.arr)
+            self.size = read:ReadUInt32()
+            self.entryID = read:ReadUInt32()
+            do
+                local i = 0
+                while i < self.size do
+                    local id = read:ReadDouble()
+                    local min = read:ReadDouble()
+                    local max = read:ReadDouble()
+                    local dropChance = read:ReadDouble()
+                    __TS__ArrayPush(self.arr, {id, min, max, dropChance})
+                    i = i + 1
+                end
+            end
         end
         function itemLootMessage.prototype.write(self)
             local packet = MakeCustomPacket(____exports.itemLootMessageID, 0)
-            packet:WriteUInt32(self.itemID)
-            packet:WriteUInt32(self.itemCountMin)
-            packet:WriteUInt32(self.itemCountMax)
-            packet:WriteDouble(self.dropChance)
-            return packet
-        end
-        ____exports.itemLootFinishMessageID = 3
-        ____exports.itemLootFinishMessage = __TS__Class()
-        local itemLootFinishMessage = ____exports.itemLootFinishMessage
-        itemLootFinishMessage.name = "itemLootFinishMessage"
-        function itemLootFinishMessage.prototype.____constructor(self, entry)
-            self.entry = 0
-            self.entry = entry
-        end
-        function itemLootFinishMessage.prototype.read(self, read)
-            self.entry = read:ReadUInt32()
-        end
-        function itemLootFinishMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.itemLootFinishMessageID, 0)
-            packet:WriteUInt32(self.entry)
+            packet:WriteUInt32(self.size)
+            packet:WriteUInt32(self.entryID)
+            do
+                local i = 0
+                while i < self.size do
+                    packet:WriteDouble(self.arr[i + 1][1])
+                    packet:WriteDouble(self.arr[i + 1][2])
+                    packet:WriteDouble(self.arr[i + 1][3])
+                    packet:WriteDouble(self.arr[i + 1][4])
+                    i = i + 1
+                end
+            end
             return packet
         end
         ____exports.creatureNoExistMessageID = 4
