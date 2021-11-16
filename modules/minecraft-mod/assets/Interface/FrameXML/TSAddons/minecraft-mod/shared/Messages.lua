@@ -47,7 +47,7 @@ tstl_register_module(
             end
         end
         function craftMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.craftMessageID, 160)
+            local packet = MakeCustomPacket(____exports.craftMessageID, 0)
             do
                 local i = 0
                 while i < 9 do
@@ -97,7 +97,7 @@ tstl_register_module(
             end
         end
         function returnCraftItemMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.returnCraftItemMessageID, 35)
+            local packet = MakeCustomPacket(____exports.returnCraftItemMessageID, 0)
             packet:WriteUInt32(self.craftItem)
             packet:WriteUInt32(self.craftItemCount)
             do
@@ -121,7 +121,7 @@ tstl_register_module(
             self.value = read:ReadUInt32()
         end
         function showScreen.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.showScreenID, 5)
+            local packet = MakeCustomPacket(____exports.showScreenID, 0)
             packet:WriteUInt32(self.value)
             return packet
         end

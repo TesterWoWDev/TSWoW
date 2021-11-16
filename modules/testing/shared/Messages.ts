@@ -17,7 +17,7 @@ export class spellValuesMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellValuesMessageID,70)
+        let packet = MakeCustomPacket(spellValuesMessageID,0)
         packet.WriteUInt32(this.spellID);
         packet.WriteUInt32(this.spellCt);
         packet.WriteString(this.spellName);
@@ -38,7 +38,7 @@ export class spellValuesFinish {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellValuesFinishID,5)
+        let packet = MakeCustomPacket(spellValuesFinishID,0)
         packet.WriteUInt32(this.value);
         return packet;
     }
@@ -57,7 +57,7 @@ export class spellValuesIncoming {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellValuesIncomingID,5)
+        let packet = MakeCustomPacket(spellValuesIncomingID,0)
         packet.WriteUInt32(this.value);
         return packet;
     }

@@ -22,7 +22,7 @@ tstl_register_module(
             self.spellName = read:ReadString()
         end
         function spellValuesMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.spellValuesMessageID, 70)
+            local packet = MakeCustomPacket(____exports.spellValuesMessageID, 0)
             packet:WriteUInt32(self.spellID)
             packet:WriteUInt32(self.spellCt)
             packet:WriteString(self.spellName)
@@ -40,7 +40,7 @@ tstl_register_module(
             self.value = read:ReadUInt32()
         end
         function spellValuesFinish.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.spellValuesFinishID, 5)
+            local packet = MakeCustomPacket(____exports.spellValuesFinishID, 0)
             packet:WriteUInt32(self.value)
             return packet
         end
@@ -56,7 +56,7 @@ tstl_register_module(
             self.value = read:ReadUInt32()
         end
         function spellValuesIncoming.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.spellValuesIncomingID, 5)
+            local packet = MakeCustomPacket(____exports.spellValuesIncomingID, 0)
             packet:WriteUInt32(self.value)
             return packet
         end

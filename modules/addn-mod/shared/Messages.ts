@@ -14,7 +14,7 @@ export class creatureNameMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(creatureNameMessageID,40)
+        let packet = MakeCustomPacket(creatureNameMessageID,0)
         packet.WriteUInt32(this.isName);
         packet.WriteString(this.entry);
         return packet;
@@ -42,7 +42,7 @@ export class itemLootMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(itemLootMessageID,20)
+        let packet = MakeCustomPacket(itemLootMessageID,0)
         packet.WriteUInt32(this.itemID);
         packet.WriteUInt32(this.itemCountMin);
         packet.WriteUInt32(this.itemCountMax);
@@ -64,7 +64,7 @@ export class itemLootFinishMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(itemLootFinishMessageID,5)
+        let packet = MakeCustomPacket(itemLootFinishMessageID,0)
         packet.WriteUInt32(this.entry);
         return packet;
     }
@@ -83,7 +83,7 @@ export class creatureNoExistMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(creatureNoExistMessageID,5)
+        let packet = MakeCustomPacket(creatureNoExistMessageID,0)
         packet.WriteUInt32(this.finish);
         return packet;
     }
@@ -106,7 +106,7 @@ export class blackjackPlayerMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(blackjackPlayerMessageID,40)
+        let packet = MakeCustomPacket(blackjackPlayerMessageID,0)
         packet.WriteUInt32(this.value);
         packet.WriteUInt32(this.bet);
         return packet;
@@ -130,7 +130,7 @@ export class blackjackSendHandMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(blackjackSendHandMessageID,40)
+        let packet = MakeCustomPacket(blackjackSendHandMessageID,0)
         for(let i=0;i<10;i++)
         packet.WriteUInt32(this.cards[i]);
         packet.WriteUInt32(this.bet);
@@ -152,7 +152,7 @@ export class requestClassSpellsMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(requestClassSpellsMessageID,5)
+        let packet = MakeCustomPacket(requestClassSpellsMessageID,0)
         packet.WriteUInt32(this.value);
         return packet;
     }
@@ -174,7 +174,7 @@ export class sendClassSpellsMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(sendClassSpellsMessageID,5)
+        let packet = MakeCustomPacket(sendClassSpellsMessageID,0)
         packet.WriteUInt32(this.level);
         packet.WriteUInt32(this.spellID);
         return packet;

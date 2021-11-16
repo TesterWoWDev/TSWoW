@@ -28,7 +28,7 @@ export class craftMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(craftMessageID,160)
+        let packet = MakeCustomPacket(craftMessageID,0)
         for(let i=0;i<9;i++)
         packet.WriteUInt32(this.itemIDs[i]);
         for(let i=0;i<9;i++){
@@ -63,7 +63,7 @@ export class returnCraftItemMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(returnCraftItemMessageID,35)
+        let packet = MakeCustomPacket(returnCraftItemMessageID,0)
         packet.WriteUInt32(this.craftItem);
         packet.WriteUInt32(this.craftItemCount);
         for(let i=0;i<5;i++)
@@ -85,7 +85,7 @@ export class showScreen {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(showScreenID,5)
+        let packet = MakeCustomPacket(showScreenID,0)
         packet.WriteUInt32(this.value);
         return packet;
     }
