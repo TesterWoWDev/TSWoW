@@ -1,11 +1,12 @@
-import { craftMessage, returnCraftItemMessage, bagSlotCombo, showScreen } from "../shared/Messages"
-import { Events, SendToServer } from "./lib/Events"
+import { craftMessage, empty, returnCraftItemMessage, returnCraftItemMessageID, showScreenID } from "../shared/Messages"
 
-    let choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
+import { Events } from "./lib/Events"
+
+    let choices: TSArray<TSArray<uint32>> = [empty,empty,empty,empty,empty,empty,empty,empty,empty]
     let itemIDs = [0,0,0,0,0,0,0,0,0]
     let buttons = []
     let enchants = [0,0,0,0]
-    let latestBagSlot = [0,0]
+    let latestBagSlot = empty
     let frameToggleCheck = 0
     let mframe = CreateFrame('Frame','minecraftMframe',UIParent)
         mframe.SetWidth(300)
@@ -57,7 +58,7 @@ import { Events, SendToServer } from "./lib/Events"
             craftBtn.HookScript("OnClick",(frame,evName,btnDown)=>{
                 PlaySoundFile("Sound\\Interface\\GM_ChatWarning.wav")
                 updateProduct(1)
-                choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
+                choices = [empty,empty,empty,empty,empty,empty,empty,empty,empty]
                 itemIDs = [0,0,0,0,0,0,0,0,0]
                 enchants = [0,0,0,0]
                 for(let i=0;i<9;i++){
@@ -132,8 +133,7 @@ import { Events, SendToServer } from "./lib/Events"
         let info = GetItemInfo(itemid)
             if(info != null){
                 buttons[Number(frame.GetName())][2].SetTexture(info[9])
-                let m = new bagSlotCombo()
-                m.bagslot = latestBagSlot
+                let m = latestBagSlot
                 choices[Number(frame.GetName())] = m
                 itemIDs[Number(frame.GetName())] = itemid
                 let itemstring:string = GetCursorInfo()[2]
@@ -158,7 +158,7 @@ import { Events, SendToServer } from "./lib/Events"
 
     function deselect(frame:WoWAPI.Frame){
         buttons[Number(frame.GetName())][2].SetTexture("")
-        choices[Number(frame.GetName())] = new bagSlotCombo()
+        choices[Number(frame.GetName())] = empty
         itemIDs[Number(frame.GetName())] = 0
         buttons[Number(frame.GetName())][1].SetScript("OnEnter",null)
         buttons[Number(frame.GetName())][1].SetScript("OnLeave",null)
@@ -166,15 +166,12 @@ import { Events, SendToServer } from "./lib/Events"
      }
 
     function updateProduct(purchase:uint32) {
-        let pkt = new craftMessage()
-            pkt.itemIDs = itemIDs
-            pkt.positions = choices
-            pkt.purchase = purchase
-            pkt.enchants = enchants
-        SendToServer(pkt)
+        new craftMessage(itemIDs,choices,purchase,enchants).write().Send()
     }
 
-    Events.AddOns.OnMessage(mframe,returnCraftItemMessage,message=>{
+    OnCustomPacket(returnCraftItemMessageID,(packet)=>{
+        let message = new returnCraftItemMessage(0,0,[0,0,0,0,0])
+        message.read(packet);
         if(message.craftItem != 0){
             showTex.SetTexture(GetItemInfo(message.craftItem)[9])
             if(message.craftItemCount == 0){
@@ -229,7 +226,7 @@ function closeAll() {
     showBtn.SetScript("OnEnter",null)
     showBtn.SetScript("OnLeave",null)
     buttons = []
-    choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
+    choices = [empty,empty,empty,empty,empty,empty,empty,empty,empty]
     itemIDs = [0,0,0,0,0,0,0,0,0]
     
     mframe.Hide()
@@ -246,7 +243,7 @@ Events.Container.OnItemLocked(mframe,(bag,slot)=>{
     }
 })
 
-Events.AddOns.OnMessage(mframe,showScreen,(msg)=>{
+OnCustomPacket(showScreenID,(packet)=>{
     frameToggleCheck = 1
 })
 
@@ -322,10 +319,10 @@ let extexRecipe = exitbutnRecipe.CreateTexture('exittexrec','BACKGROUND')
                 butRecipe.SetTexture('Interface/Icons/'+recipeIcons[index])//set to 
             
             button.SetScript('OnClick',(frame,button,down)=>{
-                choices = [new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo(),new bagSlotCombo()]
+                choices = [empty,empty,empty,empty,empty,empty,empty,empty,empty]
                 itemIDs = [0,0,0,0,0,0,0,0,0]
                 enchants = [0,0,0,0]
-                latestBagSlot = [0,0]
+                latestBagSlot = empty
 
                 buttons.forEach((element,i) => {
                     element[2].SetTexture('')

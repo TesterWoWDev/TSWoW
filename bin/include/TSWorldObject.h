@@ -1,17 +1,17 @@
 /*
  * This file is part of tswow (https://github.com/tswow/).
  * Copyright (C) 2020 tswow <https://github.com/tswow/>
- * 
- * This program is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU General Public License as 
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, version 3.
- * 
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License 
+ *
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 #pragma once
@@ -21,24 +21,25 @@
 #include "TSClasses.h"
 #include "TSObject.h"
 #include "TSPosition.h"
-#include "TSTask.h"
-#include "TSStorage.h"
 #include "TSEntity.h"
 #include "TSDictionary.h"
+#include "TSWorldEntity.h"
 #include <chrono>
 #include <vector>
 
-struct TSCollisions;
-struct TSCollisionEntry;
+class TSCollisions;
+class TSCollisionEntry;
+class TSEntity;
 
 #define CollisionCallback std::function<void(TSCollisionEntry*,TSWorldObject,TSWorldObject,TSMutable<uint32_t>)>
 
-class TC_GAME_API TSWorldObject : public TSObject {
+class TC_GAME_API TSWorldObject : public TSObject, public TSWorldEntityProvider<TSWorldObject> {
 public:
     WorldObject* obj;
     TSWorldObject();
     TSWorldObject(WorldObject* obj);
     bool IsNull() { return obj == nullptr; };
+    bool operator< (const TSWorldObject&) const;
     TSWorldObject* operator->() { return this;}
     TSArray<TSCreature> GetCreaturesInRange(float range, uint32 entry, uint32 hostile, uint32 dead);
     TSArray<TSPlayer> GetPlayersInRange(float range, uint32 hostile, uint32 dead);
@@ -49,8 +50,12 @@ public:
     TSGameObject GetNearestGameObject(float range, uint32 entry, uint32 hostile);
     TSCreature GetNearestCreature(float range, uint32 entry, uint32 hostile, uint32 dead);
 
-    float GetDistance(TSWorldObject target, float X, float Y, float Z);
-    float GetDistance2d(TSWorldObject target, float X, float Y);
+    float GetDistance(TSWorldObject target);
+    float GetDistanceToPoint(float X, float Y, float Z);
+
+    float GetDistance2d(TSWorldObject target);
+    float GetDistanceToPoint2d(float X, float Y);
+
     TSGameObject  SummonGameObject(uint32 entry, float x, float y, float z, float o, uint32 respawnDelay);
     TSCreature  SpawnCreature(uint32 entry, float x, float y, float z, float o, uint32 spawnType, uint32 despawnTimer);
 
@@ -72,7 +77,8 @@ public:
     TSMap GetMap();
     TSString GetName();
     uint32 GetPhaseMask();
-    void SetPhaseMask(uint32 phaseMask, bool update);
+    uint64 GetPhaseID();
+    void SetPhaseMask(uint32 phaseMask, bool update, uint64 id = 0);
     uint32 GetInstanceId();
     uint32 GetAreaId();
     uint32 GetZoneId();
@@ -97,17 +103,13 @@ public:
     TSCreature GetCreature(uint64 guid);
     TSPlayer GetPlayer(uint64 guid);
 
-    TSTasks<TSWorldObject> * GetTasks();
-    TSStorage * GetData();
-
-    TS_ENTITY_DATA_DECL(TSWorldObject)
-    TS_ENTITY_TIMER_DECL(TSWorldObject)
-
     bool HasCollision(TSString id) ;
     void AddCollision(uint32_t modid, TSString id, float range, uint32_t minDelay, uint32_t maxHits, CollisionCallback callback);
     TSCollisionEntry * GetCollision(TSString id);
-
     TSCollisions* GetCollisions();
+
+    void AddedByGroup(TSWorldObjectGroup* group);
+    void RemovedByGroup(TSWorldObjectGroup* group);
 };
 
 class TC_GAME_API TSCollisionEntry {

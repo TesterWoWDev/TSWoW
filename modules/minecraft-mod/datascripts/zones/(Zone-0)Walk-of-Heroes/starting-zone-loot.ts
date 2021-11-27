@@ -1,6 +1,5 @@
 import { addLootToCreature } from "../../functions/npc-functions"
 import { SmallSackofCoins } from "../../items/currencies"
-import { DRQItemRequired01 } from "../../quests/Repeatable-Daily-Quest-Test"
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll"
 import { SmallRedPouch, SmallBluePouch, SmallBlackPouch, SmallGreenPouch, BrownLeatherSatchel, DarnassianBleu, ShinyRedApple, RefreshingSpringWater, BoarSkin, ExpScroll } from "../item-manifest"
 import { startingZoneWolfBossLoot, Boar01Loot } from "./starting-zone-creatures"
@@ -17,8 +16,8 @@ addLootToCreature(startingZoneWolfBossLoot,[
 ],[2],1)
 /*Quest Requirements - Group 8*/
 addLootToCreature(startingZoneWolfBossLoot,[
-    DRQItemRequired01.ID,           SmallSackofCoins.ID
-],[5,1],8)    
+    SmallSackofCoins.ID
+],[1],8)    
 
 
 //Boar Loot

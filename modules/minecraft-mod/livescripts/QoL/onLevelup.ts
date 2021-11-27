@@ -224,8 +224,8 @@ export function onLevelup(events:TSEventHandlers){
         if(player.GetLevel() <= 20)
         learnSpells(player)
 
-        if(player.GetLevel()%5 == 0)
-        SendWorldMessage('[' +classIcons[player.GetClass()] + '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r' + ' has reached level [' + '|cff'+levelColors[player.GetLevel()] +player.GetLevel()+ '|r].')
+        //if(player.GetLevel()%5 == 0)
+        //SendWorldMessage('[' +classIcons[player.GetClass()] + '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r' + ' has reached level [' + '|cff'+levelColors[player.GetLevel()] +player.GetLevel()+ '|r].')
     })
     events.Player.OnLogin((player,first)=>{
         learnSpells(player)

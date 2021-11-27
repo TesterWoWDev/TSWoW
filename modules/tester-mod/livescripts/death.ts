@@ -55,7 +55,7 @@ function removeLoot(player:TSPlayer){
 				itemP.itemCount = item.GetCount()
 				itemP.itemEntry = item.GetEntry()
 				itemsHolder.push(itemP)
-				player.RemoveItem(item,item.GetCount(),item.GetEntry())
+				player.RemoveItem(item,item.GetCount())
 			}
 		}
 	}

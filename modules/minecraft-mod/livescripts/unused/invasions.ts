@@ -53,7 +53,7 @@ function startInvasion(){
             let unit = spawner.SummonGameObject(q.GetInt32(2),q.GetInt32(3),q.GetInt32(4),q.GetInt32(5),q.GetInt32(6),0)
             gSpawns.push(unit)
         }else{//position for boss/legion invasion icon
-            spawner.GetTasks().AddTimer("invasion-location",30000,0,(timer,entity,del,can)=>{
+            spawner.AddTimer("invasion-location",30000,0,(timer,entity,del,can)=>{
                 let players = entity.GetMap().GetPlayers(-1)
                 for(let i = 0; i < players.length; i++){
                     players[i].GossipSendPOI(q.GetInt32(3),q.GetInt32(4),41,0,0,'Legion Invasion')
@@ -99,8 +99,8 @@ function endInvasion(){
     for(let i = 0; i < players.length; i++){
         players[i].GossipSendPOI(0,0,41,0,0,'Legion Invasion')
     }
-    spawner.GetTasks().RemoveTimer("invasion-location")
-    spawner.GetTasks().AddTimer("invasion-end",90000,1,(timer,entity,del,can)=>{
+    spawner.RemoveTimer("invasion-location")
+    spawner.AddTimer("invasion-end",90000,1,(timer,entity,del,can)=>{
         startInvasion()
     })
 }

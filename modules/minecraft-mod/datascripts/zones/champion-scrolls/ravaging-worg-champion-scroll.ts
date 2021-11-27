@@ -8,7 +8,7 @@ WorgChampionCreature.Subname.enGB.set('Champion of the Worgs')
 WorgChampionCreature.Models.clearAll()
 WorgChampionCreature.Models.addIds(24235)
 WorgChampionCreature.Level.set(10,10)
-WorgChampionCreature.Rank.setElite()
+WorgChampionCreature.Rank.ELITE.set()
 //Spells
 export let WorgChampionStrike = std.Spells.create(MODNAME,'worgchampionstrike-spell',12057)
 WorgChampionStrike.Name.enGB.set('Strike')
@@ -23,21 +23,37 @@ WorgChampionGore.Name.enGB.set('Gore')
 WorgChampionGore.Description.enGB.set('Inflicts $s2 damage to an enemy every 3s for $d.')
 WorgChampionGore.AuraDescription.enGB.set('Bleeding for $s1 damage every 3 seconds.')
 WorgChampionGore.Effects.get(1).BasePoints.set(337)
-WorgChampionGore.Duration.set(15000,0,15000)
-    //(Timed create event)ID,initial min timer, initial max timer, repeated min timer, repeated max timer, chance
-    WorgChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(0,0,0,11000,15000,100).row.event_flags.set(1)
-    WorgChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(0).row.event_flags.set(1)
-    WorgChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(1,0,0,3000,7000,100).row.event_flags.set(1)
-    WorgChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(1).row.event_flags.set(1)
-    WorgChampionCreature.Scripts.onUpdateIc(0,0,0,0).Action.setCreateTimedEvent(2,0,0,5000,7000,100).row.event_flags.set(1)
-    WorgChampionCreature.Scripts.onUpdateOoc(0,0,0,0).Action.setRemoveTimedEvent(2).row.event_flags.set(1)
-    //combat loop
-    WorgChampionCreature.Scripts.onTimedEventTriggered(0).Target.setVictim().Action.setCast(WorgChampionStrike.ID,2,7)
-    WorgChampionCreature.Scripts.onTimedEventTriggered(1).Target.setVictim().Action.setCast(WorgChampionBite.ID,2,7)
-    WorgChampionCreature.Scripts.onTimedEventTriggered(2).Target.setVictim().Action.setCast(WorgChampionGore.ID,2,7)
+WorgChampionGore.Duration.modRefCopy(val=>val.set(15000,0,15000))
+    WorgChampionCreature.Scripts.onUpdateIc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setCreateTimedEvent(0,0,0,11000,15000,100)
+        script.Action.setCreateTimedEvent(1,0,0,3000,7000,100)
+        script.Action.setCreateTimedEvent(2,0,0,5000,7000,100)
+        
+    })
+    WorgChampionCreature.Scripts.onUpdateOoc(0,0,0,0,script=>{
+	script.row.event_flags.set(1)
+        script.Action.setRemoveTimedEvent(0)
+        script.Action.setRemoveTimedEvent(1)
+		script.Action.setRemoveTimedEvent(2)
+		
+    })
+    WorgChampionCreature.Scripts.onTimedEventTriggered(0,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(WorgChampionStrike.ID,2,7)
+    })
+	WorgChampionCreature.Scripts.onTimedEventTriggered(1,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(WorgChampionBite.ID,2,7)
+    })
+	WorgChampionCreature.Scripts.onTimedEventTriggered(2,script=>{
+        script.Target.setVictim()
+        script.Action.setCast(WorgChampionGore.ID,2,7)
+    })
+
 //End of Spells
 WorgChampionCreature.FactionTemplate.set(48)
-WorgChampionCreature.DamageSchool.setNormal()
+WorgChampionCreature.DamageSchool.Normal.set()
 WorgChampionCreature.Stats.ArmorMod.set(125)
 WorgChampionCreature.Stats.DamageMod.set(65)
 WorgChampionCreature.Stats.ExperienceMod.set(30)
@@ -60,7 +76,10 @@ WorgScroll.FlagsExtra.set(0)
 WorgScroll.MaxCount.set(1)
 WorgScroll.RequiredLevel.set(1)
 WorgScroll.Spells.clearAll()
-WorgScroll.Spells.add(WorgChampion.ID,undefined,undefined,-1)
+WorgScroll.Spells.addMod(spell=>{
+    spell.Spell.set(WorgChampion.ID)
+    spell.Charges.set(-1)
+})
 
 /*Spell Scripts - Champion Boss Items*/
 export let WorgCreatureSpawn = std.CreatureTemplates.create(MODNAME,'worgcreaturespawn-creature',8776)

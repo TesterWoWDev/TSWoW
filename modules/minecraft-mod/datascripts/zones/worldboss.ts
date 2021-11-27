@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata/sql/SQLFiles"
+import { SQL } from "wotlkdata"
 import { spawnNPCWithTimer } from "../functions/spawning-functions"
 import { OrbofPower } from "./item-manifest"
 
@@ -8,13 +8,15 @@ TeremustheDevourer.Level.set(30)
 TeremustheDevourer.Stats.HealthMod.set(60)
 TeremustheDevourer.Stats.DamageMod.set(10)
 TeremustheDevourer.Stats.ArmorMod.set(100)
-TeremustheDevourer.MovementType.setWaypoint()
+TeremustheDevourer.MovementType.WAYPOINT.set()
 TeremustheDevourer.HoverHeight.set(1)
 TeremustheDevourer.MovementSpeed.set(10,10)
-TeremustheDevourer.NormalLoot.addItem(OrbofPower.ID,75,3,3,undefined,8)
+TeremustheDevourer.NormalLoot.modRefCopy(table=>{
+    table.addItem(OrbofPower.ID,75,3,3,undefined,8)
+})
 
 let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,300,0,
-    [-8114.068848,407.7459,40.214,4.38],3600)
+    {map:725,x:-8114.068848,y:407.7459,z:40.214,o:4.38},3600)
 
 /*addWaypoint(TeremustheDevourerGUID,[
     [-8118.032227,167.130127,0.385031,1.114623,0],

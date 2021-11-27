@@ -1,3 +1,3 @@
-import { DBC } from "wotlkdata/dbc/DBCFiles";
+import { DBC } from "wotlkdata";
 
-DBC.SkillRaceClassInfo.find({SkillID:98}).RaceMask.set(0).ClassMask.set(0)
+//DBC.SkillRaceClassInfo.find({SkillID:98}).RaceMask.set(0).ClassMask.set(0)

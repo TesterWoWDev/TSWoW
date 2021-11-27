@@ -4,6 +4,7 @@
 import { std } from "tswow-stdlib"
 import { SQL } from "wotlkdata"
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
+import { spawnGob, spawnNPC } from "../../../functions/spawning-functions"
 import { MODNAME } from "../../../modname"
 import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
 
@@ -13,21 +14,23 @@ DeathknightQuestGiver01.Models.clearAll()
 DeathknightQuestGiver01.Models.addIds(21835)
 DeathknightQuestGiver01.Level.set(10,10)
 DeathknightQuestGiver01.FactionTemplate.set(35)
-DeathknightQuestGiver01.DamageSchool.setNormal()
+DeathknightQuestGiver01.DamageSchool.Normal.set()
 DeathknightQuestGiver01.Stats.ArmorMod.set(1)
 DeathknightQuestGiver01.Stats.DamageMod.set(1)
 DeathknightQuestGiver01.Stats.ExperienceMod.set(1)
 DeathknightQuestGiver01.Stats.HealthMod.set(1)
 DeathknightQuestGiver01.Stats.ManaMod.set(1)
-DeathknightQuestGiver01.NPCFlags.QuestGiver.mark()
-
+DeathknightQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
+spawnNPC(DeathknightQuestGiver01.ID,0,0,{map:725,x:-8325.328125,y:-121.336845,z:0.852532,o:5.242542})
+spawnNPC(33251,0,0,{map:725,x:-8326.202148,y:-124.327225,z:0.852532,o:0.117808},)
+spawnGob(190557, {map:725,x:-8326.202148,y:-124.327225,z:0.852532,o:0.117808},)//runeforge
 export let DeathknightQuest01 = std.Quests.create(MODNAME,'dkquest01-quest')
 
 DeathknightQuest01.Flags.set(1)
 DeathknightQuest01.MinLevel.set(1)
 DeathknightQuest01.QuestLevel.set(20)
-DeathknightQuest01.Questgiver.addStarter(questGiver03.ID)
-DeathknightQuest01.Questgiver.addEnder(DeathknightQuestGiver01.ID)
+DeathknightQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
+DeathknightQuest01.Questgiver.addCreatureEnder(DeathknightQuestGiver01.ID,false)
 
 DeathknightQuest01.Rewards.Money.set(441)
 
@@ -38,19 +41,14 @@ DeathknightQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been wa
 DeathknightQuest01.Text.Title.enGB.set('Technique and Form')
 
 
-
-
-
-
-
 export let DeathknightQuest02 = std.Quests.create(MODNAME,'dkquest02-quest')
 
 DeathknightQuest02.Flags.set(8)
 SQL.quest_template_addon.add(DeathknightQuest02.ID).SpecialFlags.set(1)
 DeathknightQuest02.MinLevel.set(1)
 DeathknightQuest02.QuestLevel.set(20)
-DeathknightQuest02.Questgiver.addStarter(DeathknightQuestGiver01.ID)
-DeathknightQuest02.Questgiver.addEnder(DeathknightQuestGiver01.ID)
+DeathknightQuest02.Questgiver.addCreatureStarter(DeathknightQuestGiver01.ID)
+DeathknightQuest02.Questgiver.addCreatureEnder(DeathknightQuestGiver01.ID,false)
 
 DeathknightQuest02.Rewards.Money.set(200000)
 DeathknightQuest02.Objectives.Item.add(OrbofPower.ID,10)

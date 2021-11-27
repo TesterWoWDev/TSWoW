@@ -1,17 +1,17 @@
 /*
  * This file is part of tswow (https://github.com/tswow/).
  * Copyright (C) 2020 tswow <https://github.com/tswow/>
- * 
- * This program is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU General Public License as 
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, version 3.
- * 
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License 
+ *
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 #pragma once
@@ -34,6 +34,7 @@
 
 #include "TSMain.h"
 #include "TSClasses.h"
+#include "TSEntity.h"
 
 class TSPlayer;
 class TSUnit;
@@ -42,37 +43,40 @@ class TSWorldObject;
 class TSCreature;
 class TSCorpse;
 
-class TC_GAME_API TSObject {
+class TC_GAME_API TSObject: public TSEntityProvider {
 public:
     Object* obj;
     TSObject(Object* obj);
     TSObject();
     TSObject* operator->() { return this;}
     bool IsNull() { return obj == nullptr; };
-    bool HasFlag(uint16 index, uint32 flag);
     bool IsInWorld();
-    int32 GetInt32Value(uint16 index);
-    uint32 GetUInt32Value(uint16 index);
-    float GetFloatValue(uint16 index);
-    uint8 GetByteValue(uint16 index, uint8 offset);
-    uint16 GetUInt16Value(uint16 index, uint8 offset);
     float GetScale();
     uint32 GetEntry();
     uint64 GetGUID();
     uint32 GetGUIDLow();
     uint8 GetTypeId();
-    uint64 GetUInt64Value(uint16 index);
-    void SetFlag(uint16 index, uint32 flag);
-    void SetInt32Value(uint16 index, int32 value);
-    void SetUInt32Value(uint16 index, uint32 value);
-    void UpdateUInt32Value(uint16 index, uint32 value);
-    void SetFloatValue(uint16 index, float value);
-    void SetByteValue(uint16 index, uint8 offset, uint8 value);
-    void SetUInt16Value(uint16 index, uint8 offset, uint16 value);
-    void SetInt16Value(uint16 index, uint8 offset, int16 value);
     void SetScale(float size);
-    void SetUInt64Value(uint16 index, uint64 value);
+
+    void SetFlag(uint16 index, uint32 flag);
     void RemoveFlag(uint16 index, uint32 flag);
+    bool HasFlag(uint16 index, uint32 flag);
+
+    void SetCoreInt32(uint16 index, int32 value);
+    void SetCoreUInt32(uint16 index, uint32 value);
+    void UpdateCoreUInt32(uint16 index, uint32 value);
+    void SetCoreFloat(uint16 index, float value);
+    void SetCoreByte(uint16 index, uint8 offset, uint8 value);
+    void SetCoreUInt16(uint16 index, uint8 offset, uint16 value);
+    void SetCoreInt16(uint16 index, uint8 offset, int16 value);
+    void SetCoreUInt64(uint16 index, uint64 value);
+
+    uint8 GetCoreByte(uint16 index, uint8 offset);
+    int32 GetCoreInt32(uint16 index);
+    uint32 GetCoreUInt32(uint16 index);
+    float GetCoreFloat(uint16 index);
+    uint16 GetCoreUInt16(uint16 index, uint8 offset);
+    uint64 GetCoreUInt64(uint16 index);
 
     TSPlayer ToPlayer();
     TSUnit ToUnit();

@@ -1,5 +1,5 @@
-import { DBC } from "wotlkdata/dbc/DBCFiles";
-import { SQL } from "wotlkdata/sql/SQLFiles";
+import { DBC } from "wotlkdata";
+import { SQL } from "wotlkdata";
 
 export function addToDBCItemExtendedCost(index:number, reqHonor: number, reqArena:number, ArenaSlotID: number, reqItems:number[], reqItemCount:number[],PersonalRating:number) {
     DBC.ItemExtendedCost.add(index).HonorPoints.set(reqHonor).ArenaPoints.set(reqArena).ArenaBracket.set(ArenaSlotID).ItemID.set(reqItems).ItemCount.set(reqItemCount).RequiredArenaRating.set(PersonalRating)

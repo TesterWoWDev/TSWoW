@@ -1,59 +1,51 @@
-import { creatureNameMessage, creatureNoExistMessage, itemLootFinishMessage, itemLootMessage } from "../shared/Messages";
+import { creatureNameMessage, creatureNameMessageID, creatureNoExistMessage, itemLootMessage } from "../shared/Messages";
 
 export function Atlas(events: TSEventHandlers) {
-    events.Addon.OnMessageID(creatureNameMessage,(player,msg)=>{ 
-        let check = -2
+    events.PacketID.OnCustom(creatureNameMessageID,(_,packet,player)=>{
+        let msg = new creatureNameMessage(1,"")
+        msg.read(packet)
+        let check = 0
         let entry = msg.entry.split("\\\\").join("").split(";").join("").split("/").join("").split("\"").join("\\\\\"").split("'").join("\\\\\'")
-        let lootID = 0;
+        let loot: TSArray<TSArray<double>> = []
+        let creatureID = 0;
         console.log("Player: "+player.GetName() + " AccountID: "+player.GetAccountId()+" Message: "+msg.entry+" isName: "+msg.isName + " Formatted: " + entry)
+        
         if(entry.length > 0){
+            let fillString = "entry"
+            let lootID = 0;
             if(msg.isName == 1){
-                let query = QueryWorld("SELECT `entry` FROM `creature_template` WHERE `name` = '" + entry + "'");
-                while(query.GetRow()){
-                    entry = query.GetString(0)
-                    check = 0
-                }
+                fillString = "name"
+            }
+            check = -1
+            let query = QueryWorld('SELECT entry,lootid FROM `creature_template` WHERE `' + fillString + '` = "' + entry + '";');
+            while(query.GetRow()){
+                creatureID = query.GetUInt32(0)
+                lootID = query.GetUInt32(1)
+                check = 0
             }
             if(check == 0){
-                check = -1
-                let query = QueryWorld('SELECT lootid FROM creature_template WHERE entry="' + entry + '";');
-                while(query.GetRow()){
-                    lootID = query.GetUInt32(0)
-                    check = 0
-                }
-            }
-            if(check == 0){
-                let query = QueryWorld('SELECT * FROM creature_loot_template WHERE Entry="' + lootID + '";');
+                let query = QueryWorld('SELECT * FROM `creature_loot_template` WHERE `Entry` = "' + lootID + '";');
                 while(query.GetRow()) {
                     if(query.GetUInt32(2) == 0){
-                        if(query.GetFloat(3) > 0){
-                            let pkt = new itemLootMessage()
-                            pkt.itemID = query.GetUInt32(1);
-                            pkt.itemCountMin = query.GetInt8(7);
-                            pkt.itemCountMax = query.GetInt8(8);
-                            pkt.dropChance = query.GetFloat(3);
-                        player.SendData(pkt)
-                        check = 1
+                        if(query.GetDouble(3) > 0){
+                            loot.push(<TSArray<double>>[query.GetDouble(1),query.GetDouble(7),query.GetDouble(8),query.GetDouble(3)])
+                            check = 1
                         }
                     }
-                }
-                if(check = 0){
-                    player.SendData(new creatureNoExistMessage())
-                    return;
-                }
-            }else{
-                player.SendData(new creatureNoExistMessage())
-                return;
-            }
-        }else{
-            player.SendData(new creatureNoExistMessage())
+                } 
+            } 
+        }
+        if(check == 0){
+            new creatureNoExistMessage(0).write().SendToPlayer(player);
             return;
         }
-        if(check = 1){
-            let pkt = new itemLootFinishMessage()
-            pkt.entry = ToUInt32(entry)
-            player.SendCreatureQueryPacket(ToUInt32(entry))
-            player.SendData(pkt)  
+        if(check == 1){
+            let msgL = new itemLootMessage()
+            msgL.arr = loot;
+            msgL.size = loot.length;
+            msgL.entryID = creatureID;
+            msgL.write().SendToPlayer(player)
+            player.SendCreatureQueryPacket(creatureID) 
         }
     })
 }

@@ -1,17 +1,17 @@
 /*
  * This file is part of tswow (https://github.com/tswow/).
  * Copyright (C) 2020 tswow <https://github.com/tswow/>
- * 
- * This program is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU General Public License as 
+ *
+ * This program is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, version 3.
- * 
- * This program is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License 
+ *
+ * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 type int = number;
@@ -30,18 +30,556 @@ type bool = boolean;
 type TSArray<T> = T[];
 type TSString = string;
 
-declare class TSMutable<T> {
+declare const enum Gender /**@realType:uint8 */ {
+    MALE   = 0,
+    FEMALE = 1
+}
+
+declare const enum Race /** @realType: uint8 */ {
+    HUMAN    = 1,
+    ORC      = 2,
+    DWARF    = 3,
+    NIGHTELF = 4,
+    UNDEAD   = 5,
+    TAUREN   = 6,
+    GNOME    = 7,
+    TROLL    = 8,
+    BLOODELF = 10,
+    DRAENEI  = 11,
+}
+declare type RaceID = Race | uint8
+
+declare const enum Class /** @realType: uint8 */ {
+    WARRIOR = 1,
+    PALADIN = 2,
+    HUNTER = 3,
+    ROGUE = 4,
+    PRIEST = 5,
+    DEATH_KNIGHT = 6,
+    SHAMAN = 7,
+    MAGE = 8,
+    WARLOCK = 9,
+    DRUID = 10,
+}
+declare type ClassID = Class | uint8
+
+declare const enum Outfit /**@realType:uint32_t*/ {
+    SOUND_ID   = 0x1,
+    GUILD      = 0x2,
+    CLASS      = 0x4,
+
+    HEAD       = 0x8,
+    SHOULDERS  = 0x10,
+    BODY       = 0x20,
+    CHEST      = 0x40,
+    WAIST      = 0x80,
+    LEGS       = 0x100,
+    FEET       = 0x200,
+    WRISTS     = 0x400,
+    HANDS      = 0x800,
+    BACK       = 0x1000,
+    MAINHAND   = 0x2000,
+    OFFHAND    = 0x4000,
+    RANGED     = 0x8000,
+
+    WEAPONS = MAINHAND | OFFHAND | RANGED,
+    ARMOR = HEAD | SHOULDERS | BODY | CHEST | WAIST
+                 | LEGS | FEET | WRISTS | HANDS | BACK,
+    GEAR = WEAPONS | ARMOR,
+    EVERYTHING = GEAR | SOUND_ID | GUILD | CLASS
+}
+declare const enum SpellCastResult /**@realType:uint8*/ {
+    SPELL_FAILED_SUCCESS = 0,
+    SPELL_FAILED_AFFECTING_COMBAT = 1,
+    SPELL_FAILED_ALREADY_AT_FULL_HEALTH = 2,
+    SPELL_FAILED_ALREADY_AT_FULL_MANA = 3,
+    SPELL_FAILED_ALREADY_AT_FULL_POWER = 4,
+    SPELL_FAILED_ALREADY_BEING_TAMED = 5,
+    SPELL_FAILED_ALREADY_HAVE_CHARM = 6,
+    SPELL_FAILED_ALREADY_HAVE_SUMMON = 7,
+    SPELL_FAILED_ALREADY_OPEN = 8,
+    SPELL_FAILED_AURA_BOUNCED = 9,
+    SPELL_FAILED_AUTOTRACK_INTERRUPTED = 10,
+    SPELL_FAILED_BAD_IMPLICIT_TARGETS = 11,
+    SPELL_FAILED_BAD_TARGETS = 12,
+    SPELL_FAILED_CANT_BE_CHARMED = 13,
+    SPELL_FAILED_CANT_BE_DISENCHANTED = 14,
+    SPELL_FAILED_CANT_BE_DISENCHANTED_SKILL = 15,
+    SPELL_FAILED_CANT_BE_MILLED = 16,
+    SPELL_FAILED_CANT_BE_PROSPECTED = 17,
+    SPELL_FAILED_CANT_CAST_ON_TAPPED = 18,
+    SPELL_FAILED_CANT_DUEL_WHILE_INVISIBLE = 19,
+    SPELL_FAILED_CANT_DUEL_WHILE_STEALTHED = 20,
+    SPELL_FAILED_CANT_STEALTH = 21,
+    SPELL_FAILED_CASTER_AURASTATE = 22,
+    SPELL_FAILED_CASTER_DEAD = 23,
+    SPELL_FAILED_CHARMED = 24,
+    SPELL_FAILED_CHEST_IN_USE = 25,
+    SPELL_FAILED_CONFUSED = 26,
+    SPELL_FAILED_DONT_REPORT = 27,
+    SPELL_FAILED_EQUIPPED_ITEM = 28,
+    SPELL_FAILED_EQUIPPED_ITEM_CLASS = 29,
+    SPELL_FAILED_EQUIPPED_ITEM_CLASS_MAINHAND = 30,
+    SPELL_FAILED_EQUIPPED_ITEM_CLASS_OFFHAND = 31,
+    SPELL_FAILED_ERROR = 32,
+    SPELL_FAILED_FIZZLE = 33,
+    SPELL_FAILED_FLEEING = 34,
+    SPELL_FAILED_FOOD_LOWLEVEL = 35,
+    SPELL_FAILED_HIGHLEVEL = 36,
+    SPELL_FAILED_HUNGER_SATIATED = 37,
+    SPELL_FAILED_IMMUNE = 38,
+    SPELL_FAILED_INCORRECT_AREA = 39,
+    SPELL_FAILED_INTERRUPTED = 40,
+    SPELL_FAILED_INTERRUPTED_COMBAT = 41,
+    SPELL_FAILED_ITEM_ALREADY_ENCHANTED = 42,
+    SPELL_FAILED_ITEM_GONE = 43,
+    SPELL_FAILED_ITEM_NOT_FOUND = 44,
+    SPELL_FAILED_ITEM_NOT_READY = 45,
+    SPELL_FAILED_LEVEL_REQUIREMENT = 46,
+    SPELL_FAILED_LINE_OF_SIGHT = 47,
+    SPELL_FAILED_LOWLEVEL = 48,
+    SPELL_FAILED_LOW_CASTLEVEL = 49,
+    SPELL_FAILED_MAINHAND_EMPTY = 50,
+    SPELL_FAILED_MOVING = 51,
+    SPELL_FAILED_NEED_AMMO = 52,
+    SPELL_FAILED_NEED_AMMO_POUCH = 53,
+    SPELL_FAILED_NEED_EXOTIC_AMMO = 54,
+    SPELL_FAILED_NEED_MORE_ITEMS = 55,
+    SPELL_FAILED_NOPATH = 56,
+    SPELL_FAILED_NOT_BEHIND = 57,
+    SPELL_FAILED_NOT_FISHABLE = 58,
+    SPELL_FAILED_NOT_FLYING = 59,
+    SPELL_FAILED_NOT_HERE = 60,
+    SPELL_FAILED_NOT_INFRONT = 61,
+    SPELL_FAILED_NOT_IN_CONTROL = 62,
+    SPELL_FAILED_NOT_KNOWN = 63,
+    SPELL_FAILED_NOT_MOUNTED = 64,
+    SPELL_FAILED_NOT_ON_TAXI = 65,
+    SPELL_FAILED_NOT_ON_TRANSPORT = 66,
+    SPELL_FAILED_NOT_READY = 67,
+    SPELL_FAILED_NOT_SHAPESHIFT = 68,
+    SPELL_FAILED_NOT_STANDING = 69,
+    SPELL_FAILED_NOT_TRADEABLE = 70,
+    SPELL_FAILED_NOT_TRADING = 71,
+    SPELL_FAILED_NOT_UNSHEATHED = 72,
+    SPELL_FAILED_NOT_WHILE_GHOST = 73,
+    SPELL_FAILED_NOT_WHILE_LOOTING = 74,
+    SPELL_FAILED_NO_AMMO = 75,
+    SPELL_FAILED_NO_CHARGES_REMAIN = 76,
+    SPELL_FAILED_NO_CHAMPION = 77,
+    SPELL_FAILED_NO_COMBO_POINTS = 78,
+    SPELL_FAILED_NO_DUELING = 79,
+    SPELL_FAILED_NO_ENDURANCE = 80,
+    SPELL_FAILED_NO_FISH = 81,
+    SPELL_FAILED_NO_ITEMS_WHILE_SHAPESHIFTED = 82,
+    SPELL_FAILED_NO_MOUNTS_ALLOWED = 83,
+    SPELL_FAILED_NO_PET = 84,
+    SPELL_FAILED_NO_POWER = 85,
+    SPELL_FAILED_NOTHING_TO_DISPEL = 86,
+    SPELL_FAILED_NOTHING_TO_STEAL = 87,
+    SPELL_FAILED_ONLY_ABOVEWATER = 88,
+    SPELL_FAILED_ONLY_DAYTIME = 89,
+    SPELL_FAILED_ONLY_INDOORS = 90,
+    SPELL_FAILED_ONLY_MOUNTED = 91,
+    SPELL_FAILED_ONLY_NIGHTTIME = 92,
+    SPELL_FAILED_ONLY_OUTDOORS = 93,
+    SPELL_FAILED_ONLY_SHAPESHIFT = 94,
+    SPELL_FAILED_ONLY_STEALTHED = 95,
+    SPELL_FAILED_ONLY_UNDERWATER = 96,
+    SPELL_FAILED_OUT_OF_RANGE = 97,
+    SPELL_FAILED_PACIFIED = 98,
+    SPELL_FAILED_POSSESSED = 99,
+    SPELL_FAILED_REAGENTS = 100,
+    SPELL_FAILED_REQUIRES_AREA = 101,
+    SPELL_FAILED_REQUIRES_SPELL_FOCUS = 102,
+    SPELL_FAILED_ROOTED = 103,
+    SPELL_FAILED_SILENCED = 104,
+    SPELL_FAILED_SPELL_IN_PROGRESS = 105,
+    SPELL_FAILED_SPELL_LEARNED = 106,
+    SPELL_FAILED_SPELL_UNAVAILABLE = 107,
+    SPELL_FAILED_STUNNED = 108,
+    SPELL_FAILED_TARGETS_DEAD = 109,
+    SPELL_FAILED_TARGET_AFFECTING_COMBAT = 110,
+    SPELL_FAILED_TARGET_AURASTATE = 111,
+    SPELL_FAILED_TARGET_DUELING = 112,
+    SPELL_FAILED_TARGET_ENEMY = 113,
+    SPELL_FAILED_TARGET_ENRAGED = 114,
+    SPELL_FAILED_TARGET_FRIENDLY = 115,
+    SPELL_FAILED_TARGET_IN_COMBAT = 116,
+    SPELL_FAILED_TARGET_IS_PLAYER = 117,
+    SPELL_FAILED_TARGET_IS_PLAYER_CONTROLLED = 118,
+    SPELL_FAILED_TARGET_NOT_DEAD = 119,
+    SPELL_FAILED_TARGET_NOT_IN_PARTY = 120,
+    SPELL_FAILED_TARGET_NOT_LOOTED = 121,
+    SPELL_FAILED_TARGET_NOT_PLAYER = 122,
+    SPELL_FAILED_TARGET_NO_POCKETS = 123,
+    SPELL_FAILED_TARGET_NO_WEAPONS = 124,
+    SPELL_FAILED_TARGET_NO_RANGED_WEAPONS = 125,
+    SPELL_FAILED_TARGET_UNSKINNABLE = 126,
+    SPELL_FAILED_THIRST_SATIATED = 127,
+    SPELL_FAILED_TOO_CLOSE = 128,
+    SPELL_FAILED_TOO_MANY_OF_ITEM = 129,
+    SPELL_FAILED_TOTEM_CATEGORY = 130,
+    SPELL_FAILED_TOTEMS = 131,
+    SPELL_FAILED_TRY_AGAIN = 132,
+    SPELL_FAILED_UNIT_NOT_BEHIND = 133,
+    SPELL_FAILED_UNIT_NOT_INFRONT = 134,
+    SPELL_FAILED_WRONG_PET_FOOD = 135,
+    SPELL_FAILED_NOT_WHILE_FATIGUED = 136,
+    SPELL_FAILED_TARGET_NOT_IN_INSTANCE = 137,
+    SPELL_FAILED_NOT_WHILE_TRADING = 138,
+    SPELL_FAILED_TARGET_NOT_IN_RAID = 139,
+    SPELL_FAILED_TARGET_FREEFORALL = 140,
+    SPELL_FAILED_NO_EDIBLE_CORPSES = 141,
+    SPELL_FAILED_ONLY_BATTLEGROUNDS = 142,
+    SPELL_FAILED_TARGET_NOT_GHOST = 143,
+    SPELL_FAILED_TRANSFORM_UNUSABLE = 144,
+    SPELL_FAILED_WRONG_WEATHER = 145,
+    SPELL_FAILED_DAMAGE_IMMUNE = 146,
+    SPELL_FAILED_PREVENTED_BY_MECHANIC = 147,
+    SPELL_FAILED_PLAY_TIME = 148,
+    SPELL_FAILED_REPUTATION = 149,
+    SPELL_FAILED_MIN_SKILL = 150,
+    SPELL_FAILED_NOT_IN_ARENA = 151,
+    SPELL_FAILED_NOT_ON_SHAPESHIFT = 152,
+    SPELL_FAILED_NOT_ON_STEALTHED = 153,
+    SPELL_FAILED_NOT_ON_DAMAGE_IMMUNE = 154,
+    SPELL_FAILED_NOT_ON_MOUNTED = 155,
+    SPELL_FAILED_TOO_SHALLOW = 156,
+    SPELL_FAILED_TARGET_NOT_IN_SANCTUARY = 157,
+    SPELL_FAILED_TARGET_IS_TRIVIAL = 158,
+    SPELL_FAILED_BM_OR_INVISGOD = 159,
+    SPELL_FAILED_EXPERT_RIDING_REQUIREMENT = 160,
+    SPELL_FAILED_ARTISAN_RIDING_REQUIREMENT = 161,
+    SPELL_FAILED_NOT_IDLE = 162,
+    SPELL_FAILED_NOT_INACTIVE = 163,
+    SPELL_FAILED_PARTIAL_PLAYTIME = 164,
+    SPELL_FAILED_NO_PLAYTIME = 165,
+    SPELL_FAILED_NOT_IN_BATTLEGROUND = 166,
+    SPELL_FAILED_NOT_IN_RAID_INSTANCE = 167,
+    SPELL_FAILED_ONLY_IN_ARENA = 168,
+    SPELL_FAILED_TARGET_LOCKED_TO_RAID_INSTANCE = 169,
+    SPELL_FAILED_ON_USE_ENCHANT = 170,
+    SPELL_FAILED_NOT_ON_GROUND = 171,
+    SPELL_FAILED_CUSTOM_ERROR = 172,
+    SPELL_FAILED_CANT_DO_THAT_RIGHT_NOW = 173,
+    SPELL_FAILED_TOO_MANY_SOCKETS = 174,
+    SPELL_FAILED_INVALID_GLYPH = 175,
+    SPELL_FAILED_UNIQUE_GLYPH = 176,
+    SPELL_FAILED_GLYPH_SOCKET_LOCKED = 177,
+    SPELL_FAILED_NO_VALID_TARGETS = 178,
+    SPELL_FAILED_ITEM_AT_MAX_CHARGES = 179,
+    SPELL_FAILED_NOT_IN_BARBERSHOP = 180,
+    SPELL_FAILED_FISHING_TOO_LOW = 181,
+    SPELL_FAILED_ITEM_ENCHANT_TRADE_WINDOW = 182,
+    SPELL_FAILED_SUMMON_PENDING = 183,
+    SPELL_FAILED_MAX_SOCKETS = 184,
+    SPELL_FAILED_PET_CAN_RENAME = 185,
+    SPELL_FAILED_TARGET_CANNOT_BE_RESURRECTED = 186,
+    SPELL_FAILED_UNKNOWN = 187, // actually doesn't exist in client
+
+    SPELL_CAST_OK = 255 // custom value, must not be sent to client
+}
+declare const enum EquipmentSlots /**@realType:uint8*/ {
+    EQUIPMENT_SLOT_START        = 0,
+    EQUIPMENT_SLOT_HEAD         = 0,
+    EQUIPMENT_SLOT_NECK         = 1,
+    EQUIPMENT_SLOT_SHOULDERS    = 2,
+    EQUIPMENT_SLOT_BODY         = 3,
+    EQUIPMENT_SLOT_CHEST        = 4,
+    EQUIPMENT_SLOT_WAIST        = 5,
+    EQUIPMENT_SLOT_LEGS         = 6,
+    EQUIPMENT_SLOT_FEET         = 7,
+    EQUIPMENT_SLOT_WRISTS       = 8,
+    EQUIPMENT_SLOT_HANDS        = 9,
+    EQUIPMENT_SLOT_FINGER1      = 10,
+    EQUIPMENT_SLOT_FINGER2      = 11,
+    EQUIPMENT_SLOT_TRINKET1     = 12,
+    EQUIPMENT_SLOT_TRINKET2     = 13,
+    EQUIPMENT_SLOT_BACK         = 14,
+    EQUIPMENT_SLOT_MAINHAND     = 15,
+    EQUIPMENT_SLOT_OFFHAND      = 16,
+    EQUIPMENT_SLOT_RANGED       = 17,
+    EQUIPMENT_SLOT_TABARD       = 18,
+    EQUIPMENT_SLOT_END          = 19
+}
+declare const enum InventorySlots /**@realType:uint32*/{
+    INVENTORY_SLOT_BAG_1 = 19,
+    INVENTORY_SLOT_BAG_2 = 20,
+    INVENTORY_SLOT_BAG_3 = 21,
+    INVENTORY_SLOT_BAG_4 = 22
+}
+declare const enum CorpseType /**@realType:uint32*/ {
+    CORPSE_BONES             = 0,
+    CORPSE_RESURRECTABLE_PVE = 1,
+    CORPSE_RESURRECTABLE_PVP = 2
+}
+declare const enum CreatureFamily /**@realType:uint32*/ {
+    CREATURE_FAMILY_NONE                = 0,
+    CREATURE_FAMILY_WOLF                = 1,
+    CREATURE_FAMILY_CAT                 = 2,
+    CREATURE_FAMILY_SPIDER              = 3,
+    CREATURE_FAMILY_BEAR                = 4,
+    CREATURE_FAMILY_BOAR                = 5,
+    CREATURE_FAMILY_CROCOLISK           = 6,
+    CREATURE_FAMILY_CARRION_BIRD        = 7,
+    CREATURE_FAMILY_CRAB                = 8,
+    CREATURE_FAMILY_GORILLA             = 9,
+    CREATURE_FAMILY_HORSE_CUSTOM        = 10,   // Does not exist in DBC but used for horse like beasts in DB
+    CREATURE_FAMILY_RAPTOR              = 11,
+    CREATURE_FAMILY_TALLSTRIDER         = 12,
+    CREATURE_FAMILY_FELHUNTER           = 15,
+    CREATURE_FAMILY_VOIDWALKER          = 16,
+    CREATURE_FAMILY_SUCCUBUS            = 17,
+    CREATURE_FAMILY_DOOMGUARD           = 19,
+    CREATURE_FAMILY_SCORPID             = 20,
+    CREATURE_FAMILY_TURTLE              = 21,
+    CREATURE_FAMILY_IMP                 = 23,
+    CREATURE_FAMILY_BAT                 = 24,
+    CREATURE_FAMILY_HYENA               = 25,
+    CREATURE_FAMILY_BIRD_OF_PREY        = 26,
+    CREATURE_FAMILY_WIND_SERPENT        = 27,
+    CREATURE_FAMILY_REMOTE_CONTROL      = 28,
+    CREATURE_FAMILY_FELGUARD            = 29,
+    CREATURE_FAMILY_DRAGONHAWK          = 30,
+    CREATURE_FAMILY_RAVAGER             = 31,
+    CREATURE_FAMILY_WARP_STALKER        = 32,
+    CREATURE_FAMILY_SPOREBAT            = 33,
+    CREATURE_FAMILY_NETHER_RAY          = 34,
+    CREATURE_FAMILY_SERPENT             = 35,
+    CREATURE_FAMILY_MOTH                = 37,
+    CREATURE_FAMILY_CHIMAERA            = 38,
+    CREATURE_FAMILY_DEVILSAUR           = 39,
+    CREATURE_FAMILY_GHOUL               = 40,
+    CREATURE_FAMILY_SILITHID            = 41,
+    CREATURE_FAMILY_WORM                = 42,
+    CREATURE_FAMILY_RHINO               = 43,
+    CREATURE_FAMILY_WASP                = 44,
+    CREATURE_FAMILY_CORE_HOUND          = 45,
+    CREATURE_FAMILY_SPIRIT_BEAST        = 46
+}
+declare const enum RemoveMethod /**@realType:uint8*/ {
+    GROUP_REMOVEMETHOD_DEFAULT  = 0,
+    GROUP_REMOVEMETHOD_KICK     = 1,
+    GROUP_REMOVEMETHOD_LEAVE    = 2,
+    GROUP_REMOVEMETHOD_KICK_LFG = 3
+}
+declare const enum QuestFlags /**@realType:uint32*/ {
+    // Flags used at server and sent to client
+    QUEST_FLAGS_NONE                    = 0x00000000,
+    QUEST_FLAGS_STAY_ALIVE              = 0x00000001,   // Not used currently
+    QUEST_FLAGS_PARTY_ACCEPT            = 0x00000002,   // Not used currently. If player in party, all players that can accept this quest will receive confirmation box to accept quest CMSG_QUEST_CONFIRM_ACCEPT/SMSG_QUEST_CONFIRM_ACCEPT
+    QUEST_FLAGS_EXPLORATION             = 0x00000004,   // Not used currently
+    QUEST_FLAGS_SHARABLE                = 0x00000008,   // Can be shared: Player::CanShareQuest()
+    QUEST_FLAGS_HAS_CONDITION           = 0x00000010,   // Not used currently
+    QUEST_FLAGS_HIDE_REWARD_POI         = 0x00000020,   // Not used currently: Unsure of content
+    QUEST_FLAGS_RAID                    = 0x00000040,   // Can be completed while in raid
+    QUEST_FLAGS_TBC                     = 0x00000080,   // Not used currently: Available if TBC expansion enabled only
+    QUEST_FLAGS_NO_MONEY_FROM_XP        = 0x00000100,   // Not used currently: Experience is not converted to gold at max level
+    QUEST_FLAGS_HIDDEN_REWARDS          = 0x00000200,   // Items and money rewarded only sent in SMSG_QUESTGIVER_OFFER_REWARD (not in SMSG_QUEST_GIVER_QUEST_DETAILS or in client quest log(SMSG_QUEST_QUERY_RESPONSE))
+    QUEST_FLAGS_TRACKING                = 0x00000400,   // These quests are automatically rewarded on quest complete and they will never appear in quest log client side.
+    QUEST_FLAGS_DEPRECATE_REPUTATION    = 0x00000800,   // Not used currently
+    QUEST_FLAGS_DAILY                   = 0x00001000,   // Used to know quest is Daily one
+    QUEST_FLAGS_FLAGS_PVP               = 0x00002000,   // Having this quest in log forces PvP flag
+    QUEST_FLAGS_UNAVAILABLE             = 0x00004000,   // Used on quests that are not generically available
+    QUEST_FLAGS_WEEKLY                  = 0x00008000,
+    QUEST_FLAGS_AUTOCOMPLETE            = 0x00010000,   // auto complete
+    QUEST_FLAGS_DISPLAY_ITEM_IN_TRACKER = 0x00020000,   // Displays usable item in quest tracker
+    QUEST_FLAGS_OBJ_TEXT                = 0x00040000,   // use Objective text as Complete text
+    QUEST_FLAGS_AUTO_ACCEPT             = 0x00080000,   // The client recognizes this flag as auto-accept. However, NONE of the current quests (3.3.5a) have this flag. Maybe blizz used to use it, or will use it in the future.
+
+    // ... 4.x added flags up to 0x80000000 - all unknown for now
+}
+declare const enum TeamId /**@realType:uint32*/ {
+    TEAM_ALLIANCE = 0,
+    TEAM_HORDE,
+    TEAM_NEUTRAL
+}
+declare const enum WeatherType /**@realType:uint32*/ {
+    WEATHER_TYPE_FINE       = 0,
+    WEATHER_TYPE_RAIN       = 1,
+    WEATHER_TYPE_SNOW       = 2,
+    WEATHER_TYPE_STORM      = 3,
+    WEATHER_TYPE_THUNDERS   = 86,
+    WEATHER_TYPE_BLACKRAIN  = 90
+}
+declare const enum GOState /**@realType:uint8*/ {
+    GO_STATE_ACTIVE             = 0,                        // show in world as used and not reset (closed door open)
+    GO_STATE_READY              = 1,                        // show in world as ready (closed door close)
+    GO_STATE_DESTROYED          = 2                         // show the object in-game as already used and not yet reset (e.g. door opened by a cannon blast)
+}
+declare const enum LootState /**@realType:uint32*/ {
+    GO_NOT_READY = 0,
+    GO_READY,                                               // can be ready but despawned, and then not possible activate until spawn
+    GO_ACTIVATED,
+    GO_JUST_DEACTIVATED
+}
+declare const enum TempSummonType /**@realType:uint32*/ {
+    TEMPSUMMON_TIMED_OR_DEAD_DESPAWN       = 1,             // despawns after a specified time OR when the creature disappears
+    TEMPSUMMON_TIMED_OR_CORPSE_DESPAWN     = 2,             // despawns after a specified time OR when the creature dies
+    TEMPSUMMON_TIMED_DESPAWN               = 3,             // despawns after a specified time
+    TEMPSUMMON_TIMED_DESPAWN_OUT_OF_COMBAT = 4,             // despawns after a specified time after the creature is out of combat
+    TEMPSUMMON_CORPSE_DESPAWN              = 5,             // despawns instantly after death
+    TEMPSUMMON_CORPSE_TIMED_DESPAWN        = 6,             // despawns after a specified time after death
+    TEMPSUMMON_DEAD_DESPAWN                = 7,             // despawns when the creature disappears
+    TEMPSUMMON_MANUAL_DESPAWN              = 8              // despawns when UnSummon() is called
+}
+declare const enum TypeID /**@realType:uint32*/ {
+    TYPEID_OBJECT        = 0,
+    TYPEID_ITEM          = 1,
+    TYPEID_CONTAINER     = 2,
+    TYPEID_UNIT          = 3,
+    TYPEID_PLAYER        = 4,
+    TYPEID_GAMEOBJECT    = 5,
+    TYPEID_DYNAMICOBJECT = 6,
+    TYPEID_CORPSE        = 7
+}
+declare const enum CurrentSpellTypes /**@realType:uint8*/ {
+    CURRENT_MELEE_SPELL             = 0,
+    CURRENT_GENERIC_SPELL           = 1,
+    CURRENT_CHANNELED_SPELL         = 2,
+    CURRENT_AUTOREPEAT_SPELL        = 3
+}
+declare const enum Powers /**@realType:int8 */ {
+    POWER_HEALTH                        = -2,
+    POWER_MANA                          = 0,
+    POWER_RAGE                          = 1,
+    POWER_FOCUS                         = 2,
+    POWER_ENERGY                        = 3,
+    POWER_HAPPINESS                     = 4,
+    POWER_RUNE                          = 5,
+    POWER_RUNIC_POWER                   = 6,
+} /**@realType:int8 */
+declare const enum CreatureType /**@realType:uint32*/ {
+    CREATURE_TYPE_BEAST            = 1,
+    CREATURE_TYPE_DRAGONKIN        = 2,
+    CREATURE_TYPE_DEMON            = 3,
+    CREATURE_TYPE_ELEMENTAL        = 4,
+    CREATURE_TYPE_GIANT            = 5,
+    CREATURE_TYPE_UNDEAD           = 6,
+    CREATURE_TYPE_HUMANOID         = 7,
+    CREATURE_TYPE_CRITTER          = 8,
+    CREATURE_TYPE_MECHANICAL       = 9,
+    CREATURE_TYPE_NOT_SPECIFIED    = 10,
+    CREATURE_TYPE_TOTEM            = 11,
+    CREATURE_TYPE_NON_COMBAT_PET   = 12,
+    CREATURE_TYPE_GAS_CLOUD        = 13
+}
+declare const enum LocaleConstant /**@realType:uint8*/ {
+    LOCALE_enUS = 0,
+    LOCALE_koKR = 1,
+    LOCALE_frFR = 2,
+    LOCALE_deDE = 3,
+    LOCALE_zhCN = 4,
+    LOCALE_zhTW = 5,
+    LOCALE_esES = 6,
+    LOCALE_esMX = 7,
+    LOCALE_ruRU = 8,
+
+    TOTAL_LOCALES
+}
+declare const enum UnitMoveType /**@realType:uint32*/ {
+    MOVE_WALK           = 0,
+    MOVE_RUN            = 1,
+    MOVE_RUN_BACK       = 2,
+    MOVE_SWIM           = 3,
+    MOVE_SWIM_BACK      = 4,
+    MOVE_TURN_RATE      = 5,
+    MOVE_FLIGHT         = 6,
+    MOVE_FLIGHT_BACK    = 7,
+    MOVE_PITCH_RATE     = 8
+}
+declare const enum MovementGeneratorType /**@realType:uint8*/ {
+    IDLE_MOTION_TYPE                = 0,     // IdleMovementGenerator.h
+    RANDOM_MOTION_TYPE              = 1,     // RandomMovementGenerator.h
+    WAYPOINT_MOTION_TYPE            = 2,     // WaypointMovementGenerator.h
+    MAX_DB_MOTION_TYPE              = 3,     // Below motion types can't be set in DB.
+    CONFUSED_MOTION_TYPE            = 4,     // ConfusedMovementGenerator.h
+    CHASE_MOTION_TYPE               = 5,     // ChaseMovementGenerator.h
+    HOME_MOTION_TYPE                = 6,     // HomeMovementGenerator.h
+    FLIGHT_MOTION_TYPE              = 7,     // FlightPathMovementGenerator.h
+    POINT_MOTION_TYPE               = 8,     // PointMovementGenerator.h
+    FLEEING_MOTION_TYPE             = 9,     // FleeingMovementGenerator.h
+    DISTRACT_MOTION_TYPE            = 10,    // IdleMovementGenerator.h
+    ASSISTANCE_MOTION_TYPE          = 11,    // PointMovementGenerator.h
+    ASSISTANCE_DISTRACT_MOTION_TYPE = 12,    // IdleMovementGenerator.h
+    TIMED_FLEEING_MOTION_TYPE       = 13,    // FleeingMovementGenerator.h
+    FOLLOW_MOTION_TYPE              = 14,    // FollowMovementGenerator.h
+    ROTATE_MOTION_TYPE              = 15,    // IdleMovementGenerator.h
+    EFFECT_MOTION_TYPE              = 16,
+    SPLINE_CHAIN_MOTION_TYPE        = 17,    // SplineChainMovementGenerator.h
+    FORMATION_MOTION_TYPE           = 18,    // FormationMovementGenerator.h
+    MAX_MOTION_TYPE                          // SKIP
+}
+declare const enum SheathState /**@realType:uint8*/ {
+    SHEATH_STATE_UNARMED  = 0,                              // non prepared weapon
+    SHEATH_STATE_MELEE    = 1,                              // prepared melee weapon
+    SHEATH_STATE_RANGED   = 2                               // prepared ranged weapon
+}
+declare const enum SpellSchools /**@realType:uint32*/ {
+    SPELL_SCHOOL_NORMAL                 = 0, // TITLE Physical
+    SPELL_SCHOOL_HOLY                   = 1, // TITLE Holy
+    SPELL_SCHOOL_FIRE                   = 2, // TITLE Fire
+    SPELL_SCHOOL_NATURE                 = 3, // TITLE Nature
+    SPELL_SCHOOL_FROST                  = 4, // TITLE Frost
+    SPELL_SCHOOL_SHADOW                 = 5, // TITLE Shadow
+    SPELL_SCHOOL_ARCANE                 = 6, // TITLE Arcane
+    MAX_SPELL_SCHOOL                    = 7  // SKIP
+}
+declare const enum SpellSchoolMask /**@realType:uint32 */ {
+    SPELL_SCHOOL_MASK_NONE    = 0,
+    SPELL_SCHOOL_MASK_NORMAL  = 1,
+    SPELL_SCHOOL_MASK_HOLY    = 2,
+    SPELL_SCHOOL_MASK_FIRE    = 4,
+    SPELL_SCHOOL_MASK_NATURE  = 8,
+    SPELL_SCHOOL_MASK_FROST   = 16,
+    SPELL_SCHOOL_MASK_SHADOW  = 32,
+    SPELL_SCHOOL_MASK_ARCANE  = 64,
+}
+declare const enum GossipOptionIcon /**@realType:uint32*/ {
+    GOSSIP_ICON_CHAT                = 0,                    // white chat bubble
+    GOSSIP_ICON_VENDOR              = 1,                    // brown bag
+    GOSSIP_ICON_TAXI                = 2,                    // flightmarker (paperplane)
+    GOSSIP_ICON_TRAINER             = 3,                    // brown book (trainer)
+    GOSSIP_ICON_INTERACT_1          = 4,                    // golden interaction wheel
+    GOSSIP_ICON_INTERACT_2          = 5,                    // golden interaction wheel
+    GOSSIP_ICON_MONEY_BAG           = 6,                    // brown bag (with gold coin in lower corner)
+    GOSSIP_ICON_TALK                = 7,                    // white chat bubble (with "..." inside)
+    GOSSIP_ICON_TABARD              = 8,                    // white tabard
+    GOSSIP_ICON_BATTLE              = 9,                    // two crossed swords
+    GOSSIP_ICON_DOT                 = 10,                   // yellow dot/point
+    GOSSIP_ICON_CHAT_11             = 11,                   // white chat bubble
+    GOSSIP_ICON_CHAT_12             = 12,                   // white chat bubble
+    GOSSIP_ICON_CHAT_13             = 13,                   // white chat bubble
+    GOSSIP_ICON_UNK_14              = 14,                   // INVALID - DO NOT USE
+    GOSSIP_ICON_UNK_15              = 15,                   // INVALID - DO NOT USE
+    GOSSIP_ICON_CHAT_16             = 16,                   // white chat bubble
+    GOSSIP_ICON_CHAT_17             = 17,                   // white chat bubble
+    GOSSIP_ICON_CHAT_18             = 18,                   // white chat bubble
+    GOSSIP_ICON_CHAT_19             = 19,                   // white chat bubble
+    GOSSIP_ICON_CHAT_20             = 20,                   // white chat bubble
+    GOSSIP_ICON_MAX
+}
+declare const enum ProgressType /**@realType:uint32*/ {
+    PROGRESS_SET,
+    PROGRESS_ACCUMULATE,
+    PROGRESS_HIGHEST
+}
+
+declare interface TSMutable<T> {
     constructor(field: T);
     get() : T;
     set(value: T) : void;
 }
 
-declare class TSMutex {
+declare interface TSMutex {
     lock();
     unlock();
     try_lock(): bool;
 }
 
+// should not be interface,
+// will make it look like {x:0,y:0,z:0,o:0,map:0} is legal
 declare class TSPosition {
     x: float;
     y: float;
@@ -55,9 +593,9 @@ interface Array<T> {
     set(index: number, value: T);
 }
 
-declare class TSMutableString extends TSMutable<string>{}
+declare interface TSMutableString extends TSMutable<string>{}
 
-declare class TSChatChannel {
+declare interface TSChatChannel {
     GetName(locale?: uint32) : string;
     GetID() : uint32;
     IsConstant(): bool;
@@ -76,25 +614,71 @@ declare class TSChatChannel {
     Say(guid: uint64, what: string, lang: uint32): void;
 }
 
-declare class TSPlayer extends TSUnit {
+declare interface TSAchievementEntry
+{
+    GetEntry(): uint32;
+    GetFaction(): int32;
+    GetInstanceID(): int32;
+    GetTitles(): TSArray<TSString>;
+    GetCategory(): uint32;
+    GetPoints(): uint32;
+    GetFlags(): uint32;
+    GetMinimumCriteria(): uint32;
+    GetSharesCriteria(): uint32;
+}
+
+declare interface TSAchievementCriteriaEntry
+{
+    GetEntry(): uint32;
+    GetAchievementEntry(): uint32;
+    GetType(): uint32;
+    GetAssetID(): uint32;
+    GetQuantity(): uint32;
+    GetAdditionalType1(): uint32;
+    GetAdditionalAsset1(): uint32;
+    GetAdditionalType2(): uint32;
+    GetAdditionalAsset2(): uint32;
+    GetFlags(): uint32;
+    GetStartEvent(): uint32;
+    GetStartAsset(): uint32;
+    GetStartTimer(): uint32;
+}
+
+declare interface TSPlayer extends TSUnit {
     LearnClassSpells(trainer: boolean, quests: boolean);
     SendData(data: any)
+    SendUpdateWorldState(worldState: uint32, value: uint32);
     SetBankBagSlotCount(count: uint8)
-    AddItemToSlotRaw(bag: uint8, slot: uint8, itemId: uint32, count: uint32)
+    AddItemToSlotRaw(bag: uint8, slot: uint8, itemId: uint32, count: uint32, propertyId?: int32)
+
+    GetBattleground(): TSBattleground
+    GetBattlegroundPlayer(): TSBattlegroundPlayer
+
+    /**
+     * Generates a creature outfit from this player.
+     *
+     * - If no race/gender is provided, the players race, gender and
+     * appearance is automatically copied to the creature.
+     *
+     * @param settings - bitmask of components that should be included in the copy
+     * @param race - player race by default
+     * @param gender - player gender by default
+     */
+    GetOutfitCopy(settings?: Outfit, race?: RaceID, gender?: Gender): TSOutfit;
 
     IsNull() : bool
 
     /**
      * Immediately sends a mail to this player
-     * @param senderType 
-     * @param from 
-     * @param subject 
-     * @param body 
-     * @param money 
-     * @param cod 
-     * @param items 
+     * @param senderType
+     * @param from
+     * @param subject
+     * @param body
+     * @param money
+     * @param cod
+     * @param items
      */
-	SendMail(senderType: uint8, from: uint64, subject: string, body: string, money? : uint32, cod? : uint32, delay? : uint32, items? : TSArray<TSItem>);
+	SendMail(senderType: uint8, from: uint64, subject: string, body: string, money? : uint32, cod? : uint32, items? : TSArray<TSItem>);
 
     /**
      * Returns 'true' if the [Player] can Titan Grip, 'false' otherwise.
@@ -1078,11 +1662,44 @@ declare class TSPlayer extends TSUnit {
     SetLifetimeKills(val : uint32) : void
 
     /**
-     * Sets the [Player]s amount of money to copper specified
+     * Sets the [Player]s amount of money in copper
      *
      * @param uint32 copperAmt
      */
-    SetCoinage(amt : uint32) : void
+    SetMoney(amt : uint32) : void
+
+    /**
+     * Returns the [Player]s amount of money in copper
+     */
+    GetMoney() : uint32
+
+    /**
+     * Attempts to give [Player] money in copper.
+     *
+     * - If the given amount causes the players money to overflow,
+     *   their money remains unchanged and the function returns false
+     *
+     * - If the given amount does not cause overflow,
+     *   the money is added and the function returns true.
+     *
+     * @param amount
+     */
+    GiveMoney(amount: uint32) : bool
+
+    /**
+     * Attempts to take money from [Player] in copper.
+     *
+     * - If the taken amount is higher than the players current money,
+     *   their money remains unchanged and the function returns false.
+     *
+     * - If the taken amount is smaller than or equal to the players current
+     *   money, their money remains unchanged and the function returns true.
+     *
+     * @param amount
+     */
+    TakeMoney(amount: uint32) : bool
+
+
 
     /**
      * Sets the [Player]s home location to the location specified
@@ -1179,21 +1796,21 @@ declare class TSPlayer extends TSUnit {
      * @param [Number] entry
      */
     SendCreatureQueryPacket(entry : number) : void
-	
-	/**
+
+    /**
      * Sends a [GameObject] cache packet to the [Player] from the [GameObject] entry specified
      *
      * @param [Number] entry
      */
     SendGameObjectQueryPacket(entry : number) : void
-	
+
     /**
      * Sends a [Item] cache packet to the [Player] from the [Item] entry specified
      *
      * @param [Number] entry
      */
     SendItemQueryPacket(entry : number) : void
-    
+
     /**
      * Sends a spirit resurrection request to the [Player]
      */
@@ -1269,15 +1886,14 @@ declare class TSPlayer extends TSUnit {
     LeaveBattleground(teleToEntryPoint : bool) : void
 
     /**
-     * Repairs [Item] at specified position. Returns total repair cost 
+     * Repairs [Item] at specified position. Returns total repair cost
      *
      * @param uint16 position
      * @param bool cost = true
      * @param float discountMod
-     * @param bool guildBank = false
      * @return uint32 totalCost
      */
-    DurabilityRepair(position : uint16,cost : bool,discountMod : float,guildBank : bool) : uint32
+    DurabilityRepair(position : uint16,cost : bool,discountMod : float) : uint32
 
     /**
      * Repairs all [Item]s. Returns total repair cost
@@ -1332,8 +1948,9 @@ declare class TSPlayer extends TSUnit {
 
     /**
      * Kills the [Player]
+     * durability: whether to lose durability (false by default)
      */
-    KillPlayer() : void
+    KillPlayer(durability?: boolean) : void
 
     /**
      * Forces the [Player] to leave a [Group]
@@ -1527,7 +2144,7 @@ declare class TSPlayer extends TSUnit {
      * @param uint32 slot : equipment slot to equip the item to The slot can be [EquipmentSlots] or [InventorySlots]
      * @return [Item] equippedItem : item or nil if equipping failed
      */
-    EquipItem(item : TSItem,slot : uint32,entry : uint32) : TSItem
+    EquipItem(item : TSItem,slot : EquipmentSlots|InventorySlots,entry : uint32) : TSItem
 
     /**
      * Returns true if the player can equip the given [Item] or item entry to the given slot, false otherwise.
@@ -1540,6 +2157,15 @@ declare class TSPlayer extends TSUnit {
      * @return bool canEquip
      */
     CanEquipItem(item : TSItem,slot : uint32,entry : uint32) : bool
+
+    /**
+     * Returns the average item level of the items equipped by this player
+     *
+     * @note This check takes into account the quality of items,
+     * and items below epic quality loses 13 levels to a lowest
+     * effective itemlevel of 0
+     */
+    GetAverageItemLevel(): float
 
     /**
      * Removes a title by ID from the [Player]s list of known titles
@@ -1587,18 +2213,23 @@ declare class TSPlayer extends TSUnit {
      * @param uint32 itemCount = 1 : amount of the item to add
      * @return [Item] item : the item that was added or nil
      */
-    AddItem(itemId : uint32,itemCount : uint32) : TSItem
+    AddItem(itemId : uint32,itemCount : uint32, propertyId?: int32) : TSItem
 
     /**
      * Removes the given amount of the specified [Item] from the player.
      *
-     * @proto (item, itemCount)
-     * @proto (entry, itemCount)
      * @param [Item] item : item to remove
-     * @param uint32 entry : entry of the item to remove
      * @param uint32 itemCount = 1 : amount of the item to remove
      */
-    RemoveItem(item : TSItem,itemCount : uint32,itemId : uint32) : void
+    RemoveItem(item : TSItem,itemCount? : uint32) : void
+
+    /**
+     * Removes the given amount of the specified item template from the player.
+     *
+     * @param [Item] item : item to remove
+     * @param uint32 itemCount = 1 : amount of the item to remove
+     */
+    RemoveItemByEntry(entry: uint32,itemCount? : uint32) : void
 
     /**
      * Removes specified amount of lifetime kills
@@ -1699,9 +2330,9 @@ declare class TSPlayer extends TSUnit {
     /**
      * Adds a new item to the gossip menu shown to the [Player] on next call to [Player:GossipSendMenu].
      *
-     * sender and intid are numbers which are passed directly to the gossip selection handler. Internally they are partly used for the database gossip handling.  
-     * code specifies whether to show a box to insert text to. The player inserted text is passed to the gossip selection handler.  
-     * money specifies an amount of money the player needs to have to click the option. An error message is shown if the player doesn't have enough money.  
+     * sender and intid are numbers which are passed directly to the gossip selection handler. Internally they are partly used for the database gossip handling.
+     * code specifies whether to show a box to insert text to. The player inserted text is passed to the gossip selection handler.
+     * money specifies an amount of money the player needs to have to click the option. An error message is shown if the player doesn't have enough money.
      * Note that the money amount is only checked client side and is not removed from the player either. You will need to check again in your code before taking action.
      *
      * See also: [Player:GossipSendMenu], [Player:GossipAddQuests], [Player:GossipComplete], [Player:GossipClearMenu]
@@ -1714,7 +2345,7 @@ declare class TSPlayer extends TSUnit {
      * @param string popup = nil : if non empty string, a popup with given text shown on click
      * @param uint32 money = 0 : required money in copper
      */
-    GossipMenuAddItem(_icon : uint32,msg : string,_sender : uint32,_intid : uint32,_code : bool,_promptMsg : string,_money : uint32) : void
+    GossipMenuAddItem(icon : GossipOptionIcon,msg : string,sender : uint32,id : uint32,code : bool,promptMsg : string,moneyRequired : uint32) : void
 
     /**
      * Closes the [Player]s currently open Gossip Menu.
@@ -1743,7 +2374,7 @@ declare class TSPlayer extends TSUnit {
      * Clears the [Player]s current gossip item list.
      *
      * See also: [Player:GossipMenuAddItem], [Player:GossipSendMenu], [Player:GossipAddQuests], [Player:GossipComplete]
-     * 
+     *
      *     Note: This is needed when you show a gossip menu without using gossip hello or select hooks which do this automatically.
      *     Usually this is needed when using [Player] is the sender of a Gossip Menu.
      */
@@ -1823,10 +2454,37 @@ declare class TSPlayer extends TSUnit {
      *
      * @param uint32 MovieId : entry of a movie
      */
-    SendMovieStart(MovieId : uint32) : void    
+    SendMovieStart(MovieId : uint32) : void
+
+    /**
+     * Sends an addon message that can be longer than the standard
+     * 255 bytes.
+     *
+     * Maximum size can be configured in worldserver.conf under
+     * TSWoW.MessageBufferBytes
+     *
+     * @param channel
+     * @param message
+     */
+    SendLongAddonMessage(channel: uint8, message: string): void;
+
+    GetHairStyle(): uint8;
+    SetHairStyle(style: uint8);
+
+    GetHairColor(): uint8;
+    SetHairColor(color: uint8);
+
+    GetFacialStyle(): uint8;
+    SetFacialStyle(style: uint8);
+
+    GetSkinColor(): uint8;
+    SetSkinColor(color: uint8);
+
+    GetFace(): uint8;
+    SetFace(face: uint8);
 }
 
-declare class TSCorpse extends TSWorldObject {
+declare interface TSCorpse extends TSWorldObject {
     IsNull() : bool
 
     GetLoot(): TSLoot;
@@ -1853,10 +2511,10 @@ declare class TSCorpse extends TSWorldObject {
      *         CORPSE_BONES             = 0,
      *         CORPSE_RESURRECTABLE_PVE = 1,
      *         CORPSE_RESURRECTABLE_PVP = 2
-     *
+     *     }
      * @return [CorpseType] corpseType
      */
-    GetType() : uint32
+    GetType() : CorpseType
 
     /**
      * Sets the "ghost time" to the current time.
@@ -1868,11 +2526,10 @@ declare class TSCorpse extends TSWorldObject {
     /**
      * Saves the [Corpse] to the database.
      */
-    SaveToDB() : void    
+    SaveToDB() : void
 }
 
-declare class StorageClass {
-    GetData(): TSStorage;
+declare interface TSEntityProvider {
     SetObject<T>(key: string, obj: T): T;
     HasObject(key: string): boolean;
     GetObject<T>(key: string, value: T): T;
@@ -1881,21 +2538,85 @@ declare class StorageClass {
     SetInt(key: string, value: int32): int32;
     HasInt(key: string): boolean;
     GetInt(key: string, def?: int32): int32;
-
     SetUInt(key: string, value: uint32): uint32;
     HasUInt(key: string): boolean;
     GetUInt(key: string, def?: uint32): uint32;
-
     SetFloat(key: string, value: double): double;
     HasFloat(key: string): boolean;
     GetFloat(key: string, def?: float): double;
-
     SetString(key: string, value: string): string;
     HasString(key: string): boolean;
-    GetString(key: string, def?: string): string;    
+    GetString(key: string, def?: string): string;
+
+    SetNumber(key: string, value: double): void;
+    GetNumber(key: string, def?: double): double;
+    HasNumber(key: string): boolean;
+
+    SetBool(key: string, value: boolean): void;
+    GetBool(key: string, def?: boolean): boolean;
+    HasBool(key: string): boolean;
+
+    SetJsonObject(key: string, value: TSJsonObject): void;
+    GetJsonObject(key: string, def?: TSJsonObject): TSJsonObject;
+    HasJsonObject(key: string): boolean;
+
+    SetJsonArray(key: string, value: TSJsonArray): void;
+    GetJsonArray(key: string, def?: TSJsonArray): TSJsonArray;
+    HasJsonArray(key: string): boolean;
+
+    SetRawUInt8(offset: uint8, value: uint8): void
+    SetRawInt8(offset: uint8, value: int8): void
+
+    SetRawUInt16(offset: uint8, value: uint16): void
+    SetRawInt16(offset: uint8, value: int16): void
+
+    SetRawUInt32(offset: uint8, value: uint32): void
+    SetRawInt32(offset: uint8, value: int32): void
+
+    SetRawUInt64(offset: uint8, value: uint64): void
+    SetRawInt64(offset: uint8, value: int64): void
+
+    SetRawFloat(offset: uint8, value: float): void
+    SetRawDouble(offset: uint8, value: double): void
+
+    GetRawUInt8(offset: uint8): uint8
+    GetRawInt8(offset: uint8): int8
+
+    GetRawUInt16(offset: uint8): uint16
+    GetRawInt16(offset: uint8): int16
+
+    GetRawUInt32(offset: uint8): uint32
+    GetRawInt32(offset: uint8): int32
+
+    GetRawUInt64(offset: uint8): uint64
+    GetRawInt64(offset: uint8): int64
+
+    GetRawFloat(offset: uint8): float
+    GetRawDouble(offset: uint8): double
 }
 
-declare class TSGameObjectTemplate extends StorageClass {
+
+declare type TimerCallback<T> = (timer: TSTimer,owner: T, delay: uint32, cancel: TSMutable<bool>)=>void
+declare type JsonMessageCallback<T> = (channel: uint8, obj: TSJsonObject, owner: T)=>void
+declare interface TSWorldEntityProvider<T> {
+    AddTimer(name: string, time: uint32, repeats: uint32, callback: TimerCallback<T>);
+    RemoveTimer(name: string);
+    GetGroup(name: string);
+    RemoveGroup(name: string);
+    ClearGroups(name: string);
+    QueueMessage(channel: uint8, json: TSJsonObject, callback: JsonMessageCallback<T>)
+}
+
+declare class TSObjectGroup {
+    Add(obj: TSWorldObject): void;
+    Remove(obj: TSWorldObject): void;
+    Clear();
+    get length(): uint32
+    forEach(callback: (obj: TSWorldObject)=>void): void;
+    filterInPlace(callback: (obj: TSWorldObject)=>bool): void;
+}
+
+declare interface TSGameObjectTemplate extends TSEntityProvider {
     GetEntry(): uint32
     GetType(): uint32;
     GetDisplayID(): uint32;
@@ -1904,7 +2625,7 @@ declare class TSGameObjectTemplate extends StorageClass {
     GetCastBarCaption(): string;
 }
 
-declare class TSCreatureTemplate extends StorageClass {
+declare interface TSCreatureTemplate extends TSEntityProvider {
     GetEntry(): uint32;
     GetDifficultyEntryA(): uint32;
     GetDifficultyEntryB(): uint32;
@@ -2000,14 +2721,101 @@ declare class TSCreatureTemplate extends StorageClass {
     GetIsGroundAllowed(): bool;
     GetIsSwimAllowed(): bool;
     GetIsFlightAllowed(): bool;
-    GetIsRooted(): bool; 
+    GetIsRooted(): bool;
 }
 
-declare class TSCreature extends TSUnit {
+declare interface TSOutfit {
+    SetClass(Class: ClassID): TSOutfit;
+    GetClass(): uint8;
+
+    SetFace(face: uint8): TSOutfit;
+    GetFace(): uint8;
+
+    SetSkin(face: uint8): TSOutfit;
+    GetSkin(): uint8;
+
+    SetHairStyle(hair: uint8): TSOutfit;
+    GetHairStyle(): uint8;
+
+    SetHairColor(color: uint8): TSOutfit;
+    GetHairColor(): uint8;
+
+    SetSoundID(soundId: uint32): TSOutfit;
+    GetSoundID(): uint32;
+
+    SetGuild(guild: uint64): TSOutfit;
+    GetGuild(): uint64;
+
+    GetGender(): Gender;
+    GetRace(): uint8;
+    GetDisplayID(): uint32;
+
+    SetMainhand(mainhand: uint32): TSOutfit
+    SetOffhand(offhand: uint32): TSOutfit
+    SetRanged(ranged: uint32): TSOutfit
+
+    ClearMainhand(): TSOutfit
+    ClearOffhand(): TSOutfit
+    ClearRanged(): TSOutfit
+
+    GetMainhand(): uint32
+    GetOffhand(): uint32
+    GetRanged(): uint32
+
+    SetItem(slot: EquipmentSlots, entry: uint32): TSOutfit;
+    SetItemByDisplayID(slot: EquipmentSlots, displayId: uint32): TSOutfit;
+
+    /**
+     * @note Does not work for mainhand/offhand/ranged slots
+     */
+    GetDisplayID(slot: EquipmentSlots): uint32;
+
+    Apply(creature: TSCreature): void;
+
+    /**
+     * Applies a copy of this outfit to the target creature
+     */
+    ApplyCopy(
+          creature: TSCreature
+        , settings?: Outfit
+        , race?: RaceID
+        , gender?: Gender
+    )
+}
+
+declare function CreateOutfit(race: Race, gender: Gender): TSOutfit
+
+declare interface TSCreature extends TSUnit {
+    /**
+     * @param unit
+     * @param withGroup whether to include group, true by default
+     */
+    SetLootRecipient(unit: TSUnit, withGroup?: bool)
+
+    HasLootRecipient(): bool
+
+    IsAIEnabled(): bool
+
     GetLoot(): TSLoot;
+
     GetTemplate(): TSCreatureTemplate;
 
+    FireSmartEvent(id: uint32, unit: TSUnit, var0: uint32, var1: uint32, bvar: bool, spell: TSSpellInfo, obj: TSGameObject);
+
     IsNull() : bool
+
+    SetOutfit(outfit: TSOutfit): void
+
+    GetOutfit(): TSOutfit
+    GetOutfitCopy(settings?: Outfit, race?: int32, gender?: int32): TSOutfit
+
+    GetMainhand(): uint32
+    GetOffhand(): uint32
+    GetRanged(): uint32
+
+    SetMainhand(mainhand: uint32): void
+    SetOffhand(offhand: uint32): void
+    SetRanged(ranged: uint32): void
 
     /**
      * Returns `true` if the [Creature] is set to not give reputation when killed,
@@ -2061,6 +2869,8 @@ declare class TSCreature extends TSUnit {
      * @return bool tapped
      */
     IsTappedBy(player : TSPlayer) : bool
+
+
 
     /**
      * Returns `true` if the [Creature] will give its loot to a [Player] or [Group],
@@ -2570,6 +3380,10 @@ declare class TSCreature extends TSUnit {
      */
     AddLootMode(lootMode : uint16) : void
 
+    SetMainhand(mainhand: uint32): void
+    SetOffhand(offhand: uint32): void
+    SetRanged(ranged: uint32): void
+
     /**
      * Returns the [Creature]'s creature family ID (enumerated in CreatureFamily.dbc).
      *
@@ -2621,7 +3435,7 @@ declare class TSCreature extends TSUnit {
      *     }
      * @return [CreatureFamily] creatureFamily
      */
-    GetCreatureFamily() : uint32    
+    GetCreatureFamily() : CreatureFamily
 
     /**
      * Updates max hp, hp, and stats
@@ -2629,12 +3443,12 @@ declare class TSCreature extends TSUnit {
     UpdateLevelDependantStats(): void;
 }
 
-declare class TSAura {
+declare interface TSAura {
     IsNull() : bool
 
     /**
      * Returns all active applications of this aura.
-     * 
+     *
      * @return [TSAuraApplication[]] applications
      */
     GetApplications(): TSArray<TSAuraApplication>
@@ -2730,10 +3544,10 @@ declare class TSAura {
     /**
      * Remove this [Aura] from the [Unit] it is applied to.
      */
-    Remove() : void    
+    Remove() : void
 }
 
-declare class TSAuraEffect {
+declare interface TSAuraEffect {
     GetCaster(): TSUnit;
     GetCasterGUID(): uint64;
     GetAura(): TSAura;
@@ -2756,7 +3570,7 @@ declare class TSAuraEffect {
     IsPeriodic(): boolean;
 }
 
-declare class TSAuraApplication {
+declare interface TSAuraApplication {
     GetTarget(): TSUnit;
     GetAura(): TSAura;
     GetSlot(): uint8;
@@ -2767,7 +3581,7 @@ declare class TSAuraApplication {
     IsSelfCast(): bool;
 }
 
-declare class TSGuild {
+declare interface TSGuild {
     IsNull() : bool
 
     /**
@@ -2887,10 +3701,10 @@ declare class TSGuild {
      * @param [Player] player : the [Player] to be promoted/demoted
      * @param uint8 rankId : the rank ID
      */
-    SetMemberRank(player : TSPlayer,newRank : uint8) : void    
+    SetMemberRank(player : TSPlayer,newRank : uint8) : void
 }
 
-declare class TSGroup {
+declare interface TSGroup {
     IsNull() : bool
 
     /**
@@ -3038,7 +3852,7 @@ declare class TSGroup {
      * @param [RemoveMethod] method : method used to remove the player
      * @return bool removed
      */
-    RemoveMember(guid : uint64,method : uint32) : bool
+    RemoveMember(guid : uint64,method : RemoveMethod) : bool
 
     /**
      * Disbands this [Group]
@@ -3067,7 +3881,7 @@ declare class TSGroup {
      * @param uint64 target : GUID of the icon target, 0 is to clear the icon
      * @param uint64 setter : GUID of the icon setter
      */
-    SetTargetIcon(icon : uint8,target : uint64,setter : uint64) : void    
+    SetTargetIcon(icon : uint8,target : uint64,setter : uint64) : void
 }
 
 declare class TSWorldPacket {
@@ -3234,10 +4048,10 @@ declare class TSWorldPacket {
      *
      * @param double value : the double value to be written to the [WorldPacket]
      */
-    WriteDouble(_val : double) : void    
+    WriteDouble(_val : double) : void
 }
 
-declare class TSQuest {
+declare interface TSQuest {
     IsNull() : bool
 
     /**
@@ -3274,7 +4088,7 @@ declare class TSQuest {
      * @param [QuestFlags] flag : all available flags can be seen above
      * @return bool hasFlag
      */
-    HasFlag(flag : uint32) : bool
+    HasFlag(flag : QuestFlags) : bool
 
     /**
      * Returns 'true' if the [Quest] is a daily quest, false otherwise.
@@ -3346,15 +4160,30 @@ declare class TSQuest {
      *
      * @return uint32 type
      */
-    GetType() : uint32    
+    GetType() : uint32
 }
 
-declare class TSMap extends StorageClass {
+declare interface TSMap extends TSEntityProvider, TSWorldEntityProvider<TSMap> {
     IsNull() : bool
+    HasInstance(): bool
+    GetInstance(): TSInstance
+    GetUnits(): TSArray<TSWorldObject>
+    /**
+     * @param entry only return gameobjects of this entry.
+     * Leave out to select all gameobjects.
+     */
+    GetGameObjects(entry?: uint32): TSArray<TSGameObject>
 
-    GetTasks(): TSTasks<TSMap>;
-    AddTimer(name: string, time: uint32, repeats: uint32, callback: TimerCallback<TSMap>)
-    RemoveTimer(name: string);
+    SpawnCreature(entry: uint32, x: float, y: float, z: float, o: float, despawnTimer?: uint32, phase?: uint32): TSCreature
+    SpawnGameObject(entry: uint32, x: float, y: float, z: float, o: float, despawnTimer?: uint32, phase?: uint32): TSGameObject
+
+    /**
+     * @param entry only return creatures of this entry.
+     * Leave out to select all creatures.
+     */
+    GetCreatures(entry?: uint32): TSArray<TSCreature>
+    GetCreatureByDBGUID(dbguid: uint32): TSCreature;
+    GetGameObjectByDBGUID(dbguid: uint32): TSGameObject;
 
     /**
      * Returns `true` if the [Map] is an arena [BattleGround], `false` otherwise.
@@ -3369,6 +4198,8 @@ declare class TSMap extends StorageClass {
      * @return bool isBattleGround
      */
     IsBattleground() : bool
+
+    GetBattleground(): TSBattleground
 
     /**
      * Returns `true` if the [Map] is a dungeon, `false` otherwise.
@@ -3455,10 +4286,10 @@ declare class TSMap extends StorageClass {
     *         TEAM_HORDE = 1,
     *         TEAM_NEUTRAL = 2
     *
-    * @param [TeamId] team : optional check team of the [Player], Alliance, Horde or Neutral (All)
+    * @param [TeamId] team : optional check team of the [Player], Alliance, Horde or Neutral/All (default)
     * @return table mapPlayers
     */
-    GetPlayers(team : uint32) : TSArray<TSPlayer>
+    GetPlayers(team? : TeamId) : TSArray<TSPlayer>
 
     /**
      * Returns the area ID of the [Map] at the specified X, Y, and Z coordinates.
@@ -3494,10 +4325,10 @@ declare class TSMap extends StorageClass {
      * @param [WeatherType] type : the [WeatherType], see above available weather types
      * @param float grade : the intensity/grade of the [Weather], ranges from 0 to 1
      */
-    SetWeather(zoneId : uint32,weatherType : uint32,grade : float) : void
+    SetWeather(zoneId : uint32,weatherType : WeatherType,grade : float) : void
 }
 
-declare class TSItem extends TSObject {
+declare interface TSItem extends TSObject {
     IsNull() : bool
 
     /**
@@ -3846,10 +4677,16 @@ declare class TSItem extends TSObject {
     /**
      * Saves the [Item] to the database
      */
-    SaveToDB() : void    
+    SaveToDB() : void
 }
 
-declare class TSBattleground {
+declare interface TSBattlegroundPlayer extends TSEntityProvider, TSWorldEntityProvider<TSBattlegroundPlayer>{
+    GetGUID(): uint64;
+    GetTeam(): TeamId;
+    GetOfflineRemovalTime(): uint64;
+}
+
+declare interface TSBattleground extends TSEntityProvider, TSWorldEntityProvider<TSBattleground> {
     IsNull() : bool
 
     /**
@@ -3865,7 +4702,7 @@ declare class TSBattleground {
      * @param [Team] team : team ID
      * @return uint32 count
      */
-    GetAlivePlayersCountByTeam(team : uint32) : uint32
+    GetAlivePlayersCountByTeam(team : TeamId) : uint32
 
     /**
      * Returns the [Map] of the [BattleGround].
@@ -3895,7 +4732,7 @@ declare class TSBattleground {
      * @param [Team] team : team ID
      * @return uint32 freeSlots
      */
-    GetFreeSlotsForTeam(team : uint32) : uint32
+    GetFreeSlotsForTeam(team : TeamId) : uint32
 
     /**
      * Returns the instance ID of the [BattleGround].
@@ -3972,13 +4809,89 @@ declare class TSBattleground {
      *
      * @return [BattleGroundStatus] status
      */
-    GetStatus() : uint32    
+    GetStatus() : uint32
+
+    IsRandom(): bool;
+    GetPlayers(): TSArray<TSBattlegroundPlayer>;
+    SetStartPosition(teamId: uint32, x: float, y: float, z: float, o: float): void;
+    GetStartX(teamid: TeamId): float;
+    GetStartY(teamid: TeamId): float;
+    GetStartZ(teamid: TeamId): float;
+    GetStartO(teamid: TeamId): float;
+    SetStartMaxDist(maxDist: float): void;
+    GetStartMaxDist(): float;
+    SendPacket(packet: TSWorldPacket, team?: TeamId, sender? : TSPlayer, self?: bool): void;
+    PlaySound(sound: uint32, team?: uint32): void;
+    CastSpell(spell: uint32, team?: uint32): void;
+    RemoveAura(aura: uint32, team?: uint32): void;
+    RewardHonor(honor: uint32, team?: uint32): void;
+    RewardReputation(faction: uint32, reputation: uint32, team?: TeamId): void;
+    UpdateWorldState(variable: uint32, value: uint32): void;
+    EndBattleground(winnerTeam?: TeamId): void;
+    GetRaid(faction: TeamId): TSGroup;
+    GetPlayerCount(team?: TeamId): uint32;
+    GetAlivePlayerCount(team?: TeamId): uint32;
+    AddCreature(entry: uint32, type: uint32, x: float, y: float, z: float, o: float, respawnTime?: uint32, teamId?: TeamId): TSCreature;
+    AddObject(type: uint32, entry:uint32, x: float, y: float, z: float, o: float, rot0: float, rot1: float, rot2: float, rot3: float, respawnTime?: uint32, goState?: uint32): bool;
+    AddSpiritGuide(type: uint32, x: float, y: float, z: float, o: float, teamId?: TeamId): void;
+    OpenDoor(type: uint32): void;
+    CloseDoor(type: uint32): void;
+    IsPlayerInBattleground(guid: uint64): bool;
+    GetTeamScore(team: TeamId): uint32;
+    SendMessage(entry: uint32, type: uint8, source?: TSPlayer): void;
+    GetUniqueBracketID(): uint32;
+
+    GetStartDelayTime(): int32;
+    SetStartDelayTime(time: int32): void;
+    SetStartTime(time: uint32): void;
+    GetStartTime(): uint32;
+    RemoveCreature(type: uint32): bool;
+    RemoveObject(type: uint32): bool;
+    RemoveObjectFromWorld(type: uint32): bool;
+    GetObjectType(guid: uint64): int32;
+    SetHoliday(isHoliday: bool): void;
+    IsHoliday(): bool;
+    GetGameObject(type: uint32, logErrors?: bool): TSGameObject;
+    GetCreature(type: uint32, logErrors?: bool): TSCreature;
 }
 
-declare class TSGameObject extends TSWorldObject {
+declare interface TSInstance {
+    IsNull(): bool;
+    GetMap(): TSMap;
+    SaveToDB(): void;
+    IsEncounterInProgress(): bool;
+    GetEncounterCount(): uint32;
+    GetObjectGUID(type: uint32): uint64;
+    DoUseDoorOrButton(guid: uint64, withRestoreTime?: uint32, useAlternativeState?: bool): void;
+    DoCloseDoorOrButton(guid: uint64): void;
+    DoRespawnGameObject(guid: uint64, seconds: uint32): void
+    DoUpdateWorldState(worldStateId: uint32, worldStateValue: uint32): void;
+    DoSendNotify(message: string): void;
+    DoUpdateAchievementCriteria(type: uint32, miscValue1?: uint32, miscValue2?: uint32, unit?: TSUnit): void;
+    DoStartTimedAchievement(type: uint32, entry: uint32): void;
+    DoStopTimedAchievement(type: uint32, entry: uint32): void;
+    DoRemoveAurasDueToSpellOnPlayers(spell: uint32, includePets?: bool, includeControlled?: bool): void;
+    DoCastSpellOnPlayers(spell: uint32, includePets: bool, includeControlled: bool): void;
+    SetBossState(id: uint32, encounterState: uint32): void;
+    GetBossState(id: uint32): uint32;
+    MarkAreaTriggerDone(id: uint32): void;
+    ResetAreaTriggerDone(id: uint32): void;
+    BindAllPlayers(): void;
+    HasPermBoundPlayers(): bool;
+    GetMaxPlayers(): uint32;
+    GetMaxResetDelay(): uint32;
+    GetTeamIDInInstance(): uint32;
+    GetFactionInInstance(): uint32;
+}
+
+declare interface TSGameObject extends TSWorldObject {
+    IsAIEnabled(): bool
+
     IsNull() : bool
 
     GetLoot(): TSLoot;
+
+    FireSmartEvent(id: uint32, unit: TSUnit, var0: uint32, var1: uint32, bvar: bool, spell: TSSpellInfo, obj: TSGameObject);
 
     /**
      * Returns 'true' if the [GameObject] can give the specified [Quest]
@@ -4029,7 +4942,7 @@ declare class TSGameObject extends TSWorldObject {
      *
      * @return [GOState] goState
      */
-    GetGoState() : uint32
+    GetGoState() : GOState
 
     /**
      * Returns the [LootState] of a [GameObject]
@@ -4045,7 +4958,7 @@ declare class TSGameObject extends TSWorldObject {
      *
      * @return [LootState] lootState
      */
-    GetLootState() : uint32
+    GetLootState() : LootState
 
     /**
      * Returns the [Player] that can loot the [GameObject]
@@ -4084,7 +4997,7 @@ declare class TSGameObject extends TSWorldObject {
      *
      * @param [GOState] state : all available go states can be seen above
      */
-    SetGoState(state : uint32) : void
+    SetGoState(state : GOState) : void
 
     /**
      * Sets the [LootState] of a [GameObject]
@@ -4100,7 +5013,7 @@ declare class TSGameObject extends TSWorldObject {
      *
      * @param [LootState] state : all available loot states can be seen above
      */
-    SetLootState(state : uint32) : void
+    SetLootState(state : LootState) : void
 
     /**
      * Saves [GameObject] to the database
@@ -4143,13 +5056,13 @@ declare class TSGameObject extends TSWorldObject {
      *
      * @param int32 delay = 0 : cooldown time in seconds to respawn or despawn the object. 0 means never
      */
-    SetRespawnTime(respawn : int32) : void    
+    SetRespawnTime(respawn : int32) : void
 }
 
-declare class TSSpell {
+declare interface TSSpell {
 	//soonTM
 	GetSpellInfo() : TSSpellInfo
-	
+
     IsNull() : bool
 
     /**
@@ -4239,10 +5152,10 @@ declare class TSSpell {
     /**
      * Finishes the [Spell].
      */
-    Finish() : void    
+    Finish() : void
 }
 
-declare class TSVehicle {
+declare interface TSVehicle {
     IsNull() : bool
 
     /**
@@ -4288,33 +5201,10 @@ declare class TSVehicle {
      *
      * @param [Unit] passenger
      */
-    RemovePassenger(passenger : TSUnit) : void    
+    RemovePassenger(passenger : TSUnit) : void
 }
 
-declare class TSStorage {
-    SetObject<T>(key: string, obj: T): T;
-    HasObject(key: string): boolean;
-    GetObject<T>(key: string, creator: T): T;
-    GetDBObject<T>(key: string, sql: string, creator: T): T;
-
-    SetInt(key: string, value: int32): int32;
-    HasInt(key: string): boolean;
-    GetInt(key: string): int32;
-
-    SetUInt(key: string, value: uint32): uint32;
-    HasUInt(key: string): boolean;
-    GetUInt(key: string): uint32;
-
-    SetFloat(key: string, value: double): double;
-    HasFloat(key: string): boolean;
-    GetFloat(key: string): double;
-
-    SetString(key: string, value: string): string;
-    HasString(key: string): boolean;
-    GetString(key: string): string;
-}
-
-declare class TSCollisionEntry {
+declare interface TSCollisionEntry {
     readonly name: string;
     maxHits: uint32;
     range: float;
@@ -4325,15 +5215,13 @@ declare class TSCollisionEntry {
 
 declare type TSCollisionCallback = (entry: TSCollisionEntry, self: TSWorldObject, collided: TSWorldObject, cancel: TSMutable<uint32>)=>void
 
-declare class TSCollisions {
+declare interface TSCollisions {
     Add(modid: uint32, id: string, range: float, minDelay: uint32, maxHits: uint32, callback: TSCollisionCallback)
     Contains(id: string): bool;
     Get(id: string): TSCollisionEntry;
 }
 
-declare type TimerCallback<T> = (timer: TSTimer,owner: T, delay: uint32, cancel: TSMutable<bool>)=>void
-
-declare class TSWorldObject extends TSObject {
+declare interface TSWorldObject extends TSObject, TSWorldEntityProvider<TSWorldObject> {
     GetCollisions(): TSCollisions;
     IsNull() : bool
     GetCreaturesInRange(range : float,entry : uint32,hostile : uint32,dead : uint32) : TSArray<TSCreature>
@@ -4341,37 +5229,9 @@ declare class TSWorldObject extends TSObject {
     GetPlayersInRange(range : float,hostile : uint32,dead : uint32) : TSArray<TSPlayer>
     GetGameObjectsInRange(range : float,entry : uint32,hostile : uint32) : TSArray<TSGameObject>
 
-    AddTimer(name: string, time: uint32, repeats: uint32, cb: TimerCallback<TSWorldObject>)
-    RemoveTimer(name: string);
-
     HasCollision(id: string);
     AddCollision(id: string, range: float, minDelay: uint32, maxHits: uint32, cb: TSCollisionCallback)
     GetCollision(id: string): TSCollisionEntry
-
-    SetObject<T>(key: string, obj: T): T;
-    HasObject(key: string): boolean;
-    GetObject<T>(key: string, value: T): T;
-    GetDBObject<T>(key: string, sql: string, value: T): T;
-
-    SetInt(key: string, value: int32): int32;
-    HasInt(key: string): boolean;
-    GetInt(key: string): int32;
-
-    SetUInt(key: string, value: uint32): uint32;
-    HasUInt(key: string): boolean;
-    GetUInt(key: string): uint32;
-
-    SetFloat(key: string, value: double): double;
-    HasFloat(key: string): boolean;
-    GetFloat(key: string): double;
-
-    SetString(key: string, value: string): string;
-    HasString(key: string): boolean;
-    GetString(key: string): string;
-
-    GetData(): TSStorage;
-
-    GetTasks(): TSTasks<TSWorldObject>
 
     /**
      * Returns the name of the [WorldObject]
@@ -4399,8 +5259,15 @@ declare class TSWorldObject extends TSObject {
     *
     * @param uint32 phaseMask
     * @param bool update = true : update visibility to nearby objects
+    * @param PhaseType phaseType = PhaseType::PHASE_MASK : what type of phase the unit is entering.
+    * @note changing PhaseType will always force a phase update
     */
-    SetPhaseMask(phaseMask : uint32,update : bool) : void
+    SetPhaseMask(phaseMask : uint32,update : bool, id: uint64) : void
+
+    /**
+     * Returns the [WorldObject]'s phase id.
+     */
+    GetPhaseID(): uint64
 
     /**
      * Returns the current instance ID of the [WorldObject]
@@ -4457,44 +5324,40 @@ declare class TSWorldObject extends TSObject {
      * @return float orientation / facing
      */
     GetO() : float
-    GetLocation() : TSPosition
+    GetPosition() : TSPosition
     GetNearestPlayer(range : float,hostile : uint32,dead : uint32) : TSPlayer
     GetNearestGameObject(range : float,entry : uint32,hostile : uint32) : TSGameObject
     GetNearestCreature(range : float,entry : uint32,hostile : uint32,dead : uint32) : TSCreature
 
     /**
-     * Returns the distance from this [WorldObject] to another [WorldObject], or from this [WorldObject] to a point in 3d space.
+     * Returns the distance from this [WorldObject] to another [WorldObject]
      *
      * The function takes into account the given object sizes. See also [WorldObject:GetExactDistance], [WorldObject:GetDistance2d]
      *
      * @proto dist = (obj)
-     * @proto dist = (x, y, z)
      *
      * @param [WorldObject] obj
-     * @param float x : the X-coordinate of the point
-     * @param float y : the Y-coordinate of the point
-     * @param float z : the Z-coordinate of the point
      *
      * @return float dist : the distance in yards
      */
-    GetDistance(target : TSWorldObject,X : float,Y : float,Z : float) : float
+    GetDistance(target : TSWorldObject) : float
+
+    GetDistanceToPoint(x: float, y: float, z: float): float
 
     /**
-     * Returns the distance from this [WorldObject] to another [WorldObject], or from this [WorldObject] to a point in 2d space.
+     * Returns the distance from this [WorldObject] to another [WorldObject]
      *
      * The function takes into account the given object sizes. See also [WorldObject:GetDistance], [WorldObject:GetExactDistance2d]
      *
      * @proto dist = (obj)
-     * @proto dist = (x, y)
      *
      * @param [WorldObject] obj
-     * @param float x : the X-coordinate of the point
-     * @param float y : the Y-coordinate of the point
      *
      * @return float dist : the distance in yards
      */
-    GetDistance2d(target : TSWorldObject,X : float,Y : float) : float
+    GetDistance2d(target : TSWorldObject) : float
 
+    GetDistanceToPoint2d(X : float,Y : float) : float
     /**
      * Returns the x, y and z of a point dist away from the [WorldObject].
      *
@@ -4552,7 +5415,7 @@ declare class TSWorldObject extends TSObject {
      * @param uint32 despawnTimer = 0 : despawn time in milliseconds
      * @return [Creature] spawnedCreature
      */
-    SpawnCreature(entry : uint32,x : float,y : float,z : float,o : float,spawnType : uint32,despawnTimer : uint32) : TSCreature
+    SpawnCreature(entry : uint32,x : float,y : float,z : float,o : float,spawnType : TempSummonType,despawnTimer : uint32) : TSCreature
 
     /**
      * Returns true if the given [WorldObject] or coordinates are in the [WorldObject]'s line of sight
@@ -4722,7 +5585,7 @@ declare class TSWorldObject extends TSObject {
      * @param uint32 sound : entry of a sound
      * @param [Player] player = nil : [Player] to play the sound to
      */
-    PlayDistanceSound(soundId : uint32,player : TSPlayer) : void    
+    PlayDistanceSound(soundId : uint32,player : TSPlayer) : void
 
     GetGameObject(guid: uint64): TSGameObject
     GetCorpse(guid: uint64): TSCorpse
@@ -4731,7 +5594,7 @@ declare class TSWorldObject extends TSObject {
     GetPlayer(guid: uint64): TSPlayer
 }
 
-declare class TSObject {
+declare interface TSObject extends TSEntityProvider {
     IsNull() : bool
     IsUnit() : bool
     IsCreature() : bool
@@ -4761,7 +5624,7 @@ declare class TSObject {
      * @param uint16 index
      * @return int32 value
      */
-    GetInt32Value(index : uint16) : int32
+    GetCoreInt32(index : uint16) : int32
 
     /**
      * Returns the data at the specified index, casted to a unsigned 32-bit integer.
@@ -4769,7 +5632,7 @@ declare class TSObject {
      * @param uint16 index
      * @return uint32 value
      */
-    GetUInt32Value(index : uint16) : uint32
+    GetCoreUInt32(index : uint16) : uint32
 
     /**
      * Returns the data at the specified index, casted to a single-precision floating point value.
@@ -4777,7 +5640,7 @@ declare class TSObject {
      * @param uint16 index
      * @return float value
      */
-    GetFloatValue(index : uint16) : float
+    GetCoreFloat(index : uint16) : float
 
     /**
      * Returns the data at the specified index and offset, casted to an unsigned 8-bit integer.
@@ -4788,7 +5651,7 @@ declare class TSObject {
      * @param uint8 offset : should be 0, 1, 2, or 3
      * @return uint8 value
      */
-    GetByteValue(index : uint16,offset : uint8) : uint8
+    GetCoreByte(index : uint16,offset : uint8) : uint8
 
     /**
      * Returns the data at the specified index and offset, casted to a signed 16-bit integer.
@@ -4799,7 +5662,7 @@ declare class TSObject {
      * @param uint8 offset : should be 0 or 1
      * @return uint16 value
      */
-    GetUInt16Value(index : uint16,offset : uint8) : uint16
+    GetCoreUInt16(index : uint16,offset : uint8) : uint16
 
     /**
      * Returns the scale/size of the [Object].
@@ -4821,12 +5684,12 @@ declare class TSObject {
 
     /**
      * Returns the GUID of the [Object].
-     * 
+     *
      * GUID is an unique identifier for the object.
-     * 
+     *
      * However on MaNGOS and cMangos creatures and gameobjects inside different maps can share
      * the same GUID but not on the same map.
-     * 
+     *
      * On TrinityCore this value is unique across all maps
      *
      * @return uint64 guid
@@ -4835,10 +5698,10 @@ declare class TSObject {
 
     /**
      * Returns the low-part of the [Object]'s GUID.
-     * 
+     *
      * On TrinityCore all low GUIDs are different for all objects of the same type.
      * For example creatures in instances are assigned new GUIDs when the Map is created.
-     * 
+     *
      * On MaNGOS and cMaNGOS low GUIDs are unique only on the same map.
      * For example creatures in instances use the same low GUID assigned for that spawn in the database.
      * This is why to identify a creature you have to know the instanceId and low GUID. See [Map:GetIntstanceId]
@@ -4863,7 +5726,7 @@ declare class TSObject {
      *
      * @return uint8 typeID
      */
-    GetTypeId() : uint8
+    GetTypeId() : TypeID
 
     /**
      * Returns the data at the specified index, casted to an unsigned 64-bit integer.
@@ -4871,7 +5734,7 @@ declare class TSObject {
      * @param uint16 index
      * @return uint64 value
      */
-    GetUInt64Value(index : uint16) : uint64
+    GetCoreUInt64(index : uint16) : uint64
 
     /**
      * Sets the specified flag in the data value at the specified index.
@@ -4891,7 +5754,7 @@ declare class TSObject {
      * @param uint16 index
      * @param int32 value
      */
-    SetInt32Value(index : uint16,value : int32) : void
+    SetCoreInt32(index : uint16,value : int32) : void
 
     /**
      * Sets the data at the specified index to the given value, converted to an unsigned 32-bit integer.
@@ -4899,7 +5762,7 @@ declare class TSObject {
      * @param uint16 index
      * @param uint32 value
      */
-    SetUInt32Value(index : uint16,value : uint32) : void
+    SetCoreUInt32(index : uint16,value : uint32) : void
 
     /**
      * Sets the data at the specified index to the given value, converted to an unsigned 32-bit integer.
@@ -4907,7 +5770,7 @@ declare class TSObject {
      * @param uint16 index
      * @param uint32 value
      */
-    UpdateUInt32Value(index : uint16,value : uint32) : void
+    UpdateCoreUInt32(index : uint16,value : uint32) : void
 
     /**
      * Sets the data at the specified index to the given value, converted to a single-precision floating point value.
@@ -4915,7 +5778,7 @@ declare class TSObject {
      * @param uint16 index
      * @param float value
      */
-    SetFloatValue(index : uint16,value : float) : void
+    SetCoreFloat(index : uint16,value : float) : void
 
     /**
      * Sets the data at the specified index and offset to the given value, converted to an unsigned 8-bit integer.
@@ -4924,7 +5787,7 @@ declare class TSObject {
      * @param uint8 offset : should be 0, 1, 2, or 3
      * @param uint8 value
      */
-    SetByteValue(index : uint16,offset : uint8,value : uint8) : void
+    SetCoreByte(index : uint16,offset : uint8,value : uint8) : void
 
     /**
      * Sets the data at the specified index to the given value, converted to an unsigned 16-bit integer.
@@ -4933,7 +5796,7 @@ declare class TSObject {
      * @param uint8 offset : should be 0 or 1
      * @param uint16 value
      */
-    SetUInt16Value(index : uint16,offset : uint8,value : uint16) : void
+    SetCoreUInt16(index : uint16,offset : uint8,value : uint16) : void
 
     /**
      * Sets the data at the specified index to the given value, converted to a signed 16-bit integer.
@@ -4942,7 +5805,7 @@ declare class TSObject {
      * @param uint8 offset : should be 0 or 1
      * @param int16 value
      */
-    SetInt16Value(index : uint16,offset : uint8,value : int16) : void
+    SetCoreInt16(index : uint16,offset : uint8,value : int16) : void
 
     /**
      * Sets the [Object]'s scale/size to the given value.
@@ -4957,7 +5820,7 @@ declare class TSObject {
      * @param uint16 index
      * @param uint64 value
      */
-    SetUInt64Value(index : uint16,value : uint64) : void
+    SetCoreUInt64(index : uint16,value : uint64) : void
 
     /**
      * Removes a flag from the value at the specified index.
@@ -4970,10 +5833,10 @@ declare class TSObject {
     ToGameObject() : TSGameObject
     ToUnit() : TSUnit
     ToCreature() : TSCreature
-    ToPlayer() : TSPlayer    
+    ToPlayer() : TSPlayer
 }
 
-declare class TSUnit extends TSWorldObject {
+declare interface TSUnit extends TSWorldObject {
     IsNull() : bool
     GetResistance(school: uint32): uint32;
     GetArmor(): uint32;
@@ -5361,7 +6224,7 @@ declare class TSUnit extends TSWorldObject {
      * @param [CurrentSpellTypes] spellType
      * @return [Spell] castedSpell
      */
-    GetCurrentSpell(type : uint32) : TSSpell
+    GetCurrentSpell(type : CurrentSpellTypes) : TSSpell
 
     /**
      * Returns the [Unit]'s current stand state.
@@ -5411,14 +6274,12 @@ declare class TSUnit extends TSWorldObject {
      *         POWER_HAPPINESS   = 4,
      *         POWER_RUNE        = 5,
      *         POWER_RUNIC_POWER = 6,
-     *         MAX_POWERS        = 7,
-     *         POWER_ALL         = 127,         // default for class?
      *         POWER_HEALTH      = 0xFFFFFFFE   // (-2 as signed value)
      *
      * @param int type = -1 : a valid power type from [Powers] or -1 for the [Unit]'s current power type
      * @return uint32 powerAmount
      */
-    GetPower(type : int) : uint32
+    GetPower(type : Powers|-1) : uint32
 
     /**
      * Returns the [Unit]'s max power amount for given power type.
@@ -5432,14 +6293,12 @@ declare class TSUnit extends TSWorldObject {
      *         POWER_HAPPINESS   = 4,
      *         POWER_RUNE        = 5,
      *         POWER_RUNIC_POWER = 6,
-     *         MAX_POWERS        = 7,
-     *         POWER_ALL         = 127,         // default for class?
      *         POWER_HEALTH      = 0xFFFFFFFE   // (-2 as signed value)
      *
      * @param int type = -1 : a valid power type from [Powers] or -1 for the [Unit]'s current power type
      * @return uint32 maxPowerAmount
      */
-    GetMaxPower(type : int) : uint32
+    GetMaxPower(type : Powers|-1) : uint32
 
     /**
      * Returns the [Unit]'s power percent for given power type.
@@ -5453,14 +6312,12 @@ declare class TSUnit extends TSWorldObject {
      *         POWER_HAPPINESS   = 4,
      *         POWER_RUNE        = 5,
      *         POWER_RUNIC_POWER = 6,
-     *         MAX_POWERS        = 7,
-     *         POWER_ALL         = 127,         // default for class?
      *         POWER_HEALTH      = 0xFFFFFFFE   // (-2 as signed value)
      *
      * @param int type = -1 : a valid power type from [Powers] or -1 for the [Unit]'s current power type
      * @return float powerPct
      */
-    GetPowerPct(type : int) : float
+    GetPowerPct(type : Powers|-1) : float
 
     /**
      * Returns the [Unit]'s current power type.
@@ -5474,13 +6331,11 @@ declare class TSUnit extends TSWorldObject {
      *         POWER_HAPPINESS   = 4,
      *         POWER_RUNE        = 5,
      *         POWER_RUNIC_POWER = 6,
-     *         MAX_POWERS        = 7,
-     *         POWER_ALL         = 127,         // default for class?
      *         POWER_HEALTH      = 0xFFFFFFFE   // (-2 as signed value)
      *
      * @return [Powers] powerType
      */
-    GetPowerType() : uint32
+    GetPowerType() : Powers
 
     /**
      * Returns the [Unit]'s max health.
@@ -5553,7 +6408,7 @@ declare class TSUnit extends TSWorldObject {
      *
      * @return [CreatureType] creatureType
      */
-    GetCreatureType() : uint32
+    GetCreatureType() : CreatureType
 
     /**
      * Returns the [Unit]'s class' name in given or default locale or nil.
@@ -5574,7 +6429,7 @@ declare class TSUnit extends TSWorldObject {
      * @param [LocaleConstant] locale = DEFAULT_LOCALE
      * @return string className : class name or nil
      */
-    GetClassAsString(locale : uint8) : string
+    GetClassAsString(locale : LocaleConstant) : string
 
     /**
      * Returns the [Unit]'s race's name in given or default locale or nil.
@@ -5594,7 +6449,7 @@ declare class TSUnit extends TSWorldObject {
      * @param [LocaleConstant] locale = DEFAULT_LOCALE : locale to return the race name in
      * @return string raceName : race name or nil
      */
-    GetRaceAsString(locale : uint8) : string
+    GetRaceAsString(locale : LocaleConstant) : string
 
     /**
      * Returns the [Unit]'s faction ID.
@@ -5645,7 +6500,7 @@ declare class TSUnit extends TSWorldObject {
      * @param [UnitMoveType] type
      * @return float speed
      */
-    GetSpeed(type : uint32) : float
+    GetSpeed(type : UnitMoveType) : float
 
     /**
      * Returns the current movement type for this [Unit].
@@ -5657,7 +6512,7 @@ declare class TSUnit extends TSWorldObject {
      *     WAYPOINT_MOTION_TYPE            = 2,
      *     MAX_DB_MOTION_TYPE              = 3,
      *     ANIMAL_RANDOM_MOTION_TYPE       = 3, // TC
-     * 
+     *
      *     CONFUSED_MOTION_TYPE            = 4,
      *     CHASE_MOTION_TYPE               = 5,
      *     HOME_MOTION_TYPE                = 6,
@@ -5666,7 +6521,7 @@ declare class TSUnit extends TSWorldObject {
      *     FLEEING_MOTION_TYPE             = 9,
      *     DISTRACT_MOTION_TYPE            = 10,
      *     ASSISTANCE_MOTION_TYPE          = 11,
-     *     ASSISTANCE_DISTRACT_MOTION_TYPE = 12,          
+     *     ASSISTANCE_DISTRACT_MOTION_TYPE = 12,
      *     TIMED_FLEEING_MOTION_TYPE       = 13,
      *     FOLLOW_MOTION_TYPE              = 14,
      *     EFFECT_MOTION_TYPE              = 15, // mangos
@@ -5677,7 +6532,7 @@ declare class TSUnit extends TSWorldObject {
      *
      * @return [MovementGeneratorType] movementType
      */
-    GetMovementType() : uint32
+    GetMovementType() : MovementGeneratorType
 
     /**
      * Sets the [Unit]'s owner GUID to given GUID.
@@ -5704,7 +6559,7 @@ declare class TSUnit extends TSWorldObject {
      *
      * @param [SheathState] sheathState : valid SheathState
      */
-    SetSheath(sheathed : uint32) : void
+    SetSheath(sheathed : SheathState) : void
 
     /**
      * Sets the [Unit]'s name internally.
@@ -5733,7 +6588,7 @@ declare class TSUnit extends TSWorldObject {
      * @param float rate
      * @param bool forced = false
      */
-    SetSpeed(type : uint32,rate : float,forced : bool) : void
+    SetSpeed(type : UnitMoveType,rate : float,forced : bool) : void
 
     /**
      * Sets the [Unit]'s faction.
@@ -5775,14 +6630,12 @@ declare class TSUnit extends TSWorldObject {
      *         POWER_HAPPINESS   = 4,
      *         POWER_RUNE        = 5,
      *         POWER_RUNIC_POWER = 6,
-     *         MAX_POWERS        = 7,
-     *         POWER_ALL         = 127,         // default for class?
      *         POWER_HEALTH      = 0xFFFFFFFE   // (-2 as signed value)
      *
      * @param uint32 amount : new power amount
      * @param int type = -1 : a valid power type from [Powers] or -1 for the [Unit]'s current power type
      */
-    SetPower(amt : uint32,type : int) : void
+    SetPower(amt : uint32,type : Powers|-1) : void
 
     /**
      * modifies the [Unit]'s power amount for the given power type.
@@ -5796,14 +6649,12 @@ declare class TSUnit extends TSWorldObject {
      *         POWER_HAPPINESS   = 4,
      *         POWER_RUNE        = 5,
      *         POWER_RUNIC_POWER = 6,
-     *         MAX_POWERS        = 7,
-     *         POWER_ALL         = 127,         // default for class?
      *         POWER_HEALTH      = 0xFFFFFFFE   // (-2 as signed value)
      *
      * @param int32 amount : amount to modify
      * @param int type = -1 : a valid power type from [Powers] or -1 for the [Unit]'s current power type
      */
-    ModifyPower(amt : int32,type : int) : void
+    ModifyPower(amt : int32,type : Powers|-1) : void
 
     /**
      * Sets the [Unit]'s max power amount for the given power type.
@@ -5817,14 +6668,12 @@ declare class TSUnit extends TSWorldObject {
      *         POWER_HAPPINESS   = 4,
      *         POWER_RUNE        = 5,
      *         POWER_RUNIC_POWER = 6,
-     *         MAX_POWERS        = 7,
-     *         POWER_ALL         = 127,         // default for class?
      *         POWER_HEALTH      = 0xFFFFFFFE   // (-2 as signed value)
      *
      * @param int type = -1 : a valid power type from [Powers] or -1 for the [Unit]'s current power type
      * @param uint32 maxPower : new max power amount
      */
-    SetMaxPower(type : int,amt : uint32) : void
+    SetMaxPower(type : Powers|-1,amt : uint32) : void
 
     /**
      * Sets the [Unit]'s power type.
@@ -5838,13 +6687,11 @@ declare class TSUnit extends TSWorldObject {
      *         POWER_HAPPINESS   = 4,
      *         POWER_RUNE        = 5,
      *         POWER_RUNIC_POWER = 6,
-     *         MAX_POWERS        = 7,
-     *         POWER_ALL         = 127,         // default for class?
      *         POWER_HEALTH      = 0xFFFFFFFE   // (-2 as signed value)
      *
      * @param [Powers] type : a valid power type
      */
-    SetPowerType(type : uint32) : void
+    SetPowerType(type : Powers) : void
 
     /**
      * Sets the [Unit]'s modelID.
@@ -6243,7 +7090,7 @@ declare class TSUnit extends TSWorldObject {
      * @param [SpellSchools] school = MAX_SPELL_SCHOOL : school the damage is done in or MAX_SPELL_SCHOOL for direct damage
      * @param uint32 spell = 0 : spell that inflicts the damage
      */
-    DealDamage(target : TSUnit,damage : uint32,durabilityloss : bool,school : uint32,spell : uint32) : void
+    DealDamage(target : TSUnit,damage : uint32,durabilityloss : bool,school : SpellSchools,spell : uint32) : void
 
     /**
      * Makes the [Unit] heal the target [Unit] with given spell
@@ -6283,11 +7130,11 @@ declare class TSUnit extends TSWorldObject {
      * @param [SpellSchoolMask] schoolMask = 0 : [SpellSchoolMask] of the threat causer
      * @param uint32 spell = 0 : spell entry used for threat
      */
-    AddThreat(victim : TSUnit,threat : float,spell? : uint32,schoolMask? : uint32, ignoreModifiers?: boolean, ignoreRedirects?: boolean, raw?: boolean) : void
+    AddThreat(victim : TSUnit,threat : float,spell? : uint32,schoolMask? : SpellSchoolMask | uint32, ignoreModifiers?: boolean, ignoreRedirects?: boolean, raw?: boolean) : void
     ScaleThreat(victim: TSUnit, scale: float, raw?: boolean)
 }
 
-declare class TSItemTemplate extends StorageClass {
+declare interface TSItemTemplate extends TSEntityProvider {
     IsNull() : bool
     ID() : uint32;
     DamageMinA(): float;
@@ -6379,11 +7226,11 @@ declare class TSItemTemplate extends StorageClass {
     IsPotion(): bool
     IsWeaponVellum(): bool
     IsArmorVellum(): bool
-    IsConjuredConsumable(): bool 
+    IsConjuredConsumable(): bool
     HasSignature(): bool;
 }
 
-declare class TSSpellInfo extends StorageClass {
+declare interface TSSpellInfo extends TSEntityProvider {
 	IsNull() : bool
     ID() : uint32
 	School() : uint32
@@ -6451,13 +7298,155 @@ declare class TSSpellInfo extends StorageClass {
 	Targets() : uint32;
 }
 
-declare class TSSpellCastTargets {
+declare interface TSSpellCastTargets {
     IsNull() : bool
     GetUnit() : TSUnit;
 }
 
+declare interface TSCondition {
+    GetSourceType(): uint32;
+    GetSourceGroup(): uint32;
+    GetSouceEntry(): uint32;
+    GetSourceID(): uint32;
+    GetElseGroup(): uint32;
+    GetConditionType(): uint32;
+    GetConditionValue1(): uint32;
+    GetConditionValue2(): uint32;
+    GetConditionValue3(): uint32;
+    GetErrorType(): uint32;
+    GetErrorTextID(): uint32;
+    GetReferenceID(): uint32;
+    GetScriptID(): uint32;
+    GetConditionTarget(): uint8
+    IsNegativeCondition(): bool
+    ToString(ext?: bool): TSString
+    IsNull(): bool
+}
+
+declare interface TSConditionSourceInfo {
+    GetTarget(index: uint32): TSWorldObject;
+    GetLastFailedCondition(): TSCondition;
+}
+
+declare interface TSSmartScriptValues {
+    GetEntryOrGUID(): int32;
+    GetSourceType(): uint32;
+    GetEventID(): uint32;
+    GetLink(): uint32;
+    GetEventPhaseMask(): uint32;
+    GetEventChance(): uint32;
+    GetEventFlags(): uint32;
+
+    GetActionArgument1(): uint32;
+    GetActionArgument2(): uint32;
+    GetActionArgument3(): uint32;
+    GetActionArgument4(): uint32;
+    GetActionArgument5(): uint32;
+    GetActionArgument6(): uint32;
+
+    GetEventArgument1(): uint32;
+    GetEventArgument2(): uint32;
+    GetEventArgument3(): uint32;
+    GetEventArgument4(): uint32;
+    GetEventArgument5(): uint32;
+
+    GetTargetParam1(): uint32;
+    GetTargetParam2(): uint32;
+    GetTargetParam3(): uint32;
+    GetTargetParam4(): uint32;
+
+    GetTargetX(): float;
+    GetTargetY(): float;
+    GetTargetZ(): float;
+
+    GetTimer(): uint32;
+    GetPriority(): uint32;
+
+    GetLastInvoker(): TSUnit;
+    GetTargets(): TSArray<TSWorldObject>;
+    StoreTargetList(objects: TSArray<TSWorldObject>, id: uint32): void;
+    GetTargetList(id: uint32, ref: TSWorldObject): TSArray<TSWorldObject>;
+    StoreCounter(id: uint32, value: uint32, reset: uint32): void;
+    GetCounterValue(id: uint32): uint32;
+    GetUnitArg(): TSUnit;
+    GetUIntArg1(): uint32;
+    GetUIntArg2(): uint32;
+    GetBoolArg(): bool;
+    GetSpellArg(): TSSpellInfo;
+    GetGameObjectArg(): TSGameObject;
+    GetSelf(): TSWorldObject;
+}
+
+declare interface TSAssert {
+    isTrue(expression: boolean, reason?: string): void;
+    isFalse(expression: boolean, reason?: string): void;
+    hasSpell(player: TSPlayer, spell: uint32, reason?: string): void;
+    hasItem(player: TSPlayer, item: uint32, count?: uint32, checkBank?: boolean, reason?: string): void;
+    equals<T>(a: T, b: T, reason?: string): void;
+}
+
+declare interface TSManualStepBuilder {
+    /**
+     * Sets the displayed description of this step
+     * @param description
+     */
+    description(description: string): TSManualStepBuilder;
+
+    /**
+     * Sets a function to call when the player starts this step
+     * @param callback
+     */
+    setup(callback: (player: TSPlayer)=>void);
+
+    /**
+     * Sets a function to call when the player attempts to finish this step
+     * @param callback
+     */
+    verify(callback: (player: TSPlayer, assert: TSAssert)=>void);
+}
+
+declare interface TSManualTestBuilder {
+    /**
+     * Adds a new simple step with a description
+     * @param name
+     * @param description
+     */
+    step(name: string, description: string): TSManualTestBuilder
+
+    /**
+     * Adds a new step that you can customize through the callback argument, see TSManualStepBuilder
+     * @param name
+     * @param callback
+     */
+    step(name: string, callback: (builder: TSManualStepBuilder)=>void): TSManualTestBuilder
+}
+
+// @hidden-begin (do NOT remove this tag!)
 declare namespace _hidden {
-    export class World {
+    export class AchievementID<T> {
+        OnUpdate(entry: number, callback: (
+              player: TSPlayer
+            , achievement: TSAchievementEntry
+            , criteria: TSAchievementCriteriaEntry
+            , progressType: ProgressType
+            , timeElapsed: uint32
+            , timeCompleted: boolean
+            )=>void)
+        OnComplete(entry: number, callback: (player: TSPlayer, entry: TSAchievementEntry)=>void)
+    }
+    export class Achievements<T> {
+        OnUpdate(callback: (
+              player: TSPlayer
+            , achievement: TSAchievementEntry
+            , criteria: TSAchievementCriteriaEntry
+            , progressType: ProgressType
+            , timeElapsed: uint32
+            , timeCompleted: boolean
+            )=>void)
+        OnComplete(callback: (player: TSPlayer, entry: TSAchievementEntry)=>void)
+    }
+
+    export class World<T> {
         OnOpenStateChange(callback: (open : bool)=>void);
         OnConfigLoad(callback: (reload : bool)=>void);
         OnMotdChange(callback: (newMotd : string)=>void);
@@ -6465,7 +7454,7 @@ declare namespace _hidden {
         OnUpdate(callback: (diff : uint32)=>void);
     }
 
-    export class Formula {
+    export class Formula<T> {
         OnHonorCalculation(callback: (honor : TSMutable<float>,level : uint8,multiplier : float)=>void);
         OnGrayLevelCalculation(callback: (grayLevel : TSMutable<uint8>,playerLevel : uint8)=>void);
         OnColorCodeCalculation(callback: (color : TSMutable<uint8>,playerLevel : uint8,mobLevel : uint8)=>void);
@@ -6479,35 +7468,6 @@ declare namespace _hidden {
         OnSpellDamageLate(callback: (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<uint32>)=>void);
         OnPeriodicDamage(callback: (aura: TSAuraEffect, damage: TSMutable<uint32>)=>void);
         OnHeal(callback: (healer : TSUnit,reciever : TSUnit,gain : TSMutable<uint32>)=>void);
-
-        /**
-         * critChance should be between 0 and 1
-         */
-        OnSpellCrit(callback: (spell: TSSpell, critChance: TSMutable<float>)=>void);
-        /**
-         * critChance should be between 0 and 1
-         */
-        OnSpellAuraCrit(callback: (spell: TSAuraEffect, critChance: TSMutable<float>)=>void);
-
-        /**
-         * reflectChance should be an integer between 0 and 10000
-         */
-        OnSpellReflect(callback: (attacker: TSWorldObject, victim: TSUnit, info: TSSpellInfo, reflectChance: TSMutable<int32>)=>void)
-
-        /**
-         * hitChance should be an integer between 0 and 10000
-         */
-        OnSpellHit(callback: (attacker: TSWorldObject, victim: TSUnit, info: TSSpellInfo, hitChance: TSMutable<int32>)=>void)
-
-        /**
-         * resistChance should be an integer between 0 and 10000
-         */
-        OnSpellResist(callback: (attacker: TSWorldObject, victim: TSUnit, info: TSSpellInfo, resistChance: TSMutable<int32>)=>void)
-
-        /**
-         * deflectChance should be an integer between 0 and 10000
-         */
-        OnSpellDeflect(callback: (attacker: TSWorldObject, victim: TSUnit, info: TSSpellInfo, deflectChance: TSMutable<int32>)=>void)
 
         /**
          * - missChance should be between 0 and 1
@@ -6530,7 +7490,7 @@ declare namespace _hidden {
         OnIntellectManaBonus(callback: (player: TSPlayer,baseInt: float,bonusInt: float,maxMana: TSMutable<float>)=>void);
         OnMaxHealth(callback: (player: TSPlayer,health: TSMutable<float>)=>void);
         OnMaxPower(callback: (player: TSPlayer,power:uint32,bonus: float, value: TSMutable<float>)=>void);
-        OnManaRegen(callback: (player: TSPlayer,power_regen: TSMutable<float>,power_regen_mp5: TSMutable<float>,manaRegenInterrupt: TSMutable<int32>)=>void); 
+        OnManaRegen(callback: (player: TSPlayer,power_regen: TSMutable<float>,power_regen_mp5: TSMutable<float>,manaRegenInterrupt: TSMutable<int32>)=>void);
         OnSkillGainChance(callback: (player: TSPlayer, skillId: uint32, value: uint32, grayLevel: uint32, greenLevel: uint32, yellowLevel: uint32, chance: TSMutable<float>)=>void)
 
         OnAddThreatEarly(callback: (
@@ -6555,9 +7515,18 @@ declare namespace _hidden {
           , isRaw: boolean
           , value: TSMutable<float>)=>void
         )
-    }
 
-    export class Item {
+        OnAttackPower(callback: (
+              player: TSPlayer
+            , power: TSMutable<float>)=>void
+        )
+
+        OnRangedAttackPower(callback: (
+              player: TSPlayer
+            , power: TSMutable<float>)=>void
+        )
+    }
+    export class Item<T> {
         OnQuestAccept(callback: (player : TSPlayer,item : TSItem,quest : TSQuest)=>void);
         // TODO: OnItemUse
         OnExpire(callback: (player : TSPlayer,proto : TSItemTemplate)=>void);
@@ -6565,11 +7534,15 @@ declare namespace _hidden {
         OnCastItemCombatSpell(callback: (player : TSPlayer,victim : TSUnit,spellInfo : TSSpellInfo,item : TSItem)=>void);
     }
 
-    export class AreaTrigger {
-        OnTrigger(callback: (player : TSPlayer,id: uint32)=>void);
+    export class AreaTrigger<T> {
+        OnTrigger(callback: (trigge: TSAreaTriggerEntry, player : TSPlayer, cancel: TSMutable<boolean>)=>void);
     }
 
-    export class Vehicle {
+    export class AreaTriggerID<T> {
+        OnTrigger(areaTrigger: uint32, callback: (trigge: TSAreaTriggerEntry, player : TSPlayer, cancel: TSMutable<boolean>)=>void);
+    }
+
+    export class Vehicle<T> {
         OnInstall(callback: (veh : TSVehicle)=>void);
         OnUninstall(callback: (veh : TSVehicle)=>void);
         OnReset(callback: (veh : TSVehicle)=>void);
@@ -6578,15 +7551,12 @@ declare namespace _hidden {
         OnRemovePassenger(callback: (veh : TSVehicle,passenger : TSUnit)=>void);
     }
 
-    export class AchievementCriteria {
-        OnCheck(callback: (source : TSPlayer,target : TSUnit)=>void);
-    }
-
-    export class Player {
+    export class Player<T> {
         OnPVPKill(callback: (killer : TSPlayer,killed : TSPlayer)=>void);
         OnCreatureKill(callback: (killer : TSPlayer,killed : TSCreature)=>void);
         OnPlayerKilledByCreature(callback: (killer : TSCreature,killed : TSPlayer)=>void);
         OnLevelChanged(callback: (player : TSPlayer,oldLevel : uint8)=>void);
+        OnLearnTalent(callback: (player: TSPlayer, tabId: uint32, talentId: uint32, spellId: uint32, cancel: TSMutable<bool>)=>void)
         OnFreeTalentPointsChanged(callback: (player : TSPlayer,points : uint32)=>void);
         OnTalentsReset(callback: (player : TSPlayer,noCost : bool)=>void);
         OnMoneyChanged(callback: (player : TSPlayer,amount : TSMutable<int32>)=>void);
@@ -6625,7 +7595,7 @@ declare namespace _hidden {
         OnLootCorpse(callback: (player: TSPlayer, corpse: TSCorpse)=>void);
     }
 
-    export class Account {
+    export class Account<T> {
         OnAccountLogin(callback: (accountId : uint32)=>void);
         OnFailedAccountLogin(callback: (accountId : uint32)=>void);
         OnEmailChange(callback: (accountId : uint32)=>void);
@@ -6634,7 +7604,7 @@ declare namespace _hidden {
         OnFailedPasswordChange(callback: (accountId : uint32)=>void);
     }
 
-    export class Guild {
+    export class Guild<T> {
         OnAddMember(callback: (guild : TSGuild,player : TSPlayer,plRank : TSMutable<uint8>)=>void);
         OnRemoveMember(callback: (guild : TSGuild,player : TSPlayer,isDisbanding : bool,isKicked : bool)=>void);
         OnMOTDChanged(callback: (guild : TSGuild,newMotd : string)=>void);
@@ -6647,7 +7617,7 @@ declare namespace _hidden {
         OnBankEvent(callback: (guild : TSGuild,eventType : uint8,tabId : uint8,playerGuid : uint32,itemOrMoney : uint32,itemStackCount : uint16,destTabId : uint8)=>void);
     }
 
-    export class Group {
+    export class Group<T> {
         OnAddMember(callback: (group : TSGroup,guid : uint64)=>void);
         OnInviteMember(callback: (group : TSGroup,guid : uint64)=>void);
         OnRemoveMember(callback: (group : TSGroup,guid : uint64,method : uint32,kicker : uint64,reason : string)=>void);
@@ -6655,24 +7625,58 @@ declare namespace _hidden {
         OnDisband(callback: (group : TSGroup)=>void);
     }
 
-    export class SpellID {
+    export class SpellID<T> {
         OnCast(spell: uint32, callback : (spell: TSSpell)=>void);
+        OnCheckCast(spell: uint32, callback : (spell: TSSpell, result: TSMutable<SpellCastResult>)=>void);
         OnDispel(spell: uint32, callback: (spell: TSSpell, dispelType: uint32)=>void);
         OnHit(spell: uint32, callback: (spell: TSSpell)=>void);
         OnTick(spell: uint32, callback: (effect: TSAuraEffect)=>void);
         OnRemove(spell: uint32, callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void);
+
+        OnDamageEarly(spell: uint32, callback : (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<int32>)=>void)
+        OnDamageLate(spell: uint32, callback : (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<uint32>)=>void)
+        OnPeriodicDamage(spell: uint32, callback : (aura: TSAuraEffect, damage: TSMutable<uint32>)=>void)
+        /** critChance should be between 0 and 1 */
+        OnCritFormula(spell: uint32, callback : (spelL: TSSpell, chance: TSMutable<float>)=>void)
+        /** critChance should be between 0 and 1 */
+        OnAuraCritFormula(spell: uint32, callback : (aura: TSAuraEffect, chance: TSMutable<float>)=>void)
+        /** reflectCHance should be an integer between 0 and 10000 */
+        OnReflectFormula(spell: uint32, callback : (attacker: TSWorldObject, victim: TSUnit, spell: TSSpellInfo, reflectChance: TSMutable<int32>)=>void)
+        /** hitChance should be an integer between 0 and 10000 */
+        OnHitFormula(spell: uint32, callback : (attacker: TSWorldObject, defender: TSUnit, spell: TSSpellInfo, hitChance: TSMutable<int32>)=>void)
+        /** resistChance should be an integer between 0 and 10000 */
+        OnResistFormula(spell: uint32, callback : (attacker: TSWorldObject, defender: TSUnit, spell: TSSpellInfo, resistChance: TSMutable<int32>)=>void)
+        OnTrainerSend(spell: uint32, callback: (spell: TSSpellInfo, trainerId: uint32, receiver: TSPlayer, allow: TSMutable<bool>)=>void)
     }
 
-    export class Spells {
+    export class Spells<T> {
         OnCast(callback : (spell: TSSpell)=>void);
+        OnCheckCast(callback : (spell: TSSpell, result: TSMutable<SpellCastResult>)=>void);
         OnDispel(callback: (spell: TSSpell, dispelType: uint32)=>void);
         OnHit(callback: (spell: TSSpell)=>void);
         OnTick(callback: (effect: TSAuraEffect)=>void);
         OnRemove(callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void);
         OnApply(callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void);
+
+        OnDamageEarly(callback : (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<int32>)=>void)
+        OnDamageLate(callback : (info: TSSpellDamageInfo, spell: TSSpell, type: uint32, isCrit: bool, damage: TSMutable<uint32>)=>void)
+        OnPeriodicDamage(callback : (aura: TSAuraEffect, damage: TSMutable<uint32>)=>void)
+        /** critChance should be between 0 and 1 */
+        OnCritFormula(callback : (spelL: TSSpell, chance: TSMutable<float>)=>void)
+        /** critChance should be between 0 and 1 */
+        OnAuraCritFormula(callback : (aura: TSAuraEffect, chance: TSMutable<float>)=>void)
+        /** reflectChance should be an integer between 0 and 10000 */
+        OnReflectFormula(callback : (attacker: TSWorldObject, victim: TSUnit, spell: TSSpellInfo, reflectChance: TSMutable<int32>)=>void)
+        /** hitChance should be an integer between 0 and 10000 */
+        OnHitFormula(callback : (attacker: TSWorldObject, defender: TSUnit, spell: TSSpellInfo, hitChance: TSMutable<int32>)=>void)
+        /** resistChance should be an integer between 0 and 10000 */
+        OnResistFormula(callback : (attacker: TSWorldObject, defender: TSUnit, spell: TSSpellInfo, resistChance: TSMutable<int32>)=>void)
+        /** penalty should be a float between 0 and 1 */
+        OnSpellPowerLevelPenalty(callback: (spellInfo: TSSpellInfo, attacker: TSUnit, penalty: TSMutable<float>)=>void)
+        OnTrainerSend(callback: (spell: TSSpellInfo, trainerId: uint32, receiver: TSPlayer, allow: TSMutable<bool>)=>void)
     }
 
-    export class CreatureID {
+    export class CreatureID<T> {
         OnGenerateLoot(creature: uint32, callback: (creature: TSCreature, killer: TSPlayer)=>void);
         OnMoveInLOS(creature: uint32, callback: (creature: TSCreature, seen: TSUnit)=>void);
         OnJustEnteredCombat(creature: uint32, callback: (creature: TSCreature, target: TSUnit)=>void);
@@ -6720,57 +7724,165 @@ declare namespace _hidden {
          */
         OnGeneratePickPocketLoot(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void)
         OnGenerateSkinningLoot(creature: uint32, callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void)
+        OnSendVendorItem(creature: uint32, callback: (creature: TSCreature, item: TSItemTemplate, player: TSPlayer, shouldSend: TSMutable<bool>)=>void)
     }
 
-    export class Creatures {
-        OnGenerateLoot(callback: (creature: TSCreature, killer: TSPlayer)=>void);
-        OnMoveInLOS(callback: (creature: TSCreature, seen: TSUnit)=>void);
-        OnJustEnteredCombat(callback: (creature: TSCreature, target: TSUnit)=>void);
-        OnDeath(callback: (creature: TSCreature, killer: TSUnit)=>void);
-        OnKilledUnit(callback: (creature: TSCreature, killed: TSUnit)=>void);
-        OnSummoned(callback: (creature: TSCreature, summon: TSCreature)=>void);
-        OnIsSummoned(callback: (creature: TSCreature, summoner: TSWorldObject)=>void);
-        OnSummonDespawn(callback: (creature: TSCreature, summon: TSCreature)=>void);
-        OnSummonDies(callback: (creature: TSCreature, summon: TSCreature, killer: TSUnit)=>void);
-        OnHitBySpell(callback: (creature: TSCreature, caster: TSWorldObject, spellInfo: TSSpellInfo)=>void);
-        OnSpellHitTarget(callback: (creature: TSCreature, target: TSWorldObject, spellInfo: TSSpellInfo)=>void);
-        OnSpellCastFinished(callback: (creature: TSCreature, spellInfo: TSSpellInfo, reason: uint32)=>void);
-        OnJustAppeared(callback: (creature: TSCreature)=>void);
-        OnCharmed(callback: (creature: TSCreature, isNew: boolean)=>void);
-        OnReachedHome(callback: (creature: TSCreature)=>void);
-        OnReceiveEmote(callback: (creature: TSCreature, player: TSPlayer, emote: uint32)=>void);
-        OnOwnerAttacked(callback: (creature: TSCreature, attacker: TSUnit)=>void);
-        OnOwnerAttacks(callback: (creature: TSCreature, target: TSUnit)=>void);
-        OnCorpseRemoved(callback: (creature: TSCreature, delay: uint32)=>void);
-        OnCreate(callback: (creature: TSCreature, cancel: TSMutable<bool>)=>void);
-        OnReload(callback: (creature: TSCreature)=>void)
-        OnWaypointStarted(callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
-        OnWaypointReached(callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
-        OnWaypointPathEnded(callback: (creature: TSCreature, id: uint32, path: uint32)=>void);
-        OnPassengerBoarded(callback: (creature: TSCreature, passenger: TSUnit, seatId: int8, isFirst: boolean)=>void);
+    export class Creatures<T> {
+        OnGenerateLoot(callback: (creature: TSCreature, killer: TSPlayer)=>void): T;
+        OnMoveInLOS(callback: (creature: TSCreature, seen: TSUnit)=>void): T;
+        OnJustEnteredCombat(callback: (creature: TSCreature, target: TSUnit)=>void): T;
+        OnDeath(callback: (creature: TSCreature, killer: TSUnit)=>void): T;
+        OnKilledUnit(callback: (creature: TSCreature, killed: TSUnit)=>void): T;
+        OnSummoned(callback: (creature: TSCreature, summon: TSCreature)=>void): T;
+        OnIsSummoned(callback: (creature: TSCreature, summoner: TSWorldObject)=>void): T;
+        OnSummonDespawn(callback: (creature: TSCreature, summon: TSCreature)=>void): T;
+        OnSummonDies(callback: (creature: TSCreature, summon: TSCreature, killer: TSUnit)=>void): T;
+        OnHitBySpell(callback: (creature: TSCreature, caster: TSWorldObject, spellInfo: TSSpellInfo)=>void): T;
+        OnSpellHitTarget(callback: (creature: TSCreature, target: TSWorldObject, spellInfo: TSSpellInfo)=>void): T;
+        OnSpellCastFinished(callback: (creature: TSCreature, spellInfo: TSSpellInfo, reason: uint32)=>void): T;
+        OnJustAppeared(callback: (creature: TSCreature)=>void): T;
+        OnCharmed(callback: (creature: TSCreature, isNew: boolean)=>void): T;
+        OnReachedHome(callback: (creature: TSCreature)=>void): T;
+        OnReceiveEmote(callback: (creature: TSCreature, player: TSPlayer, emote: uint32)=>void): T;
+        OnOwnerAttacked(callback: (creature: TSCreature, attacker: TSUnit)=>void): T;
+        OnOwnerAttacks(callback: (creature: TSCreature, target: TSUnit)=>void): T;
+        OnCorpseRemoved(callback: (creature: TSCreature, delay: uint32)=>void): T;
+        OnCreate(callback: (creature: TSCreature, cancel: TSMutable<bool>)=>void): T;
+        OnReload(callback: (creature: TSCreature)=>void) : T
+        OnWaypointStarted(callback: (creature: TSCreature, id: uint32, path: uint32)=>void): T;
+        OnWaypointReached(callback: (creature: TSCreature, id: uint32, path: uint32)=>void): T;
+        OnWaypointPathEnded(callback: (creature: TSCreature, id: uint32, path: uint32)=>void): T;
+        OnPassengerBoarded(callback: (creature: TSCreature, passenger: TSUnit, seatId: int8, isFirst: boolean)=>void): T;
 
-        OnSpellClick(callback: (creature: TSCreature, clicker: TSUnit, isFirst: boolean)=>void);
-        OnUpdateAI(callback: (creature: TSCreature, diff: uint32)=>void);
+        OnSpellClick(callback: (creature: TSCreature, clicker: TSUnit, isFirst: boolean)=>void): T;
+        OnUpdateAI(callback: (creature: TSCreature, diff: uint32)=>void): T;
 
-        OnGossipHello(callback: (creature: TSCreature, player: TSPlayer, cancel: TSMutable<bool>)=>void)
-        OnGossipSelect(callback: (creature: TSCreature, player: TSPlayer, menuId: number, selectionId: number, cancel: TSMutable<bool>)=>void)
-        OnGossipSelectCode(callback: (creature: TSCreature, player: TSPlayer, menuId: number, selectionId: number, code: string, cancel: TSMutable<bool>)=>void)
+        OnGossipHello(callback: (creature: TSCreature, player: TSPlayer, cancel: TSMutable<bool>)=>void): T
+        OnGossipSelect(callback: (creature: TSCreature, player: TSPlayer, menuId: number, selectionId: number, cancel: TSMutable<bool>)=>void): T
+        OnGossipSelectCode(callback: (creature: TSCreature, player: TSPlayer, menuId: number, selectionId: number, code: string, cancel: TSMutable<bool>)=>void): T
 
-        OnQuestAccept(callback: (creature: TSCreature, player: TSPlayer, quest: TSQuest)=>void)
-        OnQuestReward(callback: (creature: TSCreature, player: TSPlayer, quest: TSQuest, selection: uint32)=>void)
+        OnQuestAccept(callback: (creature: TSCreature, player: TSPlayer, quest: TSQuest)=>void): T
+        OnQuestReward(callback: (creature: TSCreature, player: TSPlayer, quest: TSQuest, selection: uint32)=>void): T
         /**
          * NOTE: Only use this event to enable pickpocket loot
          * Use "CreatureOnGeneratePickPocketLoot" to actually generate loot
          */
-        OnCanGeneratePickPocketLoot(callback: (creature: TSCreature, player: TSPlayer, canGenerate: TSMutable<bool>)=>void)
+        OnCanGeneratePickPocketLoot(callback: (creature: TSCreature, player: TSPlayer, canGenerate: TSMutable<bool>)=>void): T
         /**
          * NOTE: You may need to also call "OnCanGeneratePickPocketLoot" if this doesn't fire for your specific creature
          */
-        OnGeneratePickPocketLoot(callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void)
-        OnGenerateSkinningLoot(callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void)
+        OnGeneratePickPocketLoot(callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void): T
+        OnGenerateSkinningLoot(callback: (creature: TSCreature, player: TSPlayer, loot: TSLoot)=>void): T
+        OnSendVendorItem(callback: (creature: TSCreature, item: TSItemTemplate, player: TSPlayer, shouldSend: TSMutable<bool>)=>void): T
     }
 
-    export class Items {
+    export class Battlegrounds<T> {
+        OnStart(callback: (bg: TSBattleground)=>void)
+        OnReload(callback: (bg: TSBattleground)=>void)
+        OnAddPlayer(callback: (bg: TSBattleground,player: TSPlayer)=>void)
+        OnPlayerLogin(callback: (bg: TSBattleground,player: TSPlayer)=>void)
+        OnPlayerLogout(callback: (bg: TSBattleground,player: TSPlayer)=>void)
+        OnUpdateScore(callback: (bg: TSBattleground,player:TSPlayer, type: uint32, isAddHonor: bool, value: TSMutable<uint32>)=>void)
+        OnUpdateEarly(callback: (bg: TSBattleground, diff: uint32 /*diff*/)=>void)
+        OnUpdateLate(callback: (bg: TSBattleground, diff: uint32 /*diff*/)=>void)
+        OnKillPlayer(callback: (bg: TSBattleground,victim: TSPlayer,killer: TSPlayer)=>void)
+        OnEndEarly(callback: (bg: TSBattleground,winner: TSMutable<uint32>)=>void)
+        /**
+         * Note that "winner" can no longer be changed at this stage,
+         * for that, use "OnEndEarly"
+         */
+        OnEndLate(callback: (bg: TSBattleground,winner: uint32)=>void)
+        OnKillCreature(callback: (bg: TSBattleground,victim: TSCreature, killer, player: TSPlayer)=>void)
+        OnRemovePlayer(callback: (bg: TSBattleground,guid: uint64,player: TSPlayer, teamId: uint32)=>void)
+        OnPlayerUnderMap(callback: (bg: TSBattleground, player: TSPlayer, handled: TSMutable<bool>)=>void)
+        OnGenericEvent(callback: (bg: TSBattleground,obj: TSWorldObject,eventId: uint32,invoker: TSWorldObject)=>void)
+        OnClickFlag(callback: (bg: TSBattleground,player: TSPlayer,flagObj: TSGameObject)=>void)
+        OnDropFlag(callback: (bg: TSBattleground,player: TSPlayer)=>void)
+        OnDestroyGate(callback: (bg: TSBattleground,player: TSPlayer,target: TSGameObject)=>void)
+        OnOpenDoors(callback: (bg: TSBattleground)=>void)
+        OnCloseDoors(callback: (bg: TSBattleground)=>void)
+        OnReset(callback: (bg: TSBattleground)=>void)
+        OnSetup(callback: (bg: TSBattleground,success: TSMutable<bool>)=>void)
+        OnAchievementCriteria( callback: (
+              bg: TSBattleground
+            , criteria: uint32
+            , player: TSPlayer
+            , target: TSUnit
+            , miscValueA: uint32
+            , handled: TSMutable<bool>
+        )=>void)
+        OnAreaTrigger(callback: (bg: TSBattleground,player: TSPlayer,trigger: uint32, handled: TSMutable<bool>)=>void)
+    }
+
+    export class BattlegroundID<T> {
+        OnStart(id: uint32, callback: (bg: TSBattleground)=>void)
+        OnReload(id: uint32, callback: (bg: TSBattleground)=>void)
+        OnAddPlayer(id: uint32, callback: (bg: TSBattleground,player: TSPlayer)=>void)
+        OnPlayerLogin(id: uint32, callback: (bg: TSBattleground,player: TSPlayer)=>void)
+        OnPlayerLogout(id: uint32, callback: (bg: TSBattleground,player: TSPlayer)=>void)
+        OnUpdateScore(id: uint32, callback: (bg: TSBattleground,player:TSPlayer, type: uint32, isAddHonor: bool, value: TSMutable<uint32>)=>void)
+        OnUpdateEarly(id: uint32, callback: (bg: TSBattleground, diff: uint32 /*diff*/)=>void)
+        OnUpdateLate(id: uint32, callback: (bg: TSBattleground, diff: uint32 /*diff*/)=>void)
+        OnKillPlayer(id: uint32, callback: (bg: TSBattleground,victim: TSPlayer,killer: TSPlayer)=>void)
+        OnEndEarly(id: uint32, callback: (bg: TSBattleground,winner: TSMutable<uint32>)=>void)
+        /**
+         * Note that "winner" can no longer be changed at this stage,
+         * for that, use "OnEndEarly"
+         */
+        OnEndLate(id: uint32, callback: (bg: TSBattleground,winner: uint32)=>void)
+        OnKillCreature(id: uint32, callback: (bg: TSBattleground,victim: TSCreature, killer, player: TSPlayer)=>void)
+        OnRemovePlayer(id: uint32, callback: (bg: TSBattleground,guid: uint64,player: TSPlayer, teamId: uint32)=>void)
+        OnPlayerUnderMap(id: uint32, callback: (bg: TSBattleground, player: TSPlayer, handled: TSMutable<bool>)=>void)
+        OnGenericEvent(id: uint32, callback: (bg: TSBattleground,obj: TSWorldObject,eventId: uint32,invoker: TSWorldObject)=>void)
+        OnClickFlag(id: uint32, callback: (bg: TSBattleground,player: TSPlayer,flagObj: TSGameObject)=>void)
+        OnDropFlag(id: uint32, callback: (bg: TSBattleground,player: TSPlayer)=>void)
+        OnDestroyGate(id: uint32, callback: (bg: TSBattleground,player: TSPlayer,target: TSGameObject)=>void)
+        OnOpenDoors(id: uint32, callback: (bg: TSBattleground)=>void)
+        OnCloseDoors(id: uint32, callback: (bg: TSBattleground)=>void)
+        OnReset(id: uint32, callback: (bg: TSBattleground)=>void)
+        OnSetup(id: uint32, callback: (bg: TSBattleground,success: TSMutable<bool>)=>void)
+        OnAchievementCriteria(id: uint32, callback: (
+              bg: TSBattleground
+            , criteria: uint32
+            , player: TSPlayer
+            , target: TSUnit
+            , miscValueA: uint32
+            , handled: TSMutable<bool>
+        )=>void)
+        OnAreaTrigger(id: uint32, callback: (bg: TSBattleground,player: TSPlayer,trigger: uint32, handled: TSMutable<bool>)=>void)
+    }
+
+    export class Packets {
+        OnCustom(callback: (
+              opcode: uint32
+            , packet: TSPacketRead
+            , player: TSPlayer
+            ) => void
+        )
+    }
+
+    export class PacketID {
+        OnCustom(opcode: uint32, callback: (
+              opcode: uint32
+            , packet: TSPacketRead
+            , player: TSPlayer
+            ) => void
+        )
+    }
+
+    export class GameEvents<T> {
+        OnStart(callback: (event: uint16)=>void)
+        OnUpdateState(callback: (event: uint16)=>void)
+        OnEnd(callback: (event: uint16)=>void)
+    }
+
+    export class GameEventID<T> {
+        OnStart(id: uint32, callback: (event: uint16)=>void)
+        UpdateState(id: uint32, callback: (event: uint16)=>void)
+        OnEnd(id: uint32, callback: (event: uint16)=>void)
+    }
+
+    export class Items<T> {
         OnUse(callback: (item: TSItem, player: TSPlayer, reserved: void, cancel: TSMutable<boolean>)=>void)
         OnExpire(callback: (template: TSItemTemplate, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
         OnRemove(callback: (item: TSItem, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
@@ -6790,7 +7902,7 @@ declare namespace _hidden {
         OnTakenAsLoot(callback: (item: TSItem, lootItem: TSLootItem, loot: TSLoot, player: TSPlayer)=>void);
     }
 
-    export class ItemID {
+    export class ItemID<T> {
         OnUse(item: uint32, callback: (item: TSItem, player: TSPlayer, reserved: void, cancel: TSMutable<boolean>)=>void)
         OnExpire(item: uint32, callback: (template: TSItemTemplate, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
         OnRemove(item: uint32, callback: (item: TSItem, player: TSPlayer, cancel: TSMutable<boolean>)=>void)
@@ -6810,7 +7922,7 @@ declare namespace _hidden {
         OnTakenAsLoot(item: uint32, callback: (item: TSItem, lootItem: TSLootItem, loot: TSLoot, player: TSPlayer)=>void);
     }
 
-    export class GameObjects {
+    export class GameObjects<T> {
         OnUpdate(callback: (obj: TSGameObject, diff: uint32)=>void)
         OnDialogStatus(callback: (obj: TSGameObject, player: TSPlayer)=>void)
         OnDestroyed(callback: (obj: TSGameObject, destroyer: TSWorldObject)=>void)
@@ -6829,7 +7941,7 @@ declare namespace _hidden {
         OnGenerateFishLoot(callback: (obj: TSGameObject, player: TSPlayer, loot: TSLoot, isJunk: bool)=>void)
     }
 
-    export class GameObjectID {
+    export class GameObjectID<T> {
         OnUpdate(obj: uint32, callback: (obj: TSGameObject, diff: uint32)=>void)
         OnDialogStatus(obj: uint32, callback: (obj: TSGameObject, player: TSPlayer)=>void)
         OnDestroyed(obj: uint32, callback: (obj: TSGameObject, destroyer: TSWorldObject)=>void)
@@ -6845,7 +7957,7 @@ declare namespace _hidden {
         OnQuestAccept(obj: uint32, callback: (obj: TSGameObject, player: TSPlayer, quest: TSQuest)=>void)
     }
 
-    export class Maps {
+    export class Maps<T> {
         OnCreate(callback: (map: TSMap)=>void)
         OnReload(callback: (map: TSMap)=>void)
         OnUpdate(callback: (map: TSMap, diff: uint32)=>void)
@@ -6858,7 +7970,7 @@ declare namespace _hidden {
         OnCheckEncounter(callback: (map: TSMap, player: TSPlayer)=>void)
     }
 
-    export class MapID {
+    export class MapID<T> {
         OnCreate(map: uint32, callback: (map: TSMap)=>void)
         OnUpdate(map: uint32, callback: (map: TSMap, diff: uint32)=>void)
         OnPlayerEnter(map: uint32, callback: (map: TSMap, player: TSPlayer)=>void)
@@ -6871,42 +7983,107 @@ declare namespace _hidden {
         OnCheckEncounter(map: uint32, callback: (map: TSMap, player: TSPlayer)=>void)
     }
 
-    export class AuctionHouse {
+    export class Instances<T> {
+        OnCreate(callback: (instance: TSInstance)=>void)
+        OnReload(callback: (instance: TSInstance)=>void)
+        OnLoad(callback: (instance: TSInstance)=>void)
+        OnSave(callback: (instance: TSInstance)=>void)
+        OnUpdate(callback: (instance: TSInstance, diff: uint32)=>void)
+        OnPlayerEnter(callback: (instance: TSInstance, player: TSPlayer)=>void)
+        OnPlayerLeave(callback: (instance: TSInstance, player: TSPlayer)=>void)
+        OnBossStateChange(callback: (instance: TSInstance, id: uint32, state: uint32)=>void)
+        OnCanKillBoss(callback: (instance: TSInstance, bossId: uint32, player: TSPlayer, canKill: TSMutable<bool>)=>void)
+        OnFillInitialWorldStates(callback: (instance: TSInstance, TSWorldStatePacket)=>void)
+    }
+
+    export class InstanceID<T> {
+        OnCreate(map: uint32, callback: (instance: TSInstance)=>void)
+        OnReload(map: uint32, callback: (instance: TSInstance)=>void)
+        OnLoad(map: uint32, callback: (instance: TSInstance)=>void)
+        OnSave(map: uint32, callback: (instance: TSInstance)=>void)
+        OnUpdate(map: uint32, callback: (instance: TSInstance, diff: uint32)=>void)
+        OnPlayerEnter(map: uint32, callback: (instance: TSInstance, player: TSPlayer)=>void)
+        OnPlayerLeave(map: uint32, callback: (instance: TSInstance, player: TSPlayer)=>void)
+        OnBossStateChange(map: uint32, callback: (instance: TSInstance, id: uint32, state: uint32)=>void)
+        OnCanKillBoss(map: uint32, callback: (instance: TSInstance, bossId: uint32, player: TSPlayer, canKill: TSMutable<bool>)=>void)
+        OnFillInitialWorldStates(map: uint32, callback: (instance: TSInstance, TSWorldStatePacket)=>void)
+    }
+
+    export class AuctionHouse<T> {
         OnAuctionAdd(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
         OnAuctionRemove(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
         OnAuctionSuccessful(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
         OnAuctionExpire(callback: (obj: TSAuctionHouseObject, entry: TSAuctionEntry)=>void);
     }
 
-    export class Addon {
+    export class Conditions<T> {
+        OnCheck(callback: (condition: TSCondition, sourceInfo: TSConditionSourceInfo, condMeets: TSMutable<bool>)=>void)
+    }
+
+    export class ConditionID<T> {
+        OnCheck(type: uint32, callback: (condition: TSCondition, sourceInfo: TSConditionSourceInfo, condMeets: TSMutable<bool>)=>void)
+    }
+
+    export class SmartActions<T> {
+        OnActivateEarly(callback: (script: TSSmartScriptValues, cancelAction: TSMutable<bool>, cancelLink: TSMutable<bool>)=>void)
+        OnActivateLate(callback: (script: TSSmartScriptValues, cancelLink: TSMutable<bool>)=>void)
+    }
+
+    export class SmartActionID<T> {
+        OnActivateEarly(actionType: uint32, callback: (script: TSSmartScriptValues, cancelAction: TSMutable<bool>, cancelLink: TSMutable<bool>)=>void)
+        OnActivateLate(actionType: uint32, callback: (script: TSSmartScriptValues, cancelLink: TSMutable<bool>)=>void)
+    }
+
+    export class Addon<T> {
         OnMessage(callback: (reader: any)=>void);
         OnMessageID<T>(cls: new()=>T, callback: (player: TSPlayer,message: T)=>void);
+        OnLongMessage(callback: (player: TSPlayer, channel: uint16, message: string)=>void)
+    }
+
+    export class Tests<T> {
+        ManualTest(name: string): TSManualTestBuilder
+        AutomaticTest(name: string, callback: (player: TSPlayer, assert: TSAssert)=>void)
     }
 }
+// @hidden-end (do NOT remove this tag!)
 
 declare class TSEventHandlers {
-    World: _hidden.World;
-    Formula: _hidden.Formula;
-    Unit: _hidden.Unit;
-    Addon: _hidden.Addon;
-    //AreaTrigger: _hidden.AreaTrigger;
+    World: _hidden.World<void>;
+    Formula: _hidden.Formula<void>;
+    Addon: _hidden.Addon<void>;
+    AreaTriggers: _hidden.AreaTrigger<void>;
+    AreaTriggerID: _hidden.AreaTrigger<void>;
     //Vehicle: _hidden.Vehicle;
-    //AchievementCriteria: _hidden.AchievementCriteria;
-    Player: _hidden.Player;
-    Account: _hidden.Account;
-    Guild: _hidden.Guild;
-    Group: _hidden.Group;
-    Spells: _hidden.Spells;
-    Creatures: _hidden.Creatures;
-    CreatureID: _hidden.CreatureID;
-    SpellID: _hidden.SpellID;
-    Auction: _hidden.AuctionHouse;
-    Maps: _hidden.Maps;
-    MapID: _hidden.MapID;
-    Items: _hidden.Items;
-    ItemID: _hidden.ItemID;
-    GameObjects: _hidden.GameObjects;
-    GameObjectID: _hidden.GameObjectID;
+    Achievements: _hidden.Achievements<void>;
+    AchievementID: _hidden.AchievementID<void>;
+    Player: _hidden.Player<void>;
+    Account: _hidden.Account<void>;
+    Guild: _hidden.Guild<void>;
+    Group: _hidden.Group<void>;
+    Spells: _hidden.Spells<void>;
+    Creatures: _hidden.Creatures<void>;
+    CreatureID: _hidden.CreatureID<void>;
+    SpellID: _hidden.SpellID<void>;
+    Auction: _hidden.AuctionHouse<void>;
+    Maps: _hidden.Maps<void>;
+    MapID: _hidden.MapID<void>;
+    Items: _hidden.Items<void>;
+    ItemID: _hidden.ItemID<void>;
+    GameObjects: _hidden.GameObjects<void>;
+    GameObjectID: _hidden.GameObjectID<void>;
+    Tests: _hidden.Tests<void>;
+    Battlegrounds: _hidden.Battlegrounds<void>;
+    BattlegroundID: _hidden.BattlegroundID<void>;
+    GameEvents: _hidden.GameEvents<void>;
+    GameEventID: _hidden.GameEventID<void>;
+    SmartActions: _hidden.SmartActions<void>;
+    SmartActionID: _hidden.SmartActionID<void>;
+    Conditions: _hidden.Conditions<void>;
+    ConditionID: _hidden.ConditionID<void>;
+    Instances: _hidden.Instances<void>;
+    InstanceID: _hidden.InstanceID<void>;
+    Packets: _hidden.Packets;
+    PacketID: _hidden.PacketID;
 }
 
 declare class TSDictionary<K,V> {
@@ -6933,7 +8110,7 @@ declare class TSDBDict<K,V> {
 
 declare function MakeDBDict<K,V>(): TSDBDict<K,V>;
 
-declare class TSLootItem {
+declare interface TSLootItem {
     GetItemID(): uint32;
     GetRandomSuffix(): uint32;
     GetRandomPropertyID(): uint32;
@@ -6943,7 +8120,7 @@ declare class TSLootItem {
     SetCount(count: uint8);
 }
 
-declare class TSLoot {
+declare interface TSLoot {
     IsNull(): bool;
     Clear(): void;
     IsLooted(): bool;
@@ -6966,7 +8143,7 @@ declare class TSLoot {
     SetGeneratesNormally(normal: bool);
 }
 
-declare class TSAuctionEntry {
+declare interface TSAuctionEntry {
     GetID(): uint32;
     GetHouseID(): uint8;
     /**
@@ -6988,7 +8165,7 @@ declare class TSAuctionEntry {
     GetETime(): uint32;
     GetBidders(): TSArray<uint64>
     GetFlags(): uint32;
-    
+
     SetItemID(itemId: uint64);
     SetItemEntry(itemEntry: uint64);
     SetItemCount(itemCount: uint32);
@@ -7002,7 +8179,7 @@ declare class TSAuctionEntry {
     SetFlags(flags: uint32);
 }
 
-declare class TSAuctionHouseObject {
+declare interface TSAuctionHouseObject {
     GetKeys() : TSArray<uint32>
     GetEntry(key: uint32): TSAuctionEntry
     RemoveAuction(key: uint32|TSAuctionEntry): bool
@@ -7010,12 +8187,12 @@ declare class TSAuctionHouseObject {
     AddAuction(entry: TSAuctionEntry);
 }
 
-declare class TSMailItemInfo {
+declare interface TSMailItemInfo {
     GetGUID(): uint64;
     GetItemTemplate(): uint32;
 }
 
-declare class TSMail {
+declare interface TSMail {
     GetID(): uint32;
     GetType(): uint8;
     GetTemplateID(): uint16;
@@ -7041,7 +8218,7 @@ declare class TSMail {
     SetState(state: uint8)
 }
 
-declare class TSMailDraft {
+declare interface TSMailDraft {
     GetTemplateID(): uint16
     GetSubject(): string
     GetBody(): string;
@@ -7056,12 +8233,109 @@ declare class TSMailDraft {
     FilterItems(predicate: (item: TSItem)=>boolean);
 }
 
+declare interface TSAreaTriggerEntry {
+    GetEntry(): uint32;
+    GetContinentID(): uint32;
+    GetX(): float;
+    GetY(): float;
+    GetZ(): float;
+    GetRadius(): float;
+    GetBoxLength(): float;
+    GetBoxWidth(): float;
+    GetBoxHeight(): float;
+    GetBoxYaw(): float;
+}
+
+// Json
+declare class TSJsonObject {
+    setBool(key: string, value: boolean): this;
+    getBool(key: string, def?: boolean): boolean;
+    hasBool(key: string): boolean;
+
+    setNumber(key: string, value: double): this;
+    getNumber(key: string, def?: double): double;
+    hasNumber(key: string): boolean;
+
+    setString(key: string, value: string): this;
+    getString(key: string, def?: string): string;
+    hasString(key: string): boolean;
+
+    setObject(key: string, value: TSJsonObject): this;
+    getObject(key: string, def?: TSJsonObject): TSJsonObject;
+    hasObject(key: string): boolean;
+
+    setArray(key: string, value: TSJsonArray): this;
+    getArray(key: string, def?: TSJsonArray): TSJsonArray;
+    hasArray(key: string): boolean;
+
+    setNull(key: string): this;
+    hasNull(key: string): bool
+
+    remove(key: string): this;
+    toString(indents?: uint32): string;
+    isValid(): bool
+    get length(): uint32
+}
+
+declare class TSJsonArray {
+    setBool(index: uint32, value: bool): this;
+    getBool(index: uint32, def?: bool): bool;
+    hasBool(index: uint32): bool;
+    insertBool(index: uint32, value: bool): this;
+    pushBool(value: bool): this;
+
+    setNumber(index: uint32, value: double): this;
+    getNumber(index: uint32, def?: double): double;
+    hasNumber(index: uint32): bool;
+    insertNumber(index: uint32, value: double): this;
+    pushNumber(value: double): this;
+
+    setString(index: uint32, value: string): this;
+    getString(index: uint32, def?: string): string;
+    hasString(index: uint32): bool;
+    insertString(index: uint32, value: string): this;
+    pushString(value: string): this;
+
+    setObject(index: uint32, value: TSJsonObject): this;
+    getObject(index: uint32, def?: TSJsonObject): TSJsonObject;
+    hasObject(index: uint32): bool;
+    insertObject(index: uint32, value: TSJsonObject): this;
+    pushObject(value: TSJsonObject): this;
+
+    setArray(index: uint32, value: TSJsonArray): this;
+    getArray(index: uint32, def?: TSJsonArray): TSJsonArray;
+    hasArray(index: uint32): bool;
+    insertArray(index: uint32, value: TSJsonArray): this;
+    pushArray(value: TSJsonArray): this;
+
+    setNull(index: uint32): this;
+    hasNull(index: uint32): bool
+    insertNull(index: uint32): this
+    pushNull(index: uint32): this
+
+    remove(index: uint32): this;
+    toString(indents?: uint32): string;
+    isValid(): bool
+    get length(): uint32;
+}
+
+declare class _TSJSON {
+    parseObject(str: string): TSJsonObject
+    parseArray(str: string): TSJsonArray
+}
+declare const TSJSON: _TSJSON
+
 // Global.h
 declare function GetCurrTime(): uint32;
 declare function GetUnixTime(): uint64;
 declare function SendMail(senderType: uint8, from: uint64, subject: string, body: string, money?: uint32, cod?: uint32, delay?: uint32, items?: TSArray<TSItem>);
 declare function SendWorldMessage(message: string);
 declare function SyncHttpGet(url: string): string;
+declare function IsGameEventActive(event: uint16): boolean
+declare function IsHolidayActive(holiday: uint16): boolean
+declare function GetActiveGameEvents(): TSArray<uint16>
+declare function StartGameEvent(event_id: uint16): void
+declare function StopGameEvent(event_id: uint16): void
 // end of Global.h
 
 declare function MakeDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V>
@@ -7073,11 +8347,6 @@ declare class TSTimer {
     delay: uint32;
     repeats: uint32;
     readonly name: string;
-}
-
-declare class TSTasks<T> {
-    AddTimer(name: string, time: uint32, repeats: uint32, cb: TimerCallback<T>)
-    RemoveTimer(name: string);
 }
 
 declare class BinReader<L extends number> {
@@ -7184,6 +8453,58 @@ declare class TSSpellDamageInfo {
     GetFullBlock(): bool;
 }
 
+declare class TSPacketWrite {
+    WriteUInt8(value: uint8): TSPacketWrite;
+    WriteInt8(value: int8): TSPacketWrite;
+
+    WriteUInt16(value: uint16): TSPacketWrite;
+    WriteInt16(value: int16): TSPacketWrite;
+
+    WriteUInt16(value: uint16): TSPacketWrite;
+    WriteInt16(value: int16): TSPacketWrite;
+
+    WriteUInt32(value: uint32): TSPacketWrite;
+    WriteInt32(value: int32): TSPacketWrite;
+
+    WriteUInt64(value: uint64): TSPacketWrite;
+    WriteInt64(value: int64): TSPacketWrite;
+
+    WriteFloat(value: float): TSPacketWrite;
+    WriteDouble(value: double): TSPacketWrite;
+
+    WriteString(value: string): TSPacketWrite;
+
+    Size(): uint32
+
+    SendToPlayer(player: TSPlayer): void;
+    BroadcastMap(map: TSMap, teamOnly: uint32): void;
+    /**
+     * @param self default: true
+     */
+    BroadcastAround(obj: TSWorldObject, range: float, self?: boolean)
+}
+
+declare class TSPacketRead {
+    ReadUInt8(def?: uint8): uint8;
+    ReadInt8(def?: int8): int8;
+
+    ReadUInt16(def?: uint16): uint16;
+    ReadInt16(def?: int16): int16;
+
+    ReadUInt32(def?: uint32): uint32;
+    ReadInt32(def?: int32): int32;
+
+    ReadUInt64(def?: uint64): uint64;
+    ReadInt64(def?: int64): int64;
+
+    ReadFloat(def?: float): float;
+    ReadDouble(def?: double): double;
+
+    ReadString(def?: string): string;
+
+    Size(): uint32
+}
+
 declare function WorldDatabaseInfo(): TSDatabaseConnectionInfo
 declare function CharacterDatabaseInfo(): TSDatabaseConnectionInfo
 declare function AuthDatabaseInfo(): TSDatabaseConnectionInfo
@@ -7210,6 +8531,15 @@ declare function MsgPrimitiveArray(capacity: number): (field: any, name: any)=>v
 declare function MsgString(size: number): (field: any, name: any)=>void
 declare function MsgStringArray(arrSize: number, stringSize: number): (field: any, name: any)=>void
 
+declare function MakeCustomPacket(opcode: uint32, size: uint32): TSPacketWrite;
+
+// Null values
+declare function NULL_UNIT(): TSUnit;
+declare function NULL_PLAYER(): TSPlayer;
+declare function NULL_GAMEOBJECT(): TSGameObject;
+declare function NULL_MAP(): TSMap;
+declare function NULL_SPELLINFO(): TSSpellInfo;
+
 // Type conversions
 declare function ToStr(val: number);
 declare function ToUInt8(val: string): uint8;
@@ -7227,7 +8557,6 @@ declare function ToInt64(val: string): int64;
 declare function ToDouble(val: string): double;
 declare function ToFloat(val: string): float;
 
-declare function GetTimers() : TSTasks<void>
 declare function ModID(): uint32;
 declare function LoadRows<T extends DBTable>(cls: {new (...args: any[]): T}, query: string): TSArray<T>
 
