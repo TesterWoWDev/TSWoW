@@ -15,6 +15,59 @@ export let weaponTierOneItemEnchantmentIndex = 15003
 export let trinketTierOneItemEnchantmentIndex = 16018
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Hybrid Templates
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*Stamina + Strength 			(-105)*/             addToDBCSpellItemEnchantment(5,7,3,3,4,3,3,0,'+3 Stamina\n+3 Strength',sIEI++)
+/*Stamina + Agiity	 			(-104)*/             addToDBCSpellItemEnchantment(5,7,3,3,3,3,3,0,'+3 Stamina\n+3 Agility',sIEI++)
+/*Stamina + Attack Power 		(-103)*/             addToDBCSpellItemEnchantment(5,7,3,3,38,6,6,0,'+3 Stamina\n+6 Attack Power',sIEI++)
+/*Stamina + Intellect 			(-102)*/             addToDBCSpellItemEnchantment(5,7,3,3,5,3,3,0,'+3 Stamina\n+3 Intellect',sIEI++)
+/*Stamina + Spell Power 		(-101)*/             addToDBCSpellItemEnchantment(5,7,3,3,45,6,6,0,'+3 Stamina\n+6 Spell Power',sIEI++)
+/*Stamina + Spirit 				(-100)*/             addToDBCSpellItemEnchantment(5,7,3,3,6,3,3,0,'+3 Stamina\n+3 Spirit',sIEI++)
+/*Stamina + Haste Rating 		(-99)*/              addToDBCSpellItemEnchantment(5,7,3,3,36,5,5,0,'+3 Stamina\n+5 Haste Rating',sIEI++)
+/*Stamina + Block Rating 		(-98)*/              addToDBCSpellItemEnchantment(5,7,3,3,15,5,5,0,'+3 Stamina\n+5 Block Rating',sIEI++)
+/*Stamina + Dodge Rating 		(-97)*/              addToDBCSpellItemEnchantment(5,7,3,3,13,5,5,0,'+3 Stamina\n+5 Dodge Rating',sIEI++)
+/*Stamina + Parry Rating 		(-96)*/              addToDBCSpellItemEnchantment(5,7,3,3,14,5,5,0,'+3 Stamina\n+5 Parry Rating',sIEI++)
+/*Stamina + Hit Rating 			(-95)*/              addToDBCSpellItemEnchantment(5,7,3,3,31,5,5,0,'+3 Stamina\n+5 Hit Rating',sIEI++)
+/*Stamina + Armor Penetration 	(-94)*/              addToDBCSpellItemEnchantment(5,7,3,3,44,5,5,0,'+3 Stamina\n+5 Armor Penetration',sIEI++)
+/*Stamina + Critical Strike 	(-93)*/              addToDBCSpellItemEnchantment(5,7,3,3,32,5,5,0,'+3 Stamina\n+5 Critical Strike Rating',sIEI++)
+/*Stamina + Expertise 			(-92)*/              addToDBCSpellItemEnchantment(5,7,3,3,37,5,5,0,'+3 Stamina\n+5 Expertise Rating',sIEI++)
+
+/*Strength + Agility 			(-91)*/              addToDBCSpellItemEnchantment(5,4,3,3,3,5,5,0,'+3 Strength\n+5 Agility',sIEI++)
+/*Strength + Stamina 			(-90)*/              addToDBCSpellItemEnchantment(5,4,3,3,7,5,5,0,'+3 Strength\n+5 Stamina',sIEI++)
+/*Strength + Attack Power	 	(-89)*/              addToDBCSpellItemEnchantment(5,4,3,3,38,5,5,0,'+3 Strength\n+5 Attack Power',sIEI++)
+/*Strength + Haste Rating 		(-88)*/              addToDBCSpellItemEnchantment(5,4,3,3,36,5,5,0,'+3 Strength\n+5 Haste Rating',sIEI++)
+/*Strength + Block Rating 		(-87)*/              addToDBCSpellItemEnchantment(5,4,3,3,15,5,5,0,'+3 Strength\n+5 Block Rating',sIEI++)
+/*Strength + Dodge Rating 		(-86)*/              addToDBCSpellItemEnchantment(5,4,3,3,13,5,5,0,'+3 Strength\n+5 Dodge Rating',sIEI++)
+/*Strength + Parry Rating 		(-85)*/              addToDBCSpellItemEnchantment(5,4,3,3,14,5,5,0,'+3 Strength\n+5 Parry Rating',sIEI++)
+/*Strength + Hit Rating 		(-84)*/              addToDBCSpellItemEnchantment(5,4,3,3,31,5,5,0,'+3 Strength\n+5 Hit Rating',sIEI++)
+/*Strength + Armor Penetration 	(-83)*/              addToDBCSpellItemEnchantment(5,4,3,3,44,5,5,0,'+3 Strength\n+5 Armor Penetration',sIEI++)
+/*Strength + Critical Strike 	(-82)*/              addToDBCSpellItemEnchantment(5,4,3,3,32,5,5,0,'+3 Strength\n+5 Critical Strike Rating',sIEI++)
+/*Strength + Expertise 			(-81)*/              addToDBCSpellItemEnchantment(5,4,3,3,37,5,5,0,'+3 Strength\n+5 Expertise Rating',sIEI++)
+
+/*Agility + Stamina 			(-80)*/              addToDBCSpellItemEnchantment(5,3,3,3,7,5,5,0,'+3 Agility\n+5 Stamina',sIEI++)
+/*Agility + Attack Power	 	(-79)*/              addToDBCSpellItemEnchantment(5,3,3,3,38,5,5,0,'+3 Agility\n+5 Attack Power',sIEI++)
+/*Agility + Haste Rating 		(-78)*/              addToDBCSpellItemEnchantment(5,3,3,3,36,5,5,0,'+3 Agility\n+5 Haste Rating',sIEI++)
+/*Agility + Block Rating 		(-77)*/              addToDBCSpellItemEnchantment(5,3,3,3,15,5,5,0,'+3 Agility\n+5 Block Rating',sIEI++)
+/*Agility + Dodge Rating 		(-76)*/              addToDBCSpellItemEnchantment(5,3,3,3,13,5,5,0,'+3 Agility\n+5 Dodge Rating',sIEI++)
+/*Agility + Parry Rating 		(-75)*/              addToDBCSpellItemEnchantment(5,3,3,3,14,5,5,0,'+3 Agility\n+5 Parry Rating',sIEI++)
+/*Agility + Hit Rating 			(-74)*/              addToDBCSpellItemEnchantment(5,3,3,3,31,5,5,0,'+3 Agility\n+5 Hit Rating',sIEI++)
+/*Agility + Armor Penetration 	(-73)*/              addToDBCSpellItemEnchantment(5,3,3,3,44,5,5,0,'+3 Agility\n+5 Armor Penetration',sIEI++)
+/*Agility + Critical Strike 	(-72)*/              addToDBCSpellItemEnchantment(5,3,3,3,32,5,5,0,'+3 Agility\n+5 Critical Strike Rating',sIEI++)
+/*Agility + Expertise 			(-71)*/              addToDBCSpellItemEnchantment(5,3,3,3,37,5,5,0,'+3 Agility\n+5 Expertise Rating',sIEI++)
+
+/*Intellect + Stamina 			(-70)*/              addToDBCSpellItemEnchantment(5,5,3,3,7,5,5,0,'+3 Intellect\n+5 Stamina',sIEI++)
+/*Intellect + Spell Power 		(-69)*/              addToDBCSpellItemEnchantment(5,5,3,3,45,5,5,0,'+3 Intellect\n+5 Spell Power',sIEI++)
+/*Intellect + Haste Rating 		(-68)*/              addToDBCSpellItemEnchantment(5,5,3,3,36,5,5,0,'+3 Intellect\n+5 Haste Rating',sIEI++)
+/*Intellect + Hit Rating 		(-67)*/              addToDBCSpellItemEnchantment(5,5,3,3,31,5,5,0,'+3 Intellect\n+5 Hit Rating',sIEI++)
+/*Intellect + Spell Penetration	(-66)*/              addToDBCSpellItemEnchantment(5,5,3,3,47,5,5,0,'+3 Intellect\n+5 Spell Penetration',sIEI++)
+/*Intellect + Critical Strike 	(-65)*/              addToDBCSpellItemEnchantment(5,5,3,3,32,5,5,0,'+3 Intellect\n+5 Critical Strike Rating',sIEI++)
+/*Intellect + Mana per 5 		(-64)*/              addToDBCSpellItemEnchantment(5,5,3,3,43,5,5,0,'+3 Intellect\n+5 Mana per 5',sIEI++)
+/*Intellect + Expertise 		(-63)*/              addToDBCSpellItemEnchantment(5,5,3,3,37,5,5,0,'+3 Intellect\n+5 Expertise Rating',sIEI++)
+/*Intellect + Spirit 			(-62)*/              addToDBCSpellItemEnchantment(5,5,3,3,6,5,5,0,'+3 Intellect\n+5 Spirit',sIEI++)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Special Templates
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*On Use : Health (-61)*/           addToDBCSpellItemEnchantment(7,health1.ID,0,0,0,0,0,0,'Increases health by 350 for 18 seconds.',sIEI++)
 /*On Use : Attack Power (-60)*/     addToDBCSpellItemEnchantment(7,attackpower1.ID,0,0,0,0,0,0,spellColorCode +'Increases attack power by 50 for 10 seconds.',sIEI++)
 /*On Use : Spell Power (-59)*/      addToDBCSpellItemEnchantment(7,spellpower1.ID,0,0,0,0,0,0,spellColorCode +'Increases spell power by 50 for 10 seconds.',sIEI++)
@@ -29,6 +82,8 @@ export let trinketTierOneItemEnchantmentIndex = 16018
 /*Omnipotence (-51)*/               addToDBCSpellItemEnchantment(5,3,2,2,5,4,2,2,'+2 Agility\n+2 Strength',sIEI++)
 /*Omnipotence (-50)*/               addToDBCSpellItemEnchantment(5,5,2,2,5,7,2,2,'+2 Intellect\n+3 Stamina',sIEI++)
 /*Omnipotence (-49)*/               addToDBCSpellItemEnchantment(5,45,6,6,5,38,6,6,'+6 Spell Power\n+6 Attack Power',sIEI++)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Weapon Templates
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*Healing (-48)*/                   addToDBCSpellItemEnchantment(5,42,16,16,0,0,0,0,'+16 Healing Done',sIEI++)
 /*Intellect (-47)*/                 addToDBCSpellItemEnchantment(5,5,8,8,0,0,0,0,'+8 Intellect',sIEI++)
@@ -55,6 +110,8 @@ export let trinketTierOneItemEnchantmentIndex = 16018
 /*Armor Penetration (-26)*/         addToDBCSpellItemEnchantment(5,44,4,4,0,0,0,0,'+4 Armor Penetration',sIEI++)
 /*Spell Penetration (-25)*/         addToDBCSpellItemEnchantment(5,47,4,4,0,0,0,0,'+4 Spell Penetration',sIEI++)
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Armor Templates
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*Healing (-24)*/                   addToDBCSpellItemEnchantment(5,42,6,6,0,0,0,0,'+6 Healing Done',sIEI++)
 /*Intellect (-23)*/                 addToDBCSpellItemEnchantment(5,5,2,2,0,0,0,0,'+2 Intellect',sIEI++)
 /*Spirit (-22)*/                    addToDBCSpellItemEnchantment(5,6,3,3,0,0,0,0,'+3 Spirit',sIEI++)
@@ -80,6 +137,18 @@ export let trinketTierOneItemEnchantmentIndex = 16018
 /*Armor Penetration (-2)*/          addToDBCSpellItemEnchantment(5,44,2,2,0,0,0,0,'+2 Armor Penetration',sIEI++)
 /*Spell Penetration (-1)*/          addToDBCSpellItemEnchantment(5,47,2,2,0,0,0,0,'+2 Spell Penetration',sIEI++)
 
+/*New Item Stats*/
+//Cloth
+addToDBCItemRandomProperties('of Treachery',pI++,clothTierOneItemEnchantmentIndex,62,63,0,9.9,sIEI)     /*Intellect + Spirit + Spellpower           9.9% Chance*/ 
+addToDBCItemRandomProperties('of Anarchy',pI++,clothTierOneItemEnchantmentIndex,63,64,0,9.9,sIEI)       /*Intellect + Haste + Spellpower            9.9% Chance*/
+addToDBCItemRandomProperties('of Torment',pI++,clothTierOneItemEnchantmentIndex,64,65,0,9.9,sIEI)          /*Haste + Spellpower                        9.9% Chance*/
+addToDBCItemRandomProperties('of Warmth',pI++,clothTierOneItemEnchantmentIndex,65,66,0,9.9,sIEI)       /*Spellpower + Spellpower + Hit             9.9% Chance*/
+addToDBCItemRandomProperties('of Dying Light',pI++,clothTierOneItemEnchantmentIndex,66,67,0,9.9,sIEI)        /*Spellpower + Mana per 5 + Haste           9.9% Chance*/
+addToDBCItemRandomProperties('of Renewed Hope',pI++,clothTierOneItemEnchantmentIndex,67,68,0,9.9,sIEI)         /*Health per 5 + Mana per 5                 9.9% Chance*/
+addToDBCItemRandomProperties('of Vigour',pI++,clothTierOneItemEnchantmentIndex,68,69,0,9.9,sIEI)       /*Spellpower + Crit + Spell Pen             9.9% Chance*/
+addToDBCItemRandomProperties('of Torture',pI++,clothTierOneItemEnchantmentIndex,69,70,0,9.9,sIEI)   /*Spellpower + Hit + Crit                   9.9% Chance*/
+addToDBCItemRandomProperties('of Heartrending',pI++,clothTierOneItemEnchantmentIndex,70,62,0,9.9,sIEI)           /*Health + Health per 5                     9.9% Chance*/
+
 // Trinkets : On Use Effects
 addToDBCItemRandomProperties('of Recurring Power',pI++,trinketTierOneItemEnchantmentIndex,59,39,47,1,sIEI)            /*On Use : Spell Power + Stamina + Intellect             1% Chance*/
 addToDBCItemRandomProperties('of Escalating Power',pI++,trinketTierOneItemEnchantmentIndex,60,39,43,1,sIEI)           /*On Use : Attack Power + Stamina + Strength             1% Chance*/
@@ -90,6 +159,9 @@ addToDBCItemRandomProperties('of the Jailer',pI++,trinketTierOneItemEnchantmentI
 addToDBCItemRandomProperties('of the Lightning Thief',pI++,trinketTierOneItemEnchantmentIndex,56,44,31,1,sIEI)   /*Chance to Thunderfury + Haste + Expertise            1% Chance*/
 addToDBCItemRandomProperties('of the Immortal',pI++,trinketTierOneItemEnchantmentIndex,57,36,37,1,sIEI)          /*Chance to Heal + Health + Crit                   1% Chance*/
 addToDBCItemRandomProperties('of the Shadow Storm',pI++,trinketTierOneItemEnchantmentIndex,55,45,42,1,sIEI)      /*Chance to Send Shadowbolts + Spell Power + Attack Power       1% Chance*/
+
+// Trinkets : Normal Stats
+addToDBCItemRandomProperties('of Oblivion',pI++,trinketTierOneItemEnchantmentIndex,55,45,42,1,sIEI)
 
 // Chance on Hit Effects
 addToDBCItemRandomProperties('of the Jailer',pI++,weaponTierOneItemEnchantmentIndex,58,0,0,1,sIEI)            /*Chance to Stun                    1% Chance*/
@@ -152,7 +224,6 @@ addToDBCItemRandomProperties('of Smiting',pI++,mailTierOneItemEnchantmentIndex,2
 addToDBCItemRandomProperties('of Healing',pI++,mailTierOneItemEnchantmentIndex,21,9,20,5.82,sIEI)        /*Spellpower + Mana per 5 + Haste           5.82% Chance*/
 addToDBCItemRandomProperties('of Blasting',pI++,mailTierOneItemEnchantmentIndex,21,13,1,5.82,sIEI)       /*Spellpower + Crit + Spell Pen             5.82% Chance*/
 addToDBCItemRandomProperties('of Destruction',pI++,mailTierOneItemEnchantmentIndex,21,14,13,5.82,sIEI)   /*Spellpower + Hit + Crit                   5.82% Chance*/
-
 
 // Weapon Enchants [21]
 addToDBCItemRandomProperties('of Blasphemy',pI++,weaponTierOneItemEnchantmentIndex,47,46,45,4.71,sIEI)      /*Intellect + Spirit + Spellpower           4.71% Chance*/ 

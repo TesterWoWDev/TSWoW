@@ -11,6 +11,7 @@ SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `invasions_spawners`')
 SQL.Databases.world_dest.writeEarly('DELETE FROM `item_enchantment_template` WHERE entry >= 8700')
 SQL.Databases.world_dest.writeEarly('DELETE FROM `creature_equip_template` WHERE creatureID >= 100000')
 SQL.Databases.world_source.writeEarly('DELETE FROM `creature_loot_template` WHERE Entry = 299')
+SQL.Databases.world_source.writeEarly('DELETE FROM `npc_vendor` WHERE entry = 3562')
 
 SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).position_z.set(31.1351).map.set(725).name.set('start')
 
