@@ -6,5 +6,4 @@ item.Description.enGB.set('This amazing creation by an old man is all the tools 
 item.Spells.clearAll()
 item.row.SellPrice.set(0)
 
-std.Items.load(20880).MaxStack.set(999)
-std.Items.load(20880).Price.set(100000,100001)
+std.Items.load(20880).MaxStack.set(999).Price.set(100000,100001)
