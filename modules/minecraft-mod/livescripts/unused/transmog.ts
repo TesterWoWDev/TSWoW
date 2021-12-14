@@ -30,10 +30,11 @@ export function transmog(events:TSEventHandlers){
         player.GetObject(tmogField, new playerMog(player.GetGUIDLow())).save()
     })
 
-    // events.Items.OnEquipEarly((item,player)=>{
-    //     player.GetTasks().AddTimer("tasked",3000,1,(timer,entity,del,can)=>
-    //     setAllTransmogs(entity.ToPlayer(), player.GetData().GetObject(tmogField, new playerMog(player.GetGUIDLow()))))
-    // })
+    events.Items.OnEquipEarly((item,player)=>{
+        player.AddTimer("transmogEquipTask",3000,1,(timer,entity,del,can)=>
+        setAllTransmogs(entity.ToPlayer(), player.GetObject(tmogField, new playerMog(player.GetGUIDLow()))))
+    })
+
     events.Player.OnCommand((player,com,found)=>{
         if(com.get().startsWith("transmogclear")){
             found.set(true)
