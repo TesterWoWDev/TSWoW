@@ -13,11 +13,6 @@ export function housing(events: TSEventHandlers) {
     events.Spells.OnCheckCast((spell) => {
         if (spell.GetSpellInfo().SchoolMask() == 98) {
             let player = spell.GetCaster().ToPlayer()
-            if (player.GetMapId() != 1) {
-                player.SendAreaTriggerMessage('You need to be at home first!')
-                spell.Cancel()
-                return
-            }
             if (player.GetMap().GetUInt('playerOwner', 1) != player.GetGUIDLow()) {
                 player.SendAreaTriggerMessage('This is not your home!')
                 spell.Cancel()
