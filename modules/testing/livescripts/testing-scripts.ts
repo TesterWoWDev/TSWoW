@@ -1,6 +1,8 @@
 import { spellValuesFinish, spellValuesIncoming, spellValuesMessage } from "../shared/Messages";
+import { housing } from "./player_housing";
 
 export function Main(events: TSEventHandlers) {
+    housing(events)
     events.Player.OnSay((player,type,lang,msg)=>{
         if(msg.get().startsWith("#aa")){
             buffChoice(player)
