@@ -3,7 +3,7 @@ export function housing(events: TSEventHandlers) {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
             map.SetUInt('playerOwner', player.GetGUIDLow())
-            let q = QueryCharacters('SELECT * FROM `player_housing` WHERE guid = \'' + player.GetGUIDLow() + '\'')
+            let q = QueryCharacters('SELECT * FROM `player_housing` WHERE guid = ' + player.GetGUIDLow())
             while (q.GetRow()) {
                 player.SummonGameObject(q.GetUInt32(1), q.GetUInt32(2), q.GetUInt32(3), q.GetUInt32(4), q.GetUInt32(5), 30)
             }
@@ -16,9 +16,6 @@ export function housing(events: TSEventHandlers) {
             if (player.GetMap().GetUInt('playerOwner', 1) != player.GetGUIDLow()) {
                 player.SendAreaTriggerMessage('This is not your home!')
                 spell.Cancel()
-                return
-            }
-            if (player.GetMapId() != 1 || player.GetMap().GetUInt('playerOwner', 1) != player.GetGUIDLow()) {
                 return
             }
             //eventually replace with a map that gets made at start of server
