@@ -3,8 +3,11 @@ import { SQL } from "wotlkdata";
 
 let gameobjectID = 10192;
 let nameOfGob = "Wooden Chair"
+let areaGroupID = 3000
 makeHousing(gameobjectID, nameOfGob)
-std.DBC.AreaGroup.add(3000).AreaID.set([5000,5001,5002,5003,5004,5005])
+
+std.DBC.AreaGroup.add(areaGroupID).AreaID.set([5000,5001,5002,5003,5004,5005])//change to a dungeon eventually
+
 function makeHousing(gobID: number, name: string) {
     let spellID = makeHousingSpell(name, gobID)
     let itemID = makeHousingItem(name, spellID)
@@ -20,7 +23,7 @@ function makeHousingSpell(name: string, objID: number): number {
     spl.Effects.get(0).Type.TRANS_DOOR.set().GOTemplate.set(objID);
     spl.Range.setSimple(0, 10);
     spl.SchoolMask.set(99)
-    spl.RequiredArea.set(3000)//areagroup.dbc
+    spl.RequiredArea.set(areaGroupID)
     return spl.ID
 }
 function makeHousingItem(name: string, spellID: number) {
