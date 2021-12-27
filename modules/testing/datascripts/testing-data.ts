@@ -21,7 +21,7 @@ function makeHousingSpell(name: string, objID: number): number {
     spl.CastTime.setSimple(1000, 0, 1000);
     spl.Duration.setSimple(0, 0, 0);
     spl.Effects.get(0).Type.TRANS_DOOR.set().GOTemplate.set(objID);
-    spl.Range.setSimple(0, 10);
+    spl.Range.setSimple(0, 20);
     spl.SchoolMask.set(99)
     spl.RequiredArea.set(areaGroupID)
     return spl.ID
