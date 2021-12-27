@@ -1,5 +1,4 @@
-import { spellValuesFinish, spellValuesFinishID, spellValuesIncoming, spellValuesIncomingID, spellValuesMessage, spellValuesMessageID } from "../shared/Messages"
-import { Events } from "./lib/Events"
+import { spellValuesFinishID, spellValuesIncomingID, spellValuesMessage, spellValuesMessageID } from "../shared/Messages"
 let spellInfo = []
 let buttons = []
 let mframe = CreateFrame('Frame','mainaddon',UIParent)
