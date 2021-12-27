@@ -3,15 +3,17 @@ import { SQL } from "wotlkdata";
 
 let gameobjectID = 10192;
 let nameOfGob = "Wooden Chair"
-let areaGroupID = 3000
-makeHousing(gameobjectID, nameOfGob)
+makeHousingItem(gameobjectID, nameOfGob)
 
+
+let areaGroupID = 3000
 std.DBC.AreaGroup.add(areaGroupID).AreaID.set([5000,5001,5002,5003,5004,5005])//change to a dungeon eventually
 
-function makeHousing(gobID: number, name: string) {
+function makeHousingItem(gobID: number, name: string) {
     let spellID = makeHousingSpell(name, gobID)
-    let itemID = makeHousingItem(name, spellID)
+    let itemID = makeHousingItemTemplate(name, spellID)
     SQL.Databases.world_dest.write('INSERT INTO `player_housing_item_spell_link` VALUES(' + spellID + ',' + gobID + ')')
+    return itemID
 }
 
 function makeHousingSpell(name: string, objID: number): number {
@@ -26,7 +28,7 @@ function makeHousingSpell(name: string, objID: number): number {
     spl.RequiredArea.set(areaGroupID)
     return spl.ID
 }
-function makeHousingItem(name: string, spellID: number) {
+function makeHousingItemTemplate(name: string, spellID: number) {
     let item = std.Items.create('testing-housing', 'housing-' + name.toLowerCase().replace(' ', '-'), 44606)
     item.Name.enGB.set('Housing: Spawn ' + name)
     item.Quality.set(3)

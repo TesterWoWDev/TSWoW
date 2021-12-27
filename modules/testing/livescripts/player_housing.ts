@@ -18,7 +18,7 @@ export function housing(events: TSEventHandlers) {
                 spell.Cancel()
                 return
             }
-            //eventually replace with a map that gets made at start of server
+            //eventually replace with a dictionary map that gets made at start of server
             let q = QueryWorld('SELECT * FROM `player_housing_item_spell_link` WHERE itemID = ' + spell.GetEntry())
             while (q.GetRow()) {
                 QueryCharacters('INSERT INTO `player_housing` VALUES(' + player.GetGUIDLow() + ',' + q.GetUInt32(1) + ',' + spell.GetTargetDest().x + ',' + spell.GetTargetDest().y + ',' + spell.GetTargetDest().z + ',' + spell.GetTargetDest().o + ')')
