@@ -3,10 +3,11 @@ import { SQL } from "wotlkdata";
 
 let gameobjectID = 10192;
 let nameOfGob = "Wooden Chair"
+const areaGroupID = 3000
 makeHousingItem(gameobjectID, nameOfGob)
 
 
-let areaGroupID = 3000
+
 std.DBC.AreaGroup.add(areaGroupID).AreaID.set([5000,5001,5002,5003,5004,5005])//change to a dungeon eventually
 
 function makeHousingItem(gobID: number, name: string) {
