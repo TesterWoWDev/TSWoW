@@ -18,25 +18,31 @@ export function housing(events: TSEventHandlers) {
                 player.SendAreaTriggerMessage('This is not your home!')
                 spell.Cancel()
             } else {
-                if (spell.GetEntry() != 1) {//replace with GetID of a delete item's spell
-                    let gobs = player.GetGameObjectsInRange(5, 0, 0)
-                    player.GossipClearMenu()
-                    if (gobs.length > 0) {
-                        if (gobs.length > 32) {
-                            gobs = gobs.slice(0, 31)
-                        }
-                        for (let i = 0; i < gobs.length; i++) {
-                            player.GossipMenuAddItem(0, 'Remove ' + gobs[i].GetName() + ' ID:' + gobs[i].GetGUIDLow(), 0, gobs[i].GetGUIDLow(), false, '', 0)
-                        }
-                        player.GossipSendMenu(5, gobs[0], 10)
-                    }
-                } else {
-                    //eventually replace with a dictionary map that gets made at start of server
-                    let q = QueryWorld('SELECT gobID FROM `player_housing_item_spell_link` WHERE spellID = ' + spell.GetEntry())
-                    while (q.GetRow()) {
-                        QueryCharacters('INSERT INTO `player_housing` VALUES(' + player.GetGUIDLow() + ',' + q.GetUInt32(0) + ',' + spell.GetTargetDest().x + ',' + spell.GetTargetDest().y + ',' + spell.GetTargetDest().z + ',' + spell.GetTargetDest().o + ')')
-                    }
+                //eventually replace with a dictionary map that gets made at start of server
+                let q = QueryWorld('SELECT gobID FROM `player_housing_item_spell_link` WHERE spellID = ' + spell.GetEntry())
+                while (q.GetRow()) {
+                    QueryCharacters('INSERT INTO `player_housing` VALUES(' + player.GetGUIDLow() + ',' + q.GetUInt32(0) + ',' + spell.GetTargetDest().x + ',' + spell.GetTargetDest().y + ',' + spell.GetTargetDest().z + ',' + spell.GetTargetDest().o + ')')
                 }
+            }
+        }
+    })
+
+    events.SpellID.OnCheckCast(1, (spell, result) => {
+        let player = spell.GetCaster().ToPlayer()
+        if (player.GetMap().GetUInt('playerOwner', 1) != player.GetGUIDLow()) {
+            player.SendAreaTriggerMessage('This is not your home!')
+            spell.Cancel()
+        } else {
+            let gobs = player.GetGameObjectsInRange(5, 0, 0)
+            player.GossipClearMenu()
+            if (gobs.length > 0) {
+                if (gobs.length > 32) {
+                    gobs = gobs.slice(0, 31)
+                }
+                for (let i = 0; i < gobs.length; i++) {
+                    player.GossipMenuAddItem(0, 'Remove ' + gobs[i].GetName() + ' ID:' + gobs[i].GetGUIDLow(), 0, gobs[i].GetGUIDLow(), false, '', 0)
+                }
+                player.GossipSendMenu(5, gobs[0], 10)
             }
         }
     })
