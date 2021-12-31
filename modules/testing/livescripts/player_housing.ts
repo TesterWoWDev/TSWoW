@@ -27,7 +27,7 @@ export function housing(events: TSEventHandlers) {
         }
     })
 
-    events.SpellID.OnCheckCast(1, (spell, result) => {
+    events.SpellID.OnCheckCast(1, (spell, result) => {//change spell ID later
         let player = spell.GetCaster().ToPlayer()
         if (player.GetMap().GetUInt('playerOwner', 1) != player.GetGUIDLow()) {
             player.SendAreaTriggerMessage('This is not your home!')
@@ -42,7 +42,7 @@ export function housing(events: TSEventHandlers) {
                 for (let i = 0; i < gobs.length; i++) {
                     player.GossipMenuAddItem(0, 'Remove ' + gobs[i].GetName() + ' ID:' + gobs[i].GetGUIDLow(), 0, gobs[i].GetGUIDLow(), false, '', 0)
                 }
-                player.GossipSendMenu(5, gobs[0], 10)
+                player.GossipSendMenu(5, gobs[0], 0)
             }
         }
     })
@@ -52,7 +52,7 @@ export function housing(events: TSEventHandlers) {
             if (player.GetMap().GetUInt('playerOwner', 1) != player.GetGUIDLow()) {
                 player.SendAreaTriggerMessage('This is not your home!')
             } else {
-                let gobs: TSArray<TSGameObject> = player.GetGameObjectsInRange(10, 0, 0);
+                let gobs: TSArray<TSGameObject> = player.GetGameObjectsInRange(5, 0, 0);
                 let index = -1;
                 for (let i = 0; i < gobs.length; i++) {
                     if (gobs[i].GetGUIDLow() == selection) {
@@ -67,9 +67,7 @@ export function housing(events: TSEventHandlers) {
                     gobs[index].Despawn()
                     QueryCharacters('DELETE FROM `player_housing` WHERE x = ' + pos.x + ' AND y = ' + pos.y + ' AND z = ' + pos.z + ';')
                 }
-
             }
-            //cancel.set(true)
             player.GossipComplete()
         }
     })
