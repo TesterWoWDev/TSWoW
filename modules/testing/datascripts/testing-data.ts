@@ -8,7 +8,7 @@ makeHousingItem(gameobjectID, nameOfGob)
 
 
 
-std.DBC.AreaGroup.add(areaGroupID).AreaID.set([5000,5001,5002,5003,5004,5005])//change to a dungeon eventually
+std.DBC.AreaGroup.add(areaGroupID).AreaID.set([1977])//change to a dungeon eventually
 
 function makeHousingItem(gobID: number, name: string) {
     let spellID = makeHousingSpell(name, gobID)
