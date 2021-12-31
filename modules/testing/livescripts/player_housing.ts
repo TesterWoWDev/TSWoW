@@ -1,12 +1,13 @@
+let mapID:uint32 = 309
 export function housing(events: TSEventHandlers) {
-    events.MapID.OnPlayerEnter(309, (map, player) => {
+    events.MapID.OnPlayerEnter(mapID, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
             map.SetUInt('playerOwner', player.GetGUIDLow())
             player.SendAreaTriggerMessage('Welcome home, ' + player.GetName() + '!')
             let q = QueryCharacters('SELECT * FROM `player_housing` WHERE guid = ' + player.GetGUIDLow())
             while (q.GetRow()) {
-                player.SummonGameObject(q.GetInt32(1), q.GetFloat(2), q.GetFloat(3), q.GetFloat(4), q.GetFloat(5), 0)
+                map.SpawnGameObject(q.GetInt32(1), q.GetFloat(2), q.GetFloat(3), q.GetFloat(4), q.GetFloat(5))
             }
         }
     })
@@ -48,7 +49,7 @@ export function housing(events: TSEventHandlers) {
     })
 
     events.GameObjects.OnGossipSelect((obj, player, menuID, selection, cancel) => {
-        if (player.GetMapId() == 309) {
+        if (player.GetMapId() == mapID) {
             if (player.GetMap().GetUInt('playerOwner', 1) != player.GetGUIDLow()) {
                 player.SendAreaTriggerMessage('This is not your home!')
             } else {
@@ -69,6 +70,11 @@ export function housing(events: TSEventHandlers) {
                 }
             }
             player.GossipComplete()
+        }
+    })
+    events.MapID.OnPlayerLeave(mapID,(map,player)=>{
+        if(map.GetUInt('playerOwner') == player.GetGUIDLow()){
+            player.SendAreaTriggerMessage('Come back home soon!')
         }
     })
 }
