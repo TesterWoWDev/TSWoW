@@ -84,58 +84,6 @@ tstl_register_module(
             packet:WriteUInt32(self.finish)
             return packet
         end
-        ____exports.blackjackPlayerMessageID = 5
-        ____exports.blackjackPlayerMessage = __TS__Class()
-        local blackjackPlayerMessage = ____exports.blackjackPlayerMessage
-        blackjackPlayerMessage.name = "blackjackPlayerMessage"
-        function blackjackPlayerMessage.prototype.____constructor(self, value, bet)
-            self.value = 0
-            self.bet = 0
-            self.value = value
-            self.bet = bet
-        end
-        function blackjackPlayerMessage.prototype.read(self, read)
-            self.value = read:ReadUInt32()
-            self.bet = read:ReadUInt32()
-        end
-        function blackjackPlayerMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.blackjackPlayerMessageID, 0)
-            packet:WriteUInt32(self.value)
-            packet:WriteUInt32(self.bet)
-            return packet
-        end
-        ____exports.blackjackSendHandMessageID = 6
-        ____exports.blackjackSendHandMessage = __TS__Class()
-        local blackjackSendHandMessage = ____exports.blackjackSendHandMessage
-        blackjackSendHandMessage.name = "blackjackSendHandMessage"
-        function blackjackSendHandMessage.prototype.____constructor(self, cards, bet)
-            self.cards = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-            self.bet = 0
-            self.cards = cards
-            self.bet = bet
-        end
-        function blackjackSendHandMessage.prototype.read(self, read)
-            do
-                local i = 0
-                while i < 10 do
-                    self.cards[i + 1] = read:ReadUInt32()
-                    i = i + 1
-                end
-            end
-            self.bet = read:ReadUInt32()
-        end
-        function blackjackSendHandMessage.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.blackjackSendHandMessageID, 0)
-            do
-                local i = 0
-                while i < 10 do
-                    packet:WriteUInt32(self.cards[i + 1])
-                    i = i + 1
-                end
-            end
-            packet:WriteUInt32(self.bet)
-            return packet
-        end
         ____exports.requestClassSpellsMessageID = 7
         ____exports.requestClassSpellsMessage = __TS__Class()
         local requestClassSpellsMessage = ____exports.requestClassSpellsMessage

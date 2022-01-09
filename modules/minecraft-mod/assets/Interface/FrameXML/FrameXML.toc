@@ -164,6 +164,7 @@ TSAddons\minecraft-mod\addon\minecraft-mod-addon.lua
 ## tsaddon-end: minecraft-mod
 ## tsaddon-begin: testing
 TSAddons\testing\shared\Messages.lua
+TSAddons\testing\addon\custom-quest.lua
 TSAddons\testing\addon\testing-addon.lua
 ## tsaddon-end: testing
 
