@@ -12,11 +12,11 @@ import { creatureDeathSummon } from "./creature/creature-death-summon"
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
     onLoginEvents(events)
-	worldChat(events)
+    worldChat(events)
     creature1Script(events)
     onLevelup(events)
     Killstreaks(events)
-    itemLearnSpell(events)  
+    itemLearnSpell(events)
     reviveFix(events)
     creatureDeathApplyBuff(events)
     creatureDeathSummon(events)

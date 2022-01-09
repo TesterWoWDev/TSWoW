@@ -4,7 +4,7 @@ export class spellValuesMessage {
     spellCt: uint32 = -1
     spellName: string = ""
 
-    constructor(spellID: uint32,spellCt: uint32,spellName: string) {
+    constructor(spellID: uint32, spellCt: uint32, spellName: string) {
         this.spellID = spellID;
         this.spellCt = spellCt;
         this.spellName = spellName;
@@ -17,7 +17,7 @@ export class spellValuesMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellValuesMessageID,0)
+        let packet = MakeCustomPacket(spellValuesMessageID, 0)
         packet.WriteUInt32(this.spellID);
         packet.WriteUInt32(this.spellCt);
         packet.WriteString(this.spellName);
@@ -38,7 +38,7 @@ export class spellValuesFinish {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellValuesFinishID,0)
+        let packet = MakeCustomPacket(spellValuesFinishID, 0)
         packet.WriteUInt32(this.value);
         return packet;
     }
@@ -57,7 +57,7 @@ export class spellValuesIncoming {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellValuesIncomingID,0)
+        let packet = MakeCustomPacket(spellValuesIncomingID, 0)
         packet.WriteUInt32(this.value);
         return packet;
     }
