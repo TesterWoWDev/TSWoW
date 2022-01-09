@@ -1,4 +1,4 @@
-let mapID:uint32 = 309
+let mapID: uint32 = 309
 export function housing(events: TSEventHandlers) {
     events.MapID.OnPlayerEnter(mapID, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
@@ -72,8 +72,8 @@ export function housing(events: TSEventHandlers) {
             player.GossipComplete()
         }
     })
-    events.MapID.OnPlayerLeave(mapID,(map,player)=>{
-        if(map.GetUInt('playerOwner') == player.GetGUIDLow()){
+    events.MapID.OnPlayerLeave(mapID, (map, player) => {
+        if (map.GetUInt('playerOwner') == player.GetGUIDLow()) {
             player.SendAreaTriggerMessage('Come back home soon!')
         }
     })
