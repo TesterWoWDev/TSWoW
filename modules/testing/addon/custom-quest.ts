@@ -40,7 +40,7 @@ export function customQuest() {
     let showBtn = CreateFrame('Button', 'showBtn', UIParent)
     showBtn.SetWidth(22)
     showBtn.SetHeight(22)
-    showBtn.SetPoint("TOPRIGHT", -5, -105)
+    showBtn.SetPoint("TOPRIGHT", -5, -85)
     let showTex = showBtn.CreateTexture('', 'BACKGROUND')
     showTex.SetTexture("Interface\\BUTTONS\\UI-GroupLoot-Dice-Up.blp")
     showTex.SetAllPoints(showBtn)
@@ -66,6 +66,7 @@ export function customQuest() {
     let descriptionText = mframe.CreateFontString('', 'OVERLAY', 'GameTooltipText')
     descriptionText.SetText("")
     descriptionText.SetPoint("TOP", progressText, "TOP", 0, -20)
+    descriptionText.SetWidth(mframe.GetWidth() -20)
 
     let completeButton = CreateFrame('Button', '', mframe)
     completeButton.SetSize(62, 32)
@@ -94,15 +95,24 @@ export function customQuest() {
     rewardCount.SetText("")
     rewardCount.SetPoint("BOTTOMRIGHT", rewardButton, "BOTTOMRIGHT", -5, 5)
 
-    OnCustomPacket(questInfoID, packet => {
+    OnCustomPacket(questInfoID, (packet) => {
+        mframe.Show()
         let msg = new questInfo(0, 0, 0, 0, '', '', 0, 0)
         msg.read(packet);
+        console.log(msg.reqType)
+        console.log(msg.reqID)
+        console.log(msg.reqCountTotal)
+        console.log(msg.reqCountCur)
+        console.log(msg.reqName + "test")
+        console.log(msg.reqDescription + "test")
+        console.log(msg.rewID)
+        console.log(msg.rewCount)
         updateQuestInfo(msg.reqType, msg.reqID, msg.reqCountTotal, msg.reqCountCur, msg.reqName, msg.reqDescription, msg.rewID, msg.rewCount)
 
     })
 
     function updateQuestInfo(reqType: number, reqID: number, reqCountTotal: number, reqCountCur: number, reqName: string, reqDescription: string, rewID: number, rewCount: number) {
-        if (reqCountTotal > 0) {
+        if (reqID > 0) {
             let s = "kill"
             if (reqType == 1) {
                 s = "loot"

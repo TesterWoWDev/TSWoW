@@ -11,7 +11,7 @@ tstl_register_module(
         function ____exports.customQuest()
             local progressText, descriptionText, completeButton, rewardButton, rewardTex, rewardCount, updateQuestInfo
             function updateQuestInfo(reqType, reqID, reqCountTotal, reqCountCur, reqName, reqDescription, rewID, rewCount)
-                if reqCountTotal > 0 then
+                if reqID > 0 then
                     local s = "kill"
                     if reqType == 1 then
                         s = "loot"
@@ -106,7 +106,7 @@ tstl_register_module(
             local showBtn = CreateFrame("Button", "showBtn", UIParent)
             showBtn:SetWidth(22)
             showBtn:SetHeight(22)
-            showBtn:SetPoint("TOPRIGHT", -5, -105)
+            showBtn:SetPoint("TOPRIGHT", -5, -85)
             local showTex = showBtn:CreateTexture("", "BACKGROUND")
             showTex:SetTexture("Interface\\BUTTONS\\UI-GroupLoot-Dice-Up.blp")
             showTex:SetAllPoints(showBtn)
@@ -131,6 +131,9 @@ tstl_register_module(
             descriptionText = mframe:CreateFontString("", "OVERLAY", "GameTooltipText")
             descriptionText:SetText("")
             descriptionText:SetPoint("TOP", progressText, "TOP", 0, -20)
+            descriptionText:SetWidth(
+                mframe:GetWidth() - 20
+            )
             completeButton = CreateFrame("Button", "", mframe)
             completeButton:SetSize(62, 32)
             completeButton:SetPoint("BOTTOMRIGHT", mframe, "BOTTOMRIGHT", -10, 10)
@@ -161,8 +164,21 @@ tstl_register_module(
             OnCustomPacket(
                 questInfoID,
                 function(packet)
+                    mframe:Show()
                     local msg = __TS__New(questInfo, 0, 0, 0, 0, "", "", 0, 0)
                     msg:read(packet)
+                    print(msg.reqType)
+                    print(msg.reqID)
+                    print(msg.reqCountTotal)
+                    print(msg.reqCountCur)
+                    print(
+                        tostring(msg.reqName) .. "test"
+                    )
+                    print(
+                        tostring(msg.reqDescription) .. "test"
+                    )
+                    print(msg.rewID)
+                    print(msg.rewCount)
                     updateQuestInfo(msg.reqType, msg.reqID, msg.reqCountTotal, msg.reqCountCur, msg.reqName, msg.reqDescription, msg.rewID, msg.rewCount)
                 end
             )

@@ -116,7 +116,7 @@ export class questInfo {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(questInfoID, 0)
+        let packet = MakeCustomPacket(questInfoID, 500)
         packet.WriteUInt8(this.reqType);
         packet.WriteUInt32(this.reqID)
         packet.WriteUInt8(this.reqCountTotal)
