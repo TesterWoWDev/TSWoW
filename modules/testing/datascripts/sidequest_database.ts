@@ -1,6 +1,6 @@
 import { SQL } from "wotlkdata";
 
-addSideQuestRequirement(0,0,1,'Kill Saber Tigers','Find the tigers near the bay of the ancient temple',1,3)
+addSideQuestRequirement(0,0,1,'Saber Tigers','Find the tigers near the bay of the ancient temple',1,3)
 addSideQuestReward(0,1,100000)
 
 function addSideQuestRequirement(diff: number, reqType: number, reqID: number, reqName: string, reqDescription: string, minReqAmount: number, maxReqAmount: number) {

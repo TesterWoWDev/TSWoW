@@ -67,6 +67,8 @@ export function customQuest() {
     descriptionText.SetText("")
     descriptionText.SetPoint("TOP", progressText, "TOP", 0, -20)
     descriptionText.SetWidth(mframe.GetWidth() -20)
+    descriptionText.SetJustifyH('CENTER')
+    
 
     let completeButton = CreateFrame('Button', '', mframe)
     completeButton.SetSize(62, 32)
@@ -113,9 +115,9 @@ export function customQuest() {
 
     function updateQuestInfo(reqType: number, reqID: number, reqCountTotal: number, reqCountCur: number, reqName: string, reqDescription: string, rewID: number, rewCount: number) {
         if (reqID > 0) {
-            let s = "kill"
+            let s = "Kill "
             if (reqType == 1) {
-                s = "loot"
+                s = "Loot "
             }
             if (reqCountCur >= reqCountTotal) {
                 reqCountCur = reqCountTotal
@@ -125,7 +127,7 @@ export function customQuest() {
                 completeButton.Hide()
                 //grey complete button?
             }
-            progressText.SetText(s + " " + reqName + " " + reqCountCur + " / " + reqCountTotal)
+            progressText.SetText(s + reqName + " " + reqCountCur + " / " + reqCountTotal)
             descriptionText.SetText(reqDescription)
             rewardCount.SetText(rewCount + "")
             rewardTex.SetTexture(GetItemIcon(rewID))

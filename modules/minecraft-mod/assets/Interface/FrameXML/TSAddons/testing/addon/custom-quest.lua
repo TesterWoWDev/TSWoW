@@ -12,9 +12,9 @@ tstl_register_module(
             local progressText, descriptionText, completeButton, rewardButton, rewardTex, rewardCount, updateQuestInfo
             function updateQuestInfo(reqType, reqID, reqCountTotal, reqCountCur, reqName, reqDescription, rewID, rewCount)
                 if reqID > 0 then
-                    local s = "kill"
+                    local s = "Kill "
                     if reqType == 1 then
-                        s = "loot"
+                        s = "Loot "
                     end
                     if reqCountCur >= reqCountTotal then
                         reqCountCur = reqCountTotal
@@ -23,7 +23,7 @@ tstl_register_module(
                         completeButton:Hide()
                     end
                     progressText:SetText(
-                        (((((tostring(s) .. " ") .. tostring(reqName)) .. " ") .. tostring(reqCountCur)) .. " / ") .. tostring(reqCountTotal)
+                        ((((tostring(s) .. tostring(reqName)) .. " ") .. tostring(reqCountCur)) .. " / ") .. tostring(reqCountTotal)
                     )
                     descriptionText:SetText(reqDescription)
                     rewardCount:SetText(
@@ -134,6 +134,7 @@ tstl_register_module(
             descriptionText:SetWidth(
                 mframe:GetWidth() - 20
             )
+            descriptionText:SetJustifyH("CENTER")
             completeButton = CreateFrame("Button", "", mframe)
             completeButton:SetSize(62, 32)
             completeButton:SetPoint("BOTTOMRIGHT", mframe, "BOTTOMRIGHT", -10, 10)
