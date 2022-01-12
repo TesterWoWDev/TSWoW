@@ -4,7 +4,7 @@ export function customQuest() {
 
     let mframe = CreateFrame('Frame', 'customQuest', UIParent);
     mframe.SetWidth(256)
-    mframe.SetHeight(128)
+    mframe.SetHeight(160)
     mframe.SetPoint("CENTER", -100, 0)
     mframe.EnableMouse(true)
     mframe.RegisterForDrag('LeftButton')
@@ -25,9 +25,9 @@ export function customQuest() {
     mframe.Hide()
 
     let exitButn = CreateFrame("Button", 'exitBtn', mframe)
-    exitButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT")
-    exitButn.SetWidth(50)
-    exitButn.SetHeight(50)
+    exitButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT", -5,-5)
+    exitButn.SetWidth(32)
+    exitButn.SetHeight(32)
     let exittex = exitButn.CreateTexture('', 'BACKGROUND')
     exittex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
     exittex.SetAllPoints(exitButn)
@@ -40,7 +40,7 @@ export function customQuest() {
     let showBtn = CreateFrame('Button', 'showBtn', UIParent)
     showBtn.SetWidth(22)
     showBtn.SetHeight(22)
-    showBtn.SetPoint("TOPRIGHT", -5, -105)
+    showBtn.SetPoint("TOPRIGHT", -5, -85)
     let showTex = showBtn.CreateTexture('', 'BACKGROUND')
     showTex.SetTexture("Interface\\BUTTONS\\UI-GroupLoot-Dice-Up.blp")
     showTex.SetAllPoints(showBtn)
@@ -66,6 +66,9 @@ export function customQuest() {
     let descriptionText = mframe.CreateFontString('', 'OVERLAY', 'GameTooltipText')
     descriptionText.SetText("")
     descriptionText.SetPoint("TOP", progressText, "TOP", 0, -20)
+    descriptionText.SetWidth(mframe.GetWidth() -20)
+    descriptionText.SetJustifyH('CENTER')
+    
 
     let completeButton = CreateFrame('Button', '', mframe)
     completeButton.SetSize(62, 32)
@@ -94,7 +97,8 @@ export function customQuest() {
     rewardCount.SetText("")
     rewardCount.SetPoint("BOTTOMRIGHT", rewardButton, "BOTTOMRIGHT", -5, 5)
 
-    OnCustomPacket(questInfoID, packet => {
+    OnCustomPacket(questInfoID, (packet) => {
+        mframe.Show()
         let msg = new questInfo(0, 0, 0, 0, '', '', 0, 0)
         msg.read(packet);
         updateQuestInfo(msg.reqType, msg.reqID, msg.reqCountTotal, msg.reqCountCur, msg.reqName, msg.reqDescription, msg.rewID, msg.rewCount)
@@ -102,10 +106,10 @@ export function customQuest() {
     })
 
     function updateQuestInfo(reqType: number, reqID: number, reqCountTotal: number, reqCountCur: number, reqName: string, reqDescription: string, rewID: number, rewCount: number) {
-        if (reqCountTotal > 0) {
-            let s = "kill"
+        if (reqID > 0) {
+            let s = "Kill "
             if (reqType == 1) {
-                s = "loot"
+                s = "Loot "
             }
             if (reqCountCur >= reqCountTotal) {
                 reqCountCur = reqCountTotal
@@ -115,7 +119,7 @@ export function customQuest() {
                 completeButton.Hide()
                 //grey complete button?
             }
-            progressText.SetText(s + " " + reqName + " " + reqCountCur + " / " + reqCountTotal)
+            progressText.SetText(s + reqName + " " + reqCountCur + " / " + reqCountTotal)
             descriptionText.SetText(reqDescription)
             rewardCount.SetText(rewCount + "")
             rewardTex.SetTexture(GetItemIcon(rewID))

@@ -109,7 +109,7 @@ tstl_register_module(
             self.rewCount = read:ReadUInt32()
         end
         function questInfo.prototype.write(self)
-            local packet = MakeCustomPacket(____exports.questInfoID, 0)
+            local packet = MakeCustomPacket(____exports.questInfoID, 500)
             packet:WriteUInt8(self.reqType)
             packet:WriteUInt32(self.reqID)
             packet:WriteUInt8(self.reqCountTotal)

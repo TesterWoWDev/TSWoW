@@ -11,10 +11,10 @@ tstl_register_module(
         function ____exports.customQuest()
             local progressText, descriptionText, completeButton, rewardButton, rewardTex, rewardCount, updateQuestInfo
             function updateQuestInfo(reqType, reqID, reqCountTotal, reqCountCur, reqName, reqDescription, rewID, rewCount)
-                if reqCountTotal > 0 then
-                    local s = "kill"
+                if reqID > 0 then
+                    local s = "Kill "
                     if reqType == 1 then
-                        s = "loot"
+                        s = "Loot "
                     end
                     if reqCountCur >= reqCountTotal then
                         reqCountCur = reqCountTotal
@@ -23,7 +23,7 @@ tstl_register_module(
                         completeButton:Hide()
                     end
                     progressText:SetText(
-                        (((((tostring(s) .. " ") .. tostring(reqName)) .. " ") .. tostring(reqCountCur)) .. " / ") .. tostring(reqCountTotal)
+                        ((((tostring(s) .. tostring(reqName)) .. " ") .. tostring(reqCountCur)) .. " / ") .. tostring(reqCountTotal)
                     )
                     descriptionText:SetText(reqDescription)
                     rewardCount:SetText(
@@ -68,7 +68,7 @@ tstl_register_module(
             local shown = false
             local mframe = CreateFrame("Frame", "customQuest", UIParent)
             mframe:SetWidth(256)
-            mframe:SetHeight(128)
+            mframe:SetHeight(160)
             mframe:SetPoint("CENTER", -100, 0)
             mframe:EnableMouse(true)
             mframe:RegisterForDrag("LeftButton")
@@ -89,9 +89,9 @@ tstl_register_module(
             mframe:SetBackdropColor(0, 0, 0, 1)
             mframe:Hide()
             local exitButn = CreateFrame("Button", "exitBtn", mframe)
-            exitButn:SetPoint("TOPRIGHT", mframe, "TOPRIGHT")
-            exitButn:SetWidth(50)
-            exitButn:SetHeight(50)
+            exitButn:SetPoint("TOPRIGHT", mframe, "TOPRIGHT", -5, -5)
+            exitButn:SetWidth(32)
+            exitButn:SetHeight(32)
             local exittex = exitButn:CreateTexture("", "BACKGROUND")
             exittex:SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
             exittex:SetAllPoints(exitButn)
@@ -106,7 +106,7 @@ tstl_register_module(
             local showBtn = CreateFrame("Button", "showBtn", UIParent)
             showBtn:SetWidth(22)
             showBtn:SetHeight(22)
-            showBtn:SetPoint("TOPRIGHT", -5, -105)
+            showBtn:SetPoint("TOPRIGHT", -5, -85)
             local showTex = showBtn:CreateTexture("", "BACKGROUND")
             showTex:SetTexture("Interface\\BUTTONS\\UI-GroupLoot-Dice-Up.blp")
             showTex:SetAllPoints(showBtn)
@@ -131,6 +131,10 @@ tstl_register_module(
             descriptionText = mframe:CreateFontString("", "OVERLAY", "GameTooltipText")
             descriptionText:SetText("")
             descriptionText:SetPoint("TOP", progressText, "TOP", 0, -20)
+            descriptionText:SetWidth(
+                mframe:GetWidth() - 20
+            )
+            descriptionText:SetJustifyH("CENTER")
             completeButton = CreateFrame("Button", "", mframe)
             completeButton:SetSize(62, 32)
             completeButton:SetPoint("BOTTOMRIGHT", mframe, "BOTTOMRIGHT", -10, 10)
@@ -161,6 +165,7 @@ tstl_register_module(
             OnCustomPacket(
                 questInfoID,
                 function(packet)
+                    mframe:Show()
                     local msg = __TS__New(questInfo, 0, 0, 0, 0, "", "", 0, 0)
                     msg:read(packet)
                     updateQuestInfo(msg.reqType, msg.reqID, msg.reqCountTotal, msg.reqCountCur, msg.reqName, msg.reqDescription, msg.rewID, msg.rewCount)
