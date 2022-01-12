@@ -18,7 +18,7 @@ const spellsList = [
     [6548, 2458, 7369], // Rend(4), Berserker Stance, Cleave(2)
     [11564, 11549, 20658], // Heroic Strike(5), Battle Shout(4), Execute(2)
     [7379], // Revenge(3)
-    [0], // may change later
+    [1680], // Whirlwind
     [8205], // Thunderclap(4)
     [11565, 11572, 20660, 12294, 23922], // Heroic Strike(6), Rend(5), Execute(3), Cleave(3), Mortal Strike(1), Shield Slam(1)
    
