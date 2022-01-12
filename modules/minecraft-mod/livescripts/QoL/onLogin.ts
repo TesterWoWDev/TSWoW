@@ -11,20 +11,5 @@ export function onLoginEvents(events: TSEventHandlers) {
 
         //SendWorldMessage('|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r, the level [' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] + player.GetLevel() + '|r] '+'|cff'+ colors[player.GetClass()] + player.GetClassAsString(0).toLowerCase() + '|r has logged in.')
         //SendWorldMessage('[' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] +player.GetLevel()+ '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r' + ' has logged in.')
-
-        if (first) {
-            player.LearnSpell(50305)//skin
-            player.LearnSpell(65288)//herb
-            player.LearnSpell(50310)//mining
-            player.LearnSpell(13262)//disenchant
-            player.LearnSpell(51296)//cooking
-            player.LearnSpell(GetID("Spell", "minecraft-mod", "threatspell-spell"),)//Threat Spell
-            player.LearnSpell(51304)//Alchemy
-            player.LearnSpell(668)//Common language
-            player.LearnSpell(51300)//Resource Refining
-            player.RemoveSpell(2383, false, false)//remove find herb
-            player.RemoveSpell(2580, false, false)//remove find mineral
-            player.AddItem(GetID("item_template", "minecraft-mod", "multitool"), 1)//multitool
-        }
     })
 }
