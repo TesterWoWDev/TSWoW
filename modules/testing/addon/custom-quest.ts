@@ -4,7 +4,7 @@ export function customQuest() {
 
     let mframe = CreateFrame('Frame', 'customQuest', UIParent);
     mframe.SetWidth(256)
-    mframe.SetHeight(128)
+    mframe.SetHeight(160)
     mframe.SetPoint("CENTER", -100, 0)
     mframe.EnableMouse(true)
     mframe.RegisterForDrag('LeftButton')
@@ -25,9 +25,9 @@ export function customQuest() {
     mframe.Hide()
 
     let exitButn = CreateFrame("Button", 'exitBtn', mframe)
-    exitButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT")
-    exitButn.SetWidth(50)
-    exitButn.SetHeight(50)
+    exitButn.SetPoint("TOPRIGHT", mframe, "TOPRIGHT", -5,-5)
+    exitButn.SetWidth(32)
+    exitButn.SetHeight(32)
     let exittex = exitButn.CreateTexture('', 'BACKGROUND')
     exittex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
     exittex.SetAllPoints(exitButn)
@@ -101,14 +101,6 @@ export function customQuest() {
         mframe.Show()
         let msg = new questInfo(0, 0, 0, 0, '', '', 0, 0)
         msg.read(packet);
-        console.log(msg.reqType)
-        console.log(msg.reqID)
-        console.log(msg.reqCountTotal)
-        console.log(msg.reqCountCur)
-        console.log(msg.reqName + "test")
-        console.log(msg.reqDescription + "test")
-        console.log(msg.rewID)
-        console.log(msg.rewCount)
         updateQuestInfo(msg.reqType, msg.reqID, msg.reqCountTotal, msg.reqCountCur, msg.reqName, msg.reqDescription, msg.rewID, msg.rewCount)
 
     })

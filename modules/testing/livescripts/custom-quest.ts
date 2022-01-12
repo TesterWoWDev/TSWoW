@@ -13,9 +13,9 @@ class PlayerQuest extends DBTable {
     @Field
     requirementID: uint32 = 0;
     @Field
-    requirementCountTotal: uint8 = 0;
-    @Field
     requirementCountCur: uint8 = 0;
+    @Field
+    requirementCountTotal: uint8 = 0;
     @Field
     rewardID: uint32 = 0;
     @Field
@@ -131,8 +131,6 @@ function createQuest(player: TSPlayer) {
 
 function updateClient(curQuest:PlayerQuest, player: TSPlayer) {
     let pkt = new questInfo(curQuest.requirementType, curQuest.requirementID, curQuest.requirementCountTotal, curQuest.requirementCountCur, curQuest.reqName, curQuest.reqDescription, curQuest.rewardID, curQuest.rewardCount)    
-    console.log(pkt.reqName)
-    console.log(pkt.reqDescription)
     pkt.write().SendToPlayer(player)
 }
 function randValueBetweenNumbers(min: uint32, max: uint32): uint32 {

@@ -68,7 +68,7 @@ tstl_register_module(
             local shown = false
             local mframe = CreateFrame("Frame", "customQuest", UIParent)
             mframe:SetWidth(256)
-            mframe:SetHeight(128)
+            mframe:SetHeight(160)
             mframe:SetPoint("CENTER", -100, 0)
             mframe:EnableMouse(true)
             mframe:RegisterForDrag("LeftButton")
@@ -89,9 +89,9 @@ tstl_register_module(
             mframe:SetBackdropColor(0, 0, 0, 1)
             mframe:Hide()
             local exitButn = CreateFrame("Button", "exitBtn", mframe)
-            exitButn:SetPoint("TOPRIGHT", mframe, "TOPRIGHT")
-            exitButn:SetWidth(50)
-            exitButn:SetHeight(50)
+            exitButn:SetPoint("TOPRIGHT", mframe, "TOPRIGHT", -5, -5)
+            exitButn:SetWidth(32)
+            exitButn:SetHeight(32)
             local exittex = exitButn:CreateTexture("", "BACKGROUND")
             exittex:SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
             exittex:SetAllPoints(exitButn)
@@ -168,18 +168,6 @@ tstl_register_module(
                     mframe:Show()
                     local msg = __TS__New(questInfo, 0, 0, 0, 0, "", "", 0, 0)
                     msg:read(packet)
-                    print(msg.reqType)
-                    print(msg.reqID)
-                    print(msg.reqCountTotal)
-                    print(msg.reqCountCur)
-                    print(
-                        tostring(msg.reqName) .. "test"
-                    )
-                    print(
-                        tostring(msg.reqDescription) .. "test"
-                    )
-                    print(msg.rewID)
-                    print(msg.rewCount)
                     updateQuestInfo(msg.reqType, msg.reqID, msg.reqCountTotal, msg.reqCountCur, msg.reqName, msg.reqDescription, msg.rewID, msg.rewCount)
                 end
             )
