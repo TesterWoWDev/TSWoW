@@ -8,6 +8,9 @@ SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `invasions_bosses`')
 SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `invasions_spawners`')
 
 SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `player_housing_item_spell_link`')
+SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `player_quest_options`')
+SQL.Databases.world_dest.writeEarly('TRUNCATE TABLE `player_quest_reward`')
+
 //clears
 SQL.Databases.world_dest.writeEarly('DELETE FROM `item_enchantment_template` WHERE entry >= 8700')
 SQL.Databases.world_dest.writeEarly('DELETE FROM `creature_equip_template` WHERE creatureID >= 100000')

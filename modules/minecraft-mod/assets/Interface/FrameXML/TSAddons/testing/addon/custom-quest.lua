@@ -23,7 +23,7 @@ tstl_register_module(
                         completeButton:Hide()
                     end
                     progressText:SetText(
-                        ((((tostring(s) .. tostring(reqName)) .. " ") .. tostring(reqCountCur)) .. " / ") .. tostring(reqCountTotal)
+                        ((((tostring(s) .. tostring(reqName)) .. ": ") .. tostring(reqCountCur)) .. "/") .. tostring(reqCountTotal)
                     )
                     descriptionText:SetText(reqDescription)
                     rewardCount:SetText(

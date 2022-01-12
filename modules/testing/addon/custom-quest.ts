@@ -119,7 +119,7 @@ export function customQuest() {
                 completeButton.Hide()
                 //grey complete button?
             }
-            progressText.SetText(s + reqName + " " + reqCountCur + " / " + reqCountTotal)
+            progressText.SetText(s + reqName + ": " + reqCountCur + "/" + reqCountTotal)
             descriptionText.SetText(reqDescription)
             rewardCount.SetText(rewCount + "")
             rewardTex.SetTexture(GetItemIcon(rewID))
