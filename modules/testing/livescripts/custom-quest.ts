@@ -102,36 +102,33 @@ function giveReward(questInfo:PlayerQuest, player: TSPlayer) {
 
 function createQuest(player: TSPlayer) {
     let curQuestInfo = new PlayerQuest(player.GetGUIDLow());
-    let nearbyMobs = player.GetCreaturesInRange(500, 0, 1, 0);
-    if (!(nearbyMobs.length > 1)) {
-        player.SendAreaTriggerMessage("No nearby creatures for quests! Try again later!");
-        return
-    }
-    //later replace with a table of reqs + descriptions? [difficulty,reqTypeID,reqID,reqName,reqDescription,minReqAmount,MaxReqAmount]
-    //(Min+Max for total possible)
-    //difficulty is for tabulating against rewards
-    //also possibly check player level for it?
-    curQuestInfo.requirementType = 0
-    curQuestInfo.requirementID = nearbyMobs[getRandomValue(nearbyMobs.length)].GetEntry()
-    curQuestInfo.requirementCountTotal = 5 + getRandomValue(10)
-    curQuestInfo.reqName = "Name"
-    curQuestInfo.reqDescription = "Descript"
-    //later replace with a table of rewards, [difficulty rating,itemID,itemCount]
-    curQuestInfo.rewardID = 1
-    curQuestInfo.rewardCount = 1
+    let difficulty = Math.floor(player.GetLevel()/5)
 
+    let q = QueryWorld('SELECT * FROM `player_quest_options` WHERE `difficulty` <= ' + difficulty + ' ORDER BY RAND() LIMIT 1')
+    while(q.GetRow()) {
+        curQuestInfo.requirementType = q.GetInt32(1)
+        curQuestInfo.requirementID = q.GetInt32(2)
+        curQuestInfo.requirementCountTotal = randValueBetweenNumbers(q.GetUInt8(3),q.GetUInt8(4))
+        curQuestInfo.reqName = q.GetString(5)
+        curQuestInfo.reqDescription = q.GetString(6)
+    }
+
+    q = QueryWorld('SELECT itemID,itemCount FROM `player_quest_reward` WHERE `difficulty` = ' + difficulty + ' ORDER BY RAND() LIMIT 1')
+    while(q.GetRow()) {
+        curQuestInfo.rewardID = q.GetInt32(0)
+        curQuestInfo.rewardCount = q.GetInt32(1)
+    }
 
     player.SetObject(TABLE_NAME_CUSTOM_QUEST, curQuestInfo);
     updateClient(player)
     curQuestInfo.save()
 }
 
-function getRandomValue(max: number): number {
-    return Math.floor(Math.random() * max);
-}
-
 function updateClient(player: TSPlayer) {
     let curQuestInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()))
     let pkt = new questInfo(curQuestInfo.requirementType, curQuestInfo.requirementID, curQuestInfo.requirementCountTotal, curQuestInfo.requirementCountCur, curQuestInfo.reqName, curQuestInfo.reqDescription, curQuestInfo.rewardID, curQuestInfo.rewardCount)
     pkt.write().SendToPlayer(player)
+}
+function randValueBetweenNumbers(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
