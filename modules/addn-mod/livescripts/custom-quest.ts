@@ -1,4 +1,4 @@
-import { attemptToCompleteID, questInfo } from "../shared/Messages";
+import { attemptToCompleteID, questInfo } from "../../addn-mod/shared/Messages";
 
 @CharactersTable
 class PlayerQuest extends DBTable {

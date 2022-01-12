@@ -1,4 +1,4 @@
-import { attemptToComplete, questInfo, questInfoID } from "../shared/Messages";
+import { attemptToComplete, questInfo, questInfoID } from "../../addn-mod/shared/Messages";
 export function customQuest() {
     let shown = false;
 
