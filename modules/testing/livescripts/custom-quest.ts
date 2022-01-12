@@ -48,27 +48,25 @@ export function customQuest(events: TSEventHandlers) {
         updateClient(player)
     });
 
-    events.Creatures.OnDeath((creature, killer) => {//handle creature update
+    //kill event
+    events.Creatures.OnDeath((creature, killer) => {
         if (killer.IsPlayer()) {
             let curQuestInfo = killer.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(killer.GetGUIDLow()))
             if (curQuestInfo.requirementType == 0) {
                 if (curQuestInfo.requirementID == creature.GetEntry()) {
-                    updateQuestProgress(killer.ToPlayer(), 1)
+                    updateQuestProgress(curQuestInfo, killer.ToPlayer(), 1)
                 }
             }
         }
     })
 
-    events.Player.OnSave((player) => {
-        player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow())).save()
-    })
-
-    //this event may allow for requiring looting of a specific itemID for quests, not just creatures
+    //loot event
     events.Items.OnTakenAsLoot((item, lootItem, TSLoot, player) => {
         let curQuestInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()))
         if (curQuestInfo.requirementType == 1) {
             if (curQuestInfo.requirementID == item.GetEntry()) {
-                updateQuestProgress(player.ToPlayer(), 1)
+                updateQuestProgress(curQuestInfo, player, item.GetCount())
+                lootItem.GetCount()
             }
         }
     })
@@ -78,15 +76,17 @@ export function customQuest(events: TSEventHandlers) {
     })
 }
 
-function updateQuestProgress(player: TSPlayer, addValue: number) {
-    player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow())).requirementCountCur += addValue;
+function updateQuestProgress(questInfo: PlayerQuest, player: TSPlayer, addValue: number) {
+    questInfo.requirementCountCur += addValue;
     updateClient(player)
+    questInfo.save()
 }
 
 function isQuestFinished(player: TSPlayer) {//add a complete button to the addon
     let curQuestInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()))
     if (curQuestInfo.requirementCountCur >= curQuestInfo.requirementCountTotal) {
         giveReward(player)
+        createQuest(player)
     } else {
         player.SendAreaTriggerMessage("You have not finished the quest yet! Get back out there!")
     }
@@ -99,8 +99,6 @@ function giveReward(player: TSPlayer) {
     } else {
         player.AddItem(curQuestInfo.rewardID, curQuestInfo.rewardCount)
     }
-    player.SetObject(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()));
-    updateClient(player)
 }
 
 function createQuest(player: TSPlayer) {
@@ -126,6 +124,7 @@ function createQuest(player: TSPlayer) {
 
     player.SetObject(TABLE_NAME_CUSTOM_QUEST, curQuestInfo);
     updateClient(player)
+    curQuestInfo.save()
 }
 
 function getRandomValue(max: number): number {
