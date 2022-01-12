@@ -1,26 +1,27 @@
 const spellsList = [
     [[0]], //must be here? I guess?
     [[0/*Warrior*/],
-    [100, 772, 78, 3127, 6673, 750],          // Charge (1),             Rend (1),               Heroic Strike (1),      Parry,                  Battle Shout (1),           Plate Mail
-    [284, 6546, 355, 71],                   // Heroic Strike (2),      Rend (2),               Taunt (1),              Defensive Stance
-    [285, 6343, 845, 23881, 674],            // Heroic Strike (3),      Thunderclap (1),        Cleave(1),              Bloodthirst,            Dual Wield    
-    [34428, 5308],                        // Victory Rush,           Execute (1)
-    [5242, 6178, 7369],                    // Battle Shout (2),       Charge (2),             Cleave(2)
-    [8198, 6547, 21552],                   // Thunder Clap (2),       Rend(3),                Mortal Strike (3)            
-    [1608, 20658, 11608],                  // Heroic Strike (4)       Execute (2)             Cleave(3)
-    [8204, 6548],                         // Thunder Clap (3),       Rend (4)
-    [11564, 6192, 1719],                   // Heroic Strike (5),      Battle Shout (3),       Recklessness
-    [20230, 72, 6572, 2565, 12678],          // Retaliation,            Shield Bash,            Revenge(1),             Shield Block,           Stance Mastery
-    [8205, 11565, 11572, 11609],            // Thunder Clap (4),       Heroic Strike (6),      Rend(5),                Cleave(4)
-    [11578, 20660, 6574, 47486],            // Charge (3),             Execute (3),            Revenge(2),             Mortal Strike (8)
-    [11566, 11580, 11573, 7379],            // Heroic Strike (7),      Thunder Clap (5),       Rend(6),                Revenge(3)
-    [11549, 20661, 11600, 871],             // Battle Shout (4),       Execute (4),            Revenge(4),             Shield Wall
-    [11567, 11581, 11550],                 // Dual Wield,             Heroic Strike(8),       Thunder Clap (6),       Battle Shout (5)
-    [20662, 20569, 23920, 11601],           // Execute (5),            Cleave(5),              Spell Reflection,       Revenge(5)
-    [25286, 25264, 11551, 25231, 25288],     // Heroic Strike (9),      Thunder Clap (7),       Battle Shout (6),       Cleave(6),              Revenge(6)
-    [25234, 47487],                       // Execute (6),            Shield Slam (1-7)
-    [11574, 25289, 25236, 47519, 25269],     // Rend (7),               Battle Shout (7),       Execute (7),            Cleave(7),              Revenge(7)
-    [29707, 47436, 47471, 47520, 64382],     // Heroic Strike (10),     Battle Shout (8+9),     Execute (8+9),          Cleave(8),              Shattering
+    [100, 78, 3127, 6673, 750, 674, 9116, 107, 2457],   // Charge (1), Heroic Strike (1), Parry, Battle Shout (1), Plate Mail, Dual Wield, Shield, Block, Battle Stance (to ensure its there)
+    [772],   //  Rend (1)
+    [6343, 34428],   //Thunderclap (1), Victory Rush
+    [284],   // Heroic Strike(2)
+    [355, 71, 6546], // Taunt, Defensive Stance, Rend(2)
+    [5242, 12697], // Battle Shout(2), Improved Charge (talent 2/2)
+    [6572], // Revenge(1)
+    [285, 2565], // Heroic Strike(3), Shield Block
+    [8198], // Thunder Clap(2)
+    [6547, 845, 23881, 12678], // Rend(3), Cleave(1), Bloodthirst, Stance Mastery 
+    [6192], // Battle Shout(3)
+    [1608, 5308, 6574], // Heroic Strike(4), Execute(1), Revenge(2) 
+    [72], // Shield Bash
+    [6178, 8204, 871], // Charge (2), Thunderclap(3), Shield Wall
+    [6548, 2458, 7369], // Rend(4), Berserker Stance, Cleave(2)
+    [11564, 11549, 20658], // Heroic Strike(5), Battle Shout(4), Execute(2)
+    [7379], // Revenge(3)
+    [0], // may change later
+    [8205], // Thunderclap(4)
+    [11565, 11572, 20660, 12294, 23922], // Heroic Strike(6), Rend(5), Execute(3), Cleave(3), Mortal Strike(1), Shield Slam(1)
+   
     ],
     [[0/*Paladin*/],
     [3127, 635, 750, 20271, 35395],          // Parry,                  Holy Light (1),         Plate Mail,             Judgement of Light,     Crusader Strike
@@ -110,7 +111,7 @@ const spellsList = [
     [34866, 48068],                  // Circle of Healing (5),       Renew (14)
     [48066, 64843],                  // Power Word Shield (14),      Divine Hymn
     ],
-    [[0/*Deathknight*/],
+    [[0/*Deathknight*/], //starts at level 10
     [0], [0], [0], [0], [0], [0], [0], [0], [0],
     [49576, 45477, 45462, 45902, 47541],        // Death Grip,             Icy Touch (1),           Plague Strike (1),      Blood Strike (1),       Death Coil (1)
     [45524, 49998, 49917, 49926, 49892],        // Chains of Ice,          Death Strike (1),        Plague Strike (2),      Blood Strike (2),       Death Coil (2)
@@ -215,22 +216,35 @@ const spellsList = [
     ],
 ]
 
-let classIcons = ["", "|TInterface/icons/INV_Sword_27.png:13|t", "|TInterface/icons/INV_Hammer_01.png:13|t", "|TInterface/icons/INV_Weapon_Bow_07.png:13|t", "|TInterface/icons/INV_ThrowingKnife_04.png:13|t", "|TInterface/icons/INV_Staff_30.png:13|t", "|TInterface/icons/Spell_Deathknight_ClassIcon.png:13|t", "|TInterface/icons/inv_jewelry_talisman_04.png:13|t", "|TInterface/icons/inv_staff_13.png:13|t", "|TInterface/icons/spell_nature_drowsy.png:13|t", "", "|TInterface/icons/Ability_Druid_Maul.png:13|t",]
-let levelColors = ["", "F000FF", "BA00FF", "7100FF", "3B00FF", "0005FF", "0067FF", "00B1FF", "00E2FF", "00FFE2", "00FFA7", "00FF67", "FF0000", "00FF19", "3BFF00", "EBFF00", "FFBF00", "FF8900", "FF5800", "FF3B00", "FF0000", "FF005D"]
-let colors = ["", "C79C6E", "F58CBA", "ABD473", "FFF569", "FFFFFF", "C41F3B", "0070DE", "69CCF0", "9482C9", "", "FF7D0A"]
+//let classIcons = ["", "|TInterface/icons/INV_Sword_27.png:13|t", "|TInterface/icons/INV_Hammer_01.png:13|t", "|TInterface/icons/INV_Weapon_Bow_07.png:13|t", "|TInterface/icons/INV_ThrowingKnife_04.png:13|t", "|TInterface/icons/INV_Staff_30.png:13|t", "|TInterface/icons/Spell_Deathknight_ClassIcon.png:13|t", "|TInterface/icons/inv_jewelry_talisman_04.png:13|t", "|TInterface/icons/inv_staff_13.png:13|t", "|TInterface/icons/spell_nature_drowsy.png:13|t", "", "|TInterface/icons/Ability_Druid_Maul.png:13|t",]
+//let levelColors = ["", "F000FF", "BA00FF", "7100FF", "3B00FF", "0005FF", "0067FF", "00B1FF", "00E2FF", "00FFE2", "00FFA7", "00FF67", "FF0000", "00FF19", "3BFF00", "EBFF00", "FFBF00", "FF8900", "FF5800", "FF3B00", "FF0000", "FF005D"]
+// colors = ["", "C79C6E", "F58CBA", "ABD473", "FFF569", "FFFFFF", "C41F3B", "0070DE", "69CCF0", "9482C9", "", "FF7D0A"]
 
 export function onLevelup(events: TSEventHandlers) {
     events.Player.OnLevelChanged((player, oldLevel) => {
         if (player.GetLevel() <= 20)
             learnSpells(player)
 
-        //if(player.GetLevel()%5 == 0)
-        //SendWorldMessage('[' +classIcons[player.GetClass()] + '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r' + ' has reached level [' + '|cff'+levelColors[player.GetLevel()] +player.GetLevel()+ '|r].')
     })
     events.Player.OnLogin((player, first) => {
         learnSpells(player)
+        if (first) {
+            player.LearnSpell(50305)//skin
+            player.LearnSpell(65288)//herb
+            player.LearnSpell(50310)//mining
+            player.LearnSpell(13262)//disenchant
+            player.LearnSpell(51296)//cooking
+            player.LearnSpell(GetID("Spell", "minecraft-mod", "threatspell-spell"),)//Threat Spell
+            player.LearnSpell(51304)//Alchemy
+            player.LearnSpell(668)//Common language
+            player.LearnSpell(51300)//Resource Refining
+            player.RemoveSpell(2383, false, false)//remove find herb
+            player.RemoveSpell(2580, false, false)//remove find mineral
+            player.AddItem(GetID("item_template", "minecraft-mod", "multitool"), 1)//multitool
+        }
     })
 }
+
 
 function learnSpells(player: TSPlayer) {
     let curLevel = player.GetLevel()
