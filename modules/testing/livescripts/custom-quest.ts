@@ -85,19 +85,18 @@ function updateQuestProgress(questInfo: PlayerQuest, player: TSPlayer, addValue:
 function isQuestFinished(player: TSPlayer) {//add a complete button to the addon
     let curQuestInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()))
     if (curQuestInfo.requirementCountCur >= curQuestInfo.requirementCountTotal) {
-        giveReward(player)
+        giveReward(curQuestInfo,player)
         createQuest(player)
     } else {
         player.SendAreaTriggerMessage("You have not finished the quest yet! Get back out there!")
     }
 }
 
-function giveReward(player: TSPlayer) {
-    let curQuestInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()))
-    if (curQuestInfo.rewardID == 1) {//means give gold
-        player.ModifyMoney(curQuestInfo.rewardCount)
+function giveReward(questInfo:PlayerQuest, player: TSPlayer) {
+    if (questInfo.rewardID == 1) {//means give gold
+        player.ModifyMoney(questInfo.rewardCount)
     } else {
-        player.AddItem(curQuestInfo.rewardID, curQuestInfo.rewardCount)
+        player.AddItem(questInfo.rewardID, questInfo.rewardCount)
     }
 }
 
