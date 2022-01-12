@@ -16,12 +16,16 @@ export function customQuest() {
         self.StopMovingOrSizing()
     })
     mframe.SetBackdrop({
-        bgFile: "Interface/TutorialFrame/TutorialFrameBackground",
+        bgFile: "Interface\\AchievementFrame\\UI-Achievement-Parchment",
         edgeFile: "Interface/DialogFrame/UI-DialogBox-Border",
-        tile: true, tileSize: 22, edgeSize: 22,
+        tile: false, tileSize: 22, edgeSize: 22,
         insets: { left: 4, right: 4, top: 4, bottom: 4 }
     });
-    mframe.SetBackdropColor(0, 0, 0, 1);
+    //mframe.SetBackdropColor(0, 0, 0, 0);
+    // let frametex = mframe.CreateTexture('', 'BACKGROUND')
+    // frametex.SetTexture("Interface\\AchievementFrame\\UI-Achievement-Parchment")
+    // frametex.SetAllPoints(mframe)
+    // frametex.SetPoint("CENTER", 0, 0)
     mframe.Hide()
 
     let exitButn = CreateFrame("Button", 'exitBtn', mframe)
@@ -55,39 +59,38 @@ export function customQuest() {
         }
     })
 
-    let nameText = mframe.CreateFontString('', 'OVERLAY', 'GameTooltipText')
-    nameText.SetText("SideQuest")
-    nameText.SetPoint("TOP", mframe, "TOP", 0, -10)
+    let nameText = mframe.CreateFontString('', 'OVERLAY', 'QuestTitleFont')
+    nameText.SetText("Sidequest")
+    nameText.SetPoint("TOP", mframe, "TOP", 0, -15)
 
-    let progressText = mframe.CreateFontString('', 'OVERLAY', 'GameTooltipText')
+    let progressText = mframe.CreateFontString('', 'OVERLAY', 'QuestFont')
     progressText.SetText("")
     progressText.SetPoint("TOP", nameText, "TOP", 0, -20)
 
-    let descriptionText = mframe.CreateFontString('', 'OVERLAY', 'GameTooltipText')
+    let descriptionText = mframe.CreateFontString('', 'OVERLAY', 'QuestFont')
     descriptionText.SetText("")
     descriptionText.SetPoint("TOP", progressText, "TOP", 0, -20)
-    descriptionText.SetWidth(mframe.GetWidth() -20)
+    descriptionText.SetWidth(mframe.GetWidth() -50)
     descriptionText.SetJustifyH('CENTER')
     
 
     let completeButton = CreateFrame('Button', '', mframe)
-    completeButton.SetSize(62, 32)
-    completeButton.SetPoint('BOTTOMRIGHT', mframe, 'BOTTOMRIGHT', -10, 10)
+    completeButton.SetSize(96, 32)
+    completeButton.SetPoint('BOTTOMRIGHT', mframe, 'BOTTOMRIGHT', -15, 5)
     let completeTex = completeButton.CreateTexture('', 'BACKGROUND')
-    completeTex.SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
+    completeTex.SetTexture("Interface\\BUTTONS\\UI-DialogBox-Button-Up")
     completeTex.SetAllPoints(completeButton)
     let completeText = completeButton.CreateFontString('', 'OVERLAY', 'GameTooltipText')
     completeText.SetText("Complete")
-    completeText.SetAllPoints(completeButton)
-    //completeTex.SetPoint("CENTER",0,0)
+    completeText.SetPoint("CENTER",0,5)
     completeButton.HookScript("OnClick", (frame, evName, btnDown) => {
         let pkt = new attemptToComplete(0)
         pkt.write().Send();
     })
-    completeButton.Hide()
+    completeButton.Show()
 
     let rewardButton = CreateFrame("Button", '', mframe)
-    rewardButton.SetPoint("BOTTOMLEFT", mframe, "BOTTOMLEFT", 15, 10)
+    rewardButton.SetPoint("BOTTOMLEFT", mframe, "BOTTOMLEFT", 15, 13)
     rewardButton.SetWidth(40)
     rewardButton.SetHeight(40)
     let rewardTex = rewardButton.CreateTexture('tex1', 'BACKGROUND')
@@ -113,10 +116,12 @@ export function customQuest() {
             }
             if (reqCountCur >= reqCountTotal) {
                 reqCountCur = reqCountTotal
-                completeButton.Show()
+                //completeButton.Show()
+                completeButton.SetNormalTexture('Interface\\Buttons\\UI-DialogBox-Button-Up')
                 //highlight complete button?
             } else {
-                completeButton.Hide()
+                //completeButton.Hide()
+                completeButton.SetNormalTexture('Interface\\Buttons\\UI-DialogBox-Button-Disabled')
                 //grey complete button?
             }
             progressText.SetText(s + reqName + ": " + reqCountCur + "/" + reqCountTotal)
@@ -141,7 +146,7 @@ export function customQuest() {
             rewardTex.SetTexture("")
             rewardButton.HookScript("OnEnter", (self) => null)
             rewardButton.HookScript("OnLeave", () => null)
-            completeButton.Hide()
+            //completeButton.Hide()
         }
     }
 }

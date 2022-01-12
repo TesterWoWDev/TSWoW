@@ -18,9 +18,9 @@ tstl_register_module(
                     end
                     if reqCountCur >= reqCountTotal then
                         reqCountCur = reqCountTotal
-                        completeButton:Show()
+                        completeButton:SetNormalTexture("Interface\\Buttons\\UI-DialogBox-Button-Up")
                     else
-                        completeButton:Hide()
+                        completeButton:SetNormalTexture("Interface\\Buttons\\UI-DialogBox-Button-Disabled")
                     end
                     progressText:SetText(
                         ((((tostring(s) .. tostring(reqName)) .. ": ") .. tostring(reqCountCur)) .. "/") .. tostring(reqCountTotal)
@@ -62,7 +62,6 @@ tstl_register_module(
                         "OnLeave",
                         function() return nil end
                     )
-                    completeButton:Hide()
                 end
             end
             local shown = false
@@ -85,8 +84,7 @@ tstl_register_module(
                     ____self:StopMovingOrSizing()
                 end
             )
-            mframe:SetBackdrop({bgFile = "Interface/TutorialFrame/TutorialFrameBackground", edgeFile = "Interface/DialogFrame/UI-DialogBox-Border", tile = true, tileSize = 22, edgeSize = 22, insets = {left = 4, right = 4, top = 4, bottom = 4}})
-            mframe:SetBackdropColor(0, 0, 0, 1)
+            mframe:SetBackdrop({bgFile = "Interface\\AchievementFrame\\UI-Achievement-Parchment", edgeFile = "Interface/DialogFrame/UI-DialogBox-Border", tile = false, tileSize = 22, edgeSize = 22, insets = {left = 4, right = 4, top = 4, bottom = 4}})
             mframe:Hide()
             local exitButn = CreateFrame("Button", "exitBtn", mframe)
             exitButn:SetPoint("TOPRIGHT", mframe, "TOPRIGHT", -5, -5)
@@ -122,28 +120,28 @@ tstl_register_module(
                     end
                 end
             )
-            local nameText = mframe:CreateFontString("", "OVERLAY", "GameTooltipText")
-            nameText:SetText("SideQuest")
-            nameText:SetPoint("TOP", mframe, "TOP", 0, -10)
-            progressText = mframe:CreateFontString("", "OVERLAY", "GameTooltipText")
+            local nameText = mframe:CreateFontString("", "OVERLAY", "QuestTitleFont")
+            nameText:SetText("Sidequest")
+            nameText:SetPoint("TOP", mframe, "TOP", 0, -15)
+            progressText = mframe:CreateFontString("", "OVERLAY", "QuestFont")
             progressText:SetText("")
             progressText:SetPoint("TOP", nameText, "TOP", 0, -20)
-            descriptionText = mframe:CreateFontString("", "OVERLAY", "GameTooltipText")
+            descriptionText = mframe:CreateFontString("", "OVERLAY", "QuestFont")
             descriptionText:SetText("")
             descriptionText:SetPoint("TOP", progressText, "TOP", 0, -20)
             descriptionText:SetWidth(
-                mframe:GetWidth() - 20
+                mframe:GetWidth() - 50
             )
             descriptionText:SetJustifyH("CENTER")
             completeButton = CreateFrame("Button", "", mframe)
-            completeButton:SetSize(62, 32)
-            completeButton:SetPoint("BOTTOMRIGHT", mframe, "BOTTOMRIGHT", -10, 10)
+            completeButton:SetSize(96, 32)
+            completeButton:SetPoint("BOTTOMRIGHT", mframe, "BOTTOMRIGHT", -15, 5)
             local completeTex = completeButton:CreateTexture("", "BACKGROUND")
-            completeTex:SetTexture("Interface\\BUTTONS\\UI-Panel-MinimizeButton-Up.blp")
+            completeTex:SetTexture("Interface\\BUTTONS\\UI-DialogBox-Button-Up")
             completeTex:SetAllPoints(completeButton)
             local completeText = completeButton:CreateFontString("", "OVERLAY", "GameTooltipText")
             completeText:SetText("Complete")
-            completeText:SetAllPoints(completeButton)
+            completeText:SetPoint("CENTER", 0, 5)
             completeButton:HookScript(
                 "OnClick",
                 function(frame, evName, btnDown)
@@ -151,9 +149,9 @@ tstl_register_module(
                     pkt:write():Send()
                 end
             )
-            completeButton:Hide()
+            completeButton:Show()
             rewardButton = CreateFrame("Button", "", mframe)
-            rewardButton:SetPoint("BOTTOMLEFT", mframe, "BOTTOMLEFT", 15, 10)
+            rewardButton:SetPoint("BOTTOMLEFT", mframe, "BOTTOMLEFT", 15, 13)
             rewardButton:SetWidth(40)
             rewardButton:SetHeight(40)
             rewardTex = rewardButton:CreateTexture("tex1", "BACKGROUND")
