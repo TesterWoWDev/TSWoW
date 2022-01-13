@@ -71,7 +71,16 @@ export function customQuest(events: TSEventHandlers) {
         if (curQuestInfo.requirementType == 1) {
             if (curQuestInfo.requirementID == item.GetEntry()) {
                 updateQuestProgress(curQuestInfo, player, item.GetCount())
-                lootItem.GetCount()
+            }
+        }
+    })
+
+    //incase items get removed, update quest
+    events.Items.OnRemove((item,player,cancel)=>{
+        let curQuestInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()))
+        if (curQuestInfo.requirementType == 1) {
+            if (curQuestInfo.requirementID == item.GetEntry()) {
+                updateQuestProgress(curQuestInfo, player, -item.GetCount())
             }
         }
     })
@@ -79,10 +88,15 @@ export function customQuest(events: TSEventHandlers) {
     events.PacketID.OnCustom(attemptToCompleteID, (opcode, message, player) => {
         isQuestFinished(player)
     })
+
+
 }
 
 function updateQuestProgress(questInfo: PlayerQuest, player: TSPlayer, addValue: number) {
     questInfo.requirementCountCur += addValue;
+    if(questInfo.requirementCountCur > questInfo.requirementCountTotal){
+        questInfo.requirementCountCur = questInfo.requirementCountTotal
+    }
     updateClient(questInfo,player)
     player.SetObject(TABLE_NAME_CUSTOM_QUEST, questInfo);
 }
@@ -90,6 +104,10 @@ function updateQuestProgress(questInfo: PlayerQuest, player: TSPlayer, addValue:
 function isQuestFinished(player: TSPlayer) {//add a complete button to the addon
     let curQuestInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()))
     if (curQuestInfo.requirementCountCur >= curQuestInfo.requirementCountTotal) {
+        console.log(curQuestInfo.requirementType)
+        if(curQuestInfo.requirementType == 1){
+            player.RemoveItem(player.GetItemByEntry(curQuestInfo.requirementID),curQuestInfo.requirementCountTotal)
+        }
         giveReward(curQuestInfo,player)
         createQuest(player)
     } else {
@@ -125,8 +143,11 @@ function createQuest(player: TSPlayer) {
         curQuestInfo.rewardCount = q.GetInt32(1)
     }
 
-    player.SetObject(TABLE_NAME_CUSTOM_QUEST, curQuestInfo);
-    updateClient(curQuestInfo,player)
+    if(curQuestInfo.requirementType == 1){
+        updateQuestProgress(curQuestInfo,player,player.GetItemCount(curQuestInfo.requirementID,false)) 
+    }else{
+        updateQuestProgress(curQuestInfo,player,0) 
+    }
 }
 
 function updateClient(curQuest:PlayerQuest, player: TSPlayer) {
