@@ -6,7 +6,7 @@ export function allStats(){
     let columns = 4
     let rows = 7
     let shown = false;
-    let aframe = CreateFrame('Frame', 'stats', 'CharacterFrame')
+    let aframe = CreateFrame('Frame', 'stats', PaperDollFrame)
     //
   
   

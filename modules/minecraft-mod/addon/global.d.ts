@@ -13728,6 +13728,7 @@ declare namespace WoWAPI {
 declare const _G: { [prop: string]: any };
 declare const InterfaceOptionsFramePanelContainer: WoWAPI.Region;
 declare const UIParent: WoWAPI.Frame;
+declare const PaperDollFrame: WoWAPI.Frame;
 
 /**
  * ##################################
