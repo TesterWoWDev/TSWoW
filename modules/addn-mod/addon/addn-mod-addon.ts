@@ -4,6 +4,6 @@ import { customQuest } from "./custom-quest";
 import { toBeLearnedSpellsPane } from "./to-be-learned";
 
 atlas()
-allStats()
+//allStats()
 customQuest()
 toBeLearnedSpellsPane()

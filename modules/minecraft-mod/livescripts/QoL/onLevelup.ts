@@ -21,7 +21,6 @@ const spellsList = [
     [1680], // Whirlwind
     [8205], // Thunderclap(4)
     [11565, 11572, 20660, 12294, 23922], // Heroic Strike(6), Rend(5), Execute(3), Cleave(3), Mortal Strike(1), Shield Slam(1)
-   
     ],
     [[0/*Paladin*/],
     [3127, 635, 750, 20271, 35395],          // Parry,                  Holy Light (1),         Plate Mail,             Judgement of Light,     Crusader Strike
