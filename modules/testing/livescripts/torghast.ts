@@ -13,8 +13,6 @@ export function torghastBuffSystem(events: TSEventHandlers) {
     events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#aa")) {
             buffChoice(player)
-            applyBuffs(player)
-            showBuffs(player)
         }
     })
 
