@@ -11,7 +11,6 @@ export function thorgast() {
 
     OnCustomPacket(spellValuesMessageID, (packet) => {
         hideOldSpells()
-
         let customPacket = new spellValuesMessage(0, [0], [0])
         customPacket.read(packet);
         for (let i = 0; i < customPacket.size; i++) {
