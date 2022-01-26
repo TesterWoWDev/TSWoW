@@ -1,64 +1,73 @@
 export const spellValuesMessageID = 20;
 export class spellValuesMessage {
-    spellID: uint32 = -1
-    spellCt: uint32 = -1
-    spellName: string = ""
-
-    constructor(spellID: uint32, spellCt: uint32, spellName: string) {
-        this.spellID = spellID;
-        this.spellCt = spellCt;
-        this.spellName = spellName;
+    size: uint32 = 1;
+    spellIDs: TSArray<uint32> = [-1]
+    spellCts: TSArray<uint32> = [-1]
+    constructor(size:uint32, spellIDs: TSArray<uint32>, spellCts: TSArray<uint32>) {
+        this.size = size;
+        this.spellIDs = spellIDs;
+        this.spellCts = spellCts;
     }
 
     read(read: TSPacketRead): void {
-        this.spellID = read.ReadUInt32();
-        this.spellCt = read.ReadUInt32();
-        this.spellName = read.ReadString();
+        this.size = read.ReadUInt32();
+        for(let i=0;i<this.size;i++){
+            this.spellIDs.push(read.ReadUInt32())
+            this.spellCts.push(read.ReadUInt32())            
+        }
     }
 
     write(): TSPacketWrite {
         let packet = MakeCustomPacket(spellValuesMessageID, 0)
-        packet.WriteUInt32(this.spellID);
-        packet.WriteUInt32(this.spellCt);
-        packet.WriteString(this.spellName);
+        packet.WriteUInt32(this.size)
+        for(let i=0;i<this.size;i++){
+            packet.WriteUInt32(this.spellIDs[i])
+            packet.WriteUInt32(this.spellCts[i])
+        }
         return packet;
     }
 }
 
-export const spellValuesFinishID = 21;
-export class spellValuesFinish {
-    value: uint32 = 0;
 
-    constructor(value: uint32) {
-        this.value = value;
+
+export const spellChoicesID = 21;
+export class spellChoices {
+    spellIDs: TSArray<uint32> = [-1]
+    constructor(spellIDs: TSArray<uint32>) {
+        this.spellIDs = spellIDs;
     }
 
     read(read: TSPacketRead): void {
-        this.value = read.ReadUInt32();
+        for(let i=0;i<3;i++){
+            this.spellIDs.push(read.ReadUInt32())        
+        }
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellValuesFinishID, 0)
-        packet.WriteUInt32(this.value);
+        let packet = MakeCustomPacket(spellChoicesID, 0)
+        for(let i=0;i<3;i++){
+            packet.WriteUInt32(this.spellIDs[i])
+        }
         return packet;
     }
 }
 
-export const spellValuesIncomingID = 22;
-export class spellValuesIncoming {
-    value: uint32 = 0;
+export const spellChoiceID = 22;
+export class spellChoice {
+    choice: uint32 = 1;
 
-    constructor(value: uint32) {
-        this.value = value;
+    constructor(choice:uint32) {
+        this.choice = choice;
     }
 
     read(read: TSPacketRead): void {
-        this.value = read.ReadUInt32();
+        this.choice = read.ReadUInt32();
+
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellValuesIncomingID, 0)
-        packet.WriteUInt32(this.value);
+        let packet = MakeCustomPacket(spellChoiceID, 0)
+        packet.WriteUInt32(this.choice)
         return packet;
     }
 }
