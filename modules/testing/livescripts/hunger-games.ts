@@ -45,6 +45,19 @@ export function hungerGames(events: TSEventHandlers) {
             })
         })
 
+        //difficulty 4
+        player.AddTimer('hungergames-4-starting-call', 60000, 0, timer => {
+            console.log("hungergames-4-starting-call for " + player.GetName())
+            player.AddTimer('hungergames-4', 5000, 0, timer => {
+                console.log("hungergames-4 for " + player.GetName())
+                for (let i = 0; i < getInt(1); i++) {
+                    let spawn = player.SpawnCreature(3, player.GetX() + getInt(50), player.GetY() + getInt(50), player.GetZ(), 0, 4, 300)
+                    //spawn.Attack(player,true);
+                    spawn.AttackStart(player)
+                }
+            })
+        })
+
         events.Player.OnPVPKill((killer, killed) => {
             teleportHome(killed)
             killer.AddItem(killToken, 1)
