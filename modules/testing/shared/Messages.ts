@@ -28,8 +28,6 @@ export class spellValuesMessage {
     }
 }
 
-
-
 export const spellChoicesID = 21;
 export class spellChoices {
     spellIDs: TSArray<uint32> = [-1]
