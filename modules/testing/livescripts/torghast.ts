@@ -20,6 +20,10 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         removeBuffs(player)
     })
 
+    events.Player.OnLogout((player)=>{
+        removeBuffs(player)
+    })
+
     events.PacketID.OnCustom(spellChoiceID, (opcode, packet, player) => {
         let pkt = new spellChoice(0)
         pkt.read(packet);
