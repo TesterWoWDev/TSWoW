@@ -58,12 +58,11 @@ function chooseBuff(player: TSPlayer, index: uint32) {
             }
         }
         if (found == -1) {
-            charItems.currentBuffsCount[found]++
-        } else {
             charItems.currentBuffs.push(choice)
             charItems.currentBuffsCount.push(1)
+        } else {
+            charItems.currentBuffsCount[found]++
         }
-
     }
 }
 
