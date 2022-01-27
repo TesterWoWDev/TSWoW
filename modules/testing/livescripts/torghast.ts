@@ -1,19 +1,19 @@
 import { spellChoice, spellChoiceID, spellChoices } from "../shared/Messages"
-const spellsTier1: TSArray<uint32> = [
-    GetID("Spell", "testing-mod", "increasedhealth1-spell"),
-    GetID("Spell", "testing-mod", "increaseddamage1-spell"),
-    GetID("Spell", "testing-mod", "increasedsp1-spell"),
-    GetID("Spell", "testing-mod", "increasedap1-spell"),
-    GetID("Spell", "testing-mod", "increasedstamina1-spell"),
-    GetID("Spell", "testing-mod", "increasedstrength1-spell"),
-    GetID("Spell", "testing-mod", "increasedintellect1-spell"),
-    GetID("Spell", "testing-mod", "increasedagility1-spell"),
-    GetID("Spell", "testing-mod", "increasedcrit1-spell"),
-    GetID("Spell", "testing-mod", "increasedresist1-spell"),
+const spellsTier1: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>> [
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedhealth1-spell"),1],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increaseddamage1-spell"),2],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedsp1-spell"),2],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedap1-spell"),3],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedstamina1-spell"),4],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedstrength1-spell"),1],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedintellect1-spell"),2],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedagility1-spell"),3],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedcrit1-spell"),4],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedresist1-spell"),1],
     //new spells
-    GetID("Spell", "testing-mod", "rangedattackspeed1-spell"),
-    GetID("Spell", "testing-mod", "critchance-spell"),
-    GetID("Spell", "testing-mod", "critdamage-spell"),
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "rangedattackspeed1-spell"),2],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "critchance-spell"),3],
+    <TSArray<uint32>> [GetID("Spell", "testing-mod", "critdamage-spell"),4],
 ]
 const spellsTier1Descriptions = [
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
@@ -106,14 +106,12 @@ function buffChoice(player: TSPlayer): boolean {
     } else {
         for (let i = 0; i < buffChoiceCount; i++) {
             let index = Math.floor(Math.random() * spellsTier1.length)
-            let c: uint32 = spellsTier1[index]
+            let c: uint32 = spellsTier1[index][0]
             charItems.currentChoiceBuffs.push(c)
-            spellranks.push(1)
+            spellranks.push(spellsTier1[index][1])
             spellDescs.push(spellsTier1Descriptions[index])
         }
-        let arr: TSArray<uint32> = [0, 0, 0]
-        let pkt = new spellChoices(arr,spellranks,spellDescs)
-        pkt.spellIDs = charItems.currentChoiceBuffs
+        let pkt = new spellChoices(charItems.currentChoiceBuffs,spellranks,spellDescs) 
         pkt.write().SendToPlayer(player)
         return true
     }

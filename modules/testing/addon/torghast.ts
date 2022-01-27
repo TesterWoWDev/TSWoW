@@ -6,6 +6,7 @@ export function thorgast() {
     let choiceDescs = []
     let choiceButtons = []
     let rankColors = ["00ff00","00ff00","00ff00","00ff00"]
+    let rankText = [rankColors[0] + "Common",rankColors[1] + "Uncommon",rankColors[2] + "Rare",rankColors[3] + "Epic"]
     let mframe = CreateFrame('Frame', 'torghastChoices', UIParent)
     mframe.SetWidth(512)
     mframe.SetHeight(350)
@@ -29,23 +30,14 @@ export function thorgast() {
     })
 
     OnCustomPacket(spellChoicesID, (packet) => {
-        console.log(-2)
         let customPacket = new spellChoices([],[],[])
-        console.log(-1)
         customPacket.read(packet);
-        console.log(0)
         for (let i = 0; i < 3; i++) {
-            console.log(1)
             choiceSpells.push(customPacket.spellIDs[i])
-            console.log(2)
             choiceDescs.push(customPacket.spellDescs[i])
-            console.log(3)
             choiceRanks.push(customPacket.spellRanks[i])
-            console.log(4)
         }
-        console.log(5)
         showSpellChoiceUI()
-        console.log(6)
     })
 
     function showSpellChoiceUI() {
@@ -54,7 +46,7 @@ export function thorgast() {
         for (let i = 0; i < 3; i++) {
             let spellButton = CreateFrame('Button', choiceSpells[i], mframe)
             spellButton.SetSize(72, 72)
-            spellButton.SetPoint('TOP', mframe, 'TOP', -0 + ((spellButton.GetWidth() + 100) * (i-1)), -50)
+            spellButton.SetPoint('TOP', mframe, 'TOP', -0 + ((spellButton.GetWidth() + 100) * (i-1)), -55)
             let info = GetSpellInfo(choiceSpells[i])
             spellButton.SetNormalTexture(info[2])
             spellButton.Show()
@@ -79,15 +71,15 @@ export function thorgast() {
 
             let spellDescText = spellButton.CreateFontString('', 'OVERLAY', 'GameFontNormal')
             spellDescText.SetWidth(150)
-            spellDescText.SetPoint("TOP",spellButton,"BOTTOM", 0, 0)
-            spellDescText.SetText(choiceDescs[i])
+            spellDescText.SetPoint("TOP",spellButton,"BOTTOM", 0, -5)
+            spellDescText.SetText("|cff" + rankText[choiceRanks[i]] + "|r\n\n" + choiceDescs[i])
 
             let choiceButton = CreateFrame('Button', buttonIndex.toString(), mframe)
-            choiceButton.SetSize(128, 42)
-            choiceButton.SetPoint('BOTTOM', mframe, 'BOTTOM', 30 + ((spellButton.GetWidth() + 100) * (i-1)), 0)
+            choiceButton.SetSize(150, 42)
+            choiceButton.SetPoint('BOTTOM', mframe, 'BOTTOM', 30 + ((spellButton.GetWidth() + 100) * (i-1)), 10)
             choiceButton.SetNormalTexture('Interface\\BUTTONS\\UI-Panel-Button-Up')
             let choiceButtonText = choiceButton.CreateFontString('', 'OVERLAY', 'GameFontNormal')
-            choiceButtonText.SetPoint("TOP", -25, -8)
+            choiceButtonText.SetPoint("TOP", -30, -8)
             choiceButtonText.SetText("Choose!")
             choiceButton.HookScript('OnClick', (frame, button, down) => {
                 onChoice(frame.GetName())
