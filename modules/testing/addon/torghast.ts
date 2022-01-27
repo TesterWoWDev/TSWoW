@@ -10,8 +10,8 @@ export function thorgast() {
     mframe.Hide()
 
     let mframe2 = CreateFrame('Frame', 'torghastChoices', UIParent)
-    mframe2.SetWidth(512)
-    mframe2.SetHeight(768)
+    mframe2.SetWidth(300)
+    mframe2.SetHeight(128)
     mframe2.SetPoint("CENTER", 0, 0)
     mframe2.SetBackdrop({
         bgFile: "Interface/TutorialFrame/TutorialFrameBackground",
@@ -37,7 +37,7 @@ export function thorgast() {
         for (let i = 0; i < 3; i++) {//possibly count 2->0 rather than 0->2
             let spellButton = CreateFrame('Button', choiceSpells[i], mframe2)
             spellButton.SetSize(64, 64)
-            spellButton.SetPoint('CENTER', mframe2, 'CENTER', -50 + ((spellButton.GetWidth() + 30) * i), 0)
+            spellButton.SetPoint('CENTER', mframe2, 'CENTER', -94 + ((spellButton.GetWidth() + 30) * i), 15)
             let info = GetSpellInfo(choiceSpells[i])
             spellButton.SetNormalTexture(info[2])
             spellButton.Show()
@@ -52,11 +52,11 @@ export function thorgast() {
             })
 
             let button = CreateFrame('Button', buttonIndex.toString(), mframe2)
-            button.SetSize(72,32)
-            button.SetPoint('CENTER', spellButton, 'BOTTOM', 0, -20)
+            button.SetSize(128,42)
+            button.SetPoint('CENTER', spellButton, 'BOTTOM', 25, -30)
             button.SetNormalTexture('Interface\\BUTTONS\\UI-Panel-Button-Up')
             let buttonText = button.CreateFontString('', 'OVERLAY', 'GameFontNormal')
-            buttonText.SetPoint("CENTER", 0, 0)
+            buttonText.SetPoint("TOP", -25, -8)
             buttonText.SetText("Choose!")
             button.HookScript('OnClick', (frame, button, down) => {
                 onChoice(frame.GetName())
