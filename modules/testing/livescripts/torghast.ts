@@ -14,9 +14,23 @@ const spellsTier1: TSArray<uint32> = [
     GetID("Spell", "testing-mod", "rangedattackspeed1-spell"),
     GetID("Spell", "testing-mod", "critchance-spell"),
     GetID("Spell", "testing-mod", "critdamage-spell"),
+]
+const spellsTier1Descriptions = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
+    "Donec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
+    "Donec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
+    "Sed sed dui et tellus sollicitudin hendrerit. Pellentesque varius nulla quis tortor finibus, a vulputate nibh tristique. Nulla tellus risus,",
+    "Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    "Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    "Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    "Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque",
     
 ]
-
 const buffChoiceCount: uint32 = 3
 
 class torghastBuffs extends TSClass {
@@ -85,20 +99,25 @@ export function torghastBuffSystem(events: TSEventHandlers) {
 
 function buffChoice(player: TSPlayer): boolean {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
+    let spellranks:TSArray<uint32> = []
+    let spellDescs:TSArray<string>  = []
     if (charItems.currentChoiceBuffs.length > 0) {
         return false
     } else {
         for (let i = 0; i < buffChoiceCount; i++) {
-            let c: uint32 = spellsTier1[Math.floor(Math.random() * spellsTier1.length)]
+            let index = Math.floor(Math.random() * spellsTier1.length)
+            let c: uint32 = spellsTier1[index]
             charItems.currentChoiceBuffs.push(c)
+            spellranks.push(1)
+            spellDescs.push(spellsTier1Descriptions[index])
         }
         let arr: TSArray<uint32> = [0, 0, 0]
-        let pkt = new spellChoices(arr)
+        let pkt = new spellChoices(arr,spellranks,spellDescs)
         pkt.spellIDs = charItems.currentChoiceBuffs
         pkt.write().SendToPlayer(player)
         return true
     }
-
+    
 }
 
 function chooseBuff(player: TSPlayer, index: uint32) {

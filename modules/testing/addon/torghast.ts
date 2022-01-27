@@ -2,11 +2,13 @@ import { spellChoice, spellChoices, spellChoicesID } from "../shared/Messages"
 
 export function thorgast() {
     let choiceSpells = []
+    let choiceRanks = []
+    let choiceDescs = []
     let choiceButtons = []
-
+    let rankColors = ["00ff00","00ff00","00ff00","00ff00"]
     let mframe = CreateFrame('Frame', 'torghastChoices', UIParent)
-    mframe.SetWidth(300)
-    mframe.SetHeight(128)
+    mframe.SetWidth(512)
+    mframe.SetHeight(350)
     mframe.SetPoint("CENTER", 0, 0)
     mframe.SetBackdrop({
         bgFile: "Interface/TutorialFrame/TutorialFrameBackground",
@@ -27,12 +29,23 @@ export function thorgast() {
     })
 
     OnCustomPacket(spellChoicesID, (packet) => {
-        let customPacket = new spellChoices([])
+        console.log(-2)
+        let customPacket = new spellChoices([],[],[])
+        console.log(-1)
         customPacket.read(packet);
+        console.log(0)
         for (let i = 0; i < 3; i++) {
+            console.log(1)
             choiceSpells.push(customPacket.spellIDs[i])
+            console.log(2)
+            choiceDescs.push(customPacket.spellDescs[i])
+            console.log(3)
+            choiceRanks.push(customPacket.spellRanks[i])
+            console.log(4)
         }
+        console.log(5)
         showSpellChoiceUI()
+        console.log(6)
     })
 
     function showSpellChoiceUI() {
@@ -40,8 +53,8 @@ export function thorgast() {
         let buttonIndex = 2
         for (let i = 0; i < 3; i++) {
             let spellButton = CreateFrame('Button', choiceSpells[i], mframe)
-            spellButton.SetSize(64, 64)
-            spellButton.SetPoint('CENTER', mframe, 'CENTER', -94 + ((spellButton.GetWidth() + 30) * i), 15)
+            spellButton.SetSize(72, 72)
+            spellButton.SetPoint('TOP', mframe, 'TOP', -0 + ((spellButton.GetWidth() + 100) * (i-1)), -50)
             let info = GetSpellInfo(choiceSpells[i])
             spellButton.SetNormalTexture(info[2])
             spellButton.Show()
@@ -55,18 +68,32 @@ export function thorgast() {
                 GameTooltip.Hide()
             })
 
-            let button = CreateFrame('Button', buttonIndex.toString(), mframe)
-            button.SetSize(128, 42)
-            button.SetPoint('CENTER', spellButton, 'BOTTOM', 25, -30)
-            button.SetNormalTexture('Interface\\BUTTONS\\UI-Panel-Button-Up')
-            let buttonText = button.CreateFontString('', 'OVERLAY', 'GameFontNormal')
-            buttonText.SetPoint("TOP", -25, -8)
-            buttonText.SetText("Choose!")
-            button.HookScript('OnClick', (frame, button, down) => {
+            let spellNameCentering = CreateFrame("Frame",'',spellButton)
+            spellNameCentering.SetSize(100,50)
+            spellNameCentering.SetPoint("BOTTOM",spellButton,"TOP", 0, 0)
+
+            let spellNameText = spellButton.CreateFontString('', 'OVERLAY', 'QuestTitleFont')
+            spellNameText.SetWidth(140)
+            spellNameText.SetPoint("CENTER",spellNameCentering,"CENTER", 0, 0)
+            spellNameText.SetText("|cff"+rankColors[choiceRanks[i]] + info[0] +"|r")
+
+            let spellDescText = spellButton.CreateFontString('', 'OVERLAY', 'GameFontNormal')
+            spellDescText.SetWidth(150)
+            spellDescText.SetPoint("TOP",spellButton,"BOTTOM", 0, 0)
+            spellDescText.SetText(choiceDescs[i])
+
+            let choiceButton = CreateFrame('Button', buttonIndex.toString(), mframe)
+            choiceButton.SetSize(128, 42)
+            choiceButton.SetPoint('BOTTOM', mframe, 'BOTTOM', 30 + ((spellButton.GetWidth() + 100) * (i-1)), 0)
+            choiceButton.SetNormalTexture('Interface\\BUTTONS\\UI-Panel-Button-Up')
+            let choiceButtonText = choiceButton.CreateFontString('', 'OVERLAY', 'GameFontNormal')
+            choiceButtonText.SetPoint("TOP", -25, -8)
+            choiceButtonText.SetText("Choose!")
+            choiceButton.HookScript('OnClick', (frame, button, down) => {
                 onChoice(frame.GetName())
             })
             choiceButtons.push(spellButton)
-            choiceButtons.push(button)
+            choiceButtons.push(choiceButton)
             buttonIndex--
         }
     }
