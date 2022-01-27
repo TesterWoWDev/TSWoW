@@ -34,7 +34,7 @@ export function thorgast() {
     function showSpellChoiceUI() {
         mframe2.Show()
         let buttonIndex = 2
-        for (let i = 0; i < 3; i++) {//possibly count 2->0 rather than 0->2
+        for (let i = 0; i < 3; i++) {
             let spellButton = CreateFrame('Button', choiceSpells[i], mframe2)
             spellButton.SetSize(64, 64)
             spellButton.SetPoint('CENTER', mframe2, 'CENTER', -94 + ((spellButton.GetWidth() + 30) * i), 15)
