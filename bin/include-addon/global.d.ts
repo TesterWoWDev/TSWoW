@@ -11894,6 +11894,20 @@ declare function GetSpellCooldown(spellId: number, type: WoWAPI.BookType): [numb
  */
 declare function GetSpellTexture(spellId: number, type: WoWAPI.BookType): WoWAPI.TexturePath;
 
+/**
+ * Get information about a spell.
+ * @return MultipleReturnValues:
+ *  name: The Name of the spell.
+ *  rank: The rank line from the tooltip of the spell.
+ *  icon: The interface path to the icon texture.
+ *  castTime: The cast time, in milliseconds.
+ * minRange: The minimum range of the spell.
+ * maxRange: The maximum range of the spell.
+ * 
+ * @see https://wow.gamepedia.com/API_GetSpellInfo
+ * @tupleReturn
+ */
+declare function GetSpellInfo(spell: number | string): [string,string,string,number,number,number];
 
 /**
  * Execute a console command

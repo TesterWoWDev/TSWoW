@@ -1,9 +1,9 @@
 import { spellChoice, spellChoiceID, spellChoices, spellValuesMessage } from "../shared/Messages"
 
 class torghastBuffs extends TSClass {
-    currentBuffs: TSArray<uint32> = [1]
-    currentBuffsCount: TSArray<uint32> = [1]
-    currentChoiceBuffs: TSArray<uint32> = [1]
+    currentBuffs: TSArray<uint32> = []
+    currentBuffsCount: TSArray<uint32> = []
+    currentChoiceBuffs: TSArray<uint32> = []
 }
 
 export function torghastBuffSystem(events: TSEventHandlers) {
@@ -34,7 +34,7 @@ function buffChoice(player: TSPlayer) {
     let spells: TSArray<uint32> = [7464, 7471, 7477, 7468, 7474]
     let buffChoiceCount:uint32 = 3
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    for (let i = 1; i < buffChoiceCount; i++) {
+    for (let i = 0; i < buffChoiceCount; i++) {
         let c:uint32 = spells[Math.floor(Math.random() * spells.length)]
         charItems.currentChoiceBuffs.push(c)
     }
