@@ -10,6 +10,8 @@ const spellsTier1: TSArray<uint32> = [
     GetID("Spell", "testing-mod", "increasedagility1-spell"),
     GetID("Spell", "testing-mod", "increasedcrit1-spell"),
     GetID("Spell", "testing-mod", "increasedresist1-spell"),
+    //new spells
+    GetID("Spell", "testing-mod", "rangedattackspeed1-spell"),
 ]
 
 const buffChoiceCount: uint32 = 3
