@@ -1,15 +1,15 @@
 import { spellChoice, spellChoiceID, spellChoices } from "../shared/Messages"
 const spells: TSArray<uint32> = [
-GetID("Spell", "testing-mod", "increasedhealth1-spell"),
-GetID("Spell", "testing-mod", "increaseddamage1-spell"),
-GetID("Spell", "testing-mod", "increasedsp1-spell"),
-GetID("Spell", "testing-mod", "increasedap1-spell"),
-GetID("Spell", "testing-mod", "increasedstamina1-spell"),
-GetID("Spell", "testing-mod", "increasedstrength1-spell"),
-GetID("Spell", "testing-mod", "increasedintellect1-spell"),
-GetID("Spell", "testing-mod", "increasedagility1-spell"),
-GetID("Spell", "testing-mod", "increasedcrit1-spell"),
-GetID("Spell", "testing-mod", "increasedresist1-spell"),
+    GetID("Spell", "testing-mod", "increasedhealth1-spell"),
+    GetID("Spell", "testing-mod", "increaseddamage1-spell"),
+    GetID("Spell", "testing-mod", "increasedsp1-spell"),
+    GetID("Spell", "testing-mod", "increasedap1-spell"),
+    GetID("Spell", "testing-mod", "increasedstamina1-spell"),
+    GetID("Spell", "testing-mod", "increasedstrength1-spell"),
+    GetID("Spell", "testing-mod", "increasedintellect1-spell"),
+    GetID("Spell", "testing-mod", "increasedagility1-spell"),
+    GetID("Spell", "testing-mod", "increasedcrit1-spell"),
+    GetID("Spell", "testing-mod", "increasedresist1-spell"),
 ]
 
 const buffChoiceCount: uint32 = 3
