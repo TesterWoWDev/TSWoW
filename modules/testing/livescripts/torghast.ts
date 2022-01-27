@@ -1,4 +1,17 @@
 import { spellChoice, spellChoiceID, spellChoices, spellValuesMessage } from "../shared/Messages"
+const spells: TSArray<uint32> = [GetID("Spell", "testing-mod", "increasedhealth1-spell"),
+GetID("Spell", "testing-mod", "increaseddamage1-spell"),
+GetID("Spell", "testing-mod", "increasedsp1-spell"),
+GetID("Spell", "testing-mod", "increasedap1-spell"),
+GetID("Spell", "testing-mod", "increasedstamina1-spell"),
+GetID("Spell", "testing-mod", "increasedstrength1-spell"),
+GetID("Spell", "testing-mod", "increasedintellect1-spell"),
+GetID("Spell", "testing-mod", "increasedagility1-spell"),
+GetID("Spell", "testing-mod", "increasedcrit1-spell"),
+GetID("Spell", "testing-mod", "increasedresist1-spell"),
+]
+
+const buffChoiceCount: uint32 = 3
 
 class torghastBuffs extends TSClass {
     currentBuffs: TSArray<uint32> = []
@@ -31,14 +44,12 @@ export function torghastBuffSystem(events: TSEventHandlers) {
 }
 
 function buffChoice(player: TSPlayer) {
-    let spells: TSArray<uint32> = [7464, 7471, 7477, 7468, 7474]
-    let buffChoiceCount:uint32 = 3
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < buffChoiceCount; i++) {
-        let c:uint32 = spells[Math.floor(Math.random() * spells.length)]
+        let c: uint32 = spells[Math.floor(Math.random() * spells.length)]
         charItems.currentChoiceBuffs.push(c)
     }
-    let arr:TSArray<uint32> = [0, 0, 0]
+    let arr: TSArray<uint32> = [0, 0, 0]
     let pkt = new spellChoices(arr)
     pkt.spellIDs = charItems.currentChoiceBuffs
     pkt.write().SendToPlayer(player)
