@@ -1,5 +1,5 @@
 import { spellChoice, spellChoiceID, spellChoices } from "../shared/Messages"
-const spells: TSArray<uint32> = [
+const spellsTier1: TSArray<uint32> = [
     GetID("Spell", "testing-mod", "increasedhealth1-spell"),
     GetID("Spell", "testing-mod", "increaseddamage1-spell"),
     GetID("Spell", "testing-mod", "increasedsp1-spell"),
@@ -23,7 +23,9 @@ class torghastBuffs extends TSClass {
 export function torghastBuffSystem(events: TSEventHandlers) {
     events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#aa")) {
-            buffChoice(player)
+            if(!buffChoice(player)){
+                player.SendAreaTriggerMessage('Choose your ability first!')
+            }
         }
     })
 
@@ -43,16 +45,22 @@ export function torghastBuffSystem(events: TSEventHandlers) {
     })
 }
 
-function buffChoice(player: TSPlayer) {
+function buffChoice(player: TSPlayer):boolean {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    for (let i = 0; i < buffChoiceCount; i++) {
-        let c: uint32 = spells[Math.floor(Math.random() * spells.length)]
-        charItems.currentChoiceBuffs.push(c)
+    if(charItems.currentChoiceBuffs.length > 0){
+        return false
+    }else{
+        for (let i = 0; i < buffChoiceCount; i++) {
+            let c: uint32 = spellsTier1[Math.floor(Math.random() * spellsTier1.length)]
+            charItems.currentChoiceBuffs.push(c)
+        }
+        let arr: TSArray<uint32> = [0, 0, 0]
+        let pkt = new spellChoices(arr)
+        pkt.spellIDs = charItems.currentChoiceBuffs
+        pkt.write().SendToPlayer(player)
+        return true
     }
-    let arr: TSArray<uint32> = [0, 0, 0]
-    let pkt = new spellChoices(arr)
-    pkt.spellIDs = charItems.currentChoiceBuffs
-    pkt.write().SendToPlayer(player)
+    
 }
 
 function chooseBuff(player: TSPlayer, index: uint32) {
