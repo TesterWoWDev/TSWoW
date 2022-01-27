@@ -1,6 +1,14 @@
 import { std } from "tswow-stdlib"
 export let MODNAME = 'testing-mod'
-
+//spawn spell
+export let torghastChoice = std.Spells.create(MODNAME,'torghastchoice-spell',66701)
+torghastChoice.Name.enGB.set('test spawn')
+torghastChoice.Effects.get(0).ImplicitTargetA.DEST_DEST_FRONT.set()
+torghastChoice.Effects.get(0).Radius.setSimple(5,0,5)
+torghastChoice.Effects.get(0).Type.SUMMON.set()
+torghastChoice.Effects.get(0).MiscValueA.set(45011)
+torghastChoice.Effects.get(0).MiscValueB.set(64)
+//
 export let IncreasedHealth1 = std.Spells.create(MODNAME,'increasedhealth1-spell',34747)
 IncreasedHealth1.Name.enGB.set('Invincible')
 IncreasedHealth1.Description.enGB.set('Total Health increased by $s1%.')
@@ -160,12 +168,11 @@ IncreasedResist1.Stacks.set(99)
 //
 //
 //
-
 export let rangedAttackSpeed1 = std.Spells.create(MODNAME,'rangedattackspeed1-spell',44972)
 rangedAttackSpeed1.Name.enGB.set('Increased Ranged Speed')
 rangedAttackSpeed1.Description.enGB.set('Increases ranged attack speed by $s1%. Does not stack')
 rangedAttackSpeed1.AuraDescription.enGB.set('Increases ranged attack speed by $s1%. Does not stack')
-rangedAttackSpeed1.Effects.get(0).BasePoints.set(10)
+rangedAttackSpeed1.Effects.get(0).BasePoints.set(9)
 rangedAttackSpeed1.Duration.set(21)
 rangedAttackSpeed1.Attributes.REACTIVATE_AT_RESURRECT.set(true)
 rangedAttackSpeed1.Attributes.HIDE_FROM_AURA_BAR.set(false)
@@ -174,9 +181,9 @@ rangedAttackSpeed1.AuraInterruptFlags.set(0x0080000)
 
 export let critChance1 = std.Spells.create(MODNAME,'critchance-spell',54283)
 critChance1.Name.enGB.set('Increased Crit Chance')
-critChance1.Description.enGB.set('Increases crit chance by $s1%.')
-critChance1.AuraDescription.enGB.set('Increases crit chance by $s1%.')
-critChance1.Effects.get(0).BasePoints.set(10)
+critChance1.Description.enGB.set('Increases spell crit chance by $s1%.')
+critChance1.AuraDescription.enGB.set('Increases spell crit chance by $s1%.')
+critChance1.Effects.get(0).BasePoints.set(9)
 critChance1.Duration.set(21)
 critChance1.Attributes.REACTIVATE_AT_RESURRECT.set(true)
 critChance1.Attributes.HIDE_FROM_AURA_BAR.set(false)
@@ -187,17 +194,9 @@ export let critDamage1 = std.Spells.create(MODNAME,'critdamage-spell',44797)
 critDamage1.Name.enGB.set('Increased Crit Damage')
 critDamage1.Description.enGB.set('Increases crit damage by $s1%.')
 critDamage1.AuraDescription.enGB.set('Increases crit damage by $s1%.')
-critDamage1.Effects.get(0).BasePoints.set(5)
+critDamage1.Effects.get(0).BasePoints.set(4)
 critDamage1.Duration.set(21)
 critDamage1.Attributes.REACTIVATE_AT_RESURRECT.set(true)
 critDamage1.Attributes.HIDE_FROM_AURA_BAR.set(false)
 critDamage1.Attributes.IS_PASSIVE.set(false)
 critDamage1.AuraInterruptFlags.set(0x0080000)
-
-export let spellTest = std.Spells.create(MODNAME,'testspawn-spell',66701)
-spellTest.Name.enGB.set('test spawn')
-spellTest.Effects.get(0).ImplicitTargetA.DEST_DEST_FRONT.set()
-spellTest.Effects.get(0).Radius.setSimple(5,0,5)
-spellTest.Effects.get(0).Type.SUMMON.set()
-spellTest.Effects.get(0).MiscValueA.set(45011)
-spellTest.Effects.get(0).MiscValueB.set(64)
