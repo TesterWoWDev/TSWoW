@@ -1,5 +1,5 @@
 import { spellChoice, spellChoiceID, spellChoices } from "../shared/Messages"
-const spellsTier1: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>> [
+const spells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>> [
     <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedhealth1-spell"),1],
     <TSArray<uint32>> [GetID("Spell", "testing-mod", "increaseddamage1-spell"),2],
     <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedsp1-spell"),2],
@@ -15,7 +15,7 @@ const spellsTier1: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>> [
     <TSArray<uint32>> [GetID("Spell", "testing-mod", "critchance-spell"),3],
     <TSArray<uint32>> [GetID("Spell", "testing-mod", "critdamage-spell"),4],
 ]
-const spellsTier1Descriptions = [
+const spellsDescriptions = [
     "1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
     "2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
     "3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
@@ -101,12 +101,12 @@ function buffChoice(player: TSPlayer): boolean {
         return false
     } else {
         for (let i = 0; i < buffChoiceCount; i++) {
-            const index = Math.floor(Math.random() * spellsTier1.length)
-            let spell = spellsTier1[index]
+            const index = Math.floor(Math.random() * spells.length)
+            let spell = spells[index]
             let c: uint32 = spell[0]
             charItems.currentChoiceBuffs.push(c)
             spellranks.push(spell[1])
-            spellDescs.push(spellsTier1Descriptions[index])
+            spellDescs.push(spellsDescriptions[index])
         }
         let pkt = new spellChoices(charItems.currentChoiceBuffs,spellranks,spellDescs) 
         pkt.write().SendToPlayer(player)
