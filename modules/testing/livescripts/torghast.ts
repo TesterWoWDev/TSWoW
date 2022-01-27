@@ -1,12 +1,9 @@
 import { spellChoice, spellChoiceID, spellChoices, spellValuesMessage } from "../shared/Messages"
 
-let spells: TSArray<int> = [7464, 7471, 7477, 7468, 7474]
-let buffChoiceCount = 3
-
 class torghastBuffs extends TSClass {
-    currentBuffs: TSArray<int> = []
-    currentBuffsCount: TSArray<int> = []
-    currentChoiceBuffs: TSArray<int> = []
+    currentBuffs: TSArray<uint32> = [1]
+    currentBuffsCount: TSArray<uint32> = [1]
+    currentChoiceBuffs: TSArray<uint32> = [1]
 }
 
 export function torghastBuffSystem(events: TSEventHandlers) {
@@ -34,13 +31,15 @@ export function torghastBuffSystem(events: TSEventHandlers) {
 }
 
 function buffChoice(player: TSPlayer) {
+    let spells: TSArray<uint32> = [7464, 7471, 7477, 7468, 7474]
+    let buffChoiceCount:uint32 = 3
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 1; i < buffChoiceCount; i++) {
-        let chNum = Math.floor(Math.random() * spells.length)
-        let choice = spells[chNum]
-        charItems.currentChoiceBuffs.push(choice)
+        let c:uint32 = spells[Math.floor(Math.random() * spells.length)]
+        charItems.currentChoiceBuffs.push(c)
     }
-    let pkt = new spellChoices([0, 0, 0])
+    let arr:TSArray<uint32> = [0, 0, 0]
+    let pkt = new spellChoices(arr)
     pkt.spellIDs = charItems.currentChoiceBuffs
     pkt.write().SendToPlayer(player)
 }
@@ -48,9 +47,9 @@ function buffChoice(player: TSPlayer) {
 function chooseBuff(player: TSPlayer, index: uint32) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     if (charItems.currentChoiceBuffs.length >= 3) {
-        let currentChoicesID = [charItems.currentChoiceBuffs.pop(), charItems.currentChoiceBuffs.pop(), charItems.currentChoiceBuffs.pop()]
-        let choice: number = currentChoicesID[index]!
-        let found = -1
+        let currentChoicesID: TSArray<uint32> = [charItems.currentChoiceBuffs.pop()!, charItems.currentChoiceBuffs.pop()!, charItems.currentChoiceBuffs.pop()!]
+        let choice: uint32 = currentChoicesID[index]
+        let found: uint32 = -1
         for (let i = 0; i < charItems.currentBuffs.length; i++) {
             if (charItems.currentBuffs[i] == choice) {
                 found = i

@@ -1,3 +1,5 @@
+const winToken = 11
+const killToken = 12
 export function hungerGames(events: TSEventHandlers) {
     //random spawned chests
     //random spawned materials
@@ -5,8 +7,6 @@ export function hungerGames(events: TSEventHandlers) {
     //new recipes for stuff
     //random spawned rares
     //closing zone of death
-    let winToken = 11
-    let killToken = 12
 
     events.MapID.OnPlayerEnter(1, (map, player) => {
         //difficulty 1
@@ -57,13 +57,14 @@ export function hungerGames(events: TSEventHandlers) {
                 }
             })
         })
+    })
 
         events.Player.OnPVPKill((killer, killed) => {
             teleportHome(killed)
             killer.AddItem(killToken, 1)
             let pcount = killer.GetMap().GetPlayerCount();
             if (pcount == 1) {
-                SendWorldMessage('Hunger Games Ended! ' + killer.GetName() + " wins!")
+                //SendWorldMessage('Hunger Games Ended! ' + killer.GetName() + " wins!")
                 killer.AddItem(winToken, 3)
                 killed.AddItem(winToken, 2)
                 teleportHome(killer)
@@ -72,7 +73,6 @@ export function hungerGames(events: TSEventHandlers) {
                 killed.AddItem(winToken, 1)
             }
         })
-    })
 }
 
 function getInt(max: number): number {

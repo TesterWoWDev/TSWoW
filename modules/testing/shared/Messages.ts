@@ -1,8 +1,8 @@
 export const spellValuesMessageID = 20;
 export class spellValuesMessage {
     size: uint32 = 1;
-    spellIDs: TSArray<uint32> = [-1]
-    spellCts: TSArray<uint32> = [-1]
+    spellIDs: TSArray<uint32> = [1]
+    spellCts: TSArray<uint32> = [1]
     constructor(size:uint32, spellIDs: TSArray<uint32>, spellCts: TSArray<uint32>) {
         this.size = size;
         this.spellIDs = spellIDs;
@@ -30,7 +30,7 @@ export class spellValuesMessage {
 
 export const spellChoicesID = 21;
 export class spellChoices {
-    spellIDs: TSArray<uint32> = [-1]
+    spellIDs: TSArray<uint32> = [1]
     constructor(spellIDs: TSArray<uint32>) {
         this.spellIDs = spellIDs;
     }
