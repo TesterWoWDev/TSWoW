@@ -3,12 +3,25 @@ export let MODNAME = 'testing-mod'
 //spawn spell
 export let torghastChoice = std.Spells.create(MODNAME,'torghastchoice-spell',66701)
 torghastChoice.Name.enGB.set('test spawn')
+torghastChoice.Description.enGB.set('Using this allows you and your alies to select an additional power.')
 torghastChoice.Effects.get(0).ImplicitTargetA.DEST_DEST_FRONT.set()
 torghastChoice.Effects.get(0).Radius.setSimple(5,0,5)
 torghastChoice.Effects.get(0).Type.SUMMON.set()
 torghastChoice.Effects.get(0).MiscValueA.set(45011)
 torghastChoice.Effects.get(0).MiscValueB.set(64)
+
+export let torghastChoiceItem = std.Items.create(MODNAME,'torghastchoice-item',118)
+torghastChoiceItem.Name.enGB.set('Anima Cell')
+torghastChoiceItem.Spells.clearAll()
+torghastChoiceItem.Spells.addMod(spell=>{
+spell.Spell.set(torghastChoice.ID)
+spell.Charges.set(-1)
+spell.ProcsPerMinute.set(-1)
+spell.Cooldown.set(3000)
+})
 //
+
+//note to self, make ravenous anima cell. thats funny
 export let IncreasedHealth1 = std.Spells.create(MODNAME,'increasedhealth1-spell',34747)
 IncreasedHealth1.Name.enGB.set('Invincible')
 IncreasedHealth1.Description.enGB.set('Total Health increased by $s1%.')

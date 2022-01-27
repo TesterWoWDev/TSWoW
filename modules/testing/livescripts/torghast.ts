@@ -58,11 +58,11 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                         }
                     }
                     if (arr.length == player.GetGroup().GetMembersCount()) {
-                        creature.DespawnOrUnsummon(2000)
+                        creature.DespawnOrUnsummon(0)
                     }
                 } else {
                     if (buffChoice(player)) {
-                        creature.DespawnOrUnsummon(2000)
+                        creature.DespawnOrUnsummon(0)
                     }
                 }
             }
