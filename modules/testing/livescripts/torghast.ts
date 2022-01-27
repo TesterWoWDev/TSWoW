@@ -52,9 +52,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                     if (arr.hasNumber(player.GetGUIDLow())) {
                         player.SendAreaTriggerMessage("You have used this already!")
                     } else {
-                        if (!buffChoice(player)) {
-                            player.SendAreaTriggerMessage('Choose your ability first!')
-                        } else {
+                        if (buffChoice(player)) {
                             arr.pushNumber(player.GetGUIDLow())
                             creature.SetJsonArray('usedBy', arr)
                         }
@@ -63,9 +61,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                         creature.DespawnOrUnsummon(2000)
                     }
                 } else {
-                    if (!buffChoice(player)) {
-                        player.SendAreaTriggerMessage('Choose your ability first!')
-                    } else {
+                    if (buffChoice(player)) {
                         creature.DespawnOrUnsummon(2000)
                     }
                 }
