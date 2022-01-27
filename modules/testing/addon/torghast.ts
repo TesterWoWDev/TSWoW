@@ -52,7 +52,7 @@ export function thorgast() {
             })
 
             let button = CreateFrame('Button', buttonIndex.toString(), mframe2)
-            button.SetSize(128,42)
+            button.SetSize(128, 42)
             button.SetPoint('CENTER', spellButton, 'BOTTOM', 25, -30)
             button.SetNormalTexture('Interface\\BUTTONS\\UI-Panel-Button-Up')
             let buttonText = button.CreateFontString('', 'OVERLAY', 'GameFontNormal')
@@ -68,12 +68,12 @@ export function thorgast() {
     }
 
     function onChoice(index) {
-        if(choiceSpells.length > 3){
-            choiceSpells = choiceSpells.splice(0,3)
-        }else{
+        if (choiceSpells.length > 3) {
+            choiceSpells = choiceSpells.splice(0, 3)
+        } else {
             choiceSpells = []
         }
-        
+
         for (let i = 0; i < choiceButtons.length; i++) {
             choiceButtons[i].Hide()
         }

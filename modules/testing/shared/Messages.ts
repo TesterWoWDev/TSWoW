@@ -6,14 +6,14 @@ export class spellChoices {
     }
 
     read(read: TSPacketRead): void {
-        for(let i=0;i<3;i++){
-            this.spellIDs.push(read.ReadUInt32())        
+        for (let i = 0; i < 3; i++) {
+            this.spellIDs.push(read.ReadUInt32())
         }
     }
 
     write(): TSPacketWrite {
         let packet = MakeCustomPacket(spellChoicesID, 0)
-        for(let i=0;i<3;i++){
+        for (let i = 0; i < 3; i++) {
             packet.WriteUInt32(this.spellIDs[i])
         }
         return packet;
@@ -24,7 +24,7 @@ export const spellChoiceID = 22;
 export class spellChoice {
     choice: uint32 = 1;
 
-    constructor(choice:uint32) {
+    constructor(choice: uint32) {
         this.choice = choice;
     }
 

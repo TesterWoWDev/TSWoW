@@ -59,20 +59,20 @@ export function hungerGames(events: TSEventHandlers) {
         })
     })
 
-        events.Player.OnPVPKill((killer, killed) => {
-            teleportHome(killed)
-            killer.AddItem(killToken, 1)
-            let pcount = killer.GetMap().GetPlayerCount();
-            if (pcount == 1) {
-                //SendWorldMessage('Hunger Games Ended! ' + killer.GetName() + " wins!")
-                killer.AddItem(winToken, 3)
-                killed.AddItem(winToken, 2)
-                teleportHome(killer)
-            }
-            if (pcount == 2) {
-                killed.AddItem(winToken, 1)
-            }
-        })
+    events.Player.OnPVPKill((killer, killed) => {
+        teleportHome(killed)
+        killer.AddItem(killToken, 1)
+        let pcount = killer.GetMap().GetPlayerCount();
+        if (pcount == 1) {
+            //SendWorldMessage('Hunger Games Ended! ' + killer.GetName() + " wins!")
+            killer.AddItem(winToken, 3)
+            killed.AddItem(winToken, 2)
+            teleportHome(killer)
+        }
+        if (pcount == 2) {
+            killed.AddItem(winToken, 1)
+        }
+    })
 }
 
 function getInt(max: number): number {
