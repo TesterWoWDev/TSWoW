@@ -1,5 +1,5 @@
 import { std } from "tswow-stdlib"
-export let MODNAME = 'testing-mod'
+import { MODNAME } from "../modname"
 //spawn spell
 export let torghastChoice = std.Spells.create(MODNAME,'torghastchoice-spell',66701)
 torghastChoice.Name.enGB.set('test spawn')

@@ -8,6 +8,8 @@ import { itemLearnSpell } from "./item/item-learn-spell"
 import { reviveFix } from "./QoL/revive"
 import { creatureDeathApplyBuff } from "./creature/creature-death-apply-buff"
 import { creatureDeathSummon } from "./creature/creature-death-summon"
+import { torghastBuffSystem } from "./torghast"
+import { hungerGames } from "./hunger-games"
 
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
@@ -20,4 +22,6 @@ export function Main(events: TSEventHandlers) {
     reviveFix(events)
     creatureDeathApplyBuff(events)
     creatureDeathSummon(events)
+    torghastBuffSystem(events)
+    hungerGames(events)
 }

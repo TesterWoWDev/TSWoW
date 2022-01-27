@@ -1,4 +1,5 @@
-import { spellChoice, spellChoiceID, spellChoices } from "../shared/Messages"
+import { spellChoiceID, spellChoice, spellChoices } from "../shared/Messages"
+
 const spells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>> [
     <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedhealth1-spell"),1],
     <TSArray<uint32>> [GetID("Spell", "testing-mod", "increaseddamage1-spell"),2],

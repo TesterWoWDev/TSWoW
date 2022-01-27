@@ -1,4 +1,4 @@
-import { spellChoice, spellChoices, spellChoicesID } from "../shared/Messages"
+import { spellChoicesID, spellChoices, spellChoice } from "../shared/Messages"
 
 export function thorgast() {
     let choiceSpells = []
