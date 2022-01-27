@@ -26,9 +26,42 @@ class torghastBuffs extends TSClass {
 }
 
 export function torghastBuffSystem(events: TSEventHandlers) {
+
+    events.CreatureID.OnCreate(45011, (creature, cancel) => {
+        creature.SetJsonArray('usedBy', new TSJsonArray())
+        creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
+            if (collided.IsPlayer()) {
+                let player = collided.ToPlayer()
+                let creature = self.ToCreature()
+                if (player.IsInGroup()) {
+                    let arr = creature.GetJsonArray('usedBy')
+                    if (arr.hasNumber(player.GetGUIDLow())) {
+                        player.SendAreaTriggerMessage("You have used this already!")
+                    } else {
+                        if (!buffChoice(player)) {
+                            player.SendAreaTriggerMessage('Choose your ability first!')
+                        } else {
+                            arr.pushNumber(player.GetGUIDLow())
+                            creature.SetJsonArray('usedBy', arr)
+                        }
+                    }
+                    if (arr.length == player.GetGroup().GetMembersCount()) {
+                        creature.DespawnOrUnsummon(2000)
+                    }
+                } else {
+                    if (!buffChoice(player)) {
+                        player.SendAreaTriggerMessage('Choose your ability first!')
+                    } else {
+                        creature.DespawnOrUnsummon(2000)
+                    }
+                }
+            }
+        })
+    })
+
     events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#aa")) {
-            if(!buffChoice(player)){
+            if (!buffChoice(player)) {
                 player.SendAreaTriggerMessage('Choose your ability first!')
             }
         }
@@ -50,11 +83,11 @@ export function torghastBuffSystem(events: TSEventHandlers) {
     })
 }
 
-function buffChoice(player: TSPlayer):boolean {
+function buffChoice(player: TSPlayer): boolean {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    if(charItems.currentChoiceBuffs.length > 0){
+    if (charItems.currentChoiceBuffs.length > 0) {
         return false
-    }else{
+    } else {
         for (let i = 0; i < buffChoiceCount; i++) {
             let c: uint32 = spellsTier1[Math.floor(Math.random() * spellsTier1.length)]
             charItems.currentChoiceBuffs.push(c)
@@ -65,7 +98,7 @@ function buffChoice(player: TSPlayer):boolean {
         pkt.write().SendToPlayer(player)
         return true
     }
-    
+
 }
 
 function chooseBuff(player: TSPlayer, index: uint32) {
