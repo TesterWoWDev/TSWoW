@@ -1,4 +1,4 @@
-import { spellChoice, spellChoiceID, spellChoices, spellValuesMessage } from "../shared/Messages"
+import { spellChoice, spellChoiceID, spellChoices } from "../shared/Messages"
 const spells: TSArray<uint32> = [GetID("Spell", "testing-mod", "increasedhealth1-spell"),
 GetID("Spell", "testing-mod", "increaseddamage1-spell"),
 GetID("Spell", "testing-mod", "increasedsp1-spell"),
@@ -39,7 +39,6 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         pkt.read(packet)
         chooseBuff(player, pkt.choice)
         applyBuffs(player)
-        showBuffs(player)
     })
 }
 
@@ -74,13 +73,6 @@ function chooseBuff(player: TSPlayer, index: uint32) {
             charItems.currentBuffsCount[found]++
         }
     }
-}
-
-function showBuffs(player: TSPlayer) {
-    let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    let pkt = new spellValuesMessage(charItems.currentBuffs.length, charItems.currentBuffs, charItems.currentBuffsCount)
-    pkt.write().SendToPlayer(player)
-
 }
 
 function applyBuffs(player: TSPlayer) {
