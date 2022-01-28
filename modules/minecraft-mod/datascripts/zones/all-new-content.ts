@@ -42,7 +42,7 @@ BlackRockNpc01.Scripts.onUpdateOoc(0,0,0,0,script=>{
 
 BlackRockNpc01.Scripts.onTimedEventTriggered(0,script=>{
         script.Target.setVictim()
-        script.Action.setCast(BurningMaul.ID,2,7)
+        script.Action.setCast(BurningMaul.ID,0,0)
 })
 BlackRockNpc01.MovementType.RANDOM_MOVEMENT.set()
 BlackRockNpc01.Level.set(7,8)
@@ -155,15 +155,15 @@ BlackRockNpc02.Scripts.onUpdateOoc(0,0,0,0,script=>{
 
 BlackRockNpc02.Scripts.onTimedEventTriggered(0,script=>{
         script.Target.setVictim()
-        script.Action.setCast(BurningBreath.ID,2,7)
+        script.Action.setCast(BurningBreath.ID,0,0)
     })
     BlackRockNpc02.Scripts.onTimedEventTriggered(1,script=>{
         script.Target.setVictim()
-        script.Action.setCast(PyroBlast.ID,2,7)
+        script.Action.setCast(PyroBlast.ID,0,0)
     })
     BlackRockNpc02.Scripts.onTimedEventTriggered(2,script=>{
         script.Target.setVictim()
-        script.Action.setCast(PyroClast.ID,2,7)
+        script.Action.setCast(PyroClast.ID,0,0)
     })
 BlackRockNpc02.MovementType.RANDOM_MOVEMENT.set()
 BlackRockNpc02.Level.set(7,9)
@@ -229,19 +229,19 @@ SisterCreature01.Scripts.onUpdateOoc(0,0,0,0,script=>{
 
 SisterCreature01.Scripts.onTimedEventTriggered(0,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52870,2,7)
+        script.Action.setCast(52870,0,0)
     })
     SisterCreature01.Scripts.onTimedEventTriggered(1,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52873,2,7)
+        script.Action.setCast(52873,0,0)
     })
     SisterCreature01.Scripts.onTimedEventTriggered(2,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52905,2,7)
+        script.Action.setCast(52905,0,0)
     })
     SisterCreature01.Scripts.onTimedEventTriggered(3,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52943,2,7)
+        script.Action.setCast(52943,0,0)
     })
 
 SisterCreature01.DamageSchool.Normal.set()
@@ -282,19 +282,19 @@ SisterCreature02.Scripts.onUpdateOoc(0,0,0,0,script=>{
 
 SisterCreature02.Scripts.onTimedEventTriggered(0,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52870,2,7)
+        script.Action.setCast(52870,0,0)
     })
     SisterCreature02.Scripts.onTimedEventTriggered(1,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52873,2,7)
+        script.Action.setCast(52873,0,0)
     })
     SisterCreature02.Scripts.onTimedEventTriggered(2,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52905,2,7)
+        script.Action.setCast(52905,0,0)
     })
     SisterCreature02.Scripts.onTimedEventTriggered(3,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52943,2,7)
+        script.Action.setCast(52943,0,0)
     })
 SisterCreature02.DamageSchool.Normal.set()
 SisterCreature02.Stats.ArmorMod.set(5)
@@ -334,19 +334,19 @@ SisterCreature03.Scripts.onUpdateOoc(0,0,0,0,script=>{
 
 SisterCreature03.Scripts.onTimedEventTriggered(0,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52870,2,7)
+        script.Action.setCast(52870,0,0)
     })
     SisterCreature03.Scripts.onTimedEventTriggered(1,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52873,2,7)
+        script.Action.setCast(52873,0,0)
     })
     SisterCreature03.Scripts.onTimedEventTriggered(2,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52905,2,7)
+        script.Action.setCast(52905,0,0)
     })
     SisterCreature03.Scripts.onTimedEventTriggered(3,script=>{
         script.Target.setVictim()
-        script.Action.setCast(52943,2,7)
+        script.Action.setCast(52943,0,0)
     })
 
 SisterCreature03.DamageSchool.Normal.set()
