@@ -169,10 +169,10 @@ TorghastBoss1.Scripts.onTimedEventTriggered(3, script => {
 })
 
 TorghastBoss1.DamageSchool.Normal.set()
-TorghastBoss1.Stats.ArmorMod.set(150)
-TorghastBoss1.Stats.DamageMod.set(175)
-TorghastBoss1.Stats.HealthMod.set(150)
-TorghastBoss1.Stats.ManaMod.set(165)
+TorghastBoss1.Stats.ArmorMod.set(100)
+TorghastBoss1.Stats.DamageMod.set(75)
+TorghastBoss1.Stats.HealthMod.set(75)
+TorghastBoss1.Stats.ManaMod.set(100)
 TorghastBoss1.Stats.ExperienceMod.set(10)
 export let TorghastBoss1Loot = TorghastBoss1.NormalLoot
 
@@ -296,10 +296,10 @@ TorghastBoss5.Level.set(26, 26)
 TorghastBoss5.Rank.BOSS.set()
 TorghastBoss5.UnitClass.MAGE.set()
 TorghastBoss5.DamageSchool.Normal.set()
-TorghastBoss5.Stats.ArmorMod.set(250)
-TorghastBoss5.Stats.DamageMod.set(350)
-TorghastBoss5.Stats.HealthMod.set(250)
-TorghastBoss5.Stats.ManaMod.set(300)
+TorghastBoss5.Stats.ArmorMod.set(100)
+TorghastBoss5.Stats.DamageMod.set(75)
+TorghastBoss5.Stats.HealthMod.set(100)
+TorghastBoss5.Stats.ManaMod.set(100)
 TorghastBoss5.Stats.ExperienceMod.set(10)
 export let TorghastBoss5Loot = TorghastBoss5.NormalLoot;
 
