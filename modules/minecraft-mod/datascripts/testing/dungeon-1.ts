@@ -143,7 +143,7 @@ Abilities :
 export let Boss5Magnetize1 = std.Spells.create(MODNAME, 'boss5magnetize1-spell', 50770)
 Boss5Magnetize1.Name.enGB.set('Magnetize')
 Boss5Magnetize1.AuraDescription.enGB.set('Teleports all nearby enemy targets to the caster.')
-Boss5Magnetize1.CastTime.setSimple(5000)
+Boss5Magnetize1.CastTime.setSimple(1000)
 Boss5Magnetize1.Effects.get(0).Radius.set(100)
 Boss5Magnetize1.Attributes.ONLY_TARGET_PLAYERS.set(1)
 Boss5Magnetize1.Attributes.IMPOSSIBLE_TO_DODGE_PARRY_BLOCK.set(1)
@@ -174,7 +174,7 @@ Boss5Nuke1.Effects.get(0).BasePoints.set(4999)
 Boss5Nuke1.Effects.get(0).DieSides.set(1)
 Boss5Nuke1.Effects.get(0).PointsPerLevel.set(0)
 Boss5Nuke1.Effects.get(0).Radius.set(20)
-Boss5Nuke1.Duration.setSimple(15000)
+Boss5Nuke1.CastTime.setSimple(10000)
 
 export let Boss5Fulmination1PlayerSpell = std.Spells.create(MODNAME, 'boss5fulmination1playerspell-spell', 71188)
 Boss5Fulmination1PlayerSpell.Name.enGB.set('Fulmination')
@@ -254,56 +254,47 @@ TorghastBoss5.AIName.SmartAI()
 // })
 
 TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
-    
-    if (!target.IsPlayer())
-        creature.CastSpell(creature.GetNearestPlayer(50, 1, 0), GetID("Spell", "minecraft-mod", "boss5energize1-spell"), false)   // Energize Dot
-    else
-        creature.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5energize1-spell"), false)   // Energize Dot
+    function attemptCast(spellID: number, self: TSCreature, target:TSUnit, force:boolean) {
+        if(!self.IsCasting() || force){
+            if (target.IsPlayer()){
+                self.CastSpell(target, spellID, false)
+            }
+            else{
+                self.CastSpell(self.GetNearestPlayer(50, 1, 0),spellID, false)
+            }   
+        }
+    }
 
+    attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"),creature,target,false);
     creature.AddTimer('event1', 7000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        if(!self.IsCasting()){
-            if (!target.IsPlayer()){
-                self.CastSpell(self.GetNearestPlayer(50, 1, 0), GetID("Spell", "minecraft-mod", "boss5energize1-spell"), false)   // Energize Dot
-            }
-            else{
-                self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5energize1-spell"), false)   // Energize Dot
-            }   
-        }
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"),creature,target,false);
     })
     creature.AddTimer('event2', 12000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-
-        if(!self.IsCasting()){
-            if (!target.IsPlayer()){
-                self.CastSpell(self.GetNearestPlayer(50, 1, 0), GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"), false) //Fulmination Buff/Dot
-            }
-            else{
-                self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"), false)
-            }   
-        }            
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"),creature,target,false);           
     })
     creature.AddTimer('event3', 15000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"), false)                 //Magnetize Mass Pull
-        self.AddTimer('event3.1', 2000, 0, (timer2, entity2, del2, can2) => {
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"),creature,target,false);    
+        self.AddTimer('event3.1', 2000, 1, (timer2, entity2, del2, can2) => {
             let self2 = entity2.ToCreature()
             let target2 = self2.GetVictim()
-            self2.CastSpell(target2, GetID("Spell", "minecraft-mod", "boss5nuke1-spell"), false)             //Danger Zone Mass AOE (Interruptable)
+            attemptCast(GetID("Spell", "minecraft-mod", "boss5nuke1-spell"),self2,target2,false);    
         })
     })
     creature.AddTimer('event4', 25000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5overload1-spell"), false)             //Overload Mass AOE (Uninterruptable)
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5overload1-spell"),self,target,false);   
     })
     creature.AddTimer('event5', 32500, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5execution1-spell"), false)             //Execution 1 Shot (Interruptable)
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5execution1-spell"),self,target,true);
     })
 })
 
