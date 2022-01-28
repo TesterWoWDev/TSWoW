@@ -208,7 +208,6 @@ Boss5Fulmination1.Effects.get(1).TriggerSpell.set(Boss5Fulmination1PlayerSpell.I
 Boss5Fulmination1.Effects.get(1).ImplicitTargetA.UNIT_NEARBY_ENEMY.set()
 Boss5Fulmination1.Effects.get(1).Radius.set(100)
 Boss5Fulmination1.Effects.get(2).Type.NULL.set()
-Boss5Fulmination1.CastTime.setSimple(10000)
 Boss5Fulmination1.Duration.setSimple(15000)
 
 export let Boss5Overload1 = std.Spells.create(MODNAME, 'boss5overload1-spell', 51490)
@@ -225,7 +224,7 @@ Boss5Overload1.InterruptFlags.remove("ON_MOVEMENT")
 Boss5Overload1.InterruptFlags.remove("ON_INTERRUPT_CAST")
 Boss5Overload1.InterruptFlags.remove("ON_PUSHBACK")
 
-export let Boss5Execution1 = std.Spells.create(MODNAME, 'boss5execution1-spell', 72350)
+export let Boss5Execution1 = std.Spells.create(MODNAME, 'boss5execution1-spell', 70063)
 Boss5Execution1.Name.enGB.set('Execution')
 Boss5Execution1.Description.enGB.set('Inflicts $s1 Arcane damage to all enemies.')
 Boss5Execution1.Effects.get(1).BasePoints.set(9999)
@@ -264,22 +263,23 @@ TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
             }   
         }
     }
-
-    attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"),creature,target,false);
+    //start of combat
+    creature.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5energize1-spell"), true)
+    //start of timers
     creature.AddTimer('event1', 7000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"),creature,target,false);
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"),self,target,false);
     })
     creature.AddTimer('event2', 12000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"),creature,target,false);           
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"),self,target,false);           
     })
     creature.AddTimer('event3', 15000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"),creature,target,false);    
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"),self,target,false);    
         self.AddTimer('event3.1', 2000, 1, (timer2, entity2, del2, can2) => {
             let self2 = entity2.ToCreature()
             let target2 = self2.GetVictim()
@@ -294,7 +294,7 @@ TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
     creature.AddTimer('event5', 32500, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5execution1-spell"),self,target,true);
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5execution1-spell"),self,self,true);
     })
 })
 
