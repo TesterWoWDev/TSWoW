@@ -196,7 +196,7 @@ ShamanGuard1.InlineScripts.OnJustEnteredCombat((creature, target) => {
     creature.AddTimer('event1', 5000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "guardchainheal1-spell"), self, target, false);
+        attemptCast(GetID("Spell", "minecraft-mod", "guardchainheal1-spell"), self, self, false);
     })
 })
 ShamanGuard1.InlineScripts.OnDeath((creature, killer) => {
@@ -273,12 +273,12 @@ TorghastBoss2.InlineScripts.OnJustEnteredCombat((creature, target) => {
     //start of combat
     creature.CastSpell(target, GetID("Spell", "minecraft-mod", "boss2charge1-spell"), true)
     //start of timers
-    creature.AddTimer('event1', 4000, -1, (timer, entity, del, can) => {
+    creature.AddTimer('event1', 5000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "boss2mortal1-spell"), self, target, false);
     })
-    creature.AddTimer('event2', 12000, -1, (timer, entity, del, can) => {
+    creature.AddTimer('event2', 14000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "boss2destructiveslam1-spell"), self, target, false);
@@ -287,12 +287,14 @@ TorghastBoss2.InlineScripts.OnJustEnteredCombat((creature, target) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "boss2charge1-spell"), self, target, false);
-        self.AddTimer('event3.1', 2000, 1, (timer2, entity2, del2, can2) => {
-            let self2 = entity2.ToCreature()
-            let target2 = self2.GetVictim()
-            attemptCast(GetID("Spell", "minecraft-mod", "boss2bladestorm1-spell"), self2, target2, false);
-        })
+
     })
+    creature.AddTimer('event3.1', 16000, -1, (timer, entity, del, can) => {
+            let self = entity.ToCreature()
+            let target = self.GetVictim()
+            attemptCast(GetID("Spell", "minecraft-mod", "boss2bladestorm1-spell"), self, target, true);
+        })
+
     creature.AddTimer('event4', 20000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
