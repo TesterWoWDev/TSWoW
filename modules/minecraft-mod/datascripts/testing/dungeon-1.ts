@@ -368,6 +368,10 @@ GronglingEgg.Stats.HealthMod.set(1200)
 GronglingEgg.Stats.ManaMod.set(0)
 GronglingEgg.Stats.ExperienceMod.set(0)
 GronglingEgg.UnitClass.PALADIN.set()
+
+GronglingEgg.InlineScripts.OnCreate((creature,cancel)=>{
+    creature.Attack(creature.GetNearestPlayer(50,1,0),false)
+})
 GronglingEgg.InlineScripts.OnJustEnteredCombat((creature, target) => {
     function attemptCast(spellID: number, self: TSCreature, target: TSUnit, force: boolean) {
         if (!self.IsCasting() || force) {
