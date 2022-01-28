@@ -431,10 +431,6 @@ Boss3MeltArmor1.Duration.setSimple(15000)
 Boss3MeltArmor1.Stacks.set(5)
 Boss3MeltArmor1.Icon.setPath('INV_Chest_Plate04')
 
-export let Boss3DisorientingShriek1 = std.Spells.create(MODNAME, 'boss3disorientingshriek1-spell', 40823)
-Boss3DisorientingShriek1.Name.enGB.set('Sonic Shriek')
-Boss3DisorientingShriek1.Description.enGB.set('Interrupts spellcasting for $d.')
-
 export let Boss3PotentOdor1 = std.Spells.create(MODNAME, 'boss3potentodor1-spell', 17467)
 Boss3PotentOdor1.Name.enGB.set('Potent Odor')
 Boss3PotentOdor1.Description.enGB.set('Causes the caster to automatically inflict $17466s1 Shadow damage every $t1 sec. to nearby enemies.')
@@ -487,7 +483,6 @@ TorghastBoss3.InlineScripts.OnJustEnteredCombat((creature, target) => {
         let spells:TSArray<uint32> = <TSArray<uint32>>[
             GetID("Spell", "minecraft-mod", "boss3acidwretch1-spell"),
             GetID("Spell", "minecraft-mod", "boss3venompool1-spell"),
-            GetID("Spell", "minecraft-mod", "boss3disorientingshriek1-spell"),
             GetID("Spell", "minecraft-mod", "boss3meltarmor1-spell"),
             GetID("Spell", "minecraft-mod", "boss3rumble1-spell"), 
             GetID("Spell", "minecraft-mod", "boss3acridity1-spell"),
@@ -501,10 +496,8 @@ TorghastBoss3.InlineScripts.OnJustEnteredCombat((creature, target) => {
             spellMax = 3
         } else if (self.HealthAbovePct(25)) {
             spellMax = 4
-        } else if (self.HealthAbovePct(10)) {
-            spellMax = 5
         } else {
-            spellMax = 6
+            spellMax = 5
         }
         let spellChoice = getrandomInt(spellMax)
         attemptCast(spells[spellChoice], self, target, false)
