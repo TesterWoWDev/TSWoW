@@ -729,7 +729,7 @@ TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
             self.SetBool('didCastMagnetize', true)
         }
     })
-    creature.AddTimer('event31', 16000, -1, (timer, entity, del, can) => {
+    creature.AddTimer('event3.1', 16000, -1, (timer, entity, del, can) => {
         let self = entity.ToUnit()
         if (self.GetBool('didCastMagnetize', false)){
             attemptCast(GetID("Spell", "minecraft-mod", "boss5nuke1-spell"), self, self.GetVictim(), true);
@@ -741,7 +741,7 @@ TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
     //     let target = self.GetVictim()
     //     attemptCast(GetID("Spell", "minecraft-mod", "boss5overload1-spell"),self,target,false);   
     // })
-    creature.AddTimer('event5', 32500, -1, (timer, entity, del, can) => {
+    creature.AddTimer('event4', 38000, -1, (timer, entity, del, can) => {
         let self = entity.ToUnit()
         attemptCast(GetID("Spell", "minecraft-mod", "boss5execution1-spell"), self, self.GetVictim(), true);
     })
@@ -751,16 +751,16 @@ TorghastBoss5.InlineScripts.OnDeath((creature, killer) => {
     creature.RemoveTimer('event1')
     creature.RemoveTimer('event2')
     creature.RemoveTimer('event3')
-    creature.RemoveTimer('event31')
-    creature.RemoveTimer('event5')
+    creature.RemoveTimer('event3.1')
+    creature.RemoveTimer('event4')
 })
 
 TorghastBoss5.InlineScripts.OnReachedHome((creature) => {
     creature.RemoveTimer('event1')
     creature.RemoveTimer('event2')
     creature.RemoveTimer('event3')
-    creature.RemoveTimer('event31')
-    creature.RemoveTimer('event5')
+    creature.RemoveTimer('event3.1')
+    creature.RemoveTimer('event4')
 })
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
