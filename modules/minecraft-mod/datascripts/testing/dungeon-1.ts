@@ -156,7 +156,7 @@ export let Boss5Energize1 = std.Spells.create(MODNAME, 'boss5energize1-spell', 8
 Boss5Energize1.Name.enGB.set('Energized')
 Boss5Energize1.Visual.set(11416)
 Boss5Energize1.Description.enGB.set('Electrocute your target dealing 375 damage immediately and increasing the damage they take by 1%. Lasts $d.')
-Boss5Energize1.AuraDescription.enGB.set('Increased damage taken by s2%.')
+Boss5Energize1.AuraDescription.enGB.set('Increased damage taken by $s2%.')
 Boss5Energize1.Effects.get(0).BasePoints.set(274)
 Boss5Energize1.Effects.get(0).DieSides.set(1)
 Boss5Energize1.Effects.get(0).PointsPerLevel.set(0)
