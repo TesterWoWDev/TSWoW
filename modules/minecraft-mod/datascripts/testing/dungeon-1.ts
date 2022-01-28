@@ -427,11 +427,13 @@ Boss3MeltArmor1.Description.enGB.set('Reduces an enemy\'s armor by $s1% for $d.'
 Boss3MeltArmor1.AuraDescription.enGB.set('Armor reduced by $s1%.')
 Boss3MeltArmor1.Effects.get(0).BasePoints.set(-11)
 Boss3MeltArmor1.Effects.get(0).DieSides.set(1)
-Boss3MeltArmor1.Duration.setSimple(-1)
+Boss3MeltArmor1.Duration.setSimple(15000)
+Boss3MeltArmor1.Stacks.set(5)
+Boss3MeltArmor1.Icon.setPath('INV_Chest_Plate04')
 
-export let Boss3DisorientingShriek1 = std.Spells.create(MODNAME, 'boss3disorientingshriek1-spell', 29298)
+export let Boss3DisorientingShriek1 = std.Spells.create(MODNAME, 'boss3disorientingshriek1-spell', 40823)
 Boss3DisorientingShriek1.Name.enGB.set('Sonic Shriek')
-Boss3DisorientingShriek1.Description.enGB.set('Deals $s1 shadow damage to nearby enemies and interrupts spellcasting for $d.')
+Boss3DisorientingShriek1.Description.enGB.set('Interrupts spellcasting for $d.')
 
 export let Boss3PotentOdor1 = std.Spells.create(MODNAME, 'boss3potentodor1-spell', 17467)
 Boss3PotentOdor1.Name.enGB.set('Potent Odor')
