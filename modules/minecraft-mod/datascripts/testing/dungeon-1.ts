@@ -1,77 +1,5 @@
-/*
-Boss 2 : Warglow Firehammer             23963 Orc in Warrior t3
-Type : Tauren Warrior
-Health : 32000
-Abilities : 
-    1. Mortal Strike - 220 damage + 25% reduced healing
-    2. Destructive Slam - 250 damage
-    3. Bladestorm - Interruptable, 5 second cast time, 750 damage per second.
-    4. Call Guards - 2 second cast time, summons 2 additional guards to join the fight
-
-Boss 3 : Beloved Grong
-Type : Earthborer
-Health : 26750
-Abilities : 
-    1. Acid Wretch - interruptable, 2 second cast time, 100 damage + 100 per second for 10 seconds
-    2. Venom Pool - interruptable, 3 second cast time, 250 damage + 300 per second when standing in pool, lasts until boss dies
-    3. Rumble - interruptable, channeled for 8 seconds, 750 damage to all players every second for 8 seconds
-    4. Melt Armor - 75 damage + reduced armor by 10%, stacks to 5
-
-Boss 4 : Fenra Dragonborne
-Type : Duo Warrior + Dragon
-Health : 42570
-Abilities : 
-    1. Massive Cleave : Cone in front of boss, 15 yards out, deals 2500 damage, must be avoided, 4 second cast time.
-    2. Bonecrack : AoE all targets, no initial damage, but increases damage taken by 5% for 20 seconds (reapply every 15)
-    3. Shockwave : Stun cone, 15 yards out, 250 damage, 2 second cast time
-    4. Charge : target furthest enemy away and charge them, afterwards, cast bladestorm
-Flamewing
-Health : 18320
-Abilities : 
-    1. Flame Wave : Hits all targets with 500 fire damage
-    2. Flame Breath : Hits all targets in cone, 15 yards out, 1500 damage, 5 second cast time, must avoid
-    3. Burning Rage : Upon death, enrages Fenra Dragonborne increasing her damage dealt by 35%
-    4. Summon Hatchlings : summons 6 hatchling eggs around flamewing
-        a. Emerge - eggs cast emerge over 10 seconds, if the hatchling emerges, casts Awoken Roar + Spawn Whelp
-        b. Awoken Roar - applies aura to spawned whelp that periodically pulses 250 damage to all enemies every second
-        c. Sacrifice - 10 second cast time, upon spawn, whelp will cast sacrifice and if successful, buffs Flamewing + 10% damage.
-(Players have 2 chances to kill hatchlings, one as eggs, and one as whelps, otherwise boss = buffed)
-
-Boss 6 : Drega
-Type : Paladin
-Health : 65923
-Abilities : 
-    1. Divine Storm : hits all targets within 10 yards, 3 second cast time, 2000 damage
-    2. Blade of Light : Hits nearest target 2500 damage
-    3. Lay on Hands : 6 second cast time, interruptable, full heal
-    4. Wake of Ashes : Hits all players cone in front, 50 yards, 1500 damage instant
-    5. Mass Repentence : repent all players in a 30 yard radius, lasts 6 seconds, uninterruptable, 8 second cast time
-    6. Release Burdens : Summon 4 pools, 7 second cast time
-        a. 2 Light Pool : periodically heals players for 500 damage every second for 15 seconds, damage dealt reduced by 25%
-        b. 2 Dark Pool : increases damage dealt by 25% ; periodically takes 500 damage per second for 15 seconds
-            1. Light and Dark buffs can not co-exist, if you get both light and dark, you get "Insanity" dealing 2500 damage per second
-                (Spawn 2 creatures with different light beams, do collision detections)
-
-Formation 1 : Warlock + Warrior + Warrior + Rogue
-    Warlock : Pet + Shadowbolt Volley + Chaos Bolt
-    Warrior : Charge + Rend
-    Rogue   : Stealthed, Ambush + Sinister Strike
-Formation 2 : Shaman + Warrior + Rogue + Rogue
-    Shaman  : Lightning Bolt + Chain Lightning + Chain Heal
-    Warrior : Charge + Whirlwind + Cleave
-    Rogue   : Stealthed, Garrote + Sinister Strike
-Formation 3 : Mage + Mage + Shaman
-    Mage    : Frostbolt + Frost Nova + Living Bomb
-    Shaman  : Chain Heal, Healing Wave + Riptide
-Formation 4 : Paladin + Shaman
-    Paladin : Avenger's Shield, Consecration
-    Shaman  : Healing Wave + Frost Shock
-*/
-
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../modname"
-
-
 
 /*Boss 1 : Agnar Steelwinter
 Type : Orc Shaman
@@ -372,4 +300,78 @@ TorghastBoss5.InlineScripts.OnReachedHome((creature) => {
     creature.RemoveTimer('event4')
     creature.RemoveTimer('event5')
 })
+
+
+
+
+
+/*
+Boss 2 : Warglow Firehammer             23963 Orc in Warrior t3
+Type : Tauren Warrior
+Health : 32000
+Abilities : 
+    1. Mortal Strike - 220 damage + 25% reduced healing
+    2. Destructive Slam - 250 damage
+    3. Bladestorm - Interruptable, 5 second cast time, 750 damage per second.
+    4. Call Guards - 2 second cast time, summons 2 additional guards to join the fight
+
+Boss 3 : Beloved Grong
+Type : Earthborer
+Health : 26750
+Abilities : 
+    1. Acid Wretch - interruptable, 2 second cast time, 100 damage + 100 per second for 10 seconds
+    2. Venom Pool - interruptable, 3 second cast time, 250 damage + 300 per second when standing in pool, lasts until boss dies
+    3. Rumble - interruptable, channeled for 8 seconds, 750 damage to all players every second for 8 seconds
+    4. Melt Armor - 75 damage + reduced armor by 10%, stacks to 5
+
+Boss 4 : Fenra Dragonborne
+Type : Duo Warrior + Dragon
+Health : 42570
+Abilities : 
+    1. Massive Cleave : Cone in front of boss, 15 yards out, deals 2500 damage, must be avoided, 4 second cast time.
+    2. Bonecrack : AoE all targets, no initial damage, but increases damage taken by 5% for 20 seconds (reapply every 15)
+    3. Shockwave : Stun cone, 15 yards out, 250 damage, 2 second cast time
+    4. Charge : target furthest enemy away and charge them, afterwards, cast bladestorm
+Flamewing
+Health : 18320
+Abilities : 
+    1. Flame Wave : Hits all targets with 500 fire damage
+    2. Flame Breath : Hits all targets in cone, 15 yards out, 1500 damage, 5 second cast time, must avoid
+    3. Burning Rage : Upon death, enrages Fenra Dragonborne increasing her damage dealt by 35%
+    4. Summon Hatchlings : summons 6 hatchling eggs around flamewing
+        a. Emerge - eggs cast emerge over 10 seconds, if the hatchling emerges, casts Awoken Roar + Spawn Whelp
+        b. Awoken Roar - applies aura to spawned whelp that periodically pulses 250 damage to all enemies every second
+        c. Sacrifice - 10 second cast time, upon spawn, whelp will cast sacrifice and if successful, buffs Flamewing + 10% damage.
+(Players have 2 chances to kill hatchlings, one as eggs, and one as whelps, otherwise boss = buffed)
+
+Boss 6 : Drega
+Type : Paladin
+Health : 65923
+Abilities : 
+    1. Divine Storm : hits all targets within 10 yards, 3 second cast time, 2000 damage
+    2. Blade of Light : Hits nearest target 2500 damage
+    3. Lay on Hands : 6 second cast time, interruptable, full heal
+    4. Wake of Ashes : Hits all players cone in front, 50 yards, 1500 damage instant
+    5. Mass Repentence : repent all players in a 30 yard radius, lasts 6 seconds, uninterruptable, 8 second cast time
+    6. Release Burdens : Summon 4 pools, 7 second cast time
+        a. 2 Light Pool : periodically heals players for 500 damage every second for 15 seconds, damage dealt reduced by 25%
+        b. 2 Dark Pool : increases damage dealt by 25% ; periodically takes 500 damage per second for 15 seconds
+            1. Light and Dark buffs can not co-exist, if you get both light and dark, you get "Insanity" dealing 2500 damage per second
+                (Spawn 2 creatures with different light beams, do collision detections)
+
+Formation 1 : Warlock + Warrior + Warrior + Rogue
+    Warlock : Pet + Shadowbolt Volley + Chaos Bolt
+    Warrior : Charge + Rend
+    Rogue   : Stealthed, Ambush + Sinister Strike
+Formation 2 : Shaman + Warrior + Rogue + Rogue
+    Shaman  : Lightning Bolt + Chain Lightning + Chain Heal
+    Warrior : Charge + Whirlwind + Cleave
+    Rogue   : Stealthed, Garrote + Sinister Strike
+Formation 3 : Mage + Mage + Shaman
+    Mage    : Frostbolt + Frost Nova + Living Bomb
+    Shaman  : Chain Heal, Healing Wave + Riptide
+Formation 4 : Paladin + Shaman
+    Paladin : Avenger's Shield, Consecration
+    Shaman  : Healing Wave + Frost Shock
+*/
 
