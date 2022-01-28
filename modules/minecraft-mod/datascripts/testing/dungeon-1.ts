@@ -141,6 +141,7 @@ Abilities :
     6. Execution - 10 second cast time, interruptable, deals 10,000 damage to all players
 */
 export let Boss5Magnetize1 = std.Spells.create(MODNAME, 'boss5magnetize1-spell', 50770)
+Boss5Magnetize1.Visual.set(10906)
 Boss5Magnetize1.Name.enGB.set('Magnetize')
 Boss5Magnetize1.AuraDescription.enGB.set('Teleports all nearby enemy targets to the caster.')
 Boss5Magnetize1.CastTime.setSimple(1000)
@@ -161,12 +162,13 @@ Boss5Energize1.Effects.get(0).BasePoints.set(274)
 Boss5Energize1.Effects.get(0).DieSides.set(1)
 Boss5Energize1.Effects.get(0).PointsPerLevel.set(0)
 Boss5Energize1.Effects.get(1).Type.APPLY_AURA.set()
-Boss5Energize1.Effects.get(1).BasePoints.set(0)
+Boss5Energize1.Effects.get(1).BasePoints.set(4)
 Boss5Energize1.Effects.get(1).DieSides.set(1)
 Boss5Energize1.Effects.get(1).Aura.MOD_DAMAGE_PERCENT_TAKEN.set()
 Boss5Energize1.Effects.get(1).ChainAmplitude.set(0)
 Boss5Energize1.CastTime.setSimple(3000)
 Boss5Energize1.Duration.setSimple(15000)
+Boss5Energize1.Stacks.set(99)
 
 export let Boss5Nuke1 = std.Spells.create(MODNAME, 'boss5nuke1-spell', 64487)
 Boss5Nuke1.Name.enGB.set('Danger Zone!!!')
@@ -229,8 +231,9 @@ Boss5Overload1.InterruptFlags.remove("ON_MOVEMENT")
 Boss5Overload1.InterruptFlags.remove("ON_INTERRUPT_CAST")
 Boss5Overload1.InterruptFlags.remove("ON_PUSHBACK")
 
-export let Boss5Execution1 = std.Spells.create(MODNAME, 'boss5execution1-spell', 70063)
+export let Boss5Execution1 = std.Spells.create(MODNAME, 'boss5execution1-spell', 64487)
 Boss5Execution1.Name.enGB.set('Execution')
+Boss5Overload1.Visual.set(14798)
 Boss5Execution1.Description.enGB.set('Inflicts $s1 Arcane damage to all enemies.')
 Boss5Execution1.Effects.get(1).BasePoints.set(9999)
 Boss5Execution1.Effects.get(1).DieSides.set(1)
@@ -249,7 +252,13 @@ TorghastBoss5.FactionTemplate.set(48)
 TorghastBoss5.Level.set(26, 26)
 TorghastBoss5.Rank.BOSS.set()
 TorghastBoss5.UnitClass.MAGE.set()
-TorghastBoss5.AIName.SmartAI()
+TorghastBoss5.DamageSchool.Normal.set()
+TorghastBoss5.Stats.ArmorMod.set(250)
+TorghastBoss5.Stats.DamageMod.set(350)
+TorghastBoss5.Stats.HealthMod.set(250)
+TorghastBoss5.Stats.ManaMod.set(300)
+TorghastBoss5.Stats.ExperienceMod.set(10)
+export let TorghastBoss5Loot = TorghastBoss5.NormalLoot;
 
 // TorghastBoss5.InlineScripts.OnHitBySpell((creature,caster,spellInfo)=>{
 //     if(spellInfo.ID == braiserBurn){//remember GetID for braiserBurn
@@ -258,14 +267,14 @@ TorghastBoss5.AIName.SmartAI()
 // })
 
 TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
-    function attemptCast(spellID: number, self: TSCreature, target:TSUnit, force:boolean) {
-        if(!self.IsCasting() || force){
-            if (target.IsPlayer()){
+    function attemptCast(spellID: number, self: TSCreature, target: TSUnit, force: boolean) {
+        if (!self.IsCasting() || force) {
+            if (target.IsPlayer()) {
                 self.CastSpell(target, spellID, false)
             }
-            else{
-                self.CastSpell(self.GetNearestPlayer(50, 1, 0),spellID, false)
-            }   
+            else {
+                self.CastSpell(self.GetNearestPlayer(50, 1, 0), spellID, false)
+            }
         }
     }
     //start of combat
@@ -274,32 +283,32 @@ TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
     creature.AddTimer('event1', 7000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"),self,target,false);
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"), self, target, false);
     })
     creature.AddTimer('event2', 12000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"),self,target,false);           
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"), self, target, false);
     })
     creature.AddTimer('event3', 15000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"),self,target,false);    
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"), self, target, false);
         self.AddTimer('event3.1', 2000, 1, (timer2, entity2, del2, can2) => {
             let self2 = entity2.ToCreature()
             let target2 = self2.GetVictim()
-            attemptCast(GetID("Spell", "minecraft-mod", "boss5nuke1-spell"),self2,target2,false);    
+            attemptCast(GetID("Spell", "minecraft-mod", "boss5nuke1-spell"), self2, target2, false);
         })
     })
-    creature.AddTimer('event4', 25000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature()
-        let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5overload1-spell"),self,target,false);   
-    })
+    // creature.AddTimer('event4', 25000, -1, (timer, entity, del, can) => {
+    //     let self = entity.ToCreature()
+    //     let target = self.GetVictim()
+    //     attemptCast(GetID("Spell", "minecraft-mod", "boss5overload1-spell"),self,target,false);   
+    // })
     creature.AddTimer('event5', 32500, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5execution1-spell"),self,self,true);
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5execution1-spell"), self, target, true);
     })
 })
 
@@ -321,10 +330,3 @@ TorghastBoss5.InlineScripts.OnReachedHome((creature) => {
     creature.RemoveTimer('event5')
 })
 
-TorghastBoss5.DamageSchool.Normal.set()
-TorghastBoss5.Stats.ArmorMod.set(250)
-TorghastBoss5.Stats.DamageMod.set(350)
-TorghastBoss5.Stats.HealthMod.set(250)
-TorghastBoss5.Stats.ManaMod.set(300)
-TorghastBoss5.Stats.ExperienceMod.set(10)
-export let TorghastBoss5Loot = TorghastBoss5.NormalLoot
