@@ -290,6 +290,8 @@ TorghastBoss5.InlineScripts.OnDeath((creature,killer)=>{
     creature.RemoveTimer('event2')
     creature.RemoveTimer('event3')
     creature.RemoveTimer('event3.1')
+    creature.RemoveTimer('event4')
+    creature.RemoveTimer('event5')
 })
 
 TorghastBoss5.InlineScripts.OnReachedHome((creature)=>{
@@ -297,6 +299,8 @@ TorghastBoss5.InlineScripts.OnReachedHome((creature)=>{
     creature.RemoveTimer('event2')
     creature.RemoveTimer('event3')
     creature.RemoveTimer('event3.1')
+    creature.RemoveTimer('event4')
+    creature.RemoveTimer('event5')
 })
 
 TorghastBoss5.DamageSchool.Normal.set()
