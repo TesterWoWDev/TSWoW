@@ -1,20 +1,20 @@
 import { spellChoiceID, spellChoice, spellChoices } from "../shared/Messages"
 
 const spells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>> [
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedhealth1-spell"),1],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increaseddamage1-spell"),2],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedsp1-spell"),2],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedap1-spell"),3],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedstamina1-spell"),4],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedstrength1-spell"),1],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedintellect1-spell"),2],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedagility1-spell"),3],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedcrit1-spell"),4],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "increasedresist1-spell"),1],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedhealth1-spell"),1],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increaseddamage1-spell"),2],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedsp1-spell"),2],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedap1-spell"),3],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedstamina1-spell"),4],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedstrength1-spell"),1],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedintellect1-spell"),2],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedagility1-spell"),3],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedcrit1-spell"),4],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedresist1-spell"),1],
     //new spells
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "rangedattackspeed1-spell"),2],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "critchance-spell"),3],
-    <TSArray<uint32>> [GetID("Spell", "testing-mod", "critdamage-spell"),4],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"),2],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "critchance-spell"),3],
+    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "critdamage-spell"),4],
 ]
 const spellsDescriptions = [
     "1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
