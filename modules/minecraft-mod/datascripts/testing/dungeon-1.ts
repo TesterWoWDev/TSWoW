@@ -263,40 +263,47 @@ TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
     creature.AddTimer('event1', 7000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
-
-        if (!target.IsPlayer())
-            self.CastSpell(self.GetNearestPlayer(50, 1, 0), GetID("Spell", "minecraft-mod", "boss5energize1-spell"), false)   // Energize Dot
-        else
-            self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5energize1-spell"), false)   // Energize Dot
+        if(!self.IsCasting()){
+            if (!target.IsPlayer()){
+                self.CastSpell(self.GetNearestPlayer(50, 1, 0), GetID("Spell", "minecraft-mod", "boss5energize1-spell"), false)   // Energize Dot
+            }
+            else{
+                self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5energize1-spell"), false)   // Energize Dot
+            }   
+        }
     })
     creature.AddTimer('event2', 12000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
 
-        if (!target.IsPlayer())
-            self.CastSpell(self.GetNearestPlayer(50, 1, 0), GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"), false) //Fulmination Buff/Dot
-        else
-            self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"), false)
+        if(!self.IsCasting()){
+            if (!target.IsPlayer()){
+                self.CastSpell(self.GetNearestPlayer(50, 1, 0), GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"), false) //Fulmination Buff/Dot
+            }
+            else{
+                self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"), false)
+            }   
+        }            
     })
-    creature.AddTimer('event3', 10000, -1, (timer, entity, del, can) => {
+    creature.AddTimer('event3', 15000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"), false)                 //Magnetize Mass Pull
-        creature.AddTimer('event3.1', 2000, 0, (timer, entity, del, can) => {
-            let self = entity.ToCreature()
-            let target = self.GetVictim()
-            self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5nuke1-spell"), false)             //Danger Zone Mass AOE (Interruptable)
+        self.AddTimer('event3.1', 2000, 0, (timer2, entity2, del2, can2) => {
+            let self2 = entity2.ToCreature()
+            let target2 = self2.GetVictim()
+            self2.CastSpell(target2, GetID("Spell", "minecraft-mod", "boss5nuke1-spell"), false)             //Danger Zone Mass AOE (Interruptable)
         })
-        creature.AddTimer('event4', 25000, -1, (timer, entity, del, can) => {
-            let self = entity.ToCreature()
-            let target = self.GetVictim()
-            self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5overload1-spell"), false)             //Overload Mass AOE (Uninterruptable)
-        })
-        creature.AddTimer('event5', 32500, -1, (timer, entity, del, can) => {
-            let self = entity.ToCreature()
-            let target = self.GetVictim()
-            self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5execution1-spell"), false)             //Execution 1 Shot (Interruptable)
-        })
+    })
+    creature.AddTimer('event4', 25000, -1, (timer, entity, del, can) => {
+        let self = entity.ToCreature()
+        let target = self.GetVictim()
+        self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5overload1-spell"), false)             //Overload Mass AOE (Uninterruptable)
+    })
+    creature.AddTimer('event5', 32500, -1, (timer, entity, del, can) => {
+        let self = entity.ToCreature()
+        let target = self.GetVictim()
+        self.CastSpell(target, GetID("Spell", "minecraft-mod", "boss5execution1-spell"), false)             //Execution 1 Shot (Interruptable)
     })
 })
 
