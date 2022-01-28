@@ -226,6 +226,9 @@ export let Boss2Bladestorm1 = std.Spells.create(MODNAME, 'boss2bladestorm1-spell
 Boss2Bladestorm1.Name.enGB.set('Blade Dancing')
 Boss2Bladestorm1.AuraDescription.enGB.set('You cannot be stopped and perform a Whirlwind every $t1 sec.  No other abilities can be used.')
 Boss2Bladestorm1.CastTime.setSimple(4000)
+Boss2Bladestorm1.Power.PowerCostBase.set(0)
+Boss2Bladestorm1.Power.PowerCostPerLevel.set(0)
+Boss2Bladestorm1.Power.PowerCostPercent.set(0)
 
 export let Boss2Summon1 = std.Spells.create(MODNAME, 'boss2summon1-spell', 66543)
 Boss2Summon1.Name.enGB.set('Call for Aid!')
