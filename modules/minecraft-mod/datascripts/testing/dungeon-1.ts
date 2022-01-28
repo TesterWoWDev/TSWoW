@@ -728,7 +728,7 @@ TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"), self, target, false);
-        self.AddTimer('event3.1', 2000, 1, (timer2, entity2, del2, can2) => {
+        entity.AddTimer('event3.1', 2000, 0, (timer2, entity2, del2, can2) => {
             let self2 = entity2.ToCreature()
             let target2 = self2.GetVictim()
             attemptCast(GetID("Spell", "minecraft-mod", "boss5nuke1-spell"), self2, target2, false);
