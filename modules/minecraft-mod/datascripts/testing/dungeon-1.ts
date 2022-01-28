@@ -168,7 +168,7 @@ GuardChainHeal.Effects.get(0).BasePoints.set(2195)
 GuardChainHeal.Effects.get(0).DieSides.set(716)
 GuardChainHeal.Effects.get(0).ChainTarget.set(10)
 GuardChainHeal.CastTime.setSimple(5000)
-GuardChainHeal.Range.setSimple(0,100)
+GuardChainHeal.Range.setSimple(0, 100)
 
 export let ShamanGuard1 = std.CreatureTemplates.create(MODNAME, 'shamanguard1', 25428)
 ShamanGuard1.Name.enGB.set('Windspeaker Shaman')
@@ -199,23 +199,23 @@ ShamanGuard1.InlineScripts.OnJustEnteredCombat((creature, target) => {
         attemptCast(GetID("Spell", "minecraft-mod", "guardchainheal1-spell"), self, target, false);
     })
 })
-    ShamanGuard1.InlineScripts.OnDeath((creature, killer) => {
-        creature.RemoveTimer('event1')
-    })
-    ShamanGuard1.InlineScripts.OnReachedHome((creature) => {
-        creature.RemoveTimer('event1')
-    })
+ShamanGuard1.InlineScripts.OnDeath((creature, killer) => {
+    creature.RemoveTimer('event1')
+})
+ShamanGuard1.InlineScripts.OnReachedHome((creature) => {
+    creature.RemoveTimer('event1')
+})
 
 export let Boss2Charge1 = std.Spells.create(MODNAME, 'boss2charge1-spell', 31994)
 Boss2Charge1.Name.enGB.set('Lumbering Charge')
 Boss2Charge1.Description.enGB.set('Charges an enemy, inflicting normal damage plus $s3.')
-Boss2Charge1.Range.setSimple(0,100)
+Boss2Charge1.Range.setSimple(0, 100)
 
 export let Boss2Mortal1 = std.Spells.create(MODNAME, 'boss2mortal1-spell', 48137)
 Boss2Mortal1.Name.enGB.set('Vicious Wound')
 Boss2Mortal1.Description.enGB.set('Inflicts $s1% weapon damage to an enemy and leaves it wounded')
 Boss2Mortal1.AuraDescription.enGB.set('Healing effects reduced by $s2%.')
-Boss2Mortal1.Range.setSimple(0,8)
+Boss2Mortal1.Range.setSimple(0, 8)
 
 export let Boss2DestructiveSlam1 = std.Spells.create(MODNAME, 'boss2destructiveslam1-spell', 25322)
 Boss2DestructiveSlam1.Name.enGB.set('Destructive Slam')
@@ -240,7 +240,7 @@ Boss2LastStand1.AuraDescription.enGB.set('Health increased by 30% of maximum.')
 Boss2LastStand1.Effects.get(0).BasePoints.set(29)
 Boss2LastStand1.Effects.get(0).DieSides.set(1)
 Boss2LastStand1.Effects.get(0).Aura.MOD_INCREASE_HEALTH_PERCENT.set()
-Boss2LastStand1.Duration.setSimple(-1,0,-1)
+Boss2LastStand1.Duration.setSimple(-1, 0, -1)
 
 export let TorghastBoss2 = std.CreatureTemplates.create(MODNAME, 'torghastboss2', 3276)
 TorghastBoss2.Models.clearAll()
@@ -384,12 +384,12 @@ GronglingEgg.InlineScripts.OnJustEnteredCombat((creature, target) => {
         attemptCast(GetID("Spell", "minecraft-mod", "hasteauraegg-spell"), self, target, false);
     })
 })
-    GronglingEgg.InlineScripts.OnDeath((creature, killer) => {
-        creature.RemoveTimer('event1')
-    })
-    GronglingEgg.InlineScripts.OnReachedHome((creature) => {
-        creature.RemoveTimer('event1')
-    })
+GronglingEgg.InlineScripts.OnDeath((creature, killer) => {
+    creature.RemoveTimer('event1')
+})
+GronglingEgg.InlineScripts.OnReachedHome((creature) => {
+    creature.RemoveTimer('event1')
+})
 
 export let Boss3AcidWretch1 = std.Spells.create(MODNAME, 'boss3acidwretch1-spell', 12533)
 Boss3AcidWretch1.Name.enGB.set('Acid Wretch')
@@ -400,14 +400,14 @@ Boss3AcidWretch1.Effects.get(0).DieSides.set(1)
 Boss3AcidWretch1.Effects.get(0).ChainAmplitude.set(1000)
 Boss3AcidWretch1.Effects.get(1).BasePoints.set(299)
 Boss3AcidWretch1.Effects.get(1).DieSides.set(1)
-Boss3AcidWretch1.Duration.setSimple(10000,0,10000)
+Boss3AcidWretch1.Duration.setSimple(10000, 0, 10000)
 Boss3AcidWretch1.CastTime.setSimple(2000)
 
 export let Boss3VenomPool1 = std.Spells.create(MODNAME, 'boss3venompool1-spell', 53400)
 Boss3VenomPool1.Name.enGB.set('Venom Cloud')
 Boss3VenomPool1.Description.enGB.set('Sprays acid at the location of the target, creating a cloud that deals $s1 Nature damage per second to enemies inside of it. Lasts $d.')
 Boss3VenomPool1.AuraDescription.enGB.set('Deals $s1 Nature damage per second.')
-Boss3VenomPool1.Duration.setSimple(-1,0,-1)
+Boss3VenomPool1.Duration.setSimple(-1, 0, -1)
 Boss3VenomPool1.CastTime.setSimple(3000)
 
 export let Boss3Rumble1 = std.Spells.create(MODNAME, 'boss3rumble1-spell', 62776)
@@ -474,7 +474,7 @@ TorghastBoss3.InlineScripts.OnJustEnteredCombat((creature, target) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "boss3acidwretch1-spell"), self, target, false);
-    })    
+    })
     creature.AddTimer('event2', 8000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
@@ -769,7 +769,7 @@ TorghastBoss5.InlineScripts.OnReachedHome((creature) => {
 /*Boss 6 : Drega
 Type : Paladin
 Health : 65923
-Abilities : 
+Abilities :
     1. Divine Storm : hits all targets within 10 yards, 3 second cast time, 2000 damage
     2. Blade of Light : Hits nearest target 2500 damage
     3. Lay on Hands : 6 second cast time, interruptable, full heal
