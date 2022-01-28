@@ -239,6 +239,7 @@ Boss2Summon1.Description.enGB.set('Calls 2 Windspeaker Shamans to join the fight
 Boss2Summon1.Effects.get(0).MiscValueA.set(ShamanGuard1.ID)
 Boss2Summon1.Effects.get(0).BasePoints.set(1)
 Boss2Summon1.Effects.get(0).DieSides.set(1)
+Boss2Summon1.Duration.setSimple(60000)
 
 export let Boss2LastStand1 = std.Spells.create(MODNAME, 'boss2laststand1-spell', 12976)
 Boss2LastStand1.Name.enGB.set('Enraged Triumph')
