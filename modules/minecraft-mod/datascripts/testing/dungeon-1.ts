@@ -40,9 +40,36 @@ Abilities :
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../modname"
 
+export let Boss1FlameShock1 = std.Spells.create(MODNAME,'boss1flameshock1-spell',8050)
+Boss1FlameShock1.Name.enGB.set('Crackling Flames')
+Boss1FlameShock1.AuraDescription.enGB.set('$s2 Fire damage every $t2 seconds.')
+Boss1FlameShock1.Description.enGB.set('Instantly sears the target with fire, causing $s1 Fire damage immediately and $o2 Fire damage over $d.')
+Boss1FlameShock1.Effects.get(0).BasePoints.set(74)
+Boss1FlameShock1.Effects.get(0).DieSides.set(1)
+Boss1FlameShock1.Effects.get(0).PointsPerLevel.set(0)
+Boss1FlameShock1.Effects.get(1).BasePoints.set(44)
+Boss1FlameShock1.Effects.get(1).DieSides.set(1)
+Boss1FlameShock1.Effects.get(1).ChainAmplitude.set(3000)
+Boss1FlameShock1.Duration.modRefCopy(val=>{
+    val.set(7000,0,0)
+})
+Boss1FlameShock1.Cooldown.set(7000,0,0,0)
 
+export let Boss1LightningBolt1 = std.Spells.create(MODNAME,'boss1lightningbolt1-spell',8246)
+Boss1LightningBolt1.Name.enGB.set('Lightning Strike')
+Boss1LightningBolt1.Description.enGB.set('Blasts an enemy with lightning for $s1 Nature damage.')
+Boss1LightningBolt1.Effects.get(0).BasePoints.set(184)
+Boss1LightningBolt1.Effects.get(0).DieSides.set(1)
+Boss1LightningBolt1.Effects.get(0).PointsPerLevel.set(0)
+Boss1LightningBolt1.CastTime.set(2500)
 
-
+export let Boss1LightningBolt1 = std.Spells.create(MODNAME,'boss1lightningbolt1-spell',8246)
+Boss1LightningBolt1.Name.enGB.set('Lightning Strike')
+Boss1LightningBolt1.Description.enGB.set('Blasts an enemy with lightning for $s1 Nature damage.')
+Boss1LightningBolt1.Effects.get(0).BasePoints.set(184)
+Boss1LightningBolt1.Effects.get(0).DieSides.set(1)
+Boss1LightningBolt1.Effects.get(0).PointsPerLevel.set(0)
+Boss1LightningBolt1.CastTime.set(2500)
 
 
 export let TorghastBoss1 = std.CreatureTemplates.create(MODNAME,'torghastboss1',3276)
