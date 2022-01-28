@@ -93,31 +93,27 @@ TorghastBoss1.InlineScripts.OnJustEnteredCombat((creature, target) => {
     //start of combat
     creature.CastSpell(target, GetID("Spell", "minecraft-mod", "boss1flameshock1-spell"), true)
     //start of timers
-    creature.AddTimer('event1', 1000, -1, (timer, entity, del, can) => {
+    creature.AddTimer('event1', 3000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "boss1lightningbolt1-spell"), self, target, false);
     })
-    creature.AddTimer('event2', 4000, -1, (timer, entity, del, can) => {
+    creature.AddTimer('event2', 5500, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "boss1flameshock1-spell"), self, target, false);
     })
-    creature.AddTimer('event3', 12000, -1, (timer, entity, del, can) => {
+    creature.AddTimer('event3', 14000, 1, (timer, entity, del, can) => {
+        let self = entity.ToCreature()
+        let target = self.GetVictim()
+        attemptCast(GetID("Spell", "minecraft-mod", "boss1chainlightning1-spell"), self, target, false);
+    })
+    creature.AddTimer('event4', 20000, -1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "boss1healingwave1-spell"), self, target, false);
     })
-    creature.AddTimer('event4', 15000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature()
-        let target = self.GetVictim()
-        attemptCast(GetID("Spell", "minecraft-mod", "boss1flameshock1-spell"), self, target, false);
-        self.AddTimer('event4.1', 2000, 1, (timer2, entity2, del2, can2) => {
-            let self2 = entity2.ToCreature()
-            let target2 = self2.GetVictim()
-            attemptCast(GetID("Spell", "minecraft-mod", "boss1chainlightning1-spell"), self2, target2, false);
-        })
-    })
+
 })
 
 TorghastBoss1.InlineScripts.OnDeath((creature, killer) => {
@@ -125,7 +121,6 @@ TorghastBoss1.InlineScripts.OnDeath((creature, killer) => {
     creature.RemoveTimer('event2')
     creature.RemoveTimer('event3')
     creature.RemoveTimer('event4')
-    creature.RemoveTimer('event4.1')
 })
 
 TorghastBoss1.InlineScripts.OnReachedHome((creature) => {
@@ -133,7 +128,6 @@ TorghastBoss1.InlineScripts.OnReachedHome((creature) => {
     creature.RemoveTimer('event2')
     creature.RemoveTimer('event3')
     creature.RemoveTimer('event4')
-    creature.RemoveTimer('event4.1')
 })
 
 
