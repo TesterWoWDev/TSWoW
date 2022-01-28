@@ -376,12 +376,11 @@ GronglingEgg.InlineScripts.OnJustEnteredCombat((creature, target) => {
             }
             else {
                 self.CastSpell(self.GetNearestPlayer(50, 1, 0), spellID, false)
-
             }
         }
     }
     attemptCast(42716, creature, creature, false);
-    creature.AddTimer('event1', 1000, 0, (timer, entity, del, can) => {
+    creature.AddTimer('event1', 1000, 1, (timer, entity, del, can) => {
         let self = entity.ToCreature()
         let target = self.GetVictim()
         attemptCast(GetID("Spell", "minecraft-mod", "hasteauraegg-spell"), self, target, false);
