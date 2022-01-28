@@ -182,6 +182,9 @@ ShamanGuard1.Stats.HealthMod.set(12)
 ShamanGuard1.Stats.ManaMod.set(15)
 ShamanGuard1.Stats.ExperienceMod.set(10)
 ShamanGuard1.UnitClass.PALADIN.set()
+ShamanGuard1.InlineScripts.OnCreate((creature,cancel)=>{
+    creature.Attack(creature.GetNearestPlayer(50,1,0),false)
+})
 ShamanGuard1.InlineScripts.OnJustEnteredCombat((creature, target) => {
     function attemptCast(spellID: number, self: TSCreature, target: TSUnit, force: boolean) {
         if (!self.IsCasting() || force) {
