@@ -344,8 +344,8 @@ Abilities :
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export let HasteAuraEgg = std.Spells.create(MODNAME, 'hasteauraegg-spell', 19506)
-HasteAuraEgg.Name.enGB.set('Rejuvenating Waters')
-HasteAuraEgg.Description.enGB.set('Heals the friendly target for $s1, then jumps to heal additional nearby targets.')
+HasteAuraEgg.Name.enGB.set('Acrid Haste')
+HasteAuraEgg.AuraDescription.enGB.set('Increases haste by $s1%.')
 HasteAuraEgg.Effects.get(0).BasePoints.set(4)
 HasteAuraEgg.Effects.get(0).DieSides.set(1)
 HasteAuraEgg.Effects.get(0).Aura.MOD_MELEE_HASTE.set()
@@ -354,6 +354,7 @@ HasteAuraEgg.Effects.get(1).BasePoints.set(4)
 HasteAuraEgg.Effects.get(1).DieSides.set(1)
 HasteAuraEgg.Effects.get(1).Aura.MOD_MELEE_HASTE.set()
 HasteAuraEgg.Effects.get(1).Radius.setSimple(100)
+HasteAuraEgg.Stacks.set(99)
 
 export let GronglingEgg = std.CreatureTemplates.create(MODNAME, 'gronglingegg', 30268)
 GronglingEgg.Name.enGB.set('Grongling Egg')
@@ -415,7 +416,7 @@ Boss3Rumble1.Name.enGB.set('Rumble')
 Boss3Rumble1.Description.enGB.set('Deals $s1% damage every $t1 sec for $d. Nearby enemies are also dazed for the duration.')
 Boss3Rumble1.AuraDescription.enGB.set('Dealing damage to nearby enemies.')
 
-export let Boss3MeltArmor1 = std.Spells.create(MODNAME, 'boss3meltarmor1-spell', 62776)
+export let Boss3MeltArmor1 = std.Spells.create(MODNAME, 'boss3meltarmor1-spell', 13013)
 Boss3MeltArmor1.Name.enGB.set('Melt Armor')
 Boss3MeltArmor1.Description.enGB.set('Reduces an enemy\'s armor by $s1% for $d.')
 Boss3MeltArmor1.AuraDescription.enGB.set('Armor reduced by $s1%.')
