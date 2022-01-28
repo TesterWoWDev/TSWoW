@@ -501,68 +501,13 @@ TorghastBoss3.InlineScripts.OnJustEnteredCombat((creature, target) => {
         attemptCast(spells[spellChoice], self, target, false)
     })
 })
-// TorghastBoss3.InlineScripts.OnJustEnteredCombat((creature, target) => {
-//     function attemptCast(spellID: number, self: TSCreature, target: TSUnit, force: boolean) {
-//         if (!self.IsCasting() || force) {
-//             if (target.IsPlayer()) {
-//                 self.CastSpell(target, spellID, false)
-//             }
-//             else {
-//                 self.CastSpell(self.GetNearestPlayer(50, 1, 0), spellID, false)
-//             }
-//         }
-//     }
-//     //start of combat
-//     creature.CastSpell(target, GetID("Spell", "minecraft-mod", "boss3potentodor1-spell"), true)
-//     //start of timers
-//     creature.AddTimer('event1', 2000, -1, (timer, entity, del, can) => {
-//         let self = entity.ToCreature()
-//         let target = self.GetVictim()
-//         attemptCast(GetID("Spell", "minecraft-mod", "boss3acidwretch1-spell"), self, target, false);
-//     })
-//     creature.AddTimer('event2', 8000, -1, (timer, entity, del, can) => {
-//         let self = entity.ToCreature()
-//         let target = self.GetVictim()
-//         attemptCast(GetID("Spell", "minecraft-mod", "boss3venompool1-spell"), self, target, false);
-//     })
-//     creature.AddTimer('event3', 12000, -1, (timer, entity, del, can) => {
-//         let self = entity.ToCreature()
-//         let target = self.GetVictim()
-//         attemptCast(GetID("Spell", "minecraft-mod", "boss3disorientingshriek1-spell"), self, target, false);
-//     })
-//     creature.AddTimer('event4', 15000, -1, (timer, entity, del, can) => {
-//         let self = entity.ToCreature()
-//         let target = self.GetVictim()
-//         attemptCast(GetID("Spell", "minecraft-mod", "boss3meltarmor1-spell"), self, target, false);
-//         self.AddTimer('event4.1', 2000, 1, (timer2, entity2, del2, can2) => {
-//             let self2 = entity2.ToCreature()
-//             let target2 = self2.GetVictim()
-//             attemptCast(GetID("Spell", "minecraft-mod", "boss3rumble1-spell"), self2, target2, false);
-//         })
-//     })
-//     creature.AddTimer('event5', 20000, -1, (timer, entity, del, can) => {
-//         let self = entity.ToCreature()
-//         let target = self.GetVictim()
-//         attemptCast(GetID("Spell", "minecraft-mod", "boss3acridity1-spell"), self, target, false);
-//     })
-// })
 
 TorghastBoss3.InlineScripts.OnDeath((creature, killer) => {
-    creature.RemoveTimer('event1')
-    creature.RemoveTimer('event2')
-    creature.RemoveTimer('event3')
-    creature.RemoveTimer('event3.1')
-    creature.RemoveTimer('event4')
-    creature.RemoveTimer('event5')
+    creature.RemoveTimer('combatLoop')
 })
 
 TorghastBoss3.InlineScripts.OnReachedHome((creature) => {
-    creature.RemoveTimer('event1')
-    creature.RemoveTimer('event2')
-    creature.RemoveTimer('event3')
-    creature.RemoveTimer('event3.1')
-    creature.RemoveTimer('event4')
-    creature.RemoveTimer('event5')
+    creature.RemoveTimer('combatLoop')
 })
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
