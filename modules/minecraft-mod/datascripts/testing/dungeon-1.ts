@@ -478,6 +478,7 @@ TorghastBoss3.InlineScripts.OnJustEnteredCombat((creature, target) => {
     function getrandomInt(max: uint32): uint32 {
         return Math.floor(Math.random() * max)
     }
+    attemptCast(GetID("Spell", "minecraft-mod", "boss3potentodor1-spell"),creature,creature,false)
     creature.AddTimer('combatLoop', 5000, -1, (timer, owner, delay, cancel) => {
         let self = owner.ToCreature()
         let target = self.GetVictim()
