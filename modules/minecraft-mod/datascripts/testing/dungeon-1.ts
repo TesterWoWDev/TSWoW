@@ -16,6 +16,56 @@ Abilities :
     2. Venom Pool - interruptable, 3 second cast time, 250 damage + 300 per second when standing in pool, lasts until boss dies
     3. Rumble - interruptable, channeled for 8 seconds, 750 damage to all players every second for 8 seconds
     4. Melt Armor - 75 damage + reduced armor by 10%, stacks to 5
+
+Boss 4 : Fenra Dragonborne
+Type : Duo Warrior + Dragon
+Health : 42570
+Abilities : 
+    1. Massive Cleave : Cone in front of boss, 15 yards out, deals 2500 damage, must be avoided, 4 second cast time.
+    2. Bonecrack : AoE all targets, no initial damage, but increases damage taken by 5% for 20 seconds (reapply every 15)
+    3. Shockwave : Stun cone, 15 yards out, 250 damage, 2 second cast time
+    4. Charge : target furthest enemy away and charge them, afterwards, cast bladestorm
+Flamewing
+Health : 18320
+Abilities : 
+    1. Flame Wave : Hits all targets with 500 fire damage
+    2. Flame Breath : Hits all targets in cone, 15 yards out, 1500 damage, 5 second cast time, must avoid
+    3. Burning Rage : Upon death, enrages Fenra Dragonborne increasing her damage dealt by 35%
+    4. Summon Hatchlings : summons 6 hatchling eggs around flamewing
+        a. Emerge - eggs cast emerge over 10 seconds, if the hatchling emerges, casts Awoken Roar + Spawn Whelp
+        b. Awoken Roar - applies aura to spawned whelp that periodically pulses 250 damage to all enemies every second
+        c. Sacrifice - 10 second cast time, upon spawn, whelp will cast sacrifice and if successful, buffs Flamewing + 10% damage.
+(Players have 2 chances to kill hatchlings, one as eggs, and one as whelps, otherwise boss = buffed)
+
+Boss 6 : Drega
+Type : Paladin
+Health : 65923
+Abilities : 
+    1. Divine Storm : hits all targets within 10 yards, 3 second cast time, 2000 damage
+    2. Blade of Light : Hits nearest target 2500 damage
+    3. Lay on Hands : 6 second cast time, interruptable, full heal
+    4. Wake of Ashes : Hits all players cone in front, 50 yards, 1500 damage instant
+    5. Mass Repentence : repent all players in a 30 yard radius, lasts 6 seconds, uninterruptable, 8 second cast time
+    6. Release Burdens : Summon 4 pools, 7 second cast time
+        a. 2 Light Pool : periodically heals players for 500 damage every second for 15 seconds, damage dealt reduced by 25%
+        b. 2 Dark Pool : increases damage dealt by 25% ; periodically takes 500 damage per second for 15 seconds
+            1. Light and Dark buffs can not co-exist, if you get both light and dark, you get "Insanity" dealing 2500 damage per second
+                (Spawn 2 creatures with different light beams, do collision detections)
+
+Formation 1 : Warlock + Warrior + Warrior + Rogue
+    Warlock : Pet + Shadowbolt Volley + Chaos Bolt
+    Warrior : Charge + Rend
+    Rogue   : Stealthed, Ambush + Sinister Strike
+Formation 2 : Shaman + Warrior + Rogue + Rogue
+    Shaman  : Lightning Bolt + Chain Lightning + Chain Heal
+    Warrior : Charge + Whirlwind + Cleave
+    Rogue   : Stealthed, Garrote + Sinister Strike
+Formation 3 : Mage + Mage + Shaman
+    Mage    : Frostbolt + Frost Nova + Living Bomb
+    Shaman  : Chain Heal, Healing Wave + Riptide
+Formation 4 : Paladin + Shaman
+    Paladin : Avenger's Shield, Consecration
+    Shaman  : Healing Wave + Frost Shock
 */
 
 import { std } from "tswow-stdlib"
@@ -179,20 +229,20 @@ Boss5Nuke1.Effects.get(0).PointsPerLevel.set(0)
 Boss5Nuke1.Effects.get(0).Radius.set(15)
 Boss5Nuke1.CastTime.setSimple(8000)
 
-export let Boss5Fulmination1PlayerSpell = std.Spells.create(MODNAME, 'boss5fulmination1playerspell-spell', 71188)
-Boss5Fulmination1PlayerSpell.Name.enGB.set('Fulmination')
-Boss5Fulmination1PlayerSpell.Description.enGB.set('Damage done increased by $s1%.')
-Boss5Fulmination1PlayerSpell.AuraDescription.enGB.set('Damage done increased by $s1%. Taking $s2 Arcane Damage every 2 seconds.')
-Boss5Fulmination1PlayerSpell.Effects.get(0).BasePoints.set(24)
-Boss5Fulmination1PlayerSpell.Effects.get(0).DieSides.set(1)
-Boss5Fulmination1PlayerSpell.Effects.get(1).Type.APPLY_AURA.set()
-Boss5Fulmination1PlayerSpell.Effects.get(1).BasePoints.set(124)
-Boss5Fulmination1PlayerSpell.Effects.get(1).DieSides.set(1)
-Boss5Fulmination1PlayerSpell.Effects.get(1).Aura.PERIODIC_DAMAGE.set()
-Boss5Fulmination1PlayerSpell.Effects.get(1).ImplicitTargetA.UNIT_CASTER.set()
-Boss5Fulmination1PlayerSpell.Effects.get(1).ChainAmplitude.set(2000)
-Boss5Fulmination1PlayerSpell.Attributes.IS_NEGATIVE.set(1)
-Boss5Fulmination1PlayerSpell.Duration.setSimple(15000)
+// export let Boss5Fulmination1PlayerSpell = std.Spells.create(MODNAME, 'boss5fulmination1playerspell-spell', 71188)
+// Boss5Fulmination1PlayerSpell.Name.enGB.set('Fulmination')
+// Boss5Fulmination1PlayerSpell.Description.enGB.set('Damage done increased by $s1%.')
+// Boss5Fulmination1PlayerSpell.AuraDescription.enGB.set('Damage done increased by $s1%. Taking $s2 Arcane Damage every 2 seconds.')
+// Boss5Fulmination1PlayerSpell.Effects.get(0).BasePoints.set(24)
+// Boss5Fulmination1PlayerSpell.Effects.get(0).DieSides.set(1)
+// Boss5Fulmination1PlayerSpell.Effects.get(1).Type.APPLY_AURA.set()
+// Boss5Fulmination1PlayerSpell.Effects.get(1).BasePoints.set(124)
+// Boss5Fulmination1PlayerSpell.Effects.get(1).DieSides.set(1)
+// Boss5Fulmination1PlayerSpell.Effects.get(1).Aura.PERIODIC_DAMAGE.set()
+// Boss5Fulmination1PlayerSpell.Effects.get(1).ImplicitTargetA.UNIT_CASTER.set()
+// Boss5Fulmination1PlayerSpell.Effects.get(1).ChainAmplitude.set(2000)
+// Boss5Fulmination1PlayerSpell.Attributes.IS_NEGATIVE.set(1)
+// Boss5Fulmination1PlayerSpell.Duration.setSimple(15000)
 
 export let Boss5Fulmination1 = std.Spells.create(MODNAME, 'boss5fulmination1-spell', 71188)
 Boss5Fulmination1.Name.enGB.set('Fulmination')
@@ -200,18 +250,11 @@ Boss5Fulmination1.Description.enGB.set('Damage done increased by $s1%.')
 Boss5Fulmination1.AuraDescription.enGB.set('Damage done increased by $s1%.')
 Boss5Fulmination1.Effects.get(0).BasePoints.set(24)
 Boss5Fulmination1.Effects.get(0).DieSides.set(1)
-//Boss5Fulmination1.Effects.get(1).Type.APPLY_AURA.set()
-//Boss5Fulmination1.Effects.get(1).BasePoints.set(24)
-//Boss5Fulmination1.Effects.get(1).DieSides.set(1)
-//Boss5Fulmination1.Effects.get(1).Aura.MOD_DAMAGE_PERCENT_DONE.set()
-//Boss5Fulmination1.Effects.get(1).ImplicitTargetA.UNIT_NEARBY_ENEMY.set()
-//Boss5Fulmination1.Effects.get(1).Radius.set(100)
 Boss5Fulmination1.Effects.get(1).Type.APPLY_AURA.set()
-Boss5Fulmination1.Effects.get(1).TriggerSpell.set(Boss5Fulmination1PlayerSpell.ID)
-Boss5Fulmination1.Effects.get(1).ImplicitTargetA.UNIT_NEARBY_ENEMY.set()
-Boss5Fulmination1.Effects.get(1).Aura.PROC_TRIGGER_SPELL.set()
-Boss5Fulmination1.Effects.get(1).BasePoints.set(99)
+Boss5Fulmination1.Effects.get(1).BasePoints.set(24)
 Boss5Fulmination1.Effects.get(1).DieSides.set(1)
+Boss5Fulmination1.Effects.get(1).Aura.MOD_DAMAGE_PERCENT_DONE.set()
+Boss5Fulmination1.Effects.get(1).ImplicitTargetA.UNIT_NEARBY_ENEMY.set()
 Boss5Fulmination1.Effects.get(1).Radius.set(100)
 Boss5Fulmination1.Effects.get(2).Type.NULL.set()
 Boss5Fulmination1.Duration.setSimple(15000)
