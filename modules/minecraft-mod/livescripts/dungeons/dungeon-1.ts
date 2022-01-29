@@ -34,10 +34,11 @@ const bossIDs: TSArray<uint32> = [
     GetID("creature_template","minecraft-mod","torghastboss3"),
     GetID("creature_template","minecraft-mod","torghastboss5"),
 ]
-
 const bossCount: uint32 = bossIDs.length
+
 const mobIDs: TSArray<uint32> = [37478, 13339, 17705, 36863, 30704,]
 const mobCount: uint32 = mobIDs.length
+
 const prestigeSpell:uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 const rewardID:uint32 = 19019
 
@@ -47,6 +48,18 @@ export function dungeon1(events: TSEventHandlers) {
         events.CreatureID.OnReachedHome(mobIDs[i],(creature)=>{  
             addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0))
         })
+        events.CreatureID.OnCreate(mobIDs[i],(creature,cancel)=>{  
+            addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0))
+        })
+    }
+    for(let i=0;i<bossCount;i++){
+        events.CreatureID.OnReachedHome(bossIDs[i],(creature)=>{  
+            addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0))
+        })
+        events.CreatureID.OnCreate(bossIDs[i],(creature,cancel)=>{  
+            addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0))
+        })
+        
     }
     events.MapID.OnPlayerEnter(389, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
@@ -128,7 +141,7 @@ function getRandomInt(max: uint32): uint32 {
 }
 
 function spawnBoss(map: TSMap, formNum: number, sPos: TSDictionary<string, number>) {
-    map.SpawnCreature(bossIDs[formNum], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 300)
+    map.SpawnCreature(bossIDs[formNum], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
 }
 
 function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
@@ -140,113 +153,87 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
     let sinRad = 3 * Math.sin(sPos['o'])
     let formationNumber = getRandomInt(10)
     let prestige = map.GetUInt('prestige',0)
-    let mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
-    addPrestigeBuff(mob,prestige)
+    map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
     switch (formationNumber) {
         case 0:
             //0x0
             //0x0
             //000
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
             break;
         case 1:
             //000
             //xx0
             //000
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
             break;
         case 2:
             //000
             //0xx
             //000
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
             break;
         case 3:
             //0x0
             //0x0
             //0x0
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - cosRad, sPos['y'] - sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - cosRad, sPos['y'] - sinRad, sPos['z'], sPos['o'], 0)
             break;
         case 4:
             //000
             //xxx
             //000
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
             break;
         case 5:
             //000
             //0x0
             //x0x
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad - cosRad, sPos['y'] + cosRad - sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad - cosRad, sPos['y'] + cosRad - sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
             break;
         case 6:
             //x0x
             //0x0
             //000
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad + cosRad, sPos['y'] + cosRad + sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad + cosRad, sPos['y'] + cosRad + sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
             break;
         case 7:
             //0x0
             //xxx
             //000
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
             break;
         case 8:
             //000
             //xxx
             //0x0
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - cosRad, sPos['y'] - sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - cosRad, sPos['y'] - sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
             break;
         case 9:
             //x0x
             //xxx
             //000
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad + cosRad, sPos['y'] + cosRad + sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad + cosRad, sPos['y'] - cosRad + sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad + cosRad, sPos['y'] + cosRad + sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad + cosRad, sPos['y'] - cosRad + sinRad, sPos['z'], sPos['o'], 0)
             break;
         case 10:
             //000
             //xxx
             //x0x
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad - cosRad, sPos['y'] + cosRad - sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
-            mob = map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad - cosRad, sPos['y'] - cosRad - sinRad, sPos['z'], sPos['o'], 0)
-            addPrestigeBuff(mob,prestige)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad - cosRad, sPos['y'] + cosRad - sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad - cosRad, sPos['y'] - cosRad - sinRad, sPos['z'], sPos['o'], 0)
             break;
     }
 }
