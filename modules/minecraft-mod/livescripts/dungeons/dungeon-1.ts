@@ -33,8 +33,15 @@ const bossCount: uint32 = bossIDs.length
 const mobIDs: TSArray<uint32> = [37478, 13339, 17705, 36863, 30704,]
 const mobCount: uint32 = mobIDs.length
 const prestigeSpell:uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
+const rewardID:uint32 = 19019
 
 export function dungeon1(events: TSEventHandlers) {
+
+    for(let i=0;i<mobCount;i++){
+        events.CreatureID.OnReachedHome(mobIDs[i],(creature)=>{  
+            addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0))
+        })
+    }
     events.MapID.OnPlayerEnter(389, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
@@ -46,13 +53,33 @@ export function dungeon1(events: TSEventHandlers) {
         if (msg.get().startsWith("#cc")) {
             resetGroup(player)
         }
+        if (msg.get().startsWith("#ee")) {
+            rewardGroup(player)
+        }
     })
+}
+//SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).position_z.set(31.1351).map.set(725).name.set('start')
+function rewardGroup(player:TSPlayer){
+    despawnMap(player)
+    if(player.IsInGroup()){
+        let group = player.GetGroup().GetMembers()
+        for(let i=0;i<group.length;i++){
+            let curPrestige = group[i].GetUInt('prestige',0)
+            group[i].AddItem(rewardID,5*curPrestige)
+            group[i].Teleport(725,-8750.45,-74.64,31,0)
+        }
+    }else{
+        let curPrestige = player.GetUInt('prestige',0)
+        player.AddItem(rewardID,5*curPrestige)
+        player.Teleport(725,-8750.45,-74.64,31,0)
+    }   
+    
 }
 
 function resetGroup(player:TSPlayer){
     let map = player.GetMap()
     map.SetUInt('prestige',map.GetUInt('prestige',0)+1)
-    despawnMap(map)
+    despawnMap(player)
     if(player.IsInGroup()){
         teleportRandomStart(player.GetGroup().GetMembers())
     }else{
@@ -64,16 +91,21 @@ function resetGroup(player:TSPlayer){
 function teleportRandomStart(players: TSPlayer[]) {
     let rand = getRandomInt(playerSpawnCount)
     let choice = playerSpawnCoords.get(rand)
+    let prestige = players[0].GetMap().GetUInt('prestige',0)
     for(let i=0;i<players.length;i++){
+        players[i].SetUInt('prestige',players[i].GetUInt('prestige',0)+1)
+        if(prestige>0){
+            players[i].SendAreaTriggerMessage("You are on Prestige "+prestige)
+        }
         players[i].Teleport(choice['map'],choice['x'],choice['y'],choice['z'],choice['o'])
     }
 }
 
-function despawnMap(map:TSMap){
-    let creatures = map.GetCreatures()
-    for (let i = 0; i < creatures.length; i++) {
-        creatures[i].DespawnOrUnsummon(0)
-    }
+function despawnMap(player:TSPlayer){
+        let creatures = player.GetCreaturesInRange(5000,0,0,0)
+        for (let i = 0; i < creatures.length; i++) {
+            creatures[i].DespawnOrUnsummon(0)
+        }
 }
 
 function spawnMap(map:TSMap){
@@ -213,6 +245,5 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
     }
 }
 function addPrestigeBuff(mob: TSCreature,count:uint32) {
-    mob.CastCustomSpell(mob,prestigeSpell,true,9*count,9*count,9*count,CreateItem(1,1),mob.GetGUID())
+    mob.CastCustomSpell(mob,prestigeSpell,true,9*count,9*count,9*count,CreateItem(19019,1),mob.GetGUID())
 }
-
