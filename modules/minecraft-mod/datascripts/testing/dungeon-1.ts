@@ -846,3 +846,15 @@ Formation 4 : Paladin + Shaman
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+////////////////////////
+//stack buff spell
+export let mapPrestige = std.Spells.create(MODNAME, 'mapprestige-spell', 71188)
+mapPrestige.Name.enGB.set('Prestige')
+mapPrestige.Description.enGB.set('Damage done increased by $s1%. Health increased by $s2%.')
+mapPrestige.AuraDescription.enGB.set('Damage done increased by $s1%. Attack and casting speeds increased by $s2%. Health increased by $s1%.')
+mapPrestige.row.Attributes.set(mapPrestige.row.Attributes.get() + 0x80000000)
+mapPrestige.Effects.get(0).BasePoints.set(9)
+mapPrestige.Effects.get(1).BasePoints.set(9)
+mapPrestige.Effects.get(2).BasePoints.set(9)
+mapPrestige.Effects.get(2).Aura.MOD_INCREASE_HEALTH_PERCENT.set()
+mapPrestige.Duration.set(21)

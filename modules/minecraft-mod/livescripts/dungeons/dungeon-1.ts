@@ -32,12 +32,19 @@ const bossIDs: TSArray<uint32> = [1]
 const bossCount: uint32 = bossIDs.length
 const mobIDs: TSArray<uint32> = [37478, 13339, 17705, 36863, 30704,]
 const mobCount: uint32 = mobIDs.length
+const prestigeSpell:uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 
 export function dungeon1(events: TSEventHandlers) {
     events.MapID.OnPlayerEnter(389, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
             spawnMap(map)
+        }
+    })
+
+    events.Player.OnSay((player, type, lang, msg) => {
+        if (msg.get().startsWith("#cc")) {
+            resetGroup(player)
         }
     })
 }
@@ -70,16 +77,20 @@ function despawnMap(map:TSMap){
 }
 
 function spawnMap(map:TSMap){
-    for (let i = 0; i < mobSpawnCoords.length; i++) {
-        spawnFormation(map, mobSpawnCoords.get(i))
-    }
     // for(let i=0;i<bossSpawnCoords.length;i++){
     //     spawnBoss(map, getRandomInt(bossCount),bossSpawnCoords.get(i))
     // }
+    for (let i = 0; i < mobSpawnCoords.length; i++) {
+        spawnFormation(map, mobSpawnCoords.get(i))
+    }
 }
 
 function getRandomInt(max: uint32): uint32 {
     return Math.floor(Math.random() * max)
+}
+
+function spawnBoss(map: TSMap, formNum: number, sPos: TSDictionary<string, number>) {
+    map.SpawnCreature(bossIDs[formNum], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 300)
 }
 
 function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
@@ -200,10 +211,6 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
             addPrestigeBuff(mob,prestige)
             break;
     }
-}
-
-function spawnBoss(map: TSMap, formNum: number, sPos: TSDictionary<string, number>) {
-    map.SpawnCreature(bossIDs[formNum], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 300)
 }
 function addPrestigeBuff(mob: TSCreature,count:uint32) {
     mob.AddAura(1,mob).SetStackAmount(count)
