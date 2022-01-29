@@ -1,4 +1,4 @@
-const mobCoordSpawns: TSArray<TSDictionary<string, float>> = [
+const mobSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -20.385674, y: -51.126995, z: -21.808510, o: 2.835515 }),
     MakeDictionary<string, float>({ map: 389, x: -40.309528, y: -44.830883, z: -21.863708, o: 2.835515 }),
     MakeDictionary<string, float>({ map: 389, x: -107.162804, y: -32.489670, z: -30.222794, o: 3.218789 }),
@@ -19,9 +19,15 @@ const mobCoordSpawns: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -350.978546, y: 205.962448, z: -22.091862, o: 3.619342 }),
 ]
 
-const bossCoordSpawns: TSArray<TSDictionary<string, float>> = [
+const bossSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -243.122650, y: 150.662460, z: -18.724436, o: 5.593280 }),
 ]
+
+const playerSpawnCoords: TSArray<TSDictionary<string, float>> = [
+    MakeDictionary<string, float>({ map: 389, x: -243.122650, y: 150.662460, z: -18.724436, o: 5.593280 }),
+]
+const playerSpawnCount = playerSpawnCoords.length
+
 const bossIDs: TSArray<uint32> = [1]
 const bossCount: uint32 = bossIDs.length
 const mobIDs: TSArray<uint32> = [37478, 13339, 17705, 36863, 30704,]
@@ -31,14 +37,43 @@ export function dungeon1(events: TSEventHandlers) {
     events.MapID.OnPlayerEnter(389, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
-            for (let i = 0; i < mobCoordSpawns.length; i++) {
-                spawnFormation(map, mobCoordSpawns.get(i))
-            }
-            // for(let i=0;i<bossCoordSpawns.length;i++){
-            //     spawnBoss(map, getRandomInt(bossCount),bossCoordSpawns.get(i))
-            // }
+            spawnMap(map)
         }
     })
+}
+
+function resetGroup(player:TSPlayer){
+    despawnMap(player.GetMap())
+    if(player.IsInGroup()){
+        teleportRandomStart(player.GetGroup().GetMembers())
+    }else{
+        teleportRandomStart([player])
+    }
+    spawnMap(player.GetMap())
+}
+
+function teleportRandomStart(players: TSPlayer[]) {
+    let rand = getRandomInt(playerSpawnCount)
+    let choice = playerSpawnCoords.get(rand)
+    for(let i=0;i<players.length;i++){
+        players[i].Teleport(choice['map'],choice['x'],choice['y'],choice['z'],choice['o'])
+    }
+}
+
+function despawnMap(map:TSMap){
+    let creatures = map.GetCreatures()
+    for (let i = 0; i < creatures.length; i++) {
+        creatures[i].DespawnOrUnsummon(0)
+    }
+}
+
+function spawnMap(map:TSMap){
+    for (let i = 0; i < mobSpawnCoords.length; i++) {
+        spawnFormation(map, mobSpawnCoords.get(i))
+    }
+    // for(let i=0;i<bossSpawnCoords.length;i++){
+    //     spawnBoss(map, getRandomInt(bossCount),bossSpawnCoords.get(i))
+    // }
 }
 
 function getRandomInt(max: uint32): uint32 {
@@ -149,4 +184,3 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
 function spawnBoss(map: TSMap, formNum: number, sPos: TSDictionary<string, number>) {
     map.SpawnCreature(bossIDs[formNum], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 300)
 }
-
