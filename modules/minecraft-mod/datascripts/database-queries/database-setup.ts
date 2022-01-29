@@ -17,7 +17,12 @@ SQL.Databases.world_dest.writeEarly('DELETE FROM `creature_equip_template` WHERE
 SQL.Databases.world_dest.writeEarly('DELETE FROM `creature_loot_template` WHERE Entry = 299')
 SQL.Databases.world_dest.writeEarly('DELETE FROM `npc_vendor` WHERE entry = 3562')
 
+//testing dungeon
+//remove later
+SQL.Databases.world_dest.write('DELETE FROM `creature` WHERE map = 389')
+
 SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).position_z.set(31.1351).map.set(725).name.set('start')
+SQL.game_tele.add(1451).position_x.set(2.509).position_y.set(-15.6).position_z.set(-18).map.set(389).name.set('ragefire')
 
 //2 custom sql files in bin/sql/custom/world
 DBC.MapDifficulty.add(1000).MapID.set(725).Difficulty.set(0).Message.enGB.set(' ').RaidDuration.set(0).MaxPlayers.set(0).Difficultystring.set(' ')

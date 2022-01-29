@@ -10,6 +10,7 @@ import { creatureDeathApplyBuff } from "./creature/creature-death-apply-buff"
 import { creatureDeathSummon } from "./creature/creature-death-summon"
 import { torghastBuffSystem } from "./torghast"
 import { hungerGames } from "./hunger-games"
+import { dungeon1 } from "./dungeons/dungeon-1"
 
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)
@@ -24,4 +25,5 @@ export function Main(events: TSEventHandlers) {
     creatureDeathSummon(events)
     torghastBuffSystem(events)
     hungerGames(events)
+    dungeon1(events)
 }
