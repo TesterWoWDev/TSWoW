@@ -213,6 +213,6 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
     }
 }
 function addPrestigeBuff(mob: TSCreature,count:uint32) {
-    mob.AddAura(1,mob).SetStackAmount(count)
+    mob.AddAura(prestigeSpell,mob).SetStackAmount(count)
 }
 
