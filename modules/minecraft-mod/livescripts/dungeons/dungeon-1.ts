@@ -52,7 +52,7 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
     //right is x-sinRad y-cosRad
     let cosRad = 3 * Math.cos(sPos['o'])
     let sinRad = 3 * Math.sin(sPos['o'])
-    let formationNumber = getRandomInt(3)
+    let formationNumber = getRandomInt(10)
     switch (formationNumber) {
         case 0:
             //0x0
@@ -115,6 +115,7 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>) {
             map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
             map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
             map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            break;
         case 8:
             //000
             //xxx
