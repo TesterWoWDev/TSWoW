@@ -28,7 +28,13 @@ const playerSpawnCoords: TSArray<TSDictionary<string, float>> = [
 ]
 const playerSpawnCount = playerSpawnCoords.length
 
-const bossIDs: TSArray<uint32> = [1]
+const bossIDs: TSArray<uint32> = [
+    GetID("creature_template","minecraft-mod","torghastboss1"),
+    GetID("creature_template","minecraft-mod","torghastboss2"),
+    GetID("creature_template","minecraft-mod","torghastboss3"),
+    GetID("creature_template","minecraft-mod","torghastboss5"),
+]
+
 const bossCount: uint32 = bossIDs.length
 const mobIDs: TSArray<uint32> = [37478, 13339, 17705, 36863, 30704,]
 const mobCount: uint32 = mobIDs.length
@@ -58,7 +64,7 @@ export function dungeon1(events: TSEventHandlers) {
         }
     })
 }
-//SQL.game_tele.add(1450).position_x.set(-8750.45).position_y.set(-74.6418).position_z.set(31.1351).map.set(725).name.set('start')
+
 function rewardGroup(player:TSPlayer){
     despawnMap(player)
     if(player.IsInGroup()){
@@ -109,9 +115,9 @@ function despawnMap(player:TSPlayer){
 }
 
 function spawnMap(map:TSMap){
-    // for(let i=0;i<bossSpawnCoords.length;i++){
-    //     spawnBoss(map, getRandomInt(bossCount),bossSpawnCoords.get(i))
-    // }
+    for(let i=0;i<bossSpawnCoords.length;i++){
+        spawnBoss(map, getRandomInt(bossCount),bossSpawnCoords.get(i))
+    }
     for (let i = 0; i < mobSpawnCoords.length; i++) {
         spawnFormation(map, mobSpawnCoords.get(i))
     }
