@@ -1,4 +1,6 @@
-import { removePlayerBuffs, resetGroup, setupPrestigeBuffApplication, spawnMap } from "./torghast-master"
+import { removePlayerBuffs, resetGroup, spawnMap } from "./torghast-master"
+const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
+
 const mobSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -20.385674, y: -51.126995, z: -21.808510, o: 2.835515 }),
     MakeDictionary<string, float>({ map: 389, x: -40.309528, y: -44.830883, z: -21.863708, o: 2.835515 }),
@@ -79,3 +81,15 @@ export function dungeon1(events: TSEventHandlers) {
     })
 }
 
+function addPrestigeBuffToCreature(mob: TSCreature, count: uint32) {
+    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * count, prestigeMult * count, prestigeMult * count, CreateItem(19019, 1), mob.GetGUID())
+}
+
+export function setupPrestigeBuffApplication(events: TSEventHandlers, mobID: number, prestigeMult: number) {
+    events.CreatureID.OnCreate(mobID, (creature, cancel) => {
+        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0))
+    })
+    events.CreatureID.OnReachedHome(mobID, (creature) => {
+        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0))
+    })
+}
