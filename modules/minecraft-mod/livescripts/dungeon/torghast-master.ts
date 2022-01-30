@@ -112,14 +112,14 @@ function rewardGroup(player: TSPlayer) {
     }
 }
 
-export function resetGroup(player: TSPlayer, playerSpawnCount: uint32, playerSpawnCoords: TSArray<TSDictionary<string, float>>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>) {
+export function resetGroup(player: TSPlayer, playerSpawnCoords: TSArray<TSDictionary<string, float>>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>) {
     let map = player.GetMap()
     map.SetUInt('prestige', map.GetUInt('prestige', 0) + 1)
     despawnMap(player)
     if (player.IsInGroup()) {
-        teleportRandomStart(player.GetGroup().GetMembers(), playerSpawnCount, playerSpawnCoords)
+        teleportRandomStart(player.GetGroup().GetMembers(), playerSpawnCoords.length, playerSpawnCoords)
     } else {
-        teleportRandomStart([player], playerSpawnCount, playerSpawnCoords)
+        teleportRandomStart([player], playerSpawnCoords.length, playerSpawnCoords)
     }
     spawnMap(map, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs)
 }

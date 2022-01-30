@@ -19,34 +19,41 @@ const mobSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -297.630524, y: 200.493149, z: -25.112547, o: 1.637782 }),
     MakeDictionary<string, float>({ map: 389, x: -350.978546, y: 205.962448, z: -22.091862, o: 3.619342 }),
 ]
+const mobIDs: TSArray<uint32> = [
+    37478,
+    13339,
+    17705,
+    36863,
+    30704,
+]
 
 const bossSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -243.122650, y: 150.662460, z: -18.724436, o: 5.593280 }),
 ]
 
-const playerSpawnCoords: TSArray<TSDictionary<string, float>> = [
-    MakeDictionary<string, float>({ map: 389, x: -243.122650, y: 150.662460, z: -18.724436, o: 5.593280 }),
-]
-const playerSpawnCount = playerSpawnCoords.length
-const rewardID = 19019
 const bossIDs: TSArray<uint32> = [
     GetID("creature_template", "minecraft-mod", "torghastboss1"),
     GetID("creature_template", "minecraft-mod", "torghastboss2"),
     GetID("creature_template", "minecraft-mod", "torghastboss3"),
     GetID("creature_template", "minecraft-mod", "torghastboss5"),
 ]
-const bossCount: uint32 = bossIDs.length
-const mobIDs: TSArray<uint32> = [37478, 13339, 17705, 36863, 30704,]
-const mobCount: uint32 = mobIDs.length
+
+const playerSpawnCoords: TSArray<TSDictionary<string, float>> = [
+    MakeDictionary<string, float>({ map: 389, x: -243.122650, y: 150.662460, z: -18.724436, o: 5.593280 }),
+]
+
+const rewardID = 19019
+const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 10% hp+damage+haste per prestige
 
 export function dungeon1(events: TSEventHandlers) {
-    for (let i = 0; i < mobCount; i++) {
+    for (let i = 0; i < mobIDs.length; i++) {
         setupPrestigeBuffApplication(events, mobIDs[i])
     }
 
-    for (let i = 0; i < bossCount; i++) {
+    for (let i = 0; i < bossIDs.length; i++) {
         setupPrestigeBuffApplication(events, bossIDs[i])
     }
+    //make a bossMinions loop for any spawned by spell creatures
 
     events.MapID.OnPlayerEnter(389, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
@@ -58,7 +65,7 @@ export function dungeon1(events: TSEventHandlers) {
 
     events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#cc")) {
-            resetGroup(player, playerSpawnCount, playerSpawnCoords, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs)
+            resetGroup(player, playerSpawnCoords, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs)
         }
     })
     events.MapID.OnPlayerLeave(389, (map, player) => {
@@ -73,13 +80,12 @@ export function dungeon1(events: TSEventHandlers) {
     })
 }
 
-
 function setupPrestigeBuffApplication(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnCreate(mobID, (creature, cancel) => {
-        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), 9)
+        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), prestigeMult)
     })
     events.CreatureID.OnReachedHome(mobID, (creature) => {
-        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), 9)
+        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), prestigeMult)
     })
 }
 
