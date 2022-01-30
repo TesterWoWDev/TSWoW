@@ -1,4 +1,4 @@
-import { addPrestigeBuffToCreature, removePlayerBuffs, resetGroup, spawnMap } from "../torghast"
+import { addPrestigeBuffToCreature, removePlayerBuffs, resetGroup, rewardID, spawnMap } from "../torghast"
 const mobSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -20.385674, y: -51.126995, z: -21.808510, o: 2.835515 }),
     MakeDictionary<string, float>({ map: 389, x: -40.309528, y: -44.830883, z: -21.863708, o: 2.835515 }),
@@ -36,7 +36,6 @@ const bossIDs: TSArray<uint32> = [
     GetID("creature_template","minecraft-mod","torghastboss5"),
 ]
 const bossCount: uint32 = bossIDs.length
-const rewardID:uint32 = 19019
 const mobIDs: TSArray<uint32> = [37478, 13339, 17705, 36863, 30704,]
 const mobCount: uint32 = mobIDs.length
 
@@ -74,8 +73,8 @@ export function dungeon1(events: TSEventHandlers) {
     })
     events.MapID.OnPlayerLeave(389, (map, player) => {
         removePlayerBuffs(player)
-        let curPrestige = player.GetUInt('prestige',0)
-        let rewCount = Math.floor((curPrestige*curPrestige)/10)
+        let curPrestige:uint32 = player.GetUInt('prestige',0)
+        let rewCount:uint32 = <uint32>(curPrestige*curPrestige)/10
         player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
         player.AddItem(rewardID,rewCount)
         player.Teleport(725,-8750.45,-74.64,31,0)

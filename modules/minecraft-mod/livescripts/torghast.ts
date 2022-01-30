@@ -33,7 +33,7 @@ const spellsDescriptions = [
 ]
 const buffChoiceCount: uint32 = 3
 
-const rewardID:uint32 = 19019
+export const rewardID:uint32 = 19019
 const prestigeSpell:uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 
 class torghastBuffs extends TSClass {
@@ -99,15 +99,15 @@ function rewardGroup(player:TSPlayer){
     if(player.IsInGroup()){
         let group = player.GetGroup().GetMembers()
         for(let i=0;i<group.length;i++){
-            let curPrestige = group[i].GetUInt('prestige',0)
-            let rewCount = Math.floor((curPrestige*curPrestige)/5)
+            let curPrestige:uint32 = group[i].GetUInt('prestige',0)
+            let rewCount:uint32 = <uint32>(curPrestige*curPrestige)/5
             group[i].SendAreaTriggerMessage('You were rewarded with ' + rewCount + ' of anima power for your prowess')
             group[i].AddItem(rewardID,rewCount)
             group[i].Teleport(725,-8750.45,-74.64,31,0)
         }
     }else{
-        let curPrestige = player.GetUInt('prestige',0)
-        player.AddItem(rewardID,Math.floor((curPrestige*curPrestige)/5))
+        let curPrestige:uint32 = player.GetUInt('prestige',0)
+        player.AddItem(rewardID,<uint32>(curPrestige*curPrestige)/5)
         player.Teleport(725,-8750.45,-74.64,31,0)
     }   
 }
