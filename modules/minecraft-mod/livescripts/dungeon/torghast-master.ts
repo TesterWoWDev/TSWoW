@@ -1,20 +1,20 @@
 import { spellChoiceID, spellChoice, spellChoices } from "../../shared/Messages"
 
-const spells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>> [
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedhealth1-spell"),1],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increaseddamage1-spell"),2],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedsp1-spell"),2],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedap1-spell"),3],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedstamina1-spell"),4],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedstrength1-spell"),1],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedintellect1-spell"),2],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedagility1-spell"),3],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedcrit1-spell"),4],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "increasedresist1-spell"),1],
+const spells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increaseddamage1-spell"), 2],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedsp1-spell"), 2],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedap1-spell"), 3],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstamina1-spell"), 4],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstrength1-spell"), 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedintellect1-spell"), 2],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedagility1-spell"), 3],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedcrit1-spell"), 4],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedresist1-spell"), 1],
     //new spells
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"),2],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "critchance-spell"),3],
-    <TSArray<uint32>> [GetID("Spell", "minecraft-mod", "critdamage-spell"),4],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"), 2],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4],
 ]
 const spellsDescriptions = [
     "1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
@@ -33,8 +33,7 @@ const spellsDescriptions = [
 ]
 const buffChoiceCount: uint32 = 3
 
-export const rewardID:uint32 = 19019
-const prestigeSpell:uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
+const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 
 class torghastBuffs extends TSClass {
     currentBuffs: TSArray<uint32> = []
@@ -94,62 +93,63 @@ export function torghastBuffSystem(events: TSEventHandlers) {
     })
 }
 
-function rewardGroup(player:TSPlayer){
+function rewardGroup(player: TSPlayer) {
     despawnMap(player)
-    if(player.IsInGroup()){
+    let rewardID = player.GetMap().GetUInt('rewardID', 19019)
+    if (player.IsInGroup()) {
         let group = player.GetGroup().GetMembers()
-        for(let i=0;i<group.length;i++){
-            let curPrestige:uint32 = group[i].GetUInt('prestige',0)
-            let rewCount:uint32 = <uint32>(curPrestige*curPrestige)/5
+        for (let i = 0; i < group.length; i++) {
+            let curPrestige: uint32 = group[i].GetUInt('prestige', 0)
+            let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 5
             group[i].SendAreaTriggerMessage('You were rewarded with ' + rewCount + ' of anima power for your prowess')
-            group[i].AddItem(rewardID,rewCount)
-            group[i].Teleport(725,-8750.45,-74.64,31,0)
+            group[i].AddItem(rewardID, rewCount)
+            group[i].Teleport(725, -8750.45, -74.64, 31, 0)
         }
-    }else{
-        let curPrestige:uint32 = player.GetUInt('prestige',0)
-        player.AddItem(rewardID,<uint32>(curPrestige*curPrestige)/5)
-        player.Teleport(725,-8750.45,-74.64,31,0)
-    }   
-}
-
-export function resetGroup(player:TSPlayer,playerSpawnCount:uint32,playerSpawnCoords:TSArray<TSDictionary<string, float>>,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobIDs:TSArray<uint32>){
-    let map = player.GetMap()
-    map.SetUInt('prestige',map.GetUInt('prestige',0)+1)
-    despawnMap(player)
-    if(player.IsInGroup()){
-        teleportRandomStart(player.GetGroup().GetMembers(),playerSpawnCount,playerSpawnCoords)
-    }else{
-        teleportRandomStart([player],playerSpawnCount,playerSpawnCoords)
+    } else {
+        let curPrestige: uint32 = player.GetUInt('prestige', 0)
+        player.AddItem(rewardID, <uint32>(curPrestige * curPrestige) / 5)
+        player.Teleport(725, -8750.45, -74.64, 31, 0)
     }
-    spawnMap(map,bossSpawnCoords,bossIDs,mobSpawnCoords,mobIDs)
 }
 
-function teleportRandomStart(players: TSPlayer[],playerSpawnCount:uint32,playerSpawnCoords:TSArray<TSDictionary<string, float>>) {
+export function resetGroup(player: TSPlayer, playerSpawnCount: uint32, playerSpawnCoords: TSArray<TSDictionary<string, float>>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>) {
+    let map = player.GetMap()
+    map.SetUInt('prestige', map.GetUInt('prestige', 0) + 1)
+    despawnMap(player)
+    if (player.IsInGroup()) {
+        teleportRandomStart(player.GetGroup().GetMembers(), playerSpawnCount, playerSpawnCoords)
+    } else {
+        teleportRandomStart([player], playerSpawnCount, playerSpawnCoords)
+    }
+    spawnMap(map, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs)
+}
+
+function teleportRandomStart(players: TSPlayer[], playerSpawnCount: uint32, playerSpawnCoords: TSArray<TSDictionary<string, float>>) {
     let rand = getRandomInt(playerSpawnCount)
     let choice = playerSpawnCoords.get(rand)
-    let prestige = players[0].GetMap().GetUInt('prestige',0)
-    for(let i=0;i<players.length;i++){
-        players[i].SetUInt('prestige',players[i].GetUInt('prestige',0)+1)
-        if(prestige>0){
-            players[i].SendAreaTriggerMessage("You are on Prestige "+prestige)
+    let prestige = players[0].GetMap().GetUInt('prestige', 0)
+    for (let i = 0; i < players.length; i++) {
+        players[i].SetUInt('prestige', players[i].GetUInt('prestige', 0) + 1)
+        if (prestige > 0) {
+            players[i].SendAreaTriggerMessage("You are on Prestige " + prestige)
         }
-        players[i].Teleport(choice['map'],choice['x'],choice['y'],choice['z'],choice['o'])
+        players[i].Teleport(choice['map'], choice['x'], choice['y'], choice['z'], choice['o'])
     }
 }
 
-export function despawnMap(player:TSPlayer){
-    let creatures = player.GetCreaturesInRange(5000,0,0,0)
+export function despawnMap(player: TSPlayer) {
+    let creatures = player.GetCreaturesInRange(5000, 0, 0, 0)
     for (let i = 0; i < creatures.length; i++) {
         creatures[i].DespawnOrUnsummon(0)
     }
 }
 
-export function spawnMap(map:TSMap,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobIDs:TSArray<uint32>){
-    for(let i=0;i<bossSpawnCoords.length;i++){
-        spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)],bossSpawnCoords.get(i))
+export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>) {
+    for (let i = 0; i < bossSpawnCoords.length; i++) {
+        spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)], bossSpawnCoords.get(i))
     }
     for (let i = 0; i < mobSpawnCoords.length; i++) {
-        spawnFormation(map, mobSpawnCoords.get(i),mobIDs,mobIDs.length)
+        spawnFormation(map, mobSpawnCoords.get(i), mobIDs, mobIDs.length)
     }
 }
 
@@ -157,7 +157,7 @@ function spawnBoss(map: TSMap, bossID: number, sPos: TSDictionary<string, number
     map.SpawnCreature(bossID, sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
 }
 
-function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>, mobIDs:TSArray<uint32>,mobCount:uint32) {
+function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>, mobIDs: TSArray<uint32>, mobCount: uint32) {
     //forward is x+cosRad y+sinRad
     //backwards is x-cosRad y-sinRad
     //left is x+sinRad y+cosRad
@@ -252,8 +252,8 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>, mobIDs:TS
 
 function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    let spellranks:TSArray<uint32> = []
-    let spellDescs:TSArray<string>  = []
+    let spellranks: TSArray<uint32> = []
+    let spellDescs: TSArray<string> = []
     if (charItems.currentChoiceBuffs.length > 0) {
         return false
     } else {
@@ -265,11 +265,11 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
             spellranks.push(spell[1])
             spellDescs.push(spellsDescriptions[index])
         }
-        let pkt = new spellChoices(charItems.currentChoiceBuffs,spellranks,spellDescs) 
+        let pkt = new spellChoices(charItems.currentChoiceBuffs, spellranks, spellDescs)
         pkt.write().SendToPlayer(player)
         return true
     }
-    
+
 }
 
 function playerChoseBuff(player: TSPlayer, index: uint32) {
@@ -308,8 +308,8 @@ export function removePlayerBuffs(player: TSPlayer) {
     player.SetObject("torghastBuffs", new torghastBuffs())
 }
 
-export function addPrestigeBuffToCreature(mob: TSCreature,count:uint32, multiplier:uint32) {
-    mob.CastCustomSpell(mob,prestigeSpell,true,multiplier*count,multiplier*count,multiplier*count,CreateItem(19019,1),mob.GetGUID())
+export function addPrestigeBuffToCreature(mob: TSCreature, count: uint32, multiplier: uint32) {
+    mob.CastCustomSpell(mob, prestigeSpell, true, multiplier * count, multiplier * count, multiplier * count, CreateItem(19019, 1), mob.GetGUID())
 }
 
 export function getRandomInt(max: uint32): uint32 {

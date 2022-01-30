@@ -1,4 +1,4 @@
-import { addPrestigeBuffToCreature, removePlayerBuffs, resetGroup, rewardID, spawnMap } from "./torghast-master"
+import { addPrestigeBuffToCreature, removePlayerBuffs, resetGroup, spawnMap } from "./torghast-master"
 const mobSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -20.385674, y: -51.126995, z: -21.808510, o: 2.835515 }),
     MakeDictionary<string, float>({ map: 389, x: -40.309528, y: -44.830883, z: -21.863708, o: 2.835515 }),
@@ -28,58 +28,58 @@ const playerSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -243.122650, y: 150.662460, z: -18.724436, o: 5.593280 }),
 ]
 const playerSpawnCount = playerSpawnCoords.length
-
+const rewardID = 19019
 const bossIDs: TSArray<uint32> = [
-    GetID("creature_template","minecraft-mod","torghastboss1"),
-    GetID("creature_template","minecraft-mod","torghastboss2"),
-    GetID("creature_template","minecraft-mod","torghastboss3"),
-    GetID("creature_template","minecraft-mod","torghastboss5"),
+    GetID("creature_template", "minecraft-mod", "torghastboss1"),
+    GetID("creature_template", "minecraft-mod", "torghastboss2"),
+    GetID("creature_template", "minecraft-mod", "torghastboss3"),
+    GetID("creature_template", "minecraft-mod", "torghastboss5"),
 ]
 const bossCount: uint32 = bossIDs.length
 const mobIDs: TSArray<uint32> = [37478, 13339, 17705, 36863, 30704,]
 const mobCount: uint32 = mobIDs.length
 
 export function dungeon1(events: TSEventHandlers) {
-    for(let i=0;i<mobCount;i++){
-        events.CreatureID.OnReachedHome(mobIDs[i],(creature)=>{  
-            addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige',0),9)
-        })
-        events.CreatureID.OnCreate(mobIDs[i],(creature,cancel)=>{  
-            addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige',0),9)
-        })
+    for (let i = 0; i < mobCount; i++) {
+        setupPrestigeBuffApplication(events, mobIDs[i])
     }
-    
-    for(let i=0;i<bossCount;i++){
-        events.CreatureID.OnReachedHome(bossIDs[i],(creature)=>{  
-            addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige',0),9)
-        })
-        events.CreatureID.OnCreate(bossIDs[i],(creature,cancel)=>{  
-            addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige',0),9)
-        })
-        
+
+    for (let i = 0; i < bossCount; i++) {
+        setupPrestigeBuffApplication(events, bossIDs[i])
     }
 
     events.MapID.OnPlayerEnter(389, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
-            spawnMap(map,bossSpawnCoords,bossIDs,mobSpawnCoords,mobIDs)
+            map.SetUInt('rewardID', rewardID)
+            spawnMap(map, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs)
         }
     })
 
-    events.Player.OnSay((player,type,lang,msg)=>{
+    events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#cc")) {
-            resetGroup(player,playerSpawnCount,playerSpawnCoords,bossSpawnCoords,bossIDs,mobSpawnCoords,mobIDs)
+            resetGroup(player, playerSpawnCount, playerSpawnCoords, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs)
         }
     })
     events.MapID.OnPlayerLeave(389, (map, player) => {
         removePlayerBuffs(player)
-        let curPrestige:uint32 = player.GetUInt('prestige',0)
-        let rewCount:uint32 = <uint32>(curPrestige*curPrestige)/10
-        if(rewCount > 0){
+        let curPrestige: uint32 = player.GetUInt('prestige', 0)
+        let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 10
+        if (rewCount > 0) {
             player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
-            player.AddItem(rewardID,rewCount)
+            player.AddItem(rewardID, rewCount)
             //player.Teleport(725,-8750.45,-74.64,31,0)
         }
+    })
+}
+
+
+function setupPrestigeBuffApplication(events: TSEventHandlers, mobID: number) {
+    events.CreatureID.OnCreate(mobID, (creature, cancel) => {
+        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), 9)
+    })
+    events.CreatureID.OnReachedHome(mobID, (creature) => {
+        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), 9)
     })
 }
 
