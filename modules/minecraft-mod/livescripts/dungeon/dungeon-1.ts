@@ -69,18 +69,13 @@ export function dungeon1(events: TSEventHandlers) {
         }
     })
     events.MapID.OnPlayerLeave(389, (map, player) => {
+        player.ResurrectPlayer(80,false)
         removePlayerBuffs(player)
         let curPrestige: uint32 = player.GetUInt('prestige', 0)
         let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 10
         if (rewCount > 0) {
             player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
             player.AddItem(rewardID, rewCount)
-        }
-    })
-
-    events.Player.OnPlayerKilledByCreature((creature,player)=>{
-        if(player.GetMapId() == 389){
-            player.Teleport(725,-8750.45,-74.64,31,0)
         }
     })
 }
