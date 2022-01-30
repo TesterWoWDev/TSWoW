@@ -75,7 +75,12 @@ export function dungeon1(events: TSEventHandlers) {
         if (rewCount > 0) {
             player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
             player.AddItem(rewardID, rewCount)
-            //player.Teleport(725,-8750.45,-74.64,31,0)
+        }
+    })
+
+    events.Player.OnPlayerKilledByCreature((creature,player)=>{
+        if(player.GetMapId() == 389){
+            player.Teleport(725,-8750.45,-74.64,31,0)
         }
     })
 }
