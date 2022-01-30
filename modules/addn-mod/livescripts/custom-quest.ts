@@ -104,7 +104,6 @@ function updateQuestProgress(questInfo: PlayerQuest, player: TSPlayer, addValue:
 function isQuestFinished(player: TSPlayer) {//add a complete button to the addon
     let curQuestInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST, new PlayerQuest(player.GetGUIDLow()))
     if (curQuestInfo.requirementCountCur >= curQuestInfo.requirementCountTotal) {
-        console.log(curQuestInfo.requirementType)
         if(curQuestInfo.requirementType == 1){
             player.RemoveItem(player.GetItemByEntry(curQuestInfo.requirementID),curQuestInfo.requirementCountTotal)
         }

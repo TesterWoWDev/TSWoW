@@ -185,7 +185,7 @@ export function atlas() {
     })
 
     OnCustomPacket(creatureNoExistMessageID, (packet) => {
-        console.log("DOES NOT EXIST!!!")
+        console.log("DOES NOT EXIST!")
         Portrait.Hide()
     });
 

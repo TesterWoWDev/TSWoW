@@ -1,4 +1,4 @@
-import { addPrestigeBuffToCreature, removePlayerBuffs, resetGroup, rewardID, spawnMap } from "../torghast"
+import { addPrestigeBuffToCreature, removePlayerBuffs, resetGroup, rewardID, spawnMap } from "./torghast-master"
 const mobSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -20.385674, y: -51.126995, z: -21.808510, o: 2.835515 }),
     MakeDictionary<string, float>({ map: 389, x: -40.309528, y: -44.830883, z: -21.863708, o: 2.835515 }),
