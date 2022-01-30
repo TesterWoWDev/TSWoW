@@ -65,10 +65,6 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
     ],
 ]
-
-const spellIDToType : TSDictionary<uint32,uint32> = MakeDictionary<uint32,uint32>({
-    1:1
-});
 const classSpellDescriptions = [
     //blank
     ["0blank"],
@@ -95,9 +91,14 @@ const classSpellDescriptions = [
     //druid
     ["11Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",],
 ]
+
+
 const buffChoiceCount: uint32 = 3
+//end of configs
 
-
+const spellIDToType : TSDictionary<uint32,uint32> = MakeDictionary<uint32,uint32>({
+    1:1
+});
 class torghastBuffs extends TSClass {
     currentBuffs: TSArray<uint32> = []
     currentBuffsType: TSArray<uint32> = []
