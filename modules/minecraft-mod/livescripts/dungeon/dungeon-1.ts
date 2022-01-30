@@ -1,4 +1,4 @@
-import { addPrestigeBuffToCreature, removePlayerBuffs, resetGroup, spawnMap } from "./torghast-master"
+import { removePlayerBuffs, resetGroup, setupPrestigeBuffApplication, spawnMap } from "./torghast-master"
 const mobSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -20.385674, y: -51.126995, z: -21.808510, o: 2.835515 }),
     MakeDictionary<string, float>({ map: 389, x: -40.309528, y: -44.830883, z: -21.863708, o: 2.835515 }),
@@ -47,11 +47,11 @@ const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 1
 
 export function dungeon1(events: TSEventHandlers) {
     for (let i = 0; i < mobIDs.length; i++) {
-        setupPrestigeBuffApplication(events, mobIDs[i])
+        setupPrestigeBuffApplication(events, mobIDs[i],prestigeMult)
     }
 
     for (let i = 0; i < bossIDs.length; i++) {
-        setupPrestigeBuffApplication(events, bossIDs[i])
+        setupPrestigeBuffApplication(events, bossIDs[i],prestigeMult)
     }
     //make a bossMinions loop for any spawned by spell creatures
 
@@ -77,15 +77,6 @@ export function dungeon1(events: TSEventHandlers) {
             player.AddItem(rewardID, rewCount)
             //player.Teleport(725,-8750.45,-74.64,31,0)
         }
-    })
-}
-
-function setupPrestigeBuffApplication(events: TSEventHandlers, mobID: number) {
-    events.CreatureID.OnCreate(mobID, (creature, cancel) => {
-        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), prestigeMult)
-    })
-    events.CreatureID.OnReachedHome(mobID, (creature) => {
-        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), prestigeMult)
     })
 }
 

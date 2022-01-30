@@ -137,7 +137,7 @@ function teleportRandomStart(players: TSPlayer[], playerSpawnCount: uint32, play
     }
 }
 
-export function despawnMap(player: TSPlayer) {
+function despawnMap(player: TSPlayer) {
     let creatures = player.GetCreaturesInRange(5000, 0, 0, 0)
     for (let i = 0; i < creatures.length; i++) {
         creatures[i].DespawnOrUnsummon(0)
@@ -308,10 +308,19 @@ export function removePlayerBuffs(player: TSPlayer) {
     player.SetObject("torghastBuffs", new torghastBuffs())
 }
 
-export function addPrestigeBuffToCreature(mob: TSCreature, count: uint32, multiplier: uint32) {
+function addPrestigeBuffToCreature(mob: TSCreature, count: uint32, multiplier: uint32) {
     mob.CastCustomSpell(mob, prestigeSpell, true, multiplier * count, multiplier * count, multiplier * count, CreateItem(19019, 1), mob.GetGUID())
 }
 
-export function getRandomInt(max: uint32): uint32 {
+export function setupPrestigeBuffApplication(events: TSEventHandlers, mobID: number, prestigeMult:number) {
+    events.CreatureID.OnCreate(mobID, (creature, cancel) => {
+        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), prestigeMult)
+    })
+    events.CreatureID.OnReachedHome(mobID, (creature) => {
+        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), prestigeMult)
+    })
+}
+
+function getRandomInt(max: uint32): uint32 {
     return Math.floor(Math.random() * max)
 }
