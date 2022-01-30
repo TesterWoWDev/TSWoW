@@ -146,15 +146,11 @@ export function despawnMap(player:TSPlayer){
 
 export function spawnMap(map:TSMap,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobIDs:TSArray<uint32>){
     for(let i=0;i<bossSpawnCoords.length;i++){
-        console.log("spawn boss "+i)
         spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)],bossSpawnCoords.get(i))
     }
-    console.log("finished boss")
     for (let i = 0; i < mobSpawnCoords.length; i++) {
-        console.log("spawn mob "+i)
         spawnFormation(map, mobSpawnCoords.get(i),mobIDs,mobIDs.length)
     }
-    console.log("finished mobs")
 }
 
 function spawnBoss(map: TSMap, bossID: number, sPos: TSDictionary<string, number>) {
