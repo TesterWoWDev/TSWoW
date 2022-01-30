@@ -78,6 +78,7 @@ export function dungeon1(events: TSEventHandlers) {
             player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
             player.AddItem(rewardID, rewCount)
         }
+        player.SetUInt('prestige',0)
     })
 }
 
