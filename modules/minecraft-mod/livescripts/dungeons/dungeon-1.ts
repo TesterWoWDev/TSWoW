@@ -1,4 +1,4 @@
-import { addPrestigeBuff, removeBuffs, resetGroup, spawnMap } from "../torghast"
+import { addPrestigeBuffToCreature, removePlayerBuffs, resetGroup, spawnMap } from "../torghast"
 const mobSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 389, x: -20.385674, y: -51.126995, z: -21.808510, o: 2.835515 }),
     MakeDictionary<string, float>({ map: 389, x: -40.309528, y: -44.830883, z: -21.863708, o: 2.835515 }),
@@ -43,19 +43,19 @@ const mobCount: uint32 = mobIDs.length
 export function dungeon1(events: TSEventHandlers) {
     for(let i=0;i<mobCount;i++){
         events.CreatureID.OnReachedHome(mobIDs[i],(creature)=>{  
-            addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0),9)
+            addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige',0),9)
         })
         events.CreatureID.OnCreate(mobIDs[i],(creature,cancel)=>{  
-            addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0),9)
+            addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige',0),9)
         })
     }
     
     for(let i=0;i<bossCount;i++){
         events.CreatureID.OnReachedHome(bossIDs[i],(creature)=>{  
-            addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0),9)
+            addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige',0),9)
         })
         events.CreatureID.OnCreate(bossIDs[i],(creature,cancel)=>{  
-            addPrestigeBuff(creature, creature.GetMap().GetUInt('prestige',0),9)
+            addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige',0),9)
         })
         
     }
@@ -73,7 +73,7 @@ export function dungeon1(events: TSEventHandlers) {
         }
     })
     events.MapID.OnPlayerLeave(389, (map, player) => {
-        removeBuffs(player)
+        removePlayerBuffs(player)
         let curPrestige = player.GetUInt('prestige',0)
         let rewCount = Math.floor((curPrestige*curPrestige)/10)
         player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')

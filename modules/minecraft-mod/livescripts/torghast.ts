@@ -54,7 +54,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                     if (arr.hasNumber(player.GetGUIDLow())) {
                         player.SendAreaTriggerMessage("You have used this already!")
                     } else {
-                        if (buffChoice(player)) {
+                        if (givePlayerChoiceOfBuffs(player)) {
                             arr.pushNumber(player.GetGUIDLow())
                             creature.SetJsonArray('usedBy', arr)
                         }
@@ -63,7 +63,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                         creature.DespawnOrUnsummon(0)
                     }
                 } else {
-                    if (buffChoice(player)) {
+                    if (givePlayerChoiceOfBuffs(player)) {
                         creature.DespawnOrUnsummon(0)
                     }
                 }
@@ -73,7 +73,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
 
     events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#aa")) {
-            if (!buffChoice(player)) {
+            if (!givePlayerChoiceOfBuffs(player)) {
                 player.SendAreaTriggerMessage('Choose your ability first!')
             }
         }
@@ -83,14 +83,14 @@ export function torghastBuffSystem(events: TSEventHandlers) {
     })
 
     events.Player.OnLogout((player) => {
-        removeBuffs(player)
+        removePlayerBuffs(player)
     })
 
     events.PacketID.OnCustom(spellChoiceID, (opcode, packet, player) => {
         let pkt = new spellChoice(0)
         pkt.read(packet)
-        chooseBuff(player, pkt.choice)
-        applyBuffs(player)
+        playerChoseBuff(player, pkt.choice)
+        applyPlayerBuffs(player)
     })
 }
 
@@ -165,7 +165,6 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>, mobIDs:TS
     let cosRad = 3 * Math.cos(sPos['o'])
     let sinRad = 3 * Math.sin(sPos['o'])
     let formationNumber = getRandomInt(10)
-    let prestige = map.GetUInt('prestige',0)
     map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
     switch (formationNumber) {
         case 0:
@@ -251,7 +250,7 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>, mobIDs:TS
     }
 }
 
-function buffChoice(player: TSPlayer): boolean {
+function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     let spellranks:TSArray<uint32> = []
     let spellDescs:TSArray<string>  = []
@@ -273,7 +272,7 @@ function buffChoice(player: TSPlayer): boolean {
     
 }
 
-function chooseBuff(player: TSPlayer, index: uint32) {
+function playerChoseBuff(player: TSPlayer, index: uint32) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     if (charItems.currentChoiceBuffs.length >= 3) {
         let currentChoicesID: TSArray<uint32> = [charItems.currentChoiceBuffs.pop()!, charItems.currentChoiceBuffs.pop()!, charItems.currentChoiceBuffs.pop()!]
@@ -294,14 +293,14 @@ function chooseBuff(player: TSPlayer, index: uint32) {
     }
 }
 
-function applyBuffs(player: TSPlayer) {
+function applyPlayerBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
         player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
     }
 }
 
-export function removeBuffs(player: TSPlayer) {
+export function removePlayerBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
         player.RemoveAura(charItems.currentBuffs[i])
@@ -309,7 +308,7 @@ export function removeBuffs(player: TSPlayer) {
     player.SetObject("torghastBuffs", new torghastBuffs())
 }
 
-export function addPrestigeBuff(mob: TSCreature,count:uint32, multiplier:uint32) {
+export function addPrestigeBuffToCreature(mob: TSCreature,count:uint32, multiplier:uint32) {
     mob.CastCustomSpell(mob,prestigeSpell,true,multiplier*count,multiplier*count,multiplier*count,CreateItem(19019,1),mob.GetGUID())
 }
 
