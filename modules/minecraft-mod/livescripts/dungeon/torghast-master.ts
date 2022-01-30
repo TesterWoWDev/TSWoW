@@ -1,21 +1,60 @@
 import { spellChoiceID, spellChoice, spellChoices } from "../../shared/Messages"
 
-const spells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increaseddamage1-spell"), 2],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedsp1-spell"), 2],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedap1-spell"), 3],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstamina1-spell"), 4],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstrength1-spell"), 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedintellect1-spell"), 2],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedagility1-spell"), 3],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedcrit1-spell"), 4],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedresist1-spell"), 1],
-    //new spells
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"), 2],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4],
+const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increaseddamage1-spell"), 2, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedsp1-spell"), 2, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedap1-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstamina1-spell"), 4, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstrength1-spell"), 1, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedintellect1-spell"), 2, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedagility1-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedcrit1-spell"), 4, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedresist1-spell"), 1, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"), 2, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
 ]
+
+const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
+    <TSArray<TSArray<uint32>>>[<TSArray<uint32>>[0]],
+    <TSArray<TSArray<uint32>>>[//warrior
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[//paladin
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[//hunter
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[//rogue
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[//priest
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[//dk
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[//shaman
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[//mage
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[//warlock
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+    <TSArray<TSArray<uint32>>>[<TSArray<uint32>>[0]],//blank
+    <TSArray<TSArray<uint32>>>[//druid
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    ],
+]
+
+const spellIDToType : TSDictionary<uint32,uint32> = MakeDictionary<uint32,uint32>({
+    1:1
+});
+
 const spellsDescriptions = [
     "1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
     "2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
@@ -33,15 +72,37 @@ const spellsDescriptions = [
 ]
 const buffChoiceCount: uint32 = 3
 
-const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 
 class torghastBuffs extends TSClass {
     currentBuffs: TSArray<uint32> = []
+    currentBuffsType: TSArray<uint32> = []
     currentBuffsCount: TSArray<uint32> = []
     currentChoiceBuffs: TSArray<uint32> = []
 }
 
 export function torghastBuffSystem(events: TSEventHandlers) {
+    events.World.OnConfigLoad((reload)=>{
+        for(let i=0;i<baseSpells.length;i++){
+            spellIDToType[baseSpells[i][0]] = baseSpells[i][2]
+        }
+        for(let i=0;i<classSpells.length;i++){
+            if(i == 0 || i == 10){
+        
+            }else{
+                for(let j=0;j<classSpells[i].length;j++){
+                    spellIDToType[classSpells[i][j][0]] = classSpells[i][j][2]
+                }
+            }
+        }
+        
+        for(let i=0;i<classSpells.length;i++){
+            if(i == 0 || i == 10){
+        
+            }else{
+                classSpells[i] = classSpells[i].concat(baseSpells)
+            }
+        }
+    })
     events.CreatureID.OnCreate(45011, (creature, cancel) => {
         creature.SetJsonArray('usedBy', new TSJsonArray())
         creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
@@ -252,20 +313,21 @@ function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>, mobIDs: T
 
 function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    let spellranks: TSArray<uint32> = []
+    let spellRarity: TSArray<uint32> = []
     let spellDescs: TSArray<string> = []
+    let allSpells:TSArray<TSArray<uint32>> = classSpells[player.GetClass()]
     if (charItems.currentChoiceBuffs.length > 0) {
         return false
     } else {
         for (let i = 0; i < buffChoiceCount; i++) {
-            const index = Math.floor(Math.random() * spells.length)
-            let spell = spells[index]
+            const index = Math.floor(Math.random() * allSpells.length)
+            let spell:TSArray<uint32> = allSpells[index]
             let c: uint32 = spell[0]
             charItems.currentChoiceBuffs.push(c)
-            spellranks.push(spell[1])
+            spellRarity.push(spell[1])
             spellDescs.push(spellsDescriptions[index])
         }
-        let pkt = new spellChoices(charItems.currentChoiceBuffs, spellranks, spellDescs)
+        let pkt = new spellChoices(charItems.currentChoiceBuffs, spellRarity, spellDescs)
         pkt.write().SendToPlayer(player)
         return true
     }
@@ -286,6 +348,8 @@ function playerChoseBuff(player: TSPlayer, index: uint32) {
         }
         if (found == -1) {
             charItems.currentBuffs.push(choice)
+            console.log(spellIDToType[choice])
+            charItems.currentBuffsType.push(spellIDToType[choice])
             charItems.currentBuffsCount.push(1)
         } else {
             charItems.currentBuffsCount[found]++
@@ -296,29 +360,24 @@ function playerChoseBuff(player: TSPlayer, index: uint32) {
 function applyPlayerBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
-        player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
+        if (charItems.currentBuffsType[i] == 0) {
+            player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
+        } else if (charItems.currentBuffsType[i] == 0) {
+            player.LearnSpell(charItems.currentBuffs[i])
+        }
     }
 }
 
 export function removePlayerBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
-        player.RemoveAura(charItems.currentBuffs[i])
+        if (charItems.currentBuffsType[i] == 0) {
+            player.RemoveAura(charItems.currentBuffs[i])
+        } else if (charItems.currentBuffsType[i] == 0) {
+            player.RemoveSpell(charItems.currentBuffs[i], false, false)
+        }
     }
     player.SetObject("torghastBuffs", new torghastBuffs())
-}
-
-function addPrestigeBuffToCreature(mob: TSCreature, count: uint32, multiplier: uint32) {
-    mob.CastCustomSpell(mob, prestigeSpell, true, multiplier * count, multiplier * count, multiplier * count, CreateItem(19019, 1), mob.GetGUID())
-}
-
-export function setupPrestigeBuffApplication(events: TSEventHandlers, mobID: number, prestigeMult:number) {
-    events.CreatureID.OnCreate(mobID, (creature, cancel) => {
-        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), prestigeMult)
-    })
-    events.CreatureID.OnReachedHome(mobID, (creature) => {
-        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0), prestigeMult)
-    })
 }
 
 function getRandomInt(max: uint32): uint32 {
