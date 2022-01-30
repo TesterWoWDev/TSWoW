@@ -8,8 +8,8 @@ import { itemLearnSpell } from "./item/item-learn-spell"
 import { reviveFix } from "./QoL/revive"
 import { creatureDeathApplyBuff } from "./creature/creature-death-apply-buff"
 import { creatureDeathSummon } from "./creature/creature-death-summon"
-import { torghastBuffSystem } from "./dungeons/torghast-master"
-import { dungeon1 } from "./dungeons/dungeon-1"
+import { torghastBuffSystem } from "./dungeon/torghast-master"
+import { dungeon1 } from "./dungeon/dungeon-1"
 
 export function Main(events: TSEventHandlers) {
     handleCraftMessages(events)

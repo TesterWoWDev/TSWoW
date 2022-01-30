@@ -62,22 +62,24 @@ export function dungeon1(events: TSEventHandlers) {
     events.MapID.OnPlayerEnter(389, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
-            spawnMap(map,bossSpawnCoords,bossCount,bossIDs,mobSpawnCoords,mobCount,mobIDs)
+            spawnMap(map,bossSpawnCoords,bossIDs,mobSpawnCoords,mobIDs)
         }
     })
 
     events.Player.OnSay((player,type,lang,msg)=>{
         if (msg.get().startsWith("#cc")) {
-            resetGroup(player,playerSpawnCount,playerSpawnCoords,bossSpawnCoords,bossCount,bossIDs,mobSpawnCoords,mobCount,mobIDs)
+            resetGroup(player,playerSpawnCount,playerSpawnCoords,bossSpawnCoords,bossIDs,mobSpawnCoords,mobIDs)
         }
     })
     events.MapID.OnPlayerLeave(389, (map, player) => {
         removePlayerBuffs(player)
         let curPrestige:uint32 = player.GetUInt('prestige',0)
         let rewCount:uint32 = <uint32>(curPrestige*curPrestige)/10
-        player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
-        player.AddItem(rewardID,rewCount)
-        player.Teleport(725,-8750.45,-74.64,31,0)
+        if(rewCount > 0){
+            player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
+            player.AddItem(rewardID,rewCount)
+            //player.Teleport(725,-8750.45,-74.64,31,0)
+        }
     })
 }
 

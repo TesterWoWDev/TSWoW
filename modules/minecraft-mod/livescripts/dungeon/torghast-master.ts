@@ -112,7 +112,7 @@ function rewardGroup(player:TSPlayer){
     }   
 }
 
-export function resetGroup(player:TSPlayer,playerSpawnCount:uint32,playerSpawnCoords:TSArray<TSDictionary<string, float>>,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossCount:uint32,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobCount:uint32,mobIDs:TSArray<uint32>){
+export function resetGroup(player:TSPlayer,playerSpawnCount:uint32,playerSpawnCoords:TSArray<TSDictionary<string, float>>,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobIDs:TSArray<uint32>){
     let map = player.GetMap()
     map.SetUInt('prestige',map.GetUInt('prestige',0)+1)
     despawnMap(player)
@@ -121,7 +121,7 @@ export function resetGroup(player:TSPlayer,playerSpawnCount:uint32,playerSpawnCo
     }else{
         teleportRandomStart([player],playerSpawnCount,playerSpawnCoords)
     }
-    spawnMap(map,bossSpawnCoords,bossCount,bossIDs,mobSpawnCoords,mobCount,mobIDs)
+    spawnMap(map,bossSpawnCoords,bossIDs,mobSpawnCoords,mobIDs)
 }
 
 function teleportRandomStart(players: TSPlayer[],playerSpawnCount:uint32,playerSpawnCoords:TSArray<TSDictionary<string, float>>) {
@@ -144,13 +144,17 @@ export function despawnMap(player:TSPlayer){
     }
 }
 
-export function spawnMap(map:TSMap,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossCount:uint32,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobCount:uint32,mobIDs:TSArray<uint32>){
-    for(let i=0;i<bossCount;i++){
-        spawnBoss(map, bossIDs[getRandomInt(bossCount)],bossSpawnCoords.get(i))
+export function spawnMap(map:TSMap,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobIDs:TSArray<uint32>){
+    for(let i=0;i<bossSpawnCoords.length;i++){
+        console.log("spawn boss "+i)
+        spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)],bossSpawnCoords.get(i))
     }
-    for (let i = 0; i < mobCount; i++) {
-        spawnFormation(map, mobSpawnCoords.get(i),mobIDs,mobCount)
+    console.log("finished boss")
+    for (let i = 0; i < mobSpawnCoords.length; i++) {
+        console.log("spawn mob "+i)
+        spawnFormation(map, mobSpawnCoords.get(i),mobIDs,mobIDs.length)
     }
+    console.log("finished mobs")
 }
 
 function spawnBoss(map: TSMap, bossID: number, sPos: TSDictionary<string, number>) {
