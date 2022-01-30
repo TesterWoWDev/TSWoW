@@ -33,6 +33,9 @@ const spellsDescriptions = [
 ]
 const buffChoiceCount: uint32 = 3
 
+const rewardID:uint32 = 19019
+const prestigeSpell:uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
+
 class torghastBuffs extends TSClass {
     currentBuffs: TSArray<uint32> = []
     currentBuffsCount: TSArray<uint32> = []
@@ -40,7 +43,6 @@ class torghastBuffs extends TSClass {
 }
 
 export function torghastBuffSystem(events: TSEventHandlers) {
-
     events.CreatureID.OnCreate(45011, (creature, cancel) => {
         creature.SetJsonArray('usedBy', new TSJsonArray())
         creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
@@ -75,10 +77,9 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                 player.SendAreaTriggerMessage('Choose your ability first!')
             }
         }
-    })
-
-    events.MapID.OnPlayerLeave(3, (map, player) => {
-        removeBuffs(player)
+        if (msg.get().startsWith("#ee")) {
+            rewardGroup(player)
+        }
     })
 
     events.Player.OnLogout((player) => {
@@ -91,6 +92,163 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         chooseBuff(player, pkt.choice)
         applyBuffs(player)
     })
+}
+
+function rewardGroup(player:TSPlayer){
+    despawnMap(player)
+    if(player.IsInGroup()){
+        let group = player.GetGroup().GetMembers()
+        for(let i=0;i<group.length;i++){
+            let curPrestige = group[i].GetUInt('prestige',0)
+            let rewCount = Math.floor((curPrestige*curPrestige)/5)
+            group[i].SendAreaTriggerMessage('You were rewarded with ' + rewCount + ' of anima power for your prowess')
+            group[i].AddItem(rewardID,rewCount)
+            group[i].Teleport(725,-8750.45,-74.64,31,0)
+        }
+    }else{
+        let curPrestige = player.GetUInt('prestige',0)
+        player.AddItem(rewardID,Math.floor((curPrestige*curPrestige)/5))
+        player.Teleport(725,-8750.45,-74.64,31,0)
+    }   
+}
+
+export function resetGroup(player:TSPlayer,playerSpawnCount:uint32,playerSpawnCoords:TSArray<TSDictionary<string, float>>,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossCount:uint32,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobCount:uint32,mobIDs:TSArray<uint32>){
+    let map = player.GetMap()
+    map.SetUInt('prestige',map.GetUInt('prestige',0)+1)
+    despawnMap(player)
+    if(player.IsInGroup()){
+        teleportRandomStart(player.GetGroup().GetMembers(),playerSpawnCount,playerSpawnCoords)
+    }else{
+        teleportRandomStart([player],playerSpawnCount,playerSpawnCoords)
+    }
+    spawnMap(map,bossSpawnCoords,bossCount,bossIDs,mobSpawnCoords,mobCount,mobIDs)
+}
+
+function teleportRandomStart(players: TSPlayer[],playerSpawnCount:uint32,playerSpawnCoords:TSArray<TSDictionary<string, float>>) {
+    let rand = getRandomInt(playerSpawnCount)
+    let choice = playerSpawnCoords.get(rand)
+    let prestige = players[0].GetMap().GetUInt('prestige',0)
+    for(let i=0;i<players.length;i++){
+        players[i].SetUInt('prestige',players[i].GetUInt('prestige',0)+1)
+        if(prestige>0){
+            players[i].SendAreaTriggerMessage("You are on Prestige "+prestige)
+        }
+        players[i].Teleport(choice['map'],choice['x'],choice['y'],choice['z'],choice['o'])
+    }
+}
+
+export function despawnMap(player:TSPlayer){
+    let creatures = player.GetCreaturesInRange(5000,0,0,0)
+    for (let i = 0; i < creatures.length; i++) {
+        creatures[i].DespawnOrUnsummon(0)
+    }
+}
+
+export function spawnMap(map:TSMap,bossSpawnCoords:TSArray<TSDictionary<string, float>>,bossCount:uint32,bossIDs:TSArray<uint32>,mobSpawnCoords:TSArray<TSDictionary<string, float>>,mobCount:uint32,mobIDs:TSArray<uint32>){
+    for(let i=0;i<bossCount;i++){
+        spawnBoss(map, bossIDs[getRandomInt(bossCount)],bossSpawnCoords.get(i))
+    }
+    for (let i = 0; i < mobCount; i++) {
+        spawnFormation(map, mobSpawnCoords.get(i),mobIDs,mobCount)
+    }
+}
+
+function spawnBoss(map: TSMap, bossID: number, sPos: TSDictionary<string, number>) {
+    map.SpawnCreature(bossID, sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
+}
+
+function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>, mobIDs:TSArray<uint32>,mobCount:uint32) {
+    //forward is x+cosRad y+sinRad
+    //backwards is x-cosRad y-sinRad
+    //left is x+sinRad y+cosRad
+    //right is x-sinRad y-cosRad
+    let cosRad = 3 * Math.cos(sPos['o'])
+    let sinRad = 3 * Math.sin(sPos['o'])
+    let formationNumber = getRandomInt(10)
+    let prestige = map.GetUInt('prestige',0)
+    map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
+    switch (formationNumber) {
+        case 0:
+            //0x0
+            //0x0
+            //000
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 1:
+            //000
+            //xx0
+            //000
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 2:
+            //000
+            //0xx
+            //000
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 3:
+            //0x0
+            //0x0
+            //0x0
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - cosRad, sPos['y'] - sinRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 4:
+            //000
+            //xxx
+            //000
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 5:
+            //000
+            //0x0
+            //x0x
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad - cosRad, sPos['y'] + cosRad - sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 6:
+            //x0x
+            //0x0
+            //000
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad + cosRad, sPos['y'] + cosRad + sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 7:
+            //0x0
+            //xxx
+            //000
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + cosRad, sPos['y'] + sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 8:
+            //000
+            //xxx
+            //0x0
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - cosRad, sPos['y'] - sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 9:
+            //x0x
+            //xxx
+            //000
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad + cosRad, sPos['y'] + cosRad + sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad + cosRad, sPos['y'] - cosRad + sinRad, sPos['z'], sPos['o'], 0)
+            break;
+        case 10:
+            //000
+            //xxx
+            //x0x
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad, sPos['y'] + cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad, sPos['y'] - cosRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] + sinRad - cosRad, sPos['y'] + cosRad - sinRad, sPos['z'], sPos['o'], 0)
+            map.SpawnCreature(mobIDs[getRandomInt(mobCount)], sPos['x'] - sinRad - cosRad, sPos['y'] - cosRad - sinRad, sPos['z'], sPos['o'], 0)
+            break;
+    }
 }
 
 function buffChoice(player: TSPlayer): boolean {
@@ -143,10 +301,18 @@ function applyBuffs(player: TSPlayer) {
     }
 }
 
-function removeBuffs(player: TSPlayer) {
+export function removeBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
         player.RemoveAura(charItems.currentBuffs[i])
     }
     player.SetObject("torghastBuffs", new torghastBuffs())
+}
+
+export function addPrestigeBuff(mob: TSCreature,count:uint32, multiplier:uint32) {
+    mob.CastCustomSpell(mob,prestigeSpell,true,multiplier*count,multiplier*count,multiplier*count,CreateItem(19019,1),mob.GetGUID())
+}
+
+export function getRandomInt(max: uint32): uint32 {
+    return Math.floor(Math.random() * max)
 }
