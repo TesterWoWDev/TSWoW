@@ -1,18 +1,19 @@
 import { spellChoiceID, spellChoice, spellChoices } from "../../shared/Messages"
 
-const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
+const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellID,rarity,learnType(0 passive stacking, 1 passive non stack, 2 learn spell)
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increaseddamage1-spell"), 2, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedsp1-spell"), 2, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedap1-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstamina1-spell"), 4, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstrength1-spell"), 1, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedintellect1-spell"), 2, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedagility1-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedcrit1-spell"), 4, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedresist1-spell"), 1, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"), 2, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "grapple-spell"), 4, 1],
+    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedagility1-spell"), 3, 0],
+    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedcrit1-spell"), 4, 0],
+    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedresist1-spell"), 1, 0],
+    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"), 2, 0],
+    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3, 0],
+    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
 ]
 const baseSpellDescriptions = [
     "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
@@ -21,13 +22,14 @@ const baseSpellDescriptions = [
     "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
     "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
     "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
-    "bonec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
-    "bonec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
-    "bed sed dui et tellus sollicitudin hendrerit. Pellentesque varius nulla quis tortor finibus, a vulputate nibh tristique. Nulla tellus risus,",
-    "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque",
+    "Grapple like a rogue",
+
+    //"bonec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
+    // "bed sed dui et tellus sollicitudin hendrerit. Pellentesque varius nulla quis tortor finibus, a vulputate nibh tristique. Nulla tellus risus,",
+    // "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    // "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    // "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    // "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque",
 ]
 
 const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
@@ -323,17 +325,34 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     let spellRarity: TSArray<uint32> = []
     let spellDescs: TSArray<string> = []
-    let allSpells:TSArray<TSArray<uint32>> = classSpells[player.GetClass()]
+    let classID = player.GetClass()
+    let allSpells:TSArray<TSArray<uint32>> = classSpells[classID]
+    let continueLoop = true
+    let count = 0
+    
     if (charItems.currentChoiceBuffs.length > 0) {
         return false
     } else {
-        for (let i = 0; i < buffChoiceCount; i++) {
+        while(continueLoop  == true){
             const index = Math.floor(Math.random() * allSpells.length)
             let spell:TSArray<uint32> = allSpells[index]
             let c: uint32 = spell[0]
-            charItems.currentChoiceBuffs.push(c)
-            spellRarity.push(spell[1])
-            spellDescs.push(classSpellDescriptions[player.GetClass()][index])
+            if(spellIDToType[c] == 0){
+                charItems.currentChoiceBuffs.push(c)
+                spellRarity.push(spell[1])
+                spellDescs.push(classSpellDescriptions[classID][index])
+                count++
+            }else if (spellIDToType[c] == 1 || spellIDToType[c] == 2){
+                if(!charItems.currentBuffs.includes(c,0)){
+                    charItems.currentChoiceBuffs.push(c)
+                    spellRarity.push(spell[1])
+                    spellDescs.push(classSpellDescriptions[classID][index])
+                    count++
+                }
+            }
+            if(count == 3){
+                continueLoop = false
+            }
         }
         let pkt = new spellChoices(charItems.currentChoiceBuffs, spellRarity, spellDescs)
         pkt.write().SendToPlayer(player)
@@ -367,9 +386,9 @@ function playerChoseBuff(player: TSPlayer, index: uint32) {
 function applyPlayerBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
-        if (charItems.currentBuffsType[i] == 0) {
+        if (charItems.currentBuffsType[i] == 0 || charItems.currentBuffsType[i] == 1) {
             player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
-        } else if (charItems.currentBuffsType[i] == 0) {
+        } else if (charItems.currentBuffsType[i] == 2) {
             player.LearnSpell(charItems.currentBuffs[i])
         }
     }
@@ -378,9 +397,9 @@ function applyPlayerBuffs(player: TSPlayer) {
 export function removePlayerBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
-        if (charItems.currentBuffsType[i] == 0) {
+        if (charItems.currentBuffsType[i] == 0 || charItems.currentBuffsType[i] == 1) {
             player.RemoveAura(charItems.currentBuffs[i])
-        } else if (charItems.currentBuffsType[i] == 0) {
+        } else if (charItems.currentBuffsType[i] == 2) {
             player.RemoveSpell(charItems.currentBuffs[i], false, false)
         }
     }
