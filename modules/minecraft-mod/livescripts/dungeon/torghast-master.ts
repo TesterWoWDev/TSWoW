@@ -7,29 +7,29 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstamina1-spell"), 4, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstrength1-spell"), 1, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedintellect1-spell"), 2, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "grapple-spell"), 4, 1],
-    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedagility1-spell"), 3, 0],
-    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedcrit1-spell"), 4, 0],
-    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedresist1-spell"), 1, 0],
-    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"), 2, 0],
-    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3, 0],
-    // <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedagility1-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedcrit1-spell"), 4, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedresist1-spell"), 1, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"), 2, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "grapple-spell"), 4, 2],
 ]
 const baseSpellDescriptions = [
-    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
-    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
-    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
-    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
-    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
-    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
-    "Grapple like a rogue",
+    "Total Damage dealt increased by 2%.",
+    "Total Spell Power increased by 2%.",
+    "Total Attack Power increased by 2%.",
+    "Stamina increased by 10.",
+    "Strength increased by 10.",
+    "Intellect increased by 10.",
+    "Agility increased by 10.",
+    "Critical Strike increased by 10.",
+    "All resistances increased by 10.",
+    "Increases ranged attack speed by 25%. Does not stack.",
+    "Increases spell crit chance by 10%.",
+    "Increases crit damage by 5%.",
+    "Teaches you Grapple. Grapple allows you to grapple to a nearby location.",
 
-    //"bonec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
-    // "bed sed dui et tellus sollicitudin hendrerit. Pellentesque varius nulla quis tortor finibus, a vulputate nibh tristique. Nulla tellus risus,",
-    // "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    // "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    // "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    // "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque",
 ]
 
 const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
@@ -70,27 +70,27 @@ const classSpellDescriptions = [
     //blank
     ["0blank"],
     //warrior
-    ["1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",],
+    ["Increases health by 2%",],
     //paladin
-    ["2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",],
+    ["Increases health by 2%",],
     //hunter
-    ["3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",],
+    ["Increases health by 2%",],
     //rogue
-    ["4Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",],
+    ["Increases health by 2%",],
     //priest
-    ["5Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",],
+    ["Increases health by 2%",],
     //dk
-    ["6Donec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",],
+    ["Increases health by 2%",],
     //sham
-    ["7Donec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",],
+    ["Increases health by 2%",],
     //mage
-    ["8Sed sed dui et tellus sollicitudin hendrerit. Pellentesque varius nulla quis tortor finibus, a vulputate nibh tristique. Nulla tellus risus,",],
+    ["Increases health by 2%",],
     //lock
-    ["9Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",],
+    ["Increases health by 2%",],
     //blank
     ["10blank"],
     //druid
-    ["11Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",],
+    ["Increases health by 2%",],
 ]
 
 
@@ -335,17 +335,17 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     } else {
         while(continueLoop  == true){
             const index = Math.floor(Math.random() * allSpells.length)
-            let spell:TSArray<uint32> = allSpells[index]
-            let c: uint32 = spell[0]
+            let spellInfo:TSArray<uint32> = allSpells[index]
+            let c: uint32 = spellInfo[0]
             if(spellIDToType[c] == 0){
                 charItems.currentChoiceBuffs.push(c)
-                spellRarity.push(spell[1])
+                spellRarity.push(spellInfo[1])
                 spellDescs.push(classSpellDescriptions[classID][index])
                 count++
             }else if (spellIDToType[c] == 1 || spellIDToType[c] == 2){
-                if(!charItems.currentBuffs.includes(c,0)){
+                if(!charItems.currentBuffs.includes(c)){
                     charItems.currentChoiceBuffs.push(c)
-                    spellRarity.push(spell[1])
+                    spellRarity.push(spellInfo[1])
                     spellDescs.push(classSpellDescriptions[classID][index])
                     count++
                 }
