@@ -69,7 +69,6 @@ export function dungeon1(events: TSEventHandlers) {
         }
     })
     events.MapID.OnPlayerLeave(389, (map, player) => {
-        player.ResurrectPlayer(80,false)
         removePlayerBuffs(player)
         let curPrestige: uint32 = player.GetUInt('prestige', 0)
         let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 10
