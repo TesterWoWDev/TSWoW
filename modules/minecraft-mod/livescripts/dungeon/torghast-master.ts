@@ -1,7 +1,6 @@
 import { spellChoiceID, spellChoice, spellChoices } from "../../shared/Messages"
 
 const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increaseddamage1-spell"), 2, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedsp1-spell"), 2, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedap1-spell"), 3, 0],
@@ -16,19 +15,19 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
 ]
 const baseSpellDescriptions = [
-    "1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
-    "2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
-    "3Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
-    "4Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
-    "5Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
-    "6Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
-    "7Donec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
-    "8Donec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
-    "9Sed sed dui et tellus sollicitudin hendrerit. Pellentesque varius nulla quis tortor finibus, a vulputate nibh tristique. Nulla tellus risus,",
-    "10Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    "11Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    "12Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
-    "13Cras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque",
+    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus. Morbi sed ligula nec tortor imperdiet tincidunt sed a velit",
+    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
+    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
+    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus.",
+    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
+    "borem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra enim euismod sodales finibus. Morbi dapibus ante sed velit facilisis, sed vulputate nisi faucibus.",
+    "bonec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
+    "bonec fermentum tellus ut massa scelerisque venenatis. Aenean ultrices nisi dui, ac commodo magna faucibus ac. Ut sem ex, hendrerit vel ipsum vitae, volutpat dignissim tellus.",
+    "bed sed dui et tellus sollicitudin hendrerit. Pellentesque varius nulla quis tortor finibus, a vulputate nibh tristique. Nulla tellus risus,",
+    "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque, eleifend nec justo nec, commodo blandit nisl. In suscipit ornare nulla in hendrerit.",
+    "bCras vel mi massa. Quisque nibh risus, imperdiet ut ultricies et, convallis vitae dolor. Nunc erat neque",
 ]
 
 const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
@@ -107,35 +106,8 @@ class torghastBuffs extends TSClass {
 }
 
 export function torghastBuffSystem(events: TSEventHandlers) {
-    events.World.OnConfigLoad((reload)=>{
-        for(let i=0;i<baseSpells.length;i++){
-            spellIDToType[baseSpells[i][0]] = baseSpells[i][2]
-        }
-        for(let i=0;i<classSpells.length;i++){
-            if(i == 0 || i == 10){
-        
-            }else{
-                for(let j=0;j<classSpells[i].length;j++){
-                    spellIDToType[classSpells[i][j][0]] = classSpells[i][j][2]
-                }
-            }
-        }
-        
-        for(let i=0;i<classSpells.length;i++){
-            if(i == 0 || i == 10){
-        
-            }else{
-                classSpells[i] = classSpells[i].concat(baseSpells)
-            }
-        }
-        for(let i=0;i<classSpellDescriptions.length;i++){
-            if(i == 0 || i == 10){
-        
-            }else{
-                classSpellDescriptions[i] = classSpellDescriptions[i].concat(baseSpellDescriptions)
-            }
-        }
-    })
+    setupTables()
+    
     events.CreatureID.OnCreate(45011, (creature, cancel) => {
         creature.SetJsonArray('usedBy', new TSJsonArray())
         creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
@@ -358,7 +330,7 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
             let c: uint32 = spell[0]
             charItems.currentChoiceBuffs.push(c)
             spellRarity.push(spell[1])
-            spellDescs.push(baseSpellDescriptions[index])
+            spellDescs.push(classSpellDescriptions[player.GetClass()][index])
         }
         let pkt = new spellChoices(charItems.currentChoiceBuffs, spellRarity, spellDescs)
         pkt.write().SendToPlayer(player)
@@ -381,7 +353,6 @@ function playerChoseBuff(player: TSPlayer, index: uint32) {
         }
         if (found == -1) {
             charItems.currentBuffs.push(choice)
-            console.log(spellIDToType[choice])
             charItems.currentBuffsType.push(spellIDToType[choice])
             charItems.currentBuffsCount.push(1)
         } else {
@@ -415,4 +386,34 @@ export function removePlayerBuffs(player: TSPlayer) {
 
 function getRandomInt(max: uint32): uint32 {
     return Math.floor(Math.random() * max)
+}
+
+function setupTables(){
+    for(let i=0;i<baseSpells.length;i++){
+        spellIDToType[baseSpells[i][0]] = baseSpells[i][2]
+    }
+    for(let i=0;i<classSpells.length;i++){
+        if(i == 0 || i == 10){
+    
+        }else{
+            for(let j=0;j<classSpells[i].length;j++){
+                spellIDToType[classSpells[i][j][0]] = classSpells[i][j][2]
+            }
+        }
+    }
+    
+    for(let i=0;i<classSpells.length;i++){
+        if(i == 0 || i == 10){
+    
+        }else{
+            classSpells[i] = classSpells[i].concat(baseSpells)
+        }
+    }
+    for(let i=0;i<classSpellDescriptions.length;i++){
+        if(i == 0 || i == 10){
+    
+        }else{
+            classSpellDescriptions[i] = classSpellDescriptions[i].concat(baseSpellDescriptions)
+        }
+    }
 }
