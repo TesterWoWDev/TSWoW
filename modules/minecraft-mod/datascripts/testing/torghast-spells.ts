@@ -19,9 +19,33 @@ spell.Charges.set(-1)
 spell.ProcsPerMinute.set(-1)
 spell.Cooldown.set(3000)
 })
-//
 
-//note to self, make ravenous anima cell. thats funny
+/**spell ideas
+onKill do explosion
+bonus auto attack range
+mob oncombat check heal targetopen cage give buff
+option to gain a currency rather than a buff
+free revive, only works once
+onKill increase health to a cap
+add shop with currency
+bodyguard for current run/temp time
+damaging spells and ablities empoyer you, stacking, duration 5s
+thorns effect
+regen hp per 5
+knock back on hit, with cd
+when close to death, explode for damage
+item to spawn a bunch of mobs for you
+looting X gives you a stacking shield
+random spawned mimic that looks like orb, but spawns enemy
+double damage, take %hp per second
+spells chance to heal you
+spells stacking movespeed
+AoE reduce enemy cast times
+immunity for X seconds, but will kill you if you dont leave floor
+sunfire cape spell
+
+external of torghast bonuses, like %bonus or higher chance for spawns, something that incentivises replayabiity
+*/
 export let IncreasedHealth1 = std.Spells.create(MODNAME,'increasedhealth1-spell',34747)
 IncreasedHealth1.Name.enGB.set('Invincible')
 IncreasedHealth1.Description.enGB.set('Total Health increased by $s1%.')
