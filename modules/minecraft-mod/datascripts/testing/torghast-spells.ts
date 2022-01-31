@@ -44,6 +44,8 @@ AoE reduce enemy cast times
 immunity for X seconds, but will kill you if you dont leave floor
 sunfire cape spell
 
+ascend floor, gain bonus damage(ex 15%), lose max health(ex 5%)
+
 external of torghast bonuses, like %bonus or higher chance for spawns, something that incentivises replayabiity
 */
 export let IncreasedHealth1 = std.Spells.create(MODNAME,'increasedhealth1-spell',34747)
