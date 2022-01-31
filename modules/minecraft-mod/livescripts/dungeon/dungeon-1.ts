@@ -83,7 +83,8 @@ export function dungeon1(events: TSEventHandlers) {
 }
 
 function addPrestigeBuffToCreature(mob: TSCreature, count: uint32) {
-    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * count, prestigeMult * count, prestigeMult * count, CreateItem(19019, 1), mob.GetGUID())
+    let pcount = mob.GetPlayersInRange(500,0,0).length
+    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * count * pcount, prestigeMult * count * pcount, prestigeMult * count * pcount, CreateItem(19019, 1), mob.GetGUID())
 }
 
 export function setupPrestigeBuffApplication(events: TSEventHandlers, mobID: number, prestigeMult: number) {
