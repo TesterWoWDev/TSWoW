@@ -35,7 +35,7 @@ export function thorgast() {
         for (let i = 0; i < 3; i++) {
             choiceSpells.push(customPacket.spellIDs[i])
             choiceDescs.push(customPacket.spellDescs[i])
-            choiceRanks.push(customPacket.spellRanks[i])
+            choiceRanks.push(customPacket.spellRarity[i])
         }
         showSpellChoiceUI()
     })
