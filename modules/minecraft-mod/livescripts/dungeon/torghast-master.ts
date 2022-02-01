@@ -94,11 +94,10 @@ const classSpellDescriptions = [
 ]
 
 
-const buffChoiceCount: uint32 = 3
-//end of configs
-
-const spellIDToType : TSDictionary<uint32,uint32> = MakeDictionary<uint32,uint32>({
-    1:1
+export const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
+//end of config
+const spellIDToType: TSDictionary<uint32, uint32> = MakeDictionary<uint32, uint32>({
+    1: 1
 });
 class torghastBuffs extends TSClass {
     currentBuffs: TSArray<uint32> = []
@@ -109,7 +108,7 @@ class torghastBuffs extends TSClass {
 
 export function torghastBuffSystem(events: TSEventHandlers) {
     setupTables()
-    
+
     events.CreatureID.OnCreate(45011, (creature, cancel) => {
         creature.SetJsonArray('usedBy', new TSJsonArray())
         creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
@@ -171,14 +170,14 @@ function rewardGroup(player: TSPlayer) {
             let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 5
             group[i].SendAreaTriggerMessage('You were rewarded with ' + rewCount + ' of anima power for your prowess')
             group[i].AddItem(rewardID, rewCount)
-            group[i].SetUInt('prestige',0)
+            group[i].SetUInt('prestige', 0)
             group[i].Teleport(725, -8750.45, -74.64, 31, 0)
-            
+
         }
     } else {
         let curPrestige: uint32 = player.GetUInt('prestige', 0)
         player.AddItem(rewardID, <uint32>(curPrestige * curPrestige) / 5)
-        player.SetUInt('prestige',0)
+        player.SetUInt('prestige', 0)
         player.Teleport(725, -8750.45, -74.64, 31, 0)
     }
 }
@@ -217,15 +216,25 @@ function despawnMap(player: TSPlayer) {
 
 export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>) {
     for (let i = 0; i < bossSpawnCoords.length; i++) {
-        spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)], bossSpawnCoords.get(i))
+        if (i == bossSpawnCoords.length - 1) {//last boss
+            spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)], bossSpawnCoords.get(i), true)
+        } else {
+            spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)], bossSpawnCoords.get(i), false)
+        }
+
     }
     for (let i = 0; i < mobSpawnCoords.length; i++) {
         spawnFormation(map, mobSpawnCoords.get(i), mobIDs, mobIDs.length)
     }
 }
 
-function spawnBoss(map: TSMap, bossID: number, sPos: TSDictionary<string, number>) {
-    map.SpawnCreature(bossID, sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
+function spawnBoss(map: TSMap, bossID: number, sPos: TSDictionary<string, number>, lastBoss: boolean) {
+    let c = map.SpawnCreature(bossID, sPos['x'], sPos['y'], sPos['z'], sPos['o'], 0)
+    if (lastBoss) {
+        c.SetUInt('lastBoss', 1)
+    } else {
+        c.SetUInt('lastBoss', 0)
+    }
 }
 
 function spawnFormation(map: TSMap, sPos: TSDictionary<string, float>, mobIDs: TSArray<uint32>, mobCount: uint32) {
@@ -326,31 +335,31 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     let spellRarity: TSArray<uint32> = []
     let spellDescs: TSArray<string> = []
     let classID = player.GetClass()
-    let allSpells:TSArray<TSArray<uint32>> = classSpells[classID]
+    let allSpells: TSArray<TSArray<uint32>> = classSpells[classID]
     let continueLoop = true
     let count = 0
-    
+
     if (charItems.currentChoiceBuffs.length > 0) {
         return false
     } else {
-        while(continueLoop  == true){
+        while (continueLoop == true) {
             const index = Math.floor(Math.random() * allSpells.length)
-            let spellInfo:TSArray<uint32> = allSpells[index]
+            let spellInfo: TSArray<uint32> = allSpells[index]
             let c: uint32 = spellInfo[0]
-            if(spellIDToType[c] == 0){
+            if (spellIDToType[c] == 0) {
                 charItems.currentChoiceBuffs.push(c)
                 spellRarity.push(spellInfo[1])
                 spellDescs.push(classSpellDescriptions[classID][index])
                 count++
-            }else if (spellIDToType[c] == 1 || spellIDToType[c] == 2){
-                if(!charItems.currentBuffs.includes(c)){
+            } else if (spellIDToType[c] == 1 || spellIDToType[c] == 2) {
+                if (!charItems.currentBuffs.includes(c)) {
                     charItems.currentChoiceBuffs.push(c)
                     spellRarity.push(spellInfo[1])
                     spellDescs.push(classSpellDescriptions[classID][index])
                     count++
                 }
             }
-            if(count == 3){
+            if (count == 3) {
                 continueLoop = false
             }
         }
@@ -406,36 +415,44 @@ export function removePlayerBuffs(player: TSPlayer) {
     player.SetObject("torghastBuffs", new torghastBuffs())
 }
 
-function getRandomInt(max: uint32): uint32 {
+export function getRandomInt(max: uint32): uint32 {
     return Math.floor(Math.random() * max)
 }
 
-function setupTables(){
-    for(let i=0;i<baseSpells.length;i++){
+function setupTables() {
+    for (let i = 0; i < baseSpells.length; i++) {
         spellIDToType[baseSpells[i][0]] = baseSpells[i][2]
     }
-    for(let i=0;i<classSpells.length;i++){
-        if(i == 0 || i == 10){
-    
-        }else{
-            for(let j=0;j<classSpells[i].length;j++){
+    for (let i = 0; i < classSpells.length; i++) {
+        if (i == 0 || i == 10) {
+
+        } else {
+            for (let j = 0; j < classSpells[i].length; j++) {
                 spellIDToType[classSpells[i][j][0]] = classSpells[i][j][2]
             }
         }
     }
-    
-    for(let i=0;i<classSpells.length;i++){
-        if(i == 0 || i == 10){
-    
-        }else{
+
+    for (let i = 0; i < classSpells.length; i++) {
+        if (i == 0 || i == 10) {
+
+        } else {
             classSpells[i] = classSpells[i].concat(baseSpells)
         }
     }
-    for(let i=0;i<classSpellDescriptions.length;i++){
-        if(i == 0 || i == 10){
-    
-        }else{
+    for (let i = 0; i < classSpellDescriptions.length; i++) {
+        if (i == 0 || i == 10) {
+
+        } else {
             classSpellDescriptions[i] = classSpellDescriptions[i].concat(baseSpellDescriptions)
         }
     }
+}
+
+export function setupLastBossCheck(events: TSEventHandlers, bossID: number) {
+    events.CreatureID.OnDeath(bossID, (creature, killer) => {
+        if (creature.GetUInt('lastBoss', 0) == 1) {
+            //killer.SummonGameObject(resetGroupObject,creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),0)
+        }
+    })
 }
