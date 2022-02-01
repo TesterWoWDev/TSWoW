@@ -383,7 +383,7 @@ function BattlefieldFrame_Update()
 	local playerLevel = UnitLevel("player");
 	local button, buttonStatus;
 	local instanceID;
-    if(playerLevel < 9)then return end
+    if(playerLevel <= 9)then return end
 	local mapName, mapDescription, maxGroup = GetBattlefieldInfo();
 	local factionTexture = "Interface\\PVPFrame\\PVP-Currency-"..UnitFactionGroup("player");
 	
