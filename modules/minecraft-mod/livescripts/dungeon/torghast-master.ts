@@ -109,7 +109,7 @@ class torghastBuffs extends TSClass {
 export function torghastBuffSystem(events: TSEventHandlers) {
     setupTables()
 
-    events.CreatureID.OnCreate(GetID("Creature", "minecraft-mod", "torghast-orb"), (creature, cancel) => {
+    events.CreatureID.OnCreate(GetID("creature_template", "minecraft-mod", "torghast-orb"), (creature, cancel) => {
         creature.SetJsonArray('usedBy', new TSJsonArray())
         creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
             if (collided.IsPlayer()) {

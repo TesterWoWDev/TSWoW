@@ -5,7 +5,7 @@ import { MODNAME } from "../modname"
 export let torghastOrb = std.CreatureTemplates.create(MODNAME,'torghast-orb',40083)
 
 export let torghastChoice = std.Spells.create(MODNAME,'torghastchoice-spell',66701)
-torghastChoice.Name.enGB.set('test spawn')
+torghastChoice.Name.enGB.set('Anima Cell Spawn')
 torghastChoice.Description.enGB.set('Using this allows you and your alies to select an additional power.')
 torghastChoice.Effects.get(0).ImplicitTargetA.DEST_DEST_FRONT.set()
 torghastChoice.Effects.get(0).Radius.setSimple(5,0,5)
