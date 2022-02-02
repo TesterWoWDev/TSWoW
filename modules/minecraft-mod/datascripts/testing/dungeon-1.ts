@@ -840,24 +840,3 @@ Formation 4 : Paladin + Shaman
     Paladin : Avenger's Shield, Consecration
     Shaman  : Healing Wave + Frost Shock
 */
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////
-//stack buff spell
-export let mapPrestige = std.Spells.create(MODNAME, 'mapprestige-spell', 71188)
-mapPrestige.Name.enGB.set('Prestige')
-mapPrestige.Description.enGB.set('Damage done increased by $s1%. Health increased by $s2%.')
-mapPrestige.AuraDescription.enGB.set('Damage done increased by $s1%. Attack and casting speeds increased by $s2%. Health increased by $s1%.')
-mapPrestige.Effects.get(0).BasePoints.set(9)
-mapPrestige.Effects.get(1).BasePoints.set(9)
-mapPrestige.Effects.get(2).BasePoints.set(9)
-mapPrestige.Effects.get(2).Aura.MOD_INCREASE_HEALTH_PERCENT.set()
-mapPrestige.Duration.set(21)
-mapPrestige.row.Attributes.set(mapPrestige.row.Attributes.get() + 0x80000000 + 0x00000080)
-mapPrestige.Attributes.PERSISTS_DEATH.set(1)
-mapPrestige.Attributes.NOT_STEALABLE.set(1)
-mapPrestige.Attributes.AURA_VISIBLE_TO_CASTER_ONLY.set(1)
