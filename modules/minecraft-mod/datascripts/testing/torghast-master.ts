@@ -3,6 +3,9 @@ import { MODNAME } from "../modname"
 //spawn spell
 
 export let torghastOrb = std.CreatureTemplates.create(MODNAME,'torghast-orb',40083)
+torghastOrb.Name.enGB.set('torghast spell creature')
+torghastOrb.Scale.set(0.5)
+torghastOrb.HoverHeight.set(2)
 
 export let torghastChoice = std.Spells.create(MODNAME,'torghastchoice-spell',66701)
 torghastChoice.Name.enGB.set('Anima Cell Spawn')
