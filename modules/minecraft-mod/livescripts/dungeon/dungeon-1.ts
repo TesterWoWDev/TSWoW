@@ -128,8 +128,9 @@ const mobSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
         MakeDictionary<string, float>({ map: 726, x: 929.649170, y: -87.379242, z: 423.258759, o: 0.901819 }),
         MakeDictionary<string, float>({ map: 726, x: 949.340271, y: -56.881454, z: 421.411255, o: 1.224487 }),
         MakeDictionary<string, float>({ map: 726, x: 958.771545, y: -23.183186, z: 421.061249, o: 1.306082 }),
-
-
+        MakeDictionary<string, float>({ map: 726, x: 954.684814, y: 196.569809, z: 448.761261, o: 5.512268 }),
+        MakeDictionary<string, float>({ map: 726, x: 984.382385, y: 182.234299, z: 444.886353, o: 5.802866 }),
+        MakeDictionary<string, float>({ map: 726, x: 958.017395, y: 161.471237, z: 449.229980, o: 1.205930 }),
     ],
 
 ]
@@ -207,7 +208,7 @@ export function dungeon1(events: TSEventHandlers) {
 
 function addPrestigeBuffToCreature(mob: TSCreature) {
     let map = mob.GetMap()
-    let prestige = map.GetUInt('prestige',0)
+    let prestige = map.GetUInt('prestige', 0)
     let pcount = map.GetPlayerCount()
     mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, CreateItem(19019, 1), mob.GetGUID())
 }
