@@ -208,7 +208,7 @@ function teleportRandomStart(players: TSPlayer[], playerSpawnCount: uint32, play
 }
 
 function despawnMap(player: TSPlayer) {
-    let creatures = player.GetCreaturesInRange(5000, 0, 0, 0)
+    let creatures = player.GetCreaturesInRange(10000, 0, 0, 0)
     for (let i = 0; i < creatures.length; i++) {
         creatures[i].DespawnOrUnsummon(0)
     }
