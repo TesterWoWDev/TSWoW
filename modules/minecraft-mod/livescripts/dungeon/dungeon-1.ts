@@ -170,11 +170,13 @@ const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 1
 export function dungeon1(events: TSEventHandlers) {
     for (let i = 0; i < mobIDs.length; i++) {
         setupCreaturePrestigeScripts(events, mobIDs[i])
+        setupCreatureDropPowers(events,mobIDs[i])
     }
 
     for (let i = 0; i < bossIDs.length; i++) {
         setupCreaturePrestigeScripts(events, bossIDs[i])
         setupLastBossCheck(events, bossIDs[i])
+        setupBossDropPowers(events,bossIDs[i])
     }
     //make a bossMinions loop for any spawned by spell creatures
 
@@ -221,3 +223,17 @@ function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
         addPrestigeBuffToCreature(creature)
     })
 }
+function setupCreatureDropPowers(events: TSEventHandlers, mobID: number) {
+    events.CreatureID.OnDeath(mobID,(creature,killer)=>{
+        if(getRandomInt(100) == 100){
+            //creature.SpawnCreature(animaBunny,creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
+        }
+    })
+}
+
+function setupBossDropPowers(events: TSEventHandlers, mobID: number) {
+    events.CreatureID.OnDeath(mobID,(creature,killer)=>{
+        //creature.SpawnCreature(animaBunny,creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
+    })
+}
+
