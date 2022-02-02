@@ -181,6 +181,7 @@ export function dungeon1(events: TSEventHandlers) {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
             map.SetUInt('rewardID', rewardID)
+            map.SetUInt('prestige', 0)
             let mapChoice = getRandomInt(mobSpawnCoords.length)
             spawnMap(map, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs)
         }
@@ -204,16 +205,18 @@ export function dungeon1(events: TSEventHandlers) {
     })
 }
 
-function addPrestigeBuffToCreature(mob: TSCreature, count: uint32) {
-    let pcount = mob.GetMap().GetPlayerCount()
-    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * count * pcount, prestigeMult * count * pcount, prestigeMult * count * pcount, CreateItem(19019, 1), mob.GetGUID())
+function addPrestigeBuffToCreature(mob: TSCreature) {
+    let map = mob.GetMap()
+    let prestige = map.GetUInt('prestige',0)
+    let pcount = map.GetPlayerCount()
+    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, CreateItem(19019, 1), mob.GetGUID())
 }
 
 function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnCreate(mobID, (creature, cancel) => {
-        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0))
+        addPrestigeBuffToCreature(creature)
     })
     events.CreatureID.OnReachedHome(mobID, (creature) => {
-        addPrestigeBuffToCreature(creature, creature.GetMap().GetUInt('prestige', 0))
+        addPrestigeBuffToCreature(creature)
     })
 }
