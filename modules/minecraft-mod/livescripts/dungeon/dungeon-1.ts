@@ -226,14 +226,14 @@ function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
 function setupCreatureDropPowers(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID,(creature,killer)=>{
         if(getRandomInt(100) == 100){
-            //creature.SpawnCreature(animaBunny,creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
+            creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"),creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
         }
     })
 }
 
 function setupBossDropPowers(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID,(creature,killer)=>{
-        //creature.SpawnCreature(animaBunny,creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
+        creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"),creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
     })
 }
 
