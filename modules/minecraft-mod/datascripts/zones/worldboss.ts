@@ -1,22 +1,27 @@
-import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata"
-import { spawnNPCWithTimer } from "../functions/spawning-functions"
-import { OrbofPower } from "./item-manifest"
+import { std } from "tswow-stdlib";
+import { SQL } from "wotlkdata";
+import { spawnNPCWithTimer } from "../functions/spawning-functions";
+import { OrbofPower } from "./item-manifest";
 
-export let TeremustheDevourer = std.CreatureTemplates.load(7846)
-TeremustheDevourer.Level.set(30)
-TeremustheDevourer.Stats.HealthMod.set(60)
-TeremustheDevourer.Stats.DamageMod.set(10)
-TeremustheDevourer.Stats.ArmorMod.set(100)
-TeremustheDevourer.MovementType.WAYPOINT.set()
-TeremustheDevourer.HoverHeight.set(1)
-TeremustheDevourer.MovementSpeed.set(10,10)
-TeremustheDevourer.NormalLoot.modRefCopy(table=>{
-    table.addItem(OrbofPower.ID,75,3,3,undefined,8)
-})
+export let TeremustheDevourer = std.CreatureTemplates.load(7846);
+TeremustheDevourer.Level.set(30);
+TeremustheDevourer.Stats.HealthMod.set(60);
+TeremustheDevourer.Stats.DamageMod.set(10);
+TeremustheDevourer.Stats.ArmorMod.set(100);
+TeremustheDevourer.MovementType.WAYPOINT.set();
+TeremustheDevourer.HoverHeight.set(1);
+TeremustheDevourer.MovementSpeed.set(10, 10);
+TeremustheDevourer.NormalLoot.modRefCopy((table) => {
+    table.addItem(OrbofPower.ID, 75, 3, 3, undefined, 8);
+});
 
-let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,300,0,
-    {map:725,x:-8114.068848,y:407.7459,z:40.214,o:4.38},3600)
+let TeremustheDevourerGUID = spawnNPCWithTimer(
+    TeremustheDevourer.ID,
+    300,
+    0,
+    { map: 725, x: -8114.068848, y: 407.7459, z: 40.214, o: 4.38 },
+    3600
+);
 
 /*addWaypoint(TeremustheDevourerGUID,[
     [-8118.032227,167.130127,0.385031,1.114623,0],
@@ -58,4 +63,4 @@ let TeremustheDevourerGUID = spawnNPCWithTimer(TeremustheDevourer.ID,300,0,
     [-7947.986816,57.004776,0.385031,1.939295,0],
     [-7993.659180,110.397179,0.385031,2.355556,0],
     [-8059.353027,163.871964,0.385031,2.595102,0]])*/
-    SQL.creature_template_movement.add(TeremustheDevourer.ID).Flight.set(1)
+SQL.creature_template_movement.add(TeremustheDevourer.ID).Flight.set(1);
