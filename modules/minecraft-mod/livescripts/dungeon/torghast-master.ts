@@ -93,8 +93,9 @@ const classSpellDescriptions = [
     ["Increases health by 2%",],
 ]
 
-const tormentAndBlessingSpells: TSArray<TSArray<uint32>> = [
-    [1, 0], [1, 1]
+const tormentAndBlessingSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[
+    <TSArray<uint32>>[81157, 0],
+    <TSArray<uint32>>[81157, 0],
 ]
 
 export const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
@@ -207,11 +208,11 @@ export function resetGroup(player: TSPlayer, playerSpawnCoords: TSArray<TSDictio
         if (player.IsInGroup()) {
             let pGroup = player.GetGroup().GetMembers()
             for (let i = 0; i > pGroup.length; i++) {
-                addTormentorBlessing(pGroup[i])
+                addTormentOrBlessing(pGroup[i])
                 applyPlayerBuffs(pGroup[i])
             }
         } else {
-            addTormentorBlessing(player)
+            addTormentOrBlessing(player)
             applyPlayerBuffs(player)
         }
     }
@@ -422,39 +423,31 @@ function playerChoseBuff(player: TSPlayer, index: uint32) {
     }
 }
 
-function addTormentorBlessing(player: TSPlayer) {
+function addTormentOrBlessing(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    let allSpells: TSArray<TSArray<uint32>> = tormentAndBlessingSpells
     let continueLoop = true
-    let spellID = 0
     while (continueLoop == true) {
-        const index = Math.floor(Math.random() * allSpells.length)
-        let spellInfo: TSArray<uint32> = allSpells[index]
-        spellID = spellInfo[0]
-        if (spellIDToType[spellID] == 0) {
-            charItems.currentTormentsAndBlessings.push(spellID)
-            continueLoop = false
-        } else if (spellIDToType[spellID] == 1 || spellIDToType[spellID] == 2) {
-            if (!charItems.currentBuffs.includes(spellID)) {
-                charItems.currentTormentsAndBlessings.push(spellID)
-                continueLoop = false
+        let index = getRandomInt(tormentAndBlessingSpells.length)
+        let spellInfo: TSArray<uint32> = tormentAndBlessingSpells[index]
+        let spellID = spellInfo[0]
+        let spellType = spellInfo[1]
+
+        let found: uint32 = -1
+        for (let i = 0; i < charItems.currentTormentsAndBlessings.length; i++) {
+            if (charItems.currentTormentsAndBlessings[i] == spellID) {
+                found = i
+                break
             }
         }
-    }
-
-    let found: uint32 = -1
-    for (let i = 0; i < charItems.currentBuffs.length; i++) {
-        if (charItems.currentBuffs[i] == spellID) {
-            found = i
-            break
+        if (found == -1) {
+            charItems.currentTormentsAndBlessings.push(spellID)
+            charItems.currentTormentsAndBlessingsType.push(spellType)
+            charItems.currentTormentsAndBlessingsCount.push(1)
+            continueLoop = false
+        } else if (found != -1 && spellType == 0) {//found spell, spell type 0 allows stack
+            charItems.currentTormentsAndBlessingsCount[found]++
+            continueLoop = false
         }
-    }
-    if (found == -1) {
-        charItems.currentTormentsAndBlessings.push(spellID)
-        charItems.currentTormentsAndBlessingsType.push(spellIDToType[spellID])
-        charItems.currentTormentsAndBlessingsCount.push(1)
-    } else {
-        charItems.currentBuffsCount[found]++
     }
 }
 
