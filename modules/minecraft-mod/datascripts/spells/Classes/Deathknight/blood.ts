@@ -1,1 +1,1 @@
-import { std } from "tswow-stdlib"
+import { std } from "tswow-stdlib";
