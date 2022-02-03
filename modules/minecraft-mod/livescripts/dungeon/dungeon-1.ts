@@ -191,8 +191,10 @@ export function dungeon1(events: TSEventHandlers) {
         if(sel == 0){
             let mapChoice = getRandomInt(mobSpawnCoords.length)
             resetGroup(player, playerSpawnCoords, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs)
+            obj.Despawn()
         }else if(sel == 1){
             rewardGroup(player)
+            obj.Despawn()
         }
     })
 
