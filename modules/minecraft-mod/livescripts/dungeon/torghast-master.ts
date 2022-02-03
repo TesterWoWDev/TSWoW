@@ -93,6 +93,13 @@ const classSpellDescriptions = [
     ["Increases health by 2%",],
 ]
 
+const tormentSpells: TSArray<TSArray<uint32>> = [
+    [1, 0], [1, 1]
+]
+
+const tormentDescriptions = [
+    "", ""
+]
 
 export const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 //end of config
@@ -103,6 +110,11 @@ class torghastBuffs extends TSClass {
     currentBuffs: TSArray<uint32> = []
     currentBuffsType: TSArray<uint32> = []
     currentBuffsCount: TSArray<uint32> = []
+
+    currentTorments: TSArray<uint32> = []
+    currentTormentsType: TSArray<uint32> = []
+    currentTormentsCount: TSArray<uint32> = []
+
     currentChoiceBuffs: TSArray<uint32> = []
 }
 
@@ -148,11 +160,11 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         }
     })
 
-    events.GameObjectID.OnGossipHello(GetID("gameobject_template","minecraft-mod","torghastendobj"),(obj,player,cancel)=>{
+    events.GameObjectID.OnGossipHello(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, cancel) => {
         player.GossipClearMenu()
-        player.GossipMenuAddItem(0,'Go again',obj.GetGUIDLow(),0,false,'',0)
-        player.GossipMenuAddItem(0,'Escape',obj.GetGUIDLow(),1,false,'',0)
-        player.GossipSendMenu(5,obj,1)
+        player.GossipMenuAddItem(0, 'Go again', obj.GetGUIDLow(), 0, false, '', 0)
+        player.GossipMenuAddItem(0, 'Escape', obj.GetGUIDLow(), 1, false, '', 0)
+        player.GossipSendMenu(5, obj, 1)
     })
 
     events.Player.OnLogout((player) => {
@@ -166,7 +178,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         applyPlayerBuffs(player)
     })
 
-    
+
 }
 
 export function rewardGroup(player: TSPlayer) {
@@ -193,7 +205,20 @@ export function rewardGroup(player: TSPlayer) {
 
 export function resetGroup(player: TSPlayer, playerSpawnCoords: TSArray<TSDictionary<string, float>>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>) {
     let map = player.GetMap()
-    map.SetUInt('prestige', map.GetUInt('prestige', 0) + 1)
+    let prestige = map.GetUInt('prestige', 0) + 1
+    map.SetUInt('prestige', prestige)
+    if (prestige % 5 == 0) {
+        if (player.IsInGroup()) {
+            let pGroup = player.GetGroup().GetMembers()
+            for (let i = 0; i > pGroup.length; i++) {
+                addTorment(pGroup[i])
+                applyPlayerBuffs(pGroup[i])
+            }
+        } else {
+            addTorment(player)
+            applyPlayerBuffs(player)
+        }
+    }
     despawnMap(player)
     if (player.IsInGroup()) {
         teleportRandomStart(player.GetGroup().GetMembers(), playerSpawnCoords.length, playerSpawnCoords)
@@ -401,6 +426,42 @@ function playerChoseBuff(player: TSPlayer, index: uint32) {
     }
 }
 
+function addTorment(player: TSPlayer) {
+    let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
+    let allSpells: TSArray<TSArray<uint32>> = tormentSpells
+    let continueLoop = true
+    let spellID = 0
+    while (continueLoop == true) {
+        const index = Math.floor(Math.random() * allSpells.length)
+        let spellInfo: TSArray<uint32> = allSpells[index]
+        spellID = spellInfo[0]
+        if (spellIDToType[spellID] == 0) {
+            charItems.currentTorments.push(spellID)
+            continueLoop = false
+        } else if (spellIDToType[spellID] == 1 || spellIDToType[spellID] == 2) {
+            if (!charItems.currentBuffs.includes(spellID)) {
+                charItems.currentTorments.push(spellID)
+                continueLoop = false
+            }
+        }
+    }
+
+    let found: uint32 = -1
+    for (let i = 0; i < charItems.currentBuffs.length; i++) {
+        if (charItems.currentBuffs[i] == spellID) {
+            found = i
+            break
+        }
+    }
+    if (found == -1) {
+        charItems.currentTorments.push(spellID)
+        charItems.currentTormentsType.push(spellIDToType[spellID])
+        charItems.currentTormentsCount.push(1)
+    } else {
+        charItems.currentBuffsCount[found]++
+    }
+}
+
 function applyPlayerBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
@@ -408,6 +469,14 @@ function applyPlayerBuffs(player: TSPlayer) {
             player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
         } else if (charItems.currentBuffsType[i] == 2) {
             player.LearnSpell(charItems.currentBuffs[i])
+        }
+    }
+
+    for (let i = 0; i < charItems.currentTorments.length; i++) {
+        if (charItems.currentTormentsType[i] == 0 || charItems.currentTormentsType[i] == 1) {
+            player.AddAura(charItems.currentTorments[i], player).SetStackAmount(charItems.currentTormentsCount[i])
+        } else if (charItems.currentTormentsType[i] == 2) {
+            player.LearnSpell(charItems.currentTorments[i])
         }
     }
 }
@@ -419,6 +488,13 @@ export function removePlayerBuffs(player: TSPlayer) {
             player.RemoveAura(charItems.currentBuffs[i])
         } else if (charItems.currentBuffsType[i] == 2) {
             player.RemoveSpell(charItems.currentBuffs[i], false, false)
+        }
+    }
+    for (let i = 0; i < charItems.currentTorments.length; i++) {
+        if (charItems.currentTormentsType[i] == 0 || charItems.currentTormentsType[i] == 1) {
+            player.RemoveAura(charItems.currentTorments[i])
+        } else if (charItems.currentTormentsType[i] == 2) {
+            player.RemoveSpell(charItems.currentTorments[i], false, false)
         }
     }
     player.SetObject("torghastBuffs", new torghastBuffs())
@@ -461,7 +537,7 @@ function setupTables() {
 export function setupLastBossCheck(events: TSEventHandlers, bossID: number) {
     events.CreatureID.OnDeath(bossID, (creature, killer) => {
         if (creature.GetUInt('lastBoss', 0) == 1) {
-            killer.SummonGameObject(GetID("gameobject_template","minecraft-mod","torghastendobj"),creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),0)
+            killer.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 0)
         }
     })
 }
