@@ -93,7 +93,7 @@ const classSpellDescriptions = [
     ["Increases health by 2%",],
 ]
 
-const tormentSpells: TSArray<TSArray<uint32>> = [
+const tormentAndBlessingSpells: TSArray<TSArray<uint32>> = [
     [1, 0], [1, 1]
 ]
 
@@ -107,9 +107,9 @@ class torghastBuffs extends TSClass {
     currentBuffsType: TSArray<uint32> = []
     currentBuffsCount: TSArray<uint32> = []
 
-    currentTorments: TSArray<uint32> = []
-    currentTormentsType: TSArray<uint32> = []
-    currentTormentsCount: TSArray<uint32> = []
+    currentTormentsAndBlessings: TSArray<uint32> = []
+    currentTormentsAndBlessingsType: TSArray<uint32> = []
+    currentTormentsAndBlessingsCount: TSArray<uint32> = []
 
     currentChoiceBuffs: TSArray<uint32> = []
 }
@@ -207,11 +207,11 @@ export function resetGroup(player: TSPlayer, playerSpawnCoords: TSArray<TSDictio
         if (player.IsInGroup()) {
             let pGroup = player.GetGroup().GetMembers()
             for (let i = 0; i > pGroup.length; i++) {
-                addTorment(pGroup[i])
+                addTormentorBlessing(pGroup[i])
                 applyPlayerBuffs(pGroup[i])
             }
         } else {
-            addTorment(player)
+            addTormentorBlessing(player)
             applyPlayerBuffs(player)
         }
     }
@@ -422,9 +422,9 @@ function playerChoseBuff(player: TSPlayer, index: uint32) {
     }
 }
 
-function addTorment(player: TSPlayer) {
+function addTormentorBlessing(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    let allSpells: TSArray<TSArray<uint32>> = tormentSpells
+    let allSpells: TSArray<TSArray<uint32>> = tormentAndBlessingSpells
     let continueLoop = true
     let spellID = 0
     while (continueLoop == true) {
@@ -432,11 +432,11 @@ function addTorment(player: TSPlayer) {
         let spellInfo: TSArray<uint32> = allSpells[index]
         spellID = spellInfo[0]
         if (spellIDToType[spellID] == 0) {
-            charItems.currentTorments.push(spellID)
+            charItems.currentTormentsAndBlessings.push(spellID)
             continueLoop = false
         } else if (spellIDToType[spellID] == 1 || spellIDToType[spellID] == 2) {
             if (!charItems.currentBuffs.includes(spellID)) {
-                charItems.currentTorments.push(spellID)
+                charItems.currentTormentsAndBlessings.push(spellID)
                 continueLoop = false
             }
         }
@@ -450,9 +450,9 @@ function addTorment(player: TSPlayer) {
         }
     }
     if (found == -1) {
-        charItems.currentTorments.push(spellID)
-        charItems.currentTormentsType.push(spellIDToType[spellID])
-        charItems.currentTormentsCount.push(1)
+        charItems.currentTormentsAndBlessings.push(spellID)
+        charItems.currentTormentsAndBlessingsType.push(spellIDToType[spellID])
+        charItems.currentTormentsAndBlessingsCount.push(1)
     } else {
         charItems.currentBuffsCount[found]++
     }
@@ -468,11 +468,11 @@ function applyPlayerBuffs(player: TSPlayer) {
         }
     }
 
-    for (let i = 0; i < charItems.currentTorments.length; i++) {
-        if (charItems.currentTormentsType[i] == 0 || charItems.currentTormentsType[i] == 1) {
-            player.AddAura(charItems.currentTorments[i], player).SetStackAmount(charItems.currentTormentsCount[i])
-        } else if (charItems.currentTormentsType[i] == 2) {
-            player.LearnSpell(charItems.currentTorments[i])
+    for (let i = 0; i < charItems.currentTormentsAndBlessings.length; i++) {
+        if (charItems.currentTormentsAndBlessingsType[i] == 0 || charItems.currentTormentsAndBlessingsType[i] == 1) {
+            player.AddAura(charItems.currentTormentsAndBlessings[i], player).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
+        } else if (charItems.currentTormentsAndBlessingsType[i] == 2) {
+            player.LearnSpell(charItems.currentTormentsAndBlessings[i])
         }
     }
 }
@@ -486,11 +486,11 @@ export function removePlayerBuffs(player: TSPlayer) {
             player.RemoveSpell(charItems.currentBuffs[i], false, false)
         }
     }
-    for (let i = 0; i < charItems.currentTorments.length; i++) {
-        if (charItems.currentTormentsType[i] == 0 || charItems.currentTormentsType[i] == 1) {
-            player.RemoveAura(charItems.currentTorments[i])
-        } else if (charItems.currentTormentsType[i] == 2) {
-            player.RemoveSpell(charItems.currentTorments[i], false, false)
+    for (let i = 0; i < charItems.currentTormentsAndBlessings.length; i++) {
+        if (charItems.currentTormentsAndBlessingsType[i] == 0 || charItems.currentTormentsAndBlessingsType[i] == 1) {
+            player.RemoveAura(charItems.currentTormentsAndBlessings[i])
+        } else if (charItems.currentTormentsAndBlessingsType[i] == 2) {
+            player.RemoveSpell(charItems.currentTormentsAndBlessings[i], false, false)
         }
     }
     player.SetObject("torghastBuffs", new torghastBuffs())
