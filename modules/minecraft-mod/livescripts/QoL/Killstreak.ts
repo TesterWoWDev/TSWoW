@@ -15,7 +15,7 @@ const auraSpells: TSArray<uint32> = [
     GetID("Spell", "minecraft-mod", "killstreak-spell-13"),
     GetID("Spell", "minecraft-mod", "killstreak-spell-14"),
     GetID("Spell", "minecraft-mod", "killstreak-spell-15"),
-]
+];
 
 @CharactersTable
 class PlayerKillstreak extends DBTable {
@@ -31,15 +31,21 @@ class PlayerKillstreak extends DBTable {
 
 export function Killstreaks(events: TSEventHandlers) {
     events.Player.OnPVPKill((killer, killed) => {
-        let killCount = killer.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killer.GetGUIDLow())).killCount++
-        let pastKills = killed.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killed.GetGUIDLow())).killCount
+        let killCount = killer.GetObject<PlayerKillstreak>(
+            TABLE_NAME_KILLSTREAK,
+            new PlayerKillstreak(killer.GetGUIDLow())
+        ).killCount++;
+        let pastKills = killed.GetObject<PlayerKillstreak>(
+            TABLE_NAME_KILLSTREAK,
+            new PlayerKillstreak(killed.GetGUIDLow())
+        ).killCount;
         if (killCount % 5 == 0) {
-            let m = (killCount / 5) | 0
+            let m = (killCount / 5) | 0;
             if (m <= auraSpells.length) {
                 if (m > 0) {
-                    killer.RemoveAura(auraSpells[m - 1])
+                    killer.RemoveAura(auraSpells[m - 1]);
                 }
-                killer.AddAura(auraSpells[m], killer)
+                killer.AddAura(auraSpells[m], killer);
             }
         }
         if (pastKills > 5) {
@@ -49,8 +55,21 @@ export function Killstreaks(events: TSEventHandlers) {
             //SendWorldMessage("|cffff0000[KillTracker] " + killer.GetName() + "|r Has Murdered |cffff0000"+killed.GetName() + "|r In Cold Blood. Now on a killstreak of "+(killCount+1))
         }
 
-        killed.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killed.GetGUIDLow())).killCount = 0
-        killer.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killer.GetGUIDLow())).save();
-        killed.GetObject<PlayerKillstreak>(TABLE_NAME_KILLSTREAK, new PlayerKillstreak(killed.GetGUIDLow())).save();
+        killed.GetObject<PlayerKillstreak>(
+            TABLE_NAME_KILLSTREAK,
+            new PlayerKillstreak(killed.GetGUIDLow())
+        ).killCount = 0;
+        killer
+            .GetObject<PlayerKillstreak>(
+                TABLE_NAME_KILLSTREAK,
+                new PlayerKillstreak(killer.GetGUIDLow())
+            )
+            .save();
+        killed
+            .GetObject<PlayerKillstreak>(
+                TABLE_NAME_KILLSTREAK,
+                new PlayerKillstreak(killed.GetGUIDLow())
+            )
+            .save();
     });
 }
