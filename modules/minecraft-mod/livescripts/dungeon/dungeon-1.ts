@@ -179,15 +179,7 @@ export function dungeon1(events: TSEventHandlers) {
         setupBossDropPowers(events,bossIDs[i])
     }
     //make a bossMinions loop for any spawned by spell creatures
-
-
-    events.GameObjects.OnUse((obj,user,cancel)=>{
-        let p = user.ToPlayer()
-        p.GossipMenuAddItem(0,'Go again',obj.GetGUIDLow(),0,false,'',0)
-        p.GossipMenuAddItem(0,'Escape',obj.GetGUIDLow(),0,false,'',0)
-        p.GossipSendMenu(0,obj,1)
-    })
-    events.GameObjects.OnGossipSelect((obj,player,menuID,sel,cancel)=>{
+    events.GameObjectID.OnGossipSelect(GetID("gameobject_template","minecraft-mod","torghastendobj"),(obj,player,menuID,sel,cancel)=>{
         if(sel == 0){
             let mapChoice = getRandomInt(mobSpawnCoords.length)
             resetGroup(player, playerSpawnCoords, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs)

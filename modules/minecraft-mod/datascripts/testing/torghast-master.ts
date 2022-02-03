@@ -1,7 +1,8 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../modname"
+export let torghastFinalObj = std.GameObjectTemplates.Rituals.create(MODNAME,'torghastendobj',177193)
+torghastFinalObj.Name.enGB.set('Mystical Stone')
 //spawn spell
-
 export let torghastOrb = std.CreatureTemplates.create(MODNAME,'torghast-orb',40083)
 torghastOrb.Name.enGB.set('torghast spell creature')
 torghastOrb.Scale.set(0.5)

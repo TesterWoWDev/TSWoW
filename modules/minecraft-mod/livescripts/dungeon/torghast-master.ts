@@ -148,6 +148,13 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         }
     })
 
+    events.GameObjectID.OnGossipHello(GetID("gameobject_template","minecraft-mod","torghastendobj"),(obj,player,cancel)=>{
+        player.GossipClearMenu()
+        player.GossipMenuAddItem(0,'Go again',obj.GetGUIDLow(),0,false,'',0)
+        player.GossipMenuAddItem(0,'Escape',obj.GetGUIDLow(),1,false,'',0)
+        player.GossipSendMenu(5,obj,1)
+    })
+
     events.Player.OnLogout((player) => {
         removePlayerBuffs(player)
     })
@@ -158,6 +165,8 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         playerChoseBuff(player, pkt.choice)
         applyPlayerBuffs(player)
     })
+
+    
 }
 
 export function rewardGroup(player: TSPlayer) {
@@ -452,7 +461,7 @@ function setupTables() {
 export function setupLastBossCheck(events: TSEventHandlers, bossID: number) {
     events.CreatureID.OnDeath(bossID, (creature, killer) => {
         if (creature.GetUInt('lastBoss', 0) == 1) {
-            //killer.SummonGameObject(resetGroupObject,creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),0)
+            killer.SummonGameObject(GetID("gameobject_template","minecraft-mod","torghastendobj"),creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),0)
         }
     })
 }
