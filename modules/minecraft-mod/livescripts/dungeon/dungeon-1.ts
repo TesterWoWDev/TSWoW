@@ -164,6 +164,10 @@ const playerSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 },),
 ]
 
+const vendorSpawnCoords: TSArray<TSDictionary<string, float>> = [
+    MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 },),
+]
+
 const rewardID = 19019
 const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 10% hp+damage+haste per prestige
 
@@ -182,7 +186,7 @@ export function dungeon1(events: TSEventHandlers) {
     events.GameObjectID.OnGossipSelect(GetID("gameobject_template","minecraft-mod","torghastendobj"),(obj,player,menuID,sel,cancel)=>{
         if(sel == 0){
             let mapChoice = getRandomInt(mobSpawnCoords.length)
-            resetGroup(player, playerSpawnCoords, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs)
+            resetGroup(player, playerSpawnCoords[mapChoice], bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice])
             obj.Despawn()
         }else if(sel == 1){
             rewardGroup(player)
@@ -196,14 +200,14 @@ export function dungeon1(events: TSEventHandlers) {
             map.SetUInt('rewardID', rewardID)
             map.SetUInt('prestige', 0)
             let mapChoice = getRandomInt(mobSpawnCoords.length)
-            spawnMap(map, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs)
+            spawnMap(map, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice])
         }
     })
 
     events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#cc")) {
             let mapChoice = getRandomInt(mobSpawnCoords.length)
-            resetGroup(player, playerSpawnCoords, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs)
+            resetGroup(player, playerSpawnCoords[mapChoice], bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice])
         }
     })
     events.MapID.OnPlayerLeave(726, (map, player) => {

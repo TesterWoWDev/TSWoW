@@ -200,7 +200,7 @@ export function rewardGroup(player: TSPlayer) {
     }
 }
 
-export function resetGroup(player: TSPlayer, playerSpawnCoords: TSArray<TSDictionary<string, float>>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>) {
+export function resetGroup(player: TSPlayer, playerSpawnCoords: TSDictionary<string, float>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string,float>) {
     let map = player.GetMap()
     let prestige = map.GetUInt('prestige', 0) + 1
     map.SetUInt('prestige', prestige)
@@ -218,23 +218,21 @@ export function resetGroup(player: TSPlayer, playerSpawnCoords: TSArray<TSDictio
     }
     despawnMap(player)
     if (player.IsInGroup()) {
-        teleportRandomStart(player.GetGroup().GetMembers(), playerSpawnCoords.length, playerSpawnCoords)
+        teleportRandomStart(player.GetGroup().GetMembers(), playerSpawnCoords)
     } else {
-        teleportRandomStart([player], playerSpawnCoords.length, playerSpawnCoords)
+        teleportRandomStart([player], playerSpawnCoords)
     }
-    spawnMap(map, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs)
+    spawnMap(map, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs, vendorSpawnCoords)
 }
 
-function teleportRandomStart(players: TSPlayer[], playerSpawnCount: uint32, playerSpawnCoords: TSArray<TSDictionary<string, float>>) {
-    let rand = getRandomInt(playerSpawnCount)
-    let choice = playerSpawnCoords.get(rand)
+function teleportRandomStart(players: TSPlayer[], playerSpawnCoords: TSDictionary<string, float>) {
     let prestige = players[0].GetMap().GetUInt('prestige', 0)
     for (let i = 0; i < players.length; i++) {
         players[i].SetUInt('prestige', players[i].GetUInt('prestige', 0) + 1)
         if (prestige > 0) {
             players[i].SendAreaTriggerMessage("You are on Prestige " + prestige)
         }
-        players[i].Teleport(choice['map'], choice['x'], choice['y'], choice['z'], choice['o'])
+        players[i].Teleport(playerSpawnCoords['map'], playerSpawnCoords['x'], playerSpawnCoords['y'], playerSpawnCoords['z'], playerSpawnCoords['o'])
     }
 }
 
@@ -245,7 +243,8 @@ function despawnMap(player: TSPlayer) {
     }
 }
 
-export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>) {
+export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string,float>) {
+    map.SpawnCreature(GetID("creature_template","minecraft-mod","torghast-vendor"),vendorSpawnCoords['x'], vendorSpawnCoords['y'], vendorSpawnCoords['z'], vendorSpawnCoords['o'], 180000)
     for (let i = 0; i < bossSpawnCoords.length; i++) {
         if (i == bossSpawnCoords.length - 1) {//last boss
             spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)], bossSpawnCoords.get(i), true)

@@ -1,5 +1,6 @@
 import { std } from "tswow-stdlib"
 import { MODNAME } from "../modname"
+
 export let torghastFinalObj = std.GameObjectTemplates.Rituals.create(MODNAME,'torghastendobj',177193)
 torghastFinalObj.Name.enGB.set('Mystical Stone')
 //spawn spell
@@ -26,6 +27,12 @@ spell.Charges.set(-1)
 spell.ProcsPerMinute.set(-1)
 spell.Cooldown.set(3000)
 })
+
+let torghastVendor = std.CreatureTemplates.create(MODNAME,'torghast-vendor',3482)
+torghastVendor.Name.enGB.set('Test Vendor')
+torghastVendor.Subname.enGB.set('All Powerful')
+torghastVendor.FactionTemplate.set(35)
+torghastVendor.Vendor.add(torghastChoiceItem.ID)
 
 export let mapPrestige = std.Spells.create(MODNAME, 'mapprestige-spell', 71188)
 mapPrestige.Name.enGB.set('Prestige')
