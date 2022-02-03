@@ -174,21 +174,21 @@ const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 1
 export function dungeon1(events: TSEventHandlers) {
     for (let i = 0; i < mobIDs.length; i++) {
         setupCreaturePrestigeScripts(events, mobIDs[i])
-        setupCreatureDropPowers(events,mobIDs[i])
+        setupCreatureDropPowers(events, mobIDs[i])
     }
 
     for (let i = 0; i < bossIDs.length; i++) {
         setupCreaturePrestigeScripts(events, bossIDs[i])
         setupLastBossCheck(events, bossIDs[i])
-        setupBossDropPowers(events,bossIDs[i])
+        setupBossDropPowers(events, bossIDs[i])
     }
     //make a bossMinions loop for any spawned by spell creatures
-    events.GameObjectID.OnGossipSelect(GetID("gameobject_template","minecraft-mod","torghastendobj"),(obj,player,menuID,sel,cancel)=>{
-        if(sel == 0){
+    events.GameObjectID.OnGossipSelect(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, menuID, sel, cancel) => {
+        if (sel == 0) {
             let mapChoice = getRandomInt(mobSpawnCoords.length)
             resetGroup(player, playerSpawnCoords[mapChoice], bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice])
             obj.Despawn()
-        }else if(sel == 1){
+        } else if (sel == 1) {
             rewardGroup(player)
             obj.Despawn()
         }
@@ -238,16 +238,16 @@ function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
     })
 }
 function setupCreatureDropPowers(events: TSEventHandlers, mobID: number) {
-    events.CreatureID.OnDeath(mobID,(creature,killer)=>{
-        if(getRandomInt(100) >= 97){
-            creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"),creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
+    events.CreatureID.OnDeath(mobID, (creature, killer) => {
+        if (getRandomInt(100) >= 97) {
+            creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
     })
 }
 
 function setupBossDropPowers(events: TSEventHandlers, mobID: number) {
-    events.CreatureID.OnDeath(mobID,(creature,killer)=>{
-        creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"),creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
+    events.CreatureID.OnDeath(mobID, (creature, killer) => {
+        creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
     })
 }
 
