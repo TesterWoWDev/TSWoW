@@ -97,10 +97,6 @@ const tormentSpells: TSArray<TSArray<uint32>> = [
     [1, 0], [1, 1]
 ]
 
-const tormentDescriptions = [
-    "", ""
-]
-
 export const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 //end of config
 const spellIDToType: TSDictionary<uint32, uint32> = MakeDictionary<uint32, uint32>({
