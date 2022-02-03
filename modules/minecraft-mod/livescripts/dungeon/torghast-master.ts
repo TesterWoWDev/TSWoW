@@ -160,7 +160,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
     })
 }
 
-function rewardGroup(player: TSPlayer) {
+export function rewardGroup(player: TSPlayer) {
     despawnMap(player)
     let rewardID = player.GetMap().GetUInt('rewardID', 19019)
     if (player.IsInGroup()) {

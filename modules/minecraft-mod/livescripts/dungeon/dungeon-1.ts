@@ -1,4 +1,4 @@
-import { getRandomInt, prestigeSpell, removePlayerBuffs, resetGroup, setupLastBossCheck, spawnMap } from "./torghast-master"
+import { getRandomInt, prestigeSpell, removePlayerBuffs, resetGroup, rewardGroup, setupLastBossCheck, spawnMap } from "./torghast-master"
 const mobSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     [
         MakeDictionary<string, float>({ map: 726, x: 920.865845, y: 205.292023, z: 411.639832, o: 4.682223 }),
@@ -179,6 +179,22 @@ export function dungeon1(events: TSEventHandlers) {
         setupBossDropPowers(events,bossIDs[i])
     }
     //make a bossMinions loop for any spawned by spell creatures
+
+
+    events.GameObjects.OnUse((obj,user,cancel)=>{
+        let p = user.ToPlayer()
+        p.GossipMenuAddItem(0,'Go again',obj.GetGUIDLow(),0,false,'',0)
+        p.GossipMenuAddItem(0,'Escape',obj.GetGUIDLow(),0,false,'',0)
+        p.GossipSendMenu(0,obj,1)
+    })
+    events.GameObjects.OnGossipSelect((obj,player,menuID,sel,cancel)=>{
+        if(sel == 0){
+            let mapChoice = getRandomInt(mobSpawnCoords.length)
+            resetGroup(player, playerSpawnCoords, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs)
+        }else if(sel == 1){
+            rewardGroup(player)
+        }
+    })
 
     events.MapID.OnPlayerEnter(726, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
