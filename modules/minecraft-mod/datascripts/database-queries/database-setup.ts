@@ -37,9 +37,9 @@ SQL.game_tele
 
 SQL.game_tele
     .add(1452)
-    .position_x.set(2107)
-    .position_y.set(-29)
-    .position_z.set(422)
+    .position_x.set(910)
+    .position_y.set(157)
+    .position_z.set(414)
     .map.set(726)
     .name.set("ulduartest");
 
