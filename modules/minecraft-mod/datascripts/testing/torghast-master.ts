@@ -367,7 +367,7 @@ critDamage1.Stacks.set(99);
 export let grapple = std.Spells.create(MODNAME, "grapple-spell", 57882);
 grapple.Name.enGB.set("Grapple");
 grapple.Description.enGB.set("Grapple to a nearby location.");
-grapple.Range.setSimple(0, 30);
+grapple.Range.setSimple(0, 50);
 grapple.Effects.get(0).Type.JUMP_DEST.set();
 grapple.Effects.get(0).BasePoints.set(-1);
 grapple.Effects.get(0).DieSides.set(1);
