@@ -7,7 +7,15 @@ export let torghastFinalObj = std.GameObjectTemplates.Rituals.create(
     177193
 );
 torghastFinalObj.Name.enGB.set("Mystical Stone");
-//spawn spell
+
+export let torghastChest = std.GameObjectTemplates.Rituals.create(
+    MODNAME,
+    "torghast-chest",
+    177193
+);
+torghastFinalObj.Name.enGB.set("Anima Chest");
+//torghastFinalObj.Display.set()
+
 export let torghastOrb = std.CreatureTemplates.create(
     MODNAME,
     "torghast-orb",

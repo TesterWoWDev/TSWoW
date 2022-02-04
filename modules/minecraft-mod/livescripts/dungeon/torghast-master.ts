@@ -157,6 +157,11 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         }
     })
 
+    events.GameObjectID.OnGossipHello(GetID("gameobject_template", "minecraft-mod", "torghast-chest"),(obj,player,cancel)=>{
+        player.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"),obj.GetX(),obj.GetY(),obj.GetZ(),obj.GetO(),8,0)
+        obj.Despawn()
+    })
+
     events.GameObjectID.OnGossipHello(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, cancel) => {
         player.GossipClearMenu()
         player.GossipMenuAddItem(0, 'Go again', obj.GetGUIDLow(), 0, false, '', 0)
@@ -200,7 +205,7 @@ export function rewardGroup(player: TSPlayer) {
     }
 }
 
-export function resetGroup(player: TSPlayer, playerSpawnCoords: TSDictionary<string, float>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string,float>) {
+export function resetGroup(player: TSPlayer, playerSpawnCoords: TSDictionary<string, float>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string,float>,chestSpawnCoords: TSArray<TSDictionary<string, float>>,) {
     let map = player.GetMap()
     let prestige = map.GetUInt('prestige', 0) + 1
     map.SetUInt('prestige', prestige)
@@ -222,7 +227,7 @@ export function resetGroup(player: TSPlayer, playerSpawnCoords: TSDictionary<str
     } else {
         teleportRandomStart([player], playerSpawnCoords)
     }
-    spawnMap(map, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs, vendorSpawnCoords)
+    spawnMap(map, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs, vendorSpawnCoords, chestSpawnCoords)
 }
 
 function teleportRandomStart(players: TSPlayer[], playerSpawnCoords: TSDictionary<string, float>) {
@@ -241,9 +246,13 @@ function despawnMap(player: TSPlayer) {
     for (let i = 0; i < creatures.length; i++) {
         creatures[i].DespawnOrUnsummon(0)
     }
+    let gobs = player.GetGameObjectsInRange(10000,0,0)
+    for (let i = 0; i < gobs.length; i++) {
+        gobs[i].Despawn()
+    }
 }
 
-export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string,float>) {
+export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string,float>,chestSpawnCoords: TSArray<TSDictionary<string, float>>,) {
     map.SpawnCreature(GetID("creature_template","minecraft-mod","torghast-vendor"),vendorSpawnCoords['x'], vendorSpawnCoords['y'], vendorSpawnCoords['z'], vendorSpawnCoords['o'], 180000)
     for (let i = 0; i < bossSpawnCoords.length; i++) {
         if (i == bossSpawnCoords.length - 1) {//last boss
@@ -255,6 +264,10 @@ export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<strin
     }
     for (let i = 0; i < mobSpawnCoords.length; i++) {
         spawnFormation(map, mobSpawnCoords.get(i), mobIDs, mobIDs.length)
+    }
+
+    for(let i=0;i<chestSpawnCoords.length;i++){
+        map.SpawnGameObject(GetID("gameobject_template", "minecraft-mod", "torghast-chest"),chestSpawnCoords[i]['x'],chestSpawnCoords[i]['y'],chestSpawnCoords[i]['z'],chestSpawnCoords[i]['o'])
     }
 }
 
