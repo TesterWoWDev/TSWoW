@@ -1,194 +1,198 @@
-import { MODNAME } from "../../modname"
-import { std } from "tswow-stdlib"
+import { MODNAME } from "../../modname";
+import { std } from "tswow-stdlib";
 
 /*Rare Items, 1 time purchase at vendor every several hours (TEST)*/
-export let BlueMiningAxe = std.Items.create(MODNAME,'blueminingaxe',9378)
-BlueMiningAxe.Quality.BLUE.set()
-BlueMiningAxe.RequiredLevel.set(4)
-BlueMiningAxe.Name.enGB.set('Stronson\'s Lucky Pickaxe')
-BlueMiningAxe.Damage.clearAll()
-BlueMiningAxe.Damage.addPhysical(10,14)
-export let BlueShortSword = std.Items.create(MODNAME,'blueshortsword',9401)
-BlueShortSword.Quality.BLUE.set()
-BlueShortSword.RequiredLevel.set(4)
-BlueShortSword.Name.enGB.set('Sturdy Blade')
-BlueShortSword.Damage.clearAll()
-BlueShortSword.Damage.addPhysical(7,18)
-export let SlowFallShield = std.Items.create(MODNAME,'slowfallshield',9404)
-SlowFallShield.Quality.BLUE.set()
-SlowFallShield.RequiredLevel.set(4)
-SlowFallShield.Name.enGB.set('Safety Buckler')
-SlowFallShield.Armor.set(176)
-export let VikingHelmet = std.Items.create(MODNAME,'vikinghelmet',9394)
-VikingHelmet.Quality.BLUE.set()
-VikingHelmet.RequiredLevel.set(4)
-VikingHelmet.Name.enGB.set('Ramskull Helmet')
-export let Hammerofflames = std.Items.create(MODNAME,'hammerofflames',9419)
-Hammerofflames.Quality.BLUE.set()
-Hammerofflames.RequiredLevel.set(4)
-Hammerofflames.Name.enGB.set('Scorching Hammer')
-Hammerofflames.Damage.clearAll()
-Hammerofflames.Damage.addPhysical(3,7)
-export let SpearofFate = std.Items.create(MODNAME,'spearoffate',9416)
-SpearofFate.Quality.BLUE.set()
-SpearofFate.RequiredLevel.set(4)
-SpearofFate.Name.enGB.set('Spear of Fate')
-SpearofFate.Damage.clearAll()
-SpearofFate.Damage.addPhysical(13,17)
-export let StolenRoyalGown = std.Items.create(MODNAME,'stolengown',6682)
-StolenRoyalGown.Quality.BLUE.set()
-StolenRoyalGown.RequiredLevel.set(4)
-StolenRoyalGown.Name.enGB.set('Stolen Royal Gown')
-export let DeathClutch = std.Items.create(MODNAME,'deathclutch',14503)
-DeathClutch.Quality.BLUE.set()
-DeathClutch.RequiredLevel.set(7)
-DeathClutch.Name.enGB.set('Tempered Pauldrons')
-export let KnowledgeTome = std.Items.create(MODNAME,'knowledgetome',13385)
-KnowledgeTome.Quality.BLUE.set()
-KnowledgeTome.RequiredLevel.set(6)
-KnowledgeTome.Name.enGB.set('Mages\' Book')
-export let MantleoftheSoulEater = std.Items.create(MODNAME,'souleatermantle',13374)
-MantleoftheSoulEater.Quality.BLUE.set()
-MantleoftheSoulEater.RequiredLevel.set(11)
-MantleoftheSoulEater.Name.enGB.set('Mantle of the Soul Eater')
-export let FocusStick = std.Items.create(MODNAME,'scepteroffocus',22329)
-FocusStick.Quality.BLUE.set()
-FocusStick.RequiredLevel.set(2)
-FocusStick.Name.enGB.set('The Death Stick')
+export let BlueMiningAxe = std.Items.create(MODNAME, "blueminingaxe", 9378);
+BlueMiningAxe.Quality.BLUE.set();
+BlueMiningAxe.RequiredLevel.set(4);
+BlueMiningAxe.Name.enGB.set("Stronson's Lucky Pickaxe");
+BlueMiningAxe.Damage.clearAll();
+BlueMiningAxe.Damage.addPhysical(10, 14);
+export let BlueShortSword = std.Items.create(MODNAME, "blueshortsword", 9401);
+BlueShortSword.Quality.BLUE.set();
+BlueShortSword.RequiredLevel.set(4);
+BlueShortSword.Name.enGB.set("Sturdy Blade");
+BlueShortSword.Damage.clearAll();
+BlueShortSword.Damage.addPhysical(7, 18);
+export let SlowFallShield = std.Items.create(MODNAME, "slowfallshield", 9404);
+SlowFallShield.Quality.BLUE.set();
+SlowFallShield.RequiredLevel.set(4);
+SlowFallShield.Name.enGB.set("Safety Buckler");
+SlowFallShield.Armor.set(176);
+export let VikingHelmet = std.Items.create(MODNAME, "vikinghelmet", 9394);
+VikingHelmet.Quality.BLUE.set();
+VikingHelmet.RequiredLevel.set(4);
+VikingHelmet.Name.enGB.set("Ramskull Helmet");
+export let Hammerofflames = std.Items.create(MODNAME, "hammerofflames", 9419);
+Hammerofflames.Quality.BLUE.set();
+Hammerofflames.RequiredLevel.set(4);
+Hammerofflames.Name.enGB.set("Scorching Hammer");
+Hammerofflames.Damage.clearAll();
+Hammerofflames.Damage.addPhysical(3, 7);
+export let SpearofFate = std.Items.create(MODNAME, "spearoffate", 9416);
+SpearofFate.Quality.BLUE.set();
+SpearofFate.RequiredLevel.set(4);
+SpearofFate.Name.enGB.set("Spear of Fate");
+SpearofFate.Damage.clearAll();
+SpearofFate.Damage.addPhysical(13, 17);
+export let StolenRoyalGown = std.Items.create(MODNAME, "stolengown", 6682);
+StolenRoyalGown.Quality.BLUE.set();
+StolenRoyalGown.RequiredLevel.set(4);
+StolenRoyalGown.Name.enGB.set("Stolen Royal Gown");
+export let DeathClutch = std.Items.create(MODNAME, "deathclutch", 14503);
+DeathClutch.Quality.BLUE.set();
+DeathClutch.RequiredLevel.set(7);
+DeathClutch.Name.enGB.set("Tempered Pauldrons");
+export let KnowledgeTome = std.Items.create(MODNAME, "knowledgetome", 13385);
+KnowledgeTome.Quality.BLUE.set();
+KnowledgeTome.RequiredLevel.set(6);
+KnowledgeTome.Name.enGB.set("Mages' Book");
+export let MantleoftheSoulEater = std.Items.create(
+    MODNAME,
+    "souleatermantle",
+    13374
+);
+MantleoftheSoulEater.Quality.BLUE.set();
+MantleoftheSoulEater.RequiredLevel.set(11);
+MantleoftheSoulEater.Name.enGB.set("Mantle of the Soul Eater");
+export let FocusStick = std.Items.create(MODNAME, "scepteroffocus", 22329);
+FocusStick.Quality.BLUE.set();
+FocusStick.RequiredLevel.set(2);
+FocusStick.Name.enGB.set("The Death Stick");
 
 //Starting Vendor Items
-export let LargeRoundShield = std.Items.load(2129)
-LargeRoundShield.Quality.WHITE.set()
-LargeRoundShield.Stats.addStamina(2)
-LargeRoundShield.Stats.addStrength(1)
-export let TarnishedChainVest = std.Items.load(2379)
-TarnishedChainVest.Quality.WHITE.set()
-TarnishedChainVest.Stats.addStamina(3)
-TarnishedChainVest.Stats.addAgility(1)
-TarnishedChainVest.Stats.addIntellect(1)
-export let TarnishedChainBelt = std.Items.load(2380)
-TarnishedChainBelt.Quality.WHITE.set()
-TarnishedChainBelt.Stats.addStamina(1)
-export let TarnishedChainLeggings = std.Items.load(2381)
-TarnishedChainLeggings.Quality.WHITE.set()
-TarnishedChainLeggings.Stats.addSpellPower(4)
-TarnishedChainLeggings.Stats.addAttackPower(3)
-export let TarnishedChainBoots = std.Items.load(2383)
-TarnishedChainBoots.Quality.WHITE.set()
-TarnishedChainBoots.Stats.addStamina(1)
-export let TarnishedChainBracers = std.Items.load(2384)
-TarnishedChainBracers.Quality.WHITE.set()
-TarnishedChainBracers.Stats.addIntellect(1)
-TarnishedChainBracers.Stats.addAgility(1)
-export let TarnishedChainGloves = std.Items.load(2385)
-TarnishedChainGloves.Quality.WHITE.set()
-TarnishedChainGloves.Stats.addStamina(2)
-TarnishedChainGloves.Stats.addIntellect(1)
-TarnishedChainGloves.Stats.addSpellPower(2)
-export let SmallShield = std.Items.load(17184)
-SmallShield.Quality.WHITE.set()
-SmallShield.Stats.addStamina(2)
-SmallShield.Stats.addIntellect(1)
-export let BastardSword = std.Items.load(1194)
-BastardSword.Damage.clearAll()
-BastardSword.Damage.addPhysical(10,14)
-BastardSword.Quality.WHITE.set()
-BastardSword.Stats.addStamina(2)
-BastardSword.Stats.addStrength(2)
-BastardSword.Stats.addAttackPower(5)
-export let Club = std.Items.load(2130)
-Club.Damage.clearAll()
-Club.Damage.addPhysical(4,6)
-Club.Quality.WHITE.set()
-Club.Stats.addStamina(1)
-Club.Stats.addStrength(1)
-Club.Stats.addAttackPower(2)
-export let Shortsword = std.Items.load(2131)
-Shortsword.Damage.clearAll()
-Shortsword.Damage.addPhysical(4,6)
-Shortsword.Quality.WHITE.set()
-Shortsword.Stats.addStamina(1)
-Shortsword.Stats.addStrength(1)
-Shortsword.Stats.addAgility(1)
-export let ShortStaff = std.Items.load(2132)
-ShortStaff.Damage.clearAll()
-ShortStaff.Damage.addPhysical(1,3)
-ShortStaff.Quality.WHITE.set()
-ShortStaff.Stats.addStamina(3)
-ShortStaff.Stats.addIntellect(5)
-ShortStaff.Stats.addSpellPower(7)
-export let HandAxe = std.Items.load(2134)
-HandAxe.Damage.clearAll()
-HandAxe.Damage.addPhysical(4,6)
-HandAxe.Quality.WHITE.set()
-HandAxe.Stats.addStamina(1)
-HandAxe.Stats.addStrength(2)
-HandAxe.Stats.addAttackPower(3)
-export let Dirk = std.Items.load(2139)
-Dirk.Damage.clearAll()
-Dirk.Damage.addPhysical(4,6)
-Dirk.Quality.WHITE.set()
-Dirk.Stats.addStamina(1)
-Dirk.Stats.addAgility(2)
-Dirk.Stats.addCritRating(4)
-Dirk.Stats.addAttackPower(4)
-export let BroadAxe = std.Items.load(2479)
-BroadAxe.Damage.clearAll()
-BroadAxe.Damage.addPhysical(7,16)
-BroadAxe.Quality.WHITE.set()
-BroadAxe.Stats.addStamina(3)
-BroadAxe.Stats.addStrength(1)
-BroadAxe.Stats.addAttackPower(6)
-export let LargeClub = std.Items.load(2480)
-LargeClub.Damage.clearAll()
-LargeClub.Damage.addPhysical(5,20)
-LargeClub.Quality.WHITE.set()
-LargeClub.Stats.addAgility(4)
-LargeClub.Stats.addAttackPower(10)
-export let ThinClothArmor = std.Items.load(2121)
-ThinClothArmor.Quality.WHITE.set()
-ThinClothArmor.Stats.addStamina(3)
-ThinClothArmor.Stats.addIntellect(2)
-export let ThinClothBelt = std.Items.load(3599)
-ThinClothBelt.Quality.WHITE.set()
-ThinClothBelt.Stats.addIntellect(2)
-export let ThinClothPants = std.Items.load(2120)
-ThinClothPants.Quality.WHITE.set()
-ThinClothPants.Stats.addSpellPower(5)
-ThinClothPants.Stats.addIntellect(2)
-export let ThinClothShoes = std.Items.load(2117)
-ThinClothShoes.Quality.WHITE.set()
-ThinClothShoes.Stats.addSpellPower(2)
-export let ThinClothBracers = std.Items.load(3600)
-ThinClothBracers.Quality.WHITE.set()
-ThinClothBracers.Stats.addIntellect(1)
-ThinClothBracers.Stats.addSpellPower(2)
-export let ThinClothGloves = std.Items.load(2119)
-ThinClothGloves.Quality.WHITE.set()
-ThinClothGloves.Stats.addStamina(1)
-ThinClothGloves.Stats.addIntellect(3)
-ThinClothGloves.Stats.addSpellPower(4)
-export let CrackedLeatherVest = std.Items.load(2127)
-CrackedLeatherVest.Quality.WHITE.set()
-CrackedLeatherVest.Stats.addStamina(3)
-CrackedLeatherVest.Stats.addAgility(1)
-CrackedLeatherVest.Stats.addAttackPower(1)
-export let CrackedLeatherBelt = std.Items.load(2122)
-CrackedLeatherBelt.Quality.WHITE.set()
-CrackedLeatherBelt.Stats.addAttackPower(2)
-export let CrackedLeatherPants = std.Items.load(2126)
-CrackedLeatherPants.Quality.WHITE.set()
-CrackedLeatherPants.Stats.addAttackPower(4)
-CrackedLeatherPants.Stats.addAgility(3)
-export let CrackedLeatherBoots = std.Items.load(2123)
-CrackedLeatherBoots.Quality.WHITE.set()
-CrackedLeatherBoots.Stats.addAttackPower(3)
-export let CrackedLeatherBracers = std.Items.load(2124)
-CrackedLeatherBracers.Quality.WHITE.set()
-CrackedLeatherBracers.Stats.addStamina(2)
-CrackedLeatherBracers.Stats.addAgility(1)
-export let CrackedLeatherGloves = std.Items.load(2125)
-CrackedLeatherGloves.Quality.WHITE.set()
-CrackedLeatherGloves.Stats.addStamina(2)
-CrackedLeatherGloves.Stats.addAgility(1)
-CrackedLeatherGloves.Stats.addAttackPower(2)
+export let LargeRoundShield = std.Items.load(2129);
+LargeRoundShield.Quality.WHITE.set();
+LargeRoundShield.Stats.addStamina(2);
+LargeRoundShield.Stats.addStrength(1);
+export let TarnishedChainVest = std.Items.load(2379);
+TarnishedChainVest.Quality.WHITE.set();
+TarnishedChainVest.Stats.addStamina(3);
+TarnishedChainVest.Stats.addAgility(1);
+TarnishedChainVest.Stats.addIntellect(1);
+export let TarnishedChainBelt = std.Items.load(2380);
+TarnishedChainBelt.Quality.WHITE.set();
+TarnishedChainBelt.Stats.addStamina(1);
+export let TarnishedChainLeggings = std.Items.load(2381);
+TarnishedChainLeggings.Quality.WHITE.set();
+TarnishedChainLeggings.Stats.addSpellPower(4);
+TarnishedChainLeggings.Stats.addAttackPower(3);
+export let TarnishedChainBoots = std.Items.load(2383);
+TarnishedChainBoots.Quality.WHITE.set();
+TarnishedChainBoots.Stats.addStamina(1);
+export let TarnishedChainBracers = std.Items.load(2384);
+TarnishedChainBracers.Quality.WHITE.set();
+TarnishedChainBracers.Stats.addIntellect(1);
+TarnishedChainBracers.Stats.addAgility(1);
+export let TarnishedChainGloves = std.Items.load(2385);
+TarnishedChainGloves.Quality.WHITE.set();
+TarnishedChainGloves.Stats.addStamina(2);
+TarnishedChainGloves.Stats.addIntellect(1);
+TarnishedChainGloves.Stats.addSpellPower(2);
+export let SmallShield = std.Items.load(17184);
+SmallShield.Quality.WHITE.set();
+SmallShield.Stats.addStamina(2);
+SmallShield.Stats.addIntellect(1);
+export let BastardSword = std.Items.load(1194);
+BastardSword.Damage.clearAll();
+BastardSword.Damage.addPhysical(10, 14);
+BastardSword.Quality.WHITE.set();
+BastardSword.Stats.addStamina(2);
+BastardSword.Stats.addStrength(2);
+BastardSword.Stats.addAttackPower(5);
+export let Club = std.Items.load(2130);
+Club.Damage.clearAll();
+Club.Damage.addPhysical(4, 6);
+Club.Quality.WHITE.set();
+Club.Stats.addStamina(1);
+Club.Stats.addStrength(1);
+Club.Stats.addAttackPower(2);
+export let Shortsword = std.Items.load(2131);
+Shortsword.Damage.clearAll();
+Shortsword.Damage.addPhysical(4, 6);
+Shortsword.Quality.WHITE.set();
+Shortsword.Stats.addStamina(1);
+Shortsword.Stats.addStrength(1);
+Shortsword.Stats.addAgility(1);
+export let ShortStaff = std.Items.load(2132);
+ShortStaff.Damage.clearAll();
+ShortStaff.Damage.addPhysical(1, 3);
+ShortStaff.Quality.WHITE.set();
+ShortStaff.Stats.addStamina(3);
+ShortStaff.Stats.addIntellect(5);
+ShortStaff.Stats.addSpellPower(7);
+export let HandAxe = std.Items.load(2134);
+HandAxe.Damage.clearAll();
+HandAxe.Damage.addPhysical(4, 6);
+HandAxe.Quality.WHITE.set();
+HandAxe.Stats.addStamina(1);
+HandAxe.Stats.addStrength(2);
+HandAxe.Stats.addAttackPower(3);
+export let Dirk = std.Items.load(2139);
+Dirk.Damage.clearAll();
+Dirk.Damage.addPhysical(4, 6);
+Dirk.Quality.WHITE.set();
+Dirk.Stats.addStamina(1);
+Dirk.Stats.addAgility(2);
+Dirk.Stats.addCritRating(4);
+Dirk.Stats.addAttackPower(4);
+export let BroadAxe = std.Items.load(2479);
+BroadAxe.Damage.clearAll();
+BroadAxe.Damage.addPhysical(7, 16);
+BroadAxe.Quality.WHITE.set();
+BroadAxe.Stats.addStamina(3);
+BroadAxe.Stats.addStrength(1);
+BroadAxe.Stats.addAttackPower(6);
+export let LargeClub = std.Items.load(2480);
+LargeClub.Damage.clearAll();
+LargeClub.Damage.addPhysical(5, 20);
+LargeClub.Quality.WHITE.set();
+LargeClub.Stats.addAgility(4);
+LargeClub.Stats.addAttackPower(10);
+export let ThinClothArmor = std.Items.load(2121);
+ThinClothArmor.Quality.WHITE.set();
+ThinClothArmor.Stats.addStamina(3);
+ThinClothArmor.Stats.addIntellect(2);
+export let ThinClothBelt = std.Items.load(3599);
+ThinClothBelt.Quality.WHITE.set();
+ThinClothBelt.Stats.addIntellect(2);
+export let ThinClothPants = std.Items.load(2120);
+ThinClothPants.Quality.WHITE.set();
+ThinClothPants.Stats.addSpellPower(5);
+ThinClothPants.Stats.addIntellect(2);
+export let ThinClothShoes = std.Items.load(2117);
+ThinClothShoes.Quality.WHITE.set();
+ThinClothShoes.Stats.addSpellPower(2);
+export let ThinClothBracers = std.Items.load(3600);
+ThinClothBracers.Quality.WHITE.set();
+ThinClothBracers.Stats.addIntellect(1);
+ThinClothBracers.Stats.addSpellPower(2);
+export let ThinClothGloves = std.Items.load(2119);
+ThinClothGloves.Quality.WHITE.set();
+ThinClothGloves.Stats.addStamina(1);
+ThinClothGloves.Stats.addIntellect(3);
+ThinClothGloves.Stats.addSpellPower(4);
+export let CrackedLeatherVest = std.Items.load(2127);
+CrackedLeatherVest.Quality.WHITE.set();
+CrackedLeatherVest.Stats.addStamina(3);
+CrackedLeatherVest.Stats.addAgility(1);
+CrackedLeatherVest.Stats.addAttackPower(1);
+export let CrackedLeatherBelt = std.Items.load(2122);
+CrackedLeatherBelt.Quality.WHITE.set();
+CrackedLeatherBelt.Stats.addAttackPower(2);
+export let CrackedLeatherPants = std.Items.load(2126);
+CrackedLeatherPants.Quality.WHITE.set();
+CrackedLeatherPants.Stats.addAttackPower(4);
+CrackedLeatherPants.Stats.addAgility(3);
+export let CrackedLeatherBoots = std.Items.load(2123);
+CrackedLeatherBoots.Quality.WHITE.set();
+CrackedLeatherBoots.Stats.addAttackPower(3);
+export let CrackedLeatherBracers = std.Items.load(2124);
+CrackedLeatherBracers.Quality.WHITE.set();
+CrackedLeatherBracers.Stats.addStamina(2);
+CrackedLeatherBracers.Stats.addAgility(1);
+export let CrackedLeatherGloves = std.Items.load(2125);
+CrackedLeatherGloves.Quality.WHITE.set();
+CrackedLeatherGloves.Stats.addStamina(2);
+CrackedLeatherGloves.Stats.addAgility(1);
+CrackedLeatherGloves.Stats.addAttackPower(2);

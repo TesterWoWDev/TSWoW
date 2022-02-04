@@ -14,7 +14,7 @@ export class creatureNameMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(creatureNameMessageID, 50)
+        let packet = MakeCustomPacket(creatureNameMessageID, 50);
         packet.WriteUInt32(this.isName);
         packet.WriteString(this.entry);
         return packet;
@@ -25,35 +25,34 @@ export const itemLootMessageID = 2;
 export class itemLootMessage {
     size: uint32 = 0;
     entryID: uint32 = 0;
-    arr: TSArray<TSArray<double>> = [<TSArray<double>>[1, 1, 1, 1]]
+    arr: TSArray<TSArray<double>> = [<TSArray<double>>[1, 1, 1, 1]];
     constructor() {
-        this.size = 0
-        this.entryID = 0
-        this.arr = <TSArray<TSArray<double>>>[<TSArray<double>>[1, 1, 1, 1]]
+        this.size = 0;
+        this.entryID = 0;
+        this.arr = <TSArray<TSArray<double>>>[<TSArray<double>>[1, 1, 1, 1]];
     }
     read(read: TSPacketRead): void {
-        this.arr.pop()
+        this.arr.pop();
         this.size = read.ReadUInt32();
         this.entryID = read.ReadUInt32();
         for (let i = 0; i < this.size; i++) {
-            let id = read.ReadDouble()
-            let min = read.ReadDouble()
+            let id = read.ReadDouble();
+            let min = read.ReadDouble();
             let max = read.ReadDouble();
             let dropChance = read.ReadDouble();
-            this.arr.push(<TSArray<double>>[id, min, max, dropChance])
+            this.arr.push(<TSArray<double>>[id, min, max, dropChance]);
         }
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(itemLootMessageID, 0)
+        let packet = MakeCustomPacket(itemLootMessageID, 0);
         packet.WriteUInt32(this.size);
         packet.WriteUInt32(this.entryID);
         for (let i = 0; i < this.size; i++) {
-            packet.WriteDouble(this.arr[i][0])
-            packet.WriteDouble(this.arr[i][1])
-            packet.WriteDouble(this.arr[i][2])
-            packet.WriteDouble(this.arr[i][3])
-
+            packet.WriteDouble(this.arr[i][0]);
+            packet.WriteDouble(this.arr[i][1]);
+            packet.WriteDouble(this.arr[i][2]);
+            packet.WriteDouble(this.arr[i][3]);
         }
         return packet;
     }
@@ -72,7 +71,7 @@ export class creatureNoExistMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(creatureNoExistMessageID, 0)
+        let packet = MakeCustomPacket(creatureNoExistMessageID, 0);
         packet.WriteUInt32(this.finish);
         return packet;
     }
@@ -91,7 +90,7 @@ export class requestClassSpellsMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(requestClassSpellsMessageID, 0)
+        let packet = MakeCustomPacket(requestClassSpellsMessageID, 0);
         packet.WriteUInt32(this.value);
         return packet;
     }
@@ -113,7 +112,7 @@ export class sendClassSpellsMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(sendClassSpellsMessageID, 0)
+        let packet = MakeCustomPacket(sendClassSpellsMessageID, 0);
         packet.WriteUInt32(this.level);
         packet.WriteUInt32(this.spellID);
         return packet;
@@ -133,7 +132,7 @@ export class attemptToComplete {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(attemptToCompleteID, 0)
+        let packet = MakeCustomPacket(attemptToCompleteID, 0);
         packet.WriteUInt32(this.msg);
         return packet;
     }
@@ -141,47 +140,56 @@ export class attemptToComplete {
 
 export const questInfoID = 24;
 export class questInfo {
-    reqType: uint8 = 0
-    reqID: uint32 = 0
-    reqCountTotal: uint8 = 0
-    reqCountCur: uint8 = 0
-    reqName: string = ""
+    reqType: uint8 = 0;
+    reqID: uint32 = 0;
+    reqCountTotal: uint8 = 0;
+    reqCountCur: uint8 = 0;
+    reqName: string = "";
     reqDescription: string = "";
-    rewID: uint32 = 0
-    rewCount: uint32 = 0
+    rewID: uint32 = 0;
+    rewCount: uint32 = 0;
 
-    constructor(reqType: uint8, reqID: uint32, reqCountTotal: uint8, reqCountCur: uint8, reqName: string, reqDescription: string, rewID: uint32, rewCount: uint32) {
-        this.reqType = reqType
-        this.reqID = reqID
-        this.reqCountTotal = reqCountTotal
-        this.reqCountCur = reqCountCur
-        this.reqName = reqName
-        this.reqDescription = reqDescription
-        this.rewID = rewID
-        this.rewCount = rewCount
+    constructor(
+        reqType: uint8,
+        reqID: uint32,
+        reqCountTotal: uint8,
+        reqCountCur: uint8,
+        reqName: string,
+        reqDescription: string,
+        rewID: uint32,
+        rewCount: uint32
+    ) {
+        this.reqType = reqType;
+        this.reqID = reqID;
+        this.reqCountTotal = reqCountTotal;
+        this.reqCountCur = reqCountCur;
+        this.reqName = reqName;
+        this.reqDescription = reqDescription;
+        this.rewID = rewID;
+        this.rewCount = rewCount;
     }
 
     read(read: TSPacketRead): void {
-        this.reqType = read.ReadUInt8()
-        this.reqID = read.ReadUInt32()
-        this.reqCountTotal = read.ReadUInt8()
-        this.reqCountCur = read.ReadUInt8()
-        this.reqName = read.ReadString()
-        this.reqDescription = read.ReadString()
-        this.rewID = read.ReadUInt32()
-        this.rewCount = read.ReadUInt32()
+        this.reqType = read.ReadUInt8();
+        this.reqID = read.ReadUInt32();
+        this.reqCountTotal = read.ReadUInt8();
+        this.reqCountCur = read.ReadUInt8();
+        this.reqName = read.ReadString();
+        this.reqDescription = read.ReadString();
+        this.rewID = read.ReadUInt32();
+        this.rewCount = read.ReadUInt32();
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(questInfoID, 500)
+        let packet = MakeCustomPacket(questInfoID, 500);
         packet.WriteUInt8(this.reqType);
-        packet.WriteUInt32(this.reqID)
-        packet.WriteUInt8(this.reqCountTotal)
-        packet.WriteUInt8(this.reqCountCur)
-        packet.WriteString(this.reqName)
-        packet.WriteString(this.reqDescription)
-        packet.WriteUInt32(this.rewID)
-        packet.WriteUInt32(this.rewCount)
+        packet.WriteUInt32(this.reqID);
+        packet.WriteUInt8(this.reqCountTotal);
+        packet.WriteUInt8(this.reqCountCur);
+        packet.WriteString(this.reqName);
+        packet.WriteString(this.reqDescription);
+        packet.WriteUInt32(this.rewID);
+        packet.WriteUInt32(this.rewCount);
         return packet;
     }
 }
