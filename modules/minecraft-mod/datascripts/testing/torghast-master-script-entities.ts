@@ -84,3 +84,5 @@ mapPrestige.row.Attributes.set(
 mapPrestige.Attributes.PERSISTS_DEATH.set(1);
 mapPrestige.Attributes.NOT_STEALABLE.set(1);
 mapPrestige.Attributes.AURA_VISIBLE_TO_CASTER_ONLY.set(1);
+
+//export let torghastCurrency = std.Items.create(MODNAME,)
