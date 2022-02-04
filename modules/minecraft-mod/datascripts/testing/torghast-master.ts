@@ -14,7 +14,8 @@ export let torghastChest = std.GameObjectTemplates.Rituals.create(
     177193
 );
 torghastChest.Name.enGB.set("Anima Chest");
-//torghastFinalObj.Display.set()
+torghastChest.Display.set(88077)
+torghastChest.Size.set(2)
 
 export let torghastOrb = std.CreatureTemplates.create(
     MODNAME,
