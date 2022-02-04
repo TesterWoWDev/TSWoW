@@ -13,7 +13,7 @@ export let torghastChest = std.GameObjectTemplates.Rituals.create(
     "torghast-chest",
     177193
 );
-torghastFinalObj.Name.enGB.set("Anima Chest");
+torghastChest.Name.enGB.set("Anima Chest");
 //torghastFinalObj.Display.set()
 
 export let torghastOrb = std.CreatureTemplates.create(

@@ -267,7 +267,7 @@ export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<strin
     }
 
     for(let i=0;i<chestSpawnCoords.length;i++){
-        map.SpawnGameObject(GetID("gameobject_template", "minecraft-mod", "torghast-chest"),chestSpawnCoords[i]['x'],chestSpawnCoords[i]['y'],chestSpawnCoords[i]['z'],chestSpawnCoords[i]['o'])
+        map.SpawnGameObject(GetID("gameobject_template", "minecraft-mod", "torghast-chest"),chestSpawnCoords[i]['x'],chestSpawnCoords[i]['y'],chestSpawnCoords[i]['z'],chestSpawnCoords[i]['o'],0,0)
     }
 }
 
