@@ -1,5 +1,6 @@
 
 import { std } from "tswow-stdlib";
+import { DBC } from "wotlkdata";
 import { MODNAME } from "../modname";
 export let torghastFinalObj = std.GameObjectTemplates.Rituals.create(
     MODNAME,
@@ -85,8 +86,15 @@ mapPrestige.Attributes.PERSISTS_DEATH.set(1);
 mapPrestige.Attributes.NOT_STEALABLE.set(1);
 mapPrestige.Attributes.AURA_VISIBLE_TO_CASTER_ONLY.set(1);
 
+
+DBC.CurrencyCategory.add(50).Name.enGB.set('Torghast').Flags.set(16712190)
+
 export let torghastEndCurrency = std.Items.create(MODNAME,'torghast-end-currency',37742)
 torghastEndCurrency.Name.enGB.set('Torghast End Token')
+torghastEndCurrency.MaxStack.set(2147483647)
+DBC.CurrencyTypes.add(350).ItemID.set(torghastEndCurrency.ID).CategoryID.set(50).BitIndex.set(60)
 
 export let torghastInsideCurrency = std.Items.create(MODNAME,'torghast-inside-currency',37742)
 torghastInsideCurrency.Name.enGB.set('Torghast Inside Token')
+torghastInsideCurrency.MaxStack.set(2147483647)
+DBC.CurrencyTypes.add(351).ItemID.set(torghastInsideCurrency.ID).CategoryID.set(50).BitIndex.set(60)
