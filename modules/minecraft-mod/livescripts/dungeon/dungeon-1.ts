@@ -216,7 +216,7 @@ const vendorSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({map:726,x:919.435547,y:161.432678,z:411.988708,o:3.548103}),
 ]
 
-const rewardID = 19019
+const rewardID =  GetID("item_template", "minecraft-mod", "torghast-end-currency")
 const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 10% hp+damage+haste per prestige
 
 export function dungeon1(events: TSEventHandlers) {
