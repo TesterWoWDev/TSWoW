@@ -131,6 +131,48 @@ const mobSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
         MakeDictionary<string, float>({ map: 726, x: 954.684814, y: 196.569809, z: 448.761261, o: 5.512268 }),
         MakeDictionary<string, float>({ map: 726, x: 984.382385, y: 182.234299, z: 444.886353, o: 5.802866 }),
         MakeDictionary<string, float>({ map: 726, x: 958.017395, y: 161.471237, z: 449.229980, o: 1.205930 }),
+        MakeDictionary<string, float>({ map: 726, x: 727.557007, y: 174.763702, z: 440.713165, o: 0.693663 }),
+        MakeDictionary<string, float>({ map: 726, x: 733.672424, y: 167.651520, z: 440.713165, o: 0.715916 }),
+        MakeDictionary<string, float>({ map: 726, x: 740.770508, y: 160.018402, z: 440.713165, o: 0.956989 }),
+        MakeDictionary<string, float>({ map: 726, x: 753.460205, y: 152.326187, z: 440.713165, o: 1.261113 }),
+        MakeDictionary<string, float>({ map: 726, x: 770.838867, y: 148.094681, z: 440.713165, o: 1.498478 }),
+        MakeDictionary<string, float>({ map: 726, x: 786.654907, y: 148.417938, z: 440.713165, o: 1.724717 }),
+        MakeDictionary<string, float>({ map: 726, x: 794.075989, y: 126.877220, z: 457.422180, o: 1.761807 }),
+        MakeDictionary<string, float>({ map: 726, x: 783.833435, y: 124.574684, z: 457.422180, o: 1.539278 }),
+        MakeDictionary<string, float>({ map: 726, x: 767.961853, y: 125.326767, z: 457.422180, o: 1.487354 }),
+        MakeDictionary<string, float>({ map: 726, x: 748.767761, y: 128.529358, z: 457.422180, o: 1.368671 }),
+        MakeDictionary<string, float>({ map: 726, x: 731.119568, y: 134.458786, z: 457.422180, o: 1.075674 }),
+        MakeDictionary<string, float>({ map: 726, x: 717.290771, y: 145.271454, z: 457.422180, o: 0.853144 }),
+        MakeDictionary<string, float>({ map: 726, x: 704.336121, y: 159.781464, z: 460.432190, o: 0.660285 }),
+        MakeDictionary<string, float>({ map: 726, x: 699.612732, y: 192.470306, z: 452.659241, o: 0.296821 }),
+        MakeDictionary<string, float>({ map: 726, x: 695.921753, y: 211.893494, z: 452.659241, o: 6.279592 }),
+        MakeDictionary<string, float>({ map: 726, x: 699.621155, y: 236.666641, z: 452.659241, o: 5.990302 }),
+        MakeDictionary<string, float>({ map: 726, x: 711.943970, y: 256.413147, z: 452.659241, o: 5.593456 }),
+        MakeDictionary<string, float>({ map: 726, x: 728.476929, y: 272.644318, z: 452.659241, o: 5.396888 }),
+        MakeDictionary<string, float>({ map: 726, x: 748.036804, y: 284.323151, z: 452.659241, o: 5.111307 }),
+        MakeDictionary<string, float>({ map: 726, x: 770.519714, y: 293.136719, z: 452.659241, o: 5.055675 }),
+        MakeDictionary<string, float>({ map: 726, x: 783.167236, y: 287.572357, z: 457.874023, o: 4.744132 }),
+        MakeDictionary<string, float>({ map: 726, x: 779.451782, y: 267.697876, z: 442.213745, o: 4.977789 }),
+        MakeDictionary<string, float>({ map: 726, x: 760.444092, y: 263.535736, z: 442.213745, o: 4.966662 }),
+        MakeDictionary<string, float>({ map: 726, x: 742.346558, y: 256.386108, z: 442.213745, o: 5.415432 }),
+        MakeDictionary<string, float>({ map: 726, x: 726.019592, y: 239.756165, z: 442.213745, o: 5.563786 }),
+        MakeDictionary<string, float>({ map: 726, x: 717.435852, y: 219.345261, z: 442.213745, o: 6.231377 }),
+        MakeDictionary<string, float>({ map: 726, x: 717.788147, y: 196.986069, z: 442.213745, o: 0.163303 }),
+        MakeDictionary<string, float>({ map: 726, x: 807.314880, y: 278.760895, z: 454.273346, o: 4.376959 }),
+        MakeDictionary<string, float>({ map: 726, x: 822.905151, y: 272.321808, z: 454.273346, o: 4.180390 }),
+        MakeDictionary<string, float>({ map: 726, x: 838.707275, y: 260.884766, z: 454.273346, o: 3.765000 }),
+        MakeDictionary<string, float>({ map: 726, x: 851.417664, y: 242.442001, z: 454.273346, o: 3.694532 }),
+        MakeDictionary<string, float>({ map: 726, x: 858.897095, y: 214.883041, z: 454.273346, o: 3.149333 }),
+        MakeDictionary<string, float>({ map: 726, x: 858.946472, y: 202.633133, z: 454.273346, o: 3.145624 }),
+        MakeDictionary<string, float>({ map: 726, x: 836.702942, y: 208.040009, z: 444.103088, o: 3.297687 }),
+        MakeDictionary<string, float>({ map: 726, x: 832.543762, y: 229.133057, z: 444.103088, o: 3.453457 }),
+        MakeDictionary<string, float>({ map: 726, x: 828.237488, y: 248.397552, z: 444.103088, o: 3.479419 }),
+        MakeDictionary<string, float>({ map: 726, x: 802.294250, y: 262.648438, z: 443.905731, o: 4.599488 }),
+        MakeDictionary<string, float>({ map: 726, x: 854.221924, y: 179.586731, z: 460.006104, o: 2.900846 }),
+        MakeDictionary<string, float>({ map: 726, x: 835.421570, y: 185.510849, z: 445.859833, o: 2.834087 }),
+        MakeDictionary<string, float>({ map: 726, x: 818.284302, y: 137.254364, z: 459.293457, o: 2.018141 }),
+        MakeDictionary<string, float>({ map: 726, x: 810.519653, y: 152.474442, z: 445.135437, o: 2.055229 }),
+
     ],
 
 ]
@@ -147,7 +189,7 @@ const bossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
         MakeDictionary<string, float>({ map: 726, x: 1093.482300, y: 359.340759, z: 425.318176, o: 0.228170 }),
         MakeDictionary<string, float>({ map: 726, x: 1366.476807, y: 382.281616, z: 433.971161, o: 3.189238 }),
         MakeDictionary<string, float>({ map: 726, x: 961.090393, y: 63.617268, z: 415.238464, o: 0.552549 }),
-        MakeDictionary<string, float>({ map: 726, x: 751.267822, y: 229.190643, z: 421.044891, o: 5.393428 }),
+        MakeDictionary<string, float>({ map: 726, x: 751.267822, y: 229.190643, z: 425.044891, o: 5.393428 }),
         MakeDictionary<string, float>({ map: 726, x: 747.671631, y: -96.903854, z: 421.875916, o: 1.372842 }),
     ],
 
@@ -162,16 +204,16 @@ const bossIDs: TSArray<uint32> = [
 
 const chestSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     [
-        MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 },),
+        MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 }),
     ],
 ]
 
 const playerSpawnCoords: TSArray<TSDictionary<string, float>> = [
-    MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 },),
+    MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 }),
 ]
 
 const vendorSpawnCoords: TSArray<TSDictionary<string, float>> = [
-    MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 },),
+    MakeDictionary<string, float>({map:726,x:919.435547,y:161.432678,z:411.988708,o:3.548103}),
 ]
 
 const rewardID = 19019
@@ -180,21 +222,21 @@ const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 1
 export function dungeon1(events: TSEventHandlers) {
     for (let i = 0; i < mobIDs.length; i++) {
         setupCreaturePrestigeScripts(events, mobIDs[i])
-        setupCreatureDropPowers(events,mobIDs[i])
+        setupCreatureDropPowers(events, mobIDs[i])
     }
 
     for (let i = 0; i < bossIDs.length; i++) {
         setupCreaturePrestigeScripts(events, bossIDs[i])
         setupLastBossCheck(events, bossIDs[i])
-        setupBossDropPowers(events,bossIDs[i])
+        setupBossDropPowers(events, bossIDs[i])
     }
     //make a bossMinions loop for any spawned by spell creatures
-    events.GameObjectID.OnGossipSelect(GetID("gameobject_template","minecraft-mod","torghastendobj"),(obj,player,menuID,sel,cancel)=>{
-        if(sel == 0){
+    events.GameObjectID.OnGossipSelect(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, menuID, sel, cancel) => {
+        if (sel == 0) {
             let mapChoice = getRandomInt(mobSpawnCoords.length)
             resetGroup(player, playerSpawnCoords[mapChoice], bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice])
             obj.Despawn()
-        }else if(sel == 1){
+        } else if (sel == 1) {
             rewardGroup(player)
             obj.Despawn()
         }
@@ -244,15 +286,15 @@ function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
     })
 }
 function setupCreatureDropPowers(events: TSEventHandlers, mobID: number) {
-    events.CreatureID.OnDeath(mobID,(creature,killer)=>{
-        if(getRandomInt(100) >= 97){
-            creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"),creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
+    events.CreatureID.OnDeath(mobID, (creature, killer) => {
+        if (getRandomInt(100) >= 97) {
+            creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
     })
 }
 
 function setupBossDropPowers(events: TSEventHandlers, mobID: number) {
-    events.CreatureID.OnDeath(mobID,(creature,killer)=>{
-        creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"),creature.GetX(),creature.GetY(),creature.GetZ(),creature.GetO(),8,0)
+    events.CreatureID.OnDeath(mobID, (creature, killer) => {
+        creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
     })
 }
