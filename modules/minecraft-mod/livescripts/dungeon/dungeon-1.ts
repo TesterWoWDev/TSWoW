@@ -216,19 +216,20 @@ const vendorSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({map:726,x:919.435547,y:161.432678,z:411.988708,o:3.548103}),
 ]
 
-const rewardID = 19019
+const rewardCurrencyID: uint32 = GetID("item_template", "minecraft-mod", "torghast-end-currency")
+const insideCurrencyID: uint32 = GetID("item_template", "minecraft-mod", "torghast-inside-currency")
 const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 10% hp+damage+haste per prestige
 
 export function dungeon1(events: TSEventHandlers) {
     for (let i = 0; i < mobIDs.length; i++) {
         setupCreaturePrestigeScripts(events, mobIDs[i])
-        setupCreatureDropPowers(events, mobIDs[i])
+        setupCreatureDeath(events, mobIDs[i])
     }
 
     for (let i = 0; i < bossIDs.length; i++) {
         setupCreaturePrestigeScripts(events, bossIDs[i])
         setupLastBossCheck(events, bossIDs[i])
-        setupBossDropPowers(events, bossIDs[i])
+        setupBossDeath(events, bossIDs[i])
     }
     //make a bossMinions loop for any spawned by spell creatures
     events.GameObjectID.OnGossipSelect(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, menuID, sel, cancel) => {
@@ -245,7 +246,8 @@ export function dungeon1(events: TSEventHandlers) {
     events.MapID.OnPlayerEnter(726, (map, player) => {
         if (!map.GetBool('isSpawned', false)) {
             map.SetBool('isSpawned', true)
-            map.SetUInt('rewardID', rewardID)
+            map.SetUInt('rewardID', rewardCurrencyID)
+            map.SetUInt('dropID', insideCurrencyID)
             map.SetUInt('prestige', 0)
             let mapChoice = getRandomInt(mobSpawnCoords.length)
             spawnMap(map, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice])
@@ -264,8 +266,9 @@ export function dungeon1(events: TSEventHandlers) {
         let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 10
         if (rewCount > 0) {
             player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
-            player.AddItem(rewardID, rewCount)
+            player.AddItem(rewardCurrencyID, rewCount)
         }
+        player.RemoveItemByEntry(insideCurrencyID,999999)
         player.SetUInt('prestige', 0)
     })
 }
@@ -274,7 +277,7 @@ function addPrestigeBuffToCreature(mob: TSCreature) {
     let map = mob.GetMap()
     let prestige = map.GetUInt('prestige', 0)
     let pcount = map.GetPlayerCount()
-    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, CreateItem(19019, 1), mob.GetGUID())
+    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, CreateItem(insideCurrencyID, 1), mob.GetGUID())
 }
 
 function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
@@ -285,16 +288,18 @@ function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
         addPrestigeBuffToCreature(creature)
     })
 }
-function setupCreatureDropPowers(events: TSEventHandlers, mobID: number) {
+function setupCreatureDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
+        creature.GetLoot().AddItem(insideCurrencyID,1,5)
         if (getRandomInt(100) >= 97) {
             creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
     })
 }
 
-function setupBossDropPowers(events: TSEventHandlers, mobID: number) {
+function setupBossDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
+        creature.GetLoot().AddItem(insideCurrencyID,30,50)
         creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
     })
 }
