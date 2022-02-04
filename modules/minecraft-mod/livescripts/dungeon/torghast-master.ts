@@ -185,8 +185,8 @@ export function torghastBuffSystem(events: TSEventHandlers) {
 
 export function rewardGroup(player: TSPlayer) {
     despawnMap(player)
-    let rewardID = player.GetMap().GetUInt('rewardID', GetID("item_template", "minecraft-mod", "torghast-end-currency"))
-    let insideID = player.GetMap().GetUInt('dropID',GetID("item_template", "minecraft-mod", "torghast-inside-currency"))
+    let rewardID: uint32 = player.GetMap().GetUInt('rewardID', GetID("item_template", "minecraft-mod", "torghast-end-currency"))
+    let insideID: uint32 = player.GetMap().GetUInt('dropID',GetID("item_template", "minecraft-mod", "torghast-inside-currency"))
     if (player.IsInGroup()) {
         let group = player.GetGroup().GetMembers()
         for (let i = 0; i < group.length; i++) {
@@ -195,7 +195,7 @@ export function rewardGroup(player: TSPlayer) {
             group[i].SendAreaTriggerMessage('You were rewarded with ' + rewCount + ' of anima power for your prowess')
             group[i].AddItem(rewardID, rewCount)
             group[i].SetUInt('prestige', 0)
-            group[i].RemoveItem(CreateItem(insideID,999999),999999)
+            group[i].RemoveItem(CreateItem(insideID,1),999999)
             group[i].Teleport(725, -8750.45, -74.64, 31, 0)
 
         }
@@ -203,7 +203,7 @@ export function rewardGroup(player: TSPlayer) {
         let curPrestige: uint32 = player.GetUInt('prestige', 0)
         player.AddItem(rewardID, <uint32>(curPrestige * curPrestige) / 5)
         player.SetUInt('prestige', 0)
-        player.RemoveItem(CreateItem(insideID,999999),999999)
+        player.RemoveItem(CreateItem(insideID,1),999999)
         player.Teleport(725, -8750.45, -74.64, 31, 0)
     }
 }

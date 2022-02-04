@@ -216,8 +216,8 @@ const vendorSpawnCoords: TSArray<TSDictionary<string, float>> = [
     MakeDictionary<string, float>({map:726,x:919.435547,y:161.432678,z:411.988708,o:3.548103}),
 ]
 
-const rewardCurrencyID = GetID("item_template", "minecraft-mod", "torghast-end-currency")
-const insideCurrencyID = GetID("item_template", "minecraft-mod", "torghast-inside-currency")
+const rewardCurrencyID: uint32 = GetID("item_template", "minecraft-mod", "torghast-end-currency")
+const insideCurrencyID: uint32 = GetID("item_template", "minecraft-mod", "torghast-inside-currency")
 const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 10% hp+damage+haste per prestige
 
 export function dungeon1(events: TSEventHandlers) {
@@ -268,7 +268,7 @@ export function dungeon1(events: TSEventHandlers) {
             player.SendAreaTriggerMessage('it seems you did not fare so well, have ' + rewCount + ' Anima for your attempt.')
             player.AddItem(rewardCurrencyID, rewCount)
         }
-        player.RemoveItem(CreateItem(insideCurrencyID,999999),999999)
+        player.RemoveItem(CreateItem(insideCurrencyID,1),999999)
         player.SetUInt('prestige', 0)
     })
 }
@@ -277,7 +277,7 @@ function addPrestigeBuffToCreature(mob: TSCreature) {
     let map = mob.GetMap()
     let prestige = map.GetUInt('prestige', 0)
     let pcount = map.GetPlayerCount()
-    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, CreateItem(19019, 1), mob.GetGUID())
+    mob.CastCustomSpell(mob, prestigeSpell, true, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, prestigeMult * prestige * pcount, CreateItem(insideCurrencyID, 1), mob.GetGUID())
 }
 
 function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
