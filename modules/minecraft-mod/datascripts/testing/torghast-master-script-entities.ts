@@ -85,5 +85,8 @@ mapPrestige.Attributes.PERSISTS_DEATH.set(1);
 mapPrestige.Attributes.NOT_STEALABLE.set(1);
 mapPrestige.Attributes.AURA_VISIBLE_TO_CASTER_ONLY.set(1);
 
-export let torghastCurrency = std.Items.create(MODNAME,'torghast-end-currency',37742)
-torghastCurrency.Name.enGB.set('Torghast End Token')
+export let torghastEndCurrency = std.Items.create(MODNAME,'torghast-end-currency',37742)
+torghastEndCurrency.Name.enGB.set('Torghast End Token')
+
+export let torghastInsideCurrency = std.Items.create(MODNAME,'torghast-inside-currency',37742)
+torghastInsideCurrency.Name.enGB.set('Torghast Inside Token')
