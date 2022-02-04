@@ -293,3 +293,35 @@ grapple.Effects.get(1).Type.TRIGGER_SPELL.set();
 grapple.Effects.get(1).ImplicitTargetA.DEST_DEST.set();
 grapple.Effects.get(1).TriggerSpell.set(57883);
 grapple.Visual.getRefCopy().cloneFromVisual(11055);
+
+
+export let rangeincrease = std.Spells.create(MODNAME, "auto-attack-range")
+rangeincrease.Name.enGB.set("Elongated Arm")
+rangeincrease.Description.enGB.set('Increases the range of your Auto Attack and Auto Shot by 10 yds. Auto Attack and Auto Shot damage increased by 50%.')
+rangeincrease.Effects.get(0).Aura.ADD_FLAT_MODIFIER.set()
+rangeincrease.Effects.get(0).MiscValueA.set(5)
+rangeincrease.Effects.get(0).BasePoints.set(9)
+rangeincrease.Effects.get(0).DieSides.set(1)
+rangeincrease.Effects.get(0).ImplicitTargetA.UNIT_CASTER.set()
+rangeincrease.Effects.get(1).Aura.ADD_PCT_MODIFIER.set()
+rangeincrease.Effects.get(1).MiscValueA.set(0)
+rangeincrease.Effects.get(1).BasePoints.set(49)
+rangeincrease.Effects.get(1).DieSides.set(1)
+rangeincrease.Effects.get(1).ImplicitTargetA.UNIT_CASTER.set()
+rangeincrease.AuraInterruptFlags.set(0x0080000)
+
+
+export let healonnewspell = std.Spells.create(MODNAME, "heal-on-new-mob-spell")
+healonnewspell.Name.enGB.set("Heal on new mob")
+healonnewspell.Description.enGB.set('When you attack a new Creature, you are healed for $s1')
+healonnewspell.Effects.get(0).Aura.MOD_HEALING
+healonnewspell.Effects.get(0).BasePoints.set(9)
+healonnewspell.Effects.get(0).DieSides.set(1)
+healonnewspell.AuraInterruptFlags.set(0x0080000)
+//some scalar value?
+
+export let healonnewaura = std.Spells.create(MODNAME, "heal-on-new-mob-aura")
+healonnewaura.Name.enGB.set("Heal on new mob")
+healonnewaura.Description.enGB.set('When you attack a new Creature, you are healed for $s1')
+healonnewaura.Effects.get(0).TriggerSpell.set(healonnewspell.ID)
+healonnewaura.Stacks.set(10)
