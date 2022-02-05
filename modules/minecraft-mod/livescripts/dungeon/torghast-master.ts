@@ -179,8 +179,6 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         playerChoseBuff(player, pkt.choice)
         applyPlayerBuffs(player)
     })
-
-
 }
 
 export function rewardGroup(player: TSPlayer) {
@@ -197,7 +195,6 @@ export function rewardGroup(player: TSPlayer) {
             group[i].SetUInt('prestige', 0)
             group[i].RemoveItemByEntry(insideID,999999)
             group[i].Teleport(725, -8750.45, -74.64, 31, 0)
-
         }
     } else {
         let curPrestige: uint32 = player.GetUInt('prestige', 0)
@@ -269,7 +266,6 @@ export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<strin
         } else {
             spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)], bossSpawnCoords.get(i), false)
         }
-
     }
     for (let i = 0; i < mobSpawnCoords.length; i++) {
         spawnFormation(map, mobSpawnCoords.get(i), mobIDs, mobIDs.length)
@@ -415,7 +411,6 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
         pkt.write().SendToPlayer(player)
         return true
     }
-
 }
 
 function playerChoseBuff(player: TSPlayer, index: uint32) {
@@ -448,8 +443,8 @@ function addTormentOrBlessing(player: TSPlayer) {
         let spellInfo: TSArray<uint32> = tormentAndBlessingSpells[index]
         let spellID = spellInfo[0]
         let spellType = spellInfo[1]
-
         let found: uint32 = -1
+
         for (let i = 0; i < charItems.currentTormentsAndBlessings.length; i++) {
             if (charItems.currentTormentsAndBlessings[i] == spellID) {
                 found = i
@@ -477,7 +472,6 @@ function applyPlayerBuffs(player: TSPlayer) {
             player.LearnSpell(charItems.currentBuffs[i])
         }
     }
-
     for (let i = 0; i < charItems.currentTormentsAndBlessings.length; i++) {
         if (charItems.currentTormentsAndBlessingsType[i] == 0 || charItems.currentTormentsAndBlessingsType[i] == 1) {
             player.AddAura(charItems.currentTormentsAndBlessings[i], player).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
