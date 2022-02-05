@@ -295,7 +295,31 @@ function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
 }
 function setupCreatureDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
-        creature.GetLoot().AddItem(insideCurrencyID,1,5)
+        let randVal = getRandomInt(5)
+        if(killer.IsPlayer()){
+            let killerPlayer = killer.ToPlayer()
+            if(killerPlayer.IsInGroup()){
+                let group = killerPlayer.GetGroup().GetMembers()
+                for(let i=0;i<group.length;i++){
+                    group[i].AddItem(insideCurrencyID,randVal)
+                }
+            }else{
+                killerPlayer.AddItem(insideCurrencyID,randVal)
+            }
+        }else{
+            let owner = killer.GetOwner()
+            if(owner.IsPlayer()){
+                let ownerPlayer = owner.ToPlayer()
+                if(ownerPlayer.IsInGroup()){
+                    let group = ownerPlayer.GetGroup().GetMembers()
+                    for(let i=0;i<group.length;i++){
+                        group[i].AddItem(insideCurrencyID,randVal)
+                    }
+                }else{
+                    ownerPlayer.AddItem(insideCurrencyID,randVal)
+                }
+            }
+        }
         if (getRandomInt(100) >= 97) {
             creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
@@ -304,7 +328,31 @@ function setupCreatureDeath(events: TSEventHandlers, mobID: number) {
 
 function setupBossDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
-        creature.GetLoot().AddItem(insideCurrencyID,30,50)
+        let randVal = getRandomInt(20)+30
+        if(killer.IsPlayer()){
+            let killerPlayer = killer.ToPlayer()
+            if(killerPlayer.IsInGroup()){
+                let group = killerPlayer.GetGroup().GetMembers()
+                for(let i=0;i<group.length;i++){
+                    group[i].AddItem(insideCurrencyID,randVal)
+                }
+            }else{
+                killerPlayer.AddItem(insideCurrencyID,randVal)
+            }
+        }else{
+            let owner = killer.GetOwner()
+            if(owner.IsPlayer()){
+                let ownerPlayer = owner.ToPlayer()
+                if(ownerPlayer.IsInGroup()){
+                    let group = ownerPlayer.GetGroup().GetMembers()
+                    for(let i=0;i<group.length;i++){
+                        group[i].AddItem(insideCurrencyID,randVal)
+                    }
+                }else{
+                    ownerPlayer.AddItem(insideCurrencyID,randVal)
+                }
+            }
+        }
         creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
     })
 }
