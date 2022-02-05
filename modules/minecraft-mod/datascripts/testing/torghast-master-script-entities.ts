@@ -42,29 +42,19 @@ torghastChoice.Effects.get(0).Type.SUMMON.set();
 torghastChoice.Effects.get(0).MiscValueA.set(torghastOrb.ID);
 torghastChoice.Effects.get(0).MiscValueB.set(64);
 
-export let torghastChoiceItem = std.Items.create(
+export let animaCellItem = std.Items.create(
     MODNAME,
     "torghastchoice-item",
     118
 );
-torghastChoiceItem.Name.enGB.set("Anima Cell");
-torghastChoiceItem.Spells.clearAll();
-torghastChoiceItem.Spells.addMod((spell) => {
+animaCellItem.Name.enGB.set("Anima Cell");
+animaCellItem.Spells.clearAll();
+animaCellItem.Spells.addMod((spell) => {
     spell.Spell.set(torghastChoice.ID);
     spell.Charges.set(-1);
     spell.ProcsPerMinute.set(-1);
     spell.Cooldown.set(3000);
 });
-
-let torghastVendor = std.CreatureTemplates.create(
-    MODNAME,
-    "torghast-vendor",
-    3482
-);
-torghastVendor.Name.enGB.set("Test Vendor");
-torghastVendor.Subname.enGB.set("All Powerful");
-torghastVendor.FactionTemplate.set(35);
-torghastVendor.Vendor.add(torghastChoiceItem.ID);
 
 export let mapPrestige = std.Spells.create(MODNAME, "mapprestige-spell", 71188);
 mapPrestige.Name.enGB.set("Prestige");
@@ -100,3 +90,18 @@ torghastInsideCurrency.Name.enGB.set('Torghast Inside Token')
 torghastEndCurrency.Description.enGB.set('This currency is rewarded inside torghast')
 torghastInsideCurrency.MaxStack.set(2147483647)
 DBC.CurrencyTypes.add(351).ItemID.set(torghastInsideCurrency.ID).CategoryID.set(50).BitIndex.set(60)
+
+DBC.ItemExtendedCost.add(6000)
+.ItemCount.fill(0).ItemCount.set([100])
+.ItemID.fill(0).ItemID.set([torghastInsideCurrency.ID])
+.HonorPoints.set(0).ArenaPoints.set(0)
+
+let torghastVendor = std.CreatureTemplates.create(
+    MODNAME,
+    "torghast-vendor",
+    3562
+);
+torghastVendor.Name.enGB.set("Test Vendor");
+torghastVendor.Subname.enGB.set("All Powerful");
+torghastVendor.FactionTemplate.set(35);
+torghastVendor.Vendor.add(animaCellItem.ID,6000);
