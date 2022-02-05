@@ -76,7 +76,6 @@ mapPrestige.Attributes.PERSISTS_DEATH.set(1);
 mapPrestige.Attributes.NOT_STEALABLE.set(1);
 mapPrestige.Attributes.AURA_VISIBLE_TO_CASTER_ONLY.set(1);
 
-
 DBC.CurrencyCategory.add(50).Name.enGB.set('Torghast').Flags.set(16712190)
 
 export let torghastEndCurrency = std.Items.create(MODNAME,'torghast-end-currency',37742)

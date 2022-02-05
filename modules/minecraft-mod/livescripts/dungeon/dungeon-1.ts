@@ -213,7 +213,7 @@ const playerSpawnCoords: TSArray<TSDictionary<string, float>> = [
 ]
 
 const vendorSpawnCoords: TSArray<TSDictionary<string, float>> = [
-    MakeDictionary<string, float>({map:726,x:919.435547,y:161.432678,z:411.988708,o:3.548103}),
+    MakeDictionary<string, float>({map:726,x:905.107117,y:153.253296,z:412.887848,o:0.845007}),
 ]
 
 const rewardCurrencyID: uint32 = GetID("item_template", "minecraft-mod", "torghast-end-currency")
