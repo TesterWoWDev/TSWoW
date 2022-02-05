@@ -230,6 +230,7 @@ export function dungeon1(events: TSEventHandlers) {
         setupCreaturePrestigeScripts(events, bossIDs[i])
         setupLastBossCheck(events, bossIDs[i])
         setupBossDeath(events, bossIDs[i])
+        setupBossPull(events,bossIDs[i])
     }
     //make a bossMinions loop for any spawned by spell creatures
     events.GameObjectID.OnGossipSelect(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, menuID, sel, cancel) => {
@@ -302,5 +303,14 @@ function setupBossDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
         creature.GetLoot().AddItem(insideCurrencyID,30,50)
         creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
+    })
+}
+
+function setupBossPull(events: TSEventHandlers, mobID: number) {
+    events.CreatureID.OnJustEnteredCombat(mobID, (creature, target) => {
+        let mobs = creature.GetCreaturesInRange(40,0,2,1)
+        for(let i=0;i<mobs.length;i++){
+            mobs[i].Attack(target,true)
+        }
     })
 }
