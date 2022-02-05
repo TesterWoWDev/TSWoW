@@ -95,7 +95,7 @@ export function createGear(
     for (let i = 0; i < names.length; i++) {
         let item = std.Items.create(
             MODNAME,
-            tier + " " + names[i].toLowerCase().replace(" ", "-"),
+            tier + " " + names[i].toLowerCase().replace(" ", "-").replace('\'',''),
             38
         );
         item.Class.set(ids[i][0], ids[i][1]);
@@ -148,7 +148,7 @@ export function createTrinket(
     let costs = 7;
     let item = std.Items.create(
         MODNAME,
-        tier + " " + name.toLowerCase().replace(" ", "-"),
+        tier + " " + name.toLowerCase().replace(" ", "-").replace('\'',''),
         38
     );
     item.Class.set(ids[0], ids[1]);

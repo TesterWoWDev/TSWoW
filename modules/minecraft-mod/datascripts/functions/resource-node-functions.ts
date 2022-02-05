@@ -13,7 +13,7 @@ export function makeResourceNode(
 ): GameObjectChest {
     let resourceNode = std.GameObjectTemplates.Chests.create(
         MODNAME,
-        modPrefix + name.toLowerCase().replace(" ", "-")
+        modPrefix + name.toLowerCase().replace(" ", "-").replace('\'','')
     );
     resourceNode.Name.enGB.set(name);
     resourceNode.Display.set(displayID); //currently copper vein
