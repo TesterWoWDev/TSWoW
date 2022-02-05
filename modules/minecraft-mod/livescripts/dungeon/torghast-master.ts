@@ -94,8 +94,7 @@ const classSpellDescriptions = [
 ]
 
 const tormentAndBlessingSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[
-    <TSArray<uint32>>[81157, 0],
-    <TSArray<uint32>>[81157, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 0],
 ]
 
 export const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
@@ -257,7 +256,8 @@ export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<strin
         c.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghast-chest"), chestSpawnCoords[i]['x'], chestSpawnCoords[i]['y'], chestSpawnCoords[i]['z'], chestSpawnCoords[i]['o'], 0)
     }
     for (let i = 0; i < vaseSpawnCoords.length; i++) {
-        c.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-vase"), vaseSpawnCoords[i]['x'], vaseSpawnCoords[i]['y'], vaseSpawnCoords[i]['z'], vaseSpawnCoords[i]['o'], 8, 0).SetScale((getRandomInt(4)+1)/10)
+        map.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-vase"), vaseSpawnCoords[i]['x'], vaseSpawnCoords[i]['y'], vaseSpawnCoords[i]['z'], vaseSpawnCoords[i]['o'], 0)
+        .SetScale(Math.random()/3 + 0.2)
     }
     for (let i = 0; i < bossSpawnCoords.length; i++) {
         if (i == bossSpawnCoords.length - 1) {//last boss
