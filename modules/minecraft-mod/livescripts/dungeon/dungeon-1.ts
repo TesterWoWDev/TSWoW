@@ -235,6 +235,9 @@ export function dungeon1(events: TSEventHandlers) {
         setupBossDeath(events, bossIDs[i])
         setupBossPull(events,bossIDs[i])
     }
+    events.CreatureID.OnDeath(GetID("creature_template", "minecraft-mod", "torghast-vase"),(creature,killer)=>{
+        checkPlayerGiveReward(killer,getRandomInt(1)+1)
+    })
     //make a bossMinions loop for any spawned by spell creatures
     events.GameObjectID.OnGossipSelect(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, menuID, sel, cancel) => {
         if (sel == 0) {
@@ -295,31 +298,7 @@ function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
 }
 function setupCreatureDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
-        let randVal = getRandomInt(5)
-        if(killer.IsPlayer()){
-            let killerPlayer = killer.ToPlayer()
-            if(killerPlayer.IsInGroup()){
-                let group = killerPlayer.GetGroup().GetMembers()
-                for(let i=0;i<group.length;i++){
-                    group[i].AddItem(insideCurrencyID,randVal)
-                }
-            }else{
-                killerPlayer.AddItem(insideCurrencyID,randVal)
-            }
-        }else{
-            let owner = killer.GetOwner()
-            if(owner.IsPlayer()){
-                let ownerPlayer = owner.ToPlayer()
-                if(ownerPlayer.IsInGroup()){
-                    let group = ownerPlayer.GetGroup().GetMembers()
-                    for(let i=0;i<group.length;i++){
-                        group[i].AddItem(insideCurrencyID,randVal)
-                    }
-                }else{
-                    ownerPlayer.AddItem(insideCurrencyID,randVal)
-                }
-            }
-        }
+        checkPlayerGiveReward(killer,getRandomInt(5)+1)
         if (getRandomInt(100) >= 97) {
             creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
@@ -328,31 +307,7 @@ function setupCreatureDeath(events: TSEventHandlers, mobID: number) {
 
 function setupBossDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
-        let randVal = getRandomInt(20)+30
-        if(killer.IsPlayer()){
-            let killerPlayer = killer.ToPlayer()
-            if(killerPlayer.IsInGroup()){
-                let group = killerPlayer.GetGroup().GetMembers()
-                for(let i=0;i<group.length;i++){
-                    group[i].AddItem(insideCurrencyID,randVal)
-                }
-            }else{
-                killerPlayer.AddItem(insideCurrencyID,randVal)
-            }
-        }else{
-            let owner = killer.GetOwner()
-            if(owner.IsPlayer()){
-                let ownerPlayer = owner.ToPlayer()
-                if(ownerPlayer.IsInGroup()){
-                    let group = ownerPlayer.GetGroup().GetMembers()
-                    for(let i=0;i<group.length;i++){
-                        group[i].AddItem(insideCurrencyID,randVal)
-                    }
-                }else{
-                    ownerPlayer.AddItem(insideCurrencyID,randVal)
-                }
-            }
-        }
+        checkPlayerGiveReward(killer,getRandomInt(20)+30)
         creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
     })
 }
@@ -364,4 +319,31 @@ function setupBossPull(events: TSEventHandlers, mobID: number) {
             mobs[i].Attack(target,true)
         }
     })
+}
+
+export function checkPlayerGiveReward(killer: TSUnit, randVal: number) {
+    if(killer.IsPlayer()){
+        let killerPlayer = killer.ToPlayer()
+        if(killerPlayer.IsInGroup()){
+            let group = killerPlayer.GetGroup().GetMembers()
+            for(let i=0;i<group.length;i++){
+                group[i].AddItem(insideCurrencyID,randVal)
+            }
+        }else{
+            killerPlayer.AddItem(insideCurrencyID,randVal)
+        }
+    }else{
+        let owner = killer.GetOwner()
+        if(owner.IsPlayer()){
+            let ownerPlayer = owner.ToPlayer()
+            if(ownerPlayer.IsInGroup()){
+                let group = ownerPlayer.GetGroup().GetMembers()
+                for(let i=0;i<group.length;i++){
+                    group[i].AddItem(insideCurrencyID,randVal)
+                }
+            }else{
+                ownerPlayer.AddItem(insideCurrencyID,randVal)
+            }
+        }
+    }
 }
