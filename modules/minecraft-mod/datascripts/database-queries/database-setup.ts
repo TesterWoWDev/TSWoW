@@ -20,10 +20,10 @@ SQL.Databases.world_dest.writeEarly(
 SQL.Databases.world_dest.writeEarly(
     "DELETE FROM `creature_equip_template` WHERE creatureID >= 100000"
 );
-SQL.Databases.world_dest.writeEarly(
+SQL.Databases.world_source.writeEarly(
     "DELETE FROM `creature_loot_template` WHERE Entry = 299"
 );
-SQL.Databases.world_dest.writeEarly(
+SQL.Databases.world_source.writeEarly(
     "DELETE FROM `npc_vendor` WHERE entry = 3562"
 );
 
