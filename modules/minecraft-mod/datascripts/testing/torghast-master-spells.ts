@@ -295,13 +295,12 @@ grapple.Effects.get(1).TriggerSpell.set(57883);
 grapple.Visual.getRefCopy().cloneFromVisual(11055);
 
 
-export let rangeincrease = std.Spells.create(MODNAME, "auto-attack-range", 19500)
+export let rangeincrease = std.Spells.create(MODNAME, "auto-attack-range", 19498)
 rangeincrease.Name.enGB.set("Elongated Arm")
 rangeincrease.Description.enGB.set('Increases the range of your Auto Attack and Auto Shot by 10 yds. Auto Attack and Auto Shot damage increased by 50%.')
-rangeincrease.Attributes.IS_PASSIVE.set(0)
-rangeincrease.Proc.Chance.set(101)
+//rangeincrease.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 rangeincrease.Effects.get(0).BasePoints.set(9)
-rangeincrease.Effects.get(0).DieSides.set(1)
+//rangeincrease.Effects.get(0).DieSides.set(1)
 rangeincrease.Effects.get(1).Aura.ADD_PCT_MODIFIER.set()
 rangeincrease.Effects.get(1).MiscValueA.set(0)
 rangeincrease.Effects.get(1).BasePoints.set(49)
