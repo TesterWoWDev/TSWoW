@@ -257,7 +257,7 @@ export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<strin
     }
     for (let i = 0; i < vaseSpawnCoords.length; i++) {
         map.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-vase"), vaseSpawnCoords[i]['x'], vaseSpawnCoords[i]['y'], vaseSpawnCoords[i]['z'], vaseSpawnCoords[i]['o'], 0)
-        .SetScale(Math.random()/3 + 0.2)
+        .SetScale(Math.random()/3 + 0.1)
     }
     for (let i = 0; i < bossSpawnCoords.length; i++) {
         if (i == bossSpawnCoords.length - 1) {//last boss
