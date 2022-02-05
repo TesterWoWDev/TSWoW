@@ -194,12 +194,17 @@ const bossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     ],
 
 ]
-
 const bossIDs: TSArray<uint32> = [
     GetID("creature_template", "minecraft-mod", "torghastboss1"),
     GetID("creature_template", "minecraft-mod", "torghastboss2"),
     GetID("creature_template", "minecraft-mod", "torghastboss3"),
     GetID("creature_template", "minecraft-mod", "torghastboss5"),
+]
+
+const vaseSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
+    [
+        MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 }),
+    ],
 ]
 
 const chestSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
@@ -236,7 +241,7 @@ export function dungeon1(events: TSEventHandlers) {
     events.GameObjectID.OnGossipSelect(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, menuID, sel, cancel) => {
         if (sel == 0) {
             let mapChoice = getRandomInt(mobSpawnCoords.length)
-            resetGroup(player, playerSpawnCoords[mapChoice], bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice])
+            resetGroup(player, playerSpawnCoords[mapChoice], bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice],vaseSpawnCoords[mapChoice])
             obj.Despawn()
         } else if (sel == 1) {
             rewardGroup(player)
@@ -251,14 +256,14 @@ export function dungeon1(events: TSEventHandlers) {
             map.SetUInt('dropID', insideCurrencyID)
             map.SetUInt('prestige', 0)
             let mapChoice = getRandomInt(mobSpawnCoords.length)
-            spawnMap(map, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice])
+            spawnMap(map, bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice],vaseSpawnCoords[mapChoice])
         }
     })
 
     events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#cc")) {
             let mapChoice = getRandomInt(mobSpawnCoords.length)
-            resetGroup(player, playerSpawnCoords[mapChoice], bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice])
+            resetGroup(player, playerSpawnCoords[mapChoice], bossSpawnCoords[mapChoice], bossIDs, mobSpawnCoords[mapChoice], mobIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice],vaseSpawnCoords[mapChoice])
         }
     })
     events.MapID.OnPlayerLeave(726, (map, player) => {

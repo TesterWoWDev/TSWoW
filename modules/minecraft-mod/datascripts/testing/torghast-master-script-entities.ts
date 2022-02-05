@@ -2,6 +2,12 @@
 import { std } from "tswow-stdlib";
 import { DBC } from "wotlkdata";
 import { MODNAME } from "../modname";
+
+export let torghastVase = std.CreatureTemplates.create(MODNAME,'torhast-vase',21185)
+torghastVase.Name.enGB.set('Torghast Vase')
+torghastVase.FactionTemplate.set(189)
+torghastVase.UnitFlags.NOT_SELECTABLE.set(1)
+
 export let torghastFinalObj = std.GameObjectTemplates.Rituals.create(
     MODNAME,
     "torghastendobj",
