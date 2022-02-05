@@ -37,7 +37,7 @@ mobOne.InlineScripts.OnReachedHome((creature)=>{
 export let mobTwo = std.CreatureTemplates.create(MODNAME,'torghastmob2',452)//melee
 mobTwo.Name.enGB.set('mob 2')
 
-let mobTwoHealCut = std.Spells.create(MODNAME,'mob2-healcut',81036)
+let mobTwoHealCut = std.Spells.create(MODNAME,'mob2-healcut',48137)
 
 let whirlwind = std.Spells.create(MODNAME,'mob2-whirlwind',63807)
 whirlwind.Effects.get(0).BasePoints.set(200)
