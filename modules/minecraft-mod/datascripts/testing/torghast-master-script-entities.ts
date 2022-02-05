@@ -1,10 +1,17 @@
 
 import { std } from "tswow-stdlib";
-import { DBC } from "wotlkdata";
+import { DBC, SQL } from "wotlkdata";
 import { MODNAME } from "../modname";
 
+DBC.CreatureModelData.add(3500).ModelName.set('World\\Expansion01\\Doodads\\ZulAman\\Ruins\\TrollRuins_ZulAman_07.mdx').CollisionWidth.set(1).CollisionHeight.set(3).GeoBoxMinX.set(-1.57329094409943).GeoBoxMaxX.set(1.57456505298615).GeoBoxMinY.set(-1.83399701118469).GeoBoxMaxY.set(1.80083501338959).GeoBoxMinZ.set(-0.13425900042057).GeoBoxMaxZ.set(4.46832180023193)
+DBC.CreatureDisplayInfo.add(35000).ModelID.set(3500)
+SQL.creature_model_info.add(35000).BoundingRadius.set(1)
 export let torghastVase = std.CreatureTemplates.create(MODNAME,'torhast-vase',21185)
 torghastVase.Name.enGB.set('Torghast Vase')
+torghastVase.Level.set(20,20)
+torghastVase.Models.clearAll()
+torghastVase.Models.addIds(35000)
+torghastVase.Scale.set(0.3)
 torghastVase.FactionTemplate.set(189)
 torghastVase.UnitFlags.NOT_SELECTABLE.set(1)
 
