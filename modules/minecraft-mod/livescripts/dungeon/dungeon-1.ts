@@ -270,6 +270,7 @@ export function dungeon1(events: TSEventHandlers) {
         }
         player.RemoveItemByEntry(insideCurrencyID,999999)
         player.SetUInt('prestige', 0)
+        map.SetUInt('prestige', 0)
     })
 }
 
