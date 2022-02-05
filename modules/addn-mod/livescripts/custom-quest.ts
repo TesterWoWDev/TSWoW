@@ -192,6 +192,7 @@ function createQuest(player: TSPlayer) {
     } else {
         updateQuestProgress(curQuestInfo, player, 0);
     }
+    updateClient(curQuestInfo,player)
 }
 
 function updateClient(curQuest: PlayerQuest, player: TSPlayer) {
