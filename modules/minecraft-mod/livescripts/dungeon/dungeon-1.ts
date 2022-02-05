@@ -177,11 +177,9 @@ const mobSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
 
 ]
 const mobIDs: TSArray<uint32> = [
-    37478,
-    13339,
-    17705,
-    36863,
-    30704,
+    GetID("creature_template", "minecraft-mod", "torghastmob1"),
+    GetID("creature_template", "minecraft-mod", "torghastmob2"),
+    GetID("creature_template", "minecraft-mod", "torghastmob3"),
 ]
 
 const bossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
