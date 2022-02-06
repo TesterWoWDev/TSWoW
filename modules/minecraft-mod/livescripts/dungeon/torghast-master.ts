@@ -203,7 +203,7 @@ export function rewardGroup(player: TSPlayer) {
     }
 }
 
-export function resetGroup(player: TSPlayer, playerSpawnCoords: TSDictionary<string, float>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string, float>, chestSpawnCoords: TSArray<TSDictionary<string, float>>, vaseSpawnCoords: TSArray<TSDictionary<string, float>>) {
+export function resetGroup(player: TSPlayer, playerSpawnCoords: TSDictionary<string, float>, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, normalMobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string, float>, chestSpawnCoords: TSArray<TSDictionary<string, float>>, vaseSpawnCoords: TSArray<TSDictionary<string, float>>) {
     let map = player.GetMap()
     let prestige = map.GetUInt('prestige', 0) + 1
     map.SetUInt('prestige', prestige)
@@ -225,7 +225,7 @@ export function resetGroup(player: TSPlayer, playerSpawnCoords: TSDictionary<str
     } else {
         teleportRandomStart([player], playerSpawnCoords)
     }
-    spawnMap(map, bossSpawnCoords, bossIDs, mobSpawnCoords, mobIDs, vendorSpawnCoords, chestSpawnCoords, vaseSpawnCoords)
+    spawnMap(map, bossSpawnCoords, bossIDs, normalMobSpawnCoords, mobIDs, vendorSpawnCoords, chestSpawnCoords, vaseSpawnCoords)
 }
 
 function teleportRandomStart(players: TSPlayer[], playerSpawnCoords: TSDictionary<string, float>) {
@@ -250,7 +250,7 @@ function despawnMap(player: TSPlayer) {
     }
 }
 
-export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, mobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string, float>, chestSpawnCoords: TSArray<TSDictionary<string, float>>, vaseSpawnCoords: TSArray<TSDictionary<string, float>>,) {
+export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<string, float>>, bossIDs: TSArray<uint32>, normalMobSpawnCoords: TSArray<TSDictionary<string, float>>, mobIDs: TSArray<uint32>, vendorSpawnCoords: TSDictionary<string, float>, chestSpawnCoords: TSArray<TSDictionary<string, float>>, vaseSpawnCoords: TSArray<TSDictionary<string, float>>,) {
     let c = map.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-vendor"), vendorSpawnCoords['x'], vendorSpawnCoords['y'], vendorSpawnCoords['z'], vendorSpawnCoords['o'], 180000)
     for (let i = 0; i < chestSpawnCoords.length; i++) {
         c.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghast-chest"), chestSpawnCoords[i]['x'], chestSpawnCoords[i]['y'], chestSpawnCoords[i]['z'], chestSpawnCoords[i]['o'], 0)
@@ -266,8 +266,8 @@ export function spawnMap(map: TSMap, bossSpawnCoords: TSArray<TSDictionary<strin
             spawnBoss(map, bossIDs[getRandomInt(bossIDs.length)], bossSpawnCoords.get(i), false)
         }
     }
-    for (let i = 0; i < mobSpawnCoords.length; i++) {
-        spawnFormation(map, mobSpawnCoords.get(i), mobIDs, mobIDs.length)
+    for (let i = 0; i < normalMobSpawnCoords.length; i++) {
+        spawnFormation(map, normalMobSpawnCoords.get(i), mobIDs, mobIDs.length)
     }
 }
 
