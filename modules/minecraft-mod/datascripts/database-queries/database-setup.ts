@@ -1,4 +1,5 @@
 import { DBC,SQL } from "wotlkdata";
+//custom sql files in bin/sql/custom/world
 
 SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `minecraft_recipes`");
 //invasions
@@ -42,7 +43,6 @@ SQL.game_tele
     .map.set(726)
     .name.set("torghast");
 
-//custom sql files in bin/sql/custom/world
 DBC.MapDifficulty.add(1000)
     .MapID.set(725)
     .Difficulty.set(0)
