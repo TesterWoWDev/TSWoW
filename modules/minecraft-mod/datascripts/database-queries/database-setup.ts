@@ -40,7 +40,7 @@ SQL.game_tele
     .position_y.set(157)
     .position_z.set(414)
     .map.set(726)
-    .name.set("ulduartest");
+    .name.set("torghast");
 
 //custom sql files in bin/sql/custom/world
 DBC.MapDifficulty.add(1000)

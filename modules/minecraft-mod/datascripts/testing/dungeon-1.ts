@@ -1,7 +1,7 @@
 import { std } from "tswow-stdlib";
 import { DBC, SQL } from "wotlkdata";
 
-std.Maps.load(726).InstanceType.PARTY.set().MaxPlayers.set(5).Flags.set(13).CorpseMap.set(725).CorpsePos.set({ x: 900, y: 150 })
+std.Maps.load(726).InstanceType.PARTY.set().MaxPlayers.set(5).Flags.set(13).CorpseMap.set(725).CorpsePos.set({ x: 900, y: 150 }).Name.enGB.set('Torghast')
 SQL.instance_template.add(726).parent.set(725).script.set('')
 DBC.MapDifficulty.add(1001)
     .MapID.set(726)
