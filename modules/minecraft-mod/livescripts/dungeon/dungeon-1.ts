@@ -5,7 +5,7 @@ const miniMobSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     ]
 ]
 const miniMobIDs: TSArray<uint32> = [
-    GetID("creature_template", "minecraft-mod", "torghastmob1"),
+    GetID("creature_template", "minecraft-mod", "torghastminimob1"),
 ]
 
 const mobSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
@@ -197,7 +197,7 @@ const miniBossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     ]
 ]
 const miniBossIDs: TSArray<uint32> = [
-    GetID("creature_template", "minecraft-mod", "torghastboss1"),
+    GetID("creature_template", "minecraft-mod", "torghastminiboss1"),
 ]
 
 const bossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
