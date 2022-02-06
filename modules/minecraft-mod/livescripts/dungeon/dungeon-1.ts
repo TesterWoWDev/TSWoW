@@ -289,6 +289,8 @@ const miniBossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
         MakeDictionary<string, float>({map:726,x:879.427917,y:421.072174,z:435.256226,o:4.740185}),
         MakeDictionary<string, float>({map:726,x:1212.786377,y:328.593994,z:454.478729,o:3.230726}),
         MakeDictionary<string, float>({map:726,x:1275.422974,y:484.313782,z:453.824188,o:5.226509}),
+        MakeDictionary<string, float>({map:726,x:619.351685,y:147.831070,z:421.558624,o:4.748680}),
+
     ]
 ]
 const miniBossIDs: TSArray<uint32> = [
