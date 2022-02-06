@@ -264,7 +264,7 @@ export function spawnMap(map: TSMap, miniMobSpawnCoords: TSArray<TSDictionary<st
     //minimobs
     for (let i = 0; i < miniMobSpawnCoords.length; i++) {
         for (let j = 0; j < getRandomInt(3); j++) {
-            map.SpawnCreature(miniMobIDs[getRandomInt(miniMobIDs.length)], miniMobSpawnCoords[i]['x'], miniMobSpawnCoords[i]['y'], miniMobSpawnCoords[i]['z'], miniMobSpawnCoords[i]['o'], 0).MoveRandom(10)
+            map.SpawnCreature(miniMobIDs[getRandomInt(miniMobIDs.length)], miniMobSpawnCoords[i]['x'], miniMobSpawnCoords[i]['y'], miniMobSpawnCoords[i]['z'], miniMobSpawnCoords[i]['o'], 0).MoveRandom(30)
         }
     }
     //mobs
