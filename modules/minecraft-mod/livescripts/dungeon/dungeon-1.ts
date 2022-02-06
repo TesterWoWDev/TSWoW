@@ -242,11 +242,18 @@ const insideCurrencyID: uint32 = GetID("item_template", "minecraft-mod", "torgha
 const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 10% hp+damage+haste per prestige
 
 export function dungeon1(events: TSEventHandlers) {
+    for(let i=0;i<miniMobIDs.length;i++){
+        setupCreaturePrestigeScripts(events, miniMobIDs[i])
+        setupMiniMobDeath(events, miniMobIDs[i])
+    }
     for (let i = 0; i < mobIDs.length; i++) {
         setupCreaturePrestigeScripts(events, mobIDs[i])
-        setupCreatureDeath(events, mobIDs[i])
+        setupMobDeath(events, mobIDs[i])
     }
-
+    for(let i=0;i<miniBossIDs.length;i++){
+        setupCreaturePrestigeScripts(events, miniBossIDs[i])
+        setupMiniBossDeath(events, miniBossIDs[i])
+    }
     for (let i = 0; i < bossIDs.length; i++) {
         setupCreaturePrestigeScripts(events, bossIDs[i])
         setupLastBossCheck(events, bossIDs[i])
@@ -314,12 +321,34 @@ function setupCreaturePrestigeScripts(events: TSEventHandlers, mobID: number) {
         addPrestigeBuffToCreature(creature)
     })
 }
-function setupCreatureDeath(events: TSEventHandlers, mobID: number) {
+
+function setupMiniMobDeath(events: TSEventHandlers, mobID: number) {
+    events.CreatureID.OnDeath(mobID, (creature, killer) => {
+        checkPlayerGiveReward(killer,getRandomInt(1)+1)
+        if (getRandomInt(100) >= 99) {
+            creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
+        }
+        creature.DespawnOrUnsummon(0)
+    })
+}
+
+function setupMobDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
         checkPlayerGiveReward(killer,getRandomInt(5)+1)
         if (getRandomInt(100) >= 97) {
             creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
+        creature.DespawnOrUnsummon(0)
+    })
+}
+
+function setupMiniBossDeath(events: TSEventHandlers, mobID: number) {
+    events.CreatureID.OnDeath(mobID, (creature, killer) => {
+        checkPlayerGiveReward(killer,getRandomInt(20)+1)
+        if (getRandomInt(100) >= 50) {
+            creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
+        }
+        creature.DespawnOrUnsummon(0)
     })
 }
 
@@ -327,6 +356,7 @@ function setupBossDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
         checkPlayerGiveReward(killer,getRandomInt(20)+30)
         creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
+        creature.DespawnOrUnsummon(0)
     })
 }
 
