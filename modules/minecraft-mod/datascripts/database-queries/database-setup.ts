@@ -1,5 +1,4 @@
-import { DBC } from "wotlkdata";
-import { SQL } from "wotlkdata";
+import { DBC,SQL } from "wotlkdata";
 
 SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `minecraft_recipes`");
 //invasions
@@ -50,11 +49,4 @@ DBC.MapDifficulty.add(1000)
     .Message.enGB.set(" ")
     .RaidDuration.set(0)
     .MaxPlayers.set(0)
-    .Difficultystring.set(" ");
-DBC.MapDifficulty.add(1001)
-    .MapID.set(726)
-    .Difficulty.set(0)
-    .Message.enGB.set(" ")
-    .RaidDuration.set(0)
-    .MaxPlayers.set(3)
     .Difficultystring.set(" ");
