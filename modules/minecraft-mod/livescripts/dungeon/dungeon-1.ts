@@ -279,7 +279,16 @@ const mobIDs: TSArray<uint32> = [
 
 const miniBossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     [
-        MakeDictionary<string, float>({ map: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 }),
+        MakeDictionary<string, float>({map:726,x:643.271790,y:3.121157,z:438.570648,o:3.247903}),
+        MakeDictionary<string, float>({map:726,x:1046.405518,y:64.855217,z:449.191284,o:4.435165}),
+        MakeDictionary<string, float>({map:726,x:1104.698486,y:176.444977,z:451.779633,o:6.275183}),
+        MakeDictionary<string, float>({map:726,x:953.486389,y:248.085312,z:453.640442,o:0.459311}),
+        MakeDictionary<string, float>({map:726,x:1075.007202,y:292.740967,z:453.693512,o:4.876960}),
+        MakeDictionary<string, float>({map:726,x:937.455139,y:498.019073,z:454.089813,o:0.114835}),
+        MakeDictionary<string, float>({map:726,x:922.682312,y:423.930725,z:454.549652,o:3.494015}),
+        MakeDictionary<string, float>({map:726,x:879.427917,y:421.072174,z:435.256226,o:4.740185}),
+        MakeDictionary<string, float>({map:726,x:1212.786377,y:328.593994,z:454.478729,o:3.230726}),
+        MakeDictionary<string, float>({map:726,x:1275.422974,y:484.313782,z:453.824188,o:5.226509}),
     ]
 ]
 const miniBossIDs: TSArray<uint32> = [
@@ -289,6 +298,10 @@ const miniBossIDs: TSArray<uint32> = [
 const bossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     [
         MakeDictionary<string, float>({ map: 726, x: 1093.482300, y: 359.340759, z: 425.318176, o: 0.228170 }),
+        MakeDictionary<string, float>({map:726,x:1348.919922,y:379.712585,z:433.349670,o:3.108328}),
+        MakeDictionary<string, float>({map:726,x:961.986572,y:63.127361,z:415.341614,o:0.515871}),
+        MakeDictionary<string, float>({map:726,x:770.790588,y:211.603500,z:422.549377,o:5.590633}),
+        MakeDictionary<string, float>({map:726,x:749.357666,y:-94.758820,z:421.435486,o:1.295807}),
     ],
 
 ]
