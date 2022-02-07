@@ -125,7 +125,6 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                     let arr = creature.GetJsonArray('usedBy', new TSJsonArray())
                     for (let i = 0; i < arr.length; i++) {
                         if (arr.getNumber(i) == player.GetGUIDLow()) {
-                            player.SendAreaTriggerMessage("You have used this already!")
                             return
                         }
                     }
