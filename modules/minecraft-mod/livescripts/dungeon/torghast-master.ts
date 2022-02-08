@@ -150,9 +150,6 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                 player.SendAreaTriggerMessage('Choose your ability first!')
             }
         }
-        if (msg.get().startsWith("#ee")) {
-            rewardGroup(player)
-        }
     })
 
     events.GameObjectID.OnGossipHello(GetID("gameobject_template", "minecraft-mod", "torghast-chest"), (obj, player, cancel) => {
@@ -169,6 +166,19 @@ export function torghastBuffSystem(events: TSEventHandlers) {
 
     events.Player.OnLogout((player) => {
         removePlayerBuffs(player)
+    })
+
+    events.Player.OnSay((player, type, lang, msg) => {
+        if (msg.get().startsWith("#1")) {
+            playerChoseBuff(player, 1)
+            applyPlayerBuffs(player)
+        } else if (msg.get().startsWith("#2")) {
+            playerChoseBuff(player, 2)
+            applyPlayerBuffs(player)
+        } else if (msg.get().startsWith("#3")) {
+            playerChoseBuff(player, 3)
+            applyPlayerBuffs(player)
+        }
     })
 
     events.PacketID.OnCustom(spellChoiceID, (opcode, packet, player) => {
@@ -404,12 +414,14 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
             let spellInfo: TSArray<uint32> = allSpells[index]
             let c: uint32 = spellInfo[0]
             if (spellIDToType[c] == 0) {
+                player.SendBroadcastMessage(classSpellDescriptions[classID][index])
                 charItems.currentChoiceBuffs.push(c)
                 spellRarity.push(spellInfo[1])
                 spellDescs.push(classSpellDescriptions[classID][index])
                 count++
             } else if (spellIDToType[c] == 1 || spellIDToType[c] == 2) {
                 if (!charItems.currentBuffs.includes(c)) {
+                    player.SendBroadcastMessage(classSpellDescriptions[classID][index])
                     charItems.currentChoiceBuffs.push(c)
                     spellRarity.push(spellInfo[1])
                     spellDescs.push(classSpellDescriptions[classID][index])
@@ -477,7 +489,7 @@ function addTormentOrBlessing(player: TSPlayer) {
 }
 
 function applyPlayerBuffs(player: TSPlayer) {
-    if(player.IsDead())
+    if (player.IsDead())
         return
 
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
