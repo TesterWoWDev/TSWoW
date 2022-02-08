@@ -170,13 +170,13 @@ export function torghastBuffSystem(events: TSEventHandlers) {
 
     events.Player.OnSay((player, type, lang, msg) => {
         if (msg.get().startsWith("#1")) {
-            playerChoseBuff(player, 1)
-            applyPlayerBuffs(player)
-        } else if (msg.get().startsWith("#2")) {
             playerChoseBuff(player, 2)
             applyPlayerBuffs(player)
+        } else if (msg.get().startsWith("#2")) {
+            playerChoseBuff(player, 1)
+            applyPlayerBuffs(player)
         } else if (msg.get().startsWith("#3")) {
-            playerChoseBuff(player, 3)
+            playerChoseBuff(player, 0)
             applyPlayerBuffs(player)
         }
     })
@@ -409,23 +409,26 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     if (charItems.currentChoiceBuffs.length > 0) {
         return false
     } else {
+        player.SendBroadcastMessage('--- Spell Choices---')
         while (continueLoop == true) {
             const index = Math.floor(Math.random() * allSpells.length)
             let spellInfo: TSArray<uint32> = allSpells[index]
             let c: uint32 = spellInfo[0]
             if (spellIDToType[c] == 0) {
-                player.SendBroadcastMessage(classSpellDescriptions[classID][index])
+                count++
+                player.SendBroadcastMessage('#'+count+': ' + classSpellDescriptions[classID][index])
                 charItems.currentChoiceBuffs.push(c)
                 spellRarity.push(spellInfo[1])
                 spellDescs.push(classSpellDescriptions[classID][index])
-                count++
+                
             } else if (spellIDToType[c] == 1 || spellIDToType[c] == 2) {
                 if (!charItems.currentBuffs.includes(c)) {
-                    player.SendBroadcastMessage(classSpellDescriptions[classID][index])
+                    count++
+                    player.SendBroadcastMessage('#'+count+': ' + classSpellDescriptions[classID][index])
                     charItems.currentChoiceBuffs.push(c)
                     spellRarity.push(spellInfo[1])
                     spellDescs.push(classSpellDescriptions[classID][index])
-                    count++
+                    
                 }
             }
             if (count == 3) {
