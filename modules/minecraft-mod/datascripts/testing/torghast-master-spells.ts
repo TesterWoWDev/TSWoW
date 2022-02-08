@@ -44,6 +44,7 @@ IncreasedHealth1.Effects.get(1).Aura.NONE.set();
 IncreasedHealth1.Effects.get(2).Aura.NONE.set();
 IncreasedHealth1.Duration.set(21);
 IncreasedHealth1.Attributes.REACTIVATE_AT_RESURRECT.set(true);
+IncreasedHealth1.Attributes.PERSISTS_DEATH.set(1)
 IncreasedHealth1.row.Attributes.set(
     IncreasedHealth1.row.Attributes.get() + 0x80000000
 );
