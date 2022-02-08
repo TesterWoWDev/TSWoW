@@ -460,11 +460,9 @@ function setupBossDeath(events: TSEventHandlers, mobID: number) {
 
 function setupBossPull(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnJustEnteredCombat(mobID, (creature, target) => {
-        let mobs = creature.GetCreaturesInRange(40,0,2,1)
+        let mobs = creature.GetCreaturesInRange(60,0,2,1)
         for(let i=0;i<mobs.length;i++){
-            //mobs[i].Attack(target,true)
             mobs[i].AttackStart(target)
-            //mobs[i].AddThreat(target,1)
         }
     })
 }
