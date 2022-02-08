@@ -116,16 +116,6 @@ class torghastBuffs extends TSClass {
 
 export function torghastBuffSystem(events: TSEventHandlers) {
     setupTables()
-//test on release spirit stuff
-    events.SpellID.OnHit(8326,spell=>{
-        console.log('hit')
-    })
-    events.SpellID.OnCast(8326,spell=>{
-        console.log('cast')
-    })
-    events.SpellID.OnTick(8326,eff=>{
-        console.log('tick')
-    })
     events.CreatureID.OnCreate(GetID("creature_template", "minecraft-mod", "torghast-orb"), (creature, cancel) => {
         creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
             if (collided.IsPlayer()) {

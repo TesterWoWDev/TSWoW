@@ -402,6 +402,15 @@ export function dungeon1(events: TSEventHandlers) {
         player.SetUInt('prestige', 0)
         map.SetUInt('prestige', 0)
     })
+
+    events.SpellID.OnHit(8326,spell=>{
+        let c = spell.GetCaster()
+        if(c.GetMapId() == 726){
+            let p = c.ToPlayer()
+            p.ResurrectPlayer(30, false);
+            p.Teleport(725, -8749.424805, -77.516861, 31.135099, 0.923082)
+        }
+    })
 }
 
 function addPrestigeBuffToCreature(mob: TSCreature) {
