@@ -303,7 +303,7 @@ const bossSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
         MakeDictionary<string, float>({map:726,x:1348.919922,y:379.712585,z:433.349670,o:3.108328}),
         MakeDictionary<string, float>({map:726,x:961.986572,y:63.127361,z:415.341614,o:0.515871}),
         MakeDictionary<string, float>({map:726,x:770.790588,y:211.603500,z:422.549377,o:5.590633}),
-        MakeDictionary<string, float>({map:726,x:749.357666,y:-94.758820,z:421.435486,o:1.295807}),
+        MakeDictionary<string, float>({map:726,x:749.357666,y:-94.758820,z:423.435486,o:1.295807}),
     ],
 
 ]
@@ -359,6 +359,7 @@ export function dungeon1(events: TSEventHandlers) {
     }
     events.CreatureID.OnDeath(GetID("creature_template", "minecraft-mod", "torghast-vase"),(creature,killer)=>{
         checkPlayerGiveReward(killer,getRandomInt(1)+1)
+        creature.DespawnOrUnsummon(5000)
     })
     //make a bossMinions loop for any spawned by spell creatures
     events.GameObjectID.OnGossipSelect(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), (obj, player, menuID, sel, cancel) => {
@@ -425,7 +426,7 @@ function setupMiniMobDeath(events: TSEventHandlers, mobID: number) {
         if (getRandomInt(100) >= 99) {
             creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
-        creature.DespawnOrUnsummon(0)
+        creature.DespawnOrUnsummon(3000)
     })
 }
 
@@ -435,7 +436,7 @@ function setupMobDeath(events: TSEventHandlers, mobID: number) {
         if (getRandomInt(100) >= 97) {
             creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
-        creature.DespawnOrUnsummon(0)
+        creature.DespawnOrUnsummon(3000)
     })
 }
 
@@ -445,7 +446,7 @@ function setupMiniBossDeath(events: TSEventHandlers, mobID: number) {
         if (getRandomInt(100) >= 50) {
             creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
         }
-        creature.DespawnOrUnsummon(0)
+        creature.DespawnOrUnsummon(3000)
     })
 }
 
@@ -453,7 +454,7 @@ function setupBossDeath(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnDeath(mobID, (creature, killer) => {
         checkPlayerGiveReward(killer,getRandomInt(20)+30)
         creature.SpawnCreature(GetID("creature_template", "minecraft-mod", "torghast-orb"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 8, 0)
-        creature.DespawnOrUnsummon(0)
+        creature.DespawnOrUnsummon(3000)
     })
 }
 
@@ -461,7 +462,9 @@ function setupBossPull(events: TSEventHandlers, mobID: number) {
     events.CreatureID.OnJustEnteredCombat(mobID, (creature, target) => {
         let mobs = creature.GetCreaturesInRange(40,0,2,1)
         for(let i=0;i<mobs.length;i++){
-            mobs[i].Attack(target,true)
+            //mobs[i].Attack(target,true)
+            mobs[i].AttackStart(target)
+            //mobs[i].AddThreat(target,1)
         }
     })
 }

@@ -116,6 +116,16 @@ class torghastBuffs extends TSClass {
 
 export function torghastBuffSystem(events: TSEventHandlers) {
     setupTables()
+//test on release spirit stuff
+    events.SpellID.OnHit(8326,spell=>{
+        console.log('hit')
+    })
+    events.SpellID.OnCast(8326,spell=>{
+        console.log('cast')
+    })
+    events.SpellID.OnTick(8326,eff=>{
+        console.log('tick')
+    })
     events.CreatureID.OnCreate(GetID("creature_template", "minecraft-mod", "torghast-orb"), (creature, cancel) => {
         creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
             if (collided.IsPlayer()) {
@@ -242,7 +252,7 @@ function teleportRandomStart(players: TSPlayer[], playerSpawnCoords: TSDictionar
 function despawnMap(player: TSPlayer) {
     let creatures = player.GetCreaturesInRange(10000, 0, 0, 0)
     for (let i = 0; i < creatures.length; i++) {
-        creatures[i].DespawnOrUnsummon(0)
+        creatures[i].DespawnOrUnsummon(3000)
     }
     let gobs = player.GetGameObjectsInRange(10000, 0, 0)
     for (let i = 0; i < gobs.length; i++) {
@@ -477,6 +487,9 @@ function addTormentOrBlessing(player: TSPlayer) {
 }
 
 function applyPlayerBuffs(player: TSPlayer) {
+    if(player.IsDead())
+        return
+
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
         if (charItems.currentBuffsType[i] == 0 || charItems.currentBuffsType[i] == 1) {
