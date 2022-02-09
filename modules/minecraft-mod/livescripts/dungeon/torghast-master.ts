@@ -491,22 +491,34 @@ function addTormentOrBlessing(player: TSPlayer) {
     }
 }
 
-function applyPlayerBuffs(player: TSPlayer) {
+export function applyPlayerBuffs(player: TSPlayer) {
     if (player.IsDead())
         return
 
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
         if (charItems.currentBuffsType[i] == 0 || charItems.currentBuffsType[i] == 1) {
-            player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
+            if(player.HasAura(charItems.currentBuffs[i])){
+                player.GetAura(charItems.currentBuffs[i]).SetStackAmount(charItems.currentBuffsCount[i])
+            }else{
+                player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
+            }
+            //player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
         } else if (charItems.currentBuffsType[i] == 2) {
+            if(!player.HasSpell(charItems.currentBuffs[i]))
             player.LearnSpell(charItems.currentBuffs[i])
         }
     }
     for (let i = 0; i < charItems.currentTormentsAndBlessings.length; i++) {
         if (charItems.currentTormentsAndBlessingsType[i] == 0 || charItems.currentTormentsAndBlessingsType[i] == 1) {
-            player.AddAura(charItems.currentTormentsAndBlessings[i], player).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
+            if(player.HasAura(charItems.currentTormentsAndBlessings[i])){
+                player.GetAura(charItems.currentTormentsAndBlessings[i]).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
+            }else{
+                player.AddAura(charItems.currentTormentsAndBlessings[i], player).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
+            }
+            //player.AddAura(charItems.currentTormentsAndBlessings[i], player).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
         } else if (charItems.currentTormentsAndBlessingsType[i] == 2) {
+            if(!player.HasSpell(charItems.currentTormentsAndBlessings[i]))
             player.LearnSpell(charItems.currentTormentsAndBlessings[i])
         }
     }

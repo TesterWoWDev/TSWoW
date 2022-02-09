@@ -1,4 +1,4 @@
-import { getRandomInt, prestigeSpell, removePlayerBuffs, resetGroup, rewardGroup, setupLastBossCheck, spawnMap } from "./torghast-master"
+import { applyPlayerBuffs, getRandomInt, prestigeSpell, removePlayerBuffs, resetGroup, rewardGroup, setupLastBossCheck, spawnMap } from "./torghast-master"
 const miniMobSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     [
         MakeDictionary<string, float>({map:726,x:916.218628,y:193.648834,z:411.356812,o:4.694665}),
@@ -382,6 +382,9 @@ export function dungeon1(events: TSEventHandlers) {
             let mapChoice = getRandomInt(mobSpawnCoords.length)
             spawnMap(map, miniMobSpawnCoords[mapChoice], miniMobIDs,mobSpawnCoords[mapChoice], mobIDs, miniBossSpawnCoords[mapChoice], miniBossIDs, bossSpawnCoords[mapChoice], bossIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice],vaseSpawnCoords[mapChoice])
         }
+        player.AddTimer('rebuff',30000,0,(timer,owner,delay,cancel)=>{
+            applyPlayerBuffs(owner.ToPlayer())
+        })
     })
 
     events.Player.OnSay((player, type, lang, msg) => {
@@ -391,6 +394,7 @@ export function dungeon1(events: TSEventHandlers) {
         }
     })
     events.MapID.OnPlayerLeave(726, (map, player) => {
+        player.RemoveTimer('rebuff')
         removePlayerBuffs(player)
         let curPrestige: uint32 = player.GetUInt('prestige', 0)
         let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 10
