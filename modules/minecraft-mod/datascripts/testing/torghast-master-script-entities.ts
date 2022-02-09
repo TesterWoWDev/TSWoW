@@ -105,7 +105,7 @@ torghastInsideCurrency.MaxCount.set(2147483647)
 DBC.CurrencyTypes.add(351).ItemID.set(torghastInsideCurrency.ID).CategoryID.set(50).BitIndex.set(60)
 
 DBC.ItemExtendedCost.add(6000)
-.ItemCount.fill(0).ItemCount.set([100])
+.ItemCount.fill(0).ItemCount.set([500])
 .ItemID.fill(0).ItemID.set([torghastInsideCurrency.ID])
 .HonorPoints.set(0).ArenaPoints.set(0)
 
