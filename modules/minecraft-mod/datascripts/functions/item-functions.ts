@@ -266,8 +266,8 @@ export function createWeapons(
             } else if (ids[i][1] == 15) {
                 //dagger
                 item.Damage.addPhysical(
-                    (costval * levelrequirement) / 1.5,
-                    costval * levelrequirement
+                    (costval * levelrequirement*2) / 1.5,
+                    costval * levelrequirement*2
                 );
                 item.Delay.set(1600);
                 item.Sheath.set(6);
