@@ -612,7 +612,8 @@ Boss5Energize1.Stacks.set(99);
 export let Boss5Nuke1 = std.Spells.create(MODNAME, "boss5nuke1-spell", 64487);
 Boss5Nuke1.Name.enGB.set("Danger Zone!!!");
 Boss5Nuke1.Description.enGB.set("Inflicts $s1 Arcane damage to enemies.");
-Boss5Nuke1.Effects.get(0).BasePoints.set(4999);
+Boss5Nuke1.Effects.get(0).Radius.setSimple(15)
+Boss5Nuke1.Effects.get(0).BasePoints.set(3999);
 Boss5Nuke1.Effects.get(0).DieSides.set(1);
 Boss5Nuke1.Effects.get(0).PointsPerLevel.set(0);
 Boss5Nuke1.CastTime.setSimple(6000);
