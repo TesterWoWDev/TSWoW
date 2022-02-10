@@ -118,3 +118,5 @@ torghastVendor.Name.enGB.set("Test Vendor");
 torghastVendor.Subname.enGB.set("All Powerful");
 torghastVendor.FactionTemplate.set(35);
 torghastVendor.Vendor.add(animaCellItem.ID,6000);
+
+std.Spells.load(49284).Levels.Base.set(1).Levels.Spell.set(1)
