@@ -29,7 +29,7 @@ export function handleCraftMessages(events: TSEventHandlers) {
         let posString = "";
         let isEnchant = false;
         for (let i = 0; i < message.itemIDs.length; i++) {
-            let fillVal = message.itemIDs[i];
+            let fillVal: int32 = <int32> message.itemIDs[i];
             if (message.itemIDs[i] != 0) {
                 if (i == 4) {
                     if (player.HasItem(message.itemIDs[i], 1, false)) {
@@ -99,46 +99,8 @@ export function handleCraftMessages(events: TSEventHandlers) {
                                 message.positions[i][0] += 18;
                                 message.positions[i][1] += -1;
                             }
-                            let item = player.GetItemByPos(
-                                message.positions[i][0],
-                                message.positions[i][1]
-                            );
-                            if (item.IsNull()) {
-                                console.log(
-                                    "Null item crafting: bag:" +
-                                    message.positions[i][0] +
-                                    " slot:" +
-                                    message.positions[i][1] +
-                                    " player:" +
-                                    player.GetName()
-                                );
-                                player.SendAreaTriggerMessage(
-                                    "Your item was null? track whatever you did. call ghost"
-                                );
-                                return;
-                            }
-                        }
-                    }
-                    for (let i = 0; i < message.positions.length; i++) {
-                        if (message.itemIDs[i] != 0) {
-                            let itemID = message.itemIDs[i];
-                            if (message.positions[i][0] == 0) {
-                                message.positions[i][0] = 255;
-                                message.positions[i][1] += 22;
-                            } else {
-                                message.positions[i][0] += 18;
-                                message.positions[i][1] += -1;
-                            }
-                            let item = player.GetItemByPos(
-                                message.positions[i][0],
-                                message.positions[i][1]
-                            );
-                            if (item.GetEntry() == itemID) {
-                                if (!(isEnchant && i == 4)) {
-                                    player.RemoveItem(item, 1);
-                                }
-                            } else {
-                                player.RemoveItem(CreateItem(itemID, 1), 1);
+                            if (!(isEnchant && i == 4)) {
+                                player.RemoveItem(player.GetItemByEntry(itemID), 1);
                             }
                         }
                     }
@@ -154,10 +116,15 @@ export function handleCraftMessages(events: TSEventHandlers) {
                             //player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,[item])
                         }
                     }
+                    
                     item.SetEnchantment(message.enchants[0], 0);
+                    if(message.enchants[1] != 0)
                     item.SetEnchantment(message.enchants[1], 2);
+                    if(message.enchants[2] != 0)
                     item.SetEnchantment(message.enchants[2], 3);
+                    if(message.enchants[3] != 0)
                     item.SetEnchantment(message.enchants[3], 4);
+                    if(message.enchants[4] != 0)
                     item.SetEnchantment(message.enchants[4], 5);
                     item.SetEnchantment(1, 6);
                     new showScreen(0).write().SendToPlayer(player);

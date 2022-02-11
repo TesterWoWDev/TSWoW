@@ -150,9 +150,6 @@ export function torghastBuffSystem(events: TSEventHandlers) {
                 player.SendAreaTriggerMessage('Choose your ability first!')
             }
         }
-        if (msg.get().startsWith("#ee")) {
-            rewardGroup(player)
-        }
     })
 
     events.GameObjectID.OnGossipHello(GetID("gameobject_template", "minecraft-mod", "torghast-chest"), (obj, player, cancel) => {
@@ -169,6 +166,19 @@ export function torghastBuffSystem(events: TSEventHandlers) {
 
     events.Player.OnLogout((player) => {
         removePlayerBuffs(player)
+    })
+
+    events.Player.OnSay((player, type, lang, msg) => {
+        if (msg.get().startsWith("#1")) {
+            playerChoseBuff(player, 2)
+            applyPlayerBuffs(player)
+        } else if (msg.get().startsWith("#2")) {
+            playerChoseBuff(player, 1)
+            applyPlayerBuffs(player)
+        } else if (msg.get().startsWith("#3")) {
+            playerChoseBuff(player, 0)
+            applyPlayerBuffs(player)
+        }
     })
 
     events.PacketID.OnCustom(spellChoiceID, (opcode, packet, player) => {
@@ -399,21 +409,26 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     if (charItems.currentChoiceBuffs.length > 0) {
         return false
     } else {
+        player.SendBroadcastMessage('--- Spell Choices---')
         while (continueLoop == true) {
             const index = Math.floor(Math.random() * allSpells.length)
             let spellInfo: TSArray<uint32> = allSpells[index]
             let c: uint32 = spellInfo[0]
             if (spellIDToType[c] == 0) {
+                count++
+                player.SendBroadcastMessage('#'+count+': ' + classSpellDescriptions[classID][index])
                 charItems.currentChoiceBuffs.push(c)
                 spellRarity.push(spellInfo[1])
                 spellDescs.push(classSpellDescriptions[classID][index])
-                count++
+                
             } else if (spellIDToType[c] == 1 || spellIDToType[c] == 2) {
                 if (!charItems.currentBuffs.includes(c)) {
+                    count++
+                    player.SendBroadcastMessage('#'+count+': ' + classSpellDescriptions[classID][index])
                     charItems.currentChoiceBuffs.push(c)
                     spellRarity.push(spellInfo[1])
                     spellDescs.push(classSpellDescriptions[classID][index])
-                    count++
+                    
                 }
             }
             if (count == 3) {
@@ -476,22 +491,34 @@ function addTormentOrBlessing(player: TSPlayer) {
     }
 }
 
-function applyPlayerBuffs(player: TSPlayer) {
-    if(player.IsDead())
+export function applyPlayerBuffs(player: TSPlayer) {
+    if (player.IsDead())
         return
 
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
         if (charItems.currentBuffsType[i] == 0 || charItems.currentBuffsType[i] == 1) {
-            player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
+            if(player.HasAura(charItems.currentBuffs[i])){
+                player.GetAura(charItems.currentBuffs[i]).SetStackAmount(charItems.currentBuffsCount[i])
+            }else{
+                player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
+            }
+            //player.AddAura(charItems.currentBuffs[i], player).SetStackAmount(charItems.currentBuffsCount[i])
         } else if (charItems.currentBuffsType[i] == 2) {
+            if(!player.HasSpell(charItems.currentBuffs[i]))
             player.LearnSpell(charItems.currentBuffs[i])
         }
     }
     for (let i = 0; i < charItems.currentTormentsAndBlessings.length; i++) {
         if (charItems.currentTormentsAndBlessingsType[i] == 0 || charItems.currentTormentsAndBlessingsType[i] == 1) {
-            player.AddAura(charItems.currentTormentsAndBlessings[i], player).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
+            if(player.HasAura(charItems.currentTormentsAndBlessings[i])){
+                player.GetAura(charItems.currentTormentsAndBlessings[i]).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
+            }else{
+                player.AddAura(charItems.currentTormentsAndBlessings[i], player).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
+            }
+            //player.AddAura(charItems.currentTormentsAndBlessings[i], player).SetStackAmount(charItems.currentTormentsAndBlessingsCount[i])
         } else if (charItems.currentTormentsAndBlessingsType[i] == 2) {
+            if(!player.HasSpell(charItems.currentTormentsAndBlessings[i]))
             player.LearnSpell(charItems.currentTormentsAndBlessings[i])
         }
     }

@@ -115,7 +115,7 @@ export let tierThreeLeatherGear = createGear(
         "Officer's Polished Mocassins",
         "Officer's Polished Ring",
     ],
-    [43883, 32008, 43319, 45480, 38920, 45400, 48920, 43300, 43304, 45787, 44086],
+    [45101, 51280, 43169, 45480, 45057, 45055, 43170, 44829, 44828, 44830, 34189],
     armSpell,
     armTrigger
 );
@@ -153,7 +153,7 @@ export let tierThreeClothGear = createGear(
         "Officer's Polished Boots",
         "Officer's Polished Ring",
     ],
-    [45101, 51280, 43169, 45480, 45057, 45055, 43170, 44829, 44828, 44830, 34189],
+    [43883, 32008, 43319, 45480, 38920, 45400, 48920, 43300, 43304, 45787, 44086],
     armSpell,
     armTrigger
 );

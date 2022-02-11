@@ -485,16 +485,27 @@ NecromancerSumm.Icon.setFullPath("Interface\\Icons\\achievement_boss_scourgelord
 
 export let rangeincrease = std.Spells.create(MODNAME, "auto-attack-range", 19498)
 rangeincrease.Name.enGB.set("Elongated Arm")
-rangeincrease.Description.enGB.set('Increases the range of your Auto Attack and Auto Shot by 10 yds. Auto Attack and Auto Shot damage increased by 50%.')
-//rangeincrease.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
-rangeincrease.Effects.get(0).BasePoints.set(9)
-//rangeincrease.Effects.get(0).DieSides.set(1)
-rangeincrease.Effects.get(1).Aura.ADD_PCT_MODIFIER.set()
-rangeincrease.Effects.get(1).MiscValueA.set(0)
-rangeincrease.Effects.get(1).BasePoints.set(49)
-rangeincrease.Effects.get(1).DieSides.set(1)
-rangeincrease.Effects.get(1).ImplicitTargetA.UNIT_CASTER.set()
+rangeincrease.Description.enGB.set('Increases the range of your Auto Shot by 10 yds. Auto Shot damage increased by 50%.')
 rangeincrease.AuraInterruptFlags.set(0x0080000)
+let e0 = rangeincrease.Effects.get(0)
+e0.BasePoints.set(9)
+e0.ClassMask.A.set(1)
+e0.ClassMask.B.set(0)
+e0.ClassMask.C.set(0)
+
+//not working effect
+let e1 = rangeincrease.Effects.get(1)
+e1.Aura.ADD_PCT_MODIFIER.set()
+e1.MiscValueA.set(0)
+e1.BasePoints.set(49)
+e1.DieSides.set(1)
+e1.ImplicitTargetA.UNIT_CASTER.set()
+//
+e1.BasePoints.set(9)
+e1.ClassMask.A.set(1)
+e1.ClassMask.B.set(0)
+e1.ClassMask.C.set(0)
+
 
 
 export let healonnewspell = std.Spells.create(MODNAME, "heal-on-new-mob-spell")
@@ -512,3 +523,4 @@ healonnewaura.Description.enGB.set('When you attack a new Creature, you are heal
 healonnewaura.Proc.Chance.set(100)
 healonnewaura.Effects.get(0).TriggerSpell.set(healonnewspell.ID)
 healonnewaura.Stacks.set(10)
+

@@ -115,7 +115,7 @@ export let tierFourLeatherGear = createGear(
         "General's Relinquished Mocassins",
         "General's Relinquished Ring",
     ],
-    [43759, 45351, 42443, 23422, 43075, 35044, 43073, 43078, 43076, 43082, 39124],
+    [42722, 34274, 43066, 23422, 43069, 35044, 43064, 43065, 43067, 43071, 31664],
     armSpell,
     armTrigger
 );
@@ -153,7 +153,7 @@ export let tierFourClothGear = createGear(
         "General's Relinquished Boots",
         "General's Relinquished Ring",
     ],
-    [42722, 34274, 43066, 23422, 43069, 35044, 43064, 43065, 43067, 43071, 31664],
+    [43759, 45351, 42443, 23422, 43075, 35044, 43073, 43078, 43076, 43082, 39124],
     armSpell,
     armTrigger
 );
