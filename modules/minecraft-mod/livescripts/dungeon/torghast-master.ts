@@ -54,6 +54,7 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
     <TSArray<TSArray<uint32>>>[//warrior
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "warriorrendincrease-spell"), 1, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "ragegeneration-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedragecost-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//paladin
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -91,6 +92,7 @@ const classSpellDescriptions = [
     [
     "Increases the damage dealt by rend by 50%.",
     "Increases Rage generated from attacks by 25%.",
+    "Reduces the rage cost of your offensive abilities by 3.",
     ],
     //paladin
     [
