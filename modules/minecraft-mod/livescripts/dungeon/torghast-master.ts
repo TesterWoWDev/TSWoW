@@ -23,6 +23,7 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "movementspeed-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedcrits-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "necromancersumm-spell"), 5, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "shadowyfigure-spell"), 3, 1],
 ]
 const baseSpellDescriptions = [
     "Total Damage dealt increased by 2%.",
@@ -66,7 +67,11 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedaimshot-spell"), 2, 0],
     ],
     <TSArray<TSArray<uint32>>>[//rogue
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "vigorous-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sinsitercalling-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "traitorcalling-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "opportunity-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "deception-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//priest
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -110,7 +115,11 @@ const classSpellDescriptions = [
     ],
     //rogue
     [
-    "Increases health by 2%",
+    "Increases total energy by 50",
+    "Increases damage dealt by Sinister Strike by 50%",
+    "Increases damage dealt by Backstab by 50%",
+    "Increases damage dealt by Ambush by 50%",
+    "Increases the effectiveness of your stealth. Stacks.",
     ],
     //priest
     [

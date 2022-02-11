@@ -63,6 +63,18 @@ IncreasedDamage1.AuraInterruptFlags.set(0x0080000);
 IncreasedDamage1.Stacks.set(99);
 IncreasedDamage1.Icon.setFullPath("Interface\\Icons\\Ability_Warrior_InnerRage");
 
+export let ShadowyFigure = std.Spells.create(MODNAME,"shadowyfigure-spell",31213);
+ShadowyFigure.Name.enGB.set("Shadowed");
+ShadowyFigure.Description.enGB.set("Reduces damage taken by AOE attacks by $s1%.");
+ShadowyFigure.AuraDescription.enGB.set("Reduces damage taken by AOE attacks by $s1%.");
+ShadowyFigure.Effects.get(0).BasePoints.set(-31);
+ShadowyFigure.Effects.get(0).DieSides.set(1);
+ShadowyFigure.Duration.set(21);
+ShadowyFigure.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ShadowyFigure.AuraInterruptFlags.set(0x0080000);
+ShadowyFigure.Stacks.set(99);
+ShadowyFigure.Icon.setFullPath("Interface\\Icons\\Spell_Shadow_Haunting");
+
 export let IncreasedSpellpower1 = std.Spells.create(MODNAME,"increasedsp1-spell",34747);
 IncreasedSpellpower1.Name.enGB.set("Spellbender");
 IncreasedSpellpower1.Description.enGB.set("Total Spell Power increased by $s1%.");
@@ -497,8 +509,8 @@ export let Radiance = std.Spells.create(MODNAME, "holydamage-spell", 31828);    
 Radiance.Name.enGB.set("Radiance");
 Radiance.Description.enGB.set("All attacks against you have a $h% chance to cause half damage.");
 Radiance.AuraDescription.enGB.set("All attacks against you have a $h% chance to cause half damage.");
-Radiance.Proc.Chance.set(10)
-Radiance.Effects.get(1).TriggerSpell.set(31934)
+Radiance.Proc.Chance.set(10);
+Radiance.Effects.get(1).TriggerSpell.set(31934);
 Radiance.Duration.set(21);
 Radiance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Radiance.AuraInterruptFlags.set(0x0080000);
@@ -538,22 +550,84 @@ export let IncreasedAimShot = std.Spells.create(MODNAME, "increasedaimshot-spell
 IncreasedAimShot.Name.enGB.set("Weighted Fletchings");
 IncreasedAimShot.Description.enGB.set("Damage done by your Aimed Shot, Arcane Shot or Chimera Shot increased by $s1%, and mana cost reduced by $s2%.");
 IncreasedAimShot.AuraDescription.enGB.set("Grants various bonus proc chances to your Steady Shot.");
-IncreasedAimShot.Effects.get(0).BasePoints.set(49)                  //50% increased damage.
-IncreasedAimShot.Effects.get(0).DieSides.set(1)
-IncreasedAimShot.Effects.get(1).BasePoints.set(99)                  //100% reduced cost.
-IncreasedAimShot.Effects.get(1).DieSides.set(1)
+IncreasedAimShot.Effects.get(0).BasePoints.set(49);                  //50% increased damage.
+IncreasedAimShot.Effects.get(0).DieSides.set(1);
+IncreasedAimShot.Effects.get(1).BasePoints.set(99);                  //100% reduced cost.
+IncreasedAimShot.Effects.get(1).DieSides.set(1);
 IncreasedAimShot.Duration.set(21);
 IncreasedAimShot.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedAimShot.AuraInterruptFlags.set(0x0080000);
 IncreasedAimShot.Stacks.set(99);
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start of Rogue Class Spells
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+export let Vigorous = std.Spells.create(MODNAME, "vigorous-spell", 14983);                                                                                    //+50 energy
+Vigorous.Name.enGB.set("Cracked Out");
+Vigorous.Description.enGB.set("Maximum energy increased by $s1.");
+Vigorous.AuraDescription.enGB.set("Maximum energy increased by $s1.");
+Vigorous.Effects.get(0).BasePoints.set(49);
+Vigorous.Effects.get(0).DieSides.set(1);
+Vigorous.Duration.set(21);
+Vigorous.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Vigorous.AuraInterruptFlags.set(0x0080000);
+Vigorous.Stacks.set(99);
 
+export let SinisterCalling = std.Spells.create(MODNAME, "sinsitercalling-spell", 31124);                                                                    //50% increased sinister strike dmg
+SinisterCalling.Name.enGB.set("Sinister Calling");
+SinisterCalling.Description.enGB.set("Increases damage dealt by Sinister Strike by $s2%.");
+SinisterCalling.AuraDescription.enGB.set("Increases damage dealt by Sinister Strike by $s2%.");
+SinisterCalling.Effects.get(0).Type.NULL.set();
+SinisterCalling.Effects.get(1).BasePoints.set(49);
+SinisterCalling.Effects.get(1).DieSides.set(1);
+SinisterCalling.Effects.get(1).ClassMask.A.set(0x0000002);
+SinisterCalling.Duration.set(21);
+SinisterCalling.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+SinisterCalling.AuraInterruptFlags.set(0x0080000);
+SinisterCalling.Stacks.set(99);
 
+export let Traitor = std.Spells.create(MODNAME, "traitorcalling-spell", 31124);                                                                             //50% increased backstab dmg
+Traitor.Name.enGB.set("Traitorous Calling");
+Traitor.Description.enGB.set("Increases damage dealt by Backstab by $s2%.");
+Traitor.AuraDescription.enGB.set("Increases damage dealt by Backstab by $s2%.");
+Traitor.Effects.get(0).Type.NULL.set();
+Traitor.Effects.get(1).BasePoints.set(49);
+Traitor.Effects.get(1).DieSides.set(1);
+Traitor.Effects.get(1).ClassMask.A.set(0x0000004);
+Traitor.Duration.set(21);
+Traitor.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Traitor.AuraInterruptFlags.set(0x0080000);
+Traitor.Stacks.set(99);
 
+export let Opportunity = std.Spells.create(MODNAME, "opportunity-spell", 14057);                                                                             //50% increased ambush dmg
+Opportunity.Name.enGB.set("Death\'s Calling");
+Opportunity.Description.enGB.set("Increases damage dealt by Ambush by $s2%.");
+Opportunity.AuraDescription.enGB.set("Increases damage dealt by Ambush by $s2%.");
+Opportunity.Effects.get(0).BasePoints.set(49);
+Opportunity.Effects.get(0).DieSides.set(1);
+Opportunity.Effects.get(0).ClassMask.A.set(0x0000200);
+Opportunity.Effects.get(0).ClassMask.B.set(0x0000000);
+Opportunity.Effects.get(1).Type.NULL.set();
+Opportunity.Duration.set(21);
+Opportunity.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Opportunity.AuraInterruptFlags.set(0x0080000);
+Opportunity.Stacks.set(99);
 
-
-
+export let Deception = std.Spells.create(MODNAME, "deception-spell", 13971);                                                                             //Increased stealth effectiveness
+Deception.Name.enGB.set("Master of Death");
+Deception.Description.enGB.set("Increases the effectiveness of your stealth. Stacks.");
+Deception.AuraDescription.enGB.set("Increases the effectiveness of your stealth. Stacks.");
+Deception.Effects.get(0).BasePoints.set(14);
+Deception.Effects.get(0).DieSides.set(1);
+Deception.Duration.set(21);
+Deception.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Deception.AuraInterruptFlags.set(0x0080000);
+Deception.Stacks.set(99);
 
 
 
