@@ -5,12 +5,13 @@ export function thorgast() {
     let choiceRanks = [];
     let choiceDescs = [];
     let choiceButtons = [];
-    let rankColors = ["FFFFFF", "1EFF0C", "0070FF", "A335EE"];
+    let rankColors = ["FFFFFF", "1EFF0C", "0070FF", "A335EE","FF8000"];
     let rankText = [
         rankColors[0] + "Common",
         rankColors[1] + "Uncommon",
         rankColors[2] + "Rare",
         rankColors[3] + "Epic",
+        rankColors[3] + "Legendary",
     ];
     let mframe = CreateFrame("Frame", "torghastChoices", UIParent);
     mframe.SetWidth(512);
