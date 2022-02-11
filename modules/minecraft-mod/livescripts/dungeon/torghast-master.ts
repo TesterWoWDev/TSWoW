@@ -468,7 +468,7 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
 
 function playerChoseBuff(player: TSPlayer, index: uint32) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
-    if (charItems.currentChoiceBuffs.length >= 3) {
+    if (charItems.currentChoiceBuffs.length == 3) {
         let currentChoicesID: TSArray<uint32> = [charItems.currentChoiceBuffs.pop()!, charItems.currentChoiceBuffs.pop()!, charItems.currentChoiceBuffs.pop()!]
         let choice: uint32 = currentChoicesID[index]
         let found: uint32 = -1
