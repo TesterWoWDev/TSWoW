@@ -257,7 +257,7 @@ ImmortalityHeal.Effects.get(0).BasePoints.set(1);
 ImmortalityHeal.Effects.get(0).DieSides.set(1);
 ImmortalityHeal.Effects.get(0).ChainAmplitude.set(5000)
 ImmortalityHeal.Duration.set(21);
-ImmortalityHeal.row.Attributes.set(ImmortalityHeal.row.Attributes.get());
+ImmortalityHeal.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImmortalityHeal.AuraInterruptFlags.set(0x0080000);
 ImmortalityHeal.Stacks.set(99);
 ImmortalityHeal.Icon.setFullPath("Interface\\Icons\\Ability_Druid_Replenish");
@@ -269,7 +269,7 @@ ImmortalityMana.AuraDescription.enGB.set("Allow $s1% of your Mana regeneration t
 ImmortalityMana.Effects.get(0).BasePoints.set(49);
 ImmortalityMana.Effects.get(0).DieSides.set(1);
 ImmortalityMana.Duration.set(21);
-ImmortalityMana.row.Attributes.set(ImmortalityMana.row.Attributes.get());
+ImmortalityMana.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImmortalityMana.AuraInterruptFlags.set(0x0080000);
 ImmortalityMana.Stacks.set(99);
 ImmortalityMana.Icon.setFullPath("Interface\\Icons\\Spell_Holy_Serendipity");
@@ -286,7 +286,7 @@ ChanceForMana.Effects.get(0).BasePoints.set(99);
 ChanceForMana.Effects.get(0).DieSides.set(1);
 ChanceForMana.Effects.get(0).TriggerSpell.set(ChanceForManaValue.ID);
 ChanceForMana.Duration.set(21);
-ChanceForMana.row.Attributes.set(ChanceForMana.row.Attributes.get());
+ChanceForMana.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChanceForMana.AuraInterruptFlags.set(0x0080000);
 ChanceForMana.Stacks.set(99);
 ChanceForMana.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
@@ -307,7 +307,7 @@ ChanceForHealth.Effects.get(0).BasePoints.set(99);
 ChanceForHealth.Effects.get(0).DieSides.set(1);
 ChanceForHealth.Effects.get(0).TriggerSpell.set(ChanceForHealthValue.ID);
 ChanceForHealth.Duration.set(21);
-ChanceForHealth.row.Attributes.set(ChanceForHealth.row.Attributes.get());
+ChanceForHealth.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChanceForHealth.AuraInterruptFlags.set(0x0080000);
 ChanceForHealth.Stacks.set(99);
 ChanceForHealth.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
@@ -332,7 +332,7 @@ ChanceRoarSpell.Effects.get(0).BasePoints.set(99);
 ChanceRoarSpell.Effects.get(0).DieSides.set(1);
 ChanceRoarSpell.Effects.get(0).TriggerSpell.set(RoarSpellValue.ID);
 ChanceRoarSpell.Duration.set(21);
-ChanceRoarSpell.row.Attributes.set(ChanceRoarSpell.row.Attributes.get());
+ChanceRoarSpell.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChanceRoarSpell.AuraInterruptFlags.set(0x0080000);
 ChanceRoarSpell.Stacks.set(99);
 ChanceRoarSpell.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
@@ -353,7 +353,7 @@ ReflectiveShell.Effects.get(1).DieSides.set(1)
 ReflectiveShell.Effects.get(1).ImplicitTargetA.UNIT_CASTER.set();
 ReflectiveShell.Effects.get(1).Aura.DAMAGE_SHIELD.set();
 ReflectiveShell.Duration.set(21);
-ReflectiveShell.row.Attributes.set(ReflectiveShell.row.Attributes.get());
+ReflectiveShell.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReflectiveShell.AuraInterruptFlags.set(0x0080000);
 ReflectiveShell.Stacks.set(99);
 ReflectiveShell.Icon.setFullPath("Interface\\Icons\\INV_Misc_Head_Nerubian_01");
@@ -365,7 +365,7 @@ MovementSpeed.AuraDescription.enGB.set("Increases the caster's movement speed by
 MovementSpeed.Effects.get(0).BasePoints.set(2);
 MovementSpeed.Effects.get(0).DieSides.set(1);
 MovementSpeed.Duration.set(21);
-MovementSpeed.row.Attributes.set(MovementSpeed.row.Attributes.get());
+MovementSpeed.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 MovementSpeed.AuraInterruptFlags.set(0x0080000);
 MovementSpeed.Stacks.set(99);
 MovementSpeed.Icon.setFullPath("Interface\\Icons\\Spell_Fire_BurningSpeed");
@@ -378,7 +378,7 @@ ReducedCrits.Effects.get(0).BasePoints.set(-11);
 ReducedCrits.Effects.get(0).DieSides.set(1);
 ReducedCrits.Effects.get(1).Type.NULL.set();
 ReducedCrits.Duration.set(21);
-ReducedCrits.row.Attributes.set(ReducedCrits.row.Attributes.get());
+ReducedCrits.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReducedCrits.AuraInterruptFlags.set(0x0080000);
 ReducedCrits.Stacks.set(99);
 ReducedCrits.Icon.setFullPath("Interface\\Icons\\Spell_Arcane_PrismaticCloak");
@@ -425,7 +425,7 @@ NecromancerSumm.Effects.get(2).ImplicitTargetA.UNIT_CASTER.set();
 NecromancerSumm.Effects.get(2).Aura.PROC_TRIGGER_SPELL.set();
 NecromancerSumm.Effects.get(2).TriggerSpell.set(NecromancerSummonSpell03.ID);
 NecromancerSumm.Duration.set(21);
-NecromancerSumm.row.Attributes.set(NecromancerSumm.row.Attributes.get());
+NecromancerSumm.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 NecromancerSumm.AuraInterruptFlags.set(0x0080000);
 NecromancerSumm.Stacks.set(99);
 NecromancerSumm.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
@@ -440,29 +440,38 @@ NecromancerSumm.Icon.setFullPath("Interface\\Icons\\achievement_boss_scourgelord
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-export let WarriorRendIncrease = std.Spells.create(MODNAME, "warriorrendincrease-spell", 12658);                                                                            //2% movement speed.
+export let WarriorRendIncrease = std.Spells.create(MODNAME, "warriorrendincrease-spell", 12658);                                                                            //Increased rend damage
 WarriorRendIncrease.Name.enGB.set("Lust for Blood");
 WarriorRendIncrease.Description.enGB.set("Increases damage of rend by $s1%.");
 WarriorRendIncrease.AuraDescription.enGB.set("Damage of Rend increased by $s1%.");
 WarriorRendIncrease.Effects.get(0).BasePoints.set(49);
 WarriorRendIncrease.Effects.get(0).DieSides.set(1);
 WarriorRendIncrease.Duration.set(21);
-WarriorRendIncrease.row.Attributes.set(WarriorRendIncrease.row.Attributes.get());
+WarriorRendIncrease.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 WarriorRendIncrease.AuraInterruptFlags.set(0x0080000);
 WarriorRendIncrease.Stacks.set(99);
 
-export let IncreasedRageGeneration = std.Spells.create(MODNAME, "ragegeneration-spell", 29623);                                                                            //2% movement speed.
+export let IncreasedRageGeneration = std.Spells.create(MODNAME, "ragegeneration-spell", 29623);                                                                             //Increased rage generation
 IncreasedRageGeneration.Name.enGB.set("Angry");
 IncreasedRageGeneration.Description.enGB.set("You generate $s1% more rage from damage dealt.");
 IncreasedRageGeneration.AuraDescription.enGB.set("You generate $s1% more rage from damage dealt.");
 IncreasedRageGeneration.Effects.get(0).BasePoints.set(24);
 IncreasedRageGeneration.Effects.get(0).DieSides.set(1);
 IncreasedRageGeneration.Duration.set(21);
-IncreasedRageGeneration.row.Attributes.set(IncreasedRageGeneration.row.Attributes.get());
+IncreasedRageGeneration.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedRageGeneration.AuraInterruptFlags.set(0x0080000);
 IncreasedRageGeneration.Stacks.set(99);
 
-
+export let ReducedRageCost = std.Spells.create(MODNAME, "reducedragecost-spell", 29792);                                                                                    //Reduced rage cost by 3.
+ReducedRageCost.Name.enGB.set("Adaptive Techniques");
+ReducedRageCost.Description.enGB.set("Reduces the rage cost of your offensive abilities by $/10;s1.");
+ReducedRageCost.AuraDescription.enGB.set("Reduces the rage cost of your offensive abilities by $/10;s1.");
+ReducedRageCost.Effects.get(0).BasePoints.set(-31);
+ReducedRageCost.Effects.get(0).DieSides.set(1);
+ReducedRageCost.Duration.set(21);
+ReducedRageCost.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ReducedRageCost.AuraInterruptFlags.set(0x0080000);
+ReducedRageCost.Stacks.set(99);
 
 
 
