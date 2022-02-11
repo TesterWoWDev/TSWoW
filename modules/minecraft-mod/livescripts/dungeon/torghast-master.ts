@@ -22,7 +22,7 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reflectiveshell-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "movementspeed-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedcrits-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "necromancersumm-spell"), 4, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "necromancersumm-spell"), 5, 1],
 ]
 const baseSpellDescriptions = [
     "Total Damage dealt increased by 2%.",
@@ -57,7 +57,8 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedragecost-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//paladin
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "judgementmodifier-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "holydamage-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//hunter
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -96,26 +97,43 @@ const classSpellDescriptions = [
     ],
     //paladin
     [
-    "Increases health by 2%",
+    "Increases the range of your Judgements by 10 yards",
+    "All attacks against you have a 10% chance to cause half damage.",
     ],
     //hunter
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
     //rogue
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
     //priest
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
     //dk
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
     //sham
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
     //mage
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
     //lock
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
     //blank
     ["10blank"],
     //druid
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
 ]
 
 const tormentAndBlessingSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[

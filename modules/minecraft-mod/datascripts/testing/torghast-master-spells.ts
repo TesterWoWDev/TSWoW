@@ -246,9 +246,6 @@ grapple.Effects.get(1).TriggerSpell.set(57883);
 grapple.Visual.getRefCopy().cloneFromVisual(11055);
 grapple.Icon.setFullPath("Interface\\Icons\\INV_MISC_HOOK_01");
 
-
-//New Spells - Ghost
-
 export let ImmortalityHeal = std.Spells.create(MODNAME, "immortalityheal-spell", 55694);                                                                        //2% health regen every 5 seconds forever.
 ImmortalityHeal.Name.enGB.set("Resilient Heart");
 ImmortalityHeal.Description.enGB.set("You regenerate $s1% of your total health every $t1 seconds.");
@@ -433,6 +430,7 @@ NecromancerSumm.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 NecromancerSumm.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 NecromancerSumm.Proc.TriggerMask.DONE_PERIODIC.set(1);
 NecromancerSumm.Icon.setFullPath("Interface\\Icons\\achievement_boss_scourgelordtyrannus");
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -440,6 +438,7 @@ NecromancerSumm.Icon.setFullPath("Interface\\Icons\\achievement_boss_scourgelord
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 export let WarriorRendIncrease = std.Spells.create(MODNAME, "warriorrendincrease-spell", 12658);                                                                            //Increased rend damage
 WarriorRendIncrease.Name.enGB.set("Lust for Blood");
 WarriorRendIncrease.Description.enGB.set("Increases damage of rend by $s1%.");
@@ -473,7 +472,37 @@ ReducedRageCost.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReducedRageCost.AuraInterruptFlags.set(0x0080000);
 ReducedRageCost.Stacks.set(99);
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start of Paladin Class Spells
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+export let JudgementRange = std.Spells.create(MODNAME, "judgementmodifier-spell", 53556);                                                                                    //Reduced rage cost by 3.
+JudgementRange.Name.enGB.set("Arm of the Law");
+JudgementRange.Description.enGB.set("Increases the range of your Judgements by $s1 yards. Increases hit chance by $s2%.");
+JudgementRange.AuraDescription.enGB.set("Increases the range of your Judgements by $s1 yards. Increases hit chance by $s2%.");
+JudgementRange.Effects.get(0).BasePoints.set(9);
+JudgementRange.Effects.get(0).DieSides.set(1);
+JudgementRange.Effects.get(1).BasePoints.set(1);
+JudgementRange.Effects.get(1).DieSides.set(1);
+JudgementRange.Duration.set(21);
+JudgementRange.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+JudgementRange.AuraInterruptFlags.set(0x0080000);
+JudgementRange.Stacks.set(99);
+
+export let Radiance = std.Spells.create(MODNAME, "holydamage-spell", 31828);                                                                                    //Reduced rage cost by 3.
+Radiance.Name.enGB.set("Radiance");
+Radiance.Description.enGB.set("All attacks against you have a $h% chance to cause half damage.");
+Radiance.AuraDescription.enGB.set("All attacks against you have a $h% chance to cause half damage.");
+Radiance.Proc.Chance.set(10)
+Radiance.Effects.get(1).TriggerSpell.set(31934)
+Radiance.Duration.set(21);
+Radiance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Radiance.AuraInterruptFlags.set(0x0080000);
+Radiance.Stacks.set(99);
 
 
 
