@@ -61,7 +61,9 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "holydamage-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//hunter
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "endurance-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "pierced-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedaimshot-spell"), 2, 0],
     ],
     <TSArray<TSArray<uint32>>>[//rogue
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -102,7 +104,9 @@ const classSpellDescriptions = [
     ],
     //hunter
     [
-    "Increases health by 2%",
+    "Increases the health of your pet by 25% and your total health by 5%.",
+    "Your critical Aimed, Steady and Chimera Shots cause the target to bleed.",
+    "Casting steady shot has a chance to grant various proc chances.",
     ],
     //rogue
     [

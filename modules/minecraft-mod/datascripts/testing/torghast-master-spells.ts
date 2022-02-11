@@ -480,7 +480,7 @@ ReducedRageCost.Stacks.set(99);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export let JudgementRange = std.Spells.create(MODNAME, "judgementmodifier-spell", 53556);                                                                                    //Reduced rage cost by 3.
+export let JudgementRange = std.Spells.create(MODNAME, "judgementmodifier-spell", 53556);                                                                   //Judgement range
 JudgementRange.Name.enGB.set("Arm of the Law");
 JudgementRange.Description.enGB.set("Increases the range of your Judgements by $s1 yards. Increases hit chance by $s2%.");
 JudgementRange.AuraDescription.enGB.set("Increases the range of your Judgements by $s1 yards. Increases hit chance by $s2%.");
@@ -493,7 +493,7 @@ JudgementRange.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 JudgementRange.AuraInterruptFlags.set(0x0080000);
 JudgementRange.Stacks.set(99);
 
-export let Radiance = std.Spells.create(MODNAME, "holydamage-spell", 31828);                                                                                    //Reduced rage cost by 3.
+export let Radiance = std.Spells.create(MODNAME, "holydamage-spell", 31828);                                                                                 //Additional Holy Damage
 Radiance.Name.enGB.set("Radiance");
 Radiance.Description.enGB.set("All attacks against you have a $h% chance to cause half damage.");
 Radiance.AuraDescription.enGB.set("All attacks against you have a $h% chance to cause half damage.");
@@ -504,8 +504,48 @@ Radiance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Radiance.AuraInterruptFlags.set(0x0080000);
 Radiance.Stacks.set(99);
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start of Hunter Class Spells
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+export let Endurance = std.Spells.create(MODNAME, "endurance-spell", 19587);                                                                                //Increased health modifier
+Endurance.Name.enGB.set("Bestial Instincts");
+Endurance.Description.enGB.set("Increases the health of your pet by $s1% and your total health by $s2%.");
+Endurance.AuraDescription.enGB.set("Increases the health of your pet by $s1% and your total health by $s2%.");
+Endurance.Effects.get(0).BasePoints.set(24);
+Endurance.Effects.get(0).DieSides.set(1);
+Endurance.Effects.get(1).BasePoints.set(4);
+Endurance.Effects.get(1).DieSides.set(1);
+Endurance.Duration.set(21);
+Endurance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Endurance.AuraInterruptFlags.set(0x0080000);
+Endurance.Stacks.set(99);
 
+export let Pierced = std.Spells.create(MODNAME, "pierced-spell", 63468);                                                                                    //Bleed chances
+Pierced.Name.enGB.set("Plated Ammo");
+Pierced.Description.enGB.set("Your critical Aimed, Steady and Chimera Shots cause the target to bleed.");
+Pierced.AuraDescription.enGB.set("Your critical Aimed, Steady and Chimera Shots cause the target to bleed.");
+Pierced.Duration.set(21);
+Pierced.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Pierced.AuraInterruptFlags.set(0x0080000);
+Pierced.Stacks.set(99);
+
+export let IncreasedAimShot = std.Spells.create(MODNAME, "increasedaimshot-spell", 53220);                                                                  //Increased aim shot damage
+IncreasedAimShot.Name.enGB.set("Weighted Fletchings");
+IncreasedAimShot.Description.enGB.set("Damage done by your Aimed Shot, Arcane Shot or Chimera Shot increased by $s1%, and mana cost reduced by $s2%.");
+IncreasedAimShot.AuraDescription.enGB.set("Grants various bonus proc chances to your Steady Shot.");
+IncreasedAimShot.Effects.get(0).BasePoints.set(49)                  //50% increased damage.
+IncreasedAimShot.Effects.get(0).DieSides.set(1)
+IncreasedAimShot.Effects.get(1).BasePoints.set(99)                  //100% reduced cost.
+IncreasedAimShot.Effects.get(1).DieSides.set(1)
+IncreasedAimShot.Duration.set(21);
+IncreasedAimShot.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+IncreasedAimShot.AuraInterruptFlags.set(0x0080000);
+IncreasedAimShot.Stacks.set(99);
 
 
 
