@@ -58,3 +58,6 @@ node.conf
 client.log
 node.conf
 Crashes
+modules/default/datasets/dataset/common.dll
+modules/default/datasets/dataset/mmaps_generator.exe
+modules/default/datasets/dataset/mmaps_generator.pdb
