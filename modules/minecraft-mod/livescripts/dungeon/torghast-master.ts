@@ -14,7 +14,6 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "grapple-spell"), 4, 2],
-
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "immortalityheal-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "immortalitymana-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceformana-spell"), 3, 0],
@@ -24,7 +23,6 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "movementspeed-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedcrits-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "necromancersumm-spell"), 4, 1],
-
 ]
 const baseSpellDescriptions = [
     "Total Damage dealt increased by 2%.",
@@ -49,13 +47,13 @@ const baseSpellDescriptions = [
     "Increases movement speed by 3%.",
     "Reduces chance to be critically hit by 10%.",
     "Attacks and spells have a chance to summon reanimated weaponry.",
-
 ]
 
 const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
     <TSArray<TSArray<uint32>>>[<TSArray<uint32>>[0]],
     <TSArray<TSArray<uint32>>>[//warrior
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "warriorrendincrease-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "ragegeneration-spell"), 2, 0],
     ],
     <TSArray<TSArray<uint32>>>[//paladin
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -90,9 +88,14 @@ const classSpellDescriptions = [
     //blank
     ["0blank"],
     //warrior
-    ["Increases health by 2%",],
+    [
+    "Increases the damage dealt by rend by 50%.",
+    "Increases Rage generated from attacks by 25%.",
+    ],
     //paladin
-    ["Increases health by 2%",],
+    [
+    "Increases health by 2%",
+    ],
     //hunter
     ["Increases health by 2%",],
     //rogue
