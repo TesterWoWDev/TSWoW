@@ -14,6 +14,17 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "grapple-spell"), 4, 2],
+
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "immortalityheal-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "immortalitymana-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceformana-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceforhealth-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceroarspell-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reflectiveshell-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "movementspeed-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedcrits-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "necromancersumm-spell"), 4, 1],
+
 ]
 const baseSpellDescriptions = [
     "Total Damage dealt increased by 2%.",
@@ -29,6 +40,15 @@ const baseSpellDescriptions = [
     "Increases spell crit chance by 10%.",
     "Increases crit damage by 5%.",
     "Teaches you Grapple. Grapple allows you to grapple to a nearby location.",
+    "Allows you to regenrate 2% hp every 5 seconds.",
+    "Allows you to retain 50% mana regen while casting.",
+    "Attacks and spells have a chance to restore 600 mana.",
+    "Attacks and spells have a chance to leech 600 health",
+    "Attacks and spells have a chance to cast an echoing roar.",
+    "Reflects 10% of spell damage and deals 130 damage on melee attacks recieved.",
+    "Increases movement speed by 3%.",
+    "Reduces chance to be critically hit by 10%.",
+    "Attacks and spells have a chance to summon reanimated weaponry.",
 
 ]
 
