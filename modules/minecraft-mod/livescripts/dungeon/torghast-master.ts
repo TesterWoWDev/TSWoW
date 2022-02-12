@@ -24,16 +24,17 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedcrits-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "necromancersumm-spell"), 5, 1],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "shadowyfigure-spell"), 3, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
 ]
 const baseSpellDescriptions = [
-    "Total Damage dealt increased by 2%.",
-    "Total Spell Power increased by 2%.",
-    "Total Attack Power increased by 2%.",
-    "Stamina increased by 10.",
-    "Strength increased by 10.",
-    "Intellect increased by 10.",
-    "Agility increased by 10.",
-    "Critical Strike increased by 10.",
+    "Total Damage dealt increased by 15%.",
+    "Total Spell Power increased by 10%.",
+    "Total Attack Power increased by 10%.",
+    "Stamina increased by 50.",
+    "Strength increased by 50.",
+    "Intellect increased by 50.",
+    "Agility increased by 50.",
+    "Critical Strike increased by 50.",
     "All resistances increased by 10.",
     "Increases ranged attack speed by 25%. Does not stack.",
     "Increases spell crit chance by 10%.",
@@ -49,6 +50,7 @@ const baseSpellDescriptions = [
     "Reduces chance to be critically hit by 10%.",
     "Attacks and spells have a chance to summon reanimated weaponry.",
     "Reduces damage taken by AOE attacks by 30%.",
+    "Increases total health by 15%.",
 ]
 
 const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
