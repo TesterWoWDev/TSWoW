@@ -522,6 +522,7 @@ ReaperSpell.Effects.get(1).Type.SUMMON.set();
 ReaperSpell.Effects.get(1).BasePoints.set(0);
 ReaperSpell.Effects.get(1).DieSides.set(1);
 ReaperSpell.Effects.get(1).ImplicitTargetA.DEST_CASTER.set();
+ReaperSpell.Effects.get(1).MiscValueB.set(64);
 ReaperSpell.Effects.get(1).MiscValueA.set(torghastOrb.ID)
 ReaperSpell.Range.setSimple(0,1000);
 export let Reap = std.Spells.create(MODNAME, "reap-spell", 55381);                                                                        //Spells have a 5% chance to let loose a deafening roar, knocking back all enemies
