@@ -792,8 +792,8 @@ Deception.Icon.setPath("Ability_Rogue_MasterOfSubtlety");
 
 export let Opportunity02 = std.Spells.create(MODNAME, "opportunity02-spell", 14057);                                                                             //50% increased ambush dmg
 Opportunity02.Name.enGB.set("Insidious Nature");
-Opportunity02.Description.enGB.set("Increases damage dealt by Ambush by $s2%.");
-Opportunity02.AuraDescription.enGB.set("Increases damage dealt by Ambush by $s2%.");
+Opportunity02.Description.enGB.set("Increases damage dealt by Ambush by $s1%.");
+Opportunity02.AuraDescription.enGB.set("Increases damage dealt by Ambush by $s1%.");
 Opportunity02.Effects.get(0).BasePoints.set(149);
 Opportunity02.Effects.get(0).DieSides.set(1);
 Opportunity02.Effects.get(0).ClassMask.A.set(0x0000200);
