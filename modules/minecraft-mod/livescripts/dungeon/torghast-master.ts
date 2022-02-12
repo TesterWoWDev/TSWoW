@@ -25,6 +25,7 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "necromancersumm-spell"), 5, 1],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "shadowyfigure-spell"), 3, 1],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "fortunatespell-spell"), 5, 1],
 ]
 const baseSpellDescriptions = [
     "Total Damage dealt increased by 15%.",
@@ -42,15 +43,16 @@ const baseSpellDescriptions = [
     "Teaches you Grapple. Grapple allows you to grapple to a nearby location.",
     "Allows you to regenrate 2% hp every 5 seconds.",
     "Allows you to retain 50% mana regen while casting.",
-    "Attacks and spells have a chance to restore 600 mana.",
+    "Every 5 seconds, returns 50 mana to everyone within 30 yards of the mana conduit.",
     "Attacks and spells have a chance to leech 600 health",
     "Attacks and spells have a chance to cast an echoing roar.",
-    "Reflects 10% of spell damage and deals 130 damage on melee attacks recieved.",
-    "Increases movement speed by 3%.",
-    "Reduces chance to be critically hit by 10%.",
-    "Attacks and spells have a chance to summon reanimated weaponry.",
-    "Reduces damage taken by AOE attacks by 30%.",
-    "Increases total health by 15%.",
+    "Reflects 10% of all spell damage to attackers and deals 130 damage on melee attacks recieved. This effect stacks.",
+    "Increases movement speed by 3%. This effect stacks.",
+    "Reduces chance to suffer a critical hit by 10%. This effect stacks.",
+    "Attacks and spells have a chance to summon reanimated weaponry to assist you in battle.",
+    "Reduces damage taken by area of effect attacks by 30%. This effect stacks.",
+    "Increases the total health value of your character by 15%. This effect stacks.",
+    "Attacks and spells have a chance to generate additional Torghast Inside Tokens which can be used to purchase additional items in the store."
 ]
 
 const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)

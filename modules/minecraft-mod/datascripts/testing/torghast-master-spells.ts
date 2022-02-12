@@ -1,6 +1,7 @@
 import { std } from "tswow-stdlib";
 import { SQL } from "wotlkdata/wotlkdata/sql/SQLFiles";
 import { MODNAME } from "../modname";
+import { torghastInsideCurrency } from "./torghast-master-script-entities";
 
 /**spell ideas
 onKill do explosion
@@ -283,17 +284,13 @@ ImmortalityMana.AuraInterruptFlags.set(0x0080000);
 ImmortalityMana.Stacks.set(99);
 ImmortalityMana.Icon.setPath("Spell_Holy_Serendipity");
 
-export let ChanceForManaValue = std.Spells.create(MODNAME, "chanceformanavalue-spell", 55382);                                                                  //600 mana chance
-ChanceForManaValue.Effects.get(0).BasePoints.set(599);
-ChanceForManaValue.Effects.get(0).DieSides.set(1);
-export let ChanceForMana = std.Spells.create(MODNAME, "chanceformana-spell", 55381);                                                                            //Spells have a 5% chance to restore flat mana (value above)
+export let ChanceForMana = std.Spells.create(MODNAME, "chanceformana-spell", 10491);                                                                            //Spells have a 5% chance to restore flat mana (value above)
 ChanceForMana.Name.enGB.set("Clarity");
-ChanceForMana.Description.enGB.set("Your spells have a chance to restore 600 mana.");
-ChanceForMana.AuraDescription.enGB.set("Spells and abilities have a chance to restore 600 mana.");
-ChanceForMana.Proc.Chance.set(5);
-ChanceForMana.Effects.get(0).BasePoints.set(99);
+ChanceForMana.Description.enGB.set("Periodically replenishes the mana of you and everyone in your group.");
+ChanceForMana.AuraDescription.enGB.set("Every 5 seconds, returns $s1 mana to everyone within 30 yards of the mana conduit.");
+ChanceForMana.Effects.get(0).BasePoints.set(49);
 ChanceForMana.Effects.get(0).DieSides.set(1);
-ChanceForMana.Effects.get(0).TriggerSpell.set(ChanceForManaValue.ID);
+ChanceForMana.Effects.get(0).ChainAmplitude.set(5000);
 ChanceForMana.Duration.set(21);
 ChanceForMana.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChanceForMana.AuraInterruptFlags.set(0x0080000);
@@ -307,29 +304,56 @@ ChanceForMana.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 ChanceForMana.Proc.TriggerMask.DONE_PERIODIC.set(1);
 ChanceForMana.Icon.setPath("Spell_Magic_ManaGain");
 
-export let ChanceForHealthValue = std.Spells.create(MODNAME, "chanceforhealthvalue-spell", 56715);                                                              //600 health chance
-ChanceForHealthValue.Effects.get(0).BasePoints.set(599);
-ChanceForHealthValue.Effects.get(0).DieSides.set(1);
-export let ChanceForHealth = std.Spells.create(MODNAME, "chanceforhealth-spell", 55381);                                                                        //Spells have a 5% chance to restore flat health (value above)
-ChanceForHealth.Name.enGB.set("Vampyrism");
-ChanceForHealth.Description.enGB.set("Attacks and spells have a chance to leech health from the target and transfer it to the caster");
-ChanceForHealth.AuraDescription.enGB.set("Chance to steal life from the enemy target.");
-ChanceForHealth.Proc.Chance.set(5);
-ChanceForHealth.Effects.get(0).BasePoints.set(99);
-ChanceForHealth.Effects.get(0).DieSides.set(1);
-ChanceForHealth.Effects.get(0).TriggerSpell.set(ChanceForHealthValue.ID);
-ChanceForHealth.Duration.set(21);
-ChanceForHealth.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
-ChanceForHealth.AuraInterruptFlags.set(0x0080000);
-ChanceForHealth.Stacks.set(99);
-ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
-ChanceForHealth.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
-ChanceForHealth.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
-ChanceForHealth.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
-ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
-ChanceForHealth.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
-ChanceForHealth.Proc.TriggerMask.DONE_PERIODIC.set(1);
-ChanceForHealth.Icon.setPath("Spell_Shaman_BlessingOfEternals");
+
+// export let ChanceForManaValue = std.Spells.create(MODNAME, "chanceformanavalue-spell", 55382);                                                                  //600 mana chance
+// ChanceForManaValue.Effects.get(0).BasePoints.set(599);
+// ChanceForManaValue.Effects.get(0).DieSides.set(1);
+// export let ChanceForMana = std.Spells.create(MODNAME, "chanceformana-spell", 55381);                                                                            //Spells have a 5% chance to restore flat mana (value above)
+// ChanceForMana.Name.enGB.set("Clarity");
+// ChanceForMana.Description.enGB.set("Your spells have a chance to restore 600 mana.");
+// ChanceForMana.AuraDescription.enGB.set("Spells and abilities have a chance to restore 600 mana.");
+// ChanceForMana.Proc.Chance.set(5);
+// ChanceForMana.Effects.get(0).BasePoints.set(99);
+// ChanceForMana.Effects.get(0).DieSides.set(1);
+// ChanceForMana.Effects.get(0).TriggerSpell.set(ChanceForManaValue.ID);
+// ChanceForMana.Duration.set(21);
+// ChanceForMana.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+// ChanceForMana.AuraInterruptFlags.set(0x0080000);
+// ChanceForMana.Stacks.set(99);
+// ChanceForMana.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+// ChanceForMana.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+// ChanceForMana.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
+// ChanceForMana.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
+// ChanceForMana.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
+// ChanceForMana.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
+// ChanceForMana.Proc.TriggerMask.DONE_PERIODIC.set(1);
+// ChanceForMana.Icon.setPath("Spell_Magic_ManaGain");
+
+
+
+// export let ChanceForHealthValue = std.Spells.create(MODNAME, "chanceforhealthvalue-spell", 56715);                                                              //600 health chance
+// ChanceForHealthValue.Effects.get(0).BasePoints.set(599);
+// ChanceForHealthValue.Effects.get(0).DieSides.set(1);
+// export let ChanceForHealth = std.Spells.create(MODNAME, "chanceforhealth-spell", 55381);                                                                        //Spells have a 5% chance to restore flat health (value above)
+// ChanceForHealth.Name.enGB.set("Vampyrism");
+// ChanceForHealth.Description.enGB.set("Attacks and spells have a chance to leech health from the target and transfer it to the caster");
+// ChanceForHealth.AuraDescription.enGB.set("Chance to steal life from the enemy target.");
+// ChanceForHealth.Proc.Chance.set(5);
+// ChanceForHealth.Effects.get(0).BasePoints.set(99);
+// ChanceForHealth.Effects.get(0).DieSides.set(1);
+// ChanceForHealth.Effects.get(0).TriggerSpell.set(ChanceForHealthValue.ID);
+// ChanceForHealth.Duration.set(21);
+// ChanceForHealth.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+// ChanceForHealth.AuraInterruptFlags.set(0x0080000);
+// ChanceForHealth.Stacks.set(99);
+// ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+// ChanceForHealth.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+// ChanceForHealth.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
+// ChanceForHealth.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
+// ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
+// ChanceForHealth.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
+// ChanceForHealth.Proc.TriggerMask.DONE_PERIODIC.set(1);
+// ChanceForHealth.Icon.setPath("Spell_Shaman_BlessingOfEternals");
 
 export let RoarSpellValue = std.Spells.create(MODNAME, "roarspellvalue-spell", 55429);                                                                          //Knockback and damage chance (250 knockback) + (430 damage) in 15 yard cone
 RoarSpellValue.Effects.get(0).BasePoints.set(249);
@@ -455,6 +479,31 @@ NecromancerSumm.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 NecromancerSumm.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 NecromancerSumm.Proc.TriggerMask.DONE_PERIODIC.set(1);
 NecromancerSumm.Icon.setPath("achievement_boss_scourgelordtyrannus");
+
+export let FortunateValue = std.Spells.create(MODNAME, "fortunatevalue-spell", 27922);                                                                          //Knockback and damage chance (250 knockback) + (430 damage) in 15 yard cone
+FortunateValue.Effects.get(0).BasePoints.set(20);
+FortunateValue.Effects.get(0).DieSides.set(10);
+FortunateValue.Effects.get(0).ItemType.set(torghastInsideCurrency.ID)
+export let FortunateSpell = std.Spells.create(MODNAME, "fortunatespell-spell", 55381);                                                                        //Spells have a 5% chance to let loose a deafening roar, knocking back all enemies
+FortunateSpell.Name.enGB.set("Fortunate");
+FortunateSpell.Description.enGB.set("Attacks and spells have a chance to generate additional torghast fragments that can be used in the shop.");
+FortunateSpell.AuraDescription.enGB.set("Chance to generate additional torghast fragments");
+FortunateSpell.Proc.Chance.set(5);
+FortunateSpell.Effects.get(0).BasePoints.set(99);
+FortunateSpell.Effects.get(0).DieSides.set(1);
+FortunateSpell.Effects.get(0).TriggerSpell.set(FortunateValue.ID);
+FortunateSpell.Duration.set(21);
+FortunateSpell.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+FortunateSpell.AuraInterruptFlags.set(0x0080000);
+FortunateSpell.Stacks.set(1);
+FortunateSpell.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+FortunateSpell.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+FortunateSpell.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
+FortunateSpell.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
+FortunateSpell.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
+FortunateSpell.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
+FortunateSpell.Proc.TriggerMask.DONE_PERIODIC.set(1);
+FortunateSpell.Icon.setPath("Racial_Dwarf_FindTreasure");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
