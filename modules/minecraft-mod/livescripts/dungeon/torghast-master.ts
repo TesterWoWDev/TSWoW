@@ -90,7 +90,7 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "opportunity02-spell"), 5, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "mastertechniques-spell"), 2, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "hemostrike-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sinistercausebleed-spell"), 5, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sinistercausebleed-spell"), 5, 1],
     ],
     <TSArray<TSArray<uint32>>>[//priest
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
