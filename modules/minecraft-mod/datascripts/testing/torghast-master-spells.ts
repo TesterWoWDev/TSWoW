@@ -529,7 +529,7 @@ export let Reap = std.Spells.create(MODNAME, "reap-spell", 55381);              
 Reap.Name.enGB.set("Reap");
 Reap.Description.enGB.set("Attacks and spells have a chance to instantly kill the enemy.");
 Reap.AuraDescription.enGB.set("Chance to instantly kill your target.");
-Reap.Proc.Chance.set(101);//0.5
+Reap.Proc.Chance.set(0.5);//0.5
 Reap.Effects.get(0).BasePoints.set(99);
 Reap.Effects.get(0).DieSides.set(1);
 Reap.Effects.get(0).TriggerSpell.set(ReaperSpell.ID);
