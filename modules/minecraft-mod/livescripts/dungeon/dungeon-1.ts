@@ -403,6 +403,7 @@ export function dungeon1(events: TSEventHandlers) {
             player.AddItem(rewardCurrencyID, rewCount)
         }
         player.RemoveItemByEntry(insideCurrencyID,999999)
+        player.RemoveItemByEntry(GetID("item_template","minecraft-mod","torghastchoice-item"),999999)
         player.SetUInt('prestige', 0)
         map.SetUInt('prestige', 0)
     })
