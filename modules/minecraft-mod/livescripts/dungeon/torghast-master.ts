@@ -309,11 +309,11 @@ function teleportRandomStart(players: TSPlayer[], playerSpawnCoords: TSDictionar
 }
 
 function despawnMap(player: TSPlayer) {
-    let creatures = player.GetCreaturesInRange(10000, 0, 0, 0)
+    let creatures = player.GetCreaturesInRange(20000, 0, 0, 0)
     for (let i = 0; i < creatures.length; i++) {
         creatures[i].DespawnOrUnsummon(3000)
     }
-    let gobs = player.GetGameObjectsInRange(10000, 0, 0)
+    let gobs = player.GetGameObjectsInRange(20000, 0, 0)
     for (let i = 0; i < gobs.length; i++) {
         gobs[i].Despawn()
     }
@@ -639,7 +639,7 @@ function setupTables() {
 export function setupLastBossCheck(events: TSEventHandlers, bossID: number) {
     events.CreatureID.OnDeath(bossID, (creature, killer) => {
         if (creature.GetUInt('lastBoss', 0) == 1) {
-            killer.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), creature.GetX(), creature.GetY(), creature.GetZ()+5, creature.GetO(), 0)
+            killer.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), creature.GetX(), creature.GetY(), creature.GetZ()+1, creature.GetO(), 0)
         }
     })
 }
