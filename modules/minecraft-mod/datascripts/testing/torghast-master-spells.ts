@@ -107,7 +107,7 @@ IncreasedAttackpower1.Duration.set(21);
 IncreasedAttackpower1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedAttackpower1.AuraInterruptFlags.set(0x0080000);
 IncreasedAttackpower1.Stacks.set(99);
-IncreasedAttackpower1.Icon.setPath("Ability_Druid_ChallengingRoar");
+IncreasedAttackpower1.Icon.setPath("Ability_Druid_ChallangingRoar");
 
 export let IncreasedStamina1 = std.Spells.create(MODNAME,"increasedstamina1-spell",34747);
 IncreasedStamina1.Name.enGB.set("Hearty");
