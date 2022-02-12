@@ -48,6 +48,7 @@ const baseSpellDescriptions = [
     "Increases movement speed by 3%.",
     "Reduces chance to be critically hit by 10%.",
     "Attacks and spells have a chance to summon reanimated weaponry.",
+    "Reduces damage taken by AOE attacks by 30%.",
 ]
 
 const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
