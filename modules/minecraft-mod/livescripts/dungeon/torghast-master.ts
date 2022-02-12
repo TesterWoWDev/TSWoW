@@ -17,8 +17,8 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "immortalityheal-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "immortalitymana-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceformana-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceforhealth-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceroarspell-spell"), 3, 0],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceforhealth-spell"), 5, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceroarspell-spell"), 4, 1],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reflectiveshell-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "movementspeed-spell"), 3, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedcrits-spell"), 3, 0],
@@ -26,6 +26,11 @@ const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellI
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "shadowyfigure-spell"), 3, 1],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
     <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "fortunatespell-spell"), 5, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceformana02-spell"), 3, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "butterstick-spell"), 5, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reap-spell"), 5, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "furyofodin-spell"), 5, 1],
+    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "stoned-spell"), 5, 1],
 ]
 const baseSpellDescriptions = [
     "Total Damage dealt increased by 15%.",
@@ -44,15 +49,20 @@ const baseSpellDescriptions = [
     "Allows you to regenrate 2% hp every 5 seconds.",
     "Allows you to retain 50% mana regen while casting.",
     "Every 5 seconds, returns 50 mana to everyone within 30 yards of the mana conduit.",
-    "Attacks and spells have a chance to leech 600 health",
-    "Attacks and spells have a chance to cast an echoing roar.",
+    "Attacks and spells have a chance to leech 1000-1700 health from the enemy and transfer it to the caster.",
+    "Attacks and spells have a chance to cast an echoing roar, knocking back all enemies in a 15 yard cone and dealing substantial damage..",
     "Reflects 10% of all spell damage to attackers and deals 130 damage on melee attacks recieved. This effect stacks.",
     "Increases movement speed by 3%. This effect stacks.",
     "Reduces chance to suffer a critical hit by 10%. This effect stacks.",
     "Attacks and spells have a chance to summon reanimated weaponry to assist you in battle.",
     "Reduces damage taken by area of effect attacks by 30%. This effect stacks.",
     "Increases the total health value of your character by 15%. This effect stacks.",
-    "Attacks and spells have a chance to generate additional Torghast Inside Tokens which can be used to purchase additional items in the store."
+    "Attacks and spells have a chance to generate additional Torghast Inside Tokens which can be used to purchase additional items in the store.",
+    "Attacks and spells have a chance to restore 1000-1700 mana.",
+    "Coat yourself in a stick of butter, increasing your ability to dodge incoming attacks by 15%.",
+    "Attacks and spells have a chance to reap the life from your target, instantly destroying their soul and generating an anima power.",
+    "Attacks and spells have a chance to incur the fury of Odin, dealing 1400 to 2918 damage to up to 5 enemies.",
+    "Attacks and spells have a chance to petrify the enemy in stone, stunning them for 10 seconds and preventing attacks.",
 ]
 
 const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
@@ -77,6 +87,10 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "traitorcalling-spell"), 1, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "opportunity-spell"), 2, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "deception-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "opportunity02-spell"), 5, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "mastertechniques-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "hemostrike-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sinistercausebleed-spell"), 5, 0],
     ],
     <TSArray<TSArray<uint32>>>[//priest
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -103,28 +117,32 @@ const classSpellDescriptions = [
     ["0blank"],
     //warrior
     [
-    "Increases the damage dealt by rend by 50%.",
-    "Increases Rage generated from attacks by 25%.",
-    "Reduces the rage cost of your offensive abilities by 3.",
+    "Increases the damage dealt by rend by 50%. Stacks.",
+    "Increases Rage generated from attacks by 25%. Stacks.",
+    "Reduces the rage cost of your offensive abilities by 3. Stacks.",
     ],
     //paladin
     [
-    "Increases the range of your Judgements by 10 yards",
+    "Increases the range of your Judgements by 10 yards. Stacks.",
     "All attacks against you have a 10% chance to cause half damage.",
     ],
     //hunter
     [
-    "Increases the health of your pet by 25% and your total health by 5%.",
+    "Increases the health of your pet by 25% and your total health by 5%. Stacks.",
     "Your critical Aimed, Steady and Chimera Shots cause the target to bleed.",
     "Casting steady shot has a chance to grant various proc chances.",
     ],
     //rogue
     [
-    "Increases total energy by 50",
-    "Increases damage dealt by Sinister Strike by 50%",
-    "Increases damage dealt by Backstab by 50%",
-    "Increases damage dealt by Ambush by 50%",
+    "Increases total energy by 50. Stacks.",
+    "Increases damage dealt by Sinister Strike by 50%. Stacks.",
+    "Increases damage dealt by Backstab by 50%. Stacks.",
+    "Increases damage dealt by Ambush by 50%. Stacks.",
     "Increases the effectiveness of your stealth. Stacks.",
+    "Increases damage dealt by Ambush by 150%. Stacks.",
+    "Increases damage dealt by Eviscerate by 50%. Stacks.",
+    "Increases damage dealt by Rupture by 50%. Stacks.",
+    "Your sinister strike now aims for the heart, giving it a chance to automatically apply rupture to the target. Rupture benefits from any modifiers you have.",
     ],
     //priest
     [

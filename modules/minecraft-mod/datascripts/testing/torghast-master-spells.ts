@@ -1,7 +1,6 @@
 import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata/wotlkdata/sql/SQLFiles";
 import { MODNAME } from "../modname";
-import { torghastInsideCurrency } from "./torghast-master-script-entities";
+import { torghastInsideCurrency, torghastOrb } from "./torghast-master-script-entities";
 
 /**spell ideas
 onKill do explosion
@@ -304,63 +303,60 @@ ChanceForMana.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 ChanceForMana.Proc.TriggerMask.DONE_PERIODIC.set(1);
 ChanceForMana.Icon.setPath("Spell_Magic_ManaGain");
 
+export let ChanceForManaValue = std.Spells.create(MODNAME, "chanceformanavalue-spell", 55382);                                                                  //600 mana chance
+ChanceForManaValue.Effects.get(0).BasePoints.set(1350);
+ChanceForManaValue.Effects.get(0).DieSides.set(350);
+export let ChanceForMana02 = std.Spells.create(MODNAME, "chanceformana02-spell", 55381);                                                                            //Spells have a 5% chance to restore flat mana (value above)
+ChanceForMana02.Name.enGB.set("Clarity");
+ChanceForMana02.Description.enGB.set("Your spells have a chance to restore 600 mana.");
+ChanceForMana02.AuraDescription.enGB.set("Spells and abilities have a chance to restore 600 mana.");
+ChanceForMana02.Proc.Chance.set(5);
+ChanceForMana02.Effects.get(0).BasePoints.set(99);
+ChanceForMana02.Effects.get(0).DieSides.set(1);
+ChanceForMana02.Effects.get(0).TriggerSpell.set(ChanceForManaValue.ID);
+ChanceForMana02.Duration.set(21);
+ChanceForMana02.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ChanceForMana02.AuraInterruptFlags.set(0x0080000);
+ChanceForMana02.Stacks.set(99);
+ChanceForMana02.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+ChanceForMana02.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+ChanceForMana02.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
+ChanceForMana02.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
+ChanceForMana02.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
+ChanceForMana02.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
+ChanceForMana02.Proc.TriggerMask.DONE_PERIODIC.set(1);
+ChanceForMana02.Icon.setPath("Spell_Shadow_Teleport");
 
-// export let ChanceForManaValue = std.Spells.create(MODNAME, "chanceformanavalue-spell", 55382);                                                                  //600 mana chance
-// ChanceForManaValue.Effects.get(0).BasePoints.set(599);
-// ChanceForManaValue.Effects.get(0).DieSides.set(1);
-// export let ChanceForMana = std.Spells.create(MODNAME, "chanceformana-spell", 55381);                                                                            //Spells have a 5% chance to restore flat mana (value above)
-// ChanceForMana.Name.enGB.set("Clarity");
-// ChanceForMana.Description.enGB.set("Your spells have a chance to restore 600 mana.");
-// ChanceForMana.AuraDescription.enGB.set("Spells and abilities have a chance to restore 600 mana.");
-// ChanceForMana.Proc.Chance.set(5);
-// ChanceForMana.Effects.get(0).BasePoints.set(99);
-// ChanceForMana.Effects.get(0).DieSides.set(1);
-// ChanceForMana.Effects.get(0).TriggerSpell.set(ChanceForManaValue.ID);
-// ChanceForMana.Duration.set(21);
-// ChanceForMana.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
-// ChanceForMana.AuraInterruptFlags.set(0x0080000);
-// ChanceForMana.Stacks.set(99);
-// ChanceForMana.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
-// ChanceForMana.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
-// ChanceForMana.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
-// ChanceForMana.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
-// ChanceForMana.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
-// ChanceForMana.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
-// ChanceForMana.Proc.TriggerMask.DONE_PERIODIC.set(1);
-// ChanceForMana.Icon.setPath("Spell_Magic_ManaGain");
+export let ChanceForHealthValue = std.Spells.create(MODNAME, "chanceforhealthvalue-spell", 56715);                                                              //600 health chance
+ChanceForHealthValue.Effects.get(0).BasePoints.set(1350);
+ChanceForHealthValue.Effects.get(0).DieSides.set(350);
+export let ChanceForHealth = std.Spells.create(MODNAME, "chanceforhealth-spell", 55381);                                                                        //Spells have a 5% chance to restore flat health (value above)
+ChanceForHealth.Name.enGB.set("Vampyrism");
+ChanceForHealth.Description.enGB.set("Attacks and spells have a chance to leech health from the target and transfer it to the caster");
+ChanceForHealth.AuraDescription.enGB.set("Chance to steal life from the enemy target.");
+ChanceForHealth.Proc.Chance.set(5);
+ChanceForHealth.Effects.get(0).BasePoints.set(99);
+ChanceForHealth.Effects.get(0).DieSides.set(1);
+ChanceForHealth.Effects.get(0).TriggerSpell.set(ChanceForHealthValue.ID);
+ChanceForHealth.Duration.set(21);
+ChanceForHealth.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ChanceForHealth.AuraInterruptFlags.set(0x0080000);
+ChanceForHealth.Stacks.set(99);
+ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+ChanceForHealth.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+ChanceForHealth.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
+ChanceForHealth.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
+ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
+ChanceForHealth.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
+ChanceForHealth.Proc.TriggerMask.DONE_PERIODIC.set(1);
+ChanceForHealth.Icon.setPath("Spell_Shaman_BlessingOfEternals");
 
-
-
-// export let ChanceForHealthValue = std.Spells.create(MODNAME, "chanceforhealthvalue-spell", 56715);                                                              //600 health chance
-// ChanceForHealthValue.Effects.get(0).BasePoints.set(599);
-// ChanceForHealthValue.Effects.get(0).DieSides.set(1);
-// export let ChanceForHealth = std.Spells.create(MODNAME, "chanceforhealth-spell", 55381);                                                                        //Spells have a 5% chance to restore flat health (value above)
-// ChanceForHealth.Name.enGB.set("Vampyrism");
-// ChanceForHealth.Description.enGB.set("Attacks and spells have a chance to leech health from the target and transfer it to the caster");
-// ChanceForHealth.AuraDescription.enGB.set("Chance to steal life from the enemy target.");
-// ChanceForHealth.Proc.Chance.set(5);
-// ChanceForHealth.Effects.get(0).BasePoints.set(99);
-// ChanceForHealth.Effects.get(0).DieSides.set(1);
-// ChanceForHealth.Effects.get(0).TriggerSpell.set(ChanceForHealthValue.ID);
-// ChanceForHealth.Duration.set(21);
-// ChanceForHealth.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
-// ChanceForHealth.AuraInterruptFlags.set(0x0080000);
-// ChanceForHealth.Stacks.set(99);
-// ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
-// ChanceForHealth.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
-// ChanceForHealth.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
-// ChanceForHealth.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
-// ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
-// ChanceForHealth.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
-// ChanceForHealth.Proc.TriggerMask.DONE_PERIODIC.set(1);
-// ChanceForHealth.Icon.setPath("Spell_Shaman_BlessingOfEternals");
-
-export let RoarSpellValue = std.Spells.create(MODNAME, "roarspellvalue-spell", 55429);                                                                          //Knockback and damage chance (250 knockback) + (430 damage) in 15 yard cone
-RoarSpellValue.Effects.get(0).BasePoints.set(249);
+export let RoarSpellValue = std.Spells.create(MODNAME, "roarspellvalue-spell", 55429);                                                                          //Knockback and damage chance (50 knockback) + (520 damage) in 15 yard cone
+RoarSpellValue.Effects.get(0).BasePoints.set(49);
 RoarSpellValue.Effects.get(0).DieSides.set(1);
 RoarSpellValue.Effects.get(0).Radius.set(15);
-RoarSpellValue.Effects.get(1).BasePoints.set(429);
-RoarSpellValue.Effects.get(1).DieSides.set(1);
+RoarSpellValue.Effects.get(1).BasePoints.set(519);
+RoarSpellValue.Effects.get(1).DieSides.set(119);
 RoarSpellValue.Effects.get(1).Radius.set(15);
 export let ChanceRoarSpell = std.Spells.create(MODNAME, "chanceroarspell-spell", 55381);                                                                        //Spells have a 5% chance to let loose a deafening roar, knocking back all enemies
 ChanceRoarSpell.Name.enGB.set("Vrykul Heritage");
@@ -505,6 +501,100 @@ FortunateSpell.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 FortunateSpell.Proc.TriggerMask.DONE_PERIODIC.set(1);
 FortunateSpell.Icon.setPath("Racial_Dwarf_FindTreasure");
 
+export let ButterSticks = std.Spells.create(MODNAME, "butterstick-spell", 4086);                                                                              //10% reduced chance to be critically hit
+ButterSticks.Name.enGB.set("Giant Butter Stick");
+ButterSticks.Description.enGB.set("Increases dodge chance by 15%.");
+ButterSticks.AuraDescription.enGB.set("Increases dodge chance by 15%.");
+ButterSticks.Effects.get(0).BasePoints.set(14);
+ButterSticks.Effects.get(0).DieSides.set(1);
+ButterSticks.Effects.get(1).Type.NULL.set();
+ButterSticks.Duration.set(21);
+ButterSticks.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ButterSticks.AuraInterruptFlags.set(0x0080000);
+ButterSticks.Stacks.set(99);
+ButterSticks.Icon.setPath("INV_Misc_Food_29");
+
+export let ReaperSpell = std.Spells.create(MODNAME, "reaperspell-spell", 50581);                                                                          //Knockback and damage chance (250 knockback) + (430 damage) in 15 yard cone
+ReaperSpell.Effects.get(0).BasePoints.set(599999999);
+ReaperSpell.Effects.get(0).DieSides.set(1);
+ReaperSpell.Effects.get(0).ChainTarget.set(0);
+ReaperSpell.Effects.get(1).Type.SUMMON.set();
+ReaperSpell.Effects.get(1).BasePoints.set(0);
+ReaperSpell.Effects.get(1).DieSides.set(1);
+ReaperSpell.Effects.get(1).ImplicitTargetA.DEST_CASTER.set();
+ReaperSpell.Effects.get(1).MiscValueA.set(torghastOrb.ID)
+ReaperSpell.Range.setSimple(0,1000);
+export let Reap = std.Spells.create(MODNAME, "reap-spell", 55381);                                                                        //Spells have a 5% chance to let loose a deafening roar, knocking back all enemies
+Reap.Name.enGB.set("Reap");
+Reap.Description.enGB.set("Attacks and spells have a chance to instantly kill the enemy.");
+Reap.AuraDescription.enGB.set("Chance to instantly kill your target.");
+Reap.Proc.Chance.set(0.5);
+Reap.Effects.get(0).BasePoints.set(99);
+Reap.Effects.get(0).DieSides.set(1);
+Reap.Effects.get(0).TriggerSpell.set(ReaperSpell.ID);
+Reap.Duration.set(21);
+Reap.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Reap.AuraInterruptFlags.set(0x0080000);
+Reap.Stacks.set(99);
+Reap.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+Reap.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+Reap.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
+Reap.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
+Reap.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
+Reap.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
+Reap.Proc.TriggerMask.DONE_PERIODIC.set(1);
+Reap.Icon.setPath("INV_Sword_105");
+
+export let FuryofOdinValue = std.Spells.create(MODNAME, "furyofodinvalue-spell", 421);                                                                  //600 mana chance
+FuryofOdinValue.Effects.get(0).BasePoints.set(2159);
+FuryofOdinValue.Effects.get(0).DieSides.set(759);
+FuryofOdinValue.Effects.get(0).ChainTarget.set(5);
+FuryofOdinValue.CastTime.setSimple(0);
+export let FuryofOdin = std.Spells.create(MODNAME, "furyofodin-spell", 55381);                                                                            //Spells have a 5% chance to restore flat mana (value above)
+FuryofOdin.Name.enGB.set("Fury of Odin");
+FuryofOdin.Description.enGB.set("Your spells have a chance to hurl lightning at the target and smite them down.");
+FuryofOdin.AuraDescription.enGB.set("Spells and abilities have a chance to smite the enemy with the fury of Odin.");
+FuryofOdin.Proc.Chance.set(5);
+FuryofOdin.Effects.get(0).BasePoints.set(99);
+FuryofOdin.Effects.get(0).DieSides.set(1);
+FuryofOdin.Effects.get(0).TriggerSpell.set(FuryofOdinValue.ID);
+FuryofOdin.Duration.set(21);
+FuryofOdin.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+FuryofOdin.AuraInterruptFlags.set(0x0080000);
+FuryofOdin.Stacks.set(99);
+FuryofOdin.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+FuryofOdin.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+FuryofOdin.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
+FuryofOdin.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
+FuryofOdin.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
+FuryofOdin.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
+FuryofOdin.Proc.TriggerMask.DONE_PERIODIC.set(1);
+FuryofOdin.Icon.setPath("Ability_Shaman_Stormstrike");
+
+export let StonedValue = std.Spells.create(MODNAME, "stonedvalue-spell", 33652);                                                                  //600 mana chance
+StonedValue.Duration.setSimple(10000)
+StonedValue.CastTime.setSimple(0);
+export let Stoned = std.Spells.create(MODNAME, "stoned-spell", 55381);                                                                            //Spells have a 5% chance to restore flat mana (value above)
+Stoned.Name.enGB.set("Tourmaline Core");
+Stoned.Description.enGB.set("Your spells have a chance to freeze the enemy in stone for 10 seconds.");
+Stoned.AuraDescription.enGB.set("Spells and abilities have a chance to freeze the enemy in stone.");
+Stoned.Proc.Chance.set(5);
+Stoned.Effects.get(0).BasePoints.set(99);
+Stoned.Effects.get(0).DieSides.set(1);
+Stoned.Effects.get(0).TriggerSpell.set(StonedValue.ID);
+Stoned.Duration.set(21);
+Stoned.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Stoned.AuraInterruptFlags.set(0x0080000);
+Stoned.Stacks.set(99);
+Stoned.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+Stoned.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+Stoned.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
+Stoned.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
+Stoned.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
+Stoned.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
+Stoned.Proc.TriggerMask.DONE_PERIODIC.set(1);
+Stoned.Icon.setPath("inv_stone_weightstone_08");
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -642,6 +732,7 @@ Vigorous.Duration.set(21);
 Vigorous.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Vigorous.AuraInterruptFlags.set(0x0080000);
 Vigorous.Stacks.set(99);
+Vigorous.Icon.setPath("Ability_Rogue_SlaughterfromtheShadows");
 
 export let SinisterCalling = std.Spells.create(MODNAME, "sinsitercalling-spell", 31124);                                                                    //50% increased sinister strike dmg
 SinisterCalling.Name.enGB.set("Sinister Calling");
@@ -655,6 +746,7 @@ SinisterCalling.Duration.set(21);
 SinisterCalling.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 SinisterCalling.AuraInterruptFlags.set(0x0080000);
 SinisterCalling.Stacks.set(99);
+SinisterCalling.Icon.setPath("Ability_Rogue_FocusedAttacks");
 
 export let Traitor = std.Spells.create(MODNAME, "traitorcalling-spell", 31124);                                                                             //50% increased backstab dmg
 Traitor.Name.enGB.set("Traitorous Calling");
@@ -668,6 +760,7 @@ Traitor.Duration.set(21);
 Traitor.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Traitor.AuraInterruptFlags.set(0x0080000);
 Traitor.Stacks.set(99);
+Traitor.Icon.setPath("Ability_Rogue_FindWeakness");
 
 export let Opportunity = std.Spells.create(MODNAME, "opportunity-spell", 14057);                                                                             //50% increased ambush dmg
 Opportunity.Name.enGB.set("Death\'s Calling");
@@ -682,6 +775,7 @@ Opportunity.Duration.set(21);
 Opportunity.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Opportunity.AuraInterruptFlags.set(0x0080000);
 Opportunity.Stacks.set(99);
+Opportunity.Icon.setPath("Ability_Rogue_Waylay");
 
 export let Deception = std.Spells.create(MODNAME, "deception-spell", 13971);                                                                             //Increased stealth effectiveness
 Deception.Name.enGB.set("Master of Death");
@@ -693,6 +787,67 @@ Deception.Duration.set(21);
 Deception.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Deception.AuraInterruptFlags.set(0x0080000);
 Deception.Stacks.set(99);
+Deception.Icon.setPath("Ability_Rogue_MasterOfSubtlety");
+
+export let Opportunity02 = std.Spells.create(MODNAME, "opportunity02-spell", 14057);                                                                             //50% increased ambush dmg
+Opportunity02.Name.enGB.set("Insidious Nature");
+Opportunity02.Description.enGB.set("Increases damage dealt by Ambush by $s2%.");
+Opportunity02.AuraDescription.enGB.set("Increases damage dealt by Ambush by $s2%.");
+Opportunity02.Effects.get(0).BasePoints.set(149);
+Opportunity02.Effects.get(0).DieSides.set(1);
+Opportunity02.Effects.get(0).ClassMask.A.set(0x0000200);
+Opportunity02.Effects.get(0).ClassMask.B.set(0x0000000);
+Opportunity02.Effects.get(1).Type.NULL.set();
+Opportunity02.Duration.set(21);
+Opportunity02.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Opportunity02.AuraInterruptFlags.set(0x0080000);
+Opportunity02.Stacks.set(99);
+Opportunity02.Icon.setPath("Ability_Rogue_Ambush");
+
+export let Powerful01 = std.Spells.create(MODNAME, "mastertechniques-spell", 31124);                                                                    //50% increased sinister strike dmg
+Powerful01.Name.enGB.set("Masterful Techniques");
+Powerful01.Description.enGB.set("Increases damage dealt by Eviscerate by $s2%.");
+Powerful01.AuraDescription.enGB.set("Increases damage dealt by Eviscerate by $s2%.");
+Powerful01.Effects.get(0).Type.NULL.set();
+Powerful01.Effects.get(1).BasePoints.set(49);
+Powerful01.Effects.get(1).DieSides.set(1);
+Powerful01.Effects.get(1).ClassMask.A.set(0x00020000);
+Powerful01.Duration.set(21);
+Powerful01.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Powerful01.AuraInterruptFlags.set(0x0080000);
+Powerful01.Stacks.set(99);
+Powerful01.Icon.setPath("Ability_Rogue_Eviscerate");
+
+export let HemorragicStrikes = std.Spells.create(MODNAME, "hemostrike-spell", 31124);                                                                    //50% increased sinister strike dmg
+HemorragicStrikes.Name.enGB.set("Hemorrhagic Strikes");
+HemorragicStrikes.Description.enGB.set("Increases damage dealt by Rupture by $s2%.");
+HemorragicStrikes.AuraDescription.enGB.set("Increases damage dealt by Rupture by $s2%.");
+HemorragicStrikes.Effects.get(0).Type.NULL.set();
+HemorragicStrikes.Effects.get(1).BasePoints.set(49);
+HemorragicStrikes.Effects.get(1).DieSides.set(1);
+HemorragicStrikes.Effects.get(1).ClassMask.A.set(0x00100000);
+HemorragicStrikes.Duration.set(21);
+HemorragicStrikes.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+HemorragicStrikes.AuraInterruptFlags.set(0x0080000);
+HemorragicStrikes.Stacks.set(99);
+HemorragicStrikes.Icon.setPath("Ability_Rogue_Rupture");
+
+/////////////////////////// Test Spell
+
+export let SinisterCauseBleedTest = std.Spells.create(MODNAME, "sinistercausebleed-spell", 31124);                                                                    //50% increased sinister strike dmg
+SinisterCauseBleedTest.Name.enGB.set("Bloodthirsty Daggers");
+SinisterCauseBleedTest.Description.enGB.set("Your sinister strike now has a chance to cause rupture on the target.");
+SinisterCauseBleedTest.AuraDescription.enGB.set("Your sinister strike now has a chance to cause rupture on the target.");
+SinisterCauseBleedTest.Effects.get(0).TriggerSpell.set(48672);
+SinisterCauseBleedTest.Effects.get(0).ClassMask.A.set(0x00100000);
+SinisterCauseBleedTest.Effects.get(1).Type.NULL.set();
+SinisterCauseBleedTest.Proc.Chance.set(101) //set back to 10% after testing
+SinisterCauseBleedTest.Duration.set(21);
+SinisterCauseBleedTest.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+SinisterCauseBleedTest.AuraInterruptFlags.set(0x0000002);
+SinisterCauseBleedTest.Stacks.set(99);
+SinisterCauseBleedTest.Icon.setPath("Ability_Rogue_Rupture");
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
