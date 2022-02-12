@@ -639,7 +639,7 @@ function setupTables() {
 export function setupLastBossCheck(events: TSEventHandlers, bossID: number) {
     events.CreatureID.OnDeath(bossID, (creature, killer) => {
         if (creature.GetUInt('lastBoss', 0) == 1) {
-            killer.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), creature.GetX(), creature.GetY(), creature.GetZ(), creature.GetO(), 0)
+            killer.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), creature.GetX(), creature.GetY(), creature.GetZ()+5, creature.GetO(), 0)
         }
     })
 }
