@@ -571,7 +571,8 @@ FuryofOdin.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 FuryofOdin.Proc.TriggerMask.DONE_PERIODIC.set(1);
 FuryofOdin.Icon.setPath("Ability_Shaman_Stormstrike");
 
-export let StonedValue = std.Spells.create(MODNAME, "stonedvalue-spell", 33652);                                                                  //600 mana chance
+export let StonedValue = std.Spells.create(MODNAME, "stonedvalue-spell", 33652);    
+StonedValue.Effects.get(0).ImplicitTargetA.UNIT_TARGET_ENEMY.set();                                                              //600 mana chance
 StonedValue.Duration.setSimple(10000)
 StonedValue.CastTime.setSimple(0);
 export let Stoned = std.Spells.create(MODNAME, "stoned-spell", 55381);                                                                            //Spells have a 5% chance to restore flat mana (value above)
@@ -833,7 +834,6 @@ HemorragicStrikes.Stacks.set(99);
 HemorragicStrikes.Icon.setPath("Ability_Rogue_Rupture");
 
 /////////////////////////// Test Spell
-
 export let SinisterCauseBleedTest = std.Spells.create(MODNAME, "sinistercausebleed-spell", 31124);                                                                    //50% increased sinister strike dmg
 SinisterCauseBleedTest.Name.enGB.set("Bloodthirsty Daggers");
 SinisterCauseBleedTest.Description.enGB.set("Your sinister strike now has a chance to cause rupture on the target.");
@@ -847,7 +847,6 @@ SinisterCauseBleedTest.row.Attributes.set(IncreasedHealth1.row.Attributes.get())
 SinisterCauseBleedTest.AuraInterruptFlags.set(0x0000002);
 SinisterCauseBleedTest.Stacks.set(99);
 SinisterCauseBleedTest.Icon.setPath("Ability_Rogue_Rupture");
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
