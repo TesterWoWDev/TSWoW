@@ -417,11 +417,11 @@ NecromancerMob03.Level.set(20,20)
 NecromancerMob03.Models.clearAll()
 NecromancerMob03.Models.addIds(26085)
 export let NecromancerSummonSpell01 = std.Spells.create(MODNAME, "necromancerspell01-spell", 42651);                                                            //Summon Mob Type 01
-NecromancerSummonSpell01.Effects.get(1).MiscValueA.set(24207);
+NecromancerSummonSpell01.Effects.get(1).MiscValueA.set(NecromancerMob01.ID);
 export let NecromancerSummonSpell02 = std.Spells.create(MODNAME, "necromancerspell02-spell", 42651);                                                            //Summon Mob Type 01
-NecromancerSummonSpell02.Effects.get(1).MiscValueA.set(24207);
+NecromancerSummonSpell02.Effects.get(1).MiscValueA.set(NecromancerMob02.ID);
 export let NecromancerSummonSpell03 = std.Spells.create(MODNAME, "necromancerspell03-spell", 42651);                                                            //Summon Mob Type 01
-NecromancerSummonSpell03.Effects.get(1).MiscValueA.set(24207);
+NecromancerSummonSpell03.Effects.get(1).MiscValueA.set(NecromancerMob03.ID);
 export let NecromancerSumm = std.Spells.create(MODNAME, "necromancersumm-spell", 55381);                                                                        //Spells have a 5% chance to summon a random mob
 NecromancerSumm.Name.enGB.set("Animator");
 NecromancerSumm.Description.enGB.set("Attacks and spells have a chance to summon a random weapon to tank, heal, or dps for you.");
