@@ -833,7 +833,6 @@ HemorragicStrikes.AuraInterruptFlags.set(0x0080000);
 HemorragicStrikes.Stacks.set(99);
 HemorragicStrikes.Icon.setPath("Ability_Rogue_Rupture");
 
-/////////////////////////// Test Spell
 export let SinisterCauseBleedTest = std.Spells.create(MODNAME, "sinistercausebleed-spell", 31124);                                                                    //50% increased sinister strike dmg
 SinisterCauseBleedTest.Name.enGB.set("Bloodthirsty Daggers");
 SinisterCauseBleedTest.Description.enGB.set("Your sinister strike now has a chance to cause rupture on the target.");
@@ -841,7 +840,7 @@ SinisterCauseBleedTest.AuraDescription.enGB.set("Your sinister strike now has a 
 SinisterCauseBleedTest.Effects.get(0).TriggerSpell.set(48672);
 SinisterCauseBleedTest.Effects.get(0).ClassMask.A.set(0x00100000);
 SinisterCauseBleedTest.Effects.get(1).Type.NULL.set();
-SinisterCauseBleedTest.Proc.Chance.set(101) //set back to 10% after testing
+SinisterCauseBleedTest.Proc.Chance.set(10) 
 SinisterCauseBleedTest.Duration.set(21);
 SinisterCauseBleedTest.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 SinisterCauseBleedTest.AuraInterruptFlags.set(0x0000002);
