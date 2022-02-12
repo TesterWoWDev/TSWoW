@@ -46,7 +46,7 @@ IncreasedHealth1.row.Attributes.set(
 IncreasedHealth1.row.Attributes.get() + 0x80000000);
 IncreasedHealth1.AuraInterruptFlags.set(0x0080000);
 IncreasedHealth1.Stacks.set(99);
-IncreasedHealth1.Icon.setFullPath("Interface\\Icons\\Spell_Holy_MindVision");
+IncreasedHealth1.Icon.setPath("Spell_Holy_MindVision");
 
 export let IncreasedDamage1 = std.Spells.create(MODNAME,"increaseddamage1-spell",34747);
 IncreasedDamage1.Name.enGB.set("Hardened");
@@ -61,7 +61,7 @@ IncreasedDamage1.Duration.set(21);
 IncreasedDamage1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedDamage1.AuraInterruptFlags.set(0x0080000);
 IncreasedDamage1.Stacks.set(99);
-IncreasedDamage1.Icon.setFullPath("Interface\\Icons\\Ability_Warrior_InnerRage");
+IncreasedDamage1.Icon.setPath("Ability_Warrior_InnerRage");
 
 export let ShadowyFigure = std.Spells.create(MODNAME,"shadowyfigure-spell",31213);
 ShadowyFigure.Name.enGB.set("Shadowed");
@@ -73,7 +73,7 @@ ShadowyFigure.Duration.set(21);
 ShadowyFigure.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ShadowyFigure.AuraInterruptFlags.set(0x0080000);
 ShadowyFigure.Stacks.set(99);
-ShadowyFigure.Icon.setFullPath("Interface\\Icons\\Spell_Shadow_Haunting");
+ShadowyFigure.Icon.setPath("Spell_Shadow_Haunting");
 
 export let IncreasedSpellpower1 = std.Spells.create(MODNAME,"increasedsp1-spell",34747);
 IncreasedSpellpower1.Name.enGB.set("Spellbender");
@@ -92,7 +92,7 @@ IncreasedSpellpower1.Duration.set(21);
 IncreasedSpellpower1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedSpellpower1.AuraInterruptFlags.set(0x0080000);
 IncreasedSpellpower1.Stacks.set(99);
-IncreasedSpellpower1.Icon.setFullPath("Interface\\Icons\\Spell_Nature_AstralRecalGroup");
+IncreasedSpellpower1.Icon.setPath("Spell_Nature_AstralRecalGroup");
 
 export let IncreasedAttackpower1 = std.Spells.create(MODNAME,"increasedap1-spell",34747);
 IncreasedAttackpower1.Name.enGB.set("Warlord");
@@ -107,7 +107,7 @@ IncreasedAttackpower1.Duration.set(21);
 IncreasedAttackpower1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedAttackpower1.AuraInterruptFlags.set(0x0080000);
 IncreasedAttackpower1.Stacks.set(99);
-IncreasedAttackpower1.Icon.setFullPath("Interface\\Icons\\Ability_Druid_ChallengingRoar");
+IncreasedAttackpower1.Icon.setPath("Ability_Druid_ChallengingRoar");
 
 export let IncreasedStamina1 = std.Spells.create(MODNAME,"increasedstamina1-spell",34747);
 IncreasedStamina1.Name.enGB.set("Hearty");
@@ -124,7 +124,7 @@ IncreasedStamina1.Duration.set(21);
 IncreasedStamina1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedStamina1.AuraInterruptFlags.set(0x0080000);
 IncreasedStamina1.Stacks.set(99);
-IncreasedStamina1.Icon.setFullPath("Interface\\Icons\\INV_Misc_Organ_06");
+IncreasedStamina1.Icon.setPath("INV_Misc_Organ_06");
 
 export let IncreasedStrength1 = std.Spells.create(MODNAME,"increasedstrength1-spell",34747);
 IncreasedStrength1.Name.enGB.set("Resolute");
@@ -141,7 +141,7 @@ IncreasedStrength1.Duration.set(21);
 IncreasedStrength1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedStrength1.AuraInterruptFlags.set(0x0080000);
 IncreasedStrength1.Stacks.set(99);
-IncreasedStrength1.Icon.setFullPath("Interface\\Icons\\INV_Relics_TotemofRage");
+IncreasedStrength1.Icon.setPath("INV_Relics_TotemofRage");
 
 export let IncreasedIntellect1 = std.Spells.create(MODNAME,"increasedintellect1-spell",34747);
 IncreasedIntellect1.Name.enGB.set("Wise");
@@ -158,7 +158,7 @@ IncreasedIntellect1.Duration.set(21);
 IncreasedIntellect1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedIntellect1.AuraInterruptFlags.set(0x0080000);
 IncreasedIntellect1.Stacks.set(99);
-IncreasedIntellect1.Icon.setFullPath("Interface\\Icons\\Spell_Arcane_Arcane03");
+IncreasedIntellect1.Icon.setPath("Spell_Arcane_Arcane03");
 
 export let IncreasedAgility1 = std.Spells.create(MODNAME,"increasedagility1-spell",34747);
 IncreasedAgility1.Name.enGB.set("Agile");
@@ -175,7 +175,7 @@ IncreasedAgility1.Duration.set(21);
 IncreasedAgility1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedAgility1.AuraInterruptFlags.set(0x0080000);
 IncreasedAgility1.Stacks.set(99);
-IncreasedAgility1.Icon.setFullPath("Interface\\Icons\\INV_Trinket_Naxxramas03");
+IncreasedAgility1.Icon.setPath("INV_Trinket_Naxxramas03");
 
 export let IncreasedCrit1 = std.Spells.create(MODNAME,"increasedcrit1-spell",34747);
 IncreasedCrit1.Name.enGB.set("Tactful Strikes");
@@ -192,7 +192,7 @@ IncreasedCrit1.Duration.set(21);
 IncreasedCrit1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedCrit1.AuraInterruptFlags.set(0x0080000);
 IncreasedCrit1.Stacks.set(99);
-IncreasedCrit1.Icon.setFullPath("Interface\\Icons\\Spell_Shadow_DemonicFortitude");
+IncreasedCrit1.Icon.setPath("Spell_Shadow_DemonicFortitude");
 
 export let IncreasedResist1 = std.Spells.create(MODNAME,"increasedresist1-spell",34747);
 IncreasedResist1.Name.enGB.set("Resistant");
@@ -209,7 +209,7 @@ IncreasedResist1.Duration.set(21);
 IncreasedResist1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedResist1.AuraInterruptFlags.set(0x0080000);
 IncreasedResist1.Stacks.set(99);
-IncreasedResist1.Icon.setFullPath("Interface\\Icons\\Spell_Nature_ElementalPrecision_1");
+IncreasedResist1.Icon.setPath("Spell_Nature_ElementalPrecision_1");
 
 export let rangedAttackSpeed1 = std.Spells.create(MODNAME,"rangedattackspeed1-spell",44972);
 rangedAttackSpeed1.Name.enGB.set("Increased Ranged Speed");
@@ -219,7 +219,7 @@ rangedAttackSpeed1.Effects.get(0).BasePoints.set(24);
 rangedAttackSpeed1.Duration.set(21);
 rangedAttackSpeed1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 rangedAttackSpeed1.AuraInterruptFlags.set(0x0080000);
-rangedAttackSpeed1.Icon.setFullPath("Interface\\Icons\\Ability_Hunter_SteadyShot");
+rangedAttackSpeed1.Icon.setPath("Ability_Hunter_SteadyShot");
 
 export let critChance1 = std.Spells.create(MODNAME, "critchance-spell", 54283);
 critChance1.Name.enGB.set("Increased Crit Chance");
@@ -230,7 +230,7 @@ critChance1.Duration.set(21);
 critChance1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 critChance1.AuraInterruptFlags.set(0x0080000);
 critChance1.Stacks.set(10);
-critChance1.Icon.setFullPath("Interface\\Icons\\Spell_Fire_MoltenBlood");
+critChance1.Icon.setPath("Spell_Fire_MoltenBlood");
 
 export let critDamage1 = std.Spells.create(MODNAME, "critdamage-spell", 44797);
 critDamage1.Name.enGB.set("Increased Crit Damage");
@@ -241,7 +241,7 @@ critDamage1.Duration.set(21);
 critDamage1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 critDamage1.AuraInterruptFlags.set(0x0080000);
 critDamage1.Stacks.set(99);
-critDamage1.Icon.setFullPath("Interface\\Icons\\Inv_Gizmo_SuperSapperCharge");
+critDamage1.Icon.setPath("Inv_Gizmo_SuperSapperCharge");
 
 export let grapple = std.Spells.create(MODNAME, "grapple-spell", 57882);
 grapple.Name.enGB.set("Grapple");
@@ -256,7 +256,7 @@ grapple.Effects.get(1).Type.TRIGGER_SPELL.set();
 grapple.Effects.get(1).ImplicitTargetA.DEST_DEST.set();
 grapple.Effects.get(1).TriggerSpell.set(57883);
 grapple.Visual.getRefCopy().cloneFromVisual(11055);
-grapple.Icon.setFullPath("Interface\\Icons\\INV_MISC_HOOK_01");
+grapple.Icon.setPath("INV_MISC_HOOK_01");
 
 export let ImmortalityHeal = std.Spells.create(MODNAME, "immortalityheal-spell", 55694);                                                                        //2% health regen every 5 seconds forever.
 ImmortalityHeal.Name.enGB.set("Resilient Heart");
@@ -269,7 +269,7 @@ ImmortalityHeal.Duration.set(21);
 ImmortalityHeal.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImmortalityHeal.AuraInterruptFlags.set(0x0080000);
 ImmortalityHeal.Stacks.set(99);
-ImmortalityHeal.Icon.setFullPath("Interface\\Icons\\Ability_Druid_Replenish");
+ImmortalityHeal.Icon.setPath("Ability_Druid_Replenish");
 
 export let ImmortalityMana = std.Spells.create(MODNAME, "immortalitymana-spell", 32102);                                                                        //50% mana regen while casting
 ImmortalityMana.Name.enGB.set("Deep Mana Pools");
@@ -281,7 +281,7 @@ ImmortalityMana.Duration.set(21);
 ImmortalityMana.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImmortalityMana.AuraInterruptFlags.set(0x0080000);
 ImmortalityMana.Stacks.set(99);
-ImmortalityMana.Icon.setFullPath("Interface\\Icons\\Spell_Holy_Serendipity");
+ImmortalityMana.Icon.setPath("Spell_Holy_Serendipity");
 
 export let ChanceForManaValue = std.Spells.create(MODNAME, "chanceformanavalue-spell", 55382);                                                                  //600 mana chance
 ChanceForManaValue.Effects.get(0).BasePoints.set(599);
@@ -302,7 +302,7 @@ ChanceForMana.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForMana.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForMana.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 ChanceForMana.Proc.TriggerMask.DONE_PERIODIC.set(1);
-ChanceForMana.Icon.setFullPath("Interface\\Icons\\Spell_Magic_ManaGain");
+ChanceForMana.Icon.setPath("Spell_Magic_ManaGain");
 
 export let ChanceForHealthValue = std.Spells.create(MODNAME, "chanceforhealthvalue-spell", 56715);                                                              //600 health chance
 ChanceForHealthValue.Effects.get(0).BasePoints.set(599);
@@ -323,7 +323,7 @@ ChanceForHealth.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForHealth.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 ChanceForHealth.Proc.TriggerMask.DONE_PERIODIC.set(1);
-ChanceForHealth.Icon.setFullPath("Interface\\Icons\\Spell_Shaman_BlessingOfEternals");
+ChanceForHealth.Icon.setPath("Spell_Shaman_BlessingOfEternals");
 
 export let RoarSpellValue = std.Spells.create(MODNAME, "roarspellvalue-spell", 55429);                                                                          //Knockback and damage chance (250 knockback) + (430 damage) in 15 yard cone
 RoarSpellValue.Effects.get(0).BasePoints.set(249);
@@ -348,7 +348,7 @@ ChanceRoarSpell.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceRoarSpell.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceRoarSpell.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 ChanceRoarSpell.Proc.TriggerMask.DONE_PERIODIC.set(1);
-ChanceRoarSpell.Icon.setFullPath("Interface\\Icons\\Achievement_Halloween_Smiley_01");
+ChanceRoarSpell.Icon.setPath("Achievement_Halloween_Smiley_01");
 
 export let ReflectiveShell = std.Spells.create(MODNAME, "reflectiveshell-spell", 55381);                                                                        //10% spell damage reflection.
 ReflectiveShell.Name.enGB.set("Chitinous Exoskeleton");
@@ -365,7 +365,7 @@ ReflectiveShell.Duration.set(21);
 ReflectiveShell.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReflectiveShell.AuraInterruptFlags.set(0x0080000);
 ReflectiveShell.Stacks.set(99);
-ReflectiveShell.Icon.setFullPath("Interface\\Icons\\INV_Misc_Head_Nerubian_01");
+ReflectiveShell.Icon.setPath("INV_Misc_Head_Nerubian_01");
 
 export let MovementSpeed = std.Spells.create(MODNAME, "movementspeed-spell", 48594);                                                                            //2% movement speed.
 MovementSpeed.Name.enGB.set("Light-Footed");
@@ -377,7 +377,7 @@ MovementSpeed.Duration.set(21);
 MovementSpeed.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 MovementSpeed.AuraInterruptFlags.set(0x0080000);
 MovementSpeed.Stacks.set(99);
-MovementSpeed.Icon.setFullPath("Interface\\Icons\\Spell_Fire_BurningSpeed");
+MovementSpeed.Icon.setPath("Spell_Fire_BurningSpeed");
 
 export let ReducedCrits = std.Spells.create(MODNAME, "reducedcrits-spell", 61861);                                                                              //10% reduced chance to be critically hit
 ReducedCrits.Name.enGB.set("Devious Glint");
@@ -390,7 +390,7 @@ ReducedCrits.Duration.set(21);
 ReducedCrits.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReducedCrits.AuraInterruptFlags.set(0x0080000);
 ReducedCrits.Stacks.set(99);
-ReducedCrits.Icon.setFullPath("Interface\\Icons\\Spell_Arcane_PrismaticCloak");
+ReducedCrits.Icon.setPath("Spell_Arcane_PrismaticCloak");
 
 export let NecromancerMob01 = std.CreatureTemplates.create(MODNAME,'necromob01',24207) //55% for Shield
 NecromancerMob01.Name.enGB.set('Risen Bulwark')
@@ -441,7 +441,7 @@ NecromancerSumm.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
 NecromancerSumm.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 NecromancerSumm.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 NecromancerSumm.Proc.TriggerMask.DONE_PERIODIC.set(1);
-NecromancerSumm.Icon.setFullPath("Interface\\Icons\\achievement_boss_scourgelordtyrannus");
+NecromancerSumm.Icon.setPath("achievement_boss_scourgelordtyrannus");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
