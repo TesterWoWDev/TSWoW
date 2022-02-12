@@ -107,7 +107,7 @@ IncreasedAttackpower1.Duration.set(21);
 IncreasedAttackpower1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedAttackpower1.AuraInterruptFlags.set(0x0080000);
 IncreasedAttackpower1.Stacks.set(99);
-IncreasedAttackpower1.Icon.setPath("Ability_Druid_ChallengingRoar");
+IncreasedAttackpower1.Icon.setPath("Ability_Druid_ChallangingRoar");
 
 export let IncreasedStamina1 = std.Spells.create(MODNAME,"increasedstamina1-spell",34747);
 IncreasedStamina1.Name.enGB.set("Hearty");
@@ -298,6 +298,9 @@ ChanceForMana.Duration.set(21);
 ChanceForMana.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChanceForMana.AuraInterruptFlags.set(0x0080000);
 ChanceForMana.Stacks.set(99);
+ChanceForMana.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+ChanceForMana.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+ChanceForMana.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
 ChanceForMana.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForMana.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForMana.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
@@ -319,6 +322,9 @@ ChanceForHealth.Duration.set(21);
 ChanceForHealth.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChanceForHealth.AuraInterruptFlags.set(0x0080000);
 ChanceForHealth.Stacks.set(99);
+ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+ChanceForHealth.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+ChanceForHealth.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
 ChanceForHealth.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForHealth.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
@@ -344,6 +350,9 @@ ChanceRoarSpell.Duration.set(21);
 ChanceRoarSpell.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChanceRoarSpell.AuraInterruptFlags.set(0x0080000);
 ChanceRoarSpell.Stacks.set(99);
+ChanceRoarSpell.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+ChanceRoarSpell.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+ChanceRoarSpell.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
 ChanceRoarSpell.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceRoarSpell.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceRoarSpell.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
@@ -374,6 +383,7 @@ MovementSpeed.AuraDescription.enGB.set("Increases the caster's movement speed by
 MovementSpeed.Effects.get(0).BasePoints.set(2);
 MovementSpeed.Effects.get(0).DieSides.set(1);
 MovementSpeed.Duration.set(21);
+MovementSpeed.Cooldown.set(0);
 MovementSpeed.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 MovementSpeed.AuraInterruptFlags.set(0x0080000);
 MovementSpeed.Stacks.set(99);
@@ -408,11 +418,11 @@ NecromancerMob03.Level.set(20,20)
 NecromancerMob03.Models.clearAll()
 NecromancerMob03.Models.addIds(26085)
 export let NecromancerSummonSpell01 = std.Spells.create(MODNAME, "necromancerspell01-spell", 42651);                                                            //Summon Mob Type 01
-NecromancerSummonSpell01.Effects.get(1).MiscValueA.set(24207);
+NecromancerSummonSpell01.Effects.get(1).MiscValueA.set(NecromancerMob01.ID);
 export let NecromancerSummonSpell02 = std.Spells.create(MODNAME, "necromancerspell02-spell", 42651);                                                            //Summon Mob Type 01
-NecromancerSummonSpell02.Effects.get(1).MiscValueA.set(24207);
+NecromancerSummonSpell02.Effects.get(1).MiscValueA.set(NecromancerMob02.ID);
 export let NecromancerSummonSpell03 = std.Spells.create(MODNAME, "necromancerspell03-spell", 42651);                                                            //Summon Mob Type 01
-NecromancerSummonSpell03.Effects.get(1).MiscValueA.set(24207);
+NecromancerSummonSpell03.Effects.get(1).MiscValueA.set(NecromancerMob03.ID);
 export let NecromancerSumm = std.Spells.create(MODNAME, "necromancersumm-spell", 55381);                                                                        //Spells have a 5% chance to summon a random mob
 NecromancerSumm.Name.enGB.set("Animator");
 NecromancerSumm.Description.enGB.set("Attacks and spells have a chance to summon a random weapon to tank, heal, or dps for you.");
@@ -437,6 +447,9 @@ NecromancerSumm.Duration.set(21);
 NecromancerSumm.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 NecromancerSumm.AuraInterruptFlags.set(0x0080000);
 NecromancerSumm.Stacks.set(99);
+NecromancerSumm.Proc.TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(1);
+NecromancerSumm.Proc.TriggerMask.DONE_RANGED_AUTO_ATTACK.set(1);
+NecromancerSumm.Proc.TriggerMask.DONE_MELEE_AUTO_ATTACK.set(1);
 NecromancerSumm.Proc.TriggerMask.DONE_SPELL_NONE_DAMAGE_CLASS_NEGATIVE.set(1);
 NecromancerSumm.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 NecromancerSumm.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
@@ -537,11 +550,14 @@ Endurance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Endurance.AuraInterruptFlags.set(0x0080000);
 Endurance.Stacks.set(99);
 
-export let Pierced = std.Spells.create(MODNAME, "pierced-spell", 63468);                                                                                    //Bleed chances
+export let Pierced = std.Spells.create(MODNAME, "pierced-spell", 53234);                                                                                    //Bleed chances
 Pierced.Name.enGB.set("Plated Ammo");
 Pierced.Description.enGB.set("Your critical Aimed, Steady and Chimera Shots cause the target to bleed.");
 Pierced.AuraDescription.enGB.set("Your critical Aimed, Steady and Chimera Shots cause the target to bleed.");
+Pierced.Effects.get(0).BasePoints.set(29);
+Pierced.Effects.get(0).DieSides.set(1);
 Pierced.Duration.set(21);
+Pierced.Effects.get(0).ClassMask.A.set(0x00020000)
 Pierced.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Pierced.AuraInterruptFlags.set(0x0080000);
 Pierced.Stacks.set(99);
