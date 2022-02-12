@@ -383,6 +383,7 @@ MovementSpeed.AuraDescription.enGB.set("Increases the caster's movement speed by
 MovementSpeed.Effects.get(0).BasePoints.set(2);
 MovementSpeed.Effects.get(0).DieSides.set(1);
 MovementSpeed.Duration.set(21);
+MovementSpeed.Cooldown.set(0);
 MovementSpeed.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 MovementSpeed.AuraInterruptFlags.set(0x0080000);
 MovementSpeed.Stacks.set(99);
@@ -549,11 +550,14 @@ Endurance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Endurance.AuraInterruptFlags.set(0x0080000);
 Endurance.Stacks.set(99);
 
-export let Pierced = std.Spells.create(MODNAME, "pierced-spell", 63468);                                                                                    //Bleed chances
+export let Pierced = std.Spells.create(MODNAME, "pierced-spell", 53234);                                                                                    //Bleed chances
 Pierced.Name.enGB.set("Plated Ammo");
 Pierced.Description.enGB.set("Your critical Aimed, Steady and Chimera Shots cause the target to bleed.");
 Pierced.AuraDescription.enGB.set("Your critical Aimed, Steady and Chimera Shots cause the target to bleed.");
+Pierced.Effects.get(0).BasePoints.set(29);
+Pierced.Effects.get(0).DieSides.set(1);
 Pierced.Duration.set(21);
+Pierced.Effects.get(0).ClassMask.A.set(0x00020000)
 Pierced.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Pierced.AuraInterruptFlags.set(0x0080000);
 Pierced.Stacks.set(99);
