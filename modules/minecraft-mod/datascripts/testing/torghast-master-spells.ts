@@ -308,8 +308,8 @@ ChanceForManaValue.Effects.get(0).BasePoints.set(1350);
 ChanceForManaValue.Effects.get(0).DieSides.set(350);
 export let ChanceForMana02 = std.Spells.create(MODNAME, "chanceformana02-spell", 55381);                                                                            //Spells have a 5% chance to restore flat mana (value above)
 ChanceForMana02.Name.enGB.set("Clarity");
-ChanceForMana02.Description.enGB.set("Your spells have a chance to restore 600 mana.");
-ChanceForMana02.AuraDescription.enGB.set("Spells and abilities have a chance to restore 600 mana.");
+ChanceForMana02.Description.enGB.set("Your spells have a chance to restore 1000-1700 mana.");
+ChanceForMana02.AuraDescription.enGB.set("Spells and abilities have a chance to restore 1000-1700 mana.");
 ChanceForMana02.Proc.Chance.set(5);
 ChanceForMana02.Effects.get(0).BasePoints.set(99);
 ChanceForMana02.Effects.get(0).DieSides.set(1);
@@ -638,6 +638,82 @@ ReducedRageCost.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReducedRageCost.AuraInterruptFlags.set(0x0080000);
 ReducedRageCost.Stacks.set(99);
 
+export let ImprovingCleave = std.Spells.create(MODNAME, "improvingcleave-spell", 20496);                                                                                    //Reduced rage cost by 3.
+ImprovingCleave.Name.enGB.set("Heavy Strikes");
+ImprovingCleave.Description.enGB.set("Increases the damage dealt by cleave by $s1%.");
+ImprovingCleave.AuraDescription.enGB.set("Increases the damage dealt by cleave by $s1%.");
+ImprovingCleave.Effects.get(0).BasePoints.set(99);
+ImprovingCleave.Effects.get(0).DieSides.set(1);
+ImprovingCleave.Duration.set(21);
+ImprovingCleave.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ImprovingCleave.AuraInterruptFlags.set(0x0080000);
+ImprovingCleave.Stacks.set(99);
+
+export let ThunderingClapValue = std.Spells.create(MODNAME, "thunderingclapvalue-spell", 6535);                                                              //600 health chance
+ThunderingClapValue.Effects.get(0).BasePoints.set(559);
+ThunderingClapValue.Effects.get(0).DieSides.set(112);
+ThunderingClapValue.Effects.get(1).BasePoints.set(359);
+ThunderingClapValue.Effects.get(1).DieSides.set(112);
+export let ThunderingClap = std.Spells.create(MODNAME, "thunderingclap-spell", 50685);                                                                        //Spells have a 5% chance to restore flat health (value above)
+ThunderingClap.Name.enGB.set("Ancient Fury");
+ThunderingClap.Description.enGB.set("Casting thunder clap now calls down a strike from the heavens, consecrating the area in lightning for 15 seconds.");
+ThunderingClap.AuraDescription.enGB.set("Casting thunder clap now calls down a strike from the heavens, consecrating the area in lightning for 15 seconds.");
+ThunderingClap.Effects.get(0).Type.NULL.set();
+ThunderingClap.Effects.get(1).ClassMask.A.set(0x00000080)
+ThunderingClap.Effects.get(1).Type.APPLY_AURA.set();
+ThunderingClap.Effects.get(1).Aura.PERIODIC_TRIGGER_SPELL.set();
+ThunderingClap.Effects.get(1).BasePoints.set(99);
+ThunderingClap.Effects.get(1).DieSides.set(1);
+ThunderingClap.Effects.get(1).TriggerSpell.set(ThunderingClapValue.ID);
+ThunderingClap.Duration.set(21);
+ThunderingClap.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ThunderingClap.AuraInterruptFlags.set(0x0080000);
+ThunderingClap.Icon.setPath("Spell_Shaman_AncestralAwakening");
+
+export let Warbringer = std.Spells.create(MODNAME, "warbringer-spell", 57499);    
+Warbringer.Description.enGB.set("Your Charge, Intercept and Intervene abilities are now usable while in combat and in any stance.");
+Warbringer.AuraDescription.enGB.set("Your Charge, Intercept and Intervene abilities are now usable while in combat and in any stance. ");
+   
+export let TerribleTrio = std.Spells.create(MODNAME, "terribletrio-spell", 12658);                                                                            //Increased rend damage
+TerribleTrio.Name.enGB.set("Trio of Terror");
+TerribleTrio.Description.enGB.set("Increases damage of rend, thunder clap and heroic strike by $s1%.");
+TerribleTrio.AuraDescription.enGB.set("Increases damage of rend, thunder clap and heroic strike by $s1%.");
+TerribleTrio.Effects.get(0).BasePoints.set(99);
+TerribleTrio.Effects.get(0).DieSides.set(1);
+TerribleTrio.Effects.get(0).ClassMask.A.set(0x00000140);
+TerribleTrio.Duration.set(21);
+TerribleTrio.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+TerribleTrio.AuraInterruptFlags.set(0x0080000);
+TerribleTrio.Stacks.set(99);
+
+export let BlazingSpeedmovement = std.Spells.create(MODNAME, "blazingspeedmovement-spell", 48594);                                                                            //2% movement speed.
+BlazingSpeedmovement.Name.enGB.set("Impending Speed");
+BlazingSpeedmovement.Description.enGB.set("Increases the caster's movement speed by $s1%");
+BlazingSpeedmovement.AuraDescription.enGB.set("Increases the caster's movement speed by $s1%");
+BlazingSpeedmovement.Effects.get(0).BasePoints.set(0);
+BlazingSpeedmovement.Effects.get(0).DieSides.set(1);
+BlazingSpeedmovement.Duration.set(21);
+BlazingSpeedmovement.Cooldown.set(0);
+BlazingSpeedmovement.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+BlazingSpeedmovement.AuraInterruptFlags.set(0x0080000);
+BlazingSpeedmovement.Stacks.set(75);
+BlazingSpeedmovement.Icon.setPath("Ability_Mage_FieryPayback");
+export let BlazingSpeed = std.Spells.create(MODNAME, "blazingspeed-spell", 12285);                                                                            //Increased rend damage
+BlazingSpeed.Name.enGB.set("Blazing Speed");
+BlazingSpeed.Description.enGB.set("Every time you cast charge, you increase your movement speed by 1%, stacking up to 75 times.");
+BlazingSpeed.AuraDescription.enGB.set("Every time you cast charge, you increase your movement speed by 1%, stacking up to 75 times.");
+BlazingSpeed.Effects.get(0).BasePoints.set(99);
+BlazingSpeed.Effects.get(0).DieSides.set(1);
+BlazingSpeed.Effects.get(0).ClassMask.A.set(0x00000001);
+BlazingSpeed.Effects.get(0).Aura.PROC_TRIGGER_SPELL.set();
+BlazingSpeed.Effects.get(0).TriggerSpell.set(BlazingSpeedmovement.ID);
+BlazingSpeed.Duration.set(21);
+BlazingSpeed.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+BlazingSpeed.AuraInterruptFlags.set(0x0080000);
+BlazingSpeed.Stacks.set(99);
+BlazingSpeed.Icon.setPath("Ability_Mage_FieryPayback");
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -669,6 +745,86 @@ Radiance.Duration.set(21);
 Radiance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Radiance.AuraInterruptFlags.set(0x0080000);
 Radiance.Stacks.set(99);
+
+export let SealofJustice = std.Spells.create(MODNAME, "sealofjustice-spell", 20164);                                                                                 //Additional Holy Damage
+SealofJustice.Name.enGB.set("Seal of Justice");
+SealofJustice.Description.enGB.set("Fills the Paladin with the spirit of justice for $20164d, giving each melee attack a chance to stun for $20170d.");
+SealofJustice.AuraDescription.enGB.set("Fills the Paladin with the spirit of justice for $20164d, giving each melee attack a chance to stun for $20170d.");
+SealofJustice.Duration.set(21);
+SealofJustice.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+SealofJustice.AuraInterruptFlags.set(0x0080000);
+SealofJustice.Stacks.set(1);
+
+export let SealofLight = std.Spells.create(MODNAME, "sealoflight-spell", 20165);                                                                                 //Additional Holy Damage
+SealofLight.Name.enGB.set("Seal of Light");
+SealofLight.Description.enGB.set("Fills the Paladin with divine light for $d, giving each melee attack a chance to heal the Paladin for ${0.15*$AP+0.15*$SPH}.");
+SealofLight.AuraDescription.enGB.set("Fills the Paladin with divine light for $d, giving each melee attack a chance to heal the Paladin for ${0.15*$AP+0.15*$SPH}.");
+SealofLight.Duration.set(21);
+SealofLight.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+SealofLight.AuraInterruptFlags.set(0x0080000);
+SealofLight.Stacks.set(1);
+
+export let SealofWisdom = std.Spells.create(MODNAME, "sealofwisdom-spell", 20166);                                                                                 //Additional Holy Damage
+SealofWisdom.Name.enGB.set("Seal of Wisdom");
+SealofWisdom.Description.enGB.set("Fills the Paladin with divine wisdom for $20166d, giving each melee attack a chance to restore $20168s1% of the paladin's maximum mana");
+SealofWisdom.AuraDescription.enGB.set("Fills the Paladin with divine wisdom for $20166d, giving each melee attack a chance to restore $20168s1% of the paladin's maximum mana");
+SealofWisdom.Duration.set(21);
+SealofWisdom.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+SealofWisdom.AuraInterruptFlags.set(0x0080000);
+SealofWisdom.Stacks.set(1);
+
+export let HolyPower = std.Spells.create(MODNAME, "holypower-spell", 20237);                                                                                 //Additional Holy Damage
+HolyPower.Name.enGB.set("Holy Power");
+HolyPower.Description.enGB.set("Increases the amount healed by your Holy Light, Flash of Light and Holy Shock spells by $s1%.");
+HolyPower.AuraDescription.enGB.set("Increases the amount healed by your Holy Light, Flash of Light and Holy Shock spells by $s1%.");
+HolyPower.Effects.get(0).BasePoints.set(49);
+HolyPower.Effects.get(0).DieSides.set(1);
+HolyPower.Duration.set(21);
+HolyPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+HolyPower.AuraInterruptFlags.set(0x0080000);
+HolyPower.Stacks.set(99);
+
+export let DivinePower = std.Spells.create(MODNAME, "divinepower-spell", 20237);                                                                                 //Additional Holy Damage
+DivinePower.Name.enGB.set("Divine Power");
+DivinePower.Description.enGB.set("Increases the damage of your Judgement by $s1%.");
+DivinePower.AuraDescription.enGB.set("Increases the damage of your Judgement by $s1%.");
+DivinePower.Effects.get(0).BasePoints.set(74);
+DivinePower.Effects.get(0).DieSides.set(1);
+DivinePower.Effects.get(0).ClassMask.A.set(0x00800000);
+DivinePower.Effects.get(0).ClassMask.B.set(0x00000000);
+DivinePower.Effects.get(0).ClassMask.C.set(0x00000008);
+DivinePower.Duration.set(21);
+DivinePower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+DivinePower.AuraInterruptFlags.set(0x0080000);
+DivinePower.Stacks.set(99);
+
+export let StormingPower = std.Spells.create(MODNAME, "stormingpower-spell", 20237);                                                                                 //Additional Holy Damage
+StormingPower.Name.enGB.set("Power of the Storm");
+StormingPower.Description.enGB.set("Increases the damage of your Divine Storm by $s1%.");
+StormingPower.AuraDescription.enGB.set("Increases the damage of your Divine Storm by $s1%.");
+StormingPower.Effects.get(0).BasePoints.set(74);
+StormingPower.Effects.get(0).DieSides.set(1);
+StormingPower.Effects.get(0).ClassMask.A.set(0x00000000);
+StormingPower.Effects.get(0).ClassMask.B.set(0x00020000);
+StormingPower.Effects.get(0).ClassMask.C.set(0x00000000);
+StormingPower.Duration.set(21);
+StormingPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+StormingPower.AuraInterruptFlags.set(0x0080000);
+StormingPower.Stacks.set(99);
+
+export let CrusaderMight = std.Spells.create(MODNAME, "crusadermight-spell", 20237);                                                                                 //Additional Holy Damage
+CrusaderMight.Name.enGB.set("Crusader\'s Vengeance");
+CrusaderMight.Description.enGB.set("Increases the damage of your Crusader Strike by $s1%.");
+CrusaderMight.AuraDescription.enGB.set("Increases the damage of your Crusader Strike by $s1%.");
+CrusaderMight.Effects.get(0).BasePoints.set(74);
+CrusaderMight.Effects.get(0).DieSides.set(1);
+CrusaderMight.Effects.get(0).ClassMask.A.set(0x00000000);
+CrusaderMight.Effects.get(0).ClassMask.B.set(0x00008000);
+CrusaderMight.Effects.get(0).ClassMask.C.set(0x00000000);
+CrusaderMight.Duration.set(21);
+CrusaderMight.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+CrusaderMight.AuraInterruptFlags.set(0x0080000);
+CrusaderMight.Stacks.set(99);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -858,17 +1014,44 @@ SinisterCauseBleedTest.Icon.setPath("Ability_Rogue_Rupture");
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start of Mage Class Spells
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
+export let PolymorphPower = std.Spells.create(MODNAME,"polymorphpower-spell",34747);
+PolymorphPower.Name.enGB.set("Call of the Herd Master");
+PolymorphPower.Description.enGB.set("Total Damage dealt increased by $s1%.");
+PolymorphPower.AuraDescription.enGB.set("Total Damage dealt increased by $s1%.");
+PolymorphPower.Effects.get(0).Aura.MOD_DAMAGE_PERCENT_DONE.set();
+PolymorphPower.Effects.get(0).BasePoints.set(49);
+PolymorphPower.Effects.get(0).DieSides.set(1);
+PolymorphPower.Effects.get(1).Aura.NONE.set();
+PolymorphPower.Effects.get(2).Aura.NONE.set();
+PolymorphPower.Duration.setSimple(10000)
+PolymorphPower.CastTime.setSimple(0);
+PolymorphPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+PolymorphPower.Icon.setPath("Ability_Seal");
+export let PolymorphBuff = std.Spells.create(MODNAME, "polymorphbuff-spell", 44301);                                                                    //50% increased sinister strike dmg
+PolymorphBuff.Name.enGB.set("Master Herder");
+PolymorphBuff.Description.enGB.set("Polymorph now grants you a buff that increases your damage by 50% for 10 seconds.");
+PolymorphBuff.AuraDescription.enGB.set("Polymorph now grants you a buff that increases your damage by 50% for 10 seconds.");
+PolymorphBuff.Effects.get(0).Type.APPLY_AURA.set();
+PolymorphBuff.Effects.get(0).BasePoints.set(99);
+PolymorphBuff.Effects.get(0).DieSides.set(1);
+PolymorphBuff.Effects.get(0).ImplicitTargetA.UNIT_CASTER.set();
+PolymorphBuff.Effects.get(0).Aura.PROC_TRIGGER_SPELL.set();
+PolymorphBuff.Effects.get(0).TriggerSpell.set(PolymorphPower.ID);
+PolymorphBuff.Effects.get(0).ClassMask.A.set(0x01000000);
+PolymorphBuff.Proc.Chance.set(10) 
+PolymorphBuff.Duration.set(21);
+PolymorphBuff.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+PolymorphBuff.AuraInterruptFlags.set(0x0000002);
+PolymorphBuff.Stacks.set(99);
+PolymorphBuff.Icon.setPath("Spell_Nature_Polymorph");
 
 
 

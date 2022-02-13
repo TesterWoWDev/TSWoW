@@ -44,7 +44,7 @@ const baseSpellDescriptions = [
     "All resistances increased by 10.",
     "Increases ranged attack speed by 25%. Does not stack.",
     "Increases spell crit chance by 10%.",
-    "Increases crit damage by 5%.",
+    "Increases crit damage by 10%.",
     "Teaches you Grapple. Grapple allows you to grapple to a nearby location.",
     "Allows you to regenrate 2% hp every 5 seconds.",
     "Allows you to retain 50% mana regen while casting.",
@@ -71,10 +71,21 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "warriorrendincrease-spell"), 1, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "ragegeneration-spell"), 2, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedragecost-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "improvingcleave-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "thunderingclap-spell"), 5, 1],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "warbringer-spell"), 4, 1],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "terribletrio-spell"), 5, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "blazingspeed-spell"), 5, 1],
     ],
     <TSArray<TSArray<uint32>>>[//paladin
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "judgementmodifier-spell"), 2, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "holydamage-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sealofjustice-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sealoflight-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sealofwisdom-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "divinepower-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "stormingpower-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "crusadermight-spell"), 2, 0],
     ],
     <TSArray<TSArray<uint32>>>[//hunter
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "endurance-spell"), 2, 0],
@@ -102,7 +113,7 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
     ],
     <TSArray<TSArray<uint32>>>[//mage
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "polymorphbuff-spell"), 5, 1],
     ],
     <TSArray<TSArray<uint32>>>[//warlock
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -120,11 +131,22 @@ const classSpellDescriptions = [
     "Increases the damage dealt by rend by 50%. Stacks.",
     "Increases Rage generated from attacks by 25%. Stacks.",
     "Reduces the rage cost of your offensive abilities by 3. Stacks.",
+    "Increases the damage dealt by your cleave by 100%.",
+    "Casting thunder clap now calls down a strike from the heavens, consecrating the area in lightning for 15 seconds.",
+    "Your Charge, Intercept and Intervene abilities are now usable while in combat and in any stance.",   
+    "Increases damage of rend, thunder clap and heroic strike by 100%.",
+    "Every time you cast charge, you increase your movement speed by 1%, stacking up to 75 times.",
     ],
     //paladin
     [
     "Increases the range of your Judgements by 10 yards. Stacks.",
     "All attacks against you have a 10% chance to cause half damage.",
+    "Fills the Paladin with the spirit of justice, giving each melee attack a chance to stun.",
+    "Fills the Paladin with divine light, giving each melee attack a chance to heal the Paladin.",
+    "Fills the Paladin with divine wisdom, giving each melee attack a chance to restore 2% of the paladin's maximum mana.",
+    "Increases the damage of your Judgement by 75%.",
+    "Increases the damage of your Divine Storm by 75%.",
+    "Increases the damage of your Crusader Strike by 75%.",
     ],
     //hunter
     [
@@ -158,7 +180,7 @@ const classSpellDescriptions = [
     ],
     //mage
     [
-    "Increases health by 2%",
+    "Casting Polymorph now applies Master of the Herd which increases all damage dealt by the caster by 50% for 10 seconds.",
     ],
     //lock
     [
