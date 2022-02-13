@@ -11,7 +11,7 @@ export function thorgast() {
         rankColors[1] + "Uncommon",
         rankColors[2] + "Rare",
         rankColors[3] + "Epic",
-        rankColors[3] + "Legendary",
+        rankColors[4] + "Legendary",
     ];
     let mframe = CreateFrame("Frame", "torghastChoices", UIParent);
     mframe.SetWidth(512);

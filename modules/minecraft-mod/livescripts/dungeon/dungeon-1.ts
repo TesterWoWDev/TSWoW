@@ -336,7 +336,7 @@ const vendorSpawnCoords: TSArray<TSDictionary<string, float>> = [
 
 const rewardCurrencyID: uint32 = GetID("item_template", "minecraft-mod", "torghast-end-currency")
 const insideCurrencyID: uint32 = GetID("item_template", "minecraft-mod", "torghast-inside-currency")
-const prestigeMult = 9//this is 1 lower than real value, due to dieSides. 9 is 10% hp+damage+haste per prestige
+const prestigeMult = 24//this is 1 lower than real value, due to dieSides. 9 is 10% hp+damage+haste per prestige
 
 export function dungeon1(events: TSEventHandlers) {
     for(let i=0;i<miniMobIDs.length;i++){
@@ -403,6 +403,7 @@ export function dungeon1(events: TSEventHandlers) {
             player.AddItem(rewardCurrencyID, rewCount)
         }
         player.RemoveItemByEntry(insideCurrencyID,999999)
+        player.RemoveItemByEntry(GetID("item_template","minecraft-mod","torghastchoice-item"),999999)
         player.SetUInt('prestige', 0)
         map.SetUInt('prestige', 0)
     })
