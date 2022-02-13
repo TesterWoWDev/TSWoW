@@ -734,6 +734,7 @@ JudgementRange.Duration.set(21);
 JudgementRange.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 JudgementRange.AuraInterruptFlags.set(0x0080000);
 JudgementRange.Stacks.set(99);
+JudgementRange.Icon.setPath("INV_Qiraj_JewelEncased");
 
 export let Radiance = std.Spells.create(MODNAME, "holydamage-spell", 31828);                                                                                 //Additional Holy Damage
 Radiance.Name.enGB.set("Radiance");
@@ -745,6 +746,7 @@ Radiance.Duration.set(21);
 Radiance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Radiance.AuraInterruptFlags.set(0x0080000);
 Radiance.Stacks.set(99);
+Radiance.Icon.setPath("Spell_Holy_BlessedResilience");
 
 export let SealofJustice = std.Spells.create(MODNAME, "sealofjustice-spell", 20164);                                                                                 //Additional Holy Damage
 SealofJustice.Name.enGB.set("Seal of Justice");
@@ -783,6 +785,7 @@ HolyPower.Duration.set(21);
 HolyPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 HolyPower.AuraInterruptFlags.set(0x0080000);
 HolyPower.Stacks.set(99);
+HolyPower.Icon.setPath("Spell_Holy_PureOfHeart");
 
 export let DivinePower = std.Spells.create(MODNAME, "divinepower-spell", 20237);                                                                                 //Additional Holy Damage
 DivinePower.Name.enGB.set("Divine Power");
@@ -797,6 +800,7 @@ DivinePower.Duration.set(21);
 DivinePower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 DivinePower.AuraInterruptFlags.set(0x0080000);
 DivinePower.Stacks.set(99);
+DivinePower.Icon.setPath("Spell_Holy_WeaponMastery");
 
 export let StormingPower = std.Spells.create(MODNAME, "stormingpower-spell", 20237);                                                                                 //Additional Holy Damage
 StormingPower.Name.enGB.set("Power of the Storm");
@@ -811,6 +815,7 @@ StormingPower.Duration.set(21);
 StormingPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 StormingPower.AuraInterruptFlags.set(0x0080000);
 StormingPower.Stacks.set(99);
+StormingPower.Icon.setPath("Spell_Holy_DivinePurpose");
 
 export let CrusaderMight = std.Spells.create(MODNAME, "crusadermight-spell", 20237);                                                                                 //Additional Holy Damage
 CrusaderMight.Name.enGB.set("Crusader\'s Vengeance");
@@ -825,6 +830,7 @@ CrusaderMight.Duration.set(21);
 CrusaderMight.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 CrusaderMight.AuraInterruptFlags.set(0x0080000);
 CrusaderMight.Stacks.set(99);
+CrusaderMight.Icon.setPath("Spell_Holy_Retribution");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -833,6 +839,92 @@ CrusaderMight.Stacks.set(99);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export let ArcaneInsurgence = std.Spells.create(MODNAME, "arcaneinsurgence-spell", 19456);                                                                                 //Additional Holy Damage
+ArcaneInsurgence.Name.enGB.set("Arcane Insurgence");
+ArcaneInsurgence.Description.enGB.set("Arcane Shot now applies a stacking damage buff on the enemy, while simultaneously buffing the caster.");
+ArcaneInsurgence.AuraDescription.enGB.set("Arcane Shot now applies a stacking damage buff on the enemy, while simultaneously buffing the caster.");
+ArcaneInsurgence.Effects.get(0).BasePoints.set(0);                                      //1% increased damage on cast
+ArcaneInsurgence.Effects.get(0).DieSides.set(1);
+ArcaneInsurgence.Effects.get(0).Aura.MOD_DAMAGE_PERCENT_DONE.set();
+ArcaneInsurgence.Effects.get(0).ImplicitTargetA.UNIT_CASTER.set();
+ArcaneInsurgence.Effects.get(1).Type.APPLY_AURA.set();
+ArcaneInsurgence.Effects.get(1).BasePoints.set(39);                                     //40 damage every 3 seconds
+ArcaneInsurgence.Effects.get(1).DieSides.set(1);
+ArcaneInsurgence.Effects.get(1).ImplicitTargetA.UNIT_TARGET_ENEMY.set();
+ArcaneInsurgence.Effects.get(1).Aura.PERIODIC_DAMAGE.set();
+ArcaneInsurgence.Effects.get(1).ChainAmplitude.set(3000);
+ArcaneInsurgence.Effects.get(0).ClassMask.A.set(0x00000800);
+ArcaneInsurgence.Effects.get(1).ClassMask.A.set(0x00000800);
+ArcaneInsurgence.Duration.set(21);
+ArcaneInsurgence.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ArcaneInsurgence.AuraInterruptFlags.set(0x0080000);
+ArcaneInsurgence.Stacks.set(99);
+ArcaneInsurgence.Icon.setPath("Ability_Hunter_Misdirection");
+
+export let ArcanePotency = std.Spells.create(MODNAME, "arcanepotency-spell", 19456);                                                                                 //Additional Holy Damage
+ArcanePotency.Name.enGB.set("Arcane Potency");
+ArcanePotency.Description.enGB.set("Increases the damage of your Arcane Shot by $s1%.");
+ArcanePotency.AuraDescription.enGB.set("Increases the damage of your Arcane Shot by $s1%.");
+ArcanePotency.Effects.get(0).BasePoints.set(49);
+ArcanePotency.Effects.get(0).DieSides.set(1);
+ArcanePotency.Effects.get(0).ClassMask.A.set(0x00000800);
+ArcanePotency.Duration.set(21);
+ArcanePotency.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ArcanePotency.AuraInterruptFlags.set(0x0080000);
+ArcanePotency.Stacks.set(99);
+ArcanePotency.Icon.setPath("Spell_Arcane_StarFire");
+
+export let Dynamite = std.Spells.create(MODNAME, "arcanepotency-spell", 56337);                                                                                 //Additional Holy Damage
+Dynamite.Name.enGB.set("Pyrotechnic");
+Dynamite.Description.enGB.set("Increases the damage done by your Explosive Shot, Explosive Trap and Immolation Trap by $s2%.");
+Dynamite.AuraDescription.enGB.set("Increases the damage done by your Explosive Shot, Explosive Trap and Immolation Trap by $s2%.");
+Dynamite.Effects.get(1).BasePoints.set(49);
+Dynamite.Effects.get(1).DieSides.set(1);
+Dynamite.Duration.set(21);
+Dynamite.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Dynamite.AuraInterruptFlags.set(0x0080000);
+Dynamite.Stacks.set(99);
+Dynamite.Icon.setPath("INV_Misc_Bomb_07");
+
+export let VolleyBuff = std.Spells.create(MODNAME, "volleybuff-spell", 19456);                                                                                 //Additional Holy Damage
+VolleyBuff.Name.enGB.set("Plenty of Arrows");
+VolleyBuff.Description.enGB.set("Increases the damage of your Volley by $s1%.");
+VolleyBuff.AuraDescription.enGB.set("Increases the damage of your Volley by $s1%.");
+VolleyBuff.Effects.get(0).BasePoints.set(49);
+VolleyBuff.Effects.get(0).DieSides.set(1);
+VolleyBuff.Effects.get(0).ClassMask.A.set(0x00002000);
+VolleyBuff.Duration.set(21);
+VolleyBuff.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+VolleyBuff.AuraInterruptFlags.set(0x0080000);
+VolleyBuff.Stacks.set(99);
+VolleyBuff.Icon.setPath("INV_Ammo_Bullet_03");
+
+export let AimedShotBuff = std.Spells.create(MODNAME, "aimedshotbuff-spell", 19456);                                                                                 //Additional Holy Damage
+AimedShotBuff.Name.enGB.set("Plenty of Arrows");
+AimedShotBuff.Description.enGB.set("Increases the damage of your Aimed Shot by $s1%.");
+AimedShotBuff.AuraDescription.enGB.set("Increases the damage of your Aimed Shot by $s1%.");
+AimedShotBuff.Effects.get(0).BasePoints.set(49);
+AimedShotBuff.Effects.get(0).DieSides.set(1);
+AimedShotBuff.Effects.get(0).ClassMask.A.set(0x00020000);
+AimedShotBuff.Duration.set(21);
+AimedShotBuff.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+AimedShotBuff.AuraInterruptFlags.set(0x0080000);
+AimedShotBuff.Stacks.set(99);
+AimedShotBuff.Icon.setPath("INV_Ammo_Bullet_03");
+
+export let PunishingBlows = std.Spells.create(MODNAME, "punishingblows-spell", 19456);                                                                                 //Additional Holy Damage
+PunishingBlows.Name.enGB.set("Punishing Blows");
+PunishingBlows.Description.enGB.set("Increases the damage of your Mongoose Bite and Raptor Strike by $s1%.");
+PunishingBlows.AuraDescription.enGB.set("Increases the damage of your Mongoose Bite and Raptor Strike by $s1%.");
+PunishingBlows.Effects.get(0).BasePoints.set(149);
+PunishingBlows.Effects.get(0).DieSides.set(1);
+PunishingBlows.Effects.get(0).ClassMask.A.set(0x00000002);
+PunishingBlows.Duration.set(21);
+PunishingBlows.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+PunishingBlows.AuraInterruptFlags.set(0x0080000);
+PunishingBlows.Stacks.set(99);
+PunishingBlows.Icon.setPath("Ability_Warrior_PunishingBlow");
 
 export let Endurance = std.Spells.create(MODNAME, "endurance-spell", 19587);                                                                                //Increased health modifier
 Endurance.Name.enGB.set("Bestial Instincts");
@@ -846,6 +938,7 @@ Endurance.Duration.set(21);
 Endurance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Endurance.AuraInterruptFlags.set(0x0080000);
 Endurance.Stacks.set(99);
+Endurance.Icon.setPath("Ability_Druid_Swipe");
 
 export let Pierced = std.Spells.create(MODNAME, "pierced-spell", 53234);                                                                                    //Bleed chances
 Pierced.Name.enGB.set("Plated Ammo");

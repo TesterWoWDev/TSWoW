@@ -91,6 +91,11 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "endurance-spell"), 2, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "pierced-spell"), 1, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedaimshot-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "arcanepotency-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "volleybuff-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "aimedshotbuff-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "punishingblows-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "arcaneinsurgence-spell"), 5, 0],
     ],
     <TSArray<TSArray<uint32>>>[//rogue
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "vigorous-spell"), 2, 0],
@@ -153,6 +158,12 @@ const classSpellDescriptions = [
     "Increases the health of your pet by 25% and your total health by 5%. Stacks.",
     "Your critical Aimed, Steady and Chimera Shots cause the target to bleed.",
     "Casting steady shot has a chance to grant various proc chances.",
+    "Increases the damage of your Arcane Shot by 50%.",
+    "Increases the damage of your Volley by 50%.",
+    "Increases the damage of your Aimed Shot by 50%.",
+    "Increases the damage of your Mongoose Bite and Raptor Strike by 150%.",
+    "Arcane Shot now applies a stacking 40 damage dot, while simultaneously increasing the casters damage by 1%.",
+    "Increases the damage done by your Explosive Shot, Explosive Trap and Immolation Trap by 50%.",
     ],
     //rogue
     [
