@@ -119,6 +119,10 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
     ],
     <TSArray<TSArray<uint32>>>[//mage
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "polymorphbuff-spell"), 5, 1],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "icepiercing-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "icelanceuberproc-spell"), 5, 1],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "arcticswirl-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "firepower-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//warlock
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -192,6 +196,10 @@ const classSpellDescriptions = [
     //mage
     [
     "Casting Polymorph now applies Master of the Herd which increases all damage dealt by the caster by 50% for 10 seconds.",
+    "Increases the damage of all of your frost spells by 50%.",
+    "Ice lance has a 5% chance to deal damage to all enemies within 80 yards. Dealing triple damage to frozen targets.",
+    "Increases the damage of cone of cold by 100%.",
+    "Increases the damage of all of your fire spells by 50%.",
     ],
     //lock
     [

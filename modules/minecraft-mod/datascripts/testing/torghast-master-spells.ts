@@ -1146,6 +1146,169 @@ PolymorphBuff.AuraInterruptFlags.set(0x0000002);
 PolymorphBuff.Stacks.set(99);
 PolymorphBuff.Icon.setPath("Spell_Nature_Polymorph");
 
+export let IcePiercing = std.Spells.create(MODNAME, "icepiercing-spell", 12953);                                                                                    //Bleed chances
+IcePiercing.Name.enGB.set("Hypothermia");
+IcePiercing.Description.enGB.set("Increases the damage of all of your frost spells by $s1%.");
+IcePiercing.AuraDescription.enGB.set("Increases the damage of all of your frost spells by $s1%.");
+IcePiercing.Effects.get(0).BasePoints.set(49);
+IcePiercing.Effects.get(0).DieSides.set(1);
+IcePiercing.Duration.set(21);
+IcePiercing.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+IcePiercing.AuraInterruptFlags.set(0x0080000);
+IcePiercing.Stacks.set(99);
+
+export let IceLanceUber = std.Spells.create(MODNAME,"icelanceuber-spell",70464);
+IceLanceUber.Name.enGB.set("Uber Frost Lance");
+IceLanceUber.Description.enGB.set("Deals $s1 damage to all enemies within 80 yards. Deals triple damage to frozen targets.");
+IceLanceUber.AuraDescription.enGB.set("Deals $s1 damage to all enemies within 80 yards. Deals triple damage to frozen targets.");
+export let IceLanceUberProc = std.Spells.create(MODNAME, "icelanceuberproc-spell", 12953);                                                                                    //Bleed chances
+IceLanceUberProc.Name.enGB.set("Frostlord\'s Fury");
+IceLanceUberProc.Description.enGB.set("Ice lance has a 5% chance to deal damage to all enemies within 80 yards. Dealing triple damage to frozen targets.");
+IceLanceUberProc.AuraDescription.enGB.set("Ice lance has a 5% chance to deal damage to all enemies within 80 yards. Dealing triple damage to frozen targets.");
+IceLanceUberProc.Effects.get(0).Type.APPLY_AURA.set();
+IceLanceUberProc.Effects.get(0).BasePoints.set(99);
+IceLanceUberProc.Effects.get(0).DieSides.set(1);
+IceLanceUberProc.Effects.get(0).ImplicitTargetA.UNIT_CASTER.set();
+IceLanceUberProc.Effects.get(0).Aura.PROC_TRIGGER_SPELL.set();
+IceLanceUberProc.Effects.get(0).TriggerSpell.set(IceLanceUber.ID);
+IceLanceUberProc.Effects.get(0).ClassMask.A.set(0x00020000);
+IceLanceUberProc.Proc.Chance.set(5);
+IceLanceUberProc.Duration.set(21);
+IceLanceUberProc.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+IceLanceUberProc.AuraInterruptFlags.set(0x0080000);
+IceLanceUberProc.Stacks.set(99);
+
+export let ArcticSwirl = std.Spells.create(MODNAME, "arcticswirl-spell", 12490);                                                                                    //Bleed chances
+ArcticSwirl.Name.enGB.set("Arctic Swirl");
+ArcticSwirl.Description.enGB.set("Increases the damage dealt by your Cone of Cold spell by $s1%.");
+ArcticSwirl.AuraDescription.enGB.set("Increases the damage dealt by your Cone of Cold spell by $s1%.");
+ArcticSwirl.Effects.get(0).BasePoints.set(99);
+ArcticSwirl.Effects.get(0).DieSides.set(1);
+ArcticSwirl.Duration.set(21);
+ArcticSwirl.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ArcticSwirl.AuraInterruptFlags.set(0x0080000);
+ArcticSwirl.Stacks.set(99);
+
+export let FirePower = std.Spells.create(MODNAME, "firepower-spell", 12400);                                                                                    //Bleed chances
+FirePower.Name.enGB.set("Proclivity for Pyrotechnics");
+FirePower.Description.enGB.set("Increases the damage of all of your fire spells by $s1%.");
+FirePower.AuraDescription.enGB.set("Increases the damage of all of your fire spells by $s1%.");
+FirePower.Effects.get(0).BasePoints.set(49);
+FirePower.Effects.get(0).DieSides.set(1);
+FirePower.Effects.get(1).BasePoints.set(49);
+FirePower.Effects.get(1).DieSides.set(1);
+FirePower.Duration.set(21);
+FirePower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+FirePower.AuraInterruptFlags.set(0x0080000);
+FirePower.Stacks.set(99);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
