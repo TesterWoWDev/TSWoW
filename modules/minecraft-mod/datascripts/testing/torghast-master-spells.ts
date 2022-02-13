@@ -1105,7 +1105,81 @@ SinisterCauseBleedTest.Icon.setPath("Ability_Rogue_Rupture");
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+export let RenewHeal = std.Spells.create(MODNAME, "renewheal-spell", 17191);                                                                                    //Bleed chances
+RenewHeal.Name.enGB.set("Renewal");
+RenewHeal.Description.enGB.set("Increases the healing power of your renew by $s1%.");
+RenewHeal.AuraDescription.enGB.set("Increases the healing power of your renew by $s1%.");
+RenewHeal.Effects.get(0).BasePoints.set(49);
+RenewHeal.Effects.get(0).DieSides.set(1);
+RenewHeal.Effects.get(0).ClassMask.A.set(0x00000040)
+RenewHeal.Duration.set(21);
+RenewHeal.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+RenewHeal.AuraInterruptFlags.set(0x0080000);
+RenewHeal.Stacks.set(99);
+RenewHeal.Icon.setPath("INV_Crystallized_Life");
 
+export let ShadowPower = std.Spells.create(MODNAME, "shadowpower-spell", 15317);                                                                                    //Bleed chances
+ShadowPower.Name.enGB.set("Demonic Influence");
+ShadowPower.Description.enGB.set("Increases the damage of shadow word pain by $s1%.");
+ShadowPower.AuraDescription.enGB.set("Increases the damage of shadow word pain by $s1%.");
+ShadowPower.Effects.get(0).BasePoints.set(74);
+ShadowPower.Effects.get(0).DieSides.set(1);
+ShadowPower.Effects.get(0).ClassMask.A.set(0x00008000)
+ShadowPower.Duration.set(21);
+ShadowPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ShadowPower.AuraInterruptFlags.set(0x0080000);
+ShadowPower.Stacks.set(99);
+ShadowPower.Icon.setPath("Spell_Shadow_PainAndSuffering");
+
+export let DevouringPower = std.Spells.create(MODNAME, "devouringpower-spell", 63627);                                                                                    //Bleed chances
+DevouringPower.Name.enGB.set("Consumption");
+DevouringPower.Description.enGB.set("Increases the periodic damage done by your Devouring Plague by $s1%.");
+DevouringPower.AuraDescription.enGB.set("Increases the periodic damage done by your Devouring Plague by $s1%.");
+DevouringPower.Effects.get(0).BasePoints.set(49);
+DevouringPower.Effects.get(0).DieSides.set(1);
+DevouringPower.Effects.get(0).ClassMask.A.set(0x02000000)
+DevouringPower.Effects.get(1).Type.NULL.set();
+DevouringPower.Duration.set(21);
+DevouringPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+DevouringPower.AuraInterruptFlags.set(0x0080000);
+DevouringPower.Stacks.set(99);
+DevouringPower.Icon.setPath("INV_Ore_Eternium");
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start of Shaman Class Spells
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export let Fulmination = std.Spells.create(MODNAME, "fulmination-spell", 16108);                                                                                    //Bleed chances
+Fulmination.Name.enGB.set("Fulmination");
+Fulmination.Description.enGB.set("Increases the damage done by your Lightning Bolt, Chain Lightning, Thunderstorm, Lava Burst and Shock spells by $s1%.");
+Fulmination.AuraDescription.enGB.set("Increases the damage done by your Lightning Bolt, Chain Lightning, Thunderstorm, Lava Burst and Shock spells by $s1%.");
+Fulmination.Effects.get(0).BasePoints.set(29);
+Fulmination.Effects.get(0).DieSides.set(1);
+Fulmination.Effects.get(1).BasePoints.set(29);
+Fulmination.Effects.get(1).DieSides.set(1);
+Fulmination.Duration.set(21);
+Fulmination.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Fulmination.AuraInterruptFlags.set(0x0080000);
+Fulmination.Stacks.set(99);
+Fulmination.Icon.setPath("Spell_Shaman_AncestralAwakening");
+
+export let ElementalCall = std.Spells.create(MODNAME, "elementalcall-spell", 29000);                                                                                    //Bleed chances
+ElementalCall.Name.enGB.set("Elemental Reach");
+ElementalCall.Description.enGB.set("Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by $s1 yards.");
+ElementalCall.AuraDescription.enGB.set("Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by $s1 yards.");
+ElementalCall.Effects.get(0).BasePoints.set(4);
+ElementalCall.Effects.get(0).DieSides.set(1);
+ElementalCall.Effects.get(1).Type.NULL.set();
+ElementalCall.Effects.get(2).Type.NULL.set();
+ElementalCall.Duration.set(21);
+ElementalCall.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ElementalCall.AuraInterruptFlags.set(0x0080000);
+ElementalCall.Stacks.set(99);
+ElementalCall.Icon.setPath("INV_Misc_Herb_Terrocone");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1156,6 +1230,7 @@ IcePiercing.Duration.set(21);
 IcePiercing.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IcePiercing.AuraInterruptFlags.set(0x0080000);
 IcePiercing.Stacks.set(99);
+IcePiercing.Icon.setPath("Spell_Shadow_DarkRitual");
 
 export let IceLanceUber = std.Spells.create(MODNAME,"icelanceuber-spell",70464);
 IceLanceUber.Name.enGB.set("Uber Frost Lance");
@@ -1177,6 +1252,7 @@ IceLanceUberProc.Duration.set(21);
 IceLanceUberProc.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IceLanceUberProc.AuraInterruptFlags.set(0x0080000);
 IceLanceUberProc.Stacks.set(99);
+IceLanceUberProc.Icon.setPath("Spell_Frost_IceStorm");
 
 export let ArcticSwirl = std.Spells.create(MODNAME, "arcticswirl-spell", 12490);                                                                                    //Bleed chances
 ArcticSwirl.Name.enGB.set("Arctic Swirl");
@@ -1188,6 +1264,7 @@ ArcticSwirl.Duration.set(21);
 ArcticSwirl.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ArcticSwirl.AuraInterruptFlags.set(0x0080000);
 ArcticSwirl.Stacks.set(99);
+ArcticSwirl.Icon.setPath("Spell_Frost_FrostShock");
 
 export let FirePower = std.Spells.create(MODNAME, "firepower-spell", 12400);                                                                                    //Bleed chances
 FirePower.Name.enGB.set("Proclivity for Pyrotechnics");
@@ -1201,10 +1278,49 @@ FirePower.Duration.set(21);
 FirePower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 FirePower.AuraInterruptFlags.set(0x0080000);
 FirePower.Stacks.set(99);
+FirePower.Icon.setPath("Spell_Frost_FireResistanceTotem");
 
+export let FrozenHaste = std.Spells.create(MODNAME, "frozenhaste-spell", 31683);                                                                                    //Bleed chances
+FrozenHaste.Name.enGB.set("Frozen Haste");
+FrozenHaste.Description.enGB.set("Decreases the cast time of your frostbolt by ${$m2/-1000}.1 sec.");
+FrozenHaste.AuraDescription.enGB.set("Decreases the cast time of your frostbolt by ${$m2/-1000}.1 sec.");
+FrozenHaste.Effects.get(0).Type.NULL.set();
+FrozenHaste.Effects.get(1).BasePoints.set(-251);
+FrozenHaste.Effects.get(1).DieSides.set(1);
+FrozenHaste.Effects.get(1).ClassMask.A.set(0x00000020)
+FrozenHaste.Duration.set(21);
+FrozenHaste.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+FrozenHaste.AuraInterruptFlags.set(0x0080000);
+FrozenHaste.Stacks.set(99);
+FrozenHaste.Icon.setPath("INV_DataCrystal09");
 
+export let PolyHaste = std.Spells.create(MODNAME, "polyhaste-spell", 31683);                                                                                    //Bleed chances
+PolyHaste.Name.enGB.set("Fluffy Quickness");
+PolyHaste.Description.enGB.set("Decreases the cast time of your polymorph by ${$m2/-1000}.1 sec.");
+PolyHaste.AuraDescription.enGB.set("Decreases the cast time of your polymorph by ${$m2/-1000}.1 sec.");
+PolyHaste.Effects.get(0).Type.NULL.set();
+PolyHaste.Effects.get(1).BasePoints.set(-251);
+PolyHaste.Effects.get(1).DieSides.set(1);
+PolyHaste.Effects.get(1).ClassMask.A.set(0x01000000)
+PolyHaste.Duration.set(21);
+PolyHaste.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+PolyHaste.AuraInterruptFlags.set(0x0080000);
+PolyHaste.Stacks.set(99);
+PolyHaste.Icon.setPath("Ability_Hunter_Displacement");
 
-
+export let PyroHaste = std.Spells.create(MODNAME, "pyrohaste-spell", 31683);                                                                                    //Bleed chances
+PyroHaste.Name.enGB.set("Combustion");
+PyroHaste.Description.enGB.set("Decreases the cast time of your pyroblast by ${$m2/-1000}.1 sec.");
+PyroHaste.AuraDescription.enGB.set("Decreases the cast time of your pyroblast by ${$m2/-1000}.1 sec.");
+PyroHaste.Effects.get(0).Type.NULL.set();
+PyroHaste.Effects.get(1).BasePoints.set(-251);
+PyroHaste.Effects.get(1).DieSides.set(1);
+PyroHaste.Effects.get(1).ClassMask.A.set(0x00400000)
+PyroHaste.Duration.set(21);
+PyroHaste.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+PyroHaste.AuraInterruptFlags.set(0x0080000);
+PyroHaste.Stacks.set(99);
+PyroHaste.Icon.setPath("Spell_Shaman_StormEarthFire");
 
 
 

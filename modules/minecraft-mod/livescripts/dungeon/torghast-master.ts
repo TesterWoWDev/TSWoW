@@ -109,13 +109,16 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sinistercausebleed-spell"), 5, 1],
     ],
     <TSArray<TSArray<uint32>>>[//priest
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "renewheal-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "shadowpower-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "devouringpower-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//dk
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
     ],
     <TSArray<TSArray<uint32>>>[//shaman
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "fulmination-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "elementalcall-spell"), 4, 0],
     ],
     <TSArray<TSArray<uint32>>>[//mage
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "polymorphbuff-spell"), 5, 1],
@@ -123,6 +126,9 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "icelanceuberproc-spell"), 5, 1],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "arcticswirl-spell"), 2, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "firepower-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "frozenhaste-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "polyhaste-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "pyrohaste-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//warlock
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -183,7 +189,9 @@ const classSpellDescriptions = [
     ],
     //priest
     [
-    "Increases health by 2%",
+    "Increases the healing power of your renew by 50%.",
+    "Increases the damage of shadow word pain by 75%.",
+    "Increases the damage of devouring plague by 50%.",
     ],
     //dk
     [
@@ -191,7 +199,8 @@ const classSpellDescriptions = [
     ],
     //sham
     [
-    "Increases health by 2%",
+    "Increases the damage done by your Lightning Bolt, Chain Lightning, Thunderstorm, Lava Burst and Shock spells by 30%",
+    "Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by 5 yards.",
     ],
     //mage
     [
@@ -200,6 +209,9 @@ const classSpellDescriptions = [
     "Ice lance has a 5% chance to deal damage to all enemies within 80 yards. Dealing triple damage to frozen targets.",
     "Increases the damage of cone of cold by 100%.",
     "Increases the damage of all of your fire spells by 50%.",
+    "Decreases the cast time of your frostbolt by 0.25 seconds.",
+    "Decreases the cast time of your polymorph by 0.25 seconds.",
+    "Decreases the cast time of your pyroblast by 0.25 seconds.",
     ],
     //lock
     [
