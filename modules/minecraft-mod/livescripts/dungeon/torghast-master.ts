@@ -129,6 +129,7 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "frozenhaste-spell"), 3, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "polyhaste-spell"), 3, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "pyrohaste-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "inferno-spell"), 5, 0],
     ],
     <TSArray<TSArray<uint32>>>[//warlock
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
@@ -212,6 +213,7 @@ const classSpellDescriptions = [
     "Decreases the cast time of your frostbolt by 0.25 seconds.",
     "Decreases the cast time of your polymorph by 0.25 seconds.",
     "Decreases the cast time of your pyroblast by 0.25 seconds.",
+    "Increases the damage and cast time of your flamestrike by 500%.",
     ],
     //lock
     [

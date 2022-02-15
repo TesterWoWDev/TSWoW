@@ -1322,8 +1322,24 @@ PyroHaste.AuraInterruptFlags.set(0x0080000);
 PyroHaste.Stacks.set(99);
 PyroHaste.Icon.setPath("Spell_Shaman_StormEarthFire");
 
-
-
+// Increases cast time of flamestrike by 500% but also increases damage by 500%?
+export let Inferno = std.Spells.create(MODNAME, "inferno-spell", 54741);                                                                                    //Bleed chances
+Inferno.Name.enGB.set("Infernal Heat");
+Inferno.Description.enGB.set("Increases the cast time of your flamestrike by $s1% and increases the damage by $s2%. (Developer Note : $s1, $s2, $s3)");
+Inferno.AuraDescription.enGB.set("Increases the cast time of your flamestrike by $s1% and increases the damage by $s2%. (Developer Note : $s1, $s2, $s3)");
+Inferno.Effects.get(0).BasePoints.set(499)  //testing speed modifier 500% increased cast time
+Inferno.Effects.get(1).BasePoints.set(649)  //testing cost modifier 650% increased cost
+Inferno.Effects.get(2).Type.APPLY_AURA.set();
+Inferno.Effects.get(2).BasePoints.set(499); //testing damage modifier   500% increased damage
+Inferno.Effects.get(2).DieSides.set(1);
+Inferno.Effects.get(2).Aura.ADD_PCT_MODIFIER.set();
+Inferno.Effects.get(2).MiscValueA.set(0)
+Inferno.Effects.get(2).ClassMask.A.set(0x00000004);
+Inferno.Duration.set(21);
+Inferno.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Inferno.AuraInterruptFlags.set(0x0080000);
+Inferno.Stacks.set(99);
+Inferno.Icon.setPath("Spell_Holy_Exorcism_02");
 
 
 
