@@ -1,4 +1,5 @@
 import { std } from "tswow-stdlib";
+import { SQL } from "wotlkdata/wotlkdata/sql/SQLFiles";
 import { MODNAME } from "../modname";
 import { torghastInsideCurrency, torghastOrb } from "./torghast-master-script-entities";
 
@@ -422,21 +423,24 @@ ReducedCrits.AuraInterruptFlags.set(0x0080000);
 ReducedCrits.Stacks.set(99);
 ReducedCrits.Icon.setPath("Spell_Arcane_PrismaticCloak");
 
-export let NecromancerMob01 = std.CreatureTemplates.create(MODNAME,'necromob01',24207) //55% for Shield
-NecromancerMob01.Name.enGB.set('Risen Bulwark')
-NecromancerMob01.Level.set(20,20)
-NecromancerMob01.Models.clearAll()
-NecromancerMob01.Models.addIds(26084)
-export let NecromancerMob02 = std.CreatureTemplates.create(MODNAME,'necromob02',24207) //45% for DPS
-NecromancerMob02.Name.enGB.set('Risen Blades')
-NecromancerMob02.Level.set(20,20)
-NecromancerMob02.Models.clearAll()
-NecromancerMob02.Models.addIds(26082)
-export let NecromancerMob03 = std.CreatureTemplates.create(MODNAME,'necromob03',24207) //65% for Healer
-NecromancerMob03.Name.enGB.set('Risen Staff')
-NecromancerMob03.Level.set(20,20)
-NecromancerMob03.Models.clearAll()
-NecromancerMob03.Models.addIds(26085)
+export let NecromancerMob01 = std.CreatureTemplates.create(MODNAME,'necromob01',24207); //55% for Shield
+NecromancerMob01.Name.enGB.set('Risen Bulwark');
+NecromancerMob01.Level.set(20,20);
+NecromancerMob01.Models.clearAll();
+NecromancerMob01.Models.addIds(26084);
+SQL.creature_equip_template.add(NecromancerMob01.ID, 1).ItemID1.set(30391);
+export let NecromancerMob02 = std.CreatureTemplates.create(MODNAME,'necromob02',24207); //45% for DPS
+NecromancerMob02.Name.enGB.set('Risen Blades');
+NecromancerMob02.Level.set(20,20);
+NecromancerMob02.Models.clearAll();
+NecromancerMob02.Models.addIds(26082);
+SQL.creature_equip_template.add(NecromancerMob02.ID, 1).ItemID1.set(30389).ItemID2.set(30389);
+export let NecromancerMob03 = std.CreatureTemplates.create(MODNAME,'necromob03',24207); //65% for Healer
+NecromancerMob03.Name.enGB.set('Risen Staff');
+NecromancerMob03.Level.set(20,20);
+NecromancerMob03.Models.clearAll();
+NecromancerMob03.Models.addIds(26085);
+SQL.creature_equip_template.add(NecromancerMob03.ID, 1).ItemID1.set(30392);
 export let NecromancerSummonSpell01 = std.Spells.create(MODNAME, "necromancerspell01-spell", 42651);                                                            //Summon Mob Type 01
 NecromancerSummonSpell01.Effects.get(1).MiscValueA.set(NecromancerMob01.ID);
 export let NecromancerSummonSpell02 = std.Spells.create(MODNAME, "necromancerspell02-spell", 42651);                                                            //Summon Mob Type 01
