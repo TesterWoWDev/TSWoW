@@ -96,6 +96,7 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "aimedshotbuff-spell"), 2, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "punishingblows-spell"), 2, 0],
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "arcaneinsurgence-spell"), 5, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "dynamite-spell"), 5, 0],
     ],
     <TSArray<TSArray<uint32>>>[//rogue
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "vigorous-spell"), 2, 0],

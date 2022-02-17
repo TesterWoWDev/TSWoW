@@ -879,7 +879,7 @@ ArcanePotency.AuraInterruptFlags.set(0x0080000);
 ArcanePotency.Stacks.set(99);
 ArcanePotency.Icon.setPath("Spell_Arcane_StarFire");
 
-export let Dynamite = std.Spells.create(MODNAME, "arcanepotency-spell", 56337);                                                                                 //Additional Holy Damage
+export let Dynamite = std.Spells.create(MODNAME, "dynamite-spell", 56337);                                                                                 //Additional Holy Damage
 Dynamite.Name.enGB.set("Pyrotechnic");
 Dynamite.Description.enGB.set("Increases the damage done by your Explosive Shot, Explosive Trap and Immolation Trap by $s2%.");
 Dynamite.AuraDescription.enGB.set("Increases the damage done by your Explosive Shot, Explosive Trap and Immolation Trap by $s2%.");
