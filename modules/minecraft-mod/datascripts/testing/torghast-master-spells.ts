@@ -1152,6 +1152,86 @@ DevouringPower.Icon.setPath("INV_Ore_Eternium");
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start of Deathknight Class Spells
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export let AncientTechniques = std.Spells.create(MODNAME, "ancienttechniques-spell", 50147);                                                                                    //50 runic power
+AncientTechniques.Name.enGB.set("Runic Mastery");
+AncientTechniques.Description.enGB.set("Increases your maximum Runic Power by ${$m1/10}.");
+AncientTechniques.AuraDescription.enGB.set("Increases your maximum Runic Power by ${$m1/10}.");
+AncientTechniques.Effects.get(0).BasePoints.set(499);
+AncientTechniques.Duration.set(21);
+AncientTechniques.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+AncientTechniques.AuraInterruptFlags.set(0x0080000);
+AncientTechniques.Stacks.set(99);
+AncientTechniques.Icon.setPath("Spell_Shadow_SealOfKings");
+
+export let UnholyPower = std.Spells.create(MODNAME, "unholypower-spell", 50147);                                                                                    //50 runic power
+UnholyPower.Name.enGB.set("Runic Mastery");
+UnholyPower.Description.enGB.set("Increases your critical strike damage bonus by your Plague Strike and Scourge Strike by $s1%.");
+UnholyPower.AuraDescription.enGB.set("Increases your critical strike damage bonus by your Plague Strike and Scourge Strike by $s1%.");
+UnholyPower.Effects.get(0).BasePoints.set(49);
+UnholyPower.Effects.get(1).Type.NULL.set();
+UnholyPower.Duration.set(21);
+UnholyPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+UnholyPower.AuraInterruptFlags.set(0x0080000);
+UnholyPower.Stacks.set(99);
+UnholyPower.Icon.setPath("Spell_Nature_MirrorImage");
+
+export let DeadliestCoil = std.Spells.create(MODNAME, "deadliestcoil-spell", 48963);                                                                                    //50 runic power
+DeadliestCoil.Name.enGB.set("Deadliest Coil");
+DeadliestCoil.Description.enGB.set("Increases the damage and healing of your death coil by $s1%.");
+DeadliestCoil.AuraDescription.enGB.set("Increases the damage and healing of your death coil by $s1%.");
+DeadliestCoil.Effects.get(0).BasePoints.set(149);
+DeadliestCoil.Effects.get(1).Type.NULL.set();
+DeadliestCoil.Duration.set(21);
+DeadliestCoil.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+DeadliestCoil.AuraInterruptFlags.set(0x0080000);
+DeadliestCoil.Stacks.set(99);
+DeadliestCoil.Icon.setPath("Ability_Creature_Disease_02");
+
+export let RapidDecay = std.Spells.create(MODNAME, "rapiddecay-spell", 48963);                                                                                    //50 runic power
+RapidDecay.Name.enGB.set("Rapid Decay");
+RapidDecay.Description.enGB.set("Decreases the cooldown of your death and decay by $s2 seconds.");
+RapidDecay.AuraDescription.enGB.set("Decreases the cooldown of your death and decay by $s2 seconds.");
+RapidDecay.Effects.get(1).BasePoints.set(-5001);
+RapidDecay.Effects.get(0).Type.NULL.set();
+RapidDecay.Duration.set(21);
+RapidDecay.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+RapidDecay.AuraInterruptFlags.set(0x0080000);
+RapidDecay.Stacks.set(99);
+RapidDecay.Icon.setPath("Spell_Shadow_UnstableAffliction_2");
+
+export let DeathlyDecay = std.Spells.create(MODNAME, "deathlydecay-spell", 48963);                                                                                    //50 runic power
+DeathlyDecay.Name.enGB.set("Deathly Decay");
+DeathlyDecay.Description.enGB.set("Increases the damage dealt by your death and decay ability by $s1%.");
+DeathlyDecay.AuraDescription.enGB.set("Increases the damage dealt by your death and decay ability by $s1%.");
+DeathlyDecay.Effects.get(0).BasePoints.set(49);
+DeathlyDecay.Effects.get(0).ClassMask.A.set(0x00000020)
+DeathlyDecay.Effects.get(1).Type.NULL.set();
+DeathlyDecay.Duration.set(21);
+DeathlyDecay.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+DeathlyDecay.AuraInterruptFlags.set(0x0080000);
+DeathlyDecay.Stacks.set(99);
+DeathlyDecay.Icon.setPath("Ability_Rogue_EnvelopingShadows");
+
+export let BloodierStrike = std.Spells.create(MODNAME, "bloodierstrike-spell", 62905);                                                                                    //50 runic power
+BloodierStrike.Name.enGB.set("Bloodier Strikes");
+BloodierStrike.Description.enGB.set("Increases the healing of your death strike by $s3%.");
+BloodierStrike.AuraDescription.enGB.set("Increases the healing of your death strike by $s3%.");
+BloodierStrike.Effects.get(0).Type.NULL.set();
+BloodierStrike.Effects.get(1).Type.NULL.set();
+BloodierStrike.Effects.get(2).BasePoints.set(49);
+BloodierStrike.Duration.set(21);
+BloodierStrike.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+BloodierStrike.AuraInterruptFlags.set(0x0080000);
+BloodierStrike.Stacks.set(99);
+BloodierStrike.Icon.setPath("Ability_Warrior_BloodBath");
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Start of Shaman Class Spells
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1326,7 +1406,6 @@ PyroHaste.AuraInterruptFlags.set(0x0080000);
 PyroHaste.Stacks.set(99);
 PyroHaste.Icon.setPath("Spell_Shaman_StormEarthFire");
 
-// Increases cast time of flamestrike by 500% but also increases damage by 500%?
 export let Inferno = std.Spells.create(MODNAME, "inferno-spell", 54741);                                                                                    //Bleed chances
 Inferno.Name.enGB.set("Infernal Heat");
 Inferno.Description.enGB.set("Increases the cast time of your flamestrike by $s1% and increases the damage by $s2%. (Developer Note : $s1, $s2, $s3)");
@@ -1345,9 +1424,147 @@ Inferno.AuraInterruptFlags.set(0x0080000);
 Inferno.Stacks.set(99);
 Inferno.Icon.setPath("Spell_Holy_Exorcism_02");
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start of Warlock Class Spells
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+export let EmpoweredCorruption = std.Spells.create(MODNAME, "empoweredcorruption-spell", 17810);                                                                                    //50 runic power
+EmpoweredCorruption.Name.enGB.set("Supreme Corruptor");
+EmpoweredCorruption.Description.enGB.set("Increases the damage of your corruption spell by $s1%.");
+EmpoweredCorruption.AuraDescription.enGB.set("Increases the damage of your corruption spell by $s1%.");
+EmpoweredCorruption.Effects.get(0).BasePoints.set(49);
+EmpoweredCorruption.Effects.get(1).Type.NULL.set();
+EmpoweredCorruption.Duration.set(21);
+EmpoweredCorruption.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+EmpoweredCorruption.AuraInterruptFlags.set(0x0080000);
+EmpoweredCorruption.Stacks.set(99);
+EmpoweredCorruption.Icon.setPath("Spell_Shadow_TwistedFaith");
 
+export let ChaoticReach01 = std.Spells.create(MODNAME, "chaoticreach01-spell", 18218);                                                                                    //50 runic power
+ChaoticReach01.Name.enGB.set("Shadowy Reach");
+ChaoticReach01.Description.enGB.set("Increases the range of your shadow bolt spell by $s1%.");
+ChaoticReach01.AuraDescription.enGB.set("Increases the range of your shadow bolt spell by $s1%.");
+ChaoticReach01.Effects.get(0).BasePoints.set(19);
+ChaoticReach01.Effects.get(0).ClassMask.A.set(0x00000001);
+ChaoticReach01.Effects.get(0).ClassMask.B.set(0x00000000);
+ChaoticReach01.Duration.set(21);
+ChaoticReach01.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ChaoticReach01.AuraInterruptFlags.set(0x0080000);
+ChaoticReach01.Stacks.set(99);
+ChaoticReach01.Icon.setPath("Ability_Warlock_EverlastingAffliction");
 
+export let ChaoticReach02 = std.Spells.create(MODNAME, "chaoticreach02-spell", 18218);                                                                                    //50 runic power
+ChaoticReach02.Name.enGB.set("Fiery Reach");
+ChaoticReach02.Description.enGB.set("Increases the range of your immolate spell by $s1%.");
+ChaoticReach02.AuraDescription.enGB.set("Increases the range of your immolate spell by $s1%.");
+ChaoticReach02.Effects.get(0).BasePoints.set(19);
+ChaoticReach02.Effects.get(0).ClassMask.A.set(0x00000004);
+ChaoticReach02.Effects.get(0).ClassMask.B.set(0x00000000);
+ChaoticReach02.Duration.set(21);
+ChaoticReach02.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ChaoticReach02.AuraInterruptFlags.set(0x0080000);
+ChaoticReach02.Stacks.set(99);
+ChaoticReach02.Icon.setPath("Ability_Mage_FieryPayback");
+
+export let EchoingShadows = std.Spells.create(MODNAME, "echoingshadows-spell", 47195);                                                                                    //50 runic power
+EchoingShadows.Name.enGB.set("Echoing Shadows");
+EchoingShadows.Description.enGB.set("Casting shadow bolt has a 25% chance to cast a second shadow bolt at the enemy causing 500 Damage.");
+EchoingShadows.AuraDescription.enGB.set("Casting shadow bolt has a 25% chance to cast a second shadow bolt at the enemy causing 500 Damage.");
+EchoingShadows.Proc.Chance.set(25);
+EchoingShadows.Effects.get(0).BasePoints.set(99);
+EchoingShadows.Effects.get(0).DieSides.set(1);
+EchoingShadows.Effects.get(0).TriggerSpell.set(11661);
+EchoingShadows.Effects.get(0).ClassMask.A.set(0x00000001);
+EchoingShadows.Effects.get(0).ClassMask.B.set(0x00000000);
+EchoingShadows.Duration.set(21);
+EchoingShadows.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+EchoingShadows.AuraInterruptFlags.set(0x0080000);
+EchoingShadows.Stacks.set(99);
+EchoingShadows.Icon.setPath("INV_Elemental_Mote_Shadow01");
+
+export let ImpMother = std.Spells.create(MODNAME, "impmother-spell", 47220);                                                                                    //50 runic power
+ImpMother.Name.enGB.set("Imp Mother");
+ImpMother.Description.enGB.set("Increases the damage of your pet\'s firebolt spell by $s1%.");
+ImpMother.AuraDescription.enGB.set("Increases the damage of your pet\'s firebolt spell by $s1%.");
+ImpMother.Effects.get(0).BasePoints.set(99);
+ImpMother.Effects.get(0).DieSides.set(1);
+ImpMother.Effects.get(1).Type.NULL.set();
+ImpMother.Effects.get(2).Type.NULL.set();
+ImpMother.Duration.set(21);
+ImpMother.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ImpMother.AuraInterruptFlags.set(0x0080000);
+ImpMother.Stacks.set(99);
+ImpMother.Icon.setPath("Spell_Shadow_ShadowandFlame");
+
+export let ImpOverLord = std.Spells.create(MODNAME, "impoverlord-spell", 47220);                                                                                    //50 runic power
+ImpOverLord.Name.enGB.set("Imp Overlord");
+ImpOverLord.Description.enGB.set("Increases the damage of your pet\'s firebolt spell by $s1%.");
+ImpOverLord.AuraDescription.enGB.set("Increases the damage of your pet\'s firebolt spell by $s1%.");
+ImpOverLord.Effects.get(0).BasePoints.set(999);
+ImpOverLord.Effects.get(0).DieSides.set(1);
+ImpOverLord.Effects.get(1).Type.NULL.set();
+ImpOverLord.Effects.get(2).Type.NULL.set();
+ImpOverLord.Duration.set(21);
+ImpOverLord.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+ImpOverLord.AuraInterruptFlags.set(0x0080000);
+ImpOverLord.Stacks.set(99);
+ImpOverLord.Icon.setPath("Ability_Warlock_EmpoweredImp");
+
+export let DemonicKnowledge = std.Spells.create(MODNAME, "demotactics-spell", 30248);                                                                                    //50 runic power
+DemonicKnowledge.Name.enGB.set("Demonic Knowledge");
+DemonicKnowledge.Description.enGB.set("Increases the critical strike chance of your pets by $s1%.");
+DemonicKnowledge.AuraDescription.enGB.set("Increases the critical strike chance of your pets by $s1%.");
+DemonicKnowledge.Effects.get(0).BasePoints.set(14);
+DemonicKnowledge.Effects.get(0).DieSides.set(1);
+DemonicKnowledge.Effects.get(1).BasePoints.set(14);
+DemonicKnowledge.Effects.get(1).DieSides.set(1);
+DemonicKnowledge.Effects.get(2).BasePoints.set(14);
+DemonicKnowledge.Effects.get(2).DieSides.set(1);
+DemonicKnowledge.Duration.set(21);
+DemonicKnowledge.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+DemonicKnowledge.AuraInterruptFlags.set(0x0080000);
+DemonicKnowledge.Stacks.set(99);
+DemonicKnowledge.Icon.setPath("Achievement_Boss_Archimonde");
+
+export let Emberstorm = std.Spells.create(MODNAME, "emberstorm-spell", 17958);                                                                                    //50 runic power
+Emberstorm.Name.enGB.set("Storm of Embers");
+Emberstorm.Description.enGB.set("Decreases the cast time of Incinerate by ${$m3/-1000}.2 sec.");
+Emberstorm.AuraDescription.enGB.set("Decreases the cast time of Incinerate by ${$m3/-1000}.2 sec.");
+Emberstorm.Effects.get(2).BasePoints.set(-301);
+Emberstorm.Effects.get(2).DieSides.set(1);
+Emberstorm.Effects.get(0).Type.NULL.set();
+Emberstorm.Effects.get(1).Type.NULL.set();
+Emberstorm.Duration.set(21);
+Emberstorm.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+Emberstorm.AuraInterruptFlags.set(0x0080000);
+Emberstorm.Stacks.set(99);
+Emberstorm.Icon.setPath("Ability_Warlock_FireandBrimstone");
+
+export let EverlastingFlames = std.Spells.create(MODNAME, "everlastingflame-spell", 17958);                                                                                    //50 runic power
+EverlastingFlames.Name.enGB.set("Everlasting Flames");
+EverlastingFlames.Description.enGB.set("Increases the periodic damage of your immolate spell by $s2%.");
+EverlastingFlames.AuraDescription.enGB.set("Increases the periodic damage of your immolate spell by $s2%.");
+EverlastingFlames.Effects.get(1).BasePoints.set(49);
+EverlastingFlames.Effects.get(1).DieSides.set(1);
+EverlastingFlames.Effects.get(0).Type.NULL.set();
+EverlastingFlames.Effects.get(2).Type.NULL.set();
+EverlastingFlames.Duration.set(21);
+EverlastingFlames.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
+EverlastingFlames.AuraInterruptFlags.set(0x0080000);
+EverlastingFlames.Stacks.set(99);
+EverlastingFlames.Icon.setPath("Ability_Warlock_FireandBrimstone");
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Start of Druid Class Spells
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

@@ -115,7 +115,12 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "devouringpower-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[//dk
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "ancienttechniques-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "unholypower-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "deadliestcoil-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rapiddecay-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "deathlydecay-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "bloodierstrike-spell"), 2, 0],
     ],
     <TSArray<TSArray<uint32>>>[//shaman
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "fulmination-spell"), 2, 0],
@@ -133,7 +138,15 @@ const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<
         <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "inferno-spell"), 5, 0],
     ],
     <TSArray<TSArray<uint32>>>[//warlock
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "empoweredcorruption-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chaoticreach01-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chaoticreach02-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "echoingshadows-spell"), 3, 1],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "impmother-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "impoverlord-spell"), 5, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "demotactics-spell"), 2, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "emberstorm-spell"), 3, 0],
+        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "everlastingflame-spell"), 3, 0],
     ],
     <TSArray<TSArray<uint32>>>[<TSArray<uint32>>[0]],//blank
     <TSArray<TSArray<uint32>>>[//druid
@@ -197,7 +210,12 @@ const classSpellDescriptions = [
     ],
     //dk
     [
-    "Increases health by 2%",
+    "Increases your maximum runic power by 50.",
+    "Increases your critical strike damage bonus by your Plague Strike and Scourge Strike by 50%",
+    "Increases the damage and healing of your death coil by 150%.",
+    "Decreases the cooldown of your death and decay by 5 seconds.",
+    "Increases the damage dealt by your death and decay ability by 50%.",
+    "Increases the healing of your death strike by 50%.",
     ],
     //sham
     [
@@ -218,7 +236,15 @@ const classSpellDescriptions = [
     ],
     //lock
     [
-    "Increases health by 2%",
+    "Increases the damage of your corruption spell by 50%.",
+    "Increases the range of your shadow bolt spell by 20%.",
+    "Increases the range of your immolation spell by 20%.",
+    "Casting shadow bolt has a 25% chance to cast a second shadow bolt at the enemy causing 500 Damage.",
+    "Increases the damage of your pets firebolt spell by 100%.",
+    "Increases the damage of your pets firebolt spell by 1000%.",
+    "Increases the critical strike chance of your pets by 15%.",
+    "Decreases the cast time of your incinerate ability by 0.3 seconds.",
+    "Increases the periodic damage of your immolate spell by 50%.",
     ],
     //blank
     ["10blank"],
