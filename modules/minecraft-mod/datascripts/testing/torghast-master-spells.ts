@@ -1544,7 +1544,7 @@ Emberstorm.AuraInterruptFlags.set(0x0080000);
 Emberstorm.Stacks.set(99);
 Emberstorm.Icon.setPath("Ability_Warlock_FireandBrimstone");
 
-export let EverlastingFlames = std.Spells.create(MODNAME, "everlastingflame-spell", 17958);                                                                                    //50 runic power
+export let EverlastingFlames = std.Spells.create(MODNAME, "everlastingflame-spell", 18120);                                                                                    //50 runic power
 EverlastingFlames.Name.enGB.set("Everlasting Flames");
 EverlastingFlames.Description.enGB.set("Increases the periodic damage of your immolate spell by $s2%.");
 EverlastingFlames.AuraDescription.enGB.set("Increases the periodic damage of your immolate spell by $s2%.");
