@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../modname";
 
 // Stuns
@@ -172,8 +172,8 @@ chanceHeal1.AuraDescription.enGB.set("Heals the caster for 100.");
 chanceHeal1.CastTime.modRefCopy((val) => {
     val.set(-100000, 0, -100000);
 });
-chanceHeal1.Effects.get(0).BasePoints.set(99);
-chanceHeal1.Effects.get(0).DieSides.set(1);
+chanceHeal1.Effects.get(0).PointsBase.set(99);
+chanceHeal1.Effects.get(0).PointsDieSides.set(1);
 chanceHeal1.Effects.get(0).ImplicitTargetA.DEST_CASTER.set();
 export let chanceHeal1M = std.Spells.create(
     MODNAME,
@@ -204,8 +204,8 @@ chanceHeal1C.Effects.get(0).TriggerSpell.set(2054); //(chanceHeal1.ID)
 export let chanceHeal1 = std.Spells.create(MODNAME,'chanceHeal1-spell',2054)
 chanceHeal1.Name.enGB.set('Revitalized')
 chanceHeal1.Description.enGB.set('Heals the caster for 100.')
-chanceHeal1.Effects.get(0).BasePoints.set(99)
-chanceHeal1.Effects.get(0).DieSides.set(1)
+chanceHeal1.Effects.get(0).PointsBase.set(99)
+chanceHeal1.Effects.get(0).PointsDieSides.set(1)
 chanceHeal1.Proc.TypeMask.set(0xFFFFC)
 chanceHeal1.Proc.Chance.set(100)
 */
@@ -213,24 +213,24 @@ chanceHeal1.Proc.Chance.set(100)
 export let chanceHeal2 = std.Spells.create(MODNAME, "chanceHeal2-spell", 2054);
 chanceHeal2.Name.enGB.set("Revitalized");
 chanceHeal2.Description.enGB.set("Heals the caster for 250.");
-chanceHeal2.Effects.get(0).BasePoints.set(249);
-chanceHeal2.Effects.get(0).DieSides.set(1);
+chanceHeal2.Effects.get(0).PointsBase.set(249);
+chanceHeal2.Effects.get(0).PointsDieSides.set(1);
 chanceHeal2.Proc.TypeMask.set(0xffffc);
 chanceHeal2.Proc.Chance.set(100);
 
 export let chanceHeal3 = std.Spells.create(MODNAME, "chanceHeal3-spell", 2054);
 chanceHeal3.Name.enGB.set("Revitalized");
 chanceHeal3.Description.enGB.set("Heals the caster for 450.");
-chanceHeal3.Effects.get(0).BasePoints.set(449);
-chanceHeal3.Effects.get(0).DieSides.set(1);
+chanceHeal3.Effects.get(0).PointsBase.set(449);
+chanceHeal3.Effects.get(0).PointsDieSides.set(1);
 chanceHeal3.Proc.TypeMask.set(0xffffc);
 chanceHeal3.Proc.Chance.set(100);
 
 export let chanceHeal4 = std.Spells.create(MODNAME, "chanceHeal4-spell", 2054);
 chanceHeal4.Name.enGB.set("Revitalized");
 chanceHeal4.Description.enGB.set("Heals the caster for 680.");
-chanceHeal4.Effects.get(0).BasePoints.set(679);
-chanceHeal4.Effects.get(0).DieSides.set(1);
+chanceHeal4.Effects.get(0).PointsBase.set(679);
+chanceHeal4.Effects.get(0).PointsDieSides.set(1);
 chanceHeal4.Proc.TypeMask.set(0xffffc);
 chanceHeal4.Proc.Chance.set(100);
 
@@ -243,7 +243,7 @@ export let chanceLightning1 = std.Spells.create(
 ); //15283
 chanceLightning1.row.RangeIndex.set(6);
 chanceLightning1.Name.enGB.set("Thunderfury");
-chanceLightning1.Effects.get(1).BasePoints.set(99);
+chanceLightning1.Effects.get(1).PointsBase.set(99);
 chanceLightning1.Duration.modRefCopy((val) => {
     val.set(5000, 0, 5000);
 });
@@ -288,8 +288,8 @@ export let chanceLightningExtra2 = std.Spells.create(
 );
 chanceLightningExtra2.Name.enGB.set("Biting Winds");
 chanceLightningExtra2.Description.enGB.set("Attack speed slowed by 10%.");
-chanceLightningExtra2.Effects.get(0).BasePoints.set(-11);
-chanceLightningExtra2.Effects.get(0).DieSides.set(1);
+chanceLightningExtra2.Effects.get(0).PointsBase.set(-11);
+chanceLightningExtra2.Effects.get(0).PointsDieSides.set(1);
 export let chanceLightning2 = std.Spells.create(
     MODNAME,
     "chanceLightning2-spell",
@@ -299,10 +299,10 @@ chanceLightning2.Name.enGB.set("Thunderfury");
 chanceLightning2.Description.enGB.set(
     "Blasts your enemy with lightning, dealing 175 Nature damage, reduces their resistances by 10"
 );
-chanceLightning2.Effects.get(0).BasePoints.set(-11);
-chanceLightning2.Effects.get(0).DieSides.set(1);
-chanceLightning2.Effects.get(1).BasePoints.set(174);
-chanceLightning2.Effects.get(1).DieSides.set(1);
+chanceLightning2.Effects.get(0).PointsBase.set(-11);
+chanceLightning2.Effects.get(0).PointsDieSides.set(1);
+chanceLightning2.Effects.get(1).PointsBase.set(174);
+chanceLightning2.Effects.get(1).PointsDieSides.set(1);
 chanceLightning2.Effects.get(2).TriggerSpell.set(chanceLightningExtra2.ID);
 chanceLightning2.Proc.TypeMask.set(0xffffc);
 chanceLightning2.Proc.Chance.set(100);
@@ -314,8 +314,8 @@ export let chanceLightningExtra3 = std.Spells.create(
 );
 chanceLightningExtra3.Name.enGB.set("Biting Winds");
 chanceLightningExtra3.Description.enGB.set("Attack speed slowed by 15%.");
-chanceLightningExtra3.Effects.get(0).BasePoints.set(-16);
-chanceLightningExtra3.Effects.get(0).DieSides.set(1);
+chanceLightningExtra3.Effects.get(0).PointsBase.set(-16);
+chanceLightningExtra3.Effects.get(0).PointsDieSides.set(1);
 export let chanceLightning3 = std.Spells.create(
     MODNAME,
     "chanceLightning3-spell",
@@ -325,10 +325,10 @@ chanceLightning3.Name.enGB.set("Thunderfury");
 chanceLightning3.Description.enGB.set(
     "Blasts your enemy with lightning, dealing 246 Nature damage, reduces their resistances by 15"
 );
-chanceLightning3.Effects.get(0).BasePoints.set(-16);
-chanceLightning3.Effects.get(0).DieSides.set(1);
-chanceLightning3.Effects.get(1).BasePoints.set(245);
-chanceLightning3.Effects.get(1).DieSides.set(1);
+chanceLightning3.Effects.get(0).PointsBase.set(-16);
+chanceLightning3.Effects.get(0).PointsDieSides.set(1);
+chanceLightning3.Effects.get(1).PointsBase.set(245);
+chanceLightning3.Effects.get(1).PointsDieSides.set(1);
 chanceLightning3.Effects.get(2).TriggerSpell.set(chanceLightningExtra3.ID);
 chanceLightning3.Proc.TypeMask.set(0xffffc);
 chanceLightning3.Proc.Chance.set(100);
@@ -340,8 +340,8 @@ export let chanceLightningExtra4 = std.Spells.create(
 );
 chanceLightningExtra4.Name.enGB.set("Biting Winds");
 chanceLightningExtra4.Description.enGB.set("Attack speed slowed by 20%.");
-chanceLightningExtra4.Effects.get(0).BasePoints.set(-21);
-chanceLightningExtra4.Effects.get(0).DieSides.set(1);
+chanceLightningExtra4.Effects.get(0).PointsBase.set(-21);
+chanceLightningExtra4.Effects.get(0).PointsDieSides.set(1);
 export let chanceLightning4 = std.Spells.create(
     MODNAME,
     "chanceLightning4-spell",
@@ -351,10 +351,10 @@ chanceLightning4.Name.enGB.set("Thunderfury");
 chanceLightning4.Description.enGB.set(
     "Blasts your enemy with lightning, dealing 342 Nature damage, reduces their resistances by 20"
 );
-chanceLightning4.Effects.get(0).BasePoints.set(-21);
-chanceLightning4.Effects.get(0).DieSides.set(1);
-chanceLightning4.Effects.get(1).BasePoints.set(341);
-chanceLightning4.Effects.get(1).DieSides.set(1);
+chanceLightning4.Effects.get(0).PointsBase.set(-21);
+chanceLightning4.Effects.get(0).PointsDieSides.set(1);
+chanceLightning4.Effects.get(1).PointsBase.set(341);
+chanceLightning4.Effects.get(1).PointsDieSides.set(1);
 chanceLightning4.Effects.get(2).TriggerSpell.set(chanceLightningExtra4.ID);
 chanceLightning4.Proc.TypeMask.set(0xffffc);
 chanceLightning4.Proc.Chance.set(100);
@@ -369,7 +369,7 @@ chanceShadow1.Name.enGB.set("Shadow Bolt");
 chanceShadow1.Description.enGB.set(
     "Sends a shadowy bolt at the target dealing 30 damage."
 );
-chanceShadow1.Effects.get(0).BasePoints.set(29);
+chanceShadow1.Effects.get(0).PointsBase.set(29);
 chanceShadow1.Proc.TypeMask.set(0xffffc);
 chanceShadow1.Proc.Chance.set(100);
 
@@ -382,7 +382,7 @@ chanceShadow2.Name.enGB.set("Shadow Bolt");
 chanceShadow2.Description.enGB.set(
     "Sends a shadowy bolt at the target dealing 80 damage."
 );
-chanceShadow2.Effects.get(0).BasePoints.set(79);
+chanceShadow2.Effects.get(0).PointsBase.set(79);
 chanceShadow2.Proc.TypeMask.set(0xffffc);
 chanceShadow2.Proc.Chance.set(100);
 
@@ -395,7 +395,7 @@ chanceShadow3.Name.enGB.set("Shadow Bolt");
 chanceShadow3.Description.enGB.set(
     "Sends a shadowy bolt at the target dealing 120 damage."
 );
-chanceShadow3.Effects.get(0).BasePoints.set(119);
+chanceShadow3.Effects.get(0).PointsBase.set(119);
 chanceShadow3.Proc.TypeMask.set(0xffffc);
 chanceShadow3.Proc.Chance.set(100);
 
@@ -408,6 +408,6 @@ chanceShadow4.Name.enGB.set("Shadow Bolt");
 chanceShadow4.Description.enGB.set(
     "Sends a shadowy bolt at the target dealing 177 damage."
 );
-chanceShadow4.Effects.get(0).BasePoints.set(176);
+chanceShadow4.Effects.get(0).PointsBase.set(176);
 chanceShadow4.Proc.TypeMask.set(0xffffc);
 chanceShadow4.Proc.Chance.set(100);

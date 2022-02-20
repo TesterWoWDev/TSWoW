@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import {
     addLootToGobChest,
     addLootToGobChestSingleChanceMultiGroup,
@@ -135,8 +135,8 @@ export let ShadowVolley = std.Spells.create(
     "shadowvolley-spell",
     25586
 );
-ShadowVolley.Effects.get(0).BasePoints.set(566);
-ShadowVolley.Effects.get(0).DieSides.set(121);
+ShadowVolley.Effects.get(0).PointsBase.set(566);
+ShadowVolley.Effects.get(0).PointsDieSides.set(121);
 ShadowVolley.Effects.get(0).Radius.modRefCopy((val) => val.set(20, 0, 20));
 export let ShadowPain = std.Spells.create(MODNAME, "pain-spell", 25367);
 
@@ -331,8 +331,8 @@ export let BossShadowVolley = std.Spells.create(
     "bossshadowvolley-spell",
     25586
 );
-BossShadowVolley.Effects.get(0).BasePoints.set(1566);
-BossShadowVolley.Effects.get(0).DieSides.set(321);
+BossShadowVolley.Effects.get(0).PointsBase.set(1566);
+BossShadowVolley.Effects.get(0).PointsDieSides.set(321);
 export let DrainLife = std.Spells.create(MODNAME, "drainlife-spell", 49617);
 
 export let DungeonBoss01 = std.CreatureTemplates.create(
@@ -665,7 +665,7 @@ spawnMultipleNPCWithTimer(
     120
 );
 
-SQL.creature_template_movement.add(DungeonMob02.ID).Flight.set(1);
+std.SQL.creature_template_movement.add(DungeonMob02.ID).Flight.set(1);
 addLootToCreature(
     DungeonMob02Loot,
     [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
@@ -837,8 +837,8 @@ export let LightningRing = std.Spells.create(
     50840
 );
 export let WoePillar = std.Spells.create(MODNAME, "woevolley-spell", 50761);
-WoePillar.Effects.get(0).BasePoints.set(1566);
-WoePillar.Effects.get(0).DieSides.set(121);
+WoePillar.Effects.get(0).PointsBase.set(1566);
+WoePillar.Effects.get(0).PointsDieSides.set(121);
 WoePillar.Effects.get(0).Radius.modRefCopy((val) => {
     val.set(20, 0, 20);
 });
@@ -1005,8 +1005,8 @@ export let r2BossShadowVolley = std.Spells.create(
     "r2bossshadowvolley-spell",
     25586
 );
-r2BossShadowVolley.Effects.get(0).BasePoints.set(2566);
-r2BossShadowVolley.Effects.get(0).DieSides.set(321);
+r2BossShadowVolley.Effects.get(0).PointsBase.set(2566);
+r2BossShadowVolley.Effects.get(0).PointsDieSides.set(321);
 export let r2DrainLife = std.Spells.create(MODNAME, "r2drainlife-spell", 49617);
 
 export let DungeonBoss02 = std.CreatureTemplates.create(
@@ -1408,8 +1408,8 @@ BrittleBones.Duration.modRefCopy((val) => {
     val.set(5000, 0, 5000);
 });
 export let RoB = std.Spells.load(37091);
-RoB.Effects.get(1).BasePoints.set(798);
-RoB.Effects.get(1).DieSides.set(220);
+RoB.Effects.get(1).PointsBase.set(798);
+RoB.Effects.get(1).PointsDieSides.set(220);
 export let RainofBones = std.Spells.create(MODNAME, "rainofbones-spell", 37098);
 export let BoneGrinder = std.Spells.create(MODNAME, "bonegrinder-spell", 43951);
 
@@ -1765,9 +1765,9 @@ addLootToCreatureSingleChance(
 addLootToCreatureSingleChance(ApothecaryAcolyteLoot, [OrbofPower.ID], 5, 3);
 
 export let PowerBurn = std.Spells.create(MODNAME, "powerburn-spell", 62129);
-PowerBurn.Effects.get(0).BasePoints.set(2129);
-PowerBurn.Effects.get(1).BasePoints.set(14);
-PowerBurn.Effects.get(2).BasePoints.set(469);
+PowerBurn.Effects.get(0).PointsBase.set(2129);
+PowerBurn.Effects.get(1).PointsBase.set(14);
+PowerBurn.Effects.get(2).PointsBase.set(469);
 export let SoulScream = std.Spells.create(MODNAME, "soulscream-spell", 41545);
 export let SoulStrike = std.Spells.create(MODNAME, "soulstrike-spell", 32315);
 
@@ -1962,8 +1962,8 @@ CouncilBoss01.Stats.ExperienceMod.set(30);
 CouncilBoss01.Stats.HealthMod.set(150);
 CouncilBoss01.Stats.ManaMod.set(25);
 CouncilBoss01.Rank.RARE_ELITE.set();
-SQL.creature_equip_template.add(CouncilBoss01.ID, 1).ItemID1.set(7721);
-SQL.creature_equip_template.add(CouncilBoss01.ID, 1).ItemID2.set(7726);
+std.SQL.creature_equip_template.add(CouncilBoss01.ID, 1).ItemID1.set(7721);
+std.SQL.creature_equip_template.add(CouncilBoss01.ID, 1).ItemID2.set(7726);
 export let CouncilBoss01Loot = CouncilBoss01.NormalLoot;
 spawnMultipleNPCWithTimer(
     CouncilBoss01.ID,
@@ -2103,7 +2103,7 @@ CouncilBoss02.Stats.ExperienceMod.set(30);
 CouncilBoss02.Stats.HealthMod.set(150);
 CouncilBoss02.Stats.ManaMod.set(25);
 CouncilBoss02.Rank.RARE_ELITE.set();
-SQL.creature_equip_template.add(CouncilBoss02.ID, 1).ItemID1.set(19355);
+std.SQL.creature_equip_template.add(CouncilBoss02.ID, 1).ItemID1.set(19355);
 export let CouncilBoss02Loot = CouncilBoss02.NormalLoot;
 spawnMultipleNPCWithTimer(
     CouncilBoss02.ID,
@@ -2242,7 +2242,7 @@ CouncilBoss03.Stats.ExperienceMod.set(30);
 CouncilBoss03.Stats.HealthMod.set(150);
 CouncilBoss03.Stats.ManaMod.set(25);
 CouncilBoss03.Rank.RARE_ELITE.set();
-SQL.creature_equip_template.add(CouncilBoss03.ID, 1).ItemID1.set(6174);
+std.SQL.creature_equip_template.add(CouncilBoss03.ID, 1).ItemID1.set(6174);
 export let CouncilBoss03Loot = CouncilBoss03.NormalLoot;
 spawnMultipleNPCWithTimer(
     CouncilBoss03.ID,

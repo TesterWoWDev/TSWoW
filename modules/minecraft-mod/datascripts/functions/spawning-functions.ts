@@ -1,6 +1,6 @@
-import { std } from "tswow-stdlib";
-import { Position } from "tswow-stdlib/Misc/Position";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+import { Position } from "wow/wotlk/std/Misc/Position";
+
 import { MODNAME } from "../modname";
 
 export function spawnNPC(
@@ -156,7 +156,7 @@ export function spawnMultiGobTimer(
 export function addWaypoint(guid: number, path: number[][]) {
     let pathID = guid * 10;
     path.forEach((value, index) => {
-        SQL.waypoint_data
+        std.SQL.waypoint_data
             .add(pathID, index)
             .position_x.set(value[0])
             .position_y.set(value[1])
@@ -165,7 +165,7 @@ export function addWaypoint(guid: number, path: number[][]) {
             .delay.set(value[4])
             .move_type.set(0);
     });
-    SQL.creature_addon.add(guid).path_id.set(pathID);
+    std.SQL.creature_addon.add(guid).path_id.set(pathID);
 }
 export function addWaypoints(guids: number[], paths: number[][][]) {
     guids.forEach((value, index) => {

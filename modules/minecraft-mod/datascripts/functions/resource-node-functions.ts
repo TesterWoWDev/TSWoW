@@ -1,9 +1,9 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 
 import { MODNAME } from "../modname";
-import { SQL } from "wotlkdata";
-import { Position } from "tswow-stdlib/Misc/Position";
-import { GameObjectChest } from "tswow-stdlib/GameObject/GameObjectTemplate";
+
+import { Position } from "wow/wotlk/std/Misc/Position";
+import { GameObjectChest } from "wow/wotlk/std/GameObject/GameObjectTemplate";
 
 export function makeResourceNode(
     name: string,
@@ -55,7 +55,7 @@ export function makePool(
     respawnRate: number,
     gobPositions: Position[]
 ) {
-    SQL.pool_template.add(poolEntry).max_limit.set(maxLimit);
+    std.SQL.pool_template.add(poolEntry).max_limit.set(maxLimit);
     gobPositions.forEach((element, index) => {
         node.Spawns.addMod(
             MODNAME,
@@ -63,7 +63,7 @@ export function makePool(
             gobPositions,
             (instance) => {
                 instance.SpawnTimeSecs.set(respawnRate);
-                SQL.pool_members
+                std.SQL.pool_members
                     .add(1, instance.row.guid.get())
                     .poolSpawnId.set(poolEntry)
                     .chance.set(100);

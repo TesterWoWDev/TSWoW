@@ -1,5 +1,5 @@
 import { MODNAME } from "../../modname";
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 
 /*Rare Items, 1 time purchase at vendor every several hours (TEST)*/
 export let BlueMiningAxe = std.Items.create(MODNAME, "blueminingaxe", 9378);

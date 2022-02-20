@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../../../modname";
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 import {
@@ -28,7 +28,7 @@ spawnNPC(questGiver03.ID, 0, 0, {
 
 export let AmuletVendor = std.CreatureTemplates.create(
     MODNAME,
-    "druid01-creature",
+    "druid01-creature-amulet",
     3562
 );
 AmuletVendor.Name.enGB.set("Maggie the Wise");

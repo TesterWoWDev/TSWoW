@@ -30,7 +30,7 @@ modules/default/datasets/dataset/Buildings
 modules/default/datasets/dataset/database
 modules/default/datasets/dataset/dbc
 modules/default/datasets/dataset/luaxml
-modules/default/datasets/dataset/default.dataset.yaml
+modules/default/datasets/dataset/dataset.conf
 modules/default/datasets/dataset/ids.txt
 modules/default/datasets/dataset/maps
 modules/default/datasets/dataset/mmaps
@@ -41,7 +41,7 @@ modules/default/datasets/dataset/vmaps
 modules/default/realms/realm/DBErrors.log
 modules/default/realms/realm/GM.log
 modules/default/realms/realm/Server.log
-modules/default/realms/realm/realm.realm.conf
+modules/default/realms/realm/realm.conf
 modules/default/realms/realm/worldserver.conf
 
 

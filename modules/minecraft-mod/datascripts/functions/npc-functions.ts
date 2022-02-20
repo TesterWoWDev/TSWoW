@@ -1,7 +1,7 @@
-import { std } from "tswow-stdlib";
-import { CreatureTemplate } from "tswow-stdlib/Creature/CreatureTemplate";
-import { LootSetPointer } from "tswow-stdlib/Loot/Loot";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+import { CreatureTemplate } from "wow/wotlk/std/Creature/CreatureTemplate";
+import { LootSetPointer } from "wow/wotlk/std/Loot/Loot";
+
 
 export function setFaction(entry: number, faction: number) {
     std.CreatureTemplates.load(entry).FactionTemplate.set(faction);
@@ -36,7 +36,7 @@ export function addSmartScripts(
     targetType: number,
     comment: string
 ) {
-    SQL.smart_scripts
+    std.SQL.smart_scripts
         .add(entry, sourceType, id, link)
         .event_type.set(eventType)
         .event_chance.set(eventChance)

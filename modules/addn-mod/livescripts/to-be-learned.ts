@@ -238,8 +238,8 @@ const spellsList = [
     ],
 ];
 
-export function toBeLearnedSpellsPane(events: TSEventHandlers) {
-    events.PacketID.OnCustom(requestClassSpellsMessageID, (_, packet, player) => {
+export function toBeLearnedSpellsPane(events: TSEvents) {
+    events.CustomPacketID.OnReceive(requestClassSpellsMessageID, (_, packet, player) => {
         let curSpells = spellsList[player.GetClass()];
         for (let i = 1; i < curSpells.length; i++) {
             let curLevelSpells = curSpells[i];

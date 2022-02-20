@@ -1,13 +1,7 @@
-import {
-    craftMessage,
-    craftMessageID,
-    empty,
-    returnCraftItemMessage,
-    showScreen,
-} from "../shared/Messages";
+import { craftMessageID, empty, craftMessage, returnCraftItemMessage, showScreen } from "../shared/Messages";
 
-export function handleCraftMessages(events: TSEventHandlers) {
-    events.PacketID.OnCustom(craftMessageID, (_, packet, player) => {
+export function handleCraftMessages(events: TSEvents) {
+    events.CustomPacketID.OnReceive(craftMessageID, (_, packet, player) => {
         let v: TSArray<uint32> = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         let vv: TSArray<TSArray<uint32>> = [
             empty,

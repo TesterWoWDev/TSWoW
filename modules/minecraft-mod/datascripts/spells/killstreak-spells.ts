@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../modname";
 
 let names = [
@@ -36,7 +36,7 @@ for (let i = 1; i <= 15; i++) {
     spell.Effects.addMod((eff) => {
         eff.Type.APPLY_AURA.set();
         eff.ImplicitTargetA.SRC_CASTER.set();
-        eff.DieSides.set(1);
+        eff.PointsDieSides.set(1);
     });
     spell.Duration.set(21);
     spell.Visual.set(0);

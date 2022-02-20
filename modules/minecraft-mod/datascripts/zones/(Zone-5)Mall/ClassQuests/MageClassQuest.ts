@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 import { spawnNPC } from "../../../functions/spawning-functions";
 import { MODNAME } from "../../../modname";
@@ -54,7 +54,7 @@ MageQuest01.Text.Title.enGB.set("Technique and Form");
 export let MageQuest02 = std.Quests.create(MODNAME, "magequest02-quest");
 
 MageQuest02.Flags.set(8);
-SQL.quest_template_addon.add(MageQuest02.ID).SpecialFlags.set(1);
+std.SQL.quest_template_addon.add(MageQuest02.ID).SpecialFlags.set(1);
 MageQuest02.MinLevel.set(1);
 MageQuest02.QuestLevel.set(20);
 MageQuest02.Questgiver.addCreatureStarter(MageQuestGiver01.ID);

@@ -2,4 +2,3 @@ addn-mod
 default
 minecraft-mod
 testing
-tswow-stdlib

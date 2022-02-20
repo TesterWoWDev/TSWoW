@@ -1,4 +1,4 @@
-export function rangeLoot(events: TSEventHandlers) {
+export function rangeLoot(events: TSEvents) {
     events.Player.OnCreatureKill((player, corpse) => {
         let inRange = corpse.GetCreaturesInRange(10, 0, 0, 2);
         let corpseLoot = corpse.GetLoot();

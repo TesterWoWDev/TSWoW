@@ -1,4 +1,4 @@
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
 
 export function addToInvasion(
     invasionId: number,
@@ -9,7 +9,7 @@ export function addToInvasion(
     z: number,
     o: number
 ) {
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "insert INTO `invasions` VALUES(" +
         invasionId +
         "," +

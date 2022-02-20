@@ -27,12 +27,14 @@ public:
     TSGuild(Guild *guild);
     TSGuild();
     TSGuild* operator->() { return this;}
+    operator bool() const { return guild != nullptr; }
+    bool operator==(TSGuild const& rhs) { return guild == rhs.guild; }
     bool IsNull() { return guild == nullptr; };
     TSArray<TSPlayer> GetMembers();
     uint32 GetMemberCount();
     TSPlayer GetLeader();
     uint64 GetLeaderGUID();
-    uint32 GetId();
+    uint32 GetID();
     TSString GetName();
     TSString GetMOTD();
     TSString GetInfo();

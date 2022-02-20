@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../../modname";
 
 /*Creature - Worg Champion*/
@@ -21,7 +21,7 @@ export let quailboarSpell1 = std.Spells.create(
     55323
 );
 quailboarSpell1.Name.enGB.set("Shadow Vortex");
-quailboarSpell1.Effects.get(0).BasePoints.set(1812);
+quailboarSpell1.Effects.get(0).PointsBase.set(1812);
 quailboarSpell1.CastTime.modRefCopy((val) => val.set(1000, 0, 1000));
 export let quailboarSpell2 = std.Spells.create(
     MODNAME,
@@ -29,7 +29,7 @@ export let quailboarSpell2 = std.Spells.create(
     55359
 );
 quailboarSpell2.Name.enGB.set("Living Bomb");
-quailboarSpell2.Effects.get(0).BasePoints.set(1299);
+quailboarSpell2.Effects.get(0).PointsBase.set(1299);
 export let quailboarSpell3 = std.Spells.create(
     MODNAME,
     "quailboarspell3-spell",

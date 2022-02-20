@@ -1,10 +1,10 @@
-import { std } from "tswow-stdlib";
-import { MODNAME } from "../../modname";
+import { std } from "wow/wotlk";
+
 import {
     generateGearRecipes,
     generateWeaponRecipes,
 } from "../../functions/recipe-functions";
-import { SQL } from "wotlkdata";
+
 import { stringItem } from "../string";
 import { expSpell } from "../../spells/experience-rate-spells";
 import {
@@ -234,7 +234,7 @@ generateWeaponRecipes(
     tierOneWeapons
 );
 
-SQL.disenchant_loot_template
+std.SQL.disenchant_loot_template
     .add(100, tierOneBaseResources[6])
     .Chance.set(100)
     .MinCount.set(1)

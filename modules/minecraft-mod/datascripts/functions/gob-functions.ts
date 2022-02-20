@@ -1,4 +1,4 @@
-import { GameObjectChest } from "tswow-stdlib/GameObject/GameObjectTemplate";
+import { GameObjectChest } from "wow/wotlk/std/GameObject/GameObjectTemplate";
 
 export function addLootToGobChest(
     chest: GameObjectChest,

@@ -178,10 +178,10 @@ const tormentAndBlessingSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint
 
 export const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 //end of config
-const spellIDToType: TSDictionary<uint32, uint32> = MakeDictionary<uint32, uint32>({
+const spellIDToType: TSDictionary<uint32, uint32> = CreateDictionary<uint32, uint32>({
     1: 1
 });
-class torghastBuffs extends TSClass {
+class torghastBuffs {
     currentBuffs: TSArray<uint32> = []
     currentBuffsType: TSArray<uint32> = []
     currentBuffsCount: TSArray<uint32> = []
@@ -193,22 +193,22 @@ class torghastBuffs extends TSClass {
     currentChoiceBuffs: TSArray<uint32> = []
 }
 
-export function torghastBuffSystem(events: TSEventHandlers) {
+export function torghastBuffSystem(events: TSEvents) {
     setupTables()
     events.CreatureID.OnCreate(GetID("creature_template", "minecraft-mod", "torghast-orb"), (creature, cancel) => {
-        creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
+        creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (self,collided,cancel,entry) => {
             if (collided.IsPlayer()) {
                 let player = collided.ToPlayer()
                 let creature = self.ToCreature()
                 if (player.IsInGroup()) {
                     let arr = creature.GetJsonArray('usedBy', new TSJsonArray())
                     for (let i = 0; i < arr.length; i++) {
-                        if (arr.getNumber(i) == player.GetGUIDLow()) {
+                        if (arr.GetNumber(i) == player.GetGUIDLow()) {
                             return
                         }
                     }
                     if (givePlayerChoiceOfBuffs(player)) {
-                        arr.pushNumber(player.GetGUIDLow())
+                        arr.PushNumber(player.GetGUIDLow())
                         creature.SetJsonArray('usedBy', arr)
                     }
                     if (arr.length == player.GetGroup().GetMembersCount()) {
@@ -223,7 +223,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         })
     })
 
-    events.Player.OnSay((player, type, lang, msg) => {
+    events.Player.OnSay((player, msg, type, lang) => {
         if (msg.get().startsWith("#aa")) {
             if (!givePlayerChoiceOfBuffs(player)) {
                 player.SendAreaTriggerMessage('Choose your ability first!')
@@ -247,7 +247,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         removePlayerBuffs(player)
     })
 
-    events.Player.OnSay((player, type, lang, msg) => {
+    events.Player.OnSay((player, msg,type, lang ) => {
         if (msg.get().startsWith("#1")) {
             playerChoseBuff(player, 2)
             applyPlayerBuffs(player)
@@ -260,7 +260,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         }
     })
 
-    events.PacketID.OnCustom(spellChoiceID, (opcode, packet, player) => {
+    events.CustomPacketID.OnReceive(spellChoiceID, (opcode, packet, player) => {
         let pkt = new spellChoice(0)
         pkt.read(packet)
         playerChoseBuff(player, pkt.choice)
@@ -324,7 +324,7 @@ function teleportRandomStart(players: TSPlayer[], playerSpawnCoords: TSDictionar
         if (prestige > 0) {
             players[i].SendAreaTriggerMessage("You are on Prestige " + prestige)
         }
-        players[i].Teleport(playerSpawnCoords['map'], playerSpawnCoords['x'], playerSpawnCoords['y'], playerSpawnCoords['z'], playerSpawnCoords['o'])
+        players[i].Teleport(playerSpawnCoords['m'], playerSpawnCoords['x'], playerSpawnCoords['y'], playerSpawnCoords['z'], playerSpawnCoords['o'])
     }
 }
 
@@ -627,6 +627,30 @@ export function getRandomInt(max: uint32): uint32 {
 }
 
 function setupTables() {
+    //sql query for all spells
+    // let query = QueryWorld("SELECT * FROM `torghast_spells`;");
+    // while (query.GetRow()) {
+    //     let classID = query.GetUInt32(0)
+    //     let spellID = query.GetUInt32(1)
+    //     let spellRarity = query.GetUInt32(2)
+    //     let spellType = query.GetUInt32(3)
+    //     let spellDesc = query.GetString(4)
+    //     spellIDToType[spellID] = spellType
+    //     if(classID == 0){//add spell to all
+    //         for (let i = 0; i < classSpells.length; i++) {
+    //             if (i != 0 && i != 10) {
+    //                 for (let j = 0; j < classSpells[i].length; j++) {
+    //                     classSpells[classID].push([spellID,spellRarity,spellType])
+    //                     classSpellDescriptions[classID].push(spellDesc)
+    //                 }
+    //             }
+    //         }
+    //     }else{//single class
+    //         classSpells[classID].push([spellID,spellRarity,spellType])
+    //         classSpellDescriptions[classID].push(spellDesc)
+    //     }
+    // }
+
     for (let i = 0; i < baseSpells.length; i++) {
         spellIDToType[baseSpells[i][0]] = baseSpells[i][2]
     }
@@ -646,7 +670,8 @@ function setupTables() {
         } else {
             classSpells[i] = classSpells[i].concat(baseSpells)
         }
-    }
+    } 
+
     for (let i = 0; i < classSpellDescriptions.length; i++) {
         if (i == 0 || i == 10) {
 
@@ -656,7 +681,7 @@ function setupTables() {
     }
 }
 
-export function setupLastBossCheck(events: TSEventHandlers, bossID: number) {
+export function setupLastBossCheck(events: TSEvents, bossID: number) {
     events.CreatureID.OnDeath(bossID, (creature, killer) => {
         if (creature.GetUInt('lastBoss', 0) == 1) {
             killer.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), creature.GetX(), creature.GetY(), creature.GetZ()+1, creature.GetO(), 0)

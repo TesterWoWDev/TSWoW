@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import {
     spawnMultipleGobs,
     spawnMultipleNPCWithTimer,
@@ -237,7 +237,7 @@ spawnMultipleNPCWithTimer(
     ],
     120
 );
-SQL.creature_template_movement.add(Zone2Creature5.ID).Flight.set(1);
+std.SQL.creature_template_movement.add(Zone2Creature5.ID).Flight.set(1);
 
 export let SmallSpider = std.CreatureTemplates.create(
     MODNAME,
@@ -497,7 +497,7 @@ Zone2RareCreature1.Level.set(6, 10);
 Zone2RareCreature1.Rank.RARE.set();
 Zone2RareCreature1.AIName.SmartAI();
 
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone2RareCreature1.ID, 0, 3, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -509,7 +509,7 @@ SQL.smart_scripts
     .action_param1.set(7938)
     .target_type.set(2)
     .comment.set("Fatal Bite");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone2RareCreature1.ID, 0, 4, 0)
     .event_type.set(1)
     .event_chance.set(100)
@@ -521,7 +521,7 @@ SQL.smart_scripts
     .action_param1.set(32739)
     .target_type.set(2)
     .comment.set("Poison Bite");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone2RareCreature1.ID, 0, 5, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -565,7 +565,7 @@ Zone2RareCreature2.Level.set(10, 12);
 Zone2RareCreature2.Rank.RARE_ELITE.set();
 Zone2RareCreature2.AIName.SmartAI();
 
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone2RareCreature1.ID, 0, 3, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -577,7 +577,7 @@ SQL.smart_scripts
     .action_param1.set(29935)
     .target_type.set(2)
     .comment.set("Maw");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone2RareCreature1.ID, 0, 4, 0)
     .event_type.set(1)
     .event_chance.set(100)
@@ -589,7 +589,7 @@ SQL.smart_scripts
     .action_param1.set(31680)
     .target_type.set(1)
     .comment.set("Molten Buff");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone2RareCreature1.ID, 0, 5, 0)
     .event_type.set(0)
     .event_chance.set(100)

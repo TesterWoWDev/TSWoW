@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../../modname";
 
 // Magic Spells
@@ -8,8 +8,8 @@ export let InvasionFrostbolt = std.Spells.create(
     116
 );
 InvasionFrostbolt.Name.enGB.set("Frostbolt");
-InvasionFrostbolt.Effects.get(0).BasePoints.set(-21);
-InvasionFrostbolt.Effects.get(1).BasePoints.set(14);
+InvasionFrostbolt.Effects.get(0).PointsBase.set(-21);
+InvasionFrostbolt.Effects.get(1).PointsBase.set(14);
 InvasionFrostbolt.CastTime.modRefCopy((val) => val.set(3000, 0, 3000));
 export let InvasionFireBlast = std.Spells.create(
     MODNAME,
@@ -17,14 +17,14 @@ export let InvasionFireBlast = std.Spells.create(
     60871
 );
 InvasionFireBlast.Name.enGB.set("Fire Blast");
-InvasionFireBlast.Effects.get(0).BasePoints.set(34);
+InvasionFireBlast.Effects.get(0).PointsBase.set(34);
 export let InvasionFrostNova = std.Spells.create(
     MODNAME,
     "invasionfrostnova-spell",
     122
 );
 InvasionFrostNova.Name.enGB.set("Frost Nova");
-InvasionFrostNova.Effects.get(0).BasePoints.set(17);
+InvasionFrostNova.Effects.get(0).PointsBase.set(17);
 InvasionFrostNova.Duration.modRefCopy((val) => val.set(4500, 0, 4500));
 export let InvasionFrostArmor = std.Spells.create(
     MODNAME,
@@ -32,7 +32,7 @@ export let InvasionFrostArmor = std.Spells.create(
     168
 );
 InvasionFrostArmor.Name.enGB.set("Frost Armor");
-InvasionFrostArmor.Effects.get(0).BasePoints.set(17);
+InvasionFrostArmor.Effects.get(0).PointsBase.set(17);
 InvasionFrostArmor.Duration.modRefCopy((val) => val.set(120000, 0, 120000));
 
 export let InvasionWhirlwind = std.Spells.create(
@@ -51,7 +51,7 @@ InvasionStrike.Name.enGB.set("Strike");
 InvasionStrike.Description.enGB.set(
     "Strike at an enemy, inflicting weapon damage + $s1."
 );
-InvasionStrike.Effects.get(0).BasePoints.set(9);
+InvasionStrike.Effects.get(0).PointsBase.set(9);
 
 export let InvasionBoarCharge = std.Spells.create(
     MODNAME,
@@ -60,7 +60,7 @@ export let InvasionBoarCharge = std.Spells.create(
 );
 InvasionBoarCharge.Name.enGB.set("Boar Charge");
 InvasionBoarCharge.AuraDescription.enGB.set("Increases Speed by $s1%.");
-InvasionBoarCharge.Effects.get(0).BasePoints.set(74);
+InvasionBoarCharge.Effects.get(0).PointsBase.set(74);
 InvasionBoarCharge.Duration.modRefCopy((val) => {
     val.set(3000, 0, 3000);
 });
@@ -78,7 +78,7 @@ export let InvasionFlameWave = std.Spells.create(
     57492
 );
 InvasionFlameWave.Name.enGB.set("SomeDamagingAbility");
-InvasionFlameWave.Effects.get(0).BasePoints.set(249);
+InvasionFlameWave.Effects.get(0).PointsBase.set(249);
 
 export let InvasionBossStrike = std.Spells.create(
     MODNAME,
@@ -89,4 +89,4 @@ InvasionBossStrike.Name.enGB.set("Strike");
 InvasionBossStrike.Description.enGB.set(
     "Strike at an enemy, inflicting weapon damage + $s1."
 );
-InvasionBossStrike.Effects.get(0).BasePoints.set(179);
+InvasionBossStrike.Effects.get(0).PointsBase.set(179);

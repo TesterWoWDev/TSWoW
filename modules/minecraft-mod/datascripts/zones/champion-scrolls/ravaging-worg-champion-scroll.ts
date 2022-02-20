@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../../modname";
 
 /*Creature - Worg Champion*/
@@ -23,7 +23,7 @@ WorgChampionStrike.Name.enGB.set("Strike");
 WorgChampionStrike.Description.enGB.set(
     "Strike at an enemy, inflicting weapon damage + $s1."
 );
-WorgChampionStrike.Effects.get(0).BasePoints.set(1279);
+WorgChampionStrike.Effects.get(0).PointsBase.set(1279);
 export let WorgChampionBite = std.Spells.create(
     MODNAME,
     "worgchampionbite-spell",
@@ -31,7 +31,7 @@ export let WorgChampionBite = std.Spells.create(
 );
 WorgChampionBite.Name.enGB.set("Bite");
 WorgChampionBite.Description.enGB.set("Inflicts $s1 damage to an enemy.");
-WorgChampionBite.Effects.get(0).BasePoints.set(1340);
+WorgChampionBite.Effects.get(0).PointsBase.set(1340);
 export let WorgChampionGore = std.Spells.create(
     MODNAME,
     "worgchampiongore-spell",
@@ -44,7 +44,7 @@ WorgChampionGore.Description.enGB.set(
 WorgChampionGore.AuraDescription.enGB.set(
     "Bleeding for $s1 damage every 3 seconds."
 );
-WorgChampionGore.Effects.get(1).BasePoints.set(337);
+WorgChampionGore.Effects.get(1).PointsBase.set(337);
 WorgChampionGore.Duration.modRefCopy((val) => val.set(15000, 0, 15000));
 WorgChampionCreature.Scripts.onUpdateIc(0, 0, 0, 0, (script) => {
     script.row.event_flags.set(1);

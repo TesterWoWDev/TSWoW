@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { HeirloomExperienceRates } from "../../spells/experience-rate-spells";
 import { addToDBCItemExtendedCost } from "../../functions/dbc-functions";
 import { MODNAME } from "../../modname";

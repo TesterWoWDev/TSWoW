@@ -1,6 +1,6 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
-import { DBC } from "wotlkdata";
+import { std } from "wow/wotlk";
+
+
 import { creature2, creature3 } from "../(Zone-1)Bramblewood/zone-1-creatures";
 import {
     setFaction,
@@ -147,7 +147,7 @@ spawnMultipleNPCWithTimer(
     10
 );
 ClothArmorVendor02.AIName.SmartAI();
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(ClothArmorVendor02.ID, 0, 2, 0)
     .event_type.set(61)
     .event_chance.set(100)
@@ -155,7 +155,7 @@ SQL.smart_scripts
     .action_param1.set(1)
     .target_type.set(1)
     .comment.set("Artisan Cloth NPC OUT OF COMBAT Text Scripts.");
-SQL.creature_text
+std.SQL.creature_text
     .add(ClothArmorVendor02.ID, 1, 0)
     .Text.set(
         "I understand your concern, but I don't think they will notice. Just continue working and this will all be over shortly."
@@ -163,13 +163,13 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(12);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "I understand your concern, but I don't think they will notice. Just continue working and this will all be over shortly."
     )
     .Flags.set(1);
-SQL.creature_text
+std.SQL.creature_text
     .add(ClothArmorVendor02.ID, 1, 1)
     .Text.set(
         "I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you."
@@ -177,7 +177,7 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(12);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you."
@@ -217,7 +217,7 @@ spawnMultipleNPCWithTimer(
     10
 );
 LeatherArmorVendor02.AIName.SmartAI();
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(LeatherArmorVendor02.ID, 0, 2, 0)
     .event_type.set(61)
     .event_chance.set(100)
@@ -225,7 +225,7 @@ SQL.smart_scripts
     .action_param1.set(1)
     .target_type.set(1)
     .comment.set("Artisan Cloth NPC OUT OF COMBAT Text Scripts.");
-SQL.creature_text
+std.SQL.creature_text
     .add(LeatherArmorVendor02.ID, 1, 0)
     .Text.set(
         "I understand your concern, but I don't think they will notice. Just continue working and this will all be over shortly."
@@ -233,13 +233,13 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(12);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "I understand your concern, but I don't think they will notice. Just continue working and this will all be over shortly."
     )
     .Flags.set(1);
-SQL.creature_text
+std.SQL.creature_text
     .add(LeatherArmorVendor02.ID, 1, 1)
     .Text.set(
         "I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you."
@@ -247,7 +247,7 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(12);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you."
@@ -287,7 +287,7 @@ spawnMultipleNPCWithTimer(
     10
 );
 PlateArmorVendor02.AIName.SmartAI();
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(PlateArmorVendor02.ID, 0, 2, 0)
     .event_type.set(61)
     .event_chance.set(100)
@@ -295,7 +295,7 @@ SQL.smart_scripts
     .action_param1.set(1)
     .target_type.set(1)
     .comment.set("Artisan Cloth NPC OUT OF COMBAT Text Scripts.");
-SQL.creature_text
+std.SQL.creature_text
     .add(PlateArmorVendor02.ID, 1, 0)
     .Text.set(
         "I understand your concern, but I don't think they will notice. Just continue working and this will all be over shortly."
@@ -303,13 +303,13 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(12);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "I understand your concern, but I don't think they will notice. Just continue working and this will all be over shortly."
     )
     .Flags.set(1);
-SQL.creature_text
+std.SQL.creature_text
     .add(PlateArmorVendor02.ID, 1, 1)
     .Text.set(
         "I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you."
@@ -317,7 +317,7 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(12);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you."
@@ -357,7 +357,7 @@ spawnMultipleNPCWithTimer(
     10
 );
 MailArmorVendor02.AIName.SmartAI();
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(MailArmorVendor02.ID, 0, 2, 0)
     .event_type.set(61)
     .event_chance.set(100)
@@ -365,7 +365,7 @@ SQL.smart_scripts
     .action_param1.set(1)
     .target_type.set(1)
     .comment.set("Artisan Cloth NPC OUT OF COMBAT Text Scripts.");
-SQL.creature_text
+std.SQL.creature_text
     .add(MailArmorVendor02.ID, 1, 0)
     .Text.set(
         "I understand your concern, but I don't think they will notice. Just continue working and this will all be over shortly."
@@ -373,13 +373,13 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(12);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "I understand your concern, but I don't think they will notice. Just continue working and this will all be over shortly."
     )
     .Flags.set(1);
-SQL.creature_text
+std.SQL.creature_text
     .add(MailArmorVendor02.ID, 1, 1)
     .Text.set(
         "I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you."
@@ -387,7 +387,7 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(12);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "I have told you plenty of times, we are here to simply sell these items for a short period of time, now be quiet, before someone hears you."
@@ -410,12 +410,12 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -8302.053711, y: -267.736298, z: 17.274397, o: 6.243299 }],
     10
 );
-DBC.ItemExtendedCost.add(5000)
+std.DBC.ItemExtendedCost.add(5000)
     .ItemID.set([OrbofPower.ID])
     .ItemCount.set([10])
     .HonorPoints.set(0)
     .ArenaPoints.set(0);
-DBC.ItemExtendedCost.add(5002)
+std.DBC.ItemExtendedCost.add(5002)
     .ItemID.set([OrbofPower.ID])
     .ItemCount.set([3])
     .HonorPoints.set(0)
@@ -472,7 +472,7 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -8166.573, y: -2.096447, z: 0.082, o: 2.345 }],
     10
 );
-DBC.ItemExtendedCost.add(5001)
+std.DBC.ItemExtendedCost.add(5001)
     .ItemID.set([OrganicMatter.ID])
     .ItemCount.set([1])
     .HonorPoints.set(0)
@@ -608,7 +608,7 @@ spawnNPC(152, 0, 0, {
     o: 1.568,
 });
 setFaction(152, 35);
-SQL.npc_vendor.add(152, 46978, 0);
+std.SQL.npc_vendor.add(152, 46978, 0);
 // spawnNPC(78,0,0,[-8699.836,-63.277,31.134,1.627])
 //     setFaction(78,35)
 //end start zone vendors
@@ -775,43 +775,3 @@ spawnMultipleNPCs(14284, 0, 0, [
 ]); //Stormpike Battleguard
 setLevel(14284, 20);
 setFaction(14284, 35);
-
-spawnMultipleNPCWithTimer(
-    creature3.ID,
-    5,
-    0,
-    [
-        { map: 725, x: -8203.597656, y: -39.794701, z: 0.648015, o: 4.437449 },
-        { map: 725, x: -8190.855957, y: -55.616486, z: 0.919924, o: 3.89553 },
-        { map: 725, x: -8224.788086, y: -54.686188, z: 2.187397, o: 3.754158 },
-        { map: 725, x: -8246.943359, y: -89.185333, z: 1.303253, o: 4.720193 },
-        { map: 725, x: -8236.807617, y: -110.086258, z: 0.675425, o: 5.0265 },
-        { map: 725, x: -8216.65918, y: -135.013077, z: 1.786125, o: 5.352436 },
-        { map: 725, x: -8199.800781, y: -151.965454, z: -5.544346, o: 0.247346 },
-        { map: 725, x: -8141.288086, y: -174.158997, z: 0.967829, o: 4.3864 },
-        { map: 725, x: -8181.925781, y: -214.976761, z: -0.462242, o: 3.981925 },
-        { map: 725, x: -8208.96582, y: -229.783737, z: 0.723354, o: 3.730597 },
-        { map: 725, x: -8251.107422, y: -236.03537, z: 1.146519, o: 4.97152 },
-        { map: 725, x: -8244.887695, y: -259.495605, z: 3.689821, o: 0.94243 },
-        { map: 725, x: -8293.357422, y: -163.142349, z: 2.021821, o: 2.293316 },
-        { map: 725, x: -8334.710938, y: -209.816422, z: 0.758716, o: 4.739833 },
-        { map: 725, x: -8289.251953, y: -91.123215, z: 1.278894, o: 0.47512 },
-    ],
-    60
-);
-
-spawnMultipleNPCWithTimer(
-    creature2.ID,
-    5,
-    0,
-    [
-        { map: 725, x: -8183.673828, y: -135.199722, z: -3.382905, o: 4.166488 },
-        { map: 725, x: -8187.948242, y: -142.991867, z: -4.347747, o: 3.227936 },
-        { map: 725, x: -8196.116211, y: -149.137253, z: -5.357476, o: 5.548786 },
-        { map: 725, x: -8187.804688, y: -160.166214, z: -6.373648, o: 5.203212 },
-        { map: 725, x: -8173.830566, y: -174.143524, z: -5.570565, o: 5.442757 },
-        { map: 725, x: -8170.384277, y: -197.807983, z: -7.007014, o: 5.293534 },
-        { map: 725, x: -8161.711426, y: -195.00209, z: -6.907668, o: 1.374397 },
-    ],
-    60
-);

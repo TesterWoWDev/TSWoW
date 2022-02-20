@@ -162,7 +162,7 @@ export function customQuest() {
             rewardTex.SetTexture(GetItemIcon(rewID));
             rewardButton.HookScript("OnEnter", (self) => {
                 GameTooltip.ClearLines();
-                GameTooltip.SetOwner(rewardButton, "CENTER");
+                GameTooltip.SetOwner(rewardButton, 'ANCHOR_CURSOR');
                 GameTooltip.SetHyperlink("item:" + rewID);
                 GameTooltip.Show();
             });

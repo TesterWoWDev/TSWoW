@@ -25,15 +25,17 @@ public:
     TSQuest();
     TSQuest(Quest const* quest);
     TSQuest* operator->() { return this;}
+    operator bool() const { return quest != nullptr; }
+    bool operator==(TSQuest const& rhs) { return quest == rhs.quest; }
     bool IsNull() { return quest == nullptr; };
     bool HasFlag(uint32 flag);
     bool IsDaily();
     bool IsRepeatable();
-    uint32 GetId();
+    uint32 GetID();
     uint32 GetLevel();
     uint32 GetMinLevel();
-    int32 GetNextQuestId();
-    int32 GetPrevQuestId();
+    int32 GetNextQuestID();
+    int32 GetPrevQuestID();
     int32 GetNextQuestInChain();
     uint32 GetFlags();
     uint32 GetType();

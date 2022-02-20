@@ -14,7 +14,7 @@ export class creatureNameMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(creatureNameMessageID, 50);
+        let packet = CreateCustomPacket(creatureNameMessageID, 2000);
         packet.WriteUInt32(this.isName);
         packet.WriteString(this.entry);
         return packet;
@@ -45,7 +45,7 @@ export class itemLootMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(itemLootMessageID, 0);
+        let packet = CreateCustomPacket(itemLootMessageID, 2000);
         packet.WriteUInt32(this.size);
         packet.WriteUInt32(this.entryID);
         for (let i = 0; i < this.size; i++) {
@@ -71,7 +71,7 @@ export class creatureNoExistMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(creatureNoExistMessageID, 0);
+        let packet = CreateCustomPacket(creatureNoExistMessageID, 2000);
         packet.WriteUInt32(this.finish);
         return packet;
     }
@@ -90,7 +90,7 @@ export class requestClassSpellsMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(requestClassSpellsMessageID, 0);
+        let packet = CreateCustomPacket(requestClassSpellsMessageID, 2000);
         packet.WriteUInt32(this.value);
         return packet;
     }
@@ -112,7 +112,7 @@ export class sendClassSpellsMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(sendClassSpellsMessageID, 0);
+        let packet = CreateCustomPacket(sendClassSpellsMessageID, 2000);
         packet.WriteUInt32(this.level);
         packet.WriteUInt32(this.spellID);
         return packet;
@@ -132,7 +132,7 @@ export class attemptToComplete {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(attemptToCompleteID, 0);
+        let packet = CreateCustomPacket(attemptToCompleteID, 2000);
         packet.WriteUInt32(this.msg);
         return packet;
     }
@@ -181,7 +181,7 @@ export class questInfo {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(questInfoID, 500);
+        let packet = CreateCustomPacket(questInfoID, 5000);
         packet.WriteUInt8(this.reqType);
         packet.WriteUInt32(this.reqID);
         packet.WriteUInt8(this.reqCountTotal);

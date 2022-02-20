@@ -67,14 +67,14 @@ public:
     float GetWanderRadius();
     void UpdateLevelDependantStats();
     uint32 GetWaypointPath();
-    uint32 GetCurrentWaypointId();
+    uint32 GetCurrentWaypointID();
     uint32 GetDefaultMovementType();
     float GetAggroRange(TSUnit target);
     TSGroup GetLootRecipientGroup();
     TSPlayer GetLootRecipient();
     TSString GetScriptName();
     TSString GetAIName();
-    uint32 GetScriptId();
+    uint32 GetScriptID();
     uint32 GetCreatureSpellCooldownDelay(uint32 spell);
     uint32 GetCorpseDelay();
     TSPosition GetHomePosition();
@@ -109,6 +109,8 @@ public:
     void CallForHelp(float radius);
     void FleeToGetAssistance();
     void AttackStart(TSUnit target);
+    void SetReactState(uint8 state);
+    uint8 GetReactState();
     void SaveToDB();
     TSUnit SelectVictim();
     void UpdateEntry(uint32 entry, uint32 dataGuidLow);
@@ -129,11 +131,11 @@ public:
     bool IsAIEnabled();
     void SetLootRecipient(TSUnit unit, bool withGroup = true);
 
-    uint32_t GetMainhand();
-    uint32_t GetOffhand();
-    uint32_t GetRanged();
+    uint32_t GetMainhandEquip();
+    uint32_t GetOffhandEquip();
+    uint32_t GetRangedEquip();
 
-    void SetMainhand(uint32_t mainhand);
-    void SetOffhand(uint32_t offhand);
-    void SetRanged(uint32_t ranged);
+    void EquipMainhand(uint32_t mainhand);
+    void EquipOffhand(uint32_t offhand);
+    void EquipRanged(uint32_t ranged);
 };

@@ -1,5 +1,5 @@
 let mapID: uint32 = 309;
-export function housing(events: TSEventHandlers) {
+export function housing(events: TSEvents) {
     events.MapID.OnPlayerEnter(mapID, (map, player) => {
         if (!map.GetBool("isSpawned", false)) {
             map.SetBool("isSpawned", true);
@@ -21,7 +21,7 @@ export function housing(events: TSEventHandlers) {
     });
 
     events.Spells.OnCheckCast((spell) => {
-        if (spell.GetSpellInfo().SchoolMask() == 98) {
+        if (spell.GetSpellInfo().GetSchoolMask() == 98) {
             let player = spell.GetCaster().ToPlayer();
             if (player.GetMap().GetUInt("playerOwner", 1) != player.GetGUIDLow()) {
                 player.SendAreaTriggerMessage("This is not your home!");
@@ -84,7 +84,7 @@ export function housing(events: TSEventHandlers) {
 
     events.GameObjects.OnGossipSelect(
         (obj, player, menuID, selection, cancel) => {
-            if (player.GetMapId() == mapID) {
+            if (player.GetMapID() == mapID) {
                 if (player.GetMap().GetUInt("playerOwner", 1) != player.GetGUIDLow()) {
                     player.SendAreaTriggerMessage("This is not your home!");
                 } else {

@@ -58,6 +58,9 @@ public:
 
     TSOutfit* operator->() { return this; }
 
+    operator bool() const { return m_outfit != nullptr; }
+    bool operator==(TSOutfit const& rhs) { return m_outfit == rhs.m_outfit; }
+
     TSOutfit(
           TSPlayer player
         , uint32_t settings
@@ -116,7 +119,7 @@ public:
 
     uint32_t GetDisplayID(uint8_t slot);
 
-    TSOutfit& Apply(TSCreature creature);
+    TSOutfit& ApplyRef(TSCreature creature);
 
     TSOutfit& ApplyCopy(
           TSCreature creature

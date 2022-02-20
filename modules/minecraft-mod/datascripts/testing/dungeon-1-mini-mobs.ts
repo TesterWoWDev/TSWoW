@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../modname";
 
 export let minimobOne = std.CreatureTemplates.create(MODNAME,'torghastminimob1',98)

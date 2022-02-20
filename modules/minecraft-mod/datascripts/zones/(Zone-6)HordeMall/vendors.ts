@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { spawnMultipleNPCWithTimer } from "../../functions/spawning-functions";
 import { MODNAME } from "../../modname";
 import {

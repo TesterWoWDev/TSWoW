@@ -1,4 +1,5 @@
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 
 export function generateGearRecipes(
     gem: Number,
@@ -8,7 +9,7 @@ export function generateGearRecipes(
     itemID: Number[]
 ) {
     let zero = 0;
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         material +
         "," +
@@ -71,7 +72,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         material +
         "," +
@@ -134,7 +135,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         epulet +
         "," +
@@ -197,7 +198,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         material +
         "," +
@@ -260,7 +261,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         material +
         "," +
@@ -323,7 +324,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -386,7 +387,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         material +
         "," +
@@ -449,7 +450,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -512,7 +513,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         material +
         "," +
@@ -575,7 +576,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -638,7 +639,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -701,7 +702,7 @@ export function generateGearRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -775,7 +776,7 @@ export function generateWeaponRecipes(
     itemID: number[]
 ) {
     let zero = 0;
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -838,7 +839,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -901,7 +902,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -964,7 +965,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1027,7 +1028,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1090,7 +1091,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1153,7 +1154,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1216,7 +1217,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1279,7 +1280,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1342,7 +1343,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1405,7 +1406,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1468,7 +1469,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1531,7 +1532,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         material +
         "," +
@@ -1594,7 +1595,7 @@ export function generateWeaponRecipes(
         1 +
         ")"
     );
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         zero +
         "," +
@@ -1666,7 +1667,7 @@ export function createRecipe(
     craftID: number,
     craftCnt: number
 ) {
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `minecraft_recipes` VALUES(" +
         positions[0] +
         "," +

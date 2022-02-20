@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { ItemTemplate } from "tswow-stdlib/Item/ItemTemplate";
+import { std } from "wow/wotlk";
+import { ItemTemplate } from "wow/wotlk/std/Item/ItemTemplate";
 import { MODNAME } from "../modname";
 
 var manaTemplate = [0, 5];

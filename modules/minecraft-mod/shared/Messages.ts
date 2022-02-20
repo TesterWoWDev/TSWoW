@@ -41,7 +41,7 @@ export class craftMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(craftMessageID, 0);
+        let packet = CreateCustomPacket(craftMessageID, 2000);
         for (let i = 0; i < 9; i++) packet.WriteUInt32(this.itemIDs[i]);
         for (let i = 0; i < 9; i++) {
             packet.WriteUInt32(this.positions[i][0]);
@@ -76,7 +76,7 @@ export class returnCraftItemMessage {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(returnCraftItemMessageID, 0);
+        let packet = CreateCustomPacket(returnCraftItemMessageID, 2000);
         packet.WriteUInt32(this.craftItem);
         packet.WriteUInt32(this.craftItemCount);
         for (let i = 0; i < 5; i++) packet.WriteUInt32(this.enchantNum[i]);
@@ -97,7 +97,7 @@ export class showScreen {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(showScreenID, 0);
+        let packet = CreateCustomPacket(showScreenID, 2000);
         packet.WriteUInt32(this.value);
         return packet;
     }
@@ -127,7 +127,7 @@ export class spellChoices {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellChoicesID, 2000);
+        let packet = CreateCustomPacket(spellChoicesID, 0);
         for (let i = 0; i < 3; i++) {
             packet.WriteUInt32(this.spellIDs[i]);
             packet.WriteUInt32(this.spellRarity[i]);
@@ -150,7 +150,7 @@ export class spellChoice {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(spellChoiceID, 0);
+        let packet = CreateCustomPacket(spellChoiceID, 0);
         packet.WriteUInt32(this.choice);
         return packet;
     }

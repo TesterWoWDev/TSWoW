@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 import { spawnNPC } from "../../../functions/spawning-functions";
 import { MODNAME } from "../../../modname";
@@ -54,7 +54,7 @@ WarlockQuest01.Text.Title.enGB.set("Technique and Form");
 export let WarlockQuest02 = std.Quests.create(MODNAME, "warlockquest02-quest");
 
 WarlockQuest02.Flags.set(8);
-SQL.quest_template_addon.add(WarlockQuest02.ID).SpecialFlags.set(1);
+std.SQL.quest_template_addon.add(WarlockQuest02.ID).SpecialFlags.set(1);
 WarlockQuest02.MinLevel.set(1);
 WarlockQuest02.QuestLevel.set(20);
 WarlockQuest02.Questgiver.addCreatureStarter(WarlockQuestGiver01.ID);

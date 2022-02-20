@@ -66,7 +66,7 @@ export function thorgast() {
             spellButton.Show();
             spellButton.HookScript("OnEnter", (self) => {
                 GameTooltip.ClearLines();
-                GameTooltip.SetOwner(spellButton, "CENTER");
+                GameTooltip.SetOwner(spellButton, "ANCHOR_CURSOR");
                 GameTooltip.SetHyperlink("spell:" + self.GetName());
                 GameTooltip.Show();
             });

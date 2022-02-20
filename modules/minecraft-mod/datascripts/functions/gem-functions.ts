@@ -1,5 +1,5 @@
-import { CreatureTemplate } from "tswow-stdlib/Creature/CreatureTemplate";
-import { std } from "tswow-stdlib";
+import { CreatureTemplate } from "wow/wotlk/std/Creature/CreatureTemplate";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../modname";
 import { createRecipe } from "./recipe-functions";
 

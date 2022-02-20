@@ -10,7 +10,7 @@ class PlayerItemHolder {
 }
 
 let arrOfPlayerLoot: TSArray<PlayerItemHolder> = [];
-export function onDeath(events: TSEventHandlers) {
+export function onDeath(events: TSEvents) {
     events.Player.OnPlayerKilledByCreature((killer, player) => {
         removeLoot(player);
     });

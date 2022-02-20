@@ -1,6 +1,7 @@
 /*Ambient Object Spawns*/
 
-import { SQL } from "wotlkdata";
+
+import { std } from "wow/wotlk";
 import {
     SackofGrains,
     BowlofFruit,
@@ -44,13 +45,6 @@ import {
     BlackMalice,
 } from "../item-manifest";
 import { startingQuest01, startingQuest02 } from "../quest-manifest";
-/*Tables*/
-spawnMultipleGobs(507606, [
-    { map: 725, x: -8764.805664, y: -73.719604, z: 31.736753, o: 3.942945 },
-    { map: 725, x: -8770.925781, y: -79.868477, z: 31.733206, o: 0.310477 },
-    { map: 725, x: -8758.624023, y: -95.507362, z: 31.879797, o: 4.209993 },
-    { map: 725, x: -8733.508789, y: -89.997482, z: 31.79582, o: 2.870894 },
-]);
 
 spawnGobTimer(
     180876,
@@ -73,10 +67,10 @@ spawnGobTimer(
 ); // Agatha's Stolen Lockbox in Starting Zone
 /*Quest Items Loot*/
 addLootToGobChest(StolenLockbox, [AgathasLockbox.ID], [100], 7);
-SQL.gameobject_loot_template
+std.SQL.gameobject_loot_template
     .add(StolenLockbox.ID, AgathasLockbox.ID)
     .QuestRequired.set(1);
-SQL.item_loot_template
+std.SQL.item_loot_template
     .add(AgathasLockbox.ID, AgathasLockbox.ID)
     .Chance.set(100); // 100% chance to receive the same item back when lock picked because people are dumb
 
@@ -110,7 +104,7 @@ spawnMultiGobTimer(
 
 /*Quest Items Loot*/
 addLootToGobChest(startingResourceNode01, [startingResource01.ID], [100], 7);
-SQL.gameobject_loot_template
+std.SQL.gameobject_loot_template
     .add(startingResourceNode01.ID, startingResource01.ID)
     .QuestRequired.set(1);
 

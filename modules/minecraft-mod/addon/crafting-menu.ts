@@ -6,7 +6,6 @@ import {
     showScreenID,
 } from "../shared/Messages";
 
-import { Events } from "./lib/Events";
 export function craftingMenu() {
     let choices: TSArray<TSArray<uint32>> = [
         empty,
@@ -180,7 +179,7 @@ export function craftingMenu() {
 
                 buttons[Number(frame.GetName())][1].SetScript("OnEnter", (self) => {
                     GameTooltip.ClearLines();
-                    GameTooltip.SetOwner(self, "CENTER");
+                    GameTooltip.SetOwner(self, "ANCHOR_CURSOR");
                     GameTooltip.SetHyperlink(itemstring);
                     GameTooltip.Show();
                 });
@@ -226,7 +225,7 @@ export function craftingMenu() {
             }
             showBtn.SetScript("OnEnter", (self) => {
                 GameTooltip.ClearLines();
-                GameTooltip.SetOwner(showBtn, "CENTER");
+                GameTooltip.SetOwner(showBtn, "ANCHOR_CURSOR");
                 GameTooltip.SetHyperlink(
                     "item:" +
                     message.craftItem +
@@ -476,7 +475,7 @@ export function craftingMenu() {
                     }
                     element[1].SetScript("OnEnter", (self) => {
                         GameTooltip.ClearLines();
-                        GameTooltip.SetOwner(element[1], "CENTER");
+                        GameTooltip.SetOwner(element[1], "ANCHOR_CURSOR");
                         GameTooltip.SetText(tooltip);
                         GameTooltip.Show();
                     });

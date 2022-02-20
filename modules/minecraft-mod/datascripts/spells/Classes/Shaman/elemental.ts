@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 
 let ChainLightning1 = std.Spells.load(421);
 ChainLightning1.Effects.get(0).setPoints(211, 65, 2, 0);

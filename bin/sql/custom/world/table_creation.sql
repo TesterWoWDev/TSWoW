@@ -5,3 +5,4 @@ CREATE TABLE IF NOT EXISTS `minecraft_recipes` (`pos1` int(11) DEFAULT NULL,`pos
 CREATE TABLE IF NOT EXISTS `player_housing_item_spell_link` (`spellID` int(11) DEFAULT NULL, `gobID` int(11) DEFAULT NULL);
 CREATE TABLE IF NOT EXISTS `player_quest_options` (`difficulty` int(11) DEFAULT NULL,  `reqTypeID` int(11) DEFAULT NULL,  `reqID` int(11) DEFAULT NULL,  `reqName` varchar(255) DEFAULT NULL,  `reqDescription` varchar(255) DEFAULT NULL,  `minReqAmount` int(11) DEFAULT NULL,  `maxReqAmount` int(11) DEFAULT NULL);
 CREATE TABLE IF NOT EXISTS `player_quest_reward` (`difficulty` int(11) DEFAULT NULL,  `itemID` int(11) DEFAULT NULL,  `itemCount` int(11) DEFAULT NULL);
+CREATE TABLE IF NOT EXISTS `torghast_spells` (`classID` int(11) DEFAULT NULL,  `spellID` int(11) DEFAULT NULL,  `spellRarity` int(11) DEFAULT NULL,  `spellType` int(11) DEFAULT NULL,  `spellDesc` varchar(1000) DEFAULT NULL);

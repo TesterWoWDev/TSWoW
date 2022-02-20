@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { spawnGob } from "../../functions/spawning-functions";
 import { MODNAME } from "../../modname";
 
@@ -8,7 +8,7 @@ export let FortHopePortal = std.Spells.create(
     "forthopeportal-spell",
     17334
 );
-SQL.spell_target_position
+std.SQL.spell_target_position
     .add(FortHopePortal.ID, 0)
     .MapID.set(725)
     .PositionX.set(-8329.507)
@@ -37,7 +37,7 @@ export let DauntlessPortal = std.Spells.create(
     "dauntlessportal-spell",
     17334
 );
-SQL.spell_target_position
+std.SQL.spell_target_position
     .add(DauntlessPortal.ID, 0)
     .MapID.set(725)
     .PositionX.set(-7944.937)
@@ -66,7 +66,7 @@ export let ApothecaryPortal = std.Spells.create(
     "apothecaryportal-spell",
     17334
 );
-SQL.spell_target_position
+std.SQL.spell_target_position
     .add(ApothecaryPortal.ID, 0)
     .MapID.set(725)
     .PositionX.set(-9002.322)
@@ -95,7 +95,7 @@ export let StoneCirclePortal = std.Spells.create(
     "stonecircleportal-spell",
     17334
 );
-SQL.spell_target_position
+std.SQL.spell_target_position
     .add(StoneCirclePortal.ID, 0)
     .MapID.set(725)
     .PositionX.set(-8857.813)
@@ -125,7 +125,7 @@ export let JeweloftheSeaPortal = std.Spells.create(
     "seajewelportal-spell",
     17334
 );
-SQL.spell_target_position
+std.SQL.spell_target_position
     .add(JeweloftheSeaPortal.ID, 0)
     .MapID.set(725)
     .PositionX.set(-8344.869)

@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { spawnMultipleNPCWithTimer } from "../functions/spawning-functions";
 import { MODNAME } from "../modname";
 import { Fawn01 } from "./(Zone-0)Walk-of-Heroes/starting-zone-creatures";
@@ -19,6 +19,45 @@ spawnMultipleNPCWithTimer(
     5,
     0,
     [
+        { map: 725, x: -8061.970703, y: 201.731735, z: 1.174377, o: 5.102258 },
+        { map: 725, x: -8025.303223, y: 172.239777, z: 0.523174, o: 5.703087 },
+        { map: 725, x: -7999.850098, y: 116.646225, z: 2.114146, o: 6.095786 },
+        { map: 725, x: -7947.083008, y: 131.017181, z: 0.47827, o: 0.362378 },
+        { map: 725, x: -7910.515625, y: 168.122314, z: 2.726336, o: 0.825763 },
+        { map: 725, x: -7874.849121, y: 185.30632, z: 0.948785, o: 0.429137 },
+        { map: 725, x: -7856.412109, y: 234.790543, z: 1.755053, o: 0.955354 },
+        { map: 725, x: -7804.593262, y: 247.756119, z: 0.181069, o: 0.798274 },
+        { map: 725, x: -7792.575195, y: 337.747528, z: 1.820405, o: 1.485497 },
+        { map: 725, x: -7823.513672, y: 398.583496, z: 1.547921, o: 3.350819 },
+        { map: 725, x: -7885.959473, y: 401.085968, z: 2.062373, o: 3.103418 },
+        { map: 725, x: -8000.028809, y: 446.584839, z: 0.053655, o: 2.498662 },
+        { map: 725, x: -8007.058105, y: 550.804626, z: 0.242084, o: 1.257732 },
+        { map: 725, x: -8021.678223, y: 610.197571, z: 1.088982, o: 2.773551 },
+        { map: 725, x: -8091.25293, y: 638.490051, z: 0.134432, o: 3.299768 },
+        { map: 725, x: -8168.776855, y: 583.090332, z: -2.599264, o: 3.778863 },
+        { map: 725, x: -8196.80957, y: 509.096252, z: 1.027916, o: 4.367913 },
+        { map: 725, x: -8283.90918, y: 434.273346, z: 1.006449, o: 3.904528 },
+        { map: 725, x: -8339.169922, y: 411.563171, z: 2.16899, o: 4.658504 },
+        { map: 725, x: -8363.975586, y: 314.426544, z: 1.19202, o: 5.220057 },
+        { map: 725, x: -8324.290039, y: 234.296432, z: 1.86677, o: 0.024638 },
+        { map: 725, x: -8287.391602, y: 263.102905, z: 3.050151, o: 0.283819 },
+        { map: 725, x: -8229.648438, y: 258.559021, z: 3.077799, o: 0.079616 },
+        { map: 725, x: -8138.889648, y: 270.790955, z: 0.057817, o: 6.272481 },
+        { map: 725, x: -8119.63916, y: 184.818039, z: 0.462849, o: 4.151912 },
+        { map: 725, x: -8184.550781, y: 125.014763, z: 1.097368, o: 4.238304 },
+        { map: 725, x: -8171.518066, y: 59.534889, z: 0.771008, o: 5.294657 },
+        { map: 725, x: -8121.000977, y: -9.211844, z: 0.529058, o: 3.056282 },
+        { map: 725, x: -8201.439453, y: -26.549778, z: 1.282197, o: 4.799864 },
+        { map: 725, x: -8209.302734, y: -78.071373, z: 0.312487, o: 4.524973 },
+        { map: 725, x: -8220.663086, y: -156.934952, z: 0.198076, o: 6.131103 },
+        { map: 725, x: -8140.496582, y: -154.327072, z: 0.951697, o: 4.411087 },
+        { map: 725, x: -8215.223633, y: -227.210831, z: 0.278653, o: 3.574638 },
+        { map: 725, x: -8289.287109, y: -192.725708, z: 1.226542, o: 2.577182 },
+        { map: 725, x: -8330.37207, y: -140.69693, z: 0.906498, o: 2.357271 },
+        { map: 725, x: -8431.476562, y: -140.916946, z: 0.479238, o: 3.80633 },
+        { map: 725, x: -8716.108398, y: -33.742191, z: 32.049961, o: 6.102806 },
+        { map: 725, x: -8654.079102, y: -75.843369, z: 33.006699, o: 5.71011 },
+        { map: 725, x: -8679.473633, y: -62.391918, z: 31.180559, o: 6.161709 },
         { map: 725, x: -8859.136719, y: 648.41748, z: 34.654739, o: 3.369617 },
         { map: 725, x: -8904.333984, y: 623.679932, z: 34.035114, o: 3.954739 },
         { map: 725, x: -8904.345703, y: 572.404053, z: 24.74894, o: 4.673381 },
@@ -31,8 +70,8 @@ spawnMultipleNPCWithTimer(
 );
 
 export let BurningMaul = std.Spells.create(MODNAME, "burningmaul-spell", 30599);
-BurningMaul.Effects.get(0).BasePoints.set(345); //240 damage
-BurningMaul.Effects.get(0).DieSides.set(121); //121 up or down damage
+BurningMaul.Effects.get(0).PointsBase.set(345); //240 damage
+BurningMaul.Effects.get(0).PointsDieSides.set(121); //121 up or down damage
 
 export let BlackRockNpc01 = std.CreatureTemplates.create(
     MODNAME,
@@ -141,8 +180,8 @@ export let BurningBreathDamageSpell = std.Spells.create(
     "bbds-spell",
     66670
 );
-BurningBreathDamageSpell.Effects.get(0).BasePoints.set(327);
-BurningBreathDamageSpell.Effects.get(0).DieSides.set(101);
+BurningBreathDamageSpell.Effects.get(0).PointsBase.set(327);
+BurningBreathDamageSpell.Effects.get(0).PointsDieSides.set(101);
 BurningBreathDamageSpell.Effects.get(0).Radius.set(10);
 BurningBreathDamageSpell.Range.set(10);
 export let BurningBreath = std.Spells.create(
@@ -153,13 +192,13 @@ export let BurningBreath = std.Spells.create(
 BurningBreath.Effects.get(0).TriggerSpell.set(BurningBreathDamageSpell.ID);
 BurningBreath.Effects.get(0).Radius.set(10);
 export let PyroBlast = std.Spells.create(MODNAME, "pyroblast-spell", 70516);
-PyroBlast.Effects.get(0).BasePoints.set(652);
-PyroBlast.Effects.get(0).DieSides.set(121);
-PyroBlast.Effects.get(1).BasePoints.set(122);
-PyroBlast.Effects.get(1).DieSides.set(32);
+PyroBlast.Effects.get(0).PointsBase.set(652);
+PyroBlast.Effects.get(0).PointsDieSides.set(121);
+PyroBlast.Effects.get(1).PointsBase.set(122);
+PyroBlast.Effects.get(1).PointsDieSides.set(32);
 export let PyroClast = std.Spells.create(MODNAME, "pyroclast-spell", 70516);
-PyroClast.Effects.get(1).BasePoints.set(122);
-PyroClast.Effects.get(1).DieSides.set(32);
+PyroClast.Effects.get(1).PointsBase.set(122);
+PyroClast.Effects.get(1).PointsDieSides.set(32);
 PyroClast.CastTime.set(4000);
 
 export let BlackRockNpc02 = std.CreatureTemplates.create(
@@ -298,7 +337,7 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -8752.238281, y: 417.183105, z: 47.513695, o: 1.916613 }],
     300
 );
-SQL.creature_template_movement.add(SisterCreature01.ID).Flight.set(1);
+std.SQL.creature_template_movement.add(SisterCreature01.ID).Flight.set(1);
 
 export let SisterCreature02 = std.CreatureTemplates.create(
     MODNAME,
@@ -359,7 +398,7 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -8802.195312, y: 453.347565, z: 34.455067, o: 1.347199 }],
     300
 );
-SQL.creature_template_movement.add(SisterCreature02.ID).Flight.set(1);
+std.SQL.creature_template_movement.add(SisterCreature02.ID).Flight.set(1);
 
 export let SisterCreature03 = std.CreatureTemplates.create(
     MODNAME,
@@ -421,4 +460,4 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -8746.520508, y: 524.943848, z: 34.778702, o: 3.020098 }],
     300
 );
-SQL.creature_template_movement.add(SisterCreature03.ID).Flight.set(1);
+std.SQL.creature_template_movement.add(SisterCreature03.ID).Flight.set(1);

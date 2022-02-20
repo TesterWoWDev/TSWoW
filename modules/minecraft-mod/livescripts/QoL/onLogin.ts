@@ -1,4 +1,4 @@
-export function onLoginEvents(events: TSEventHandlers) {
+export function onLoginEvents(events: TSEvents) {
     events.Player.OnLogin((player, first) => {
         let classIcons = [
             "",

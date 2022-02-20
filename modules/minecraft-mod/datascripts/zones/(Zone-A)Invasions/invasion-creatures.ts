@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { MODNAME } from "../../modname";
 import {
     InvasionFrostArmor,
@@ -147,9 +147,9 @@ InvasionLargeMinion01.Stats.DamageMod.set(6);
 InvasionLargeMinion01.Stats.ExperienceMod.set(5);
 InvasionLargeMinion01.Stats.HealthMod.set(8);
 InvasionLargeMinion01.Stats.ManaMod.set(5);
-SQL.creature_equip_template.add(InvasionLargeMinion01.ID, 1).ItemID1.set(32332);
-SQL.creature_equip_template.add(InvasionLargeMinion01.ID, 2).ItemID1.set(32369);
-SQL.creature_equip_template.add(InvasionLargeMinion01.ID, 3).ItemID1.set(30902);
+std.SQL.creature_equip_template.add(InvasionLargeMinion01.ID, 1).ItemID1.set(32332);
+std.SQL.creature_equip_template.add(InvasionLargeMinion01.ID, 2).ItemID1.set(32369);
+std.SQL.creature_equip_template.add(InvasionLargeMinion01.ID, 3).ItemID1.set(30902);
 export let InvasionLargeMinion01Loot = InvasionLargeMinion01.NormalLoot;
 
 export let InvasionLargeMinion02 = std.CreatureTemplates.create(

@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 
 let WildGrowth01 = std.Spells.load(48438);
 WildGrowth01.Levels.set(1, 1, 1);

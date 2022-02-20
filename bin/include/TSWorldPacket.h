@@ -29,31 +29,69 @@ public:
     TSWorldPacket(uint16 opcode, uint32 res = 200);
     TSWorldPacket(WorldPacket *packet);
     TSWorldPacket* operator->() { return this;}
+    operator bool() const { return packet != nullptr; }
+    bool operator==(TSWorldPacket const& rhs) { return packet == rhs.packet; }
+
     ~TSWorldPacket();
     bool IsNull() { return packet == nullptr; }
     uint16 GetOpcode();
     uint32 GetSize();
     void SetOpcode(uint32 opcode);
-    int8 ReadByte();
-    uint8 ReadUByte();
-    int16 ReadShort();
-    uint16 ReadUShort();
-    int32 ReadLong();
-    uint32 ReadULong();
+
+    int8 ReadInt8(uint32 index);
+    int8 ReadInt8();
+    void WriteInt8(uint32 index, int8 value);
+    void WriteInt8(int8 value);
+
+    uint8 ReadUInt8(uint32 index);
+    uint8 ReadUInt8();
+    void WriteUInt8(uint32 index, uint8 value);
+    void WriteUInt8(uint8 value);
+
+    int16 ReadInt16(uint32 index);
+    int16 ReadInt16();
+    void WriteInt16(uint32 index, int16 value);
+    void WriteInt16(int16 value);
+
+    uint16 ReadUInt16(uint32 index);
+    uint16 ReadUInt16();
+    void WriteUInt16(uint32 index, uint16 value);
+    void WriteUInt16(uint16 value);
+
+    int32 ReadInt32(uint32 index);
+    int32 ReadInt32();
+    void WriteInt32(uint32 index, int32 value);
+    void WriteInt32(int32 value);
+
+    uint32 ReadUInt32(uint32 index);
+    uint32 ReadUInt32();
+    void WriteUInt32(uint32 index, uint32 value);
+    void WriteUInt32(uint32 value);
+
+    int64 ReadInt64(uint32 index);
+    int64 ReadInt64();
+    void WriteInt64(uint32 index, int64 value);
+    void WriteInt64(int64 value);
+
+    uint64 ReadUInt64(uint32 index);
+    uint64 ReadUInt64();
+    void WriteUInt64(uint32 index, uint64 value);
+    void WriteUInt64(uint64 value);
+
+    float ReadFloat(uint32 index);
     float ReadFloat();
+    void WriteFloat(float value);
+    void WriteFloat(uint32 index, float value);
+
+    double ReadDouble(uint32 index);
     double ReadDouble();
-    uint64 ReadGUID();
+    void WriteDouble(double value);
+    void WriteDouble(uint32 index, double value);
+
     TSString ReadString();
-    void WriteGUID(uint64 guid);
-    void WriteString(TSString _val);
-    void WriteByte(int8 byte);
-    void WriteUByte(uint8 byte);
-    void WriteShort(int16 _short);
-    void WriteUShort(uint16 _ushort);
-    void WriteLong(int32 _long);
-    void WriteULong(uint32 _ulong);
-    void WriteFloat(float _val);
-    void WriteDouble(double _val);
+    TSString ReadString(uint32 index);
+    void WriteString(TSString value);
+    void WriteString(uint32 index, TSString value);
 };
 
 namespace WorldPackets {
@@ -66,6 +104,8 @@ class TC_GAME_API TSWorldStatePacket
 public:
     WorldPackets::WorldState::InitWorldStates* m_ws;
     TSWorldStatePacket(WorldPackets::WorldState::InitWorldStates* ws);
+    operator bool() const { return m_ws != nullptr; }
+    bool operator==(TSWorldStatePacket const& rhs) { return m_ws == rhs.m_ws; }
     void push(int32 variableId, int32 value);
     uint32 length();
     int32 GetVariable(uint32 index);

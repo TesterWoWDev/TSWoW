@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../../modname";
 
 /*Creature - Worg Champion*/
@@ -17,27 +17,27 @@ MurlocChampionCreature.Rank.ELITE.set();
 //Spells
 export let MurlocChampionFrostbolt = std.Spells.create(
     MODNAME,
-    "Rank1Frostbolt-spell",
+    "Rank1Frostbolt-spell-murloc",
     116
 );
 MurlocChampionFrostbolt.Name.enGB.set("Frostbolt");
-MurlocChampionFrostbolt.Effects.get(0).BasePoints.set(-31);
-MurlocChampionFrostbolt.Effects.get(1).BasePoints.set(812);
+MurlocChampionFrostbolt.Effects.get(0).PointsBase.set(-31);
+MurlocChampionFrostbolt.Effects.get(1).PointsBase.set(812);
 MurlocChampionFrostbolt.CastTime.modRefCopy((val) => val.set(3000, 0, 3000));
 export let MurlocChampionFireblast = std.Spells.create(
     MODNAME,
-    "Rank1FireBlast-spell",
+    "Rank1FireBlast-spell-murloc",
     60871
 );
 MurlocChampionFireblast.Name.enGB.set("Fire Blast");
-MurlocChampionFireblast.Effects.get(0).BasePoints.set(1340);
+MurlocChampionFireblast.Effects.get(0).PointsBase.set(1340);
 export let MurlocChampionNova = std.Spells.create(
     MODNAME,
-    "Rank1FrostNova-spell",
+    "Rank1FrostNova-spell-murloc",
     122
 );
 MurlocChampionNova.Name.enGB.set("Frost Nova");
-MurlocChampionNova.Effects.get(0).BasePoints.set(617);
+MurlocChampionNova.Effects.get(0).PointsBase.set(617);
 MurlocChampionNova.Duration.modRefCopy((val) => val.set(3000, 0, 3000));
 
 MurlocChampionCreature.Scripts.onUpdateIc(0, 0, 0, 0, (script) => {
@@ -100,7 +100,7 @@ MurlocScroll.RequiredLevel.set(1);
 MurlocScroll.Spells.clearAll();
 MurlocScroll.Spells.addMod((spell) => {
     spell.Spell.set(MurlocChampion.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 
 /*Spell Scripts - Champion Boss Items*/

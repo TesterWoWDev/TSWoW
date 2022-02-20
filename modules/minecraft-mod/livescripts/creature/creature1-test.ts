@@ -1,4 +1,4 @@
-export function creature1Script(events: TSEventHandlers) {
+export function creature1Script(events: TSEvents) {
     events.SpellID.OnCast(
         GetID("Spell", "minecraft-mod", "bossdummyspell1-spell"),
         (spell) => {
@@ -25,7 +25,7 @@ export function creature1Script(events: TSEventHandlers) {
                         6,
                         500,
                         0,
-                        (collision, self, collided, cancel) => {
+                        (self,collided,cancel,entry) => {
                             if (
                                 collided.GetEntry() ==
                                 GetID(

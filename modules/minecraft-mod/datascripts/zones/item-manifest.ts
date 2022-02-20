@@ -1,6 +1,6 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../modname";
-import { SQL } from "wotlkdata";
+
 import {
     SpiritI,
     ProtectionI,
@@ -122,35 +122,35 @@ FightingStick03.Damage.addPhysical(37, 88);
 //Starting Armor and Items
 export let StartingVest = std.Items.create(MODNAME, "startingvest", 2300);
 StartingVest.Name.enGB.set("Tattered Vest");
-StartingVest.Class.ClothEquip.set();
+StartingVest.Class.CLOTH_EQUIP.set();
 StartingVest.RequiredLevel.set(1);
 StartingVest.Quality.WHITE.set();
 StartingVest.Stats.addStamina(3);
 StartingVest.Price.set(1, 1);
 export let StartingBoots = std.Items.create(MODNAME, "startingboots", 2309);
 StartingBoots.Name.enGB.set("Tattered Boots");
-StartingBoots.Class.ClothEquip.set();
+StartingBoots.Class.CLOTH_EQUIP.set();
 StartingBoots.RequiredLevel.set(1);
 StartingBoots.Quality.WHITE.set();
 StartingBoots.Stats.addStamina(1);
 StartingBoots.Price.set(1, 1);
 export let StartingCloak = std.Items.create(MODNAME, "startingcloak", 2310);
 StartingCloak.Name.enGB.set("Tattered Cloak");
-StartingCloak.Class.ClothEquip.set();
+StartingCloak.Class.CLOTH_EQUIP.set();
 StartingCloak.RequiredLevel.set(1);
 StartingCloak.Quality.WHITE.set();
 StartingCloak.Stats.addStamina(2);
 StartingCloak.Price.set(1, 1);
 export let StartingGloves = std.Items.create(MODNAME, "startinggloves", 4239);
 StartingGloves.Name.enGB.set("Tattered Gloves");
-StartingGloves.Class.ClothEquip.set();
+StartingGloves.Class.CLOTH_EQUIP.set();
 StartingGloves.RequiredLevel.set(1);
 StartingGloves.Quality.WHITE.set();
 StartingGloves.Stats.addStamina(2);
 StartingGloves.Price.set(1, 1);
 export let StartingPants = std.Items.create(MODNAME, "startingpants", 4242);
 StartingPants.Name.enGB.set("Tattered Pants");
-StartingPants.Class.ClothEquip.set();
+StartingPants.Class.CLOTH_EQUIP.set();
 StartingPants.RequiredLevel.set(1);
 StartingPants.Quality.WHITE.set();
 StartingPants.Stats.addStamina(3);
@@ -180,12 +180,12 @@ SatchelofPower.Stats.addHasteRating(50)
 SatchelofPower.Stats.addHitRating(50)
 SatchelofPower.Stats.addStamina(200)*/
 
-SQL.playercreateinfo_item.add(0, 0, StartingVest.ID).amount.set(1);
-SQL.playercreateinfo_item.add(0, 0, StartingBoots.ID).amount.set(1);
-SQL.playercreateinfo_item.add(0, 0, StartingCloak.ID).amount.set(1);
-SQL.playercreateinfo_item.add(0, 0, StartingGloves.ID).amount.set(1);
-SQL.playercreateinfo_item.add(0, 0, StartingPants.ID).amount.set(1);
-SQL.playercreateinfo_item.add(0, 0, StartingRing.ID).amount.set(1);
+std.SQL.playercreateinfo_item.add(0, 0, StartingVest.ID).amount.set(1);
+std.SQL.playercreateinfo_item.add(0, 0, StartingBoots.ID).amount.set(1);
+std.SQL.playercreateinfo_item.add(0, 0, StartingCloak.ID).amount.set(1);
+std.SQL.playercreateinfo_item.add(0, 0, StartingGloves.ID).amount.set(1);
+std.SQL.playercreateinfo_item.add(0, 0, StartingPants.ID).amount.set(1);
+std.SQL.playercreateinfo_item.add(0, 0, StartingRing.ID).amount.set(1);
 
 export let AgathasLockbox = std.Items.create(MODNAME, "agathaslockbox", 4632);
 AgathasLockbox.Name.enGB.set("Agatha's Lockbox");
@@ -201,7 +201,7 @@ SatchelofResources.Name.enGB.set("Fractal's Resource Cache");
 SatchelofResources.Quality.GREEN.set();
 SatchelofResources.Bonding.QUEST_ITEM.set();
 SatchelofResources.Spells.clearAll();
-SQL.item_loot_template
+std.SQL.item_loot_template
     .add(SatchelofResources.ID, tierOneClothMaterial)
     .Chance.set(100)
     .MinCount.set(4)
@@ -1810,7 +1810,7 @@ ScrollofSpiritVIII.Quality.WHITE.set();
 ScrollofSpiritVIII.Spells.clear(0);
 ScrollofSpiritVIII.Spells.addMod((spell) => {
     spell.Spell.set(SpiritI.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 ScrollofSpiritVIII.RequiredLevel.set(0);
 ScrollofSpiritVIII.MaxStack.set(9999);
@@ -1824,7 +1824,7 @@ ScrollofProtectionVIII.Quality.WHITE.set();
 ScrollofProtectionVIII.Spells.clear(0);
 ScrollofProtectionVIII.Spells.addMod((spell) => {
     spell.Spell.set(ProtectionI.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 ScrollofProtectionVIII.RequiredLevel.set(0);
 ScrollofProtectionVIII.MaxStack.set(9999);
@@ -1838,7 +1838,7 @@ ScrollofAgilityVIII.Quality.WHITE.set();
 ScrollofAgilityVIII.Spells.clear(0);
 ScrollofAgilityVIII.Spells.addMod((spell) => {
     spell.Spell.set(AgilityI.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 ScrollofAgilityVIII.RequiredLevel.set(0);
 ScrollofAgilityVIII.MaxStack.set(9999);
@@ -1852,7 +1852,7 @@ ScrollofIntellectVIII.Quality.WHITE.set();
 ScrollofIntellectVIII.Spells.clear(0);
 ScrollofIntellectVIII.Spells.addMod((spell) => {
     spell.Spell.set(IntellectI.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 ScrollofIntellectVIII.RequiredLevel.set(0);
 ScrollofIntellectVIII.MaxStack.set(9999);
@@ -1866,7 +1866,7 @@ ScrollofStaminaVIII.Quality.WHITE.set();
 ScrollofStaminaVIII.Spells.clear(0);
 ScrollofStaminaVIII.Spells.addMod((spell) => {
     spell.Spell.set(StaminaI.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 ScrollofStaminaVIII.RequiredLevel.set(0);
 ScrollofStaminaVIII.MaxStack.set(9999);
@@ -1880,7 +1880,7 @@ ScrollofStrengthVIII.Quality.WHITE.set();
 ScrollofStrengthVIII.Spells.clear(0);
 ScrollofStrengthVIII.Spells.addMod((spell) => {
     spell.Spell.set(StrengthI.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 ScrollofStrengthVIII.RequiredLevel.set(0);
 ScrollofStrengthVIII.MaxStack.set(9999);
@@ -2046,7 +2046,7 @@ ShivanFeather.Spells.clear(0);
 ShivanFeather.Spells.addMod((spell) => {
     spell.Spell.set(52870);
     spell.Trigger.set(0);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 ShivanFeather.RequiredLevel.set(0);
 export let LurkerCord = std.Items.create(MODNAME, "lurkercord", 30675);
@@ -2144,8 +2144,8 @@ export let ChainHealTest = std.Spells.create(
     "chainhealtest-spell",
     70425
 );
-ChainHealTest.Effects.get(0).BasePoints.set(645);
-ChainHealTest.Effects.get(0).DieSides.set(128);
+ChainHealTest.Effects.get(0).PointsBase.set(645);
+ChainHealTest.Effects.get(0).PointsDieSides.set(128);
 export let chanceChainHeal = std.Spells.create(
     MODNAME,
     "chancechainheal-spell",
@@ -2979,7 +2979,7 @@ FourthScrollofSpiritVIII.Quality.WHITE.set();
 FourthScrollofSpiritVIII.Spells.clear(0);
 FourthScrollofSpiritVIII.Spells.addMod((spell) => {
     spell.Spell.set(SpiritIV.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 FourthScrollofSpiritVIII.RequiredLevel.set(0);
 export let FourthScrollofProtectionVIII = std.Items.create(
@@ -2992,7 +2992,7 @@ FourthScrollofProtectionVIII.Quality.WHITE.set();
 FourthScrollofProtectionVIII.Spells.clear(0);
 FourthScrollofProtectionVIII.Spells.addMod((spell) => {
     spell.Spell.set(ProtectionIV.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 FourthScrollofProtectionVIII.RequiredLevel.set(0);
 export let FourthScrollofAgilityVIII = std.Items.create(
@@ -3005,7 +3005,7 @@ FourthScrollofAgilityVIII.Quality.WHITE.set();
 FourthScrollofAgilityVIII.Spells.clear(0);
 FourthScrollofAgilityVIII.Spells.addMod((spell) => {
     spell.Spell.set(AgilityIV.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 FourthScrollofAgilityVIII.RequiredLevel.set(0);
 export let FourthScrollofIntellectVIII = std.Items.create(
@@ -3018,7 +3018,7 @@ FourthScrollofIntellectVIII.Quality.WHITE.set();
 FourthScrollofIntellectVIII.Spells.clear(0);
 FourthScrollofIntellectVIII.Spells.addMod((spell) => {
     spell.Spell.set(IntellectIV.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 FourthScrollofIntellectVIII.RequiredLevel.set(0);
 export let FourthScrollofStaminaVIII = std.Items.create(
@@ -3031,7 +3031,7 @@ FourthScrollofStaminaVIII.Quality.WHITE.set();
 FourthScrollofStaminaVIII.Spells.clear(0);
 FourthScrollofStaminaVIII.Spells.addMod((spell) => {
     spell.Spell.set(StaminaIV.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 FourthScrollofStaminaVIII.RequiredLevel.set(0);
 export let FourthScrollofStrengthVIII = std.Items.create(
@@ -3044,7 +3044,7 @@ FourthScrollofStrengthVIII.Quality.WHITE.set();
 FourthScrollofStrengthVIII.Spells.clear(0);
 FourthScrollofStrengthVIII.Spells.addMod((spell) => {
     spell.Spell.set(StrengthIV.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set('UNLIMITED');
 });
 FourthScrollofStrengthVIII.RequiredLevel.set(0);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3067,33 +3067,33 @@ export let SavageBlade = std.Items.create(MODNAME, "savageblade", 32369);
 SavageBlade.Name.enGB.set("Bearhunter");
 export let SpikyBearTrap = std.Items.create(MODNAME, "spikybeartrap", 32375);
 SpikyBearTrap.Name.enGB.set("Guardsmans Shield");
-export let Edgeblade = std.Items.create(MODNAME, "spikybeartrap", 18822);
+export let Edgeblade = std.Items.create(MODNAME, "edgeblade", 18822);
 Edgeblade.Name.enGB.set("Abnormal Blade");
 export let Amulet01 = std.Items.create(MODNAME, "newamulet01", 21712);
 Amulet01.Quality.BLUE.set();
-Amulet01.Price.set(151211, 359521, 1);
+Amulet01.Price.set(151211, 359521, 1, 'GOLD');
 Amulet01.RequiredLevel.set(7);
 export let Amulet02 = std.Items.create(MODNAME, "newamulet02", 7722);
 Amulet02.Quality.GREEN.set();
-Amulet02.Price.set(79523, 91517, 1);
+Amulet02.Price.set(79523, 91517, 1, 'GOLD');
 Amulet02.RequiredLevel.set(5);
 export let Amulet03 = std.Items.create(MODNAME, "newamulet03", 9641);
 Amulet03.Quality.GREEN.set();
-Amulet03.Price.set(22692, 25326, 1);
+Amulet03.Price.set(22692, 25326, 1, 'GOLD');
 Amulet03.RequiredLevel.set(1);
 export let Amulet04 = std.Items.create(MODNAME, "newamulet04", 1443);
 Amulet04.Quality.BLUE.set();
-Amulet04.Price.set(121256, 192526, 1);
+Amulet04.Price.set(121256, 192526, 1, 'GOLD');
 Amulet04.RequiredLevel.set(7);
 export let Amulet05 = std.Items.create(MODNAME, "newamulet05", 10711);
 Amulet05.Quality.BLUE.set();
-Amulet05.Price.set(34546, 39636, 1);
+Amulet05.Price.set(34546, 39636, 1, 'GOLD');
 Amulet05.RequiredLevel.set(1);
 export let OrbofPower = std.Items.create(MODNAME, "powerorb01", 43102);
 OrbofPower.Name.enGB.set("Orb of Infinite Power");
 OrbofPower.Quality.PURPLE.set();
 OrbofPower.MaxStack.set(500);
-OrbofPower.Price.set(100000, 20000000, 1);
+OrbofPower.Price.set(100000, 20000000, 1, 'GOLD');
 OrbofPower.Bonding.BINDS_ON_PICKUP.set();
 export let PowerToken = std.Items.load(37711);
 PowerToken.Name.enGB.set("Token of Infinite Power");
@@ -3402,40 +3402,40 @@ ItemReward40.Spells.addMod((spell) => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export let c2ClothItem01 = std.Items.create(MODNAME, "c2clothitem01", 33588);
 c2ClothItem01.Quality.BLUE.set();
-c2ClothItem01.Price.set(27893, 2665521, 1);
+c2ClothItem01.Price.set(27893, 2665521, 1, 'GOLD');
 export let c2ClothItem02 = std.Items.create(MODNAME, "c2clothitem02", 33291);
 c2ClothItem02.Quality.BLUE.set();
-c2ClothItem02.Price.set(31893, 3041262, 1);
+c2ClothItem02.Price.set(31893, 3041262, 1, 'GOLD');
 export let c2ClothItem03 = std.Items.create(MODNAME, "c2clothitem03", 33585);
 c2ClothItem03.Quality.BLUE.set();
-c2ClothItem03.Price.set(45893, 2912152, 1);
+c2ClothItem03.Price.set(45893, 2912152, 1, 'GOLD');
 export let c2ClothItem04 = std.Items.create(MODNAME, "c2clothitem04", 33584);
 c2ClothItem04.Quality.BLUE.set();
-c2ClothItem04.Price.set(66893, 1665952, 1);
+c2ClothItem04.Price.set(66893, 1665952, 1, 'GOLD');
 export let c2ClothItem05 = std.Items.create(MODNAME, "c2clothitem05", 28525);
 c2ClothItem05.Quality.BLUE.set();
-c2ClothItem05.Price.set(52893, 1995652, 1);
+c2ClothItem05.Price.set(52893, 1995652, 1, 'GOLD');
 export let c2ClothItem06 = std.Items.create(MODNAME, "c2clothitem06", 28565);
 c2ClothItem06.Quality.BLUE.set();
-c2ClothItem06.Price.set(14893, 2623121, 1);
+c2ClothItem06.Price.set(14893, 2623121, 1, 'GOLD');
 export let c2ClothItem07 = std.Items.create(MODNAME, "c2clothitem07", 28570);
 c2ClothItem07.Quality.BLUE.set();
-c2ClothItem07.Price.set(19893, 2114455, 1);
+c2ClothItem07.Price.set(19893, 2114455, 1, 'GOLD');
 export let c2ClothItem08 = std.Items.create(MODNAME, "c2clothitem08", 28515);
 c2ClothItem08.Quality.BLUE.set();
-c2ClothItem08.Price.set(28893, 1685953, 1);
+c2ClothItem08.Price.set(28893, 1685953, 1, 'GOLD');
 export let c2ClothItem09 = std.Items.create(MODNAME, "c2clothitem09", 28804);
 c2ClothItem09.Quality.BLUE.set();
-c2ClothItem09.Price.set(24893, 2122332, 1);
+c2ClothItem09.Price.set(24893, 2122332, 1, 'GOLD');
 export let c2ClothItem10 = std.Items.create(MODNAME, "c2clothitem10", 28822);
 c2ClothItem10.Quality.BLUE.set();
-c2ClothItem10.Price.set(29892, 1878522, 1);
+c2ClothItem10.Price.set(29892, 1878522, 1, 'GOLD');
 export let c2ClothItem11 = std.Items.create(MODNAME, "c2clothitem11", 28602);
 c2ClothItem11.Quality.BLUE.set();
-c2ClothItem11.Price.set(11843, 3445652, 1);
+c2ClothItem11.Price.set(11843, 3445652, 1, 'GOLD');
 export let c2ClothItem12 = std.Items.create(MODNAME, "c2clothitem12", 28604);
 c2ClothItem12.Quality.BLUE.set();
-c2ClothItem12.Price.set(19893, 5126232, 1);
+c2ClothItem12.Price.set(19893, 5126232, 1, 'GOLD');
 c2ClothItem01.RequiredLevel.set(7);
 c2ClothItem02.RequiredLevel.set(9);
 c2ClothItem03.RequiredLevel.set(11);
@@ -3454,91 +3454,91 @@ export let c2LeatherItem01 = std.Items.create(
     28600
 );
 c2LeatherItem01.Quality.BLUE.set();
-c2LeatherItem01.Price.set(27893, 1785632, 1);
+c2LeatherItem01.Price.set(27893, 1785632, 1, 'GOLD');
 export let c2LeatherItem02 = std.Items.create(
     MODNAME,
     "c2leatheritem02",
     28601
 );
 c2LeatherItem02.Quality.BLUE.set();
-c2LeatherItem02.Price.set(31893, 2112126, 1);
+c2LeatherItem02.Price.set(31893, 2112126, 1, 'GOLD');
 export let c2LeatherItem03 = std.Items.create(
     MODNAME,
     "c2leatheritem03",
     28611
 );
 c2LeatherItem03.Quality.BLUE.set();
-c2LeatherItem03.Price.set(45893, 1912132, 1);
+c2LeatherItem03.Price.set(45893, 1912132, 1, 'GOLD');
 export let c2LeatherItem04 = std.Items.create(
     MODNAME,
     "c2leatheritem04",
     28606
 );
 c2LeatherItem04.Quality.BLUE.set();
-c2LeatherItem04.Price.set(66893, 2326232, 1);
+c2LeatherItem04.Price.set(66893, 2326232, 1, 'GOLD');
 export let c2LeatherItem05 = std.Items.create(
     MODNAME,
     "c2leatheritem05",
     28749
 );
 c2LeatherItem05.Quality.BLUE.set();
-c2LeatherItem05.Price.set(52893, 1942532, 1);
+c2LeatherItem05.Price.set(52893, 1942532, 1, 'GOLD');
 export let c2LeatherItem06 = std.Items.create(
     MODNAME,
     "c2leatheritem06",
     28745
 );
 c2LeatherItem06.Quality.BLUE.set();
-c2LeatherItem06.Price.set(14893, 2147563, 1);
+c2LeatherItem06.Price.set(14893, 2147563, 1, 'GOLD');
 export let c2LeatherItem07 = std.Items.create(
     MODNAME,
     "c2leatheritem07",
     28764
 );
 c2LeatherItem07.Quality.BLUE.set();
-c2LeatherItem07.Price.set(19893, 3112132, 1);
+c2LeatherItem07.Price.set(19893, 3112132, 1, 'GOLD');
 export let c2LeatherItem08 = std.Items.create(
     MODNAME,
     "c2leatheritem08",
     28773
 );
 c2LeatherItem08.Quality.BLUE.set();
-c2LeatherItem08.Price.set(28893, 2269562, 1);
+c2LeatherItem08.Price.set(28893, 2269562, 1, 'GOLD');
 export let c2LeatherItem09 = std.Items.create(
     MODNAME,
     "c2leatheritem09",
     28772
 );
 c2LeatherItem09.Quality.BLUE.set();
-c2LeatherItem09.Price.set(24893, 3632362, 1);
+c2LeatherItem09.Price.set(24893, 3632362, 1, 'GOLD');
 export let c2LeatherItem10 = std.Items.create(
     MODNAME,
     "c2leatheritem10",
     30886
 );
 c2LeatherItem10.Quality.BLUE.set();
-c2LeatherItem10.Price.set(29892, 2269632, 1);
+c2LeatherItem10.Price.set(29892, 2269632, 1, 'GOLD');
 export let c2LeatherItem11 = std.Items.create(
     MODNAME,
     "c2leatheritem11",
     30917
 );
 c2LeatherItem11.Quality.BLUE.set();
-c2LeatherItem11.Price.set(11843, 2659563, 1);
+c2LeatherItem11.Price.set(11843, 2659563, 1, 'GOLD');
 export let c2LeatherItem12 = std.Items.create(
     MODNAME,
     "c2leatheritem12",
     30898
 );
 c2LeatherItem12.Quality.BLUE.set();
-c2LeatherItem12.Price.set(19893, 1886532, 1);
+c2LeatherItem12.Price.set(19893, 1886532, 1, 'GOLD');
 export let c2LeatherItem13 = std.Items.create(
     MODNAME,
-    "c2leatheritem12",
+    "c2leatheritem13",
     30901
 );
 c2LeatherItem13.Quality.BLUE.set();
-c2LeatherItem13.Price.set(19893, 2015151, 1);
+c2LeatherItem13.Price.set(19893, 2015151, 1, 'GOLD');
 c2LeatherItem01.RequiredLevel.set(7);
 c2LeatherItem02.RequiredLevel.set(9);
 c2LeatherItem03.RequiredLevel.set(11);
@@ -3554,43 +3554,43 @@ c2LeatherItem12.RequiredLevel.set(9);
 c2LeatherItem13.RequiredLevel.set(7);
 export let c2PlateItem01 = std.Items.create(MODNAME, "c2plateitem01", 32232);
 c2PlateItem01.Quality.BLUE.set();
-c2PlateItem01.Price.set(27893, 1998563, 1);
+c2PlateItem01.Price.set(27893, 1998563, 1, 'GOLD');
 export let c2PlateItem02 = std.Items.create(MODNAME, "c2plateitem02", 32243);
 c2PlateItem02.Quality.BLUE.set();
-c2PlateItem02.Price.set(31893, 2152321, 1);
+c2PlateItem02.Price.set(31893, 2152321, 1, 'GOLD');
 export let c2PlateItem03 = std.Items.create(MODNAME, "c2plateitem03", 32236);
 c2PlateItem03.Quality.BLUE.set();
-c2PlateItem03.Price.set(45893, 1415232, 1);
+c2PlateItem03.Price.set(45893, 1415232, 1, 'GOLD');
 export let c2PlateItem04 = std.Items.create(MODNAME, "c2plateitem04", 32250);
 c2PlateItem04.Quality.BLUE.set();
-c2PlateItem04.Price.set(66893, 1759632, 1);
+c2PlateItem04.Price.set(66893, 1759632, 1, 'GOLD');
 export let c2PlateItem05 = std.Items.create(MODNAME, "c2plateitem05", 32279);
 c2PlateItem05.Quality.BLUE.set();
-c2PlateItem05.Price.set(52893, 2885232, 1);
+c2PlateItem05.Price.set(52893, 2885232, 1, 'GOLD');
 export let c2PlateItem06 = std.Items.create(MODNAME, "c2plateitem06", 32280);
 c2PlateItem06.Quality.BLUE.set();
-c2PlateItem06.Price.set(14893, 3014151, 1);
+c2PlateItem06.Price.set(14893, 3014151, 1, 'GOLD');
 export let c2PlateItem07 = std.Items.create(MODNAME, "c2plateitem07", 32512);
 c2PlateItem07.Quality.BLUE.set();
-c2PlateItem07.Price.set(19893, 2996232, 1);
+c2PlateItem07.Price.set(19893, 2996232, 1, 'GOLD');
 export let c2PlateItem08 = std.Items.create(MODNAME, "c2plateitem08", 32348);
 c2PlateItem08.Quality.BLUE.set();
-c2PlateItem08.Price.set(28893, 5269562, 1);
+c2PlateItem08.Price.set(28893, 5269562, 1, 'GOLD');
 export let c2PlateItem09 = std.Items.create(MODNAME, "c2plateitem09", 32341);
 c2PlateItem09.Quality.BLUE.set();
-c2PlateItem09.Price.set(24893, 3632362, 1);
+c2PlateItem09.Price.set(24893, 3632362, 1, 'GOLD');
 export let c2PlateItem10 = std.Items.create(MODNAME, "c2plateitem10", 32335);
 c2PlateItem10.Quality.BLUE.set();
-c2PlateItem10.Price.set(29892, 2523262, 1);
+c2PlateItem10.Price.set(29892, 2523262, 1, 'GOLD');
 export let c2PlateItem11 = std.Items.create(MODNAME, "c2plateitem11", 32365);
 c2PlateItem11.Quality.BLUE.set();
-c2PlateItem11.Price.set(11843, 2162321, 1);
+c2PlateItem11.Price.set(11843, 2162321, 1, 'GOLD');
 export let c2PlateItem12 = std.Items.create(MODNAME, "c2plateitem12", 32505);
 c2PlateItem12.Quality.BLUE.set();
-c2PlateItem12.Price.set(19893, 1915232, 1);
-export let c2PlateItem13 = std.Items.create(MODNAME, "c2plateitem12", 32483);
+c2PlateItem12.Price.set(19893, 1915232, 1, 'GOLD');
+export let c2PlateItem13 = std.Items.create(MODNAME, "c2plateitem13", 32483);
 c2PlateItem13.Quality.BLUE.set();
-c2PlateItem13.Price.set(19893, 1756532, 1);
+c2PlateItem13.Price.set(19893, 1756532, 1, 'GOLD');
 c2PlateItem01.RequiredLevel.set(7);
 c2PlateItem02.RequiredLevel.set(9);
 c2PlateItem03.RequiredLevel.set(11);
@@ -3606,40 +3606,40 @@ c2PlateItem12.RequiredLevel.set(9);
 c2PlateItem13.RequiredLevel.set(7);
 export let ClothItem01 = std.Items.create(MODNAME, "clothitem01", 12608);
 ClothItem01.Quality.GREEN.set();
-ClothItem01.Price.set(27893, 148576, 1);
+ClothItem01.Price.set(27893, 148576, 1, 'GOLD');
 export let ClothItem02 = std.Items.create(MODNAME, "clothitem02", 13170);
 ClothItem02.Quality.GREEN.set();
-ClothItem02.Price.set(31893, 229563, 1);
+ClothItem02.Price.set(31893, 229563, 1, 'GOLD');
 export let ClothItem03 = std.Items.create(MODNAME, "clothitem03", 13282);
 ClothItem03.Quality.GREEN.set();
-ClothItem03.Price.set(45893, 315191, 1);
+ClothItem03.Price.set(45893, 315191, 1, 'GOLD');
 export let ClothItem04 = std.Items.create(MODNAME, "clothitem04", 13283);
 ClothItem04.Quality.GREEN.set();
-ClothItem04.Price.set(66893, 274512, 1);
+ClothItem04.Price.set(66893, 274512, 1, 'GOLD');
 export let ClothItem05 = std.Items.create(MODNAME, "clothitem05", 22319);
 ClothItem05.Quality.GREEN.set();
-ClothItem05.Price.set(52893, 179562, 1);
+ClothItem05.Price.set(52893, 179562, 1, 'GOLD');
 export let ClothItem06 = std.Items.create(MODNAME, "clothitem06", 13185);
 ClothItem06.Quality.GREEN.set();
-ClothItem06.Price.set(14893, 492252, 1);
+ClothItem06.Price.set(14893, 492252, 1, 'GOLD');
 export let ClothItem07 = std.Items.create(MODNAME, "clothitem07", 13178);
 ClothItem07.Quality.GREEN.set();
-ClothItem07.Price.set(19893, 216621, 1);
+ClothItem07.Price.set(19893, 216621, 1, 'GOLD');
 export let ClothItem08 = std.Items.create(MODNAME, "clothitem08", 13253);
 ClothItem08.Quality.GREEN.set();
-ClothItem08.Price.set(28893, 175544, 1);
+ClothItem08.Price.set(28893, 175544, 1, 'GOLD');
 export let ClothItem09 = std.Items.create(MODNAME, "clothitem09", 13206);
 ClothItem09.Quality.GREEN.set();
-ClothItem09.Price.set(24893, 539623, 1);
+ClothItem09.Price.set(24893, 539623, 1, 'GOLD');
 export let ClothItem10 = std.Items.create(MODNAME, "clothitem10", 13203);
 ClothItem10.Quality.GREEN.set();
-ClothItem10.Price.set(29892, 274545, 1);
+ClothItem10.Price.set(29892, 274545, 1, 'GOLD');
 export let ClothItem11 = std.Items.create(MODNAME, "clothitem11", 13161);
 ClothItem11.Quality.GREEN.set();
-ClothItem11.Price.set(11843, 1019563, 1);
+ClothItem11.Price.set(11843, 1019563, 1, 'GOLD');
 export let ClothItem12 = std.Items.create(MODNAME, "clothitem12", 22268);
 ClothItem12.Quality.GREEN.set();
-ClothItem12.Price.set(19893, 947513, 1);
+ClothItem12.Price.set(19893, 947513, 1, 'GOLD');
 ClothItem01.RequiredLevel.set(3);
 ClothItem02.RequiredLevel.set(4);
 ClothItem03.RequiredLevel.set(7);
@@ -3654,49 +3654,49 @@ ClothItem11.RequiredLevel.set(4);
 ClothItem12.RequiredLevel.set(8);
 export let PlateItem01 = std.Items.create(MODNAME, "plateitem01", 13286);
 PlateItem01.Quality.GREEN.set();
-PlateItem01.Price.set(27893, 293262, 1);
+PlateItem01.Price.set(27893, 293262, 1, 'GOLD');
 export let PlateItem02 = std.Items.create(MODNAME, "plateitem02", 13168);
 PlateItem02.Quality.GREEN.set();
-PlateItem02.Price.set(31893, 805211, 1);
+PlateItem02.Price.set(31893, 805211, 1, 'GOLD');
 export let PlateItem03 = std.Items.create(MODNAME, "plateitem03", 13166);
 PlateItem03.Quality.GREEN.set();
-PlateItem03.Price.set(45893, 426232, 1);
+PlateItem03.Price.set(45893, 426232, 1, 'GOLD');
 export let PlateItem04 = std.Items.create(MODNAME, "plateitem04", 13167);
 PlateItem04.Quality.GREEN.set();
-PlateItem04.Price.set(66893, 589565, 1);
+PlateItem04.Price.set(66893, 589565, 1, 'GOLD');
 export let PlateItem05 = std.Items.create(MODNAME, "plateitem05", 13285);
 PlateItem05.Quality.GREEN.set();
-PlateItem05.Price.set(52893, 725236, 1);
+PlateItem05.Price.set(52893, 725236, 1, 'GOLD');
 export let PlateItem06 = std.Items.create(MODNAME, "plateitem06", 12582);
 PlateItem06.Quality.GREEN.set();
-PlateItem06.Price.set(14893, 586565, 1);
+PlateItem06.Price.set(14893, 586565, 1, 'GOLD');
 export let PlateItem07 = std.Items.create(MODNAME, "plateitem07", 22322);
 PlateItem07.Quality.GREEN.set();
-PlateItem07.Price.set(19893, 445252, 1);
+PlateItem07.Price.set(19893, 445252, 1, 'GOLD');
 export let PlateItem08 = std.Items.create(MODNAME, "plateitem08", 12637);
 PlateItem08.Quality.GREEN.set();
-PlateItem08.Price.set(28893, 612369, 1);
+PlateItem08.Price.set(28893, 612369, 1, 'GOLD');
 export let PlateItem09 = std.Items.create(MODNAME, "plateitem09", 13259);
 PlateItem09.Quality.GREEN.set();
-PlateItem09.Price.set(24893, 1078459, 1);
+PlateItem09.Price.set(24893, 1078459, 1, 'GOLD');
 export let PlateItem10 = std.Items.create(MODNAME, "plateitem10", 13205);
 PlateItem10.Quality.GREEN.set();
-PlateItem10.Price.set(29892, 415236, 1);
+PlateItem10.Price.set(29892, 415236, 1, 'GOLD');
 export let PlateItem11 = std.Items.create(MODNAME, "plateitem11", 13163);
 PlateItem11.Quality.GREEN.set();
-PlateItem11.Price.set(11843, 1775421, 1);
+PlateItem11.Price.set(11843, 1775421, 1, 'GOLD');
 export let PlateItem12 = std.Items.create(MODNAME, "plateitem12", 13162);
 PlateItem12.Quality.GREEN.set();
-PlateItem12.Price.set(19893, 923663, 1);
+PlateItem12.Price.set(19893, 923663, 1, 'GOLD');
 export let PlateItem13 = std.Items.create(MODNAME, "plateitem13", 13182);
 PlateItem13.Quality.GREEN.set();
-PlateItem13.Price.set(19893, 741122, 1);
+PlateItem13.Price.set(19893, 741122, 1, 'GOLD');
 export let PlateItem14 = std.Items.create(MODNAME, "plateitem14", 13143);
 PlateItem14.Quality.GREEN.set();
-PlateItem14.Price.set(19893, 2754565, 1);
+PlateItem14.Price.set(19893, 2754565, 1, 'GOLD');
 export let PlateItem15 = std.Items.create(MODNAME, "plateitem15", 12592);
 PlateItem15.Quality.GREEN.set();
-PlateItem15.Price.set(19893, 4001253, 1);
+PlateItem15.Price.set(19893, 4001253, 1, 'GOLD');
 PlateItem01.RequiredLevel.set(3);
 PlateItem02.RequiredLevel.set(4);
 PlateItem03.RequiredLevel.set(7);
@@ -3714,28 +3714,28 @@ PlateItem14.RequiredLevel.set(7);
 PlateItem15.RequiredLevel.set(7);
 export let LeatherItem01 = std.Items.create(MODNAME, "leatheritem01", 13169);
 LeatherItem01.Quality.GREEN.set();
-LeatherItem01.Price.set(27893, 441256, 1);
+LeatherItem01.Price.set(27893, 441256, 1, 'GOLD');
 export let LeatherItem02 = std.Items.create(MODNAME, "leatheritem02", 13257);
 LeatherItem02.Quality.GREEN.set();
-LeatherItem02.Price.set(31893, 321215, 1);
+LeatherItem02.Price.set(31893, 321215, 1, 'GOLD');
 export let LeatherItem03 = std.Items.create(MODNAME, "leatheritem03", 13177);
 LeatherItem03.Quality.GREEN.set();
-LeatherItem03.Price.set(45893, 715123, 1);
+LeatherItem03.Price.set(45893, 715123, 1, 'GOLD');
 export let LeatherItem04 = std.Items.create(MODNAME, "leatheritem04", 13183);
 LeatherItem04.Quality.GREEN.set();
-LeatherItem04.Price.set(66893, 404141, 1);
+LeatherItem04.Price.set(66893, 404141, 1, 'GOLD');
 export let LeatherItem05 = std.Items.create(MODNAME, "leatheritem05", 13218);
 LeatherItem05.Quality.GREEN.set();
-LeatherItem05.Price.set(52893, 975145, 1);
+LeatherItem05.Price.set(52893, 975145, 1, 'GOLD');
 export let LeatherItem06 = std.Items.create(MODNAME, "leatheritem06", 13258);
 LeatherItem06.Quality.GREEN.set();
-LeatherItem06.Price.set(14893, 196232, 1);
+LeatherItem06.Price.set(14893, 196232, 1, 'GOLD');
 export let LeatherItem07 = std.Items.create(MODNAME, "leatheritem07", 13210);
 LeatherItem07.Quality.GREEN.set();
-LeatherItem07.Price.set(19893, 412523, 1);
+LeatherItem07.Price.set(19893, 412523, 1, 'GOLD');
 export let LeatherItem08 = std.Items.create(MODNAME, "leatheritem08", 13148);
 LeatherItem08.Quality.GREEN.set();
-LeatherItem08.Price.set(28893, 1132562, 1);
+LeatherItem08.Price.set(28893, 1132562, 1, 'GOLD');
 LeatherItem01.RequiredLevel.set(3);
 LeatherItem02.RequiredLevel.set(4);
 LeatherItem03.RequiredLevel.set(7);
@@ -3746,22 +3746,22 @@ LeatherItem07.RequiredLevel.set(11);
 LeatherItem08.RequiredLevel.set(10);
 export let MailItem01 = std.Items.create(MODNAME, "mailitem01", 13284);
 MailItem01.Quality.GREEN.set();
-MailItem01.Price.set(27893, 645232, 1);
+MailItem01.Price.set(27893, 645232, 1, 'GOLD');
 export let MailItem02 = std.Items.create(MODNAME, "mailitem02", 13255);
 MailItem02.Quality.GREEN.set();
-MailItem02.Price.set(31893, 162321, 1);
+MailItem02.Price.set(31893, 162321, 1, 'GOLD');
 export let MailItem03 = std.Items.create(MODNAME, "mailitem03", 12634);
 MailItem03.Quality.GREEN.set();
-MailItem03.Price.set(45893, 274512, 1);
+MailItem03.Price.set(45893, 274512, 1, 'GOLD');
 export let MailItem04 = std.Items.create(MODNAME, "mailitem04", 13244);
 MailItem04.Quality.GREEN.set();
-MailItem04.Price.set(66893, 395123, 1);
+MailItem04.Price.set(66893, 395123, 1, 'GOLD');
 export let MailItem05 = std.Items.create(MODNAME, "mailitem05", 22321);
 MailItem05.Quality.GREEN.set();
-MailItem05.Price.set(52893, 956565, 1);
+MailItem05.Price.set(52893, 956565, 1, 'GOLD');
 export let MailItem06 = std.Items.create(MODNAME, "mailitem06", 13164);
 MailItem06.Quality.GREEN.set();
-MailItem06.Price.set(14893, 1274535, 1);
+MailItem06.Price.set(14893, 1274535, 1, 'GOLD');
 MailItem01.RequiredLevel.set(3);
 MailItem02.RequiredLevel.set(4);
 MailItem03.RequiredLevel.set(7);
@@ -3794,7 +3794,7 @@ RenewalHammer.Quality.BLUE.set();
 RenewalHammer.RequiredLevel.set(4);
 export let WildMagic = std.Items.create(MODNAME, "wildmagic", 32078);
 WildMagic.RequiredLevel.set(6);
-WildMagic.Class.ClothEquip.set();
+WildMagic.Class.CLOTH_EQUIP.set();
 export let UnbrokenChain = std.Items.create(MODNAME, "unbrokenchain", 29349);
 UnbrokenChain.RequiredLevel.set(6);
 export let PhosphoSword = std.Items.create(MODNAME, "phosphoswrd", 27673);
@@ -4030,7 +4030,7 @@ export let Avalanche = std.Items.create(MODNAME, "aval", 33599);
 Avalanche.Quality.BLUE.set();
 Avalanche.RequiredLevel.set(5);
 Avalanche.Socket.clearAll();
-export let DancingBlades = std.Items.create(MODNAME, "aval", 33300);
+export let DancingBlades = std.Items.create(MODNAME, "dancing", 33300);
 DancingBlades.Quality.BLUE.set();
 DancingBlades.RequiredLevel.set(5);
 DancingBlades.Socket.clearAll();
@@ -4089,7 +4089,7 @@ export let DamageSpell = std.Spells.create(MODNAME, "damagespell-spell", 71188);
 DamageSpell.Name.enGB.set("Rampage");
 DamageSpell.Description.enGB.set("He's a bull so..");
 DamageSpell.AuraDescription.enGB.set("Increases total damage dealt by $s1%.");
-DamageSpell.Effects.get(0).BasePoints.set(1);
+DamageSpell.Effects.get(0).PointsBase.set(1);
 DamageSpell.Effects.get(1).Aura.set(0);
 DamageSpell.Effects.get(2).Aura.set(0);
 DamageSpell.Duration.modRefCopy((val) => {
@@ -4099,7 +4099,7 @@ export let HealthSpell = std.Spells.create(MODNAME, "healthspell-spell", 71188);
 HealthSpell.Name.enGB.set("Invincible");
 HealthSpell.Description.enGB.set("I guess this works for now.?");
 HealthSpell.AuraDescription.enGB.set("Increases total health by $s1%.");
-HealthSpell.Effects.get(0).BasePoints.set(1);
+HealthSpell.Effects.get(0).PointsBase.set(1);
 HealthSpell.Effects.get(0).Aura.MOD_INCREASE_HEALTH_PERCENT.set();
 HealthSpell.Effects.get(1).Aura.set(0);
 HealthSpell.Effects.get(2).Aura.set(0);
@@ -4116,7 +4116,7 @@ UnTestedBoots.Stats.addStamina(12);
 UnTestedBoots.Stats.addAgility(9);
 UnTestedBoots.Stats.addAttackPower(20);
 UnTestedBoots.Price.set(1, 1);
-UnTestedBoots.Class.ClothEquip.set();
+UnTestedBoots.Class.CLOTH_EQUIP.set();
 export let FallenAngelCloak = std.Items.create(MODNAME, "fallencloak", 3980); //Jose
 FallenAngelCloak.Name.enGB.set("Cloak of the Fallen Angel");
 FallenAngelCloak.Quality.BLUE.set();
@@ -4137,7 +4137,7 @@ WornFlannelShirt.Stats.addAttackPower(7);
 WornFlannelShirt.Stats.addSpellPower(7);
 WornFlannelShirt.Stats.addCritRating(5);
 WornFlannelShirt.Price.set(1, 1);
-WornFlannelShirt.Class.ClothEquip.set();
+WornFlannelShirt.Class.CLOTH_EQUIP.set();
 export let StrangeBlade = std.Items.create(MODNAME, "strangeblade", 5191); //Lexaeus (Idk his name)
 StrangeBlade.Name.enGB.set("Strange Blade");
 StrangeBlade.RequiredLevel.set(1);
@@ -4156,7 +4156,7 @@ BrokenChickenShoulders.Spells.addMod((spell) => {
     spell.Spell.set(SlowFallSpell.ID);
     spell.Trigger.set(1);
 });
-BrokenChickenShoulders.Class.ClothEquip.set();
+BrokenChickenShoulders.Class.CLOTH_EQUIP.set();
 export let RampagingLeggings = std.Items.create(MODNAME, "rampaginglegs", 6587); //Torgaun
 RampagingLeggings.Name.enGB.set("Leggings of Brutal Rampage");
 RampagingLeggings.RequiredLevel.set(1);
@@ -4166,7 +4166,7 @@ RampagingLeggings.Spells.addMod((spell) => {
     spell.Spell.set(DamageSpell.ID);
     spell.Trigger.set(1);
 });
-RampagingLeggings.Class.ClothEquip.set();
+RampagingLeggings.Class.CLOTH_EQUIP.set();
 export let UndyingGauntlets = std.Items.create(
     MODNAME,
     "undyinggauntlets",
@@ -4181,7 +4181,7 @@ UndyingGauntlets.Spells.addMod((spell) => {
     spell.Trigger.set(1);
 });
 UndyingGauntlets.ItemSet.set(0);
-UndyingGauntlets.Class.ClothEquip.set();
+UndyingGauntlets.Class.CLOTH_EQUIP.set();
 
 //Game Objects
 export let ForgottenBoots = makeResourceNode(
@@ -4319,7 +4319,7 @@ export let MovementSpell = std.Spells.create(
 ); //caster
 MovementSpell.Name.enGB.set("Movement Speed Increased (25%)");
 MovementSpell.Description.enGB.set("Gotta go fast, brrrrr!");
-MovementSpell.Effects.get(0).BasePoints.set(24);
+MovementSpell.Effects.get(0).PointsBase.set(24);
 MovementSpell.Duration.modRefCopy((val) => {
     val.set(-1, 0, -1);
 });
@@ -4365,7 +4365,7 @@ LexaeusSpell.Duration.modRefCopy((val) => {
     val.set(-1, 0, -1);
 });
 LexaeusSpell.Effects.get(0).MiscValueA.set(NakedLexMob01.ID);
-LexaeusSpell.Effects.get(0).BasePoints.set(4);
+LexaeusSpell.Effects.get(0).PointsBase.set(4);
 
 //Spawns
 spawnMultiGobTimer(

@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../modname";
 
 export let stringItem = std.Items.create(MODNAME, "string", 2934);
