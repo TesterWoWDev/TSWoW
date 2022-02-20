@@ -12,6 +12,7 @@ export function itemReloading(events: TSEvents) {
     events.Player.OnCommand((player,command,found)=>{
         let cmd = command.get().split(' ')
         if(cmd[0] == 'cacheme'){
+            found.set(true)
             player.UpdateCache()
         }
         if(cmd[0] == 'itemreload'){
@@ -27,9 +28,10 @@ export function itemReloading(events: TSEvents) {
             found.set(true)
             //get a prettier way? idk. you need GetTemplateCopy off a item instance. DO NOT use GetTemplate()
             let newItem = player.GetItemByEntry(ToUInt32(cmd[1])).GetTemplateCopy()
-            //do your manipulations here
-            newItem.SetStatValue(0,5)
             newItem.SetStatCount(2)
+            //do your manipulations here
+            newItem.SetStatType(0,7)
+            newItem.SetStatValue(0,5)
             newItem.SetStatType(1,5)
             newItem.SetStatValue(1,5)
             //do the heavy lifting
@@ -47,8 +49,8 @@ export function itemReloading(events: TSEvents) {
             //get a prettier way? idk. you need GetTemplateCopy off a item instance. DO NOT use GetTemplate()
             let newItem = player.GetItemByEntry(ToUInt32(cmd[1])).GetTemplateCopy()
             //do your manipulations here
-            newItem.SetStatValue(0,1)
             newItem.SetStatCount(1)
+            newItem.SetStatValue(0,1)
             //do the heavy lifting
             player.ApplyCustomItemMods(newItem)
             //save to custom table

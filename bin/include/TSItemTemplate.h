@@ -34,14 +34,20 @@ public:
 
     uint32 GetEntry();
 
+    void SetEntry(uint32 value);
+
     float GetDamageMinA();
+    void SetDamageMinA(int64 value);
     float GetDamageMinB();
-
+    void SetDamageMinB(int64 value);
     float GetDamageMaxA();
+    void SetDamageMaxA(int64 value);
     float GetDamageMaxB();
-
+    void SetDamageMaxB(int64 value);
     uint32 GetDamageTypeA();
+    void SetDamageTypeA(int64 value);
     uint32 GetDamageTypeB();
+    void SetDamageTypeB(int64 value);
 
     uint32 GetClass();
     uint32 GetSubClass();
@@ -49,6 +55,7 @@ public:
     TSString GetName();
     uint32 GetDisplayInfoID();
     uint32 GetQuality();
+    void SetQuality(uint32 value);
     uint32 GetFlags();
     uint32 GetFlags2();
     uint32 GetBuyCount();
@@ -58,6 +65,7 @@ public:
     uint32 GetAllowableClass();
     uint32 GetAllowableRace();
     uint32 GetItemLevel();
+    void SetItemLevel(uint32 value);
     uint32 GetRequiredLevel();
     uint32 GetRequiredSkill();
     uint32 GetRequiredSkillRank();
@@ -75,6 +83,7 @@ public:
     uint32 GetScalingStatDistribution();
     uint32 GetScalingStatValue();
     uint32 GetArmor();
+    void SetArmor(int32 value);
     uint32 GetHolyRes();
     uint32 GetFireRes();
     uint32 GetNatureRes();

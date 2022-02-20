@@ -11,6 +11,7 @@ import { creatureDeathSummon } from "./creature/creature-death-summon";
 import { torghastBuffSystem } from "./dungeon/torghast-master";
 import { dungeon1 } from "./dungeon/dungeon-1";
 import { itemReloading } from "./item_reloading";
+import { itemCreate } from "./item_create";
 
 export function Main(events: TSEvents) {
     handleCraftMessages(events);
@@ -27,4 +28,5 @@ export function Main(events: TSEvents) {
     //hungerGames(events)
     dungeon1(events);
     itemReloading(events);
+    itemCreate(events);
 }
