@@ -25,26 +25,26 @@ const spellsList = [
     ],
     [
         [0 /*Paladin*/],
-        [3127, 635, 750, 20271, 35395], // Parry,                  Holy Light (1),         Plate Mail,             Judgement of Light,     Crusader Strike
-        [639, 853, 465, 7294, 62124, 25780], // Holy Light (2),         Hammer of Justice (1),  Devotion Aura,          Retribution Aura,       Hand of Reckoning
-        [26573, 879], // Consecration (1),       Exorcism (1)
-        [647, 19750, 24275], // Holy Light (3),         Flash of Light (1),     Hammer of Wrath (1)
-        [1152, 20165, 5614], // Purify,                 Seal of Light,          Exorcism (2)
-        [1026, 19939, 31935], // Holy Light (4),         Flash of Light (2),     Avenger's Shield (1)
-        [20116, 5615, 5588], // Consecration (2),       Exorcism (3),           Hammer of Justice (2)
-        [1042, 19940, 24274], // Holy Light (5),         Flash of Light (3),     Hammer of Wrath (2)
-        [10312, 54428, 25780, 31789], // Exorcism (4),           Divine Plea,            Righteous Fury,         Righteous Defense
-        [3472, 19941, 48950], // Holy Light (6),         Flash of Light (4),     Redemption (1-7)
-        [10313, 642, 5589, 24239], // Exorcism (5),           Divine Shield,          Hammer of Justice (3),  Hammer of Wrath (3)
-        [10328, 19942, 20922], // Holy Light (7),         Flash of Light (5),     Consecration (3)
-        [10314, 32699], // Exorcism (6),           Avenger's Shield (2)
-        [10329, 19943, 10308, 27180], // Holy Light (8),         Flash of Light (6),     Hammer of Justice (4),  Hammer of Wrath (4)
-        [27138, 53385], // Exorcism (7),           Divine Storm
-        [25292, 27137, 20923, 20923], // Holy Light (9),         Flash of Light (7),     Consecration (4)
-        [48800, 32700, 48805], // Exorcism (8),           Avenger's Shield (3),   Hammer of Wrath (5)
-        [27135, 48784, 20924], // Holy Light (10),        Flash of Light (8),     Consecration (5)
-        [48801, 27173, 48806, 54043], // Exorcism (9),           Consecration (6),       Hammer of Wrath (6),    Retribution Aura (2-7)
-        [27139, 48785, 48819, 31884], // Holy Light (11),        Flash of Light (9),     Consecration (7+8),     Avenging Wrath
+        [3127, 9116, 107, 635, 465, 21084, 20185],   // Parry, Block, Shield, Holy Light(1), Devotion Aura(1), Seal of Righteousness, Judgement of Light
+        [35395],   // Crusader Strike
+        [639],   // Holy Light(2)
+        [853],   // Hammer of Justice (1)
+        [10290],   // Devotion Aura(2)
+        [7328],   // Redemption(1)
+        [647, 31789],   // Holy Light(3),  Righteous Defense
+        [25780, 7294],   // Righteous Fury, Retribution Aura
+        [31935, 20186],   // Avenger's Shield, Judgement of Wisdom
+        [643, 19750, 26573, 879],   // Devotion Aura(3), Flash of Light(1), Consecration(1), Exorcism(1)
+        [1026],   // Holy Light(4)
+        [5588, 10322],   // Hammer of Justice(2), Redemption(2)
+        [10298, 19939],   // Retribution Aura(2), Flash of Light(2)
+        [5614],   // Exorcism(2)
+        [1042, 10291, 20165, 20116],   // Holy Light(5), Devotion Aura(4), Seal of Light, Consecration(2)
+        [53385],   // Divine Storm
+        [19940],   // Flash of Light(3)
+        [10299, 5615],   // Retribution Aura(3), Exorcism(3)
+        [19941],   // Flash of Light(4)
+        [20922, 1032, 31884],   // Consecration(3), Devotion Aura(5), Avenging Wrath
     ],
     [
         [0 /*Hunter*/],
