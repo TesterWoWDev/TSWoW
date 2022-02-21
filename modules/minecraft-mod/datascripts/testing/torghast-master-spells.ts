@@ -48,6 +48,7 @@ IncreasedHealth1.row.Attributes.get() + 0x80000000);
 IncreasedHealth1.AuraInterruptFlags.set(0x0080000);
 IncreasedHealth1.Stacks.set(99);
 IncreasedHealth1.Icon.setPath("Spell_Holy_MindVision");
+addSpellToTorghastScript(IncreasedHealth1,0,1,0)
 
 export let IncreasedDamage1 = std.Spells.create(MODNAME,"increaseddamage1-spell",34747);
 IncreasedDamage1.Name.enGB.set("Hardened");
@@ -63,6 +64,7 @@ IncreasedDamage1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedDamage1.AuraInterruptFlags.set(0x0080000);
 IncreasedDamage1.Stacks.set(99);
 IncreasedDamage1.Icon.setPath("Ability_Warrior_InnerRage");
+addSpellToTorghastScript(IncreasedDamage1,0,2,0)
 
 export let ShadowyFigure = std.Spells.create(MODNAME,"shadowyfigure-spell",31213);
 ShadowyFigure.Name.enGB.set("Shadowed");
@@ -75,6 +77,7 @@ ShadowyFigure.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ShadowyFigure.AuraInterruptFlags.set(0x0080000);
 ShadowyFigure.Stacks.set(99);
 ShadowyFigure.Icon.setPath("Spell_Shadow_Haunting");
+addSpellToTorghastScript(ShadowyFigure,0,3,1)
 
 export let IncreasedSpellpower1 = std.Spells.create(MODNAME,"increasedsp1-spell",34747);
 IncreasedSpellpower1.Name.enGB.set("Spellbender");
@@ -94,6 +97,7 @@ IncreasedSpellpower1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedSpellpower1.AuraInterruptFlags.set(0x0080000);
 IncreasedSpellpower1.Stacks.set(99);
 IncreasedSpellpower1.Icon.setPath("Spell_Nature_AstralRecalGroup");
+addSpellToTorghastScript(IncreasedSpellpower1,0,2,0)
 
 export let IncreasedAttackpower1 = std.Spells.create(MODNAME,"increasedap1-spell",34747);
 IncreasedAttackpower1.Name.enGB.set("Warlord");
@@ -109,6 +113,7 @@ IncreasedAttackpower1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedAttackpower1.AuraInterruptFlags.set(0x0080000);
 IncreasedAttackpower1.Stacks.set(99);
 IncreasedAttackpower1.Icon.setPath("Ability_Druid_ChallangingRoar");
+addSpellToTorghastScript(IncreasedAttackpower1,0,3,0)
 
 export let IncreasedStamina1 = std.Spells.create(MODNAME,"increasedstamina1-spell",34747);
 IncreasedStamina1.Name.enGB.set("Hearty");
@@ -126,6 +131,7 @@ IncreasedStamina1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedStamina1.AuraInterruptFlags.set(0x0080000);
 IncreasedStamina1.Stacks.set(99);
 IncreasedStamina1.Icon.setPath("INV_Misc_Organ_06");
+addSpellToTorghastScript(IncreasedStamina1,0,4,0)
 
 export let IncreasedStrength1 = std.Spells.create(MODNAME,"increasedstrength1-spell",34747);
 IncreasedStrength1.Name.enGB.set("Resolute");
@@ -143,6 +149,7 @@ IncreasedStrength1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedStrength1.AuraInterruptFlags.set(0x0080000);
 IncreasedStrength1.Stacks.set(99);
 IncreasedStrength1.Icon.setPath("INV_Relics_TotemofRage");
+addSpellToTorghastScript(IncreasedStrength1,0,1,0)
 
 export let IncreasedIntellect1 = std.Spells.create(MODNAME,"increasedintellect1-spell",34747);
 IncreasedIntellect1.Name.enGB.set("Wise");
@@ -160,6 +167,7 @@ IncreasedIntellect1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedIntellect1.AuraInterruptFlags.set(0x0080000);
 IncreasedIntellect1.Stacks.set(99);
 IncreasedIntellect1.Icon.setPath("Spell_Arcane_Arcane03");
+addSpellToTorghastScript(IncreasedIntellect1,0,2,0)
 
 export let IncreasedAgility1 = std.Spells.create(MODNAME,"increasedagility1-spell",34747);
 IncreasedAgility1.Name.enGB.set("Agile");
@@ -177,6 +185,7 @@ IncreasedAgility1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedAgility1.AuraInterruptFlags.set(0x0080000);
 IncreasedAgility1.Stacks.set(99);
 IncreasedAgility1.Icon.setPath("INV_Trinket_Naxxramas03");
+addSpellToTorghastScript(IncreasedAgility1,0,3,0)
 
 export let IncreasedCrit1 = std.Spells.create(MODNAME,"increasedcrit1-spell",34747);
 IncreasedCrit1.Name.enGB.set("Tactful Strikes");
@@ -194,6 +203,7 @@ IncreasedCrit1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedCrit1.AuraInterruptFlags.set(0x0080000);
 IncreasedCrit1.Stacks.set(99);
 IncreasedCrit1.Icon.setPath("Spell_Shadow_DemonicFortitude");
+addSpellToTorghastScript(IncreasedCrit1,0,4,0)
 
 export let IncreasedResist1 = std.Spells.create(MODNAME,"increasedresist1-spell",34747);
 IncreasedResist1.Name.enGB.set("Resistant");
@@ -211,6 +221,7 @@ IncreasedResist1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedResist1.AuraInterruptFlags.set(0x0080000);
 IncreasedResist1.Stacks.set(99);
 IncreasedResist1.Icon.setPath("Spell_Nature_ElementalPrecision_1");
+addSpellToTorghastScript(IncreasedResist1,0,1,0)
 
 export let rangedAttackSpeed1 = std.Spells.create(MODNAME,"rangedattackspeed1-spell",44972);
 rangedAttackSpeed1.Name.enGB.set("Increased Ranged Speed");
@@ -221,6 +232,7 @@ rangedAttackSpeed1.Duration.set(21);
 rangedAttackSpeed1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 rangedAttackSpeed1.AuraInterruptFlags.set(0x0080000);
 rangedAttackSpeed1.Icon.setPath("Ability_Hunter_SteadyShot");
+addSpellToTorghastScript(rangedAttackSpeed1,0,2,1)
 
 export let critChance1 = std.Spells.create(MODNAME, "critchance-spell", 54283);
 critChance1.Name.enGB.set("Increased Crit Chance");
@@ -232,6 +244,7 @@ critChance1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 critChance1.AuraInterruptFlags.set(0x0080000);
 critChance1.Stacks.set(10);
 critChance1.Icon.setPath("Spell_Fire_MoltenBlood");
+addSpellToTorghastScript(critChance1,0,3,0)
 
 export let critDamage1 = std.Spells.create(MODNAME, "critdamage-spell", 44797);
 critDamage1.Name.enGB.set("Increased Crit Damage");
@@ -243,6 +256,7 @@ critDamage1.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 critDamage1.AuraInterruptFlags.set(0x0080000);
 critDamage1.Stacks.set(99);
 critDamage1.Icon.setPath("Inv_Gizmo_SuperSapperCharge");
+addSpellToTorghastScript(critDamage1,0,4,0)
 
 export let grapple = std.Spells.create(MODNAME, "grapple-spell", 57882);
 grapple.Name.enGB.set("Grapple");
@@ -258,6 +272,7 @@ grapple.Effects.get(1).ImplicitTargetA.DEST_DEST.set();
 grapple.Effects.get(1).TriggerSpell.set(57883);
 grapple.Visual.getRefCopy().cloneFromVisual(11055);
 grapple.Icon.setPath("INV_MISC_HOOK_01");
+addSpellToTorghastScript(grapple,0,4,1)
 
 export let ImmortalityHeal = std.Spells.create(MODNAME, "immortalityheal-spell", 55694);                                                                        //2% health regen every 5 seconds forever.
 ImmortalityHeal.Name.enGB.set("Resilient Heart");
@@ -265,12 +280,14 @@ ImmortalityHeal.Description.enGB.set("You regenerate $s1% of your total health e
 ImmortalityHeal.AuraDescription.enGB.set("Regenerates $s1% of your total health every $t1 sec.");
 ImmortalityHeal.Effects.get(0).PointsBase.set(1);
 ImmortalityHeal.Effects.get(0).PointsDieSides.set(1);
-ImmortalityHeal.Effects.get(0).ChainAmplitude.set(5000)
+//ImmortalityHeal.Effects.get(0).ChainAmplitude.set(5000)
+ImmortalityHeal.Effects.get(0).AuraPeriod.set(5000)
 ImmortalityHeal.Duration.set(21);
 ImmortalityHeal.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImmortalityHeal.AuraInterruptFlags.set(0x0080000);
 ImmortalityHeal.Stacks.set(99);
 ImmortalityHeal.Icon.setPath("Ability_Druid_Replenish");
+addSpellToTorghastScript(ImmortalityHeal,0,3,0)
 
 export let ImmortalityMana = std.Spells.create(MODNAME, "immortalitymana-spell", 32102);                                                                        //50% mana regen while casting
 ImmortalityMana.Name.enGB.set("Deep Mana Pools");
@@ -283,6 +300,7 @@ ImmortalityMana.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImmortalityMana.AuraInterruptFlags.set(0x0080000);
 ImmortalityMana.Stacks.set(99);
 ImmortalityMana.Icon.setPath("Spell_Holy_Serendipity");
+addSpellToTorghastScript(ImmortalityMana,0,3,0)
 
 export let ChanceForMana = std.Spells.create(MODNAME, "chanceformana-spell", 10491);                                                                            //Spells have a 5% chance to restore flat mana (value above)
 ChanceForMana.Name.enGB.set("Clarity");
@@ -303,6 +321,7 @@ ChanceForMana.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForMana.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 ChanceForMana.Proc.TriggerMask.DONE_PERIODIC.set(1);
 ChanceForMana.Icon.setPath("Spell_Magic_ManaGain");
+addSpellToTorghastScript(ChanceForMana,0,3,0)
 
 export let ChanceForManaValue = std.Spells.create(MODNAME, "chanceformanavalue-spell", 55382);                                                                  //600 mana chance
 ChanceForManaValue.Effects.get(0).PointsBase.set(1350);
@@ -351,6 +370,7 @@ ChanceForHealth.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceForHealth.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 ChanceForHealth.Proc.TriggerMask.DONE_PERIODIC.set(1);
 ChanceForHealth.Icon.setPath("Spell_Shaman_BlessingOfEternals");
+addSpellToTorghastScript(ChanceForHealth,0,5,1)
 
 export let RoarSpellValue = std.Spells.create(MODNAME, "roarspellvalue-spell", 55429);                                                                          //Knockback and damage chance (50 knockback) + (520 damage) in 15 yard cone
 RoarSpellValue.Effects.get(0).PointsBase.set(49);
@@ -379,6 +399,7 @@ ChanceRoarSpell.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 ChanceRoarSpell.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 ChanceRoarSpell.Proc.TriggerMask.DONE_PERIODIC.set(1);
 ChanceRoarSpell.Icon.setPath("Achievement_Halloween_Smiley_01");
+addSpellToTorghastScript(ChanceRoarSpell,0,4,1)
 
 export let ReflectiveShell = std.Spells.create(MODNAME, "reflectiveshell-spell", 55381);                                                                        //10% spell damage reflection.
 ReflectiveShell.Name.enGB.set("Chitinous Exoskeleton");
@@ -396,6 +417,7 @@ ReflectiveShell.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReflectiveShell.AuraInterruptFlags.set(0x0080000);
 ReflectiveShell.Stacks.set(99);
 ReflectiveShell.Icon.setPath("INV_Misc_Head_Nerubian_01");
+addSpellToTorghastScript(ReflectiveShell,0,3,0)
 
 export let MovementSpeed = std.Spells.create(MODNAME, "movementspeed-spell", 48594);                                                                            //2% movement speed.
 MovementSpeed.Name.enGB.set("Light-Footed");
@@ -409,6 +431,7 @@ MovementSpeed.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 MovementSpeed.AuraInterruptFlags.set(0x0080000);
 MovementSpeed.Stacks.set(99);
 MovementSpeed.Icon.setPath("Spell_Fire_BurningSpeed");
+addSpellToTorghastScript(MovementSpeed,0,3,0)
 
 export let ReducedCrits = std.Spells.create(MODNAME, "reducedcrits-spell", 61861);                                                                              //10% reduced chance to be critically hit
 ReducedCrits.Name.enGB.set("Devious Glint");
@@ -422,6 +445,7 @@ ReducedCrits.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReducedCrits.AuraInterruptFlags.set(0x0080000);
 ReducedCrits.Stacks.set(99);
 ReducedCrits.Icon.setPath("Spell_Arcane_PrismaticCloak");
+addSpellToTorghastScript(ReducedCrits,0,3,0)
 
 export let NecromancerMob01 = std.CreatureTemplates.create(MODNAME,'necromob01',24207); //55% for Shield
 NecromancerMob01.Name.enGB.set('Risen Bulwark');
@@ -479,6 +503,7 @@ NecromancerSumm.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 NecromancerSumm.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 NecromancerSumm.Proc.TriggerMask.DONE_PERIODIC.set(1);
 NecromancerSumm.Icon.setPath("achievement_boss_scourgelordtyrannus");
+addSpellToTorghastScript(NecromancerSumm,0,5,1)
 
 export let FortunateValue = std.Spells.create(MODNAME, "fortunatevalue-spell", 27922);                                                                          //Knockback and damage chance (250 knockback) + (430 damage) in 15 yard cone
 FortunateValue.Effects.get(0).PointsBase.set(20);
@@ -504,6 +529,7 @@ FortunateSpell.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 FortunateSpell.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 FortunateSpell.Proc.TriggerMask.DONE_PERIODIC.set(1);
 FortunateSpell.Icon.setPath("Racial_Dwarf_FindTreasure");
+addSpellToTorghastScript(FortunateSpell,0,5,1)
 
 export let ButterSticks = std.Spells.create(MODNAME, "butterstick-spell", 4086);                                                                              //10% reduced chance to be critically hit
 ButterSticks.Name.enGB.set("Giant Butter Stick");
@@ -517,6 +543,7 @@ ButterSticks.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ButterSticks.AuraInterruptFlags.set(0x0080000);
 ButterSticks.Stacks.set(99);
 ButterSticks.Icon.setPath("INV_Misc_Food_29");
+addSpellToTorghastScript(ButterSticks,0,5,1)
 
 export let ReaperSpell = std.Spells.create(MODNAME, "reaperspell-spell", 50581);                                                                          //Knockback and damage chance (250 knockback) + (430 damage) in 15 yard cone
 ReaperSpell.Effects.get(0).PointsBase.set(599999999);
@@ -549,6 +576,7 @@ Reap.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 Reap.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 Reap.Proc.TriggerMask.DONE_PERIODIC.set(1);
 Reap.Icon.setPath("INV_Sword_105");
+addSpellToTorghastScript(Reap,0,5,1)
 
 export let FuryofOdinValue = std.Spells.create(MODNAME, "furyofodinvalue-spell", 421);                                                                  //600 mana chance
 FuryofOdinValue.Effects.get(0).PointsBase.set(2159);
@@ -575,6 +603,7 @@ FuryofOdin.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 FuryofOdin.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 FuryofOdin.Proc.TriggerMask.DONE_PERIODIC.set(1);
 FuryofOdin.Icon.setPath("Ability_Shaman_Stormstrike");
+addSpellToTorghastScript(FuryofOdin,0,5,1)
 
 export let StonedValue = std.Spells.create(MODNAME, "stonedvalue-spell", 33652);    
 StonedValue.Effects.get(0).ImplicitTargetA.UNIT_TARGET_ENEMY.set();                                                              //600 mana chance
@@ -600,6 +629,7 @@ Stoned.Proc.TriggerMask.DONE_SPELL_MAGIC_DAMAGE_CLASS_NEGATIVE.set(1);
 Stoned.Proc.TriggerMask.SPELL_RANGED_DAMAGE_CLASS.set(1);
 Stoned.Proc.TriggerMask.DONE_PERIODIC.set(1);
 Stoned.Icon.setPath("inv_stone_weightstone_08");
+addSpellToTorghastScript(Stoned,0,5,1)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -619,6 +649,7 @@ WarriorRendIncrease.Duration.set(21);
 WarriorRendIncrease.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 WarriorRendIncrease.AuraInterruptFlags.set(0x0080000);
 WarriorRendIncrease.Stacks.set(99);
+addSpellToTorghastScript(WarriorRendIncrease,1,1,0)
 
 export let IncreasedRageGeneration = std.Spells.create(MODNAME, "ragegeneration-spell", 29623);                                                                             //Increased rage generation
 IncreasedRageGeneration.Name.enGB.set("Angry");
@@ -630,6 +661,7 @@ IncreasedRageGeneration.Duration.set(21);
 IncreasedRageGeneration.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedRageGeneration.AuraInterruptFlags.set(0x0080000);
 IncreasedRageGeneration.Stacks.set(99);
+addSpellToTorghastScript(IncreasedRageGeneration,1,2,0)
 
 export let ReducedRageCost = std.Spells.create(MODNAME, "reducedragecost-spell", 29792);                                                                                    //Reduced rage cost by 3.
 ReducedRageCost.Name.enGB.set("Adaptive Techniques");
@@ -641,6 +673,7 @@ ReducedRageCost.Duration.set(21);
 ReducedRageCost.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ReducedRageCost.AuraInterruptFlags.set(0x0080000);
 ReducedRageCost.Stacks.set(99);
+addSpellToTorghastScript(ReducedRageCost,1,3,0)
 
 export let ImprovingCleave = std.Spells.create(MODNAME, "improvingcleave-spell", 20496);                                                                                    //Reduced rage cost by 3.
 ImprovingCleave.Name.enGB.set("Heavy Strikes");
@@ -652,6 +685,7 @@ ImprovingCleave.Duration.set(21);
 ImprovingCleave.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImprovingCleave.AuraInterruptFlags.set(0x0080000);
 ImprovingCleave.Stacks.set(99);
+addSpellToTorghastScript(ImprovingCleave,1,1,0)
 
 export let ThunderingClapValue = std.Spells.create(MODNAME, "thunderingclapvalue-spell", 6535);                                                              //600 health chance
 ThunderingClapValue.Effects.get(0).PointsBase.set(559);
@@ -673,11 +707,13 @@ ThunderingClap.Duration.set(21);
 ThunderingClap.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ThunderingClap.AuraInterruptFlags.set(0x0080000);
 ThunderingClap.Icon.setPath("Spell_Shaman_AncestralAwakening");
+addSpellToTorghastScript(ThunderingClap,1,5,1)
 
 export let Warbringer = std.Spells.create(MODNAME, "warbringer-spell", 57499);    
 Warbringer.Description.enGB.set("Your Charge, Intercept and Intervene abilities are now usable while in combat and in any stance.");
 Warbringer.AuraDescription.enGB.set("Your Charge, Intercept and Intervene abilities are now usable while in combat and in any stance. ");
-   
+addSpellToTorghastScript(Warbringer,1,4,1)
+
 export let TerribleTrio = std.Spells.create(MODNAME, "terribletrio-spell", 12658);                                                                            //Increased rend damage
 TerribleTrio.Name.enGB.set("Trio of Terror");
 TerribleTrio.Description.enGB.set("Increases damage of rend, thunder clap and heroic strike by $s1%.");
@@ -689,6 +725,7 @@ TerribleTrio.Duration.set(21);
 TerribleTrio.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 TerribleTrio.AuraInterruptFlags.set(0x0080000);
 TerribleTrio.Stacks.set(99);
+addSpellToTorghastScript(TerribleTrio,1,5,0)
 
 export let BlazingSpeedmovement = std.Spells.create(MODNAME, "blazingspeedmovement-spell", 48594);                                                                            //2% movement speed.
 BlazingSpeedmovement.Name.enGB.set("Impending Speed");
@@ -716,7 +753,7 @@ BlazingSpeed.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 BlazingSpeed.AuraInterruptFlags.set(0x0080000);
 BlazingSpeed.Stacks.set(99);
 BlazingSpeed.Icon.setPath("Ability_Mage_FieryPayback");
-
+addSpellToTorghastScript(BlazingSpeed,1,5,1)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -739,6 +776,7 @@ JudgementRange.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 JudgementRange.AuraInterruptFlags.set(0x0080000);
 JudgementRange.Stacks.set(99);
 JudgementRange.Icon.setPath("INV_Qiraj_JewelEncased");
+addSpellToTorghastScript(JudgementRange,2,2,0)
 
 export let Radiance = std.Spells.create(MODNAME, "holydamage-spell", 31828);                                                                                 //Additional Holy Damage
 Radiance.Name.enGB.set("Radiance");
@@ -751,6 +789,7 @@ Radiance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Radiance.AuraInterruptFlags.set(0x0080000);
 Radiance.Stacks.set(99);
 Radiance.Icon.setPath("Spell_Holy_BlessedResilience");
+addSpellToTorghastScript(Radiance,2,3,0)
 
 export let SealofJustice = std.Spells.create(MODNAME, "sealofjustice-spell", 20164);                                                                                 //Additional Holy Damage
 SealofJustice.Name.enGB.set("Seal of Justice");
@@ -760,6 +799,7 @@ SealofJustice.Duration.set(21);
 SealofJustice.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 SealofJustice.AuraInterruptFlags.set(0x0080000);
 SealofJustice.Stacks.set(1);
+addSpellToTorghastScript(SealofJustice,2,3,0)
 
 export let SealofLight = std.Spells.create(MODNAME, "sealoflight-spell", 20165);                                                                                 //Additional Holy Damage
 SealofLight.Name.enGB.set("Seal of Light");
@@ -769,6 +809,7 @@ SealofLight.Duration.set(21);
 SealofLight.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 SealofLight.AuraInterruptFlags.set(0x0080000);
 SealofLight.Stacks.set(1);
+addSpellToTorghastScript(SealofLight,2,3,0)
 
 export let SealofWisdom = std.Spells.create(MODNAME, "sealofwisdom-spell", 20166);                                                                                 //Additional Holy Damage
 SealofWisdom.Name.enGB.set("Seal of Wisdom");
@@ -778,6 +819,7 @@ SealofWisdom.Duration.set(21);
 SealofWisdom.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 SealofWisdom.AuraInterruptFlags.set(0x0080000);
 SealofWisdom.Stacks.set(1);
+addSpellToTorghastScript(SealofWisdom,2,3,0)
 
 export let HolyPower = std.Spells.create(MODNAME, "holypower-spell", 20237);                                                                                 //Additional Holy Damage
 HolyPower.Name.enGB.set("Holy Power");
@@ -790,6 +832,7 @@ HolyPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 HolyPower.AuraInterruptFlags.set(0x0080000);
 HolyPower.Stacks.set(99);
 HolyPower.Icon.setPath("Spell_Holy_PureOfHeart");
+addSpellToTorghastScript(HolyPower,2,3,0)
 
 export let DivinePower = std.Spells.create(MODNAME, "divinepower-spell", 20237);                                                                                 //Additional Holy Damage
 DivinePower.Name.enGB.set("Divine Power");
@@ -805,6 +848,7 @@ DivinePower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 DivinePower.AuraInterruptFlags.set(0x0080000);
 DivinePower.Stacks.set(99);
 DivinePower.Icon.setPath("Spell_Holy_WeaponMastery");
+addSpellToTorghastScript(DivinePower,2,2,0)
 
 export let StormingPower = std.Spells.create(MODNAME, "stormingpower-spell", 20237);                                                                                 //Additional Holy Damage
 StormingPower.Name.enGB.set("Power of the Storm");
@@ -820,6 +864,7 @@ StormingPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 StormingPower.AuraInterruptFlags.set(0x0080000);
 StormingPower.Stacks.set(99);
 StormingPower.Icon.setPath("Spell_Holy_DivinePurpose");
+addSpellToTorghastScript(StormingPower,2,2,0)
 
 export let CrusaderMight = std.Spells.create(MODNAME, "crusadermight-spell", 20237);                                                                                 //Additional Holy Damage
 CrusaderMight.Name.enGB.set("Crusader\'s Vengeance");
@@ -835,6 +880,7 @@ CrusaderMight.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 CrusaderMight.AuraInterruptFlags.set(0x0080000);
 CrusaderMight.Stacks.set(99);
 CrusaderMight.Icon.setPath("Spell_Holy_Retribution");
+addSpellToTorghastScript(CrusaderMight,2,2,0)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -865,6 +911,7 @@ ArcaneInsurgence.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ArcaneInsurgence.AuraInterruptFlags.set(0x0080000);
 ArcaneInsurgence.Stacks.set(99);
 ArcaneInsurgence.Icon.setPath("Ability_Hunter_Misdirection");
+addSpellToTorghastScript(ArcaneInsurgence,3,5,0)
 
 export let ArcanePotency = std.Spells.create(MODNAME, "arcanepotency-spell", 19456);                                                                                 //Additional Holy Damage
 ArcanePotency.Name.enGB.set("Arcane Potency");
@@ -878,6 +925,7 @@ ArcanePotency.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ArcanePotency.AuraInterruptFlags.set(0x0080000);
 ArcanePotency.Stacks.set(99);
 ArcanePotency.Icon.setPath("Spell_Arcane_StarFire");
+addSpellToTorghastScript(ArcanePotency,3,2,0)
 
 export let Dynamite = std.Spells.create(MODNAME, "dynamite-spell", 56337);                                                                                 //Additional Holy Damage
 Dynamite.Name.enGB.set("Pyrotechnic");
@@ -890,6 +938,7 @@ Dynamite.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Dynamite.AuraInterruptFlags.set(0x0080000);
 Dynamite.Stacks.set(99);
 Dynamite.Icon.setPath("INV_Misc_Bomb_07");
+addSpellToTorghastScript(Dynamite,3,5,0)
 
 export let VolleyBuff = std.Spells.create(MODNAME, "volleybuff-spell", 19456);                                                                                 //Additional Holy Damage
 VolleyBuff.Name.enGB.set("Plenty of Arrows");
@@ -903,6 +952,7 @@ VolleyBuff.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 VolleyBuff.AuraInterruptFlags.set(0x0080000);
 VolleyBuff.Stacks.set(99);
 VolleyBuff.Icon.setPath("INV_Ammo_Bullet_03");
+addSpellToTorghastScript(VolleyBuff,3,2,0)
 
 export let AimedShotBuff = std.Spells.create(MODNAME, "aimedshotbuff-spell", 19456);                                                                                 //Additional Holy Damage
 AimedShotBuff.Name.enGB.set("Plenty of Arrows");
@@ -916,6 +966,7 @@ AimedShotBuff.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 AimedShotBuff.AuraInterruptFlags.set(0x0080000);
 AimedShotBuff.Stacks.set(99);
 AimedShotBuff.Icon.setPath("INV_Ammo_Bullet_03");
+addSpellToTorghastScript(AimedShotBuff,3,2,0)
 
 export let PunishingBlows = std.Spells.create(MODNAME, "punishingblows-spell", 19456);                                                                                 //Additional Holy Damage
 PunishingBlows.Name.enGB.set("Punishing Blows");
@@ -929,6 +980,7 @@ PunishingBlows.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 PunishingBlows.AuraInterruptFlags.set(0x0080000);
 PunishingBlows.Stacks.set(99);
 PunishingBlows.Icon.setPath("Ability_Warrior_PunishingBlow");
+addSpellToTorghastScript(PunishingBlows,3,2,0)
 
 export let Endurance = std.Spells.create(MODNAME, "endurance-spell", 19587);                                                                                //Increased health modifier
 Endurance.Name.enGB.set("Bestial Instincts");
@@ -943,6 +995,7 @@ Endurance.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Endurance.AuraInterruptFlags.set(0x0080000);
 Endurance.Stacks.set(99);
 Endurance.Icon.setPath("Ability_Druid_Swipe");
+addSpellToTorghastScript(Endurance,3,2,0)
 
 export let Pierced = std.Spells.create(MODNAME, "pierced-spell", 53234);                                                                                    //Bleed chances
 Pierced.Name.enGB.set("Plated Ammo");
@@ -955,6 +1008,7 @@ Pierced.Effects.get(0).ClassMask.A.set(0x00020000)
 Pierced.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Pierced.AuraInterruptFlags.set(0x0080000);
 Pierced.Stacks.set(99);
+addSpellToTorghastScript(Pierced,3,2,0)
 
 export let IncreasedAimShot = std.Spells.create(MODNAME, "increasedaimshot-spell", 53220);                                                                  //Increased aim shot damage
 IncreasedAimShot.Name.enGB.set("Weighted Fletchings");
@@ -968,6 +1022,7 @@ IncreasedAimShot.Duration.set(21);
 IncreasedAimShot.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IncreasedAimShot.AuraInterruptFlags.set(0x0080000);
 IncreasedAimShot.Stacks.set(99);
+addSpellToTorghastScript(IncreasedAimShot,3,2,0)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -988,6 +1043,7 @@ Vigorous.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Vigorous.AuraInterruptFlags.set(0x0080000);
 Vigorous.Stacks.set(99);
 Vigorous.Icon.setPath("Ability_Rogue_SlaughterfromtheShadows");
+addSpellToTorghastScript(Vigorous,4,2,0)
 
 export let SinisterCalling = std.Spells.create(MODNAME, "sinsitercalling-spell", 31124);                                                                    //50% increased sinister strike dmg
 SinisterCalling.Name.enGB.set("Sinister Calling");
@@ -1002,6 +1058,7 @@ SinisterCalling.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 SinisterCalling.AuraInterruptFlags.set(0x0080000);
 SinisterCalling.Stacks.set(99);
 SinisterCalling.Icon.setPath("Ability_Rogue_FocusedAttacks");
+addSpellToTorghastScript(SinisterCalling,4,2,0)
 
 export let Traitor = std.Spells.create(MODNAME, "traitorcalling-spell", 31124);                                                                             //50% increased backstab dmg
 Traitor.Name.enGB.set("Traitorous Calling");
@@ -1016,6 +1073,7 @@ Traitor.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Traitor.AuraInterruptFlags.set(0x0080000);
 Traitor.Stacks.set(99);
 Traitor.Icon.setPath("Ability_Rogue_FindWeakness");
+addSpellToTorghastScript(Traitor,4,2,0)
 
 export let Opportunity = std.Spells.create(MODNAME, "opportunity-spell", 14057);                                                                             //50% increased ambush dmg
 Opportunity.Name.enGB.set("Death\'s Calling");
@@ -1031,6 +1089,7 @@ Opportunity.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Opportunity.AuraInterruptFlags.set(0x0080000);
 Opportunity.Stacks.set(99);
 Opportunity.Icon.setPath("Ability_Rogue_Waylay");
+addSpellToTorghastScript(Opportunity,4,2,0)
 
 export let Deception = std.Spells.create(MODNAME, "deception-spell", 13971);                                                                             //Increased stealth effectiveness
 Deception.Name.enGB.set("Master of Death");
@@ -1043,6 +1102,7 @@ Deception.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Deception.AuraInterruptFlags.set(0x0080000);
 Deception.Stacks.set(99);
 Deception.Icon.setPath("Ability_Rogue_MasterOfSubtlety");
+addSpellToTorghastScript(Deception,4,2,0)
 
 export let Opportunity02 = std.Spells.create(MODNAME, "opportunity02-spell", 14057);                                                                             //50% increased ambush dmg
 Opportunity02.Name.enGB.set("Insidious Nature");
@@ -1058,6 +1118,7 @@ Opportunity02.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Opportunity02.AuraInterruptFlags.set(0x0080000);
 Opportunity02.Stacks.set(99);
 Opportunity02.Icon.setPath("Ability_Rogue_Ambush");
+addSpellToTorghastScript(Opportunity02,4,2,0)
 
 export let Powerful01 = std.Spells.create(MODNAME, "mastertechniques-spell", 31124);                                                                    //50% increased sinister strike dmg
 Powerful01.Name.enGB.set("Masterful Techniques");
@@ -1072,6 +1133,7 @@ Powerful01.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Powerful01.AuraInterruptFlags.set(0x0080000);
 Powerful01.Stacks.set(99);
 Powerful01.Icon.setPath("Ability_Rogue_Eviscerate");
+addSpellToTorghastScript(Powerful01,4,2,0)
 
 export let HemorragicStrikes = std.Spells.create(MODNAME, "hemostrike-spell", 31124);                                                                    //50% increased sinister strike dmg
 HemorragicStrikes.Name.enGB.set("Hemorrhagic Strikes");
@@ -1086,6 +1148,7 @@ HemorragicStrikes.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 HemorragicStrikes.AuraInterruptFlags.set(0x0080000);
 HemorragicStrikes.Stacks.set(99);
 HemorragicStrikes.Icon.setPath("Ability_Rogue_Rupture");
+addSpellToTorghastScript(HemorragicStrikes,4,2,0)
 
 export let SinisterCauseBleedTest = std.Spells.create(MODNAME, "sinistercausebleed-spell", 31124);                                                                    //50% increased sinister strike dmg
 SinisterCauseBleedTest.Name.enGB.set("Bloodthirsty Daggers");
@@ -1100,6 +1163,7 @@ SinisterCauseBleedTest.row.Attributes.set(IncreasedHealth1.row.Attributes.get())
 SinisterCauseBleedTest.AuraInterruptFlags.set(0x0000002);
 SinisterCauseBleedTest.Stacks.set(99);
 SinisterCauseBleedTest.Icon.setPath("Ability_Rogue_Rupture");
+addSpellToTorghastScript(SinisterCauseBleedTest,4,5,1)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1121,6 +1185,7 @@ RenewHeal.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 RenewHeal.AuraInterruptFlags.set(0x0080000);
 RenewHeal.Stacks.set(99);
 RenewHeal.Icon.setPath("INV_Crystallized_Life");
+addSpellToTorghastScript(RenewHeal,5,2,0)
 
 export let ShadowPower = std.Spells.create(MODNAME, "shadowpower-spell", 15317);                                                                                    //Bleed chances
 ShadowPower.Name.enGB.set("Demonic Influence");
@@ -1134,6 +1199,7 @@ ShadowPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ShadowPower.AuraInterruptFlags.set(0x0080000);
 ShadowPower.Stacks.set(99);
 ShadowPower.Icon.setPath("Spell_Shadow_PainAndSuffering");
+addSpellToTorghastScript(ShadowPower,5,2,0)
 
 export let DevouringPower = std.Spells.create(MODNAME, "devouringpower-spell", 63627);                                                                                    //Bleed chances
 DevouringPower.Name.enGB.set("Consumption");
@@ -1148,6 +1214,7 @@ DevouringPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 DevouringPower.AuraInterruptFlags.set(0x0080000);
 DevouringPower.Stacks.set(99);
 DevouringPower.Icon.setPath("INV_Ore_Eternium");
+addSpellToTorghastScript(DevouringPower,5,2,0)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1167,6 +1234,7 @@ AncientTechniques.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 AncientTechniques.AuraInterruptFlags.set(0x0080000);
 AncientTechniques.Stacks.set(99);
 AncientTechniques.Icon.setPath("Spell_Shadow_SealOfKings");
+addSpellToTorghastScript(AncientTechniques,6,2,0)
 
 export let UnholyPower = std.Spells.create(MODNAME, "unholypower-spell", 50147);                                                                                    //50 runic power
 UnholyPower.Name.enGB.set("Runic Mastery");
@@ -1179,6 +1247,7 @@ UnholyPower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 UnholyPower.AuraInterruptFlags.set(0x0080000);
 UnholyPower.Stacks.set(99);
 UnholyPower.Icon.setPath("Spell_Nature_MirrorImage");
+addSpellToTorghastScript(UnholyPower,6,2,0)
 
 export let DeadliestCoil = std.Spells.create(MODNAME, "deadliestcoil-spell", 48963);                                                                                    //50 runic power
 DeadliestCoil.Name.enGB.set("Deadliest Coil");
@@ -1191,6 +1260,7 @@ DeadliestCoil.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 DeadliestCoil.AuraInterruptFlags.set(0x0080000);
 DeadliestCoil.Stacks.set(99);
 DeadliestCoil.Icon.setPath("Ability_Creature_Disease_02");
+addSpellToTorghastScript(DeadliestCoil,6,2,0)
 
 export let RapidDecay = std.Spells.create(MODNAME, "rapiddecay-spell", 48963);                                                                                    //50 runic power
 RapidDecay.Name.enGB.set("Rapid Decay");
@@ -1203,6 +1273,7 @@ RapidDecay.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 RapidDecay.AuraInterruptFlags.set(0x0080000);
 RapidDecay.Stacks.set(99);
 RapidDecay.Icon.setPath("Spell_Shadow_UnstableAffliction_2");
+addSpellToTorghastScript(RapidDecay,6,2,0)
 
 export let DeathlyDecay = std.Spells.create(MODNAME, "deathlydecay-spell", 48963);                                                                                    //50 runic power
 DeathlyDecay.Name.enGB.set("Deathly Decay");
@@ -1216,6 +1287,7 @@ DeathlyDecay.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 DeathlyDecay.AuraInterruptFlags.set(0x0080000);
 DeathlyDecay.Stacks.set(99);
 DeathlyDecay.Icon.setPath("Ability_Rogue_EnvelopingShadows");
+addSpellToTorghastScript(DeathlyDecay,6,2,0)
 
 export let BloodierStrike = std.Spells.create(MODNAME, "bloodierstrike-spell", 62905);                                                                                    //50 runic power
 BloodierStrike.Name.enGB.set("Bloodier Strikes");
@@ -1229,6 +1301,8 @@ BloodierStrike.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 BloodierStrike.AuraInterruptFlags.set(0x0080000);
 BloodierStrike.Stacks.set(99);
 BloodierStrike.Icon.setPath("Ability_Warrior_BloodBath");
+addSpellToTorghastScript(BloodierStrike,6,2,0)
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1250,6 +1324,7 @@ Fulmination.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Fulmination.AuraInterruptFlags.set(0x0080000);
 Fulmination.Stacks.set(99);
 Fulmination.Icon.setPath("Spell_Shaman_AncestralAwakening");
+addSpellToTorghastScript(Fulmination,7,2,0)
 
 export let ElementalCall = std.Spells.create(MODNAME, "elementalcall-spell", 29000);                                                                                    //Bleed chances
 ElementalCall.Name.enGB.set("Elemental Reach");
@@ -1264,6 +1339,7 @@ ElementalCall.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ElementalCall.AuraInterruptFlags.set(0x0080000);
 ElementalCall.Stacks.set(99);
 ElementalCall.Icon.setPath("INV_Misc_Herb_Terrocone");
+addSpellToTorghastScript(Fulmination,7,4,0)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1303,6 +1379,7 @@ PolymorphBuff.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 PolymorphBuff.AuraInterruptFlags.set(0x0000002);
 PolymorphBuff.Stacks.set(99);
 PolymorphBuff.Icon.setPath("Spell_Nature_Polymorph");
+addSpellToTorghastScript(PolymorphBuff,8,4,1)
 
 export let IcePiercing = std.Spells.create(MODNAME, "icepiercing-spell", 12953);                                                                                    //Bleed chances
 IcePiercing.Name.enGB.set("Hypothermia");
@@ -1315,6 +1392,7 @@ IcePiercing.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IcePiercing.AuraInterruptFlags.set(0x0080000);
 IcePiercing.Stacks.set(99);
 IcePiercing.Icon.setPath("Spell_Shadow_DarkRitual");
+addSpellToTorghastScript(IcePiercing,8,4,0)
 
 export let IceLanceUber = std.Spells.create(MODNAME,"icelanceuber-spell",70464);
 IceLanceUber.Name.enGB.set("Uber Frost Lance");
@@ -1337,6 +1415,7 @@ IceLanceUberProc.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IceLanceUberProc.AuraInterruptFlags.set(0x0080000);
 IceLanceUberProc.Stacks.set(99);
 IceLanceUberProc.Icon.setPath("Spell_Frost_IceStorm");
+addSpellToTorghastScript(IceLanceUber,8,5,1)
 
 export let ArcticSwirl = std.Spells.create(MODNAME, "arcticswirl-spell", 12490);                                                                                    //Bleed chances
 ArcticSwirl.Name.enGB.set("Arctic Swirl");
@@ -1349,6 +1428,7 @@ ArcticSwirl.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ArcticSwirl.AuraInterruptFlags.set(0x0080000);
 ArcticSwirl.Stacks.set(99);
 ArcticSwirl.Icon.setPath("Spell_Frost_FrostShock");
+addSpellToTorghastScript(ArcticSwirl,8,4,0)
 
 export let FirePower = std.Spells.create(MODNAME, "firepower-spell", 12400);                                                                                    //Bleed chances
 FirePower.Name.enGB.set("Proclivity for Pyrotechnics");
@@ -1363,6 +1443,7 @@ FirePower.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 FirePower.AuraInterruptFlags.set(0x0080000);
 FirePower.Stacks.set(99);
 FirePower.Icon.setPath("Spell_Frost_FireResistanceTotem");
+addSpellToTorghastScript(FirePower,8,4,0)
 
 export let FrozenHaste = std.Spells.create(MODNAME, "frozenhaste-spell", 31683);                                                                                    //Bleed chances
 FrozenHaste.Name.enGB.set("Frozen Haste");
@@ -1377,6 +1458,7 @@ FrozenHaste.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 FrozenHaste.AuraInterruptFlags.set(0x0080000);
 FrozenHaste.Stacks.set(99);
 FrozenHaste.Icon.setPath("INV_DataCrystal09");
+addSpellToTorghastScript(FrozenHaste,8,4,0)
 
 export let PolyHaste = std.Spells.create(MODNAME, "polyhaste-spell", 31683);                                                                                    //Bleed chances
 PolyHaste.Name.enGB.set("Fluffy Quickness");
@@ -1391,6 +1473,7 @@ PolyHaste.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 PolyHaste.AuraInterruptFlags.set(0x0080000);
 PolyHaste.Stacks.set(99);
 PolyHaste.Icon.setPath("Ability_Hunter_Displacement");
+addSpellToTorghastScript(PolyHaste,8,4,0)
 
 export let PyroHaste = std.Spells.create(MODNAME, "pyrohaste-spell", 31683);                                                                                    //Bleed chances
 PyroHaste.Name.enGB.set("Combustion");
@@ -1405,6 +1488,7 @@ PyroHaste.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 PyroHaste.AuraInterruptFlags.set(0x0080000);
 PyroHaste.Stacks.set(99);
 PyroHaste.Icon.setPath("Spell_Shaman_StormEarthFire");
+addSpellToTorghastScript(PyroHaste,8,4,0)
 
 export let Inferno = std.Spells.create(MODNAME, "inferno-spell", 54741);                                                                                    //Bleed chances
 Inferno.Name.enGB.set("Infernal Heat");
@@ -1423,6 +1507,7 @@ Inferno.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Inferno.AuraInterruptFlags.set(0x0080000);
 Inferno.Stacks.set(99);
 Inferno.Icon.setPath("Spell_Holy_Exorcism_02");
+addSpellToTorghastScript(Inferno,8,4,0)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1443,6 +1528,7 @@ EmpoweredCorruption.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 EmpoweredCorruption.AuraInterruptFlags.set(0x0080000);
 EmpoweredCorruption.Stacks.set(99);
 EmpoweredCorruption.Icon.setPath("Spell_Shadow_TwistedFaith");
+addSpellToTorghastScript(EmpoweredCorruption,9,4,0)
 
 export let ChaoticReach01 = std.Spells.create(MODNAME, "chaoticreach01-spell", 18218);                                                                                    //50 runic power
 ChaoticReach01.Name.enGB.set("Shadowy Reach");
@@ -1456,6 +1542,7 @@ ChaoticReach01.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChaoticReach01.AuraInterruptFlags.set(0x0080000);
 ChaoticReach01.Stacks.set(99);
 ChaoticReach01.Icon.setPath("Ability_Warlock_EverlastingAffliction");
+addSpellToTorghastScript(ChaoticReach01,9,4,0)
 
 export let ChaoticReach02 = std.Spells.create(MODNAME, "chaoticreach02-spell", 18218);                                                                                    //50 runic power
 ChaoticReach02.Name.enGB.set("Fiery Reach");
@@ -1469,6 +1556,7 @@ ChaoticReach02.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ChaoticReach02.AuraInterruptFlags.set(0x0080000);
 ChaoticReach02.Stacks.set(99);
 ChaoticReach02.Icon.setPath("Ability_Mage_FieryPayback");
+addSpellToTorghastScript(ChaoticReach02,9,4,0)
 
 export let EchoingShadows = std.Spells.create(MODNAME, "echoingshadows-spell", 47195);                                                                                    //50 runic power
 EchoingShadows.Name.enGB.set("Echoing Shadows");
@@ -1485,6 +1573,7 @@ EchoingShadows.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 EchoingShadows.AuraInterruptFlags.set(0x0080000);
 EchoingShadows.Stacks.set(99);
 EchoingShadows.Icon.setPath("INV_Elemental_Mote_Shadow01");
+addSpellToTorghastScript(EchoingShadows,9,5,1)
 
 export let ImpMother = std.Spells.create(MODNAME, "impmother-spell", 47220);                                                                                    //50 runic power
 ImpMother.Name.enGB.set("Imp Mother");
@@ -1499,6 +1588,7 @@ ImpMother.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImpMother.AuraInterruptFlags.set(0x0080000);
 ImpMother.Stacks.set(99);
 ImpMother.Icon.setPath("Spell_Shadow_ShadowandFlame");
+addSpellToTorghastScript(ImpMother,9,4,0)
 
 export let ImpOverLord = std.Spells.create(MODNAME, "impoverlord-spell", 47220);                                                                                    //50 runic power
 ImpOverLord.Name.enGB.set("Imp Overlord");
@@ -1513,6 +1603,7 @@ ImpOverLord.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 ImpOverLord.AuraInterruptFlags.set(0x0080000);
 ImpOverLord.Stacks.set(99);
 ImpOverLord.Icon.setPath("Ability_Warlock_EmpoweredImp");
+addSpellToTorghastScript(ImpOverLord,9,4,0)
 
 export let DemonicKnowledge = std.Spells.create(MODNAME, "demotactics-spell", 30248);                                                                                    //50 runic power
 DemonicKnowledge.Name.enGB.set("Demonic Knowledge");
@@ -1529,6 +1620,7 @@ DemonicKnowledge.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 DemonicKnowledge.AuraInterruptFlags.set(0x0080000);
 DemonicKnowledge.Stacks.set(99);
 DemonicKnowledge.Icon.setPath("Achievement_Boss_Archimonde");
+addSpellToTorghastScript(DemonicKnowledge,9,4,0)
 
 export let Emberstorm = std.Spells.create(MODNAME, "emberstorm-spell", 17958);                                                                                    //50 runic power
 Emberstorm.Name.enGB.set("Storm of Embers");
@@ -1543,6 +1635,7 @@ Emberstorm.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 Emberstorm.AuraInterruptFlags.set(0x0080000);
 Emberstorm.Stacks.set(99);
 Emberstorm.Icon.setPath("Ability_Warlock_FireandBrimstone");
+addSpellToTorghastScript(Emberstorm,9,4,0)
 
 export let EverlastingFlames = std.Spells.create(MODNAME, "everlastingflame-spell", 18120);                                                                                    //50 runic power
 EverlastingFlames.Name.enGB.set("Everlasting Flames");
@@ -1557,6 +1650,7 @@ EverlastingFlames.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 EverlastingFlames.AuraInterruptFlags.set(0x0080000);
 EverlastingFlames.Stacks.set(99);
 EverlastingFlames.Icon.setPath("Ability_Warlock_FireandBrimstone");
+addSpellToTorghastScript(EverlastingFlames,9,4,0)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1573,160 +1667,19 @@ EverlastingFlames.Icon.setPath("Ability_Warlock_FireandBrimstone");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Flannel Zone
-
-export let rangeincrease = std.Spells.create(MODNAME, "auto-attack-range", 19498)
-rangeincrease.Name.enGB.set("Elongated Arm")
-rangeincrease.Description.enGB.set('Increases the range of your Auto Shot by 10 yds. Auto Shot damage increased by 50%.')
-rangeincrease.AuraInterruptFlags.set(0x0080000)
-let e0 = rangeincrease.Effects.get(0)
-e0.PointsBase.set(9)
-e0.ClassMask.A.set(1)
-e0.ClassMask.B.set(0)
-e0.ClassMask.C.set(0)
-
-//not working effect
-let e1 = rangeincrease.Effects.get(1)
-e1.Aura.ADD_PCT_MODIFIER.set()
-e1.MiscValueA.set(0)
-e1.PointsBase.set(49)
-e1.PointsDieSides.set(1)
-e1.ImplicitTargetA.UNIT_CASTER.set()
-//
-e1.PointsBase.set(9)
-e1.ClassMask.A.set(1)
-e1.ClassMask.B.set(0)
-e1.ClassMask.C.set(0)
-
-
-
-export let healonnewspell = std.Spells.create(MODNAME, "heal-on-new-mob-spell")
-healonnewspell.Name.enGB.set("Heal on new mob")
-healonnewspell.Description.enGB.set('When you attack a new Creature, you are healed for $s1')
-healonnewspell.Effects.get(0).Aura.MOD_HEALING
-healonnewspell.Effects.get(0).PointsBase.set(9)
-healonnewspell.Effects.get(0).PointsDieSides.set(1)
-healonnewspell.AuraInterruptFlags.set(0x0080000)
-//some scalar value?
-
-export let healonnewaura = std.Spells.create(MODNAME, "heal-on-new-mob-aura")
-healonnewaura.Name.enGB.set("Heal on new mob")
-healonnewaura.Description.enGB.set('When you attack a new Creature, you are healed for $s1')
-healonnewaura.Proc.Chance.set(100)
-healonnewaura.Effects.get(0).TriggerSpell.set(healonnewspell.ID)
-healonnewaura.Stacks.set(10)
-
-
 export function addSpellToTorghastScript(spell:Spell, classID:number, rarity:number, type:number){
     let eff0 = spell.Effects.get(0)
     let eff1 = spell.Effects.get(1)
     let eff2 = spell.Effects.get(2)
-    let desc = spell.Description.enGB.get().replace('$s1',(eff0.PointsBase.get() + eff0.PointsBase.get()).toString())
-    desc = spell.Description.enGB.get().replace('$s2',(eff1.PointsBase.get() + eff1.PointsBase.get()).toString())
-    desc = spell.Description.enGB.get().replace('$s3',(eff2.PointsBase.get() + eff2.PointsBase.get()).toString())
-    desc = spell.Description.enGB.get().replace('$d',(spell.Duration.getRef().Duration.get()/1000).toString())
-    std.SQL.Databases.world_dest.write('INSERT INTO `torghast_spells` VALUES(' + spell.ID  + ',' + classID + ',' + rarity + ',' + type + ', ' + desc + ')')
+    let desc = spell.Description.enGB.get()
+        .replace('$s1',(eff0.PointsBase.get() + eff0.PointsDieSides.get()).toString())
+        .replace('$s2',(eff1.PointsBase.get() + eff1.PointsDieSides.get()).toString())
+        .replace('$s3',(eff2.PointsBase.get() + eff2.PointsDieSides.get()).toString())
+        .replace('$t1',eff0.AuraPeriod.get().toString())
+        .replace('$t2',eff1.AuraPeriod.get().toString())
+        .replace('$t3',eff2.AuraPeriod.get().toString())
+        .replace('$/10;s1',((eff0.PointsBase.get() + eff0.PointsDieSides.get())/10).toString())
+        .replace('$h',spell.Proc.Chance.get().toString())
+        .replace('$d',(spell.Duration.getRef().Duration.get()/1000).toString())
+    std.SQL.Databases.world_dest.write('INSERT INTO `torghast_spells` VALUES(' + classID  + ',' + spell.ID + ',' + rarity + ',' + type + ', "' + desc + '")')
 }
