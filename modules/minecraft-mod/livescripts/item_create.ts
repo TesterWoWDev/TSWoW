@@ -65,9 +65,7 @@ export function itemCreate(events: TSEvents) {
             //make changes
             const entry = getOpenID()
             temp.SetEntry(entry)
-
             temp = setupItem(temp, player.GetLevel())
-
             //save
             temp.SaveItemTemplate()
             //apply
