@@ -272,7 +272,7 @@ grapple.Effects.get(1).ImplicitTargetA.DEST_DEST.set();
 grapple.Effects.get(1).TriggerSpell.set(57883);
 grapple.Visual.getRefCopy().cloneFromVisual(11055);
 grapple.Icon.setPath("INV_MISC_HOOK_01");
-addSpellToTorghastScript(grapple,0,4,1)
+addSpellToTorghastScript(grapple,0,4,2)
 
 export let ImmortalityHeal = std.Spells.create(MODNAME, "immortalityheal-spell", 55694);                                                                        //2% health regen every 5 seconds forever.
 ImmortalityHeal.Name.enGB.set("Resilient Heart");
@@ -1675,9 +1675,9 @@ export function addSpellToTorghastScript(spell:Spell, classID:number, rarity:num
         .replace('$s1',(eff0.PointsBase.get() + eff0.PointsDieSides.get()).toString())
         .replace('$s2',(eff1.PointsBase.get() + eff1.PointsDieSides.get()).toString())
         .replace('$s3',(eff2.PointsBase.get() + eff2.PointsDieSides.get()).toString())
-        .replace('$t1',eff0.AuraPeriod.get().toString())
-        .replace('$t2',eff1.AuraPeriod.get().toString())
-        .replace('$t3',eff2.AuraPeriod.get().toString())
+        .replace('$t1',(eff0.AuraPeriod.get()/1000).toString())
+        .replace('$t2',(eff1.AuraPeriod.get()/1000).toString())
+        .replace('$t3',(eff2.AuraPeriod.get()/1000).toString())
         .replace('$/10;s1',((eff0.PointsBase.get() + eff0.PointsDieSides.get())/10).toString())
         .replace('$h',spell.Proc.Chance.get().toString())
         .replace('$d',(spell.Duration.getRef().Duration.get()/1000).toString())

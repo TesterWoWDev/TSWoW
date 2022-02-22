@@ -25,11 +25,11 @@ const spellsList = [
     ],
     [
         [0 /*Paladin*/],
-        [3127, 9116, 107, 635, 465, 21084, 20185],   // Parry, Block, Shield, Holy Light(1), Devotion Aura(1), Seal of Righteousness, Judgement of Light
+        [3127, 9116, 107, 635, 465, 20271],   // Parry, Block, Shield, Holy Light(1), Devotion Aura(1), Seal of Righteousness, Judgement of Light
         [35395],   // Crusader Strike
-        [639],   // Holy Light(2)
+        [639,53408],   // Holy Light(2), Judgement of Wisdom
         [853],   // Hammer of Justice (1)
-        [10290],   // Devotion Aura(2)
+        [10290, 20166],   // Devotion Aura(2), Seal of Wisdom
         [7328],   // Redemption(1)
         [647, 31789],   // Holy Light(3),  Righteous Defense
         [25780, 7294],   // Righteous Fury, Retribution Aura
