@@ -7,9 +7,11 @@ export function itemCacheSend(events:TSEvents)
         msg.read(packet);
         if(msg.type == 0){
             player.SendItemQueryPacket(msg.entry)
-        }else{
-            let template = CreateItem(msg.entry,1).GetTemplate()
-            player.SendItemQueryPacketWithTemplate(template)
+        }
+        else{
+            let tmpl = CreateItem(msg.entry,1).GetTemplateCopy()
+            //changes as necessary
+            player.SendItemQueryPacketWithTemplate(tmpl)
         }
     })
 }
