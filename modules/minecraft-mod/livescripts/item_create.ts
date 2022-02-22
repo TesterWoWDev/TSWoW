@@ -53,14 +53,12 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
     ]
 ];
 
-
-
+const templateItemID = 25
 export function itemCreate(events: TSEvents) {
     events.Player.OnCommand((player, command, found) => {
         const cmd = command.get().split(' ')
         if (cmd[0] == 'createitem') {
             found.set(true)
-            const templateItemID = 25
             let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
             //make changes
             const entry = getOpenID()
