@@ -1,4 +1,4 @@
-let itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invType,statMult
+const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invType,statMult
     [//ARMOR
         //cloth
         [4, 1, 1, 0.8125],//head
@@ -57,13 +57,13 @@ let itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invType,
 
 export function itemCreate(events: TSEvents) {
     events.Player.OnCommand((player, command, found) => {
-        let cmd = command.get().split(' ')
+        const cmd = command.get().split(' ')
         if (cmd[0] == 'createitem') {
             found.set(true)
-            let templateItemID = 25
+            const templateItemID = 25
             let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
             //make changes
-            let entry = getOpenID()
+            const entry = getOpenID()
             temp.SetEntry(entry)
 
             temp = setupItem(temp, player.GetLevel())
@@ -118,21 +118,23 @@ function getRandNumber(max: uint32): uint32 {
 }
 
 function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
-    let itemLevel: uint32 = playerLevel / 4
+    const itemLevel: uint32 = playerLevel / 4
     temp.SetItemLevel(itemLevel);
 
     temp.SetQuality(GetRandQuality())
     temp.SetStatCount(temp.GetQuality() - 1)
 
-    let itemInfo = chooseItemType()
+    const itemInfo:TSArray<float> = chooseItemType()
     temp.SetClass(itemInfo[0])
     temp.SetSubClass(itemInfo[1])
     temp.SetInventoryType(itemInfo[2])
 
     if (temp.GetClass() == 4)//if armor
     {
-        let armor: int32 = (((25 - 1) / 10) + 1) * itemLevel;
-        temp.SetArmor(armor)
+        temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[3]))
+    }else{//setup weapon swing damage
+        temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[3]))
+        temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3]))
     }
 
     return temp
