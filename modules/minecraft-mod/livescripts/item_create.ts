@@ -6,8 +6,8 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
         [4, 1, 5, 1],//chest
         [4, 1, 6, 0.5625],//waist
         [4, 1, 7, 0.875],//legs
-        [4, 1, 80.6875],//boots
-        [4, 1, 90.4375],//wrist
+        [4, 1, 8, 0.6875],//boots
+        [4, 1, 9, 0.4375],//wrist
         [4, 1, 10, 0.625],//hands
         //leather
         [4, 2, 1, 0.8125],//head
@@ -15,8 +15,8 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
         [4, 2, 5, 1],//chest
         [4, 2, 6, 0.5625],//waist
         [4, 2, 7, 0.875],//legs
-        [4, 2, 80.6875],//boots
-        [4, 2, 90.4375],//wrist
+        [4, 2, 8, 0.6875],//boots
+        [4, 2, 9, 0.4375],//wrist
         [4, 2, 10, 0.625],//hands
         //mail
         [4, 3, 1, 0.8125],//head
@@ -24,8 +24,8 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
         [4, 3, 5, 1],//chest
         [4, 3, 6, 0.5625],//waist
         [4, 3, 7, 0.875],//legs
-        [4, 3, 80.6875],//boots
-        [4, 3, 90.4375],//wrist
+        [4, 3, 8, 0.6875],//boots
+        [4, 3, 9, 0.4375],//wrist
         [4, 3, 10, 0.625],//hands
         //extras
         [4, 0, 2, 0.5],//neck
@@ -122,7 +122,7 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
     temp.SetQuality(GetRandQuality())
     temp.SetStatCount(temp.GetQuality() - 1)
 
-    const itemInfo:TSArray<float> = chooseItemType()
+    const itemInfo: TSArray<float> = chooseItemType()
     temp.SetClass(itemInfo[0])
     temp.SetSubClass(itemInfo[1])
     temp.SetInventoryType(itemInfo[2])
@@ -130,7 +130,7 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
     if (temp.GetClass() == 4)//if armor
     {
         temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[3]))
-    }else{//setup weapon swing damage
+    } else {//setup weapon swing damage
         temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[3]))
         temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3]))
     }
