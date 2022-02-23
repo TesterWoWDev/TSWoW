@@ -53,6 +53,7 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
     ]
 ];
 
+const startID = 200000
 const templateItemID = 25
 export function itemCreate(events: TSEvents) {
     events.Player.OnCommand((player, command, found) => {
@@ -77,12 +78,13 @@ export function itemCreate(events: TSEvents) {
 }
 
 function getOpenID(): uint32 {
-    let id = 200000//we start our custom items at 200k
+    //we start our custom items at 200k//perhaps QueryWorld('SELECT MAX(entry) FROM item_template') and saved as const at top of file
+    let id = startID
     let q = QueryCharacters('SELECT MAX(entry) FROM custom_item_template')
     while (q.GetRow()) {
         id = q.GetUInt32(0) + 1
-        if (id < 200000)
-            id = 200000
+        if (id < startID)
+            id = startID
     }
     return id;
 }
@@ -103,9 +105,9 @@ function GetRandQuality(): number {
 function chooseItemType(): TSArray<float> {
     let qualityCheck = getRandNumber(100)
     if (qualityCheck < 80) {//armor
-        return itemClassInfo[0][getRandNumber(itemClassInfo[0].length + 1)]
+        return itemClassInfo[0][getRandNumber(itemClassInfo[0].length)]
     } else {//weapon
-        return itemClassInfo[1][getRandNumber(itemClassInfo[1].length + 1)]
+        return itemClassInfo[1][getRandNumber(itemClassInfo[1].length)]
     }
 }
 
@@ -133,5 +135,16 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
         temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3]))
     }
 
+    temp.SetDisplayInfoID(getRandDisplayID(itemInfo, temp.GetQuality()))
+
     return temp
+}
+
+function getRandDisplayID(itemInfoArr: TSArray<float>, quality: uint32): uint32 {
+    let display = 1
+    let q = QueryCharacters('SELECT displayid FROM custom_item_template_displays WHERE quality = ' + quality + ' AND class = ' + itemInfoArr[0] + ' AND subclass = ' + itemInfoArr[1] + ' AND invtype = ' + itemInfoArr[2] + ' ORDER BY RAND() LIMIT 1')
+    while (q.GetRow()) {
+        display = q.GetUInt32(0)
+    }
+    return display
 }
