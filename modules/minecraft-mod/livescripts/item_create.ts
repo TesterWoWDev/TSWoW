@@ -56,10 +56,83 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
 const qualityMultiplier = [
     0.5,//no quality 0
     0.6,//common
-    0.8,//uncommon
-    0.9,//rare
-    0.95,//epic
+    0.7,//uncommon
+    0.8,//rare
+    0.9,//epic
     1//legendary
+]
+
+let mana = 0
+let hp = 1
+let agi = 3
+let str = 4
+let intl = 5
+let spi = 6
+let stam = 7
+let hit = 31
+let crit = 32
+let haste = 36
+let expertise = 37
+let ap = 38
+let apen = 44
+let sp = 45
+let spen = 47
+
+
+const statGroups: TSArray<TSArray<TSArray<float>>> = <TSArray<TSArray<TSArray<float>>>>[//statgroups
+    //str groups
+    [
+        [str, stam],//primary statIDs
+        [haste, hit]//secondary statIDs
+    ],
+    [
+        [str, stam],
+        [ap, expertise]
+    ],
+    [
+        [str, stam],
+        [hp, crit]
+    ],
+    [
+        [str, stam],
+        [apen, hit]
+    ],
+
+    //agi groups
+    [
+        [agi, stam],//primary statIDs
+        [haste, hit]//secondary statIDs
+    ],
+    [
+        [agi, stam],
+        [ap, expertise]
+    ],
+    [
+        [agi, stam],
+        [hp, crit]
+    ],
+    [
+        [agi, stam],
+        [apen, hit]
+    ],
+
+    //int groups
+    [
+        [intl, spi],//primary statIDs
+        [haste, hit]//secondary statIDs
+    ],
+    [
+        [intl],
+        [spi, spen]
+    ],
+    [
+        [intl, stam],
+        [crit, haste]
+    ],
+    [
+        [intl, mana],
+        [spen, hit]
+    ],
 ]
 
 const startID = 200000
@@ -88,7 +161,7 @@ export function itemCreate(events: TSEvents) {
 }
 
 function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
-    const itemLevel: uint32 = playerLevel / 4
+    const itemLevel: uint32 = (playerLevel / 4) * qualityMultiplier[temp.GetQuality()]
     temp.SetItemLevel(itemLevel);
     temp.SetRequiredLevel(playerLevel)
     temp.SetQuality(GetRandQuality())
@@ -119,6 +192,8 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
     }
     temp.SetName(getName(itemInfo, temp.GetQuality()))
     temp.SetDisplayInfoID(getDisplayID(itemInfo, temp.GetQuality()))
+
+    temp = generateStats(itemLevel,temp)
 
     return temp
 }
@@ -193,4 +268,46 @@ function getName(itemInfoArr: TSArray<float>, quality: uint32): string {
         }
     }
     return name
+}
+
+function generateStats(itemLevel: uint32, temp: TSItemTemplate): TSItemTemplate {
+    let group = statGroups[getRandNumber(statGroups.length)]
+    let totalStats = itemLevel * 20 * qualityMultiplier[temp.GetQuality()] + getRandNumber(temp.GetQuality())
+    let statsPrimary: uint32 = totalStats*.7
+    let statsSecondary: uint32 = totalStats*.3
+    let flat1 = statsPrimary * .1//forced value to each stat
+    let flat2 = statsSecondary * .1//forced value to each stat
+    let stats = CreateDictionary<uint32, int32>({})
+    //apply flats
+    for (let i = 0; i < group.length; i++) {
+        for (let j = 0; j < group[i].length; j++) {
+            if (i == 0) {
+                stats[group[i][j]] = flat1
+                statsPrimary -= flat1
+            }
+            if (i == 1) {
+                stats[group[i][j]] = flat2
+                statsSecondary -= flat2
+            }
+        }
+    }
+    //distribute primary stats
+    while (statsPrimary > 0) {
+        stats[group[0][getRandNumber(group[0].length)]]++
+        statsPrimary--
+    }
+    //distribute secondary stats
+    while (statsSecondary > 0) {
+        stats[group[1][getRandNumber(group[1].length)]]++
+        statsSecondary--
+    }
+    //apply stats to item
+    let index = 0
+    stats.forEach((key, val) => {
+        temp.SetStatType(index, key)
+        temp.SetStatValue(index, val)
+        index++
+    })
+    temp.SetStatCount(index)
+    return temp
 }
