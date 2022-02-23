@@ -54,7 +54,8 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
 ];
 
 const startID = 200000
-const templateItemID = 25
+const templateItemID = 38
+
 export function itemCreate(events: TSEvents) {
     events.Player.OnCommand((player, command, found) => {
         const cmd = command.get().split(' ')
@@ -80,7 +81,7 @@ export function itemCreate(events: TSEvents) {
 function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
     const itemLevel: uint32 = playerLevel / 4
     temp.SetItemLevel(itemLevel);
-
+    temp.SetRequiredLevel(playerLevel)
     temp.SetQuality(GetRandQuality())
     temp.SetStatCount(temp.GetQuality() - 1)
 
@@ -95,6 +96,14 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
     } else {//setup weapon swing damage
         temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[3]))
         temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3]))
+        if(itemInfo[2] == 13){//1h
+            temp.SetDelay(1700 + (getRandNumber(5) * 100))
+        }else if(itemInfo[2] == 17){//2h
+            temp.SetDelay(2500 + (getRandNumber(5) * 100))
+        }else if(itemInfo[2] == 26){//ranged
+            temp.SetDelay(1800 + (getRandNumber(5) * 100))
+        }
+            
     }
     temp.SetName(getName(itemInfo, temp.GetQuality()))
     temp.SetDisplayInfoID(getDisplayID(itemInfo, temp.GetQuality()))
