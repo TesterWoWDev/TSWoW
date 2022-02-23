@@ -77,6 +77,32 @@ export function itemCreate(events: TSEvents) {
     })
 }
 
+function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
+    const itemLevel: uint32 = playerLevel / 4
+    temp.SetItemLevel(itemLevel);
+
+    temp.SetQuality(GetRandQuality())
+    temp.SetStatCount(temp.GetQuality() - 1)
+
+    const itemInfo: TSArray<float> = chooseItemType()
+    temp.SetClass(itemInfo[0])
+    temp.SetSubClass(itemInfo[1])
+    temp.SetInventoryType(itemInfo[2])
+
+    if (temp.GetClass() == 4)//if armor
+    {
+        temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[3]))
+    } else {//setup weapon swing damage
+        temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[3]))
+        temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3]))
+    }
+    temp.SetName(getName(itemInfo, temp.GetQuality()))
+    temp.SetDisplayInfoID(getDisplayID(itemInfo, temp.GetQuality()))
+
+    return temp
+}
+
+
 function getOpenID(): uint32 {
     //we start our custom items at 200k//perhaps QueryWorld('SELECT MAX(entry) FROM item_template') and saved as const at top of file
     let id = startID
@@ -115,36 +141,35 @@ function getRandNumber(max: uint32): uint32 {
     return Math.floor(Math.random() * max)
 }
 
-function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
-    const itemLevel: uint32 = playerLevel / 4
-    temp.SetItemLevel(itemLevel);
-
-    temp.SetQuality(GetRandQuality())
-    temp.SetStatCount(temp.GetQuality() - 1)
-
-    const itemInfo: TSArray<float> = chooseItemType()
-    temp.SetClass(itemInfo[0])
-    temp.SetSubClass(itemInfo[1])
-    temp.SetInventoryType(itemInfo[2])
-
-    if (temp.GetClass() == 4)//if armor
-    {
-        temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[3]))
-    } else {//setup weapon swing damage
-        temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[3]))
-        temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3]))
-    }
-
-    temp.SetDisplayInfoID(getRandDisplayID(itemInfo, temp.GetQuality()))
-
-    return temp
-}
-
-function getRandDisplayID(itemInfoArr: TSArray<float>, quality: uint32): uint32 {
+function getDisplayID(itemInfoArr: TSArray<float>, quality: uint32): uint32 {
     let display = 1
     let q = QueryCharacters('SELECT displayid FROM custom_item_template_displays WHERE quality = ' + quality + ' AND class = ' + itemInfoArr[0] + ' AND subclass = ' + itemInfoArr[1] + ' AND invtype = ' + itemInfoArr[2] + ' ORDER BY RAND() LIMIT 1')
     while (q.GetRow()) {
         display = q.GetUInt32(0)
     }
     return display
+}
+
+function getName(itemInfoArr: TSArray<float>, quality: uint32): string {
+    let name = ""
+    //base name
+    let q = QueryCharacters('SELECT name FROM custom_item_template_names WHERE nametype = 2 AND class = ' + itemInfoArr[0] + ' AND subclass = ' + itemInfoArr[1] + ' AND invtype = ' + itemInfoArr[2] + ' ORDER BY RAND() LIMIT 1')
+    while (q.GetRow()) {
+        name = q.GetString(0)
+    }
+    
+    if(quality > 2){//prefix
+        let q = QueryCharacters('SELECT name FROM custom_item_template_names WHERE nametype = 1 ORDER BY RAND() LIMIT 1')
+        while (q.GetRow()) {
+            name = q.GetString(0) + " " + name
+        }
+    }
+
+    if (quality == 4 || quality == 5) {//suffix
+        q = QueryCharacters('SELECT name FROM custom_item_template_names WHERE  nametype = 3 AND class = ' + itemInfoArr[0] + ' AND subclass = ' + itemInfoArr[1] + ' AND invtype = ' + itemInfoArr[2] + ' ORDER BY RAND() LIMIT 1')
+        while (q.GetRow()) {
+            name +=  " " + q.GetString(0)
+        }
+    }
+    return name
 }

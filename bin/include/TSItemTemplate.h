@@ -55,6 +55,7 @@ public:
     void SetSubClass(uint32 value);
     int32  GetSoundOverrideSubclass();
     TSString GetName();
+    void SetName(TSString name);
     uint32 GetDisplayInfoID();
     void SetDisplayInfoID(uint32 value);
     uint32 GetQuality();
