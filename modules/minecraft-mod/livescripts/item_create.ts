@@ -53,6 +53,15 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
     ]
 ];
 
+const qualityMultiplier = [
+    0.5,//no quality 0
+    0.6,//common
+    0.8,//uncommon
+    0.9,//rare
+    0.95,//epic
+    1//legendary
+]
+
 const startID = 200000
 const templateItemID = 38
 
@@ -92,18 +101,21 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
 
     if (temp.GetClass() == 4)//if armor
     {
-        temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[3]))
+        temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
     } else {//setup weapon swing damage
-        temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[3]))
-        temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3]))
-        if(itemInfo[2] == 13){//1h
+        temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
+        temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
+        if (temp.GetQuality() == 5) {
+            temp.SetDamageMinB(<uint32>(3 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
+            temp.SetDamageMaxB(<uint32>(5 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
+        }
+        if (itemInfo[2] == 13) {//1h
             temp.SetDelay(1700 + (getRandNumber(5) * 100))
-        }else if(itemInfo[2] == 17){//2h
+        } else if (itemInfo[2] == 17) {//2h
             temp.SetDelay(2500 + (getRandNumber(5) * 100))
-        }else if(itemInfo[2] == 26){//ranged
+        } else if (itemInfo[2] == 26) {//ranged
             temp.SetDelay(1800 + (getRandNumber(5) * 100))
         }
-            
     }
     temp.SetName(getName(itemInfo, temp.GetQuality()))
     temp.SetDisplayInfoID(getDisplayID(itemInfo, temp.GetQuality()))
@@ -166,8 +178,8 @@ function getName(itemInfoArr: TSArray<float>, quality: uint32): string {
     while (q.GetRow()) {
         name = q.GetString(0)
     }
-    
-    if(quality > 2){//prefix
+
+    if (quality > 2) {//prefix
         let q = QueryCharacters('SELECT name FROM custom_item_template_names WHERE nametype = 1 ORDER BY RAND() LIMIT 1')
         while (q.GetRow()) {
             name = q.GetString(0) + " " + name
@@ -177,7 +189,7 @@ function getName(itemInfoArr: TSArray<float>, quality: uint32): string {
     if (quality == 4 || quality == 5) {//suffix
         q = QueryCharacters('SELECT name FROM custom_item_template_names WHERE  nametype = 3 AND class = ' + itemInfoArr[0] + ' AND subclass = ' + itemInfoArr[1] + ' AND invtype = ' + itemInfoArr[2] + ' ORDER BY RAND() LIMIT 1')
         while (q.GetRow()) {
-            name +=  " " + q.GetString(0)
+            name += " " + q.GetString(0)
         }
     }
     return name
