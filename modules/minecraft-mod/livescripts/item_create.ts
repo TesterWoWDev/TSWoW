@@ -272,7 +272,7 @@ function getName(itemInfoArr: TSArray<float>, quality: uint32): string {
 
 function generateStats(itemLevel: uint32, temp: TSItemTemplate, slotMult: float): TSItemTemplate {
     let group = statGroups[getRandNumber(statGroups.length)]
-    let totalStats = itemLevel * 20 * qualityMultiplier[temp.GetQuality()] + getRandNumber(temp.GetQuality()) * slotMult
+    let totalStats = slotMult *itemLevel * 20 * qualityMultiplier[temp.GetQuality()] + getRandNumber(temp.GetQuality())
     let statsPrimary: uint32 = totalStats*.7
     let statsSecondary: uint32 = totalStats*.3
     let flat1 = statsPrimary * .1//forced value to each stat
