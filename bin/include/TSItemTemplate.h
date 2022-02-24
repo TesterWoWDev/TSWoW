@@ -23,12 +23,12 @@ struct ItemTemplate;
 
 class TC_GAME_API TSItemTemplate : public TSEntityProvider {
 private:
-    ItemTemplate * info;
+    ItemTemplate* info;
 public:
     bool IsNull() { return info == nullptr; };
     TSItemTemplate(ItemTemplate const* info);
     TSItemTemplate();
-    TSItemTemplate* operator->() { return this;}
+    TSItemTemplate* operator->() { return this; }
     operator bool() const { return info != nullptr; }
     bool operator==(TSItemTemplate const& rhs) { return info == rhs.info; }
 
@@ -84,6 +84,7 @@ public:
     int32  GetStackable();
     uint32 GetContainerSlots();
     uint32 GetStatsCount();
+    void SetStatsCount(uint32 value);
     uint32 GetStatType(uint32 index);
     int32 GetStatValue(uint32 index);
     uint32 GetScalingStatDistribution();
@@ -121,7 +122,7 @@ public:
     int32  GetRandomProperty();
     int32  GetRandomSuffix();
     uint32 GetBlock();
-    void SetBlock(uint32 value);
+    void SetBlock(int32 value);
     uint32 GetItemSet();
     uint32 GetMaxDurability();
     uint32 GetArea();
@@ -157,7 +158,7 @@ public:
     bool IsConjuredConsumable();
     bool HasSignature();
 
-    TSEntity * GetData();
+    TSEntity* GetData();
 
     void SetStatType(uint32 index, uint32 value);
     void SetStatValue(uint32 index, int32 value);

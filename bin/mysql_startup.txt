@@ -1,3 +1,0 @@
-CREATE USER IF NOT EXISTS 'root'@'localhost' IDENTIFIED BY '';
-GRANT ALL ON *.* TO 'root'@'localhost';
-ALTER USER 'root'@'localhost' IDENTIFIED BY '';

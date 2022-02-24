@@ -121,7 +121,7 @@ export function createGear(
         let costval = (costs[i] / 2) * statMultiplier;
         item.Price.set(
             levelrequirement * levelrequirement * 1,
-            levelrequirement * levelrequirement * 1.5,
+            levelrequirement * levelrequirement * 2,
         ); //sellprice + buyprice
         // item.Price.set(((quality*quality*100)/1.5),(quality*quality*100))
         item.ItemLevel.set(costval);
@@ -172,7 +172,7 @@ export function createTrinket(
     });
     item.Price.set(
         levelrequirement * levelrequirement * 1,
-        levelrequirement * levelrequirement * 1.5
+        levelrequirement * levelrequirement * 2
     ); //sellprice + buyprice
     item.ItemLevel.set((costs / 2) * quality);
     return item.ID;
@@ -240,7 +240,7 @@ export function createWeapons(
         let costval = (costs[i] / 2) * statMultiplier;
         item.Price.set(
             levelrequirement * levelrequirement * 1,
-            levelrequirement * levelrequirement * 1.5
+            levelrequirement * levelrequirement * 2
         ); //sellprice + buyprice
         //  item.Price.set(((quality*quality*100)/2),(quality*quality*100))
         item.ItemLevel.set(costval);

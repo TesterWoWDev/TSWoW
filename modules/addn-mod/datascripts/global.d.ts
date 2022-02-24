@@ -63,393 +63,28 @@ declare const enum Class /** @realType: uint8 */ {
 }
 declare type ClassID = Class | uint8
 
-declare const enum TimerFlags /**@realType:uint32*/ {
-    CLEARS_ON_DEATH       = 0x1,
-    CLEARS_ON_MAP_CHANGED = 0x2,
-    AGGREGATE_LOOPS       = 0x4,
-//  SYNCHRONIZED          = 0x8,
-}
-declare const enum TimerLoops /**@realType:uint32*/ {
-    ONCE = 1,
-    INDEFINITE = -1,
-}
-declare const enum Outfit /**@realType:uint32_t*/ {
-    SOUND_ID   = 0x1,
-    GUILD      = 0x2,
-    CLASS      = 0x4,
-
-    HEAD       = 0x8,
-    SHOULDERS  = 0x10,
-    BODY       = 0x20,
-    CHEST      = 0x40,
-    WAIST      = 0x80,
-    LEGS       = 0x100,
-    FEET       = 0x200,
-    WRISTS     = 0x400,
-    HANDS      = 0x800,
-    BACK       = 0x1000,
-    MAINHAND   = 0x2000,
-    OFFHAND    = 0x4000,
-    RANGED     = 0x8000,
-
-    WEAPONS = MAINHAND | OFFHAND | RANGED,
-    ARMOR = HEAD | SHOULDERS | BODY | CHEST | WAIST
-                 | LEGS | FEET | WRISTS | HANDS | BACK,
-    GEAR = WEAPONS | ARMOR,
-    EVERYTHING = GEAR | SOUND_ID | GUILD | CLASS
-}
-declare const enum SpellCastResult /**@realType:uint8*/ {
-    FAILED_SUCCESS = 0,
-    FAILED_AFFECTING_COMBAT = 1,
-    FAILED_ALREADY_AT_FULL_HEALTH = 2,
-    FAILED_ALREADY_AT_FULL_MANA = 3,
-    FAILED_ALREADY_AT_FULL_POWER = 4,
-    FAILED_ALREADY_BEING_TAMED = 5,
-    FAILED_ALREADY_HAVE_CHARM = 6,
-    FAILED_ALREADY_HAVE_SUMMON = 7,
-    FAILED_ALREADY_OPEN = 8,
-    FAILED_AURA_BOUNCED = 9,
-    FAILED_AUTOTRACK_INTERRUPTED = 10,
-    FAILED_BAD_IMPLICIT_TARGETS = 11,
-    FAILED_BAD_TARGETS = 12,
-    FAILED_CANT_BE_CHARMED = 13,
-    FAILED_CANT_BE_DISENCHANTED = 14,
-    FAILED_CANT_BE_DISENCHANTED_SKILL = 15,
-    FAILED_CANT_BE_MILLED = 16,
-    FAILED_CANT_BE_PROSPECTED = 17,
-    FAILED_CANT_CAST_ON_TAPPED = 18,
-    FAILED_CANT_DUEL_WHILE_INVISIBLE = 19,
-    FAILED_CANT_DUEL_WHILE_STEALTHED = 20,
-    FAILED_CANT_STEALTH = 21,
-    FAILED_CASTER_AURASTATE = 22,
-    FAILED_CASTER_DEAD = 23,
-    FAILED_CHARMED = 24,
-    FAILED_CHEST_IN_USE = 25,
-    FAILED_CONFUSED = 26,
-    FAILED_DONT_REPORT = 27,
-    FAILED_EQUIPPED_ITEM = 28,
-    FAILED_EQUIPPED_ITEM_CLASS = 29,
-    FAILED_EQUIPPED_ITEM_CLASS_MAINHAND = 30,
-    FAILED_EQUIPPED_ITEM_CLASS_OFFHAND = 31,
-    FAILED_ERROR = 32,
-    FAILED_FIZZLE = 33,
-    FAILED_FLEEING = 34,
-    FAILED_FOOD_LOWLEVEL = 35,
-    FAILED_HIGHLEVEL = 36,
-    FAILED_HUNGER_SATIATED = 37,
-    FAILED_IMMUNE = 38,
-    FAILED_INCORRECT_AREA = 39,
-    FAILED_INTERRUPTED = 40,
-    FAILED_INTERRUPTED_COMBAT = 41,
-    FAILED_ITEM_ALREADY_ENCHANTED = 42,
-    FAILED_ITEM_GONE = 43,
-    FAILED_ITEM_NOT_FOUND = 44,
-    FAILED_ITEM_NOT_READY = 45,
-    FAILED_LEVEL_REQUIREMENT = 46,
-    FAILED_LINE_OF_SIGHT = 47,
-    FAILED_LOWLEVEL = 48,
-    FAILED_LOW_CASTLEVEL = 49,
-    FAILED_MAINHAND_EMPTY = 50,
-    FAILED_MOVING = 51,
-    FAILED_NEED_AMMO = 52,
-    FAILED_NEED_AMMO_POUCH = 53,
-    FAILED_NEED_EXOTIC_AMMO = 54,
-    FAILED_NEED_MORE_ITEMS = 55,
-    FAILED_NOPATH = 56,
-    FAILED_NOT_BEHIND = 57,
-    FAILED_NOT_FISHABLE = 58,
-    FAILED_NOT_FLYING = 59,
-    FAILED_NOT_HERE = 60,
-    FAILED_NOT_INFRONT = 61,
-    FAILED_NOT_IN_CONTROL = 62,
-    FAILED_NOT_KNOWN = 63,
-    FAILED_NOT_MOUNTED = 64,
-    FAILED_NOT_ON_TAXI = 65,
-    FAILED_NOT_ON_TRANSPORT = 66,
-    FAILED_NOT_READY = 67,
-    FAILED_NOT_SHAPESHIFT = 68,
-    FAILED_NOT_STANDING = 69,
-    FAILED_NOT_TRADEABLE = 70,
-    FAILED_NOT_TRADING = 71,
-    FAILED_NOT_UNSHEATHED = 72,
-    FAILED_NOT_WHILE_GHOST = 73,
-    FAILED_NOT_WHILE_LOOTING = 74,
-    FAILED_NO_AMMO = 75,
-    FAILED_NO_CHARGES_REMAIN = 76,
-    FAILED_NO_CHAMPION = 77,
-    FAILED_NO_COMBO_POINTS = 78,
-    FAILED_NO_DUELING = 79,
-    FAILED_NO_ENDURANCE = 80,
-    FAILED_NO_FISH = 81,
-    FAILED_NO_ITEMS_WHILE_SHAPESHIFTED = 82,
-    FAILED_NO_MOUNTS_ALLOWED = 83,
-    FAILED_NO_PET = 84,
-    FAILED_NO_POWER = 85,
-    FAILED_NOTHING_TO_DISPEL = 86,
-    FAILED_NOTHING_TO_STEAL = 87,
-    FAILED_ONLY_ABOVEWATER = 88,
-    FAILED_ONLY_DAYTIME = 89,
-    FAILED_ONLY_INDOORS = 90,
-    FAILED_ONLY_MOUNTED = 91,
-    FAILED_ONLY_NIGHTTIME = 92,
-    FAILED_ONLY_OUTDOORS = 93,
-    FAILED_ONLY_SHAPESHIFT = 94,
-    FAILED_ONLY_STEALTHED = 95,
-    FAILED_ONLY_UNDERWATER = 96,
-    FAILED_OUT_OF_RANGE = 97,
-    FAILED_PACIFIED = 98,
-    FAILED_POSSESSED = 99,
-    FAILED_REAGENTS = 100,
-    FAILED_REQUIRES_AREA = 101,
-    FAILED_REQUIRES_FOCUS = 102,
-    FAILED_ROOTED = 103,
-    FAILED_SILENCED = 104,
-    FAILED_IN_PROGRESS = 105,
-    FAILED_LEARNED = 106,
-    FAILED_UNAVAILABLE = 107,
-    FAILED_STUNNED = 108,
-    FAILED_TARGETS_DEAD = 109,
-    FAILED_TARGET_AFFECTING_COMBAT = 110,
-    FAILED_TARGET_AURASTATE = 111,
-    FAILED_TARGET_DUELING = 112,
-    FAILED_TARGET_ENEMY = 113,
-    FAILED_TARGET_ENRAGED = 114,
-    FAILED_TARGET_FRIENDLY = 115,
-    FAILED_TARGET_IN_COMBAT = 116,
-    FAILED_TARGET_IS_PLAYER = 117,
-    FAILED_TARGET_IS_PLAYER_CONTROLLED = 118,
-    FAILED_TARGET_NOT_DEAD = 119,
-    FAILED_TARGET_NOT_IN_PARTY = 120,
-    FAILED_TARGET_NOT_LOOTED = 121,
-    FAILED_TARGET_NOT_PLAYER = 122,
-    FAILED_TARGET_NO_POCKETS = 123,
-    FAILED_TARGET_NO_WEAPONS = 124,
-    FAILED_TARGET_NO_RANGED_WEAPONS = 125,
-    FAILED_TARGET_UNSKINNABLE = 126,
-    FAILED_THIRST_SATIATED = 127,
-    FAILED_TOO_CLOSE = 128,
-    FAILED_TOO_MANY_OF_ITEM = 129,
-    FAILED_TOTEM_CATEGORY = 130,
-    FAILED_TOTEMS = 131,
-    FAILED_TRY_AGAIN = 132,
-    FAILED_UNIT_NOT_BEHIND = 133,
-    FAILED_UNIT_NOT_INFRONT = 134,
-    FAILED_WRONG_PET_FOOD = 135,
-    FAILED_NOT_WHILE_FATIGUED = 136,
-    FAILED_TARGET_NOT_IN_INSTANCE = 137,
-    FAILED_NOT_WHILE_TRADING = 138,
-    FAILED_TARGET_NOT_IN_RAID = 139,
-    FAILED_TARGET_FREEFORALL = 140,
-    FAILED_NO_EDIBLE_CORPSES = 141,
-    FAILED_ONLY_BATTLEGROUNDS = 142,
-    FAILED_TARGET_NOT_GHOST = 143,
-    FAILED_TRANSFORM_UNUSABLE = 144,
-    FAILED_WRONG_WEATHER = 145,
-    FAILED_DAMAGE_IMMUNE = 146,
-    FAILED_PREVENTED_BY_MECHANIC = 147,
-    FAILED_PLAY_TIME = 148,
-    FAILED_REPUTATION = 149,
-    FAILED_MIN_SKILL = 150,
-    FAILED_NOT_IN_ARENA = 151,
-    FAILED_NOT_ON_SHAPESHIFT = 152,
-    FAILED_NOT_ON_STEALTHED = 153,
-    FAILED_NOT_ON_DAMAGE_IMMUNE = 154,
-    FAILED_NOT_ON_MOUNTED = 155,
-    FAILED_TOO_SHALLOW = 156,
-    FAILED_TARGET_NOT_IN_SANCTUARY = 157,
-    FAILED_TARGET_IS_TRIVIAL = 158,
-    FAILED_BM_OR_INVISGOD = 159,
-    FAILED_EXPERT_RIDING_REQUIREMENT = 160,
-    FAILED_ARTISAN_RIDING_REQUIREMENT = 161,
-    FAILED_NOT_IDLE = 162,
-    FAILED_NOT_INACTIVE = 163,
-    FAILED_PARTIAL_PLAYTIME = 164,
-    FAILED_NO_PLAYTIME = 165,
-    FAILED_NOT_IN_BATTLEGROUND = 166,
-    FAILED_NOT_IN_RAID_INSTANCE = 167,
-    FAILED_ONLY_IN_ARENA = 168,
-    FAILED_TARGET_LOCKED_TO_RAID_INSTANCE = 169,
-    FAILED_ON_USE_ENCHANT = 170,
-    FAILED_NOT_ON_GROUND = 171,
-    FAILED_CUSTOM_ERROR = 172,
-    FAILED_CANT_DO_THAT_RIGHT_NOW = 173,
-    FAILED_TOO_MANY_SOCKETS = 174,
-    FAILED_INVALID_GLYPH = 175,
-    FAILED_UNIQUE_GLYPH = 176,
-    FAILED_GLYPH_SOCKET_LOCKED = 177,
-    FAILED_NO_VALID_TARGETS = 178,
-    FAILED_ITEM_AT_MAX_CHARGES = 179,
-    FAILED_NOT_IN_BARBERSHOP = 180,
-    FAILED_FISHING_TOO_LOW = 181,
-    FAILED_ITEM_ENCHANT_TRADE_WINDOW = 182,
-    FAILED_SUMMON_PENDING = 183,
-    FAILED_MAX_SOCKETS = 184,
-    FAILED_PET_CAN_RENAME = 185,
-    FAILED_TARGET_CANNOT_BE_RESURRECTED = 186,
-    FAILED_UNKNOWN = 187, // actually doesn't exist in client
-
-    CAST_OK = 255 // custom value, must not be sent to client
-}
-declare const enum EquipmentSlots /**@realType:uint8*/ {
-    START        = 0,
-    HEAD         = 0,
-    NECK         = 1,
-    SHOULDERS    = 2,
-    BODY         = 3,
-    CHEST        = 4,
-    WAIST        = 5,
-    LEGS         = 6,
-    FEET         = 7,
-    WRISTS       = 8,
-    HANDS        = 9,
-    FINGER1      = 10,
-    FINGER2      = 11,
-    TRINKET1     = 12,
-    TRINKET2     = 13,
-    BACK         = 14,
-    MAINHAND     = 15,
-    OFFHAND      = 16,
-    RANGED       = 17,
-    TABARD       = 18,
-    END          = 19
-}
+declare const enum TimerFlags {} /** TSWorldEntity.h:TimerFlags */
+declare const enum TimerLoops {} /** TSWorldEntity.h:TimerLoops */
+declare const enum Outfit {} /** TSOutfit.h:Outfit */
+declare const enum SpellCastResult {} /** SharedDefines.h:SpellCastResult */
+declare const enum EquipmentSlots {} /** Player.h:EquipmentSlots */
 declare const enum InventorySlots /**@realType:uint32*/{
     BAG_1 = 19,
     BAG_2 = 20,
     BAG_3 = 21,
     BAG_4 = 22
 }
-declare const enum CorpseType /**@realType:uint32*/ {
-    BONES             = 0,
-    RESURRECTABLE_PVE = 1,
-    RESURRECTABLE_PVP = 2
-}
-declare const enum CreatureFamily /**@realType:uint32*/ {
-    NONE                = 0,
-    WOLF                = 1,
-    CAT                 = 2,
-    SPIDER              = 3,
-    BEAR                = 4,
-    BOAR                = 5,
-    CROCOLISK           = 6,
-    CARRION_BIRD        = 7,
-    CRAB                = 8,
-    GORILLA             = 9,
-    HORSE_CUSTOM        = 10,   // Does not exist in DBC but used for horse like beasts in DB
-    RAPTOR              = 11,
-    TALLSTRIDER         = 12,
-    FELHUNTER           = 15,
-    VOIDWALKER          = 16,
-    SUCCUBUS            = 17,
-    DOOMGUARD           = 19,
-    SCORPID             = 20,
-    TURTLE              = 21,
-    IMP                 = 23,
-    BAT                 = 24,
-    HYENA               = 25,
-    BIRD_OF_PREY        = 26,
-    WIND_SERPENT        = 27,
-    REMOTE_CONTROL      = 28,
-    FELGUARD            = 29,
-    DRAGONHAWK          = 30,
-    RAVAGER             = 31,
-    WARP_STALKER        = 32,
-    SPOREBAT            = 33,
-    NETHER_RAY          = 34,
-    SERPENT             = 35,
-    MOTH                = 37,
-    CHIMAERA            = 38,
-    DEVILSAUR           = 39,
-    GHOUL               = 40,
-    SILITHID            = 41,
-    WORM                = 42,
-    RHINO               = 43,
-    WASP                = 44,
-    CORE_HOUND          = 45,
-    SPIRIT_BEAST        = 46
-}
-declare const enum RemoveMethod /**@realType:uint8*/ {
-    DEFAULT  = 0,
-    KICK     = 1,
-    LEAVE    = 2,
-    KICK_LFG = 3
-}
-declare const enum QuestFlags /**@realType:uint32*/ {
-    // Flags used at server and sent to client
-    NONE                    = 0x00000000,
-    STAY_ALIVE              = 0x00000001,   // Not used currently
-    PARTY_ACCEPT            = 0x00000002,   // Not used currently. If player in party, all players that can accept this quest will receive confirmation box to accept quest CMSG_QUEST_CONFIRM_ACCEPT/SMSG_QUEST_CONFIRM_ACCEPT
-    EXPLORATION             = 0x00000004,   // Not used currently
-    SHARABLE                = 0x00000008,   // Can be shared: Player::CanShareQuest()
-    HAS_CONDITION           = 0x00000010,   // Not used currently
-    HIDE_REWARD_POI         = 0x00000020,   // Not used currently: Unsure of content
-    RAID                    = 0x00000040,   // Can be completed while in raid
-    TBC                     = 0x00000080,   // Not used currently: Available if TBC expansion enabled only
-    NO_MONEY_FROM_XP        = 0x00000100,   // Not used currently: Experience is not converted to gold at max level
-    HIDDEN_REWARDS          = 0x00000200,   // Items and money rewarded only sent in SMSG_QUESTGIVER_OFFER_REWARD (not in SMSG_QUEST_GIVER_QUEST_DETAILS or in client quest log(SMSG_QUEST_QUERY_RESPONSE))
-    TRACKING                = 0x00000400,   // These quests are automatically rewarded on quest complete and they will never appear in quest log client side.
-    DEPRECATE_REPUTATION    = 0x00000800,   // Not used currently
-    DAILY                   = 0x00001000,   // Used to know quest is Daily one
-    FLAGS_PVP               = 0x00002000,   // Having this quest in log forces PvP flag
-    UNAVAILABLE             = 0x00004000,   // Used on quests that are not generically available
-    WEEKLY                  = 0x00008000,
-    AUTOCOMPLETE            = 0x00010000,   // auto complete
-    DISPLAY_ITEM_IN_TRACKER = 0x00020000,   // Displays usable item in quest tracker
-    OBJ_TEXT                = 0x00040000,   // use Objective text as Complete text
-    AUTO_ACCEPT             = 0x00080000,   // The client recognizes this flag as auto-accept. However, NONE of the current quests (3.3.5a) have this flag. Maybe blizz used to use it, or will use it in the future.
-
-    // ... 4.x added flags up to 0x80000000 - all unknown for now
-}
-declare const enum TeamId /**@realType:uint32*/ {
-    ALLIANCE = 0,
-    HORDE,
-    NEUTRAL
-}
-declare const enum WeatherType /**@realType:uint32*/ {
-    FINE       = 0,
-    RAIN       = 1,
-    SNOW       = 2,
-    STORM      = 3,
-    THUNDERS   = 86,
-    BLACKRAIN  = 90
-}
-declare const enum GOState /**@realType:uint8*/ {
-    ACTIVE             = 0,                        // show in world as used and not reset (closed door open)
-    READY              = 1,                        // show in world as ready (closed door close)
-    DESTROYED          = 2                         // show the object in-game as already used and not yet reset (e.g. door opened by a cannon blast)
-}
-declare const enum LootState /**@realType:uint32*/ {
-    NOT_READY = 0,
-    READY,                                               // can be ready but despawned, and then not possible activate until spawn
-    ACTIVATED,
-    JUST_DEACTIVATED
-}
-declare const enum TempSummonType /**@realType:uint32*/ {
-    TIMED_OR_DEAD_DESPAWN       = 1,             // despawns after a specified time OR when the creature disappears
-    TIMED_OR_CORPSE_DESPAWN     = 2,             // despawns after a specified time OR when the creature dies
-    TIMED_DESPAWN               = 3,             // despawns after a specified time
-    TIMED_DESPAWN_OUT_OF_COMBAT = 4,             // despawns after a specified time after the creature is out of combat
-    CORPSE_DESPAWN              = 5,             // despawns instantly after death
-    CORPSE_TIMED_DESPAWN        = 6,             // despawns after a specified time after death
-    DEAD_DESPAWN                = 7,             // despawns when the creature disappears
-    MANUAL_DESPAWN              = 8              // despawns when UnSummon() is called
-}
-declare const enum TypeID /**@realType:uint32*/ {
-    OBJECT        = 0,
-    ITEM          = 1,
-    CONTAINER     = 2,
-    UNIT          = 3,
-    PLAYER        = 4,
-    GAMEOBJECT    = 5,
-    DYNAMICOBJECT = 6,
-    CORPSE        = 7
-}
-declare const enum CurrentSpellTypes /**@realType:uint8*/ {
-    MELEE             = 0,
-    GENERIC           = 1,
-    CHANNELED         = 2,
-    AUTOREPEAT        = 3
-}
+declare const enum CorpseType {} /** Corpse.h:CorpseType */
+declare const enum CreatureFamily {} /** SharedDefines.h:CreatureFamily */
+declare const enum RemoveMethod {} /** SharedDefines.h:RemoveMethod */
+declare const enum QuestFlags {} /** QuestDef.h:QuestFlags */
+declare const enum TeamId {} /** SharedDefines.h:TeamId */
+declare const enum WeatherType {} /** SharedDefines.h:WeatherType */
+declare const enum GOState {} /** SharedDefines.h:GOState */
+declare const enum LootState {} /** GameObject.h:LootState */
+declare const enum TempSummonType {} /** ObjectDefines.h:TempSummonType */
+declare const enum TypeID {} /** ObjectGuid.h:TypeID */
+declare const enum CurrentSpellTypes {} /** Unit.h:CurrentSpellTypes */
 declare const enum Powers /**@realType:int8 */ {
     HEALTH                        = -2,
     MANA                          = 0,
@@ -460,87 +95,13 @@ declare const enum Powers /**@realType:int8 */ {
     RUNE                          = 5,
     RUNIC_POWER                   = 6,
 } /**@realType:int8 */
-declare const enum CreatureType /**@realType:uint32*/ {
-    BEAST            = 1,
-    DRAGONKIN        = 2,
-    DEMON            = 3,
-    ELEMENTAL        = 4,
-    GIANT            = 5,
-    UNDEAD           = 6,
-    HUMANOID         = 7,
-    CRITTER          = 8,
-    MECHANICAL       = 9,
-    NOT_SPECIFIED    = 10,
-    TOTEM            = 11,
-    NON_COMBAT_PET   = 12,
-    GAS_CLOUD        = 13
-}
-declare const enum ReactStates /**@realType:uint8*/ {
-    PASSIVE    = 0,
-    DEFENSIVE  = 1,
-    AGGRESSIVE = 2
-}
-declare const enum LocaleConstant /**@realType:uint8*/ {
-    enUS = 0,
-    koKR = 1,
-    frFR = 2,
-    deDE = 3,
-    zhCN = 4,
-    zhTW = 5,
-    esES = 6,
-    esMX = 7,
-    ruRU = 8,
-
-    TOTAL_LOCALES
-}
-declare const enum UnitMoveType /**@realType:uint32*/ {
-    WALK           = 0,
-    RUN            = 1,
-    RUN_BACK       = 2,
-    SWIM           = 3,
-    SWIM_BACK      = 4,
-    TURN_RATE      = 5,
-    FLIGHT         = 6,
-    FLIGHT_BACK    = 7,
-    PITCH_RATE     = 8
-}
-declare const enum MovementGeneratorType /**@realType:uint8*/ {
-    IDLE                = 0,     // IdleMovementGenerator.h
-    RANDOM              = 1,     // RandomMovementGenerator.h
-    WAYPOINT            = 2,     // WaypointMovementGenerator.h
-    MAX_DB              = 3,     // Below motion types can't be set in DB.
-    CONFUSED            = 4,     // ConfusedMovementGenerator.h
-    CHASE               = 5,     // ChaseMovementGenerator.h
-    HOME                = 6,     // HomeMovementGenerator.h
-    FLIGHT              = 7,     // FlightPathMovementGenerator.h
-    POINT               = 8,     // PointMovementGenerator.h
-    FLEEING             = 9,     // FleeingMovementGenerator.h
-    DISTRACT            = 10,    // IdleMovementGenerator.h
-    ASSISTANCE          = 11,    // PointMovementGenerator.h
-    ASSISTANCE_DISTRACT = 12,    // IdleMovementGenerator.h
-    TIMED_FLEEING       = 13,    // FleeingMovementGenerator.h
-    FOLLOW              = 14,    // FollowMovementGenerator.h
-    ROTATE              = 15,    // IdleMovementGenerator.h
-    EFFECT              = 16,
-    SPLINE_CHAIN        = 17,    // SplineChainMovementGenerator.h
-    FORMATION           = 18,    // FormationMovementGenerator.h
-    MAX                          // SKIP
-}
-declare const enum SheathState /**@realType:uint8*/ {
-    UNARMED  = 0,                              // non prepared weapon
-    MELEE    = 1,                              // prepared melee weapon
-    RANGED   = 2                               // prepared ranged weapon
-}
-declare const enum SpellSchools /**@realType:uint32*/ {
-    NORMAL                 = 0, // TITLE Physical
-    HOLY                   = 1, // TITLE Holy
-    FIRE                   = 2, // TITLE Fire
-    NATURE                 = 3, // TITLE Nature
-    FROST                  = 4, // TITLE Frost
-    SHADOW                 = 5, // TITLE Shadow
-    ARCANE                 = 6, // TITLE Arcane
-    MAX_SPELL_SCHOOL                    = 7  // SKIP
-}
+declare const enum CreatureType {} /** SharedDefines.h:CreatureType */
+declare const enum ReactStates {} /** UnitDefines.h:ReactStates */
+declare const enum LocaleConstant {} /** Common.h:LocaleConstant */
+declare const enum UnitMoveType {} /** UnitDefines.h:UnitMoveType */
+declare const enum MovementGeneratorType {} /** MovementDefines.h:MovementGeneratorType */
+declare const enum SheathState {} /** UnitDefines.h:SheathState */
+declare const enum SpellSchools {} /** SharedDefines.h:SpellSchools */
 declare const enum SpellSchoolMask /**@realType:uint32 */ {
     NONE    = 0,
     NORMAL  = 1,
@@ -551,68 +112,26 @@ declare const enum SpellSchoolMask /**@realType:uint32 */ {
     SHADOW  = 32,
     ARCANE  = 64,
 }
-declare const enum GossipOptionIcon /**@realType:uint32*/ {
-    CHAT                = 0,                    // white chat bubble
-    VENDOR              = 1,                    // brown bag
-    TAXI                = 2,                    // flightmarker (paperplane)
-    TRAINER             = 3,                    // brown book (trainer)
-    INTERACT_1          = 4,                    // golden interaction wheel
-    INTERACT_2          = 5,                    // golden interaction wheel
-    MONEY_BAG           = 6,                    // brown bag (with gold coin in lower corner)
-    TALK                = 7,                    // white chat bubble (with "..." inside)
-    TABARD              = 8,                    // white tabard
-    BATTLE              = 9,                    // two crossed swords
-    DOT                 = 10,                   // yellow dot/point
-    CHAT_11             = 11,                   // white chat bubble
-    CHAT_12             = 12,                   // white chat bubble
-    CHAT_13             = 13,                   // white chat bubble
-    UNK_14              = 14,                   // INVALID - DO NOT USE
-    UNK_15              = 15,                   // INVALID - DO NOT USE
-    CHAT_16             = 16,                   // white chat bubble
-    CHAT_17             = 17,                   // white chat bubble
-    CHAT_18             = 18,                   // white chat bubble
-    CHAT_19             = 19,                   // white chat bubble
-    CHAT_20             = 20,                   // white chat bubble
-    MAX
-}
-declare const enum ProgressType /**@realType:uint32*/ {
-    SET,
-    ACCUMULATE,
-    HIGHEST
-}
+declare const enum GossipOptionIcon {} /** GossipDef.h:GossipOptionIcon */
+declare const enum ProgressType {} /** AchievementMgr.h:ProgressType */
 
-declare const enum WeaponAttackType /**@realType:uint8*/ {
-    BASE   = 0,
-    OFF    = 1,
-    RANGED = 2,
-    MAX
-}
+declare const enum WeaponAttackType {} /** SharedDefines.h:WeaponAttackType */
 
-declare const enum RuneType /**@realType:uint8*/ {
-    RUNE_BLOOD      = 0,
-    RUNE_UNHOLY     = 1,
-    RUNE_FROST      = 2,
-    RUNE_DEATH      = 3,
-    NUM_RUNE_TYPES  = 4
-}
+declare const enum RuneType {} /** Player.h:RuneType */
 
-declare const enum AuraRemoveMode /**@realType:uint32*/ {
-    NONE = 0,
-    BY_DEFAULT = 1,       // scripted remove, remove by stack with aura with different ids and sc aura remove
-    BY_CANCEL,
-    BY_ENEMY_SPELL,       // dispel and absorb aura destroy
-    BY_EXPIRE,            // aura duration has ended
-    BY_DEATH
-}
+declare const enum AuraRemoveMode {} /** SpellAuraDefines.h:AuraRemoveMode */
 
-declare const enum Stats /**@realType:uint32*/ {
-    STRENGTH                      = 0,
-    AGILITY                       = 1,
-    STAMINA                       = 2,
-    INTELLECT                     = 3,
-    SPIRIT                        = 4,
-    MAX_STATS
-}
+declare const enum Stats {} /** SharedDefines.h:Stats */
+
+declare const enum Mechanics { } /** SharedDefines.h:Mechanics */
+
+declare const enum SpellEffects { } /** SharedDefines.h:SpellEffects */
+
+declare const enum AuraType { } /** SpellAuraDefines.h:AuraType */
+
+declare const enum SpellEffIndex { } /** SharedDefines.h:SpellEffIndex */
+
+declare const enum SpellEffectHandleMode { } /** Spell.h:SpellEffectHandleMode */
 
 declare interface TSMutable<T> {
     constructor(field: T);
@@ -7405,7 +6924,7 @@ declare interface TSItemTemplate extends TSEntityProvider {
     SetArmor(armor: int32): void
     SetQuality(quality: int32): void
     SetEntry(entry: uint32): void
-    SetStatType(index: uint32, type:uint32): void
+    SetStatType(index: uint32, type: uint32): void
     SetStatValue(index: uint32, value: int32): void
     SetDamageMinA(value: int64): void
     SetDamageMinB(value: int64): void
@@ -7484,6 +7003,29 @@ declare interface TSSpellInfo extends TSEntityProvider {
 	GetTargetAuraStateNot() : uint32
 	GetTargetCreatureType() : uint32
 	GetTargets() : uint32;
+    GetEffect(index: SpellEffIndex): TSSpellEffectInfo
+}
+
+declare class TSSpellEffectInfo {
+    GetEffectIndex(): SpellEffIndex;
+    GetType(): SpellEffects;
+    GetAura(): AuraType;
+    GetAmplitude(): uint32;
+    GetDieSides(): int32;
+    GetRealPointsPerLevel(): float;
+    GetBasePoints(): int32;
+    GetPointsPerComboPoint(): float;
+    GetValueMultiplier(): float;
+    GetDamageMultiplier(): float;
+    GetBonusMultiplier(): float;
+    GetMiscValue(): int32;
+    GetMiscValueB(): int32;
+    GetMechanic(): Mechanics;
+    GetChainTarget(): uint32;
+    GetItemType(): uint32;
+    GetTriggerSpell(): uint32;
+    IsEffect(): bool;
+    IsAura(): bool;
 }
 
 declare interface TSSpellCastTargets {
@@ -7878,6 +7420,7 @@ declare namespace _hidden {
         OnCast(spell: uint32, callback : (spell: TSSpell)=>void);
         OnCheckCast(spell: uint32, callback : (spell: TSSpell, result: TSMutable<SpellCastResult>)=>void);
         OnDispel(spell: uint32, callback: (spell: TSSpell, dispelType: uint32)=>void);
+        OnEffect(spell: uint32, callback: (spell: TSSpell, cancel: TSMutable<bool>, info: TSSpellEffectInfo, mode: SpellEffectHandleMode, unitTarget: TSUnit, item: TSItem, obj: TSGameObject, corpse: TSCorpse)=>void);
         OnHit(spell: uint32, callback: (spell: TSSpell)=>void);
         OnTick(spell: uint32, callback: (effect: TSAuraEffect)=>void);
         OnRemove(spell: uint32, callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void);
@@ -7941,6 +7484,7 @@ declare namespace _hidden {
         OnCast(callback : (spell: TSSpell)=>void): T;
         OnCheckCast(callback : (spell: TSSpell, result: TSMutable<SpellCastResult>)=>void): T;
         OnDispel(callback: (spell: TSSpell, dispelType: uint32)=>void): T;
+        OnEffect(callback: (spell: TSSpell, cancel: TSMutable<bool>, info: TSSpellEffectInfo, mode: SpellEffectHandleMode, unitTarget: TSUnit, item: TSItem, obj: TSGameObject, corpse: TSCorpse)=>void);
         OnHit(callback: (spell: TSSpell)=>void): T;
         OnTick(callback: (effect: TSAuraEffect)=>void): T;
         OnRemove(callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void): T;
@@ -9187,9 +8731,32 @@ declare function LoadCustomItems(): void;
 declare function CreateDictionary<K,V>(obj: {[key: string]: V}) : TSDictionary<K,V>
 declare function CreateArray<T>(obj: T[]): TSArray<T>
 
-declare function GetID(table: string, mod: string, name: string): uint32;
-declare function MatchIDs(table: string, mod: string|RegExp, name: string|RegExp): TSArray<uint32>;
+declare function GetID(table: string, mod: string, name: string);
 declare function GetIDRange(table: string, mod: string, name: string);
+declare function GetIDTag(mod: string, id: string): TSArray<uint32>
+
+/**
+ * Runs a compile-time check that a given world database table exists.
+ *
+ * **Important**: This function does **nothing** at runtime.
+ *
+ * **Motivation**: It's easy to forget building datascripts after a rebuild
+ *                 or reinstallation before you build your scripts.
+ *                 This helps you catch such errors before you try reading it in the worldserver.
+ *
+ * **Type Codes**: Optionally, the second argument can be used to supply a string list of type characters
+ *                 to check that the table has some expected number of columns with specific types.
+ *                 `i` checks for integer types, `s` for strings, `f` for floats and `*` for any type.
+ *
+ * **Examples**:
+ *
+ *     ASSERT_WORLD_TABLE("my_table","s") // asserts "my_table" column 1 is a string.
+ *
+ *     ASSERT_WORLD_TABLE("my_table","*i") // asserts "my_table" column 2 is an integer.
+ *
+ *     ASSERT_WORLD_TABLE("my_table","si") // asserts "my_table" column 1 is a string and column 2 is an integer.
+ */
+declare function ASSERT_WORLD_TABLE(table: string, columns?: string)
 
 declare class BinReader<L extends number> {
     Read<T extends number>(offset: L) : T;
