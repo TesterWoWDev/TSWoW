@@ -55,7 +55,7 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
 
 const qualityMultiplier = [
     0.5,//no quality 0
-    0.6,//common
+    0.6,//common unused
     0.7,//uncommon
     0.8,//rare
     0.9,//epic
