@@ -2,7 +2,13 @@ export function itemReloading(events: TSEvents) {
     events.World.OnStartup(()=>{
         LoadCustomItems()
     })
-    
+    //possibly replace with sending a cache packet of specific itemID whenever hover an item?
+    //perhaps have an addon that checks when finally ingame, then send this only once?
+    events.Player.OnLogin((player,first)=>{
+        player.AddTimer(2000,3,0,(owner,timer)=>{
+            owner.ToPlayer().UpdateCache()
+        })
+    })
     events.Player.OnCommand((player,command,found)=>{
         let cmd = command.get().split(' ')
         if(cmd[0] == 'cacheme'){

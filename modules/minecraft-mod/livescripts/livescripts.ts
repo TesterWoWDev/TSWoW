@@ -12,7 +12,6 @@ import { torghastBuffSystem } from "./dungeon/torghast-master";
 import { dungeon1 } from "./dungeon/dungeon-1";
 import { itemReloading } from "./item_reloading";
 import { itemCreate } from "./item_create";
-import { itemCacheSend } from "./item-cache";
 
 export function Main(events: TSEvents) {
     handleCraftMessages(events);
@@ -30,5 +29,4 @@ export function Main(events: TSEvents) {
     dungeon1(events);
     itemReloading(events);
     itemCreate(events);
-    itemCacheSend(events);
 }
