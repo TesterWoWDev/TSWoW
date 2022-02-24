@@ -1,37 +1,45 @@
 const tmogField = "player_transmog";
 @CharactersTable
-class playerMog extends DBTable {
+class playerMog extends DBEntry {
     constructor(playerGUID: uint32) {
         super();
         this.playerGUID = playerGUID;
         this.transmogIDs = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0";
         this.visualIDs = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0";
     }
-    @PrimaryKey
+    @DBPrimaryKey
     playerGUID: uint32 = 0;
-    @Field
+    @DBField
     transmogIDs: string = "";
-    @Field
+    @DBField
     visualIDs: string = "";
+    
+    static get(player: TSPlayer): playerMog {
+        return player.GetObject('player_transmog'
+            , LoadDBEntry(new playerMog(player.GetGUID()))
+        )
+    }
 }
 
-export function transmog(events: TSEventHandlers) {
+export function transmog(events: TSEvents) {
     events.Player.OnLogin((player) => {
-        const guid = player.GetGUIDLow();
-        const rows = LoadRows(playerMog, `playerGUID = ${guid}`);
-        const stats = rows.length > 0 ? rows.get(0) : new playerMog(guid);
-        player.SetObject(tmogField, stats);
-        setAllTransmogs(player, stats);
+
+        let qInfo = player.GetObject<playerMog>(tmogField,new playerMog(player.GetGUIDLow()))
+        qInfo.Load() // ??
+        let q = LoadDBEntry(qInfo) //??
+        player.SetObject(tmogField, qInfo);
+        player.SetObject(tmogField, q);
+        setAllTransmogs(player, q);
     });
 
     events.Player.OnSave((player) => {
-        player.GetObject(tmogField, new playerMog(player.GetGUIDLow())).save();
+        player.GetObject(tmogField, new playerMog(player.GetGUIDLow())).Save();
     });
 
-    events.Items.OnEquipEarly((item, player) => {
-        player.AddTimer("transmogEquipTask", 3000, 1, (timer, entity, del, can) =>
+    events.Items.OnCanEquip((item, player) => {
+        player.AddNamedTimer("transmogEquipTask", 3000, 1, (owner, timer) =>
             setAllTransmogs(
-                entity.ToPlayer(),
+                owner.ToPlayer(),
                 player.GetObject(tmogField, new playerMog(player.GetGUIDLow()))
             )
         );

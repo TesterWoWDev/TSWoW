@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 import { spawnNPC } from "../../../functions/spawning-functions";
 import { MODNAME } from "../../../modname";
@@ -54,7 +54,7 @@ PriestQuest01.Text.Title.enGB.set("Technique and Form");
 export let PriestQuest02 = std.Quests.create(MODNAME, "priestquest02-quest");
 
 PriestQuest02.Flags.set(8);
-SQL.quest_template_addon.add(PriestQuest02.ID).SpecialFlags.set(1);
+std.SQL.quest_template_addon.add(PriestQuest02.ID).SpecialFlags.set(1);
 PriestQuest02.MinLevel.set(1);
 PriestQuest02.QuestLevel.set(20);
 PriestQuest02.Questgiver.addCreatureStarter(PriestQuestGiver01.ID);

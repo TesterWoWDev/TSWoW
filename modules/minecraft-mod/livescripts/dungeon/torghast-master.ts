@@ -1,257 +1,32 @@
 import { spellChoiceID, spellChoice, spellChoices } from "../../shared/Messages"
 
-const baseSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[//spellID,rarity,learnType(0 passive stacking, 1 passive non stack, 2 learn spell)
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increaseddamage1-spell"), 2, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedsp1-spell"), 2, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedap1-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstamina1-spell"), 4, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedstrength1-spell"), 1, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedintellect1-spell"), 2, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedagility1-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedcrit1-spell"), 4, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedresist1-spell"), 1, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rangedattackspeed1-spell"), 2, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critchance-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "critdamage-spell"), 4, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "grapple-spell"), 4, 2],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "immortalityheal-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "immortalitymana-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceformana-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceforhealth-spell"), 5, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceroarspell-spell"), 4, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reflectiveshell-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "movementspeed-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedcrits-spell"), 3, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "necromancersumm-spell"), 5, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "shadowyfigure-spell"), 3, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "fortunatespell-spell"), 5, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chanceformana02-spell"), 3, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "butterstick-spell"), 5, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reap-spell"), 5, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "furyofodin-spell"), 5, 1],
-    <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "stoned-spell"), 5, 1],
+const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[
+    <TSArray<TSArray<uint32>>>[],//none
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],
+    <TSArray<TSArray<uint32>>>[],//none
+    <TSArray<TSArray<uint32>>>[],
 ]
-const baseSpellDescriptions = [
-    "Total Damage dealt increased by 15%.",
-    "Total Spell Power increased by 10%.",
-    "Total Attack Power increased by 10%.",
-    "Stamina increased by 50.",
-    "Strength increased by 50.",
-    "Intellect increased by 50.",
-    "Agility increased by 50.",
-    "Critical Strike increased by 50.",
-    "All resistances increased by 10.",
-    "Increases ranged attack speed by 25%. Does not stack.",
-    "Increases spell crit chance by 10%.",
-    "Increases crit damage by 10%.",
-    "Teaches you Grapple. Grapple allows you to grapple to a nearby location.",
-    "Allows you to regenrate 2% hp every 5 seconds.",
-    "Allows you to retain 50% mana regen while casting.",
-    "Every 5 seconds, returns 50 mana to everyone within 30 yards of the mana conduit.",
-    "Attacks and spells have a chance to leech 1000-1700 health from the enemy and transfer it to the caster.",
-    "Attacks and spells have a chance to cast an echoing roar, knocking back all enemies in a 15 yard cone and dealing substantial damage..",
-    "Reflects 10% of all spell damage to attackers and deals 130 damage on melee attacks recieved. This effect stacks.",
-    "Increases movement speed by 3%. This effect stacks.",
-    "Reduces chance to suffer a critical hit by 10%. This effect stacks.",
-    "Attacks and spells have a chance to summon reanimated weaponry to assist you in battle.",
-    "Reduces damage taken by area of effect attacks by 30%. This effect stacks.",
-    "Increases the total health value of your character by 15%. This effect stacks.",
-    "Attacks and spells have a chance to generate additional Torghast Inside Tokens which can be used to purchase additional items in the store.",
-    "Attacks and spells have a chance to restore 1000-1700 mana.",
-    "Coat yourself in a stick of butter, increasing your ability to dodge incoming attacks by 15%.",
-    "Attacks and spells have a chance to reap the life from your target, instantly destroying their soul and generating an anima power.",
-    "Attacks and spells have a chance to incur the fury of Odin, dealing 1400 to 2918 damage to up to 5 enemies.",
-    "Attacks and spells have a chance to petrify the enemy in stone, stunning them for 10 seconds and preventing attacks.",
-]
-
-const classSpells: TSArray<TSArray<TSArray<uint32>>> = <TSArray<TSArray<TSArray<uint32>>>>[//spellID,rarity,learnType(0 passive, 1 learn spell)
-    <TSArray<TSArray<uint32>>>[<TSArray<uint32>>[0]],
-    <TSArray<TSArray<uint32>>>[//warrior
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "warriorrendincrease-spell"), 1, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "ragegeneration-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "reducedragecost-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "improvingcleave-spell"), 1, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "thunderingclap-spell"), 5, 1],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "warbringer-spell"), 4, 1],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "terribletrio-spell"), 5, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "blazingspeed-spell"), 5, 1],
-    ],
-    <TSArray<TSArray<uint32>>>[//paladin
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "judgementmodifier-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "holydamage-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sealofjustice-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sealoflight-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sealofwisdom-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "divinepower-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "stormingpower-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "crusadermight-spell"), 2, 0],
-    ],
-    <TSArray<TSArray<uint32>>>[//hunter
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "endurance-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "pierced-spell"), 1, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedaimshot-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "arcanepotency-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "volleybuff-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "aimedshotbuff-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "punishingblows-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "arcaneinsurgence-spell"), 5, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "dynamite-spell"), 5, 0],
-    ],
-    <TSArray<TSArray<uint32>>>[//rogue
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "vigorous-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sinsitercalling-spell"), 1, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "traitorcalling-spell"), 1, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "opportunity-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "deception-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "opportunity02-spell"), 5, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "mastertechniques-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "hemostrike-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "sinistercausebleed-spell"), 5, 1],
-    ],
-    <TSArray<TSArray<uint32>>>[//priest
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "renewheal-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "shadowpower-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "devouringpower-spell"), 3, 0],
-    ],
-    <TSArray<TSArray<uint32>>>[//dk
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "ancienttechniques-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "unholypower-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "deadliestcoil-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "rapiddecay-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "deathlydecay-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "bloodierstrike-spell"), 2, 0],
-    ],
-    <TSArray<TSArray<uint32>>>[//shaman
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "fulmination-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "elementalcall-spell"), 4, 0],
-    ],
-    <TSArray<TSArray<uint32>>>[//mage
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "polymorphbuff-spell"), 5, 1],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "icepiercing-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "icelanceuberproc-spell"), 5, 1],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "arcticswirl-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "firepower-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "frozenhaste-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "polyhaste-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "pyrohaste-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "inferno-spell"), 5, 0],
-    ],
-    <TSArray<TSArray<uint32>>>[//warlock
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "empoweredcorruption-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chaoticreach01-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "chaoticreach02-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "echoingshadows-spell"), 3, 1],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "impmother-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "impoverlord-spell"), 5, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "demotactics-spell"), 2, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "emberstorm-spell"), 3, 0],
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "everlastingflame-spell"), 3, 0],
-    ],
-    <TSArray<TSArray<uint32>>>[<TSArray<uint32>>[0]],//blank
-    <TSArray<TSArray<uint32>>>[//druid
-        <TSArray<uint32>>[GetID("Spell", "minecraft-mod", "increasedhealth1-spell"), 1, 0],
-    ],
-]
-const classSpellDescriptions = [
-    //blank
-    ["0blank"],
-    //warrior
-    [
-    "Increases the damage dealt by rend by 50%. Stacks.",
-    "Increases Rage generated from attacks by 25%. Stacks.",
-    "Reduces the rage cost of your offensive abilities by 3. Stacks.",
-    "Increases the damage dealt by your cleave by 100%.",
-    "Casting thunder clap now calls down a strike from the heavens, consecrating the area in lightning for 15 seconds.",
-    "Your Charge, Intercept and Intervene abilities are now usable while in combat and in any stance.",   
-    "Increases damage of rend, thunder clap and heroic strike by 100%.",
-    "Every time you cast charge, you increase your movement speed by 1%, stacking up to 75 times.",
-    ],
-    //paladin
-    [
-    "Increases the range of your Judgements by 10 yards. Stacks.",
-    "All attacks against you have a 10% chance to cause half damage.",
-    "Fills the Paladin with the spirit of justice, giving each melee attack a chance to stun.",
-    "Fills the Paladin with divine light, giving each melee attack a chance to heal the Paladin.",
-    "Fills the Paladin with divine wisdom, giving each melee attack a chance to restore 2% of the paladin's maximum mana.",
-    "Increases the damage of your Judgement by 75%.",
-    "Increases the damage of your Divine Storm by 75%.",
-    "Increases the damage of your Crusader Strike by 75%.",
-    ],
-    //hunter
-    [
-    "Increases the health of your pet by 25% and your total health by 5%. Stacks.",
-    "Your critical Aimed, Steady and Chimera Shots cause the target to bleed.",
-    "Casting steady shot has a chance to grant various proc chances.",
-    "Increases the damage of your Arcane Shot by 50%.",
-    "Increases the damage of your Volley by 50%.",
-    "Increases the damage of your Aimed Shot by 50%.",
-    "Increases the damage of your Mongoose Bite and Raptor Strike by 150%.",
-    "Arcane Shot now applies a stacking 40 damage dot, while simultaneously increasing the casters damage by 1%.",
-    "Increases the damage done by your Explosive Shot, Explosive Trap and Immolation Trap by 50%.",
-    ],
-    //rogue
-    [
-    "Increases total energy by 50. Stacks.",
-    "Increases damage dealt by Sinister Strike by 50%. Stacks.",
-    "Increases damage dealt by Backstab by 50%. Stacks.",
-    "Increases damage dealt by Ambush by 50%. Stacks.",
-    "Increases the effectiveness of your stealth. Stacks.",
-    "Increases damage dealt by Ambush by 150%. Stacks.",
-    "Increases damage dealt by Eviscerate by 50%. Stacks.",
-    "Increases damage dealt by Rupture by 50%. Stacks.",
-    "Your sinister strike now aims for the heart, giving it a chance to automatically apply rupture to the target. Rupture benefits from any modifiers you have.",
-    ],
-    //priest
-    [
-    "Increases the healing power of your renew by 50%.",
-    "Increases the damage of shadow word pain by 75%.",
-    "Increases the damage of devouring plague by 50%.",
-    ],
-    //dk
-    [
-    "Increases your maximum runic power by 50.",
-    "Increases your critical strike damage bonus by your Plague Strike and Scourge Strike by 50%",
-    "Increases the damage and healing of your death coil by 150%.",
-    "Decreases the cooldown of your death and decay by 5 seconds.",
-    "Increases the damage dealt by your death and decay ability by 50%.",
-    "Increases the healing of your death strike by 50%.",
-    ],
-    //sham
-    [
-    "Increases the damage done by your Lightning Bolt, Chain Lightning, Thunderstorm, Lava Burst and Shock spells by 30%",
-    "Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by 5 yards.",
-    ],
-    //mage
-    [
-    "Casting Polymorph now applies Master of the Herd which increases all damage dealt by the caster by 50% for 10 seconds.",
-    "Increases the damage of all of your frost spells by 50%.",
-    "Ice lance has a 5% chance to deal damage to all enemies within 80 yards. Dealing triple damage to frozen targets.",
-    "Increases the damage of cone of cold by 100%.",
-    "Increases the damage of all of your fire spells by 50%.",
-    "Decreases the cast time of your frostbolt by 0.25 seconds.",
-    "Decreases the cast time of your polymorph by 0.25 seconds.",
-    "Decreases the cast time of your pyroblast by 0.25 seconds.",
-    "Increases the damage and cast time of your flamestrike by 500%.",
-    ],
-    //lock
-    [
-    "Increases the damage of your corruption spell by 50%.",
-    "Increases the range of your shadow bolt spell by 20%.",
-    "Increases the range of your immolation spell by 20%.",
-    "Casting shadow bolt has a 25% chance to cast a second shadow bolt at the enemy causing 500 Damage.",
-    "Increases the damage of your pets firebolt spell by 100%.",
-    "Increases the damage of your pets firebolt spell by 1000%.",
-    "Increases the critical strike chance of your pets by 15%.",
-    "Decreases the cast time of your incinerate ability by 0.3 seconds.",
-    "Increases the periodic damage of your immolate spell by 50%.",
-    ],
-    //blank
-    ["10blank"],
-    //druid
-    [
-    "Increases health by 2%",
-    ],
+const classSpellDescriptions: TSArray<TSArray<string>> = <TSArray<TSArray<string>>>[
+    <TSArray<string>>[],//none
+    <TSArray<string>>[],
+    <TSArray<string>>[],
+    <TSArray<string>>[],
+    <TSArray<string>>[],
+    <TSArray<string>>[],
+    <TSArray<string>>[],
+    <TSArray<string>>[],
+    <TSArray<string>>[],
+    <TSArray<string>>[],
+    <TSArray<string>>[],//none
+    <TSArray<string>>[],
 ]
 
 const tormentAndBlessingSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint32>>>[
@@ -260,10 +35,10 @@ const tormentAndBlessingSpells: TSArray<TSArray<uint32>> = <TSArray<TSArray<uint
 
 export const prestigeSpell: uint32 = GetID("Spell", "minecraft-mod", "mapprestige-spell")
 //end of config
-const spellIDToType: TSDictionary<uint32, uint32> = MakeDictionary<uint32, uint32>({
+const spellIDToType: TSDictionary<uint32, uint32> = CreateDictionary<uint32, uint32>({
     1: 1
 });
-class torghastBuffs extends TSClass {
+class torghastBuffs {
     currentBuffs: TSArray<uint32> = []
     currentBuffsType: TSArray<uint32> = []
     currentBuffsCount: TSArray<uint32> = []
@@ -275,22 +50,22 @@ class torghastBuffs extends TSClass {
     currentChoiceBuffs: TSArray<uint32> = []
 }
 
-export function torghastBuffSystem(events: TSEventHandlers) {
+export function torghastBuffSystem(events: TSEvents) {
     setupTables()
     events.CreatureID.OnCreate(GetID("creature_template", "minecraft-mod", "torghast-orb"), (creature, cancel) => {
-        creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (collision, self, collided, cancel) => {
+        creature.GetCollisions().Add(ModID(), "hungergames-collision", 2, 500, 0, (self,collided,cancel,entry) => {
             if (collided.IsPlayer()) {
                 let player = collided.ToPlayer()
                 let creature = self.ToCreature()
                 if (player.IsInGroup()) {
                     let arr = creature.GetJsonArray('usedBy', new TSJsonArray())
                     for (let i = 0; i < arr.length; i++) {
-                        if (arr.getNumber(i) == player.GetGUIDLow()) {
+                        if (arr.GetNumber(i) == player.GetGUIDLow()) {
                             return
                         }
                     }
                     if (givePlayerChoiceOfBuffs(player)) {
-                        arr.pushNumber(player.GetGUIDLow())
+                        arr.PushNumber(player.GetGUIDLow())
                         creature.SetJsonArray('usedBy', arr)
                     }
                     if (arr.length == player.GetGroup().GetMembersCount()) {
@@ -305,7 +80,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         })
     })
 
-    events.Player.OnSay((player, type, lang, msg) => {
+    events.Player.OnSay((player, msg, type, lang) => {
         if (msg.get().startsWith("#aa")) {
             if (!givePlayerChoiceOfBuffs(player)) {
                 player.SendAreaTriggerMessage('Choose your ability first!')
@@ -329,7 +104,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         removePlayerBuffs(player)
     })
 
-    events.Player.OnSay((player, type, lang, msg) => {
+    events.Player.OnSay((player, msg,type, lang ) => {
         if (msg.get().startsWith("#1")) {
             playerChoseBuff(player, 2)
             applyPlayerBuffs(player)
@@ -342,7 +117,7 @@ export function torghastBuffSystem(events: TSEventHandlers) {
         }
     })
 
-    events.PacketID.OnCustom(spellChoiceID, (opcode, packet, player) => {
+    events.CustomPacketID.OnReceive(spellChoiceID, (opcode, packet, player) => {
         let pkt = new spellChoice(0)
         pkt.read(packet)
         playerChoseBuff(player, pkt.choice)
@@ -406,7 +181,7 @@ function teleportRandomStart(players: TSPlayer[], playerSpawnCoords: TSDictionar
         if (prestige > 0) {
             players[i].SendAreaTriggerMessage("You are on Prestige " + prestige)
         }
-        players[i].Teleport(playerSpawnCoords['map'], playerSpawnCoords['x'], playerSpawnCoords['y'], playerSpawnCoords['z'], playerSpawnCoords['o'])
+        players[i].Teleport(playerSpawnCoords['m'], playerSpawnCoords['x'], playerSpawnCoords['y'], playerSpawnCoords['z'], playerSpawnCoords['o'])
     }
 }
 
@@ -564,6 +339,7 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
     let spellDescs: TSArray<string> = []
     let classID = player.GetClass()
     let allSpells: TSArray<TSArray<uint32>> = classSpells[classID]
+    let allDesc = classSpellDescriptions[classID]
     let continueLoop = true
     let count = 0
 
@@ -574,22 +350,22 @@ function givePlayerChoiceOfBuffs(player: TSPlayer): boolean {
         while (continueLoop == true) {
             const index = Math.floor(Math.random() * allSpells.length)
             let spellInfo: TSArray<uint32> = allSpells[index]
+            let desc = allDesc[index]
             let c: uint32 = spellInfo[0]
             if (spellIDToType[c] == 0) {
                 count++
-                player.SendBroadcastMessage('#'+count+': ' + classSpellDescriptions[classID][index])
+                player.SendBroadcastMessage('#'+count+': ' +desc)
                 charItems.currentChoiceBuffs.push(c)
                 spellRarity.push(spellInfo[1])
-                spellDescs.push(classSpellDescriptions[classID][index])
+                spellDescs.push(desc)
                 
             } else if (spellIDToType[c] == 1 || spellIDToType[c] == 2) {
                 if (!charItems.currentBuffs.includes(c)) {
                     count++
-                    player.SendBroadcastMessage('#'+count+': ' + classSpellDescriptions[classID][index])
+                    player.SendBroadcastMessage('#'+count+': ' + desc)
                     charItems.currentChoiceBuffs.push(c)
                     spellRarity.push(spellInfo[1])
-                    spellDescs.push(classSpellDescriptions[classID][index])
-                    
+                    spellDescs.push(desc)
                 }
             }
             if (count == 3) {
@@ -709,36 +485,32 @@ export function getRandomInt(max: uint32): uint32 {
 }
 
 function setupTables() {
-    for (let i = 0; i < baseSpells.length; i++) {
-        spellIDToType[baseSpells[i][0]] = baseSpells[i][2]
-    }
-    for (let i = 0; i < classSpells.length; i++) {
-        if (i == 0 || i == 10) {
+    //sql query for all spells
+    let query = QueryWorld("SELECT * FROM `torghast_spells`;");
 
-        } else {
-            for (let j = 0; j < classSpells[i].length; j++) {
-                spellIDToType[classSpells[i][j][0]] = classSpells[i][j][2]
+        while (query.GetRow()) {
+        let classID = query.GetUInt32(0)
+        let spellID = query.GetUInt32(1)
+        let spellRarity = query.GetUInt32(2)
+        let spellType = query.GetUInt32(3)
+        let spellDesc = query.GetString(4)
+        spellIDToType[spellID] = spellType
+        if(classID == 0){//add spell to all
+            for (let j = 1; j <= 11; j++) {//1->11 for class IDs
+                if (j == 10) 
+                    continue;
+                classSpells[j].push(<TSArray<uint32>>[spellID,spellRarity,spellType])
+                classSpellDescriptions[j].push(spellDesc)
             }
-        }
-    }
-
-    for (let i = 0; i < classSpells.length; i++) {
-        if (i == 0 || i == 10) {
-
-        } else {
-            classSpells[i] = classSpells[i].concat(baseSpells)
-        }
-    }
-    for (let i = 0; i < classSpellDescriptions.length; i++) {
-        if (i == 0 || i == 10) {
-
-        } else {
-            classSpellDescriptions[i] = classSpellDescriptions[i].concat(baseSpellDescriptions)
+            
+        }else{//single class
+            classSpells[classID].push(<TSArray<uint32>>[spellID,spellRarity,spellType])
+            classSpellDescriptions[classID].push(spellDesc)
         }
     }
 }
 
-export function setupLastBossCheck(events: TSEventHandlers, bossID: number) {
+export function setupLastBossCheck(events: TSEvents, bossID: number) {
     events.CreatureID.OnDeath(bossID, (creature, killer) => {
         if (creature.GetUInt('lastBoss', 0) == 1) {
             killer.SummonGameObject(GetID("gameobject_template", "minecraft-mod", "torghastendobj"), creature.GetX(), creature.GetY(), creature.GetZ()+1, creature.GetO(), 0)

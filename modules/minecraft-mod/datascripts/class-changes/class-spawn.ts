@@ -1,6 +1,6 @@
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
 
-SQL.playercreateinfo.filter({}).forEach((value, index, arr) => {
+std.SQL.playercreateinfo.queryAll({}).forEach((value, index, arr) => {
     if (value.class.get() == 6) {
         value.map.set(725);
         value.position_x.set(-8749.424805);

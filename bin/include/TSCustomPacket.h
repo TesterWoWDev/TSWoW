@@ -16,7 +16,8 @@ class TC_GAME_API TSPacketWrite
 public:
 	TSPacketWrite(CustomPacketWrite* write);
 	TSPacketWrite* operator->() { return this; };
-
+	operator bool() const { return write != nullptr; }
+	bool operator==(TSPacketWrite const& rhs) { return write == rhs.write; }
 	template <typename T>
 	TSPacketWrite* Write(T value)
 	{
@@ -57,6 +58,8 @@ class TC_GAME_API TSPacketRead
 public:
 	TSPacketRead(CustomPacketRead* read);
 	TSPacketRead* operator->() { return this; };
+	operator bool() const { return read != nullptr; }
+	bool operator==(TSPacketRead const& rhs) { return read == rhs.read; }
 
 	template <typename T>
 	T Read(T defaultValue)
@@ -91,12 +94,12 @@ class TSServerBuffer : public CustomPacketBuffer
 {
 public:
 	TSServerBuffer(TSPlayer player);
-	TSPlayer player;
+	TSPlayer player = nullptr;
 	virtual void OnPacket(CustomPacketRead* value) override final;
 	virtual void OnError(CustomPacketResult error) override final;
 };
 
-TC_GAME_API TSPacketWrite MakeCustomPacket(
+TC_GAME_API TSPacketWrite CreateCustomPacket(
 		opcode_t opcode
 	, totalSize_t size
 );

@@ -1,7 +1,7 @@
 //Class Trainer Quest - Druid
 
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 import { spawnNPC } from "../../../functions/spawning-functions";
 import { MODNAME } from "../../../modname";
@@ -56,7 +56,7 @@ DruidQuest01.Text.Title.enGB.set("Technique and Form");
 export let DruidQuest02 = std.Quests.create(MODNAME, "druidquest02-quest");
 
 DruidQuest02.Flags.set(8);
-SQL.quest_template_addon.add(DruidQuest02.ID).SpecialFlags.set(1);
+std.SQL.quest_template_addon.add(DruidQuest02.ID).SpecialFlags.set(1);
 DruidQuest02.MinLevel.set(1);
 DruidQuest02.QuestLevel.set(20);
 DruidQuest02.Questgiver.addCreatureStarter(DruidQuestGiver01.ID);

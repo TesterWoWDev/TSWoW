@@ -2,7 +2,7 @@ let tableOfSpawns: TSArray<uint32> = [
     GetID("creature_template", "minecraft-mod", "zone2creature1"),
 ];
 
-export function creatureDeathSummon(events: TSEventHandlers) {
+export function creatureDeathSummon(events: TSEvents) {
     events.CreatureID.OnDeath(
         GetID("creature_template", "minecraft-mod", "webbed-zone2"),
         (creature, killer) => {

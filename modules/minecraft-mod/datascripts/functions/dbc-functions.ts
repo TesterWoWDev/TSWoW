@@ -1,5 +1,4 @@
-import { DBC } from "wotlkdata";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk"
 
 export function addToDBCItemExtendedCost(
     index: number,
@@ -10,7 +9,7 @@ export function addToDBCItemExtendedCost(
     reqItemCount: number[],
     PersonalRating: number
 ) {
-    DBC.ItemExtendedCost.add(index)
+    std.DBC.ItemExtendedCost.add(index)
         .HonorPoints.set(reqHonor)
         .ArenaPoints.set(reqArena)
         .ArenaBracket.set(ArenaSlotID)
@@ -29,12 +28,12 @@ export function addToDBCItemRandomProperties(
     chance: number,
     SpellItemEnchantmentIndex: number
 ) {
-    DBC.ItemRandomProperties.add(propIndex)
+    std.DBC.ItemRandomProperties.add(propIndex)
         .Name2.enGB.set(name)
         .Enchantment.setIndex(0, SpellItemEnchantmentIndex - index1val)
         .Enchantment.setIndex(1, SpellItemEnchantmentIndex - index2val)
         .Enchantment.setIndex(2, SpellItemEnchantmentIndex - index3val);
-    SQL.item_enchantment_template.add(enchIndex, propIndex).chance.set(chance);
+    std.SQL.item_enchantment_template.add(enchIndex, propIndex).chance.set(chance);
 }
 
 export function addToDBCSpellItemEnchantment(
@@ -49,7 +48,7 @@ export function addToDBCSpellItemEnchantment(
     name: string,
     index: number
 ) {
-    DBC.SpellItemEnchantment.add(index)
+    std.DBC.SpellItemEnchantment.add(index)
         .Name.enGB.set(name)
         .Effect.setIndex(0, effect1type)
         .EffectArg.setIndex(0, effect1stattype)

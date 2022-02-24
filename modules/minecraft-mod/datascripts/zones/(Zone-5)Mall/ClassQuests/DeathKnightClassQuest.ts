@@ -1,7 +1,7 @@
 //Class Trainer Quest - Deathknight
 
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 import { spawnGob, spawnNPC } from "../../../functions/spawning-functions";
 import { MODNAME } from "../../../modname";
@@ -73,7 +73,7 @@ DeathknightQuest01.Text.Title.enGB.set("Technique and Form");
 export let DeathknightQuest02 = std.Quests.create(MODNAME, "dkquest02-quest");
 
 DeathknightQuest02.Flags.set(8);
-SQL.quest_template_addon.add(DeathknightQuest02.ID).SpecialFlags.set(1);
+std.SQL.quest_template_addon.add(DeathknightQuest02.ID).SpecialFlags.set(1);
 DeathknightQuest02.MinLevel.set(1);
 DeathknightQuest02.QuestLevel.set(20);
 DeathknightQuest02.Questgiver.addCreatureStarter(DeathknightQuestGiver01.ID);

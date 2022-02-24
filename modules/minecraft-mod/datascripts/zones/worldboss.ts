@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { spawnNPCWithTimer } from "../functions/spawning-functions";
 import { OrbofPower } from "./item-manifest";
 
@@ -63,4 +63,4 @@ let TeremustheDevourerGUID = spawnNPCWithTimer(
     [-7947.986816,57.004776,0.385031,1.939295,0],
     [-7993.659180,110.397179,0.385031,2.355556,0],
     [-8059.353027,163.871964,0.385031,2.595102,0]])*/
-SQL.creature_template_movement.add(TeremustheDevourer.ID).Flight.set(1);
+std.SQL.creature_template_movement.add(TeremustheDevourer.ID).Flight.set(1);

@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { DBC } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { MODNAME } from "../modname";
 
 //tiername,parent,prefix,[itemnames]
@@ -120,8 +120,8 @@ export function createGear(
 
         let costval = (costs[i] / 2) * statMultiplier;
         item.Price.set(
-            levelrequirement * levelrequirement * 100,
-            levelrequirement * levelrequirement * 150
+            levelrequirement * levelrequirement * 1,
+            levelrequirement * levelrequirement * 1.5,
         ); //sellprice + buyprice
         // item.Price.set(((quality*quality*100)/1.5),(quality*quality*100))
         item.ItemLevel.set(costval);
@@ -171,8 +171,8 @@ export function createTrinket(
         });
     });
     item.Price.set(
-        levelrequirement * levelrequirement * 100,
-        levelrequirement * levelrequirement * 150
+        levelrequirement * levelrequirement * 1,
+        levelrequirement * levelrequirement * 1.5
     ); //sellprice + buyprice
     item.ItemLevel.set((costs / 2) * quality);
     return item.ID;
@@ -239,8 +239,8 @@ export function createWeapons(
 
         let costval = (costs[i] / 2) * statMultiplier;
         item.Price.set(
-            levelrequirement * levelrequirement * 100,
-            levelrequirement * levelrequirement * 150
+            levelrequirement * levelrequirement * 1,
+            levelrequirement * levelrequirement * 1.5
         ); //sellprice + buyprice
         //  item.Price.set(((quality*quality*100)/2),(quality*quality*100))
         item.ItemLevel.set(costval);
@@ -260,7 +260,7 @@ export function createWeapons(
                     sheathval = 2;
                 }
                 item.Sheath.set(sheathval);
-                DBC.Item.filter({ ID: item.ID }).forEach((value, index, array) => {
+                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
                     value.SheatheType.set(sheathval);
                 });
             } else if (ids[i][1] == 15) {
@@ -271,7 +271,7 @@ export function createWeapons(
                 );
                 item.Delay.set(1600);
                 item.Sheath.set(6);
-                DBC.Item.filter({ ID: item.ID }).forEach((value, index, array) => {
+                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
                     value.SheatheType.set(6);
                 });
             } else if (ids[i][2] == 26) {
@@ -283,7 +283,7 @@ export function createWeapons(
                 item.Delay.set(2200);
                 item.Sheath.set(2);
                 item.RangeMod.set(100);
-                DBC.Item.filter({ ID: item.ID }).forEach((value, index, array) => {
+                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
                     value.SheatheType.set(2);
                 });
             } else {
@@ -299,7 +299,7 @@ export function createWeapons(
                     sheathval = 0;
                 }
                 item.Sheath.set(sheathval);
-                DBC.Item.filter({ ID: item.ID }).forEach((value, index, array) => {
+                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
                     value.SheatheType.set(sheathval);
                 });
             }
@@ -310,7 +310,7 @@ export function createWeapons(
                 item.Stats.addBlockRating(costval / 2);
                 item.Sheath.set(4);
                 item.BlockChance.set(costval);
-                DBC.Item.filter({ ID: item.ID }).forEach((value, index, array) => {
+                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
                     value.SheatheType.set(4);
                 });
             }

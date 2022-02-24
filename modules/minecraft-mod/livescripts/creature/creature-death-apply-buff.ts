@@ -14,7 +14,7 @@ let table: TSArray<uint32> = [
     GetID("creature_template", "minecraft-mod", "quailboarcreature-creature"),
 ];
 
-export function creatureDeathApplyBuff(events: TSEventHandlers) {
+export function creatureDeathApplyBuff(events: TSEvents) {
     for (let i = 0; i < table.length; i++) {
         events.CreatureID.OnDeath(table[i], (creature, killer) => {
             let players = creature.GetPlayersInRange(50, 0, 0);

@@ -1,7 +1,6 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../../modname";
 import { createRecipe } from "../../functions/recipe-functions";
-import { DBC } from "wotlkdata";
 import {
     createGem,
     vendorAddItems,
@@ -12,7 +11,6 @@ import {
     yellowColorCode,
     blueColorCode,
     orangeColorCode,
-    createAllUndiscoverGems,
 } from "../../functions/gem-functions";
 import { tierFourBaseResources } from "../armor/tier4-set";
 import {
@@ -48,13 +46,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 3)
     .EffectPointsMax.setIndex(0, 20)
@@ -79,13 +77,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 5)
     .EffectPointsMax.setIndex(0, 20)
@@ -110,13 +108,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 6)
     .EffectPointsMax.setIndex(0, 18)
@@ -141,13 +139,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 7)
     .EffectPointsMax.setIndex(0, 20)
@@ -172,13 +170,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 4)
     .EffectPointsMax.setIndex(0, 20)
@@ -203,13 +201,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 38)
     .EffectPointsMax.setIndex(0, 28)
@@ -234,13 +232,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 4)
     .EffectArg.setIndex(0, 0)
     .EffectPointsMax.setIndex(0, 60)
@@ -265,13 +263,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 45)
     .EffectPointsMax.setIndex(0, 28)
@@ -309,13 +307,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 3)
     .EffectPointsMax.setIndex(0, 12)
@@ -344,13 +342,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 4)
     .EffectPointsMax.setIndex(0, 12)
@@ -379,13 +377,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 5)
     .EffectPointsMax.setIndex(0, 12)
@@ -414,13 +412,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 6)
     .EffectPointsMax.setIndex(0, 22)
@@ -449,13 +447,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 12)
     .EffectPointsMax.setIndex(0, 24)
@@ -484,13 +482,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 36)
     .EffectPointsMax.setIndex(0, 16)
@@ -519,13 +517,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 31)
     .EffectPointsMax.setIndex(0, 22)
@@ -566,13 +564,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 3)
     .EffectPointsMax.setIndex(0, 11)
@@ -601,13 +599,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 4)
     .EffectPointsMax.setIndex(0, 11)
@@ -636,13 +634,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 5)
     .EffectPointsMax.setIndex(0, 11)
@@ -671,13 +669,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 6)
     .EffectPointsMax.setIndex(0, 28)
@@ -706,13 +704,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 15)
     .EffectPointsMax.setIndex(0, 45)
@@ -737,13 +735,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 36)
     .EffectPointsMax.setIndex(0, 12)
@@ -772,13 +770,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 32)
     .EffectPointsMax.setIndex(0, 28)
@@ -821,13 +819,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 3)
     .EffectPointsMax.setIndex(0, 11)
@@ -856,13 +854,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 4)
     .EffectPointsMax.setIndex(0, 11)
@@ -893,13 +891,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 5)
     .EffectPointsMax.setIndex(0, 11)
@@ -930,13 +928,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 6)
     .EffectPointsMax.setIndex(0, 22)
@@ -965,13 +963,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 32)
     .EffectPointsMax.setIndex(0, 45)
@@ -1007,13 +1005,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 7)
     .EffectPointsMax.setIndex(0, 25)
@@ -1038,13 +1036,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 7)
     .EffectPointsMax.setIndex(0, 15)
@@ -1073,13 +1071,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 7)
     .EffectPointsMax.setIndex(0, 15)
@@ -1108,13 +1106,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 7)
     .EffectPointsMax.setIndex(0, 15)
@@ -1147,13 +1145,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 32)
     .EffectPointsMax.setIndex(0, 15)
@@ -1184,13 +1182,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 32)
     .EffectPointsMax.setIndex(0, 15)
@@ -1221,13 +1219,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 32)
     .EffectPointsMax.setIndex(0, 15)
@@ -1258,13 +1256,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 32)
     .EffectPointsMax.setIndex(0, 15)
@@ -1295,13 +1293,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 32)
     .EffectPointsMax.setIndex(0, 45)
@@ -1326,13 +1324,13 @@ createRecipe(
     SpellItemEnchantmentIndex,
     1
 );
-DBC.GemProperties.add(GemPropertyIndex++, {
+std.DBC.GemProperties.add(GemPropertyIndex++, {
     Enchant_Id: SpellItemEnchantmentIndex,
     Maxcount_Inv: 0,
     Maxcount_Item: 0,
     Type: 8,
 });
-DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
+std.DBC.SpellItemEnchantment.add(SpellItemEnchantmentIndex++)
     .Effect.setIndex(0, 5)
     .EffectArg.setIndex(0, 32)
     .EffectPointsMax.setIndex(0, 15)

@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../modname";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,15 +19,15 @@ Abilities :
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-export let Boss1FlameShock1 = std.Spells.create(MODNAME,"boss1flameshock1-spell",8050);
+export let Boss1FlameShock1 = std.Spells.create(MODNAME,"boss1flameshock1-spell2",8050);
 Boss1FlameShock1.Name.enGB.set("Crackling Flames");
 Boss1FlameShock1.AuraDescription.enGB.set("$s2 Fire damage every $t2 seconds.");
 Boss1FlameShock1.Description.enGB.set("Instantly sears the target with fire, causing $s1 Fire damage immediately and $o2 Fire damage over $d.");
-Boss1FlameShock1.Effects.get(0).BasePoints.set(174);
-Boss1FlameShock1.Effects.get(0).DieSides.set(1);
+Boss1FlameShock1.Effects.get(0).PointsBase.set(174);
+Boss1FlameShock1.Effects.get(0).PointsDieSides.set(1);
 Boss1FlameShock1.Effects.get(0).PointsPerLevel.set(0);
-Boss1FlameShock1.Effects.get(1).BasePoints.set(144);
-Boss1FlameShock1.Effects.get(1).DieSides.set(1);
+Boss1FlameShock1.Effects.get(1).PointsBase.set(144);
+Boss1FlameShock1.Effects.get(1).PointsDieSides.set(1);
 Boss1FlameShock1.Effects.get(1).ChainAmplitude.set(3000);
 Boss1FlameShock1.Duration.setSimple(7000);
 Boss1FlameShock1.Cooldown.set(7000, 0, 0, 0);
@@ -35,16 +35,16 @@ Boss1FlameShock1.Cooldown.set(7000, 0, 0, 0);
 export let Boss1LightningBolt1 = std.Spells.create(MODNAME,"boss1lightningbolt1-spell",8246);
 Boss1LightningBolt1.Name.enGB.set("Lightning Strike");
 Boss1LightningBolt1.Description.enGB.set("Blasts an enemy with lightning for $s1 Nature damage.");
-Boss1LightningBolt1.Effects.get(0).BasePoints.set(384);
-Boss1LightningBolt1.Effects.get(0).DieSides.set(1);
+Boss1LightningBolt1.Effects.get(0).PointsBase.set(384);
+Boss1LightningBolt1.Effects.get(0).PointsDieSides.set(1);
 Boss1LightningBolt1.Effects.get(0).PointsPerLevel.set(0);
 Boss1LightningBolt1.CastTime.setSimple(2000);
 
 export let Boss1ChainLightning1 = std.Spells.create(MODNAME,"boss1chainlightning1-spell",16033);
 Boss1ChainLightning1.Name.enGB.set("Lightning Rip");
 Boss1ChainLightning1.Description.enGB.set("Chain lightning rips through 10 targets dealing $s1 Nature damage.");
-Boss1ChainLightning1.Effects.get(0).BasePoints.set(714);
-Boss1ChainLightning1.Effects.get(0).DieSides.set(1);
+Boss1ChainLightning1.Effects.get(0).PointsBase.set(714);
+Boss1ChainLightning1.Effects.get(0).PointsDieSides.set(1);
 Boss1ChainLightning1.Effects.get(0).PointsPerLevel.set(0);
 Boss1ChainLightning1.Attributes.IMPOSSIBLE_TO_DODGE_PARRY_BLOCK.set(1);
 Boss1ChainLightning1.Attributes.CANT_BE_REFLECTED.set(1);
@@ -59,8 +59,8 @@ Boss1ChainLightning1.AuraInterruptFlags.clearAll();
 export let Boss1HealingWave1 = std.Spells.create(MODNAME,"boss1healingwave1-spell",16033);
 Boss1HealingWave1.Name.enGB.set("Restore Life");
 Boss1HealingWave1.Description.enGB.set("Heals a friendly target, restoring $s1 health.");
-Boss1HealingWave1.Effects.get(0).BasePoints.set(7499);
-Boss1HealingWave1.Effects.get(0).DieSides.set(1);
+Boss1HealingWave1.Effects.get(0).PointsBase.set(7499);
+Boss1HealingWave1.Effects.get(0).PointsDieSides.set(1);
 Boss1HealingWave1.Effects.get(0).PointsPerLevel.set(0);
 Boss1HealingWave1.Effects.get(0).ImplicitTargetA.UNIT_CASTER.set();
 Boss1HealingWave1.CastTime.setSimple(5000);
@@ -95,23 +95,23 @@ TorghastBoss1.InlineScripts.OnJustEnteredCombat((creature, target) => {
     //start of combat
     creature.CastSpell(target,GetID("Spell", "minecraft-mod", "boss1flameshock1-spell"),true);
     //start of timers
-    creature.AddTimer("event1", 3000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event1", 3000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss1lightningbolt1-spell"),self,target,false);
     });
-    creature.AddTimer("event2", 5500, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event2", 5500, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss1flameshock1-spell"),self,target,false);
     });
-    creature.AddTimer("event3", 14000, 1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event3", 14000, 1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss1chainlightning1-spell"),self,target,false);
     });
-    creature.AddTimer("event4", 20000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event4", 20000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss1healingwave1-spell"),self,target,false);
     });
@@ -158,8 +158,8 @@ Abilities :
 export let GuardChainHeal = std.Spells.create(MODNAME,"guardchainheal1-spell",1064);
 GuardChainHeal.Name.enGB.set("Rejuvenating Waters");
 GuardChainHeal.Description.enGB.set("Heals the friendly target for $s1, then jumps to heal additional nearby targets.");
-GuardChainHeal.Effects.get(0).BasePoints.set(2195);
-GuardChainHeal.Effects.get(0).DieSides.set(716);
+GuardChainHeal.Effects.get(0).PointsBase.set(2195);
+GuardChainHeal.Effects.get(0).PointsDieSides.set(716);
 GuardChainHeal.Effects.get(0).ChainTarget.set(10);
 GuardChainHeal.CastTime.setSimple(5000);
 GuardChainHeal.Range.setSimple(0, 100);
@@ -189,8 +189,8 @@ ShamanGuard1.InlineScripts.OnJustEnteredCombat((creature, target) => {
             }
         }
     }
-    creature.AddTimer("event1", 5000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event1", 5000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "guardchainheal1-spell"),self,self,false);
     });
@@ -239,15 +239,15 @@ export let Boss2Summon1 = std.Spells.create(MODNAME,"boss2summon1-spell",66543);
 Boss2Summon1.Name.enGB.set("Call for Aid!");
 Boss2Summon1.Description.enGB.set("Calls 2 Windspeaker Shamans to join the fight.");
 Boss2Summon1.Effects.get(0).MiscValueA.set(ShamanGuard1.ID);
-Boss2Summon1.Effects.get(0).BasePoints.set(1);
-Boss2Summon1.Effects.get(0).DieSides.set(1);
+Boss2Summon1.Effects.get(0).PointsBase.set(1);
+Boss2Summon1.Effects.get(0).PointsDieSides.set(1);
 Boss2Summon1.Duration.setSimple(60000);
 
 export let Boss2LastStand1 = std.Spells.create(MODNAME,"boss2laststand1-spell",12976);
 Boss2LastStand1.Name.enGB.set("Enraged Triumph");
 Boss2LastStand1.AuraDescription.enGB.set("Health increased by 30% of maximum.");
-Boss2LastStand1.Effects.get(0).BasePoints.set(29);
-Boss2LastStand1.Effects.get(0).DieSides.set(1);
+Boss2LastStand1.Effects.get(0).PointsBase.set(29);
+Boss2LastStand1.Effects.get(0).PointsDieSides.set(1);
 Boss2LastStand1.Effects.get(0).Aura.MOD_INCREASE_HEALTH_PERCENT.set();
 Boss2LastStand1.Duration.setSimple(-1, 0, -1);
 
@@ -281,35 +281,35 @@ TorghastBoss2.InlineScripts.OnJustEnteredCombat((creature, target) => {
     //start of combat
     creature.CastSpell(target,GetID("Spell", "minecraft-mod", "boss2charge1-spell"),true);
     //start of timers
-    creature.AddTimer("event1", 5000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event1", 5000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss2mortal1-spell"),self,target,false);
     });
-    creature.AddTimer("event2", 14000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event2", 14000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(
             GetID("Spell", "minecraft-mod", "boss2destructiveslam1-spell"),self,target,false);
     });
-    creature.AddTimer("event3", 15000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event3", 15000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss2charge1-spell"),self,target,false);
     });
-    creature.AddTimer("event3.1", 16000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event3.1", 16000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss2bladestorm1-spell"),self,target,true);
     });
 
-    creature.AddTimer("event4", 20000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event4", 20000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss2summon1-spell"),self,target,false);
     });
-    creature.AddTimer("event5", 60000, -1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event5", 60000, -1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "boss2laststand1-spell"),self,target,false);
     });
@@ -356,12 +356,12 @@ Abilities :
 export let HasteAuraEgg = std.Spells.create(MODNAME,"hasteauraegg-spell",19506);
 HasteAuraEgg.Name.enGB.set("Acrid Haste");
 HasteAuraEgg.AuraDescription.enGB.set("Increases haste by $s1%.");
-HasteAuraEgg.Effects.get(0).BasePoints.set(4);
-HasteAuraEgg.Effects.get(0).DieSides.set(1);
+HasteAuraEgg.Effects.get(0).PointsBase.set(4);
+HasteAuraEgg.Effects.get(0).PointsDieSides.set(1);
 HasteAuraEgg.Effects.get(0).Aura.MOD_MELEE_HASTE.set();
 HasteAuraEgg.Effects.get(0).Radius.setSimple(100);
-HasteAuraEgg.Effects.get(1).BasePoints.set(4);
-HasteAuraEgg.Effects.get(1).DieSides.set(1);
+HasteAuraEgg.Effects.get(1).PointsBase.set(4);
+HasteAuraEgg.Effects.get(1).PointsDieSides.set(1);
 HasteAuraEgg.Effects.get(1).Aura.MOD_MELEE_HASTE.set();
 HasteAuraEgg.Effects.get(1).Radius.setSimple(100);
 HasteAuraEgg.Stacks.set(99);
@@ -398,8 +398,8 @@ GronglingEgg.InlineScripts.OnJustEnteredCombat((creature, target) => {
         }
     }
     attemptCast(42716, creature, creature, false);
-    creature.AddTimer("event1", 1000, 1, (timer, entity, del, can) => {
-        let self = entity.ToCreature();
+    creature.AddNamedTimer("event1", 1000, 1, (owner, timer) => {
+        let self = owner.ToCreature();
         let target = self.GetVictim();
         attemptCast(GetID("Spell", "minecraft-mod", "hasteauraegg-spell"),self,target,false);
     });
@@ -415,11 +415,11 @@ export let Boss3AcidWretch1 = std.Spells.create(MODNAME,"boss3acidwretch1-spell"
 Boss3AcidWretch1.Name.enGB.set("Acid Wretch");
 Boss3AcidWretch1.Description.enGB.set("Inflicts $s2 Nature damage and an additional $s1 damage every $t1 sec. to enemies in a cone in front of the caster. Lasts $d.");
 Boss3AcidWretch1.AuraDescription.enGB.set("$s1 Nature damage inflicted every $t1 sec.");
-Boss3AcidWretch1.Effects.get(0).BasePoints.set(99);
-Boss3AcidWretch1.Effects.get(0).DieSides.set(1);
+Boss3AcidWretch1.Effects.get(0).PointsBase.set(99);
+Boss3AcidWretch1.Effects.get(0).PointsDieSides.set(1);
 Boss3AcidWretch1.Effects.get(0).ChainAmplitude.set(1000);
-Boss3AcidWretch1.Effects.get(1).BasePoints.set(299);
-Boss3AcidWretch1.Effects.get(1).DieSides.set(1);
+Boss3AcidWretch1.Effects.get(1).PointsBase.set(299);
+Boss3AcidWretch1.Effects.get(1).PointsDieSides.set(1);
 Boss3AcidWretch1.Duration.setSimple(10000, 0, 10000);
 Boss3AcidWretch1.CastTime.setSimple(2000);
 
@@ -439,8 +439,8 @@ export let Boss3MeltArmor1 = std.Spells.create(MODNAME,"boss3meltarmor1-spell",1
 Boss3MeltArmor1.Name.enGB.set("Melt Armor");
 Boss3MeltArmor1.Description.enGB.set("Reduces an enemy's armor by $s1% for $d.");
 Boss3MeltArmor1.AuraDescription.enGB.set("Armor reduced by $s1%.");
-Boss3MeltArmor1.Effects.get(0).BasePoints.set(-11);
-Boss3MeltArmor1.Effects.get(0).DieSides.set(1);
+Boss3MeltArmor1.Effects.get(0).PointsBase.set(-11);
+Boss3MeltArmor1.Effects.get(0).PointsDieSides.set(1);
 Boss3MeltArmor1.Duration.setSimple(15000);
 Boss3MeltArmor1.Stacks.set(5);
 Boss3MeltArmor1.Icon.setPath("INV_Chest_Plate04");
@@ -454,8 +454,8 @@ export let Boss3Acridity1 = std.Spells.create(MODNAME,"boss3acridity1-spell",665
 Boss3Acridity1.Name.enGB.set("Acridity");
 Boss3Acridity1.Description.enGB.set("Summons Egg Sacs to Increase Boss Haste by 5%.");
 Boss3Acridity1.Effects.get(0).MiscValueA.set(GronglingEgg.ID);
-Boss3Acridity1.Effects.get(0).BasePoints.set(1);
-Boss3Acridity1.Effects.get(0).DieSides.set(1);
+Boss3Acridity1.Effects.get(0).PointsBase.set(1);
+Boss3Acridity1.Effects.get(0).PointsDieSides.set(1);
 
 export let TorghastBoss3 = std.CreatureTemplates.create(MODNAME,"torghastboss3",3276);
 TorghastBoss3.Models.clearAll();
@@ -490,7 +490,7 @@ TorghastBoss3.InlineScripts.OnJustEnteredCombat((creature, target) => {
         return Math.floor(Math.random() * max);
     }
     attemptCast(GetID("Spell", "minecraft-mod", "boss3potentodor1-spell"),creature,creature,false);
-    creature.AddTimer("combatLoop", 5000, -1, (timer, owner, delay, cancel) => {
+    creature.AddNamedTimer("combatLoop", 5000, -1, (owner, timer) => {
         let self = owner.ToCreature();
         let target = self.GetVictim();
         let spells: TSArray<uint32> = <TSArray<uint32>>[
@@ -597,12 +597,12 @@ Boss5Energize1.Name.enGB.set("Energized");
 Boss5Energize1.Visual.set(11416);
 Boss5Energize1.Description.enGB.set("Electrocute your target dealing 375 damage immediately and increasing the damage they take by 1%. Lasts $d.");
 Boss5Energize1.AuraDescription.enGB.set("Increased damage taken by $s2%.");
-Boss5Energize1.Effects.get(0).BasePoints.set(274);
-Boss5Energize1.Effects.get(0).DieSides.set(1);
+Boss5Energize1.Effects.get(0).PointsBase.set(274);
+Boss5Energize1.Effects.get(0).PointsDieSides.set(1);
 Boss5Energize1.Effects.get(0).PointsPerLevel.set(0);
 Boss5Energize1.Effects.get(1).Type.APPLY_AURA.set();
-Boss5Energize1.Effects.get(1).BasePoints.set(4);
-Boss5Energize1.Effects.get(1).DieSides.set(1);
+Boss5Energize1.Effects.get(1).PointsBase.set(4);
+Boss5Energize1.Effects.get(1).PointsDieSides.set(1);
 Boss5Energize1.Effects.get(1).Aura.MOD_DAMAGE_PERCENT_TAKEN.set();
 Boss5Energize1.Effects.get(1).ChainAmplitude.set(0);
 Boss5Energize1.CastTime.setSimple(3000);
@@ -613,8 +613,8 @@ export let Boss5Nuke1 = std.Spells.create(MODNAME, "boss5nuke1-spell", 64487);
 Boss5Nuke1.Name.enGB.set("Danger Zone!!!");
 Boss5Nuke1.Description.enGB.set("Inflicts $s1 Arcane damage to enemies.");
 Boss5Nuke1.Effects.get(0).Radius.setSimple(15)
-Boss5Nuke1.Effects.get(0).BasePoints.set(3999);
-Boss5Nuke1.Effects.get(0).DieSides.set(1);
+Boss5Nuke1.Effects.get(0).PointsBase.set(3999);
+Boss5Nuke1.Effects.get(0).PointsDieSides.set(1);
 Boss5Nuke1.Effects.get(0).PointsPerLevel.set(0);
 Boss5Nuke1.CastTime.setSimple(6000);
 Boss5Nuke1.Attributes.IMPOSSIBLE_TO_DODGE_PARRY_BLOCK.set(1);
@@ -631,11 +631,11 @@ Boss5Nuke1.AuraInterruptFlags.clearAll();
 // Boss5Fulmination1PlayerSpell.Name.enGB.set('Fulmination')
 // Boss5Fulmination1PlayerSpell.Description.enGB.set('Damage done increased by $s1%.')
 // Boss5Fulmination1PlayerSpell.AuraDescription.enGB.set('Damage done increased by $s1%. Taking $s2 Arcane Damage every 2 seconds.')
-// Boss5Fulmination1PlayerSpell.Effects.get(0).BasePoints.set(24)
-// Boss5Fulmination1PlayerSpell.Effects.get(0).DieSides.set(1)
+// Boss5Fulmination1PlayerSpell.Effects.get(0).PointsBase.set(24)
+// Boss5Fulmination1PlayerSpell.Effects.get(0).PointsDieSides.set(1)
 // Boss5Fulmination1PlayerSpell.Effects.get(1).Type.APPLY_AURA.set()
-// Boss5Fulmination1PlayerSpell.Effects.get(1).BasePoints.set(124)
-// Boss5Fulmination1PlayerSpell.Effects.get(1).DieSides.set(1)
+// Boss5Fulmination1PlayerSpell.Effects.get(1).PointsBase.set(124)
+// Boss5Fulmination1PlayerSpell.Effects.get(1).PointsDieSides.set(1)
 // Boss5Fulmination1PlayerSpell.Effects.get(1).Aura.PERIODIC_DAMAGE.set()
 // Boss5Fulmination1PlayerSpell.Effects.get(1).ImplicitTargetA.UNIT_CASTER.set()
 // Boss5Fulmination1PlayerSpell.Effects.get(1).ChainAmplitude.set(2000)
@@ -646,11 +646,11 @@ export let Boss5Fulmination1 = std.Spells.create(MODNAME,"boss5fulmination1-spel
 Boss5Fulmination1.Name.enGB.set("Fulmination");
 Boss5Fulmination1.Description.enGB.set("Damage done increased by $s1%.");
 Boss5Fulmination1.AuraDescription.enGB.set("Damage done increased by $s1%.");
-Boss5Fulmination1.Effects.get(0).BasePoints.set(24);
-Boss5Fulmination1.Effects.get(0).DieSides.set(1);
+Boss5Fulmination1.Effects.get(0).PointsBase.set(24);
+Boss5Fulmination1.Effects.get(0).PointsDieSides.set(1);
 // Boss5Fulmination1.Effects.get(1).Type.APPLY_AURA.set()
-// Boss5Fulmination1.Effects.get(1).BasePoints.set(24)
-// Boss5Fulmination1.Effects.get(1).DieSides.set(1)
+// Boss5Fulmination1.Effects.get(1).PointsBase.set(24)
+// Boss5Fulmination1.Effects.get(1).PointsDieSides.set(1)
 // Boss5Fulmination1.Effects.get(1).Aura.MOD_DAMAGE_PERCENT_DONE.set()
 // Boss5Fulmination1.Effects.get(1).ImplicitTargetA.UNIT_NEARBY_ENEMY.set()
 // Boss5Fulmination1.Effects.get(1).Radius.set(100)
@@ -661,8 +661,8 @@ export let Boss5Overload1 = std.Spells.create(MODNAME,"boss5overload1-spell",644
 Boss5Overload1.Name.enGB.set("Overload");
 Boss5Overload1.Visual.set(14798);
 Boss5Overload1.Description.enGB.set("Inflicts $s1 Arcane damage to all enemies.");
-Boss5Overload1.Effects.get(0).BasePoints.set(1499);
-Boss5Overload1.Effects.get(0).DieSides.set(1);
+Boss5Overload1.Effects.get(0).PointsBase.set(1499);
+Boss5Overload1.Effects.get(0).PointsDieSides.set(1);
 Boss5Overload1.Effects.get(0).PointsPerLevel.set(0);
 Boss5Overload1.Effects.get(0).Radius.setSimple(100);
 Boss5Overload1.Effects.get(1).Type.NULL.set();
@@ -682,8 +682,8 @@ export let Boss5Execution1 = std.Spells.create(MODNAME,"boss5execution1-spell",6
 Boss5Execution1.Name.enGB.set("Execution");
 Boss5Overload1.Visual.set(14798);
 Boss5Execution1.Description.enGB.set("Inflicts $s1 Arcane damage to all enemies.");
-Boss5Execution1.Effects.get(0).BasePoints.set(9999);
-Boss5Execution1.Effects.get(0).DieSides.set(1);
+Boss5Execution1.Effects.get(0).PointsBase.set(9999);
+Boss5Execution1.Effects.get(0).PointsDieSides.set(1);
 Boss5Execution1.Effects.get(0).PointsPerLevel.set(0);
 Boss5Execution1.Effects.get(0).Radius.setSimple(100);
 Boss5Execution1.CastTime.setSimple(10000);
@@ -728,31 +728,31 @@ TorghastBoss5.InlineScripts.OnJustEnteredCombat((creature, target) => {
     //start of combat
     creature.CastSpell(target,GetID("Spell", "minecraft-mod", "boss5energize1-spell"),true);
     //start of timers
-    creature.AddTimer("event1", 7000, -1, (timer, entity, del, can) => {
-        let self = entity.ToUnit();
-        attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"),entity.ToCreature(),self.GetVictim(),false);
+    creature.AddNamedTimer("event1", 7000, -1, (owner, timer) => {
+        let self = owner.ToUnit();
+        attemptCast(GetID("Spell", "minecraft-mod", "boss5energize1-spell"),owner.ToCreature(),self.GetVictim(),false);
     });
-    creature.AddTimer("event2", 12000, -1, (timer, entity, del, can) => {
-        let self = entity.ToUnit();
+    creature.AddNamedTimer("event2", 12000, -1, (owner, timer) => {
+        let self = owner.ToUnit();
         attemptCast(GetID("Spell", "minecraft-mod", "boss5fulmination1-spell"),self,self.GetVictim(),false);
     });
-    creature.AddTimer("event3", 15000, -1, (timer, entity, del, can) => {
-        let self = entity.ToUnit();
+    creature.AddNamedTimer("event3", 15000, -1, (owner, timer) => {
+        let self = owner.ToUnit();
         if (
             attemptCast(GetID("Spell", "minecraft-mod", "boss5magnetize1-spell"),self,self.GetVictim(),false)
         ) {
             self.SetBool("didCastMagnetize", true);
         }
     });
-    creature.AddTimer("event3.1", 16000, -1, (timer, entity, del, can) => {
-        let self = entity.ToUnit();
+    creature.AddNamedTimer("event3.1", 16000, -1, (owner, timer) => {
+        let self = owner.ToUnit();
         if (self.GetBool("didCastMagnetize", false)) {
             attemptCast(GetID("Spell", "minecraft-mod", "boss5nuke1-spell"),self,self.GetVictim(),true);
         }
         self.SetBool("didCastMagnetize", false);
     });
-    creature.AddTimer("event4", 38000, -1, (timer, entity, del, can) => {
-        let self = entity.ToUnit();
+    creature.AddNamedTimer("event4", 38000, -1, (owner, timer) => {
+        let self = owner.ToUnit();
         attemptCast(GetID("Spell", "minecraft-mod", "boss5execution1-spell"),self,self.GetVictim(),true);
     });
 });

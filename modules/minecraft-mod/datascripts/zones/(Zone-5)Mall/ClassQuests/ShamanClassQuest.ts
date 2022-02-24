@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 import { spawnNPC } from "../../../functions/spawning-functions";
 import { MODNAME } from "../../../modname";
@@ -54,7 +54,7 @@ ShamanQuest01.Text.Title.enGB.set("Technique and Form");
 export let ShamanQuest02 = std.Quests.create(MODNAME, "shamanquest02-quest");
 
 ShamanQuest02.Flags.set(8);
-SQL.quest_template_addon.add(ShamanQuest02.ID).SpecialFlags.set(1);
+std.SQL.quest_template_addon.add(ShamanQuest02.ID).SpecialFlags.set(1);
 ShamanQuest02.MinLevel.set(1);
 ShamanQuest02.QuestLevel.set(20);
 ShamanQuest02.Questgiver.addCreatureStarter(ShamanQuestGiver01.ID);

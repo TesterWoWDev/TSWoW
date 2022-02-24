@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 
 //
 export let DaggerFoK = std.Items.load(2092);

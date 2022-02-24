@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 
 let gameobjectID = 10192;
 let nameOfGob = "Wooden Chair";
@@ -11,7 +11,7 @@ std.DBC.AreaGroup.add(areaGroupID).AreaID.set([1977]); //change to a dungeon eve
 function makeHousingItem(gobID: number, name: string) {
     let spellID = makeHousingSpell(name, gobID);
     let itemID = makeHousingItemTemplate(name, spellID);
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `player_housing_item_spell_link` VALUES(" +
         spellID +
         "," +

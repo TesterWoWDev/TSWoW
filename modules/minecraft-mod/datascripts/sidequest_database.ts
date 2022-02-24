@@ -1,4 +1,5 @@
-import { SQL } from "wotlkdata";
+
+import { std } from "wow/wotlk";
 import {
     Boar01,
     FightingAdventurer01,
@@ -44,7 +45,7 @@ function addSideQuestRequirement(
     minReqAmount: number,
     maxReqAmount: number
 ) {
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `player_quest_options` VALUES(" +
         diff +
         "," +
@@ -63,7 +64,7 @@ function addSideQuestRequirement(
     );
 }
 function addSideQuestReward(diff: number, itemID: number, itemCount: number) {
-    SQL.Databases.world_dest.write(
+    std.SQL.Databases.world_dest.write(
         "INSERT INTO `player_quest_reward` VALUES(" +
         diff +
         "," +

@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+import { MODNAME } from "../modname";
 
  const REMOVALS = [
     190549, // Thunderbluff -> Orgrimmar
@@ -29,18 +29,18 @@ REMOVALS.forEach((value) => {
     transport.TaxiPath.getRef().delete();
     transport.TaxiPath.set(0);
     transport.row.delete();
-    SQL.Databases.world_dest.write(`DELETE FROM transports WHERE entry = ${value};`);
+    std.SQL.Databases.world_dest.write(`DELETE FROM transports WHERE entry = ${value};`);
 });
 
- std.Maps.load(0).InstanceType.RAID.set();
- std.Maps.load(1).InstanceType.RAID.set();
- std.Maps.load(530).InstanceType.RAID.set();
- std.Maps.load(571).InstanceType.RAID.set();
-SQL.Databases.world_dest.write('DELETE FROM battlefield_template WHERE TypeId = 1;')
+ std.Maps.load(0).Type.RAID.set(MODNAME,'map0');
+ std.Maps.load(1).Type.RAID.set(MODNAME,'map1');
+ std.Maps.load(530).Type.RAID.set(MODNAME,'map530');
+ std.Maps.load(571).Type.RAID.set(MODNAME,'map571');
+std.SQL.Databases.world_dest.write('DELETE FROM battlefield_template WHERE TypeId = 1;')
 
-std.SQL.outdoorpvp_template.find({ ScriptName: 'outdoorpvp_ep' }).delete();
-std.SQL.outdoorpvp_template.find({ ScriptName: 'outdoorpvp_si' }).delete();
-std.SQL.outdoorpvp_template.find({ ScriptName: 'outdoorpvp_hp' }).delete();
-std.SQL.outdoorpvp_template.find({ ScriptName: 'outdoorpvp_na' }).delete();
-std.SQL.outdoorpvp_template.find({ ScriptName: 'outdoorpvp_tf' }).delete();
-std.SQL.outdoorpvp_template.find({ ScriptName: 'outdoorpvp_zm' }).delete();
+std.SQL.outdoorpvp_template.query({ ScriptName: 'outdoorpvp_ep' }).delete();
+std.SQL.outdoorpvp_template.query({ ScriptName: 'outdoorpvp_si' }).delete();
+std.SQL.outdoorpvp_template.query({ ScriptName: 'outdoorpvp_hp' }).delete();
+std.SQL.outdoorpvp_template.query({ ScriptName: 'outdoorpvp_na' }).delete();
+std.SQL.outdoorpvp_template.query({ ScriptName: 'outdoorpvp_tf' }).delete();
+std.SQL.outdoorpvp_template.query({ ScriptName: 'outdoorpvp_zm' }).delete();

@@ -1,6 +1,6 @@
 /*
  * This file is part of tswow (https://github.com/tswow/).
- * Copyright (C) 2020 tswow <https://github.com/tswow/>
+ * Copyright (C) 2021 tswow <https://github.com/tswow/>
  *
  * This program is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -16,26 +16,10 @@
  */
 #pragma once
 
-class TC_GAME_API IDRange {
-public:
-    IDRange() {
-        this->low = 0;
-        this->high = 0;
-    }
+namespace bitwise {
+    template <typename T, typename S>
+    T rshift(T value, S amount) { return value >> amount; }
+    template <typename T, typename S>
 
-    IDRange(uint32 low, uint32 high) {
-        this->low = low;
-        this->high = high;
-    }
-
-    uint32 low;
-    uint32 high;
-
-    uint32 offset(uint32 offset) {
-        return this->low + offset;
-    }
-};
-
-TC_GAME_API IDRange GetIDRange(TSString table, TSString mod, TSString name);
-TC_GAME_API uint32 GetID(TSString table, TSString mod, TSString name);
-void LoadIDs();
+    T lshift(T value, S amount) { return value << amount; }
+}

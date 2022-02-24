@@ -1,6 +1,6 @@
 const winToken = 11;
 const killToken = 12;
-export function hungerGames(events: TSEventHandlers) {
+export function hungerGames(events: TSEvents) {
     //random spawned chests
     //random spawned materials
     //random lootable scrolls to show recipes
@@ -10,7 +10,7 @@ export function hungerGames(events: TSEventHandlers) {
 
     events.MapID.OnPlayerEnter(1, (map, player) => {
         //difficulty 1
-        player.AddTimer("hungergames-1", 3000, 0, (timer) => {
+        player.AddNamedTimer("hungergames-1", 3000, 0, (timer) => {
             console.log("hungergames-1 for " + player.GetName());
             for (let i = 0; i < getInt(3); i++) {
                 let spawn = player.SpawnCreature(
@@ -28,9 +28,9 @@ export function hungerGames(events: TSEventHandlers) {
         });
 
         //difficulty 2
-        player.AddTimer("hungergames-2-starting-call", 10000, 0, (timer) => {
+        player.AddNamedTimer("hungergames-2-starting-call", 10000, 0, (timer) => {
             console.log("hungergames-2-starting-call for " + player.GetName());
-            player.AddTimer("hungergames-2", 5000, 0, (timer) => {
+            player.AddNamedTimer("hungergames-2", 5000, 0, (timer) => {
                 console.log("hungergames-2 for " + player.GetName());
                 for (let i = 0; i < getInt(2); i++) {
                     let spawn = player.SpawnCreature(
@@ -49,9 +49,9 @@ export function hungerGames(events: TSEventHandlers) {
         });
 
         //difficulty 3
-        player.AddTimer("hungergames-3-starting-call", 30000, 0, (timer) => {
+        player.AddNamedTimer("hungergames-3-starting-call", 30000, 0, (timer) => {
             console.log("hungergames-3-starting-call for " + player.GetName());
-            player.AddTimer("hungergames-3", 5000, 0, (timer) => {
+            player.AddNamedTimer("hungergames-3", 5000, 0, (timer) => {
                 console.log("hungergames-3 for " + player.GetName());
                 for (let i = 0; i < getInt(1); i++) {
                     let spawn = player.SpawnCreature(
@@ -70,9 +70,9 @@ export function hungerGames(events: TSEventHandlers) {
         });
 
         //difficulty 4
-        player.AddTimer("hungergames-4-starting-call", 60000, 0, (timer) => {
+        player.AddNamedTimer("hungergames-4-starting-call", 60000, 0, (timer) => {
             console.log("hungergames-4-starting-call for " + player.GetName());
-            player.AddTimer("hungergames-4", 5000, 0, (timer) => {
+            player.AddNamedTimer("hungergames-4", 5000, 0, (timer) => {
                 console.log("hungergames-4 for " + player.GetName());
                 for (let i = 0; i < getInt(1); i++) {
                     let spawn = player.SpawnCreature(

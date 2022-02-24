@@ -49,13 +49,15 @@ public:
     TSObject(Object* obj);
     TSObject();
     TSObject* operator->() { return this;}
+    operator bool() const { return obj != nullptr; }
+    bool operator==(TSObject const& rhs) { return obj == rhs.obj; }
     bool IsNull() { return obj == nullptr; };
     bool IsInWorld();
     float GetScale();
     uint32 GetEntry();
     uint64 GetGUID();
     uint32 GetGUIDLow();
-    uint8 GetTypeId();
+    uint8 GetTypeID();
     void SetScale(float size);
 
     void SetFlag(uint16 index, uint32 flag);
@@ -84,12 +86,15 @@ public:
     TSWorldObject ToWorldObject();
     TSGameObject ToGameObject();
     TSCorpse ToCorpse();
+    TSItem ToItem();
+    TSUnit GetEffectiveOwner();
 
     bool IsPlayer();
     bool IsGameObject();
     bool IsCreature();
     bool IsUnit();
     bool IsCorpse();
+    bool IsItem();
 
     bool operator==(TSObject& rhs);
 };

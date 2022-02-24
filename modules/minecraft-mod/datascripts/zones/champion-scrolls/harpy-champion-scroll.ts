@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../../modname";
 
 /*Creature - Worg Champion*/

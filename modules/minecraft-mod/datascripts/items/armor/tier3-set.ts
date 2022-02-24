@@ -2,7 +2,6 @@ import {
     generateGearRecipes,
     generateWeaponRecipes,
 } from "../../functions/recipe-functions";
-import { SQL } from "wotlkdata";
 import { stringItem } from "../string";
 import { expSpell3 } from "../../spells/experience-rate-spells";
 import {
@@ -19,6 +18,7 @@ import {
     createTrinket,
     createWeapons,
 } from "../../functions/item-functions";
+import { std } from "wow/wotlk";
 
 let levelrequirement = 10;
 let armSpell = [expSpell3.ID, 0, 0, 0, 0];
@@ -233,7 +233,7 @@ generateWeaponRecipes(
     tierThreeWeapons
 );
 
-SQL.disenchant_loot_template
+std.SQL.disenchant_loot_template
     .add(102, tierThreeBaseResources[6])
     .Chance.set(100)
     .MinCount.set(1)

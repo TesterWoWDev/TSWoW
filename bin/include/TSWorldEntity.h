@@ -27,6 +27,18 @@
 
 uint64_t TC_GAME_API now();
 
+enum class TimerFlags: uint32 {
+    CLEARS_ON_DEATH       = 0x1,
+    CLEARS_ON_MAP_CHANGED = 0x2,
+    AGGREGATE_LOOPS       = 0x4,
+//  SYNCHRONIZED          = 0x8,
+};
+
+enum class TimerLoops {
+    ONCE = 1,
+    INDEFINITE = -1,
+};
+
 class TSWorldObject;
 class TC_GAME_API TSWorldObjectGroup {
     std::set<TSWorldObject> entries;
@@ -84,68 +96,74 @@ public:
 };
 
 template <typename T>
-class TC_GAME_API TSMessageQueue {
-    std::mutex m_jsonMessageLock;
-    std::vector<JsonMessage<T>> m_jsonMessages;
-public:
-    TSMessageQueue() = default;
-
-    // Note: for Battlegrounds
-    TSMessageQueue(TSMessageQueue const& queue)
-        : m_jsonMessages(queue.m_jsonMessages)
-    {}
-
-    void queue(uint8_t channel, TSJsonObject obj, JsonMessageCallback<T> callback)
-    {
-        const std::lock_guard<std::mutex> lock(m_jsonMessageLock);
-        m_jsonMessages.push_back(JsonMessage(channel, obj, callback));
-    }
-
-    void fire(T ctx)
-    {
-        // avoid deadlock: do not fire arbitrary code when locked
-        m_jsonMessageLock.lock();
-        std::vector<JsonMessage<T>> copiedMessages(m_jsonMessages);
-        m_jsonMessages.clear();
-        m_jsonMessageLock.unlock();
-        for (auto& msg : copiedMessages)
-        {
-            msg.fire(ctx);
-        }
-    }
-
-    void clear()
-    {
-        const std::lock_guard<std::mutex> lock(m_jsonMessageLock);
-        m_jsonMessages.clear();
-    }
-};
-
-template <typename T>
 class TSTimer;
 
 template <typename T>
-using TimerCallback = std::function<void(TSTimer<T>*,T,unsigned,TSMutable<bool>)>;
+using TimerCallback = std::function<void(T,TSTimer<T>*)>;
 
 template <typename T>
 class TC_GAME_API TSTimer {
     uint32_t m_modid;
     TSString m_name;
     uint32_t m_delay;
-    uint32_t m_repeats;
+    int32_t m_repeats;
     uint64_t m_lastTick;
+    uint64_t m_diff; // temp for callback
+    bool     m_stopped = false;
+    uint32 m_flags;
     TimerCallback<T> m_callback;
 public:
-    TSTimer(uint32_t modid, TSString name, uint32_t delay, uint32_t repeats, TimerCallback<T> callback)
+    TSTimer(uint32_t modid, TSString name, uint32_t delay, int32_t repeats, uint32 flags, TimerCallback<T> callback)
         : m_modid(modid)
         , m_name(name)
         , m_delay(delay)
         , m_repeats(repeats)
         , m_lastTick(now())
+        , m_flags(flags)
         , m_callback(callback)
     {}
 
-    TSString getName()
+    void Stop()
+    {
+        m_stopped = true;
+    }
+
+    uint32 GetDelay()
+    {
+        return m_delay;
+    }
+
+    void SetDelay(uint32 delay)
+    {
+        m_delay = delay;
+    }
+
+    uint64 GetDiff()
+    {
+        return m_diff;
+    }
+
+    uint32 GetFlags()
+    {
+        return m_flags;
+    }
+
+    void SetFlags(uint32_t flags)
+    {
+        m_flags = flags;
+    }
+
+    int32 GetRepeats()
+    {
+        return m_repeats;
+    }
+
+    void SetRepeats(int32 repeats)
+    {
+        m_repeats = repeats;
+    }
+
+    TSString GetName()
     {
         return m_name;
     }
@@ -154,27 +172,33 @@ public:
     {
         uint64_t n = now();
         uint64_t diff = n - m_lastTick;
+        m_diff = diff;
         uint64_t loops = m_delay == 0 ? 1 : uint64_t(double(diff) / double(m_delay));
+
         if (m_repeats != 0)
         {
             loops = loops < m_repeats ? loops : m_repeats;
         }
-        bool stop = false;
 
-        for (uint64_t loop = 0; loop < loops; ++loop)
+        uint64_t effLoops = loops == 0 || (m_flags & uint32(TimerFlags::AGGREGATE_LOOPS))
+            ? loops
+            : 1;
+
+        for (uint64_t loop = 0; loop < effLoops; ++loop)
         {
-            m_callback(this, ctx, diff, TSMutable<bool>(&stop));
+            m_callback(ctx, this);
             m_lastTick = n;
-            if (stop)
+            m_diff = 0;
+            if (m_stopped)
             {
                 return true;
             }
         }
 
-        if (m_repeats != 0)
+        if (m_repeats >= 0)
         {
             m_repeats -= loops;
-            if (m_repeats == 0)
+            if (m_repeats <= 0)
             {
                 return true;
             }
@@ -187,24 +211,60 @@ template <typename T>
 class TSTimers {
     std::vector<TSTimer<T>> m_timers;
 public:
-    void add(uint32_t modid, TSString name, uint32_t time, uint32_t repeats, TimerCallback<T> callback)
+
+    void add(uint32_t modid, uint32_t time, int32_t repeats, uint32_t flags, TimerCallback<T> callback)
+    {
+        m_timers.push_back(TSTimer<T>(modid, JSTR(""), time, repeats, flags, callback));
+    }
+
+    void add_named(uint32_t modid, TSString name, uint32_t time, int32_t repeats, uint32_t flags, TimerCallback<T> callback)
     {
         for (int i = 0; i < m_timers.size(); ++i)
         {
-            if (m_timers[i].getName() == name)
+            if (m_timers[i].GetName() == name)
             {
-                m_timers[i] = TSTimer<T>(modid, name, time, repeats, callback);
+                m_timers[i] = TSTimer<T>(modid, name, time, repeats, flags, callback);
                 return;
             }
         }
-        m_timers.push_back(TSTimer<T>(modid, name, time, repeats, callback));
+        m_timers.push_back(TSTimer<T>(modid, name, time, repeats, flags, callback));
+    }
+
+    void remove_on_death()
+    {
+        for (auto itr = m_timers.begin(); itr != m_timers.end();)
+        {
+            if (itr->GetFlags() & uint32(TimerFlags::CLEARS_ON_DEATH))
+            {
+                m_timers.erase(itr);
+            }
+            else
+            {
+                itr++;
+            }
+        }
+    }
+
+    void remove_on_map_change()
+    {
+        for (auto itr = m_timers.begin(); itr != m_timers.end();)
+        {
+            if (itr->GetFlags() & uint32(TimerFlags::CLEARS_ON_MAP_CHANGED))
+            {
+                m_timers.erase(itr);
+            }
+            else
+            {
+                itr++;
+            }
+        }
     }
 
     void remove(TSString name)
     {
         for (auto iter = m_timers.begin(); iter != m_timers.end(); ++iter)
         {
-            if (iter->getName() == name)
+            if (iter->GetName() == name)
             {
                 m_timers.erase(iter);
                 return;
@@ -238,18 +298,15 @@ public:
 template <typename T>
 struct TSWorldEntity {
     TSWorldObjectGroups m_groups;
-    TSMessageQueue<T> m_messages;
     TSTimers<T> m_timers;
 
     void tick(T ctx)
     {
-        m_messages.fire(ctx);
         m_timers.tick(ctx);
     }
 
     void clear()
     {
-        m_messages.clear();
         m_timers.clear();
     }
 };
@@ -262,9 +319,35 @@ public:
     TSWorldEntityProvider(TSWorldEntity<T>* entity)
         : m_entity(entity){}
 
-    void AddTimer(uint32_t modid, TSString name, uint32_t time, uint32_t repeats, TimerCallback<T> callback)
+
+    void AddNamedTimer(uint32_t modid, TSString name, uint32_t time, int32_t loops, uint32_t flags, TimerCallback<T> callback)
     {
-        m_entity->m_timers.add(modid, name, time, repeats, callback);
+        m_entity->m_timers.add_named(modid, name, time, loops, flags, callback);
+    }
+
+    void AddNamedTimer(uint32_t modid, TSString name, uint32_t time, int32_t loops, TimerCallback<T> callback)
+    {
+        m_entity->m_timers.add_named(modid, name, time, loops, 0, callback);
+    }
+
+    void AddNamedTimer(uint32_t modid, TSString name, uint32_t time, TimerCallback<T> callback)
+    {
+        m_entity->m_timers.add_named(modid, name, time, 1, 0, callback);
+    }
+
+    void AddTimer(uint32_t modid, uint32_t time, int32_t loops, uint32_t flags, TimerCallback<T> callback)
+    {
+        m_entity->m_timers.add(modid, time, loops, flags, callback);
+    }
+
+    void AddTimer(uint32_t modid, uint32_t time, int32_t loops, TimerCallback<T> callback)
+    {
+        m_entity->m_timers.add(modid, time, loops, 0, callback);
+    }
+
+    void AddTimer(uint32_t modid, uint32_t time, TimerCallback<T> callback)
+    {
+        m_entity->m_timers.add(modid, time, 1, 0, callback);
     }
 
     void RemoveTimer(TSString name)
@@ -285,10 +368,5 @@ public:
     void ClearEntityGroup()
     {
         m_entity->m_groups.ClearGroups();
-    }
-
-    void QueueMessage(uint8_t channel, TSJsonObject obj, JsonMessageCallback<T> callback)
-    {
-        m_entity->m_messages.queue(channel, obj, callback);
     }
 };

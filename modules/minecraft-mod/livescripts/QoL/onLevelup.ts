@@ -25,11 +25,11 @@ const spellsList = [
     ],
     [
         [0 /*Paladin*/],
-        [3127, 9116, 107, 635, 465, 21084, 20185],   // Parry, Block, Shield, Holy Light(1), Devotion Aura(1), Seal of Righteousness, Judgement of Light
+        [3127, 9116, 107, 635, 465, 20271],   // Parry, Block, Shield, Holy Light(1), Devotion Aura(1), Seal of Righteousness, Judgement of Light
         [35395],   // Crusader Strike
-        [639],   // Holy Light(2)
+        [639,53408],   // Holy Light(2), Judgement of Wisdom
         [853],   // Hammer of Justice (1)
-        [10290],   // Devotion Aura(2)
+        [10290, 20166],   // Devotion Aura(2), Seal of Wisdom
         [7328],   // Redemption(1)
         [647, 31789],   // Holy Light(3),  Righteous Defense
         [25780, 7294],   // Righteous Fury, Retribution Aura
@@ -237,7 +237,7 @@ const spellsList = [
 //let levelColors = ["", "F000FF", "BA00FF", "7100FF", "3B00FF", "0005FF", "0067FF", "00B1FF", "00E2FF", "00FFE2", "00FFA7", "00FF67", "FF0000", "00FF19", "3BFF00", "EBFF00", "FFBF00", "FF8900", "FF5800", "FF3B00", "FF0000", "FF005D"]
 // colors = ["", "C79C6E", "F58CBA", "ABD473", "FFF569", "FFFFFF", "C41F3B", "0070DE", "69CCF0", "9482C9", "", "FF7D0A"]
 
-export function onLevelup(events: TSEventHandlers) {
+export function onLevelup(events: TSEvents) {
     events.Player.OnLevelChanged((player, oldLevel) => {
         if (player.GetLevel() <= 20) learnSpells(player);
     });

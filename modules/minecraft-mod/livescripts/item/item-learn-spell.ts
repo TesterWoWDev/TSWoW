@@ -29,22 +29,22 @@ let spellNames = [
     //"Chain Life"                    //          Zone 3              Spell Name              Heart of Pit
 ];
 
-let itemIDToSpellID: TSDictionary<uint64, uint64> = MakeDictionary<
+let itemIDToSpellID: TSDictionary<uint64, uint64> = CreateDictionary<
     uint64,
     uint64
 >({});
-let itemIDToSpellName: TSDictionary<uint64, string> = MakeDictionary<
+let itemIDToSpellName: TSDictionary<uint64, string> = CreateDictionary<
     uint64,
     string
 >({});
 
-export function itemLearnSpell(events: TSEventHandlers) {
+export function itemLearnSpell(events: TSEvents) {
     for (let i = 0; i < itemIDs.length; i++) {
         itemIDToSpellID[itemIDs[i]] = spellIDs[i];
         itemIDToSpellName[itemIDs[i]] = spellNames[i];
     }
     for (let i = 0; i < itemIDs.length; i++) {
-        events.ItemID.OnEquipEarly(itemIDs[i], (item, player, result) => {
+        events.ItemID.OnCanEquip(itemIDs[i], (item, player, result) => {
             let entry = item.GetEntry();
             player.LearnSpell(itemIDToSpellID[entry]);
             player.SendBroadcastMessage(

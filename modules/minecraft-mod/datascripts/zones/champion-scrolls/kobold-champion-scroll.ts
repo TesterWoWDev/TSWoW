@@ -1,4 +1,4 @@
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { MODNAME } from "../../modname";
 
 /*Creature - Worg Champion*/
@@ -21,7 +21,7 @@ export let KoboldChampionSpell1 = std.Spells.create(
     53167
 );
 KoboldChampionSpell1.Name.enGB.set("Forked Lightning");
-KoboldChampionSpell1.Effects.get(0).BasePoints.set(1812);
+KoboldChampionSpell1.Effects.get(0).PointsBase.set(1812);
 KoboldChampionSpell1.CastTime.modRefCopy((val) => val.set(1000, 0, 1000));
 export let KoboldChampionSpell2 = std.Spells.create(
     MODNAME,
@@ -35,7 +35,7 @@ export let KoboldChampionSpell3 = std.Spells.create(
     55276
 );
 KoboldChampionSpell3.Name.enGB.set("Puncture");
-KoboldChampionSpell3.Effects.get(0).BasePoints.set(617);
+KoboldChampionSpell3.Effects.get(0).PointsBase.set(617);
 KoboldChampionSpell3.Duration.modRefCopy((val) => val.set(3000, 0, 3000));
 
 KoboldChampionCreature.Scripts.onUpdateIc(0, 0, 0, 0, (script) => {

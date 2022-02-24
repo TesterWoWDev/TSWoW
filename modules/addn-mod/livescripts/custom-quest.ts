@@ -1,34 +1,38 @@
 import { attemptToCompleteID, questInfo } from "../shared/Messages";
 
 @CharactersTable
-class PlayerQuest extends DBTable {
+class PlayerQuest extends DBEntry {
     constructor(playerGUID: uint32) {
         super();
         this.playerGUID = playerGUID;
     }
-    @PrimaryKey
+    @DBPrimaryKey
     playerGUID: uint32 = 0;
-    @Field
+    @DBField
     requirementType: uint8 = 0;
-    @Field
+    @DBField
     requirementID: uint32 = 0;
-    @Field
+    @DBField
     requirementCountCur: uint8 = 0;
-    @Field
+    @DBField
     requirementCountTotal: uint8 = 0;
-    @Field
+    @DBField
     rewardID: uint32 = 0;
-    @Field
+    @DBField
     rewardCount: uint32 = 0;
-    @Field
+    @DBField
     reqName: string = "";
-    @Field
+    @DBField
     reqDescription: string = "";
+
+    // static delete(playerGuid: uint64) {
+    //     LoadDBEntry(new PlayerQuest(playerGuid)).Delete()
+    // }
 }
 
 const TABLE_NAME_CUSTOM_QUEST = "playerquest";
 
-export function customQuest(events: TSEventHandlers) {
+export function customQuest(events: TSEvents) {
     events.Player.OnCommand((player, command, found) => {
         if (command.get().startsWith("sidequest")) {
             updateClient(
@@ -43,14 +47,15 @@ export function customQuest(events: TSEventHandlers) {
     });
 
     events.Player.OnLogin((player, firstLogin) => {
-        let guid = player.GetGUIDLow();
-        let rows = LoadRows(PlayerQuest, `playerGUID = ${guid}`);
-        let questInfo = rows.length > 0 ? rows.get(0) : new PlayerQuest(guid);
-        if (questInfo.requirementID == 0) {
+        let qInfo = player.GetObject<PlayerQuest>(TABLE_NAME_CUSTOM_QUEST,new PlayerQuest(player.GetGUIDLow()))
+        qInfo.Load() // ??
+        let q = LoadDBEntry(qInfo) //??
+        player.SetObject(TABLE_NAME_CUSTOM_QUEST, qInfo);
+        if (qInfo.requirementID == 0) {
             createQuest(player);
         } else {
-            player.SetObject(TABLE_NAME_CUSTOM_QUEST, questInfo);
-            updateClient(questInfo, player);
+            player.SetObject(TABLE_NAME_CUSTOM_QUEST, qInfo);
+            updateClient(qInfo, player);
         }
     });
 
@@ -60,7 +65,7 @@ export function customQuest(events: TSEventHandlers) {
                 TABLE_NAME_CUSTOM_QUEST,
                 new PlayerQuest(player.GetGUIDLow())
             )
-            .save();
+            .Save()
     });
 
     //kill event
@@ -104,7 +109,7 @@ export function customQuest(events: TSEventHandlers) {
         }
     });
 
-    events.PacketID.OnCustom(attemptToCompleteID, (opcode, message, player) => {
+    events.CustomPacketID.OnReceive(attemptToCompleteID, (opcode, message, player) => {
         isQuestFinished(player);
     });
 }

@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
 import { spawnNPC } from "../../../functions/spawning-functions";
 import { MODNAME } from "../../../modname";
@@ -54,7 +54,7 @@ RogueQuest01.Text.Title.enGB.set("Technique and Form");
 export let RogueQuest02 = std.Quests.create(MODNAME, "roguequest02-quest");
 
 RogueQuest02.Flags.set(8);
-SQL.quest_template_addon.add(RogueQuest02.ID).SpecialFlags.set(1);
+std.SQL.quest_template_addon.add(RogueQuest02.ID).SpecialFlags.set(1);
 RogueQuest02.MinLevel.set(1);
 RogueQuest02.QuestLevel.set(20);
 RogueQuest02.Questgiver.addCreatureStarter(RogueQuestGiver01.ID);

@@ -1,5 +1,5 @@
 import { MODNAME } from "../../modname";
-import { std } from "tswow-stdlib";
+import { std } from "wow/wotlk";
 import { chanceWorg1M } from "../champion-scrolls/ravaging-worg-champion-scroll";
 
 //cast thunderclap, force it to apply a new aura, lasts for 300 seconds, casts the consecration
@@ -47,8 +47,8 @@ export let FuryHammerEffect = std.Spells.create(
     61576
 );
 FuryHammerEffect.Name.enGB.set("Storm of Fury");
-FuryHammerEffect.Effects.get(0).BasePoints.set(119);
-FuryHammerEffect.Effects.get(0).DieSides.set(33);
+FuryHammerEffect.Effects.get(0).PointsBase.set(119);
+FuryHammerEffect.Effects.get(0).PointsDieSides.set(33);
 export let FuryHammer = std.Spells.create(MODNAME, "furyhammer-spell", 61575);
 FuryHammer.Name.enGB.set("Storm of Fury");
 FuryHammer.CastTime.modRefCopy((val) => {
@@ -64,8 +64,8 @@ ThreatSpell.Name.enGB.set("I want to Tank!");
 ThreatSpell.AuraDescription.enGB.set(
     "I really want to tank! Notice me senpai!"
 );
-ThreatSpell.Effects.get(0).BasePoints.set(499);
-ThreatSpell.Effects.get(0).DieSides.set(1);
+ThreatSpell.Effects.get(0).PointsBase.set(499);
+ThreatSpell.Effects.get(0).PointsDieSides.set(1);
 ThreatSpell.Attributes.IS_PASSIVE.set(false);
 ThreatSpell.Attributes.IS_HIDDEN_IN_SPELLBOOK.set(true);
 ThreatSpell.Icon.setPath("Spell_Nature_EnchantArmor");

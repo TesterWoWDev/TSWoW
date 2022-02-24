@@ -10,8 +10,11 @@ import { creatureDeathApplyBuff } from "./creature/creature-death-apply-buff";
 import { creatureDeathSummon } from "./creature/creature-death-summon";
 import { torghastBuffSystem } from "./dungeon/torghast-master";
 import { dungeon1 } from "./dungeon/dungeon-1";
+import { itemReloading } from "./item_reloading";
+import { itemCreate } from "./item_create";
+import { itemCacheSend } from "./item-cache";
 
-export function Main(events: TSEventHandlers) {
+export function Main(events: TSEvents) {
     handleCraftMessages(events);
     onLoginEvents(events);
     worldChat(events);
@@ -25,4 +28,7 @@ export function Main(events: TSEventHandlers) {
     torghastBuffSystem(events);
     //hungerGames(events)
     dungeon1(events);
+    itemReloading(events);
+    itemCreate(events);
+    itemCacheSend(events);
 }

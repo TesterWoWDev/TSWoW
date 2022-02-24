@@ -5,7 +5,7 @@ let cSpawns: TSCreature[] = [];
 let gSpawns: TSGameObject[] = [];
 let spawned: boolean = false;
 
-export function invasions(events: TSEventHandlers) {
+export function invasions(events: TSEvents) {
     events.Player.OnLogin((player, first) => {
         if (spawners.length <= 0) {
             addSpawner(player);
@@ -88,12 +88,12 @@ function startInvasion() {
             gSpawns.push(unit);
         } else {
             //position for boss/legion invasion icon
-            spawner.AddTimer(
+            spawner.AddNamedTimer(
                 "invasion-location",
                 30000,
                 0,
-                (timer, entity, del, can) => {
-                    let players = entity.GetMap().GetPlayers(-1);
+                (owner, timer) => {
+                    let players = owner.GetMap().GetPlayers(-1);
                     for (let i = 0; i < players.length; i++) {
                         players[i].GossipSendPOI(
                             q.GetInt32(3),
@@ -163,7 +163,7 @@ function endInvasion() {
         players[i].GossipSendPOI(0, 0, 41, 0, 0, "Legion Invasion");
     }
     spawner.RemoveTimer("invasion-location");
-    spawner.AddTimer("invasion-end", 90000, 1, (timer, entity, del, can) => {
+    spawner.AddNamedTimer("invasion-end", 90000, 1, (owner, timer) => {
         startInvasion();
     });
 }

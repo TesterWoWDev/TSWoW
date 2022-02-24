@@ -18,18 +18,18 @@ const auraSpells: TSArray<uint32> = [
 ];
 
 @CharactersTable
-class PlayerKillstreak extends DBTable {
+class PlayerKillstreak extends DBEntry {
     constructor(playerGUID: uint32) {
         super();
         this.playerGUID = playerGUID;
     }
-    @PrimaryKey
+    @DBPrimaryKey
     playerGUID: uint32 = 0;
-    @Field
+    @DBField
     killCount: int32 = 0;
 }
 
-export function Killstreaks(events: TSEventHandlers) {
+export function Killstreaks(events: TSEvents) {
     events.Player.OnPVPKill((killer, killed) => {
         let killCount = killer.GetObject<PlayerKillstreak>(
             TABLE_NAME_KILLSTREAK,
@@ -64,12 +64,12 @@ export function Killstreaks(events: TSEventHandlers) {
                 TABLE_NAME_KILLSTREAK,
                 new PlayerKillstreak(killer.GetGUIDLow())
             )
-            .save();
+            .Save();
         killed
             .GetObject<PlayerKillstreak>(
                 TABLE_NAME_KILLSTREAK,
                 new PlayerKillstreak(killed.GetGUIDLow())
             )
-            .save();
+            .Save();
     });
 }

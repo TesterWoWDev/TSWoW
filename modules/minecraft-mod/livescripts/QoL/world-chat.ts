@@ -1,4 +1,4 @@
-export function worldChat(events: TSEventHandlers) {
+export function worldChat(events: TSEvents) {
     events.Player.OnCommand((player, command, found) => {
         if (
             command.get().startsWith("wc") ||

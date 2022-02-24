@@ -16,6 +16,7 @@
  */
 
 #include "TSDatabase.h"
+#include "TSGlobal.h"
 #include "TSNull.h"
 #include "TSLoot.h"
 #include "TSArray.h"
@@ -49,12 +50,10 @@
 #include "TSWorldObject.h"
 #include "TSWorldPacket.h"
 #include "TSWorldSocket.h"
-#include "TSIDs.h"
 #include "TSPosition.h"
 #include "TSClass.h"
 #include "TSMath.h"
 #include "TSChannel.h"
-#include "BinReader.h"
 #include "TSStringConvert.h"
 #include "TSDBDict.h"
 #include "TSCreatureTemplate.h"
@@ -62,3 +61,6 @@
 #include "TSMutex.h"
 #include "TSJson.h"
 #include "TSOutfit.h"
+#include "TSORM.h"
+#include "TSORMGenerator.h"
+#include "TSBitwise.h"

@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { MODNAME } from "../../modname";
 import { BoarSkin, Teeth } from "../item-manifest";
 import {
@@ -122,8 +122,8 @@ creature4.Stats.DamageMod.set(1);
 creature4.Stats.HealthMod.set(1);
 creature4.Stats.ManaMod.set(1);
 creature4.Stats.ExperienceMod.set(2);
-SQL.creature_equip_template.add(creature4.ID, 1).ItemID1.set(23844);
-SQL.creature_equip_template.add(creature4.ID, 2).ItemID1.set(2410);
+std.SQL.creature_equip_template.add(creature4.ID, 1).ItemID1.set(23844);
+std.SQL.creature_equip_template.add(creature4.ID, 2).ItemID1.set(2410);
 export let creature4Loot = creature4.NormalLoot;
 
 export let creature5 = std.CreatureTemplates.create(
@@ -143,7 +143,7 @@ creature5.Stats.DamageMod.set(1);
 creature5.Stats.HealthMod.set(1);
 creature5.Stats.ManaMod.set(1);
 creature5.Stats.ExperienceMod.set(3);
-SQL.creature_equip_template.add(creature5.ID, 1).ItemID1.set(2901);
+std.SQL.creature_equip_template.add(creature5.ID, 1).ItemID1.set(2901);
 export let creature5Loot = creature5.NormalLoot;
 
 export let creature6 = std.CreatureTemplates.create(
@@ -163,9 +163,9 @@ creature6.Stats.DamageMod.set(1);
 creature6.Stats.HealthMod.set(1);
 creature6.Stats.ManaMod.set(1);
 creature6.Stats.ExperienceMod.set(4);
-SQL.creature_equip_template.add(creature6.ID, 1).ItemID1.set(15220);
-SQL.creature_equip_template.add(creature6.ID, 2).ItemID1.set(33219);
-SQL.creature_equip_template.add(creature6.ID, 3).ItemID1.set(2011);
+std.SQL.creature_equip_template.add(creature6.ID, 1).ItemID1.set(15220);
+std.SQL.creature_equip_template.add(creature6.ID, 2).ItemID1.set(33219);
+std.SQL.creature_equip_template.add(creature6.ID, 3).ItemID1.set(2011);
 export let creature6Loot = creature6.NormalLoot;
 
 export let creature7 = std.CreatureTemplates.create(
@@ -212,7 +212,7 @@ creature7.Stats.DamageMod.set(1);
 creature7.Stats.HealthMod.set(1);
 creature7.Stats.ManaMod.set(1);
 creature7.Stats.ExperienceMod.set(4);
-SQL.creature_equip_template
+std.SQL.creature_equip_template
     .add(creature7.ID, 1)
     .ItemID1.set(14083)
     .ItemID2.set(9452)
@@ -289,7 +289,7 @@ RareCreature1.Rank.RARE.set();
 RareCreature1.AIName.SmartAI();
 
 //Out of Combat Scripts
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature1.ID, 0, 1, 2)
     .event_type.set(1)
     .event_chance.set(100)
@@ -301,7 +301,7 @@ SQL.smart_scripts
     .action_param1.set(45872)
     .target_type.set(1)
     .comment.set("Defibrilate Spell Cast");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature1.ID, 0, 2, 0)
     .event_type.set(61)
     .event_chance.set(100)
@@ -309,17 +309,17 @@ SQL.smart_scripts
     .action_param1.set(1)
     .target_type.set(1)
     .comment.set("The Miner OUT OF COMBAT Text Scripts.");
-SQL.creature_text
+std.SQL.creature_text
     .add(RareCreature1.ID, 1, 0)
     .Text.set("What are ye lookin' at, back to work!")
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(14);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set("What are ye lookin' at, back to work!")
     .Flags.set(1);
-SQL.creature_text
+std.SQL.creature_text
     .add(RareCreature1.ID, 1, 1)
     .Text.set(
         "Didn't ye hear me the first time? I'll be takin' the next three nuggets from yer sack!"
@@ -327,24 +327,24 @@ SQL.creature_text
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(14);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set(
         "Didn't ye hear me the first time? I'll be takin' the next three nuggets from yer sack!"
     )
     .Flags.set(1);
-SQL.creature_text
+std.SQL.creature_text
     .add(RareCreature1.ID, 1, 2)
     .Text.set("Move!! Ye blithering idiots!")
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(14);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set("Move!! Ye blithering idiots!")
     .Flags.set(1);
 
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature1.ID, 0, 3, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -356,7 +356,7 @@ SQL.smart_scripts
     .action_param1.set(6016)
     .target_type.set(2)
     .comment.set("Pierce Armor (repeatable)");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature1.ID, 0, 4, 0)
     .event_type.set(1)
     .event_chance.set(100)
@@ -368,7 +368,7 @@ SQL.smart_scripts
     .action_param1.set(7164)
     .target_type.set(1)
     .comment.set("Defensive Stance");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature1.ID, 0, 5, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -387,7 +387,7 @@ RareCreature1.Stats.DamageMod.set(10);
 RareCreature1.Stats.ExperienceMod.set(10);
 RareCreature1.Stats.HealthMod.set(12);
 RareCreature1.Stats.ManaMod.set(3);
-SQL.creature_equip_template.add(RareCreature1.ID, 1).ItemID1.set(42796);
+std.SQL.creature_equip_template.add(RareCreature1.ID, 1).ItemID1.set(42796);
 export let RareCreature1Loot = RareCreature1.NormalLoot;
 
 export let RareCreature2 = std.CreatureTemplates.create(
@@ -404,7 +404,7 @@ RareCreature2.Level.set(5, 8);
 RareCreature2.Rank.RARE.set();
 RareCreature2.AIName.SmartAI();
 //Out of Combat Scripts
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature2.ID, 0, 1, 2)
     .event_type.set(1)
     .event_chance.set(100)
@@ -416,7 +416,7 @@ SQL.smart_scripts
     .action_param1.set(73213)
     .target_type.set(1)
     .comment.set("Shout Spell Cast");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature2.ID, 0, 2, 0)
     .event_type.set(61)
     .event_chance.set(100)
@@ -424,29 +424,29 @@ SQL.smart_scripts
     .action_param1.set(1)
     .target_type.set(1)
     .comment.set("Fang OUT OF COMBAT Text Scripts.");
-SQL.creature_text
+std.SQL.creature_text
     .add(RareCreature2.ID, 1, 0)
     .Text.set("AWOO!")
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(14);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set("AWOO!")
     .Flags.set(1);
-SQL.creature_text
+std.SQL.creature_text
     .add(RareCreature2.ID, 1, 1)
     .Text.set("I SMELL...FRESH MEAT!")
     .BroadcastTextId.set(broadcastindex)
     .Probability.set(100)
     .Type.set(14);
-SQL.broadcast_text
+std.SQL.broadcast_text
     .add(broadcastindex++)
     .Text.set("I SMELL...FRESH MEAT!")
     .Flags.set(1);
 
-//SQL.smart_scripts.add(RareCreature2.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(29544).target_type.set(2).comment.set('Fear')
-SQL.smart_scripts
+//std.SQL.smart_scripts.add(RareCreature2.ID,0,3,0).event_type.set(0).event_chance.set(100).event_param1.set(5000).event_param2.set(15000).event_param3.set(20000).event_param4.set(25000).action_type.set(11).action_param1.set(29544).target_type.set(2).comment.set('Fear')
+std.SQL.smart_scripts
     .add(RareCreature2.ID, 0, 4, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -458,7 +458,7 @@ SQL.smart_scripts
     .action_param1.set(4280)
     .target_type.set(2)
     .comment.set("Consume Flesh");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature2.ID, 0, 5, 0)
     .event_type.set(1)
     .event_chance.set(100)
@@ -470,7 +470,7 @@ SQL.smart_scripts
     .action_param1.set(64062)
     .target_type.set(1)
     .comment.set("Steroid Shout");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(RareCreature2.ID, 0, 6, 0)
     .event_type.set(1)
     .event_chance.set(100)
@@ -510,9 +510,9 @@ RareCreature3.Stats.DamageMod.set(5);
 RareCreature3.Stats.ExperienceMod.set(10);
 RareCreature3.Stats.HealthMod.set(5);
 RareCreature3.Stats.ManaMod.set(3);
-SQL.creature_equip_template.add(RareCreature3.ID, 1).ItemID1.set(15220);
-SQL.creature_equip_template.add(RareCreature3.ID, 2).ItemID1.set(3319);
-SQL.creature_equip_template.add(RareCreature3.ID, 3).ItemID1.set(2011);
+std.SQL.creature_equip_template.add(RareCreature3.ID, 1).ItemID1.set(15220);
+std.SQL.creature_equip_template.add(RareCreature3.ID, 2).ItemID1.set(3319);
+std.SQL.creature_equip_template.add(RareCreature3.ID, 3).ItemID1.set(2011);
 export let RareCreature3Loot = RareCreature3.NormalLoot;
 
 export let RareCreature4 = std.CreatureTemplates.create(
@@ -534,9 +534,9 @@ RareCreature4.Stats.DamageMod.set(5);
 RareCreature4.Stats.ExperienceMod.set(10);
 RareCreature4.Stats.HealthMod.set(5);
 RareCreature4.Stats.ManaMod.set(3);
-SQL.creature_equip_template.add(RareCreature4.ID, 1).ItemID1.set(15220);
-SQL.creature_equip_template.add(RareCreature4.ID, 2).ItemID1.set(3319);
-SQL.creature_equip_template.add(RareCreature4.ID, 3).ItemID1.set(2011);
+std.SQL.creature_equip_template.add(RareCreature4.ID, 1).ItemID1.set(15220);
+std.SQL.creature_equip_template.add(RareCreature4.ID, 2).ItemID1.set(3319);
+std.SQL.creature_equip_template.add(RareCreature4.ID, 3).ItemID1.set(2011);
 export let RareCreature4Loot = RareCreature4.NormalLoot;
 
 //DemiBosss Creature Spawns
@@ -558,8 +558,8 @@ DemiBosscreature1.Stats.DamageMod.set(4);
 DemiBosscreature1.Stats.ExperienceMod.set(3);
 DemiBosscreature1.Stats.HealthMod.set(4);
 DemiBosscreature1.Stats.ManaMod.set(2);
-SQL.creature_equip_template.add(DemiBosscreature1.ID, 1).ItemID1.set(7721);
-SQL.creature_equip_template.add(DemiBosscreature1.ID, 1).ItemID2.set(7726);
+std.SQL.creature_equip_template.add(DemiBosscreature1.ID, 1).ItemID1.set(7721);
+std.SQL.creature_equip_template.add(DemiBosscreature1.ID, 1).ItemID2.set(7726);
 export let DemiBosscreature1Loot = DemiBosscreature1.NormalLoot;
 
 export let DemiBosscreature2 = std.CreatureTemplates.create(
@@ -580,7 +580,7 @@ DemiBosscreature2.Stats.DamageMod.set(4);
 DemiBosscreature2.Stats.ExperienceMod.set(3);
 DemiBosscreature2.Stats.HealthMod.set(4);
 DemiBosscreature2.Stats.ManaMod.set(2);
-SQL.creature_equip_template.add(DemiBosscreature2.ID, 1).ItemID1.set(19355);
+std.SQL.creature_equip_template.add(DemiBosscreature2.ID, 1).ItemID1.set(19355);
 export let DemiBosscreature2Loot = DemiBosscreature2.NormalLoot;
 
 //Boss Creature Spawns
@@ -602,7 +602,7 @@ Bosscreature1.Stats.DamageMod.set(8);
 Bosscreature1.Stats.ExperienceMod.set(6);
 Bosscreature1.Stats.HealthMod.set(8);
 Bosscreature1.Stats.ManaMod.set(6);
-SQL.creature_equip_template.add(Bosscreature1.ID, 1).ItemID1.set(6174);
+std.SQL.creature_equip_template.add(Bosscreature1.ID, 1).ItemID1.set(6174);
 export let Bosscreature1Loot = Bosscreature1.NormalLoot;
 
 let creature2000 = std.CreatureTemplates.create(
@@ -611,12 +611,12 @@ let creature2000 = std.CreatureTemplates.create(
     299
 );
 creature2000.MovementType.WAYPOINT.set();
-SQL.waypoints
+std.SQL.waypoints
     .add(creature2000.ID, 1)
     .position_x.set(1)
     .position_y.set(1)
     .position_z.set(1);
-SQL.waypoints
+std.SQL.waypoints
     .add(creature2000.ID, 2)
     .position_x.set(1)
     .position_y.set(2)

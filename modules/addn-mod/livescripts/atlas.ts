@@ -5,8 +5,8 @@ import {
     itemLootMessage,
 } from "../shared/Messages";
 
-export function Atlas(events: TSEventHandlers) {
-    events.PacketID.OnCustom(creatureNameMessageID, (_, packet, player) => {
+export function Atlas(events: TSEvents) {
+    events.CustomPacketID.OnReceive(creatureNameMessageID, (_, packet, player) => {
         let msg = new creatureNameMessage(1, "");
         msg.read(packet);
         let check = 0;
@@ -27,7 +27,7 @@ export function Atlas(events: TSEventHandlers) {
             "Player: " +
             player.GetName() +
             " AccountID: " +
-            player.GetAccountId() +
+            player.GetAccountID() +
             " Message: " +
             msg.entry +
             " isName: " +

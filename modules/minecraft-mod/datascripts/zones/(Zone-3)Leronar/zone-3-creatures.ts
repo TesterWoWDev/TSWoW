@@ -1,5 +1,5 @@
-import { std } from "tswow-stdlib";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
+
 import { spawnMultipleNPCWithTimer } from "../../functions/spawning-functions";
 import { tierTwoBaseResources } from "../../items/armor/tier2-set";
 import { MODNAME } from "../../modname";
@@ -21,14 +21,14 @@ export let Thunderstorm = std.Spells.create(
     51490
 );
 Thunderstorm.Effects.get(2).Type.set(0); //remove knockback
-Thunderstorm.Effects.get(0).BasePoints.set(219); //Damage reduction
+Thunderstorm.Effects.get(0).PointsBase.set(219); //Damage reduction
 
 export let VoidStrike = std.Spells.create(MODNAME, "voidstrike-spell", 52633);
-VoidStrike.Effects.get(0).BasePoints.set(29); //30% weapon damage
+VoidStrike.Effects.get(0).PointsBase.set(29); //30% weapon damage
 export let Concuss = std.Spells.create(MODNAME, "concuss-spell", 52719);
 export let Destroy = std.Spells.create(MODNAME, "destroy-spell", 52771);
-Destroy.Effects.get(0).BasePoints.set(9); //base weapon % reduction
-Destroy.Effects.get(2).BasePoints.set(129); //dot reduction
+Destroy.Effects.get(0).PointsBase.set(9); //base weapon % reduction
+Destroy.Effects.get(2).PointsBase.set(129); //dot reduction
 
 //Normal Creature Spawns
 export let Zone3Creature1 = std.CreatureTemplates.create(
@@ -253,7 +253,7 @@ Zone3RareCreature1.Level.set(10, 10);
 Zone3RareCreature1.Rank.RARE.set();
 Zone3RareCreature1.AIName.SmartAI();
 
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone3RareCreature1.ID, 0, 3, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -265,7 +265,7 @@ SQL.smart_scripts
     .action_param1.set(52870)
     .target_type.set(2)
     .comment.set("Windstrike");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone3RareCreature1.ID, 0, 4, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -277,7 +277,7 @@ SQL.smart_scripts
     .action_param1.set(52873)
     .target_type.set(2)
     .comment.set("Rend");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone3RareCreature1.ID, 0, 5, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -289,7 +289,7 @@ SQL.smart_scripts
     .action_param1.set(52905)
     .target_type.set(2)
     .comment.set("Thunderbolt");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone3RareCreature1.ID, 0, 6, 0)
     .event_type.set(1)
     .event_chance.set(100)
@@ -427,7 +427,7 @@ WoodcuttingTree02.NormalLoot.modRefCopy((table) => {
     table.addItem(LoggingPileLogs.ID, 100, 1, 3, false, 1, 1);
     table.addItem(tierTwoBaseResources[5], 25, 1, 1, false, 3, 1);
 });
-SQL.creature_template_movement.add(WoodcuttingTree02.ID).Rooted.set(1);
+std.SQL.creature_template_movement.add(WoodcuttingTree02.ID).Rooted.set(1);
 spawnMultipleNPCWithTimer(
     WoodcuttingTree02.ID,
     0,
@@ -536,7 +536,7 @@ export let Zone3RareCreature2 = std.CreatureTemplates.create(
 Zone3RareCreature2.Name.enGB.set("Tyde Windsage");
 Zone3RareCreature2.Rank.RARE.set();
 Zone3RareCreature2.AIName.SmartAI();
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone3RareCreature1.ID, 0, 3, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -548,7 +548,7 @@ SQL.smart_scripts
     .action_param1.set(50257)
     .target_type.set(2)
     .comment.set("Scalding Blast");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone3RareCreature1.ID, 0, 4, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -560,7 +560,7 @@ SQL.smart_scripts
     .action_param1.set(50303)
     .target_type.set(2)
     .comment.set("SwineFlu");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone3RareCreature1.ID, 0, 5, 0)
     .event_type.set(0)
     .event_chance.set(100)
@@ -572,7 +572,7 @@ SQL.smart_scripts
     .action_param1.set(50328)
     .target_type.set(2)
     .comment.set("Leeching Poison");
-SQL.smart_scripts
+std.SQL.smart_scripts
     .add(Zone3RareCreature1.ID, 0, 6, 0)
     .event_type.set(1)
     .event_chance.set(100)

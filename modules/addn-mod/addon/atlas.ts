@@ -267,7 +267,7 @@ export function atlas() {
             text2.SetText("Drop %: " + item[4] + "%");
             button.HookScript("OnEnter", (self) => {
                 GameTooltip.ClearLines();
-                GameTooltip.SetOwner(button, "CENTER");
+                GameTooltip.SetOwner(button, 'ANCHOR_CURSOR');
                 GameTooltip.SetHyperlink("item:" + parseInt(self.GetName()));
                 GameTooltip.Show();
             });

@@ -2,7 +2,7 @@ import {
     generateGearRecipes,
     generateWeaponRecipes,
 } from "../../functions/recipe-functions";
-import { SQL } from "wotlkdata";
+import { std } from "wow/wotlk";
 import { stringItem } from "../string";
 import { expSpell2 } from "../../spells/experience-rate-spells";
 import {
@@ -233,7 +233,7 @@ generateWeaponRecipes(
     tierTwoWeapons
 );
 
-SQL.disenchant_loot_template
+std.SQL.disenchant_loot_template
     .add(101, tierTwoBaseResources[6])
     .Chance.set(100)
     .MinCount.set(1)

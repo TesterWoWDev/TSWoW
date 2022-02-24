@@ -1,4 +1,4 @@
-import { GameObjectChest } from "tswow-stdlib/GameObject/GameObjectTemplate";
+import { GameObjectChest } from "wow/wotlk/std/GameObject/GameObjectTemplate";
 import { makeResourceNode } from "../../functions/resource-node-functions";
 import { spawnGobTimer } from "../../functions/spawning-functions";
 import {
