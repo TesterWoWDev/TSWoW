@@ -1,12 +1,27 @@
 export const craftMessageID = 11;
-export const empty: TSArray<uint32> = [0,0]
+export const empty: TSArray<uint32> = [0, 0];
 export class craftMessage {
-    itemIDs: TSArray<uint32> = [0,0,0,0,0,0,0,0,0]
-    positions: TSArray<TSArray<uint32>> = [empty,empty,empty,empty,empty,empty,empty,empty,empty]
-    purchase: uint32 = 0
-    enchants: TSArray<uint32> = [0,0,0,0,0]
+    itemIDs: TSArray<uint32> = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    positions: TSArray<TSArray<uint32>> = [
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+        empty,
+    ];
+    purchase: uint32 = 0;
+    enchants: TSArray<uint32> = [0, 0, 0, 0, 0];
 
-    constructor(itemIDs: TSArray<uint32>,positions: TSArray<TSArray<uint32>>,purchase: uint32,enchants: TSArray<uint32>) {
+    constructor(
+        itemIDs: TSArray<uint32>,
+        positions: TSArray<TSArray<uint32>>,
+        purchase: uint32,
+        enchants: TSArray<uint32>
+    ) {
         this.itemIDs = itemIDs;
         this.positions = positions;
         this.purchase = purchase;
@@ -14,60 +29,57 @@ export class craftMessage {
     }
 
     read(read: TSPacketRead): void {
-        for(let i=0;i<9;i++)
-        this.itemIDs[i] = read.ReadUInt32();
-        for(let i=0;i<9;i++){
-            let val1: uint32 = read.ReadUInt32()
-            let val2: uint32 = read.ReadUInt32()
-            let bag: TSArray<uint32> = [val1,val2]
+        for (let i = 0; i < 9; i++) this.itemIDs[i] = read.ReadUInt32();
+        for (let i = 0; i < 9; i++) {
+            let val1: uint32 = read.ReadUInt32();
+            let val2: uint32 = read.ReadUInt32();
+            let bag: TSArray<uint32> = [val1, val2];
             this.positions[i] = bag;
         }
         this.purchase = read.ReadUInt32();
-        for(let i=0;i<4;i++)
-        this.enchants[i] = read.ReadUInt32();
+        for (let i = 0; i < 4; i++) this.enchants[i] = read.ReadUInt32();
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(craftMessageID,0)
-        for(let i=0;i<9;i++)
-        packet.WriteUInt32(this.itemIDs[i]);
-        for(let i=0;i<9;i++){
+        let packet = CreateCustomPacket(craftMessageID, 2000);
+        for (let i = 0; i < 9; i++) packet.WriteUInt32(this.itemIDs[i]);
+        for (let i = 0; i < 9; i++) {
             packet.WriteUInt32(this.positions[i][0]);
-            packet.WriteUInt32(this.positions[i][1]); 
+            packet.WriteUInt32(this.positions[i][1]);
         }
         packet.WriteUInt32(this.purchase);
-        for(let i=0;i<4;i++)
-        packet.WriteUInt32(this.enchants[i]); 
+        for (let i = 0; i < 4; i++) packet.WriteUInt32(this.enchants[i]);
         return packet;
     }
 }
 
-
 export const returnCraftItemMessageID = 12;
 export class returnCraftItemMessage {
-    craftItem:uint32 = 0
-    craftItemCount:uint32 = 0
-    enchantNum:TSArray<uint32> = [0,0,0,0,0]
+    craftItem: uint32 = 0;
+    craftItemCount: uint32 = 0;
+    enchantNum: TSArray<uint32> = [0, 0, 0, 0, 0];
 
-    constructor(craftItem: uint32,craftItemCount: uint32,enchantNum: TSArray<uint32>) {
-        this.craftItem = craftItem
-        this.craftItemCount = craftItemCount
-        this.enchantNum = enchantNum
+    constructor(
+        craftItem: uint32,
+        craftItemCount: uint32,
+        enchantNum: TSArray<uint32>
+    ) {
+        this.craftItem = craftItem;
+        this.craftItemCount = craftItemCount;
+        this.enchantNum = enchantNum;
     }
 
     read(read: TSPacketRead): void {
         this.craftItem = read.ReadUInt32();
         this.craftItemCount = read.ReadUInt32();
-        for(let i=0;i<5;i++)
-        this.enchantNum[i] = read.ReadUInt32();
+        for (let i = 0; i < 5; i++) this.enchantNum[i] = read.ReadUInt32();
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(returnCraftItemMessageID,0)
+        let packet = CreateCustomPacket(returnCraftItemMessageID, 2000);
         packet.WriteUInt32(this.craftItem);
         packet.WriteUInt32(this.craftItemCount);
-        for(let i=0;i<5;i++)
-        packet.WriteUInt32(this.enchantNum[i]);
+        for (let i = 0; i < 5; i++) packet.WriteUInt32(this.enchantNum[i]);
         return packet;
     }
 }
@@ -85,8 +97,85 @@ export class showScreen {
     }
 
     write(): TSPacketWrite {
-        let packet = MakeCustomPacket(showScreenID,0)
+        let packet = CreateCustomPacket(showScreenID, 2000);
         packet.WriteUInt32(this.value);
+        return packet;
+    }
+}
+
+export const spellChoicesID = 21;
+export class spellChoices {
+    spellIDs: TSArray<uint32> = [1];
+    spellRarity: TSArray<uint32> = [1];
+    spellDescs: TSArray<string> = [""];
+    constructor(
+        spellIDs: TSArray<uint32>,
+        spellRarity: TSArray<uint32>,
+        spellDescs: TSArray<string>
+    ) {
+        this.spellIDs = spellIDs;
+        this.spellRarity = spellRarity;
+        this.spellDescs = spellDescs;
+    }
+
+    read(read: TSPacketRead): void {
+        for (let i = 0; i < 3; i++) {
+            this.spellIDs.push(read.ReadUInt32());
+            this.spellRarity.push(read.ReadUInt32());
+            this.spellDescs.push(read.ReadString());
+        }
+    }
+
+    write(): TSPacketWrite {
+        let packet = CreateCustomPacket(spellChoicesID, 0);
+        for (let i = 0; i < 3; i++) {
+            packet.WriteUInt32(this.spellIDs[i]);
+            packet.WriteUInt32(this.spellRarity[i]);
+            packet.WriteString(this.spellDescs[i]);
+        }
+        return packet;
+    }
+}
+
+export const spellChoiceID = 22;
+export class spellChoice {
+    choice: uint32 = 1;
+
+    constructor(choice: uint32) {
+        this.choice = choice;
+    }
+
+    read(read: TSPacketRead): void {
+        this.choice = read.ReadUInt32();
+    }
+
+    write(): TSPacketWrite {
+        let packet = CreateCustomPacket(spellChoiceID, 0);
+        packet.WriteUInt32(this.choice);
+        return packet;
+    }
+}
+
+
+export const itemCacheID = 23;
+export class itemCache {
+    entry: uint32 = 0;
+    type: uint8 = 0;
+
+    constructor(entry: uint32,type:uint8) {
+        this.entry = entry;
+        this.type = type;
+    }
+
+    read(read: TSPacketRead): void {
+        this.entry = read.ReadUInt32();
+        this.type = read.ReadUInt8();
+    }
+
+    write(): TSPacketWrite {
+        let packet = CreateCustomPacket(itemCacheID, 0);
+        packet.WriteUInt32(this.entry);
+        packet.WriteUInt8(this.type);
         return packet;
     }
 }

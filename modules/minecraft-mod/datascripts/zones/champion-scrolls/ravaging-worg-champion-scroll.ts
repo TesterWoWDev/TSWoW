@@ -1,103 +1,148 @@
-import { std } from "tswow-stdlib"
-import { MODNAME } from "../../modname"
+import { std } from "wow/wotlk";
+import { MODNAME } from "../../modname";
 
 /*Creature - Worg Champion*/
-export let WorgChampionCreature = std.CreatureTemplates.create(MODNAME,'worgchampioncreature-creature',299)
-WorgChampionCreature.Name.enGB.set('Dominus')
-WorgChampionCreature.Subname.enGB.set('Champion of the Worgs')
-WorgChampionCreature.Models.clearAll()
-WorgChampionCreature.Models.addIds(24235)
-WorgChampionCreature.Level.set(10,10)
-WorgChampionCreature.Rank.ELITE.set()
+export let WorgChampionCreature = std.CreatureTemplates.create(
+    MODNAME,
+    "worgchampioncreature-creature",
+    299
+);
+WorgChampionCreature.Name.enGB.set("Dominus");
+WorgChampionCreature.Subname.enGB.set("Champion of the Worgs");
+WorgChampionCreature.Models.clearAll();
+WorgChampionCreature.Models.addIds(24235);
+WorgChampionCreature.Level.set(10, 10);
+WorgChampionCreature.Rank.ELITE.set();
 //Spells
-export let WorgChampionStrike = std.Spells.create(MODNAME,'worgchampionstrike-spell',12057)
-WorgChampionStrike.Name.enGB.set('Strike')
-WorgChampionStrike.Description.enGB.set('Strike at an enemy, inflicting weapon damage + $s1.')
-WorgChampionStrike.Effects.get(0).BasePoints.set(1279)
-export let WorgChampionBite = std.Spells.create(MODNAME,'worgchampionbite-spell',36612)
-WorgChampionBite.Name.enGB.set('Bite')
-WorgChampionBite.Description.enGB.set('Inflicts $s1 damage to an enemy.')
-WorgChampionBite.Effects.get(0).BasePoints.set(1340)
-export let WorgChampionGore = std.Spells.create(MODNAME,'worgchampiongore-spell',4102)
-WorgChampionGore.Name.enGB.set('Gore')
-WorgChampionGore.Description.enGB.set('Inflicts $s2 damage to an enemy every 3s for $d.')
-WorgChampionGore.AuraDescription.enGB.set('Bleeding for $s1 damage every 3 seconds.')
-WorgChampionGore.Effects.get(1).BasePoints.set(337)
-WorgChampionGore.Duration.modRefCopy(val=>val.set(15000,0,15000))
-    WorgChampionCreature.Scripts.onUpdateIc(0,0,0,0,script=>{
-	script.row.event_flags.set(1)
-        script.Action.setCreateTimedEvent(0,0,0,11000,15000,100)
-        script.Action.setCreateTimedEvent(1,0,0,3000,7000,100)
-        script.Action.setCreateTimedEvent(2,0,0,5000,7000,100)
-        
-    })
-    WorgChampionCreature.Scripts.onUpdateOoc(0,0,0,0,script=>{
-	script.row.event_flags.set(1)
-        script.Action.setRemoveTimedEvent(0)
-        script.Action.setRemoveTimedEvent(1)
-		script.Action.setRemoveTimedEvent(2)
-		
-    })
-    WorgChampionCreature.Scripts.onTimedEventTriggered(0,script=>{
-        script.Target.setVictim()
-        script.Action.setCast(WorgChampionStrike.ID,2,7)
-    })
-	WorgChampionCreature.Scripts.onTimedEventTriggered(1,script=>{
-        script.Target.setVictim()
-        script.Action.setCast(WorgChampionBite.ID,2,7)
-    })
-	WorgChampionCreature.Scripts.onTimedEventTriggered(2,script=>{
-        script.Target.setVictim()
-        script.Action.setCast(WorgChampionGore.ID,2,7)
-    })
+export let WorgChampionStrike = std.Spells.create(
+    MODNAME,
+    "worgchampionstrike-spell",
+    12057
+);
+WorgChampionStrike.Name.enGB.set("Strike");
+WorgChampionStrike.Description.enGB.set(
+    "Strike at an enemy, inflicting weapon damage + $s1."
+);
+WorgChampionStrike.Effects.get(0).PointsBase.set(1279);
+export let WorgChampionBite = std.Spells.create(
+    MODNAME,
+    "worgchampionbite-spell",
+    36612
+);
+WorgChampionBite.Name.enGB.set("Bite");
+WorgChampionBite.Description.enGB.set("Inflicts $s1 damage to an enemy.");
+WorgChampionBite.Effects.get(0).PointsBase.set(1340);
+export let WorgChampionGore = std.Spells.create(
+    MODNAME,
+    "worgchampiongore-spell",
+    4102
+);
+WorgChampionGore.Name.enGB.set("Gore");
+WorgChampionGore.Description.enGB.set(
+    "Inflicts $s2 damage to an enemy every 3s for $d."
+);
+WorgChampionGore.AuraDescription.enGB.set(
+    "Bleeding for $s1 damage every 3 seconds."
+);
+WorgChampionGore.Effects.get(1).PointsBase.set(337);
+WorgChampionGore.Duration.modRefCopy((val) => val.set(15000, 0, 15000));
+WorgChampionCreature.Scripts.onUpdateIc(0, 0, 0, 0, (script) => {
+    script.row.event_flags.set(1);
+    script.Action.setCreateTimedEvent(0, 0, 0, 11000, 15000, 100);
+    script.Action.setCreateTimedEvent(1, 0, 0, 3000, 7000, 100);
+    script.Action.setCreateTimedEvent(2, 0, 0, 5000, 7000, 100);
+});
+WorgChampionCreature.Scripts.onUpdateOoc(0, 0, 0, 0, (script) => {
+    script.row.event_flags.set(1);
+    script.Action.setRemoveTimedEvent(0);
+    script.Action.setRemoveTimedEvent(1);
+    script.Action.setRemoveTimedEvent(2);
+});
+WorgChampionCreature.Scripts.onTimedEventTriggered(0, (script) => {
+    script.Target.setVictim();
+    script.Action.setCast(WorgChampionStrike.ID, 2, 7);
+});
+WorgChampionCreature.Scripts.onTimedEventTriggered(1, (script) => {
+    script.Target.setVictim();
+    script.Action.setCast(WorgChampionBite.ID, 2, 7);
+});
+WorgChampionCreature.Scripts.onTimedEventTriggered(2, (script) => {
+    script.Target.setVictim();
+    script.Action.setCast(WorgChampionGore.ID, 2, 7);
+});
 
 //End of Spells
-WorgChampionCreature.FactionTemplate.set(48)
-WorgChampionCreature.DamageSchool.Normal.set()
-WorgChampionCreature.Stats.ArmorMod.set(125)
-WorgChampionCreature.Stats.DamageMod.set(65)
-WorgChampionCreature.Stats.ExperienceMod.set(30)
-WorgChampionCreature.Stats.HealthMod.set(100)
-WorgChampionCreature.Stats.ManaMod.set(25)
-export let WorgChampionCreatureLoot = WorgChampionCreature.NormalLoot
+WorgChampionCreature.FactionTemplate.set(48);
+WorgChampionCreature.DamageSchool.Normal.set();
+WorgChampionCreature.Stats.ArmorMod.set(125);
+WorgChampionCreature.Stats.DamageMod.set(65);
+WorgChampionCreature.Stats.ExperienceMod.set(30);
+WorgChampionCreature.Stats.HealthMod.set(100);
+WorgChampionCreature.Stats.ManaMod.set(25);
+export let WorgChampionCreatureLoot = WorgChampionCreature.NormalLoot;
 
 /*Spell - Worg Champion Summon*/
-export let WorgChampion = std.Spells.create(MODNAME,'worgchampion-spell',66691)
-WorgChampion.Name.enGB.set('Summon Worg Champion')
-WorgChampion.Description.enGB.set('Summons a powerful Worg Champion to fight.')
-WorgChampion.Effects.get(0).MiscValueA.set(WorgChampionCreature.ID)
+export let WorgChampion = std.Spells.create(
+    MODNAME,
+    "worgchampion-spell",
+    66691
+);
+WorgChampion.Name.enGB.set("Summon Worg Champion");
+WorgChampion.Description.enGB.set("Summons a powerful Worg Champion to fight.");
+WorgChampion.Effects.get(0).MiscValueA.set(WorgChampionCreature.ID);
 
 /*Item - Champion Scroll : Worg*/
-export let WorgScroll = std.Items.create(MODNAME,'worgscroll-1',33457)
-WorgScroll.Name.enGB.set('Champion Scroll : Ravaging Worg')
-WorgScroll.Description.enGB.set('This scroll contains the ability to summon a powerful worg, be weary, it is advised that this challenge be accepted with additional party members.')
-WorgScroll.Flags.set(0)
-WorgScroll.FlagsExtra.set(0)
-WorgScroll.MaxCount.set(1)
-WorgScroll.RequiredLevel.set(1)
-WorgScroll.Spells.clearAll()
-WorgScroll.Spells.addMod(spell=>{
-    spell.Spell.set(WorgChampion.ID)
-    spell.Charges.set(-1)
-})
+export let WorgScroll = std.Items.create(MODNAME, "worgscroll-1", 33457);
+WorgScroll.Name.enGB.set("Champion Scroll : Ravaging Worg");
+WorgScroll.Description.enGB.set(
+    "This scroll contains the ability to summon a powerful worg, be weary, it is advised that this challenge be accepted with additional party members."
+);
+WorgScroll.Flags.set(0);
+WorgScroll.FlagsExtra.set(0);
+WorgScroll.MaxCount.set(1);
+WorgScroll.RequiredLevel.set(1);
+WorgScroll.Spells.clearAll();
+WorgScroll.Spells.addMod((spell) => {
+    spell.Spell.set(WorgChampion.ID);
+    spell.Charges.set(-1);
+});
 
 /*Spell Scripts - Champion Boss Items*/
-export let WorgCreatureSpawn = std.CreatureTemplates.create(MODNAME,'worgcreaturespawn-creature',8776)
-WorgCreatureSpawn.Name.enGB.set('Enthralled Worg')
-WorgCreatureSpawn.Models.clearAll()
-WorgCreatureSpawn.Models.addIds(26331,22042)
+export let WorgCreatureSpawn = std.CreatureTemplates.create(
+    MODNAME,
+    "worgcreaturespawn-creature",
+    8776
+);
+WorgCreatureSpawn.Name.enGB.set("Enthralled Worg");
+WorgCreatureSpawn.Models.clearAll();
+WorgCreatureSpawn.Models.addIds(26331, 22042);
 
-export let chanceWorg1 = std.Spells.create(MODNAME,'chanceworg1-spell',13049)//15283
-chanceWorg1.Name.enGB.set('Summon Worg')
-chanceWorg1.Effects.get(0).MiscValueA.set(WorgCreatureSpawn.ID)
-export let chanceWorg1M = std.Spells.create(MODNAME,'chanceworg1m-spell',67670) //melee
-chanceWorg1M.Name.enGB.set('Summon Worg')
-chanceWorg1M.Description.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
-chanceWorg1M.AuraDescription.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
-chanceWorg1M.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
-export let chanceWorg1C = std.Spells.create(MODNAME,'chanceworg1c-spell',67672) //caster
-chanceWorg1C.Name.enGB.set('Summon Worg')
-chanceWorg1C.Description.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
-chanceWorg1C.AuraDescription.enGB.set('Your attacks and abilties have the chance to summon a ravaging worg to fight for you.')
-chanceWorg1C.Effects.get(0).TriggerSpell.set(chanceWorg1.ID)
-
+export let chanceWorg1 = std.Spells.create(MODNAME, "chanceworg1-spell", 13049); //15283
+chanceWorg1.Name.enGB.set("Summon Worg");
+chanceWorg1.Effects.get(0).MiscValueA.set(WorgCreatureSpawn.ID);
+export let chanceWorg1M = std.Spells.create(
+    MODNAME,
+    "chanceworg1m-spell",
+    67670
+); //melee
+chanceWorg1M.Name.enGB.set("Summon Worg");
+chanceWorg1M.Description.enGB.set(
+    "Your attacks and abilties have the chance to summon a ravaging worg to fight for you."
+);
+chanceWorg1M.AuraDescription.enGB.set(
+    "Your attacks and abilties have the chance to summon a ravaging worg to fight for you."
+);
+chanceWorg1M.Effects.get(0).TriggerSpell.set(chanceWorg1.ID);
+export let chanceWorg1C = std.Spells.create(
+    MODNAME,
+    "chanceworg1c-spell",
+    67672
+); //caster
+chanceWorg1C.Name.enGB.set("Summon Worg");
+chanceWorg1C.Description.enGB.set(
+    "Your attacks and abilties have the chance to summon a ravaging worg to fight for you."
+);
+chanceWorg1C.AuraDescription.enGB.set(
+    "Your attacks and abilties have the chance to summon a ravaging worg to fight for you."
+);
+chanceWorg1C.Effects.get(0).TriggerSpell.set(chanceWorg1.ID);

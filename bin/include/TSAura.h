@@ -27,6 +27,11 @@ public:
     TSAuraEffect(AuraEffect* aura);
     TSAuraEffect();
     TSAuraEffect* operator->() { return this;}
+    operator bool() const { return aura != nullptr; }
+    bool operator==(TSAuraEffect const& rhs) {
+        return aura == rhs.aura;
+    }
+
     TSUnit GetCaster();
     uint64 GetCasterGUID();
     TSAura GetAura();
@@ -56,13 +61,15 @@ public:
     TSAuraApplication(AuraApplication* aura);
     TSAuraApplication();
     TSAuraApplication* operator->() { return this;}
-
+    operator bool() const { return aura != nullptr; }
+    bool operator==(TSAuraApplication const& rhs) { return aura == rhs.aura; }
     TSUnit GetTarget();
     TSAura GetAura();
     uint8 GetSlot();
     uint8 GetFlags();
     uint8 GetEffectMask();
     uint8 GetAppliedEffects();
+    uint8 GetRemoveMode();
     bool IsPositive();
     bool IsSelfCast();
 };
@@ -74,11 +81,13 @@ public:
     TSAura();
     bool IsNull() { return aura == nullptr; };
     TSAura* operator->() { return this;}
+    operator bool() const { return aura != nullptr; }
+    bool operator==(TSAura const& rhs) { return aura == rhs.aura; }
     TSUnit GetCaster();
     uint64 GetCasterGUID();
     uint32 GetCasterLevel();
     int32 GetDuration();
-    uint32 GetAuraId();
+    uint32 GetAuraID();
     int32 GetMaxDuration();
     uint32 GetStackAmount();
     TSWorldObject GetOwner();

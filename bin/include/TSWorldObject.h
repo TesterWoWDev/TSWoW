@@ -31,7 +31,7 @@ class TSCollisions;
 class TSCollisionEntry;
 class TSEntity;
 
-#define CollisionCallback std::function<void(TSCollisionEntry*,TSWorldObject,TSWorldObject,TSMutable<uint32_t>)>
+#define CollisionCallback std::function<void(TSWorldObject,TSWorldObject,TSMutable<uint32_t>,TSCollisionEntry*)>
 
 class TC_GAME_API TSWorldObject : public TSObject, public TSWorldEntityProvider<TSWorldObject> {
 public:
@@ -40,6 +40,9 @@ public:
     TSWorldObject(WorldObject* obj);
     bool IsNull() { return obj == nullptr; };
     bool operator< (const TSWorldObject&) const;
+    operator TSWorldObject() const { return obj; }
+    operator bool() const { return obj != nullptr; }
+
     TSWorldObject* operator->() { return this;}
     TSArray<TSCreature> GetCreaturesInRange(float range, uint32 entry, uint32 hostile, uint32 dead);
     TSArray<TSPlayer> GetPlayersInRange(float range, uint32 hostile, uint32 dead);
@@ -79,10 +82,10 @@ public:
     uint32 GetPhaseMask();
     uint64 GetPhaseID();
     void SetPhaseMask(uint32 phaseMask, bool update, uint64 id = 0);
-    uint32 GetInstanceId();
-    uint32 GetAreaId();
-    uint32 GetZoneId();
-    uint32 GetMapId();
+    uint32 GetInstanceID();
+    uint32 GetAreaID();
+    uint32 GetZoneID();
+    uint32 GetMapID();
     float GetAngle(TSWorldObject target,float x,float y);
     float GetX();
     float GetY();
@@ -97,6 +100,12 @@ public:
     bool IsInRange2d(float x, float y, float minrange, float maxrange);
     bool IsInRange3d(float x, float y, float z, float minrange, float maxrange);
 
+    bool IsFriendlyTo(TSWorldObject object);
+    bool IsHostileTo(TSWorldObject object);
+    bool IsFriendlyToPlayers();
+    bool IsHostileToPlayers();
+    bool IsNeutralToAll();
+
     TSGameObject GetGameObject(uint64 guid);
     TSCorpse GetCorpse(uint64 guid);
     TSUnit GetUnit(uint64 guid);
@@ -107,6 +116,9 @@ public:
     void AddCollision(uint32_t modid, TSString id, float range, uint32_t minDelay, uint32_t maxHits, CollisionCallback callback);
     TSCollisionEntry * GetCollision(TSString id);
     TSCollisions* GetCollisions();
+
+    void SetActive(bool active);
+    bool IsActive();
 
     void AddedByGroup(TSWorldObjectGroup* group);
     void RemovedByGroup(TSWorldObjectGroup* group);

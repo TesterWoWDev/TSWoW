@@ -48,6 +48,8 @@ public:
     bool IsArmorVellum();
     bool IsConjuredConsumable();
     TSItemTemplate GetTemplate();
+    TSItemTemplate GetTemplateCopy();
+    ItemTemplate* GenerateVirtualTemplate(ItemTemplate const* base);
     TSString GetItemLink(uint8 locale);
     uint64 GetOwnerGUID();
     TSPlayer  GetOwner();
@@ -55,13 +57,13 @@ public:
     uint32 GetMaxStackCount();
     uint8 GetSlot();
     uint8 GetBagSlot();
-    uint32 GetEnchantmentId(uint32 enchant_slot);
-    uint32 GetSpellId(uint32 index);
+    uint32 GetEnchantmentID(uint32 enchant_slot);
+    uint32 GetSpellID(uint32 index);
     uint32 GetSpellTrigger(uint32 index);
     uint32 GetClass();
     uint32 GetSubClass();
     TSString GetName();
-    uint32 GetDisplayId();
+    uint32 GetDisplayID();
     uint32 GetQuality();
     uint32 GetBuyCount();
     uint32 GetBuyPrice();
@@ -84,4 +86,4 @@ public:
     void SaveToDB();
 };
 
-TC_GAME_API TSItem CreateItem(uint32 entry, uint32 count = 0);
+TC_GAME_API TSItem CreateItem(uint32 entry = 0, uint32 count = 0);

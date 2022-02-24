@@ -17,7 +17,6 @@
 #pragma once
 
 #include <memory>
-#include "BinReader.h"
 #include "TSMain.h"
 #include "TSString.h"
 #include "TSClasses.h"
@@ -28,13 +27,15 @@ class TSJsonObject;
 class TSJsonArray;
 class TSBattleground;
 class TSBattlegroundPlayer;
+class TSInstance;
+
 struct TSMail;
 class TC_GAME_API TSPlayer : public TSUnit {
 public:
 	Player* player;
 	TSPlayer(Player* player);
-    TSPlayer();
-    TSPlayer* operator->() { return this;}
+  TSPlayer();
+  TSPlayer* operator->() { return this;}
 	bool IsNull() { return player == nullptr; };
 	bool CanTitanGrip();
 	bool HasTalent(uint32 spellId, uint8 spec);
@@ -77,9 +78,9 @@ public:
 	bool IsGMChat();
 	bool IsAcceptingWhispers();
 	bool IsRested();
-	bool InBattlegroundQueue();
+	bool InBGQueue();
 	bool InArena();
-	bool InBattleground();
+	bool InBG();
 	bool CanBlock();
 	bool CanParry();
 	uint8 GetSpecsCount(uint32 entry, uint32 mapid, uint32 zone);
@@ -92,13 +93,13 @@ public:
 	uint32 GetLatency();
 	uint32 GetChampioningFaction();
 	uint8 GetOriginalSubGroup();
-	TSGroup  GetOriginalGroup();
-	TSPlayer  GetNextRandomRaidMember(float radius);
+	TSGroup GetOriginalGroup();
+	TSPlayer GetNextRandomRaidMember(float radius);
 	uint8 GetSubGroup();
 	TSGroup GetGroupInvite();
 	uint32 GetXPRestBonus(uint32 xp);
-	uint32 GetBattlegroundTypeId();
-	uint32 GetBattlegroundId();
+	uint32 GetBGTypeID();
+	uint32 GetBattlegroundID();
 	uint32 GetReputationRank(uint32 faction);
 	uint16 GetDrunkValue();
 	int16 GetSkillTempBonusValue(uint32 skill);
@@ -129,10 +130,10 @@ public:
 	TSItem GetItemByPos(uint8 bag, uint8 slot);
 	TSItem GetItemByGUID(uint64 guid);
 	TSItem GetItemByEntry(uint32 entry);
-	uint32 GetGossipTextId(TSWorldObject obj);
+	uint32 GetGossipTextID(TSWorldObject obj);
 	TSUnit GetSelection();
 	uint32 GetGMRank();
-	uint32 GetGuildId();
+	uint32 GetGuildID();
 	uint32 GetTeam();
 	uint32 GetItemCount(uint32 entry, bool checkinBank);
 	uint32 GetLifetimeKills();
@@ -141,11 +142,14 @@ public:
 	uint32 GetTotalPlayedTime();
 	TSGuild GetGuild();
 	TSGroup GetGroup();
-	uint32 GetAccountId();
+	uint32 GetAccountID();
 	TSString GetAccountName();
 	TSCorpse GetCorpse();
 	int GetDbLocaleIndex();
 	uint32 GetDbcLocale();
+	void ApplyItemMods(uint32 itemID);
+	void ApplyCustomItemMods(TSItemTemplate newItem);
+	void UpdateCache();
 	void SetPlayerLock(bool apply);
 	void SetAtLoginFlag(uint32 flag);
 	void SetSheath(uint32 sheathed);
@@ -168,10 +172,10 @@ public:
 	void SetHonorPoints(uint32 honorP);
 	void SetLifetimeKills(uint32 val);
 
-    void SetMoney(uint32 amt);
-    uint32 GetMoney();
-    bool GiveMoney(uint32 amt);
-    bool TakeMoney(uint32 amt);
+  void SetMoney(uint32 amt);
+  uint32 GetMoney();
+  bool TryAddMoney(uint32 amt);
+  bool TryReduceMoney(uint32 amt);
 
 	void SetBindPoint(float x, float y, float z, uint32 mapId, uint32 areaId);
 	void SetKnownTitle(uint32 id);
@@ -189,6 +193,7 @@ public:
 	void SendCreatureQueryPacket(uint32 entry);
 	void SendGameObjectQueryPacket(uint32 entry);
 	void SendItemQueryPacket(uint32 entry);
+	void SendItemQueryPacketWithTemplate(TSItemTemplate curItem);
 	void SendSpiritResurrect();
 	void SendTabardVendorActivate(TSWorldObject obj);
 	void SendShowBank(TSWorldObject obj);
@@ -196,10 +201,10 @@ public:
 	void SendTrainerList(TSCreature obj);
 	void SendGuildInvite(TSPlayer plr);
 	void LogoutPlayer(bool save);
-	void RemoveFromBattlegroundRaid();
+	void RemoveFromBGRaid();
 	void UnbindInstance(uint32 map, uint32 difficulty);
 	void UnbindAllInstances();
-	void LeaveBattleground(bool teleToEntryPoint);
+	void LeaveBG(bool teleToEntryPoint);
 	uint32 DurabilityRepair(uint16 position, bool cost, float discountMod);
 	uint32 DurabilityRepairAll(bool cost, float discountMod, bool guildBank);
 	void DurabilityPointLossForEquipSlot(int32 slot);
@@ -260,11 +265,38 @@ public:
 	void ModifyMoney(int32 amt);
 	void LearnSpell(uint32 id);
 	void LearnTalent(uint32 id, uint32 rank);
-	void LearnClassSpells(bool trainer, bool quests);
+	void LearnClassSpells(bool trainer, bool quests, bool limitQuestsByLevel = false);
 	void ResurrectPlayer(float percent, bool sickness);
 	void GossipMenuAddItem(uint32 _icon, TSString msg, uint32 _sender = 0, uint32 _intid = 0, bool _code = false, TSString _promptMsg = JSTR(""), uint32 _money = 0);
 	void GossipComplete();
 	void GossipSendMenu(uint32 npc_text, TSObject sender, uint32 menu_id = 0);
+	void GossipSendTextMenu(
+			  TSObject sender
+			, TSString str
+			, uint32 language = 0
+			, uint32 emote0 = 0
+			, uint32 emote0Delay = 0
+			, uint32 emote1 = 0
+			, uint32 emote1Delay = 0
+			, uint32 emote2 = 0
+			, uint32 emote2Delay = 0
+			, uint32 menu_id = 0
+	);
+
+	void GossipSendTextMenuGendered(
+			  TSObject sender
+			, TSString male
+			, TSString female
+			, uint32 language = 0
+			, uint32 emote0 = 0
+			, uint32 emote0Delay = 0
+			, uint32 emote1 = 0
+			, uint32 emote1Delay = 0
+			, uint32 emote2 = 0
+			, uint32 emote2Delay = 0
+			, uint32 menu_id = 0
+	);
+
 	void GossipClearMenu();
 	void StartTaxi(uint32 pathId);
 	void GossipSendPOI(float x, float y, uint32 icon, uint32 flags, uint32 data, TSString iconText);
@@ -272,14 +304,19 @@ public:
 	void SendQuestTemplate(uint32 questId, bool activateAccept);
 	void SpawnBones();
 	void RemovedInsignia(TSPlayer looter);
-    TSBattlegroundPlayer GetBattlegroundPlayer();
-    TSBattleground GetBattleground();
+  TSBattlegroundPlayer GetBGPlayer();
+  TSBattleground GetBG();
+	TSInstance GetInstance();
 
 	bool GroupInvite(TSPlayer invited);
 	TSGroup GroupCreate(TSPlayer invited);
 	void SendCinematicStart(uint32 CinematicSequenceId);
 	void SendMovieStart(uint32 MovieId);
 	void SendMail(uint8 senderType, uint64 from, TSString subject, TSString body, uint32 money = 0, uint32 cod = 0, uint32 delay = 0, TSArray<TSItem> items = TSArray<TSItem>());
+	bool CanBeTank();
+	bool CanBeHealer();
+	bool CanBeDPS();
+	bool CanBeLeader();
 
   uint8 GetHairStyle();
   void SetHairStyle(uint8 style);

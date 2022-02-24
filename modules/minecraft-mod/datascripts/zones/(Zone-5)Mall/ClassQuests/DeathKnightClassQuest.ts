@@ -1,62 +1,102 @@
-
 //Class Trainer Quest - Deathknight
 
-import { std } from "tswow-stdlib"
-import { SQL } from "wotlkdata"
-import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures"
-import { spawnGob, spawnNPC } from "../../../functions/spawning-functions"
-import { MODNAME } from "../../../modname"
-import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest"
+import { std } from "wow/wotlk";
 
-export let DeathknightQuestGiver01 = std.CreatureTemplates.create(MODNAME,'dk01-creature',30368)
-DeathknightQuestGiver01.Name.enGB.set('Deathknight Disciple')
-DeathknightQuestGiver01.Models.clearAll()
-DeathknightQuestGiver01.Models.addIds(21835)
-DeathknightQuestGiver01.Level.set(10,10)
-DeathknightQuestGiver01.FactionTemplate.set(35)
-DeathknightQuestGiver01.DamageSchool.Normal.set()
-DeathknightQuestGiver01.Stats.ArmorMod.set(1)
-DeathknightQuestGiver01.Stats.DamageMod.set(1)
-DeathknightQuestGiver01.Stats.ExperienceMod.set(1)
-DeathknightQuestGiver01.Stats.HealthMod.set(1)
-DeathknightQuestGiver01.Stats.ManaMod.set(1)
-DeathknightQuestGiver01.NPCFlags.QUEST_GIVER.set(true)
-spawnNPC(DeathknightQuestGiver01.ID,0,0,{map:725,x:-8325.328125,y:-121.336845,z:0.852532,o:5.242542})
-spawnNPC(33251,0,0,{map:725,x:-8326.202148,y:-124.327225,z:0.852532,o:0.117808},)
-spawnGob(190557, {map:725,x:-8326.202148,y:-124.327225,z:0.852532,o:0.117808},)//runeforge
-export let DeathknightQuest01 = std.Quests.create(MODNAME,'dkquest01-quest')
+import { questGiver03 } from "../../(Zone-0)Walk-of-Heroes/starting-zone-creatures";
+import { spawnGob, spawnNPC } from "../../../functions/spawning-functions";
+import { MODNAME } from "../../../modname";
+import { OrbofPower, PowerToken, RavenLordMount } from "../../item-manifest";
 
-DeathknightQuest01.Flags.set(1)
-DeathknightQuest01.MinLevel.set(1)
-DeathknightQuest01.QuestLevel.set(20)
-DeathknightQuest01.Questgiver.addCreatureStarter(questGiver03.ID)
-DeathknightQuest01.Questgiver.addCreatureEnder(DeathknightQuestGiver01.ID,false)
+export let DeathknightQuestGiver01 = std.CreatureTemplates.create(
+    MODNAME,
+    "dk01-creature",
+    30368
+);
+DeathknightQuestGiver01.Name.enGB.set("Deathknight Disciple");
+DeathknightQuestGiver01.Models.clearAll();
+DeathknightQuestGiver01.Models.addIds(21835);
+DeathknightQuestGiver01.Level.set(10, 10);
+DeathknightQuestGiver01.FactionTemplate.set(35);
+DeathknightQuestGiver01.DamageSchool.Normal.set();
+DeathknightQuestGiver01.Stats.ArmorMod.set(1);
+DeathknightQuestGiver01.Stats.DamageMod.set(1);
+DeathknightQuestGiver01.Stats.ExperienceMod.set(1);
+DeathknightQuestGiver01.Stats.HealthMod.set(1);
+DeathknightQuestGiver01.Stats.ManaMod.set(1);
+DeathknightQuestGiver01.NPCFlags.QUEST_GIVER.set(true);
+spawnNPC(DeathknightQuestGiver01.ID, 0, 0, {
+    map: 725,
+    x: -8325.328125,
+    y: -121.336845,
+    z: 0.852532,
+    o: 5.242542,
+});
+spawnNPC(33251, 0, 0, {
+    map: 725,
+    x: -8326.202148,
+    y: -124.327225,
+    z: 0.852532,
+    o: 0.117808,
+});
+spawnGob(190557, {
+    map: 725,
+    x: -8326.202148,
+    y: -124.327225,
+    z: 0.852532,
+    o: 0.117808,
+}); //runeforge
+export let DeathknightQuest01 = std.Quests.create(MODNAME, "dkquest01-quest");
 
-DeathknightQuest01.Rewards.Money.set(441)
+DeathknightQuest01.Flags.set(1);
+DeathknightQuest01.MinLevel.set(1);
+DeathknightQuest01.QuestLevel.set(20);
+DeathknightQuest01.Questgiver.addCreatureStarter(questGiver03.ID);
+DeathknightQuest01.Questgiver.addCreatureEnder(
+    DeathknightQuestGiver01.ID,
+    false
+);
 
-DeathknightQuest01.Text.Objective.enGB.set('You have proven your worth, but now it is time for you to get acquainted with the denizens of this town. Seek out your class trainer, $c. They shall guide you further on this journey.')
-DeathknightQuest01.Text.Incomplete.enGB.set('Speak with your class trainer, $c. I am sure they are around here somewhere!')
-DeathknightQuest01.Text.Description.enGB.set('Speak with your class trainer.')
-DeathknightQuest01.Text.Reward.enGB.set('Ah yes, you must be $c. We have been waiting for you. Welcome.')
-DeathknightQuest01.Text.Title.enGB.set('Technique and Form')
+DeathknightQuest01.Rewards.Money.set(441);
 
+DeathknightQuest01.Text.Objective.enGB.set(
+    "You have proven your worth, but now it is time for you to get acquainted with the denizens of this town. Seek out your class trainer, $c. They shall guide you further on this journey."
+);
+DeathknightQuest01.Text.Incomplete.enGB.set(
+    "Speak with your class trainer, $c. I am sure they are around here somewhere!"
+);
+DeathknightQuest01.Text.Description.enGB.set("Speak with your class trainer.");
+DeathknightQuest01.Text.Reward.enGB.set(
+    "Ah yes, you must be $c. We have been waiting for you. Welcome."
+);
+DeathknightQuest01.Text.Title.enGB.set("Technique and Form");
 
-export let DeathknightQuest02 = std.Quests.create(MODNAME,'dkquest02-quest')
+export let DeathknightQuest02 = std.Quests.create(MODNAME, "dkquest02-quest");
 
-DeathknightQuest02.Flags.set(8)
-SQL.quest_template_addon.add(DeathknightQuest02.ID).SpecialFlags.set(1)
-DeathknightQuest02.MinLevel.set(1)
-DeathknightQuest02.QuestLevel.set(20)
-DeathknightQuest02.Questgiver.addCreatureStarter(DeathknightQuestGiver01.ID)
-DeathknightQuest02.Questgiver.addCreatureEnder(DeathknightQuestGiver01.ID,false)
+DeathknightQuest02.Flags.set(8);
+std.SQL.quest_template_addon.add(DeathknightQuest02.ID).SpecialFlags.set(1);
+DeathknightQuest02.MinLevel.set(1);
+DeathknightQuest02.QuestLevel.set(20);
+DeathknightQuest02.Questgiver.addCreatureStarter(DeathknightQuestGiver01.ID);
+DeathknightQuest02.Questgiver.addCreatureEnder(
+    DeathknightQuestGiver01.ID,
+    false
+);
 
-DeathknightQuest02.Rewards.Money.set(200000)
-DeathknightQuest02.Objectives.Item.add(OrbofPower.ID,10)
-DeathknightQuest02.Rewards.Item.add(PowerToken.ID,1)
-DeathknightQuest02.Rewards.Item.add(RavenLordMount.ID,1)
+DeathknightQuest02.Rewards.Money.set(200000);
+DeathknightQuest02.Objectives.Item.add(OrbofPower.ID, 10);
+DeathknightQuest02.Rewards.Item.add(PowerToken.ID, 1);
+DeathknightQuest02.Rewards.Item.add(RavenLordMount.ID, 1);
 
-DeathknightQuest02.Text.Objective.enGB.set('Travel around the game, complete quests, collect resources, slay enemies, and obtain orbs of power. When you have obtained 10 orbs of power, return to me and we can create an incredibly powerful item for you.')
-DeathknightQuest02.Text.Incomplete.enGB.set('Have you managed to find any power orbs yet? You can obtain power orbs from quests, killing monsters, completing dungeons, or even off of resource collection.')
-DeathknightQuest02.Text.Description.enGB.set('Collect orbs of power from around the game in various scenarios.')
-DeathknightQuest02.Text.Reward.enGB.set('You\'ve done it, you\'ve managed to collect enough orbs of power for us to create supercharged weaponry for you. I am beyond excited!')
-DeathknightQuest02.Text.Title.enGB.set('True Power')
+DeathknightQuest02.Text.Objective.enGB.set(
+    "Travel around the game, complete quests, collect resources, slay enemies, and obtain orbs of power. When you have obtained 10 orbs of power, return to me and we can create an incredibly powerful item for you."
+);
+DeathknightQuest02.Text.Incomplete.enGB.set(
+    "Have you managed to find any power orbs yet? You can obtain power orbs from quests, killing monsters, completing dungeons, or even off of resource collection."
+);
+DeathknightQuest02.Text.Description.enGB.set(
+    "Collect orbs of power from around the game in various scenarios."
+);
+DeathknightQuest02.Text.Reward.enGB.set(
+    "You've done it, you've managed to collect enough orbs of power for us to create supercharged weaponry for you. I am beyond excited!"
+);
+DeathknightQuest02.Text.Title.enGB.set("True Power");

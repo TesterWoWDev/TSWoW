@@ -4,21 +4,48 @@
 #include "TSBase.h"
 #include "TSString.h"
 #include "TSUnit.h"
+#include "TSMap.h"
 
 class TSUnit;
-class TSMap;
 class InstanceScript;
 
-class TC_GAME_API TSInstance {
+class ObjectGuid;
+class TC_GAME_API TSGuidSet {
+    std::set<ObjectGuid>* m_set;
+public:
+    TSGuidSet(std::set<ObjectGuid>* set);
+    operator bool() const { return m_set != nullptr; }
+    bool operator==(TSGuidSet const& rhs) { return m_set == rhs.m_set; }
+
+    bool Contains(uint64);
+    void Add(uint64);
+    void Remove(uint64);
+};
+
+struct BossInfo;
+class TC_GAME_API TSBossInfo {
+    BossInfo* m_info;
+public:
+    TSBossInfo(BossInfo* info);
+    operator bool() const { return m_info != nullptr; }
+    bool operator==(TSBossInfo const& rhs) { return m_info == rhs.m_info; }
+    uint32 GetBossState();
+    TSGuidSet GetMinionGUIDs();
+    TSGuidSet GetDoorsOpenDuringEncounter();
+    TSGuidSet GetDoorsClosedDuringEncounter();
+    TSGuidSet GetDoorsOpenAfterEncounter();
+    bool IsWithinBoundary(float x, float y, float z);
+    bool IsWithinBoundary(TSWorldObject obj);
+};
+
+class TC_GAME_API TSInstance : public TSMap {
 public:
     InstanceScript* m_script;
-
-    TSInstance(InstanceScript* script);
+    TSInstance(Map* map, InstanceScript* script);
     TSInstance* operator->() { return this; }
-
+    operator bool() const { return map != nullptr && m_script != nullptr; }
     bool IsNull();
-    TSMap GetMap();
-    void SaveToDB();
+    void SaveInstanceToDB();
     bool IsEncounterInProgress();
     uint64 GetObjectGUID(uint32 type);
     void DoUseDoorOrButton(uint64 guid, uint32 withRestoreTime = 0, bool useAlternativeState = false);
@@ -42,4 +69,6 @@ public:
     uint32 GetMaxResetDelay();
     uint32 GetTeamIDInInstance();
     uint32 GetFactionInInstance();
+    TSBossInfo GetBossInfo(uint32 id);
 };
+

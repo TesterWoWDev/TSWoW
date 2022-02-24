@@ -1,102 +1,148 @@
-import { std } from "tswow-stdlib"
-import { MODNAME } from "../../modname"
+import { std } from "wow/wotlk";
+import { MODNAME } from "../../modname";
 
 /*Creature - Worg Champion*/
-export let MurlocChampionCreature = std.CreatureTemplates.create(MODNAME,'murlocchampioncreature-creature',299)
-MurlocChampionCreature.Name.enGB.set('Murkimus')
-MurlocChampionCreature.Subname.enGB.set('Champion of the Murlocs')
-MurlocChampionCreature.Models.clearAll()
-MurlocChampionCreature.Models.addIds(15396)
-MurlocChampionCreature.Scale.set(5)
-MurlocChampionCreature.Level.set(10,10)
-MurlocChampionCreature.Rank.ELITE.set()
+export let MurlocChampionCreature = std.CreatureTemplates.create(
+    MODNAME,
+    "murlocchampioncreature-creature",
+    299
+);
+MurlocChampionCreature.Name.enGB.set("Murkimus");
+MurlocChampionCreature.Subname.enGB.set("Champion of the Murlocs");
+MurlocChampionCreature.Models.clearAll();
+MurlocChampionCreature.Models.addIds(15396);
+MurlocChampionCreature.Scale.set(5);
+MurlocChampionCreature.Level.set(10, 10);
+MurlocChampionCreature.Rank.ELITE.set();
 //Spells
-export let MurlocChampionFrostbolt = std.Spells.create(MODNAME,'Rank1Frostbolt-spell',116)
-MurlocChampionFrostbolt.Name.enGB.set('Frostbolt')
-MurlocChampionFrostbolt.Effects.get(0).BasePoints.set(-31)
-MurlocChampionFrostbolt.Effects.get(1).BasePoints.set(812)
-MurlocChampionFrostbolt.CastTime.modRefCopy(val=>val.set(3000,0,3000))
-export let MurlocChampionFireblast = std.Spells.create(MODNAME,'Rank1FireBlast-spell',60871)
-MurlocChampionFireblast.Name.enGB.set('Fire Blast')
-MurlocChampionFireblast.Effects.get(0).BasePoints.set(1340)
-export let MurlocChampionNova = std.Spells.create(MODNAME,'Rank1FrostNova-spell',122)
-MurlocChampionNova.Name.enGB.set('Frost Nova')
-MurlocChampionNova.Effects.get(0).BasePoints.set(617)
-MurlocChampionNova.Duration.modRefCopy(val=>val.set(3000,0,3000))
+export let MurlocChampionFrostbolt = std.Spells.create(
+    MODNAME,
+    "Rank1Frostbolt-spell-murloc",
+    116
+);
+MurlocChampionFrostbolt.Name.enGB.set("Frostbolt");
+MurlocChampionFrostbolt.Effects.get(0).PointsBase.set(-31);
+MurlocChampionFrostbolt.Effects.get(1).PointsBase.set(812);
+MurlocChampionFrostbolt.CastTime.modRefCopy((val) => val.set(3000, 0, 3000));
+export let MurlocChampionFireblast = std.Spells.create(
+    MODNAME,
+    "Rank1FireBlast-spell-murloc",
+    60871
+);
+MurlocChampionFireblast.Name.enGB.set("Fire Blast");
+MurlocChampionFireblast.Effects.get(0).PointsBase.set(1340);
+export let MurlocChampionNova = std.Spells.create(
+    MODNAME,
+    "Rank1FrostNova-spell-murloc",
+    122
+);
+MurlocChampionNova.Name.enGB.set("Frost Nova");
+MurlocChampionNova.Effects.get(0).PointsBase.set(617);
+MurlocChampionNova.Duration.modRefCopy((val) => val.set(3000, 0, 3000));
 
-MurlocChampionCreature.Scripts.onUpdateIc(0,0,0,0,script=>{
-	script.row.event_flags.set(1)
-        script.Action.setCreateTimedEvent(0,0,0,11000,15000,100)
-        script.Action.setCreateTimedEvent(1,0,0,3000,7000,100)
-        script.Action.setCreateTimedEvent(2,0,0,5000,7000,100)
-        
-    })
-    MurlocChampionCreature.Scripts.onUpdateOoc(0,0,0,0,script=>{
-	script.row.event_flags.set(1)
-        script.Action.setRemoveTimedEvent(0)
-        script.Action.setRemoveTimedEvent(1)
-		script.Action.setRemoveTimedEvent(2)
-		
-    })
-    MurlocChampionCreature.Scripts.onTimedEventTriggered(0,script=>{
-        script.Target.setVictim()
-        script.Action.setCast(MurlocChampionFrostbolt.ID,2,7)
-    })
-	MurlocChampionCreature.Scripts.onTimedEventTriggered(1,script=>{
-        script.Target.setVictim()
-        script.Action.setCast(MurlocChampionFireblast.ID,2,7)
-    })
-	MurlocChampionCreature.Scripts.onTimedEventTriggered(2,script=>{
-        script.Target.setVictim()
-        script.Action.setCast(MurlocChampionNova.ID,2,7)
-    })
+MurlocChampionCreature.Scripts.onUpdateIc(0, 0, 0, 0, (script) => {
+    script.row.event_flags.set(1);
+    script.Action.setCreateTimedEvent(0, 0, 0, 11000, 15000, 100);
+    script.Action.setCreateTimedEvent(1, 0, 0, 3000, 7000, 100);
+    script.Action.setCreateTimedEvent(2, 0, 0, 5000, 7000, 100);
+});
+MurlocChampionCreature.Scripts.onUpdateOoc(0, 0, 0, 0, (script) => {
+    script.row.event_flags.set(1);
+    script.Action.setRemoveTimedEvent(0);
+    script.Action.setRemoveTimedEvent(1);
+    script.Action.setRemoveTimedEvent(2);
+});
+MurlocChampionCreature.Scripts.onTimedEventTriggered(0, (script) => {
+    script.Target.setVictim();
+    script.Action.setCast(MurlocChampionFrostbolt.ID, 2, 7);
+});
+MurlocChampionCreature.Scripts.onTimedEventTriggered(1, (script) => {
+    script.Target.setVictim();
+    script.Action.setCast(MurlocChampionFireblast.ID, 2, 7);
+});
+MurlocChampionCreature.Scripts.onTimedEventTriggered(2, (script) => {
+    script.Target.setVictim();
+    script.Action.setCast(MurlocChampionNova.ID, 2, 7);
+});
 
 //End of Spells
-MurlocChampionCreature.FactionTemplate.set(48)
-MurlocChampionCreature.DamageSchool.Normal.set()
-MurlocChampionCreature.Stats.ArmorMod.set(125)
-MurlocChampionCreature.Stats.DamageMod.set(65)
-MurlocChampionCreature.Stats.ExperienceMod.set(30)
-MurlocChampionCreature.Stats.HealthMod.set(100)
-MurlocChampionCreature.Stats.ManaMod.set(25)
-export let MurlocChampionCreatureLoot = MurlocChampionCreature.NormalLoot
+MurlocChampionCreature.FactionTemplate.set(48);
+MurlocChampionCreature.DamageSchool.Normal.set();
+MurlocChampionCreature.Stats.ArmorMod.set(125);
+MurlocChampionCreature.Stats.DamageMod.set(65);
+MurlocChampionCreature.Stats.ExperienceMod.set(30);
+MurlocChampionCreature.Stats.HealthMod.set(100);
+MurlocChampionCreature.Stats.ManaMod.set(25);
+export let MurlocChampionCreatureLoot = MurlocChampionCreature.NormalLoot;
 
 /*Spell - Worg Champion Summon*/
-export let MurlocChampion = std.Spells.create(MODNAME,'murlocchampion-spell',66691)
-MurlocChampion.Name.enGB.set('Summon Murloc Champion')
-MurlocChampion.Description.enGB.set('Summons a powerful Murloc Champion to fight.')
-MurlocChampion.Effects.get(0).MiscValueA.set(MurlocChampionCreature.ID)
+export let MurlocChampion = std.Spells.create(
+    MODNAME,
+    "murlocchampion-spell",
+    66691
+);
+MurlocChampion.Name.enGB.set("Summon Murloc Champion");
+MurlocChampion.Description.enGB.set(
+    "Summons a powerful Murloc Champion to fight."
+);
+MurlocChampion.Effects.get(0).MiscValueA.set(MurlocChampionCreature.ID);
 
 /*Item - Champion Scroll : Worg*/
-export let MurlocScroll = std.Items.create(MODNAME,'murlocscroll-1',33457)
-MurlocScroll.Name.enGB.set('Champion Scroll : Murloc')
-MurlocScroll.Description.enGB.set('This scroll contains the ability to summon a powerful murloc, be weary, it is advised that this challenge be accepted with additional party members.')
-MurlocScroll.Flags.set(0)
-MurlocScroll.FlagsExtra.set(0)
-MurlocScroll.MaxCount.set(1)
-MurlocScroll.RequiredLevel.set(1)
-MurlocScroll.Spells.clearAll()
-MurlocScroll.Spells.addMod(spell=>{
-    spell.Spell.set(MurlocChampion.ID)
-    spell.Charges.set(-1)
-})
+export let MurlocScroll = std.Items.create(MODNAME, "murlocscroll-1", 33457);
+MurlocScroll.Name.enGB.set("Champion Scroll : Murloc");
+MurlocScroll.Description.enGB.set(
+    "This scroll contains the ability to summon a powerful murloc, be weary, it is advised that this challenge be accepted with additional party members."
+);
+MurlocScroll.Flags.set(0);
+MurlocScroll.FlagsExtra.set(0);
+MurlocScroll.MaxCount.set(1);
+MurlocScroll.RequiredLevel.set(1);
+MurlocScroll.Spells.clearAll();
+MurlocScroll.Spells.addMod((spell) => {
+    spell.Spell.set(MurlocChampion.ID);
+    spell.Charges.set('UNLIMITED');
+});
 
 /*Spell Scripts - Champion Boss Items*/
-export let MurlocCreatureSpawn = std.CreatureTemplates.create(MODNAME,'murloccreaturespawn-creature',8776)
-MurlocCreatureSpawn.Name.enGB.set('Enthralled Murloc')
-MurlocCreatureSpawn.Models.clearAll()
-MurlocCreatureSpawn.Models.addIds(15396,15397,15394)
+export let MurlocCreatureSpawn = std.CreatureTemplates.create(
+    MODNAME,
+    "murloccreaturespawn-creature",
+    8776
+);
+MurlocCreatureSpawn.Name.enGB.set("Enthralled Murloc");
+MurlocCreatureSpawn.Models.clearAll();
+MurlocCreatureSpawn.Models.addIds(15396, 15397, 15394);
 
-export let chancemurloc1 = std.Spells.create(MODNAME,'chancemurloc1-spell',13049)//15283
-chancemurloc1.Name.enGB.set('Summon Murloc')
-chancemurloc1.Effects.get(0).MiscValueA.set(MurlocCreatureSpawn.ID)
-export let chancemurloc1m = std.Spells.create(MODNAME,'chancemurloc1m-spell',67670) //melee
-chancemurloc1m.Name.enGB.set('Summon Murloc')
-chancemurloc1m.Description.enGB.set('Your attacks and abilties have the chance to summon a ravaging Murloc to fight for you.')
-chancemurloc1m.AuraDescription.enGB.set('Your attacks and abilties have the chance to summon a ravaging Murloc to fight for you.')
-chancemurloc1m.Effects.get(0).TriggerSpell.set(chancemurloc1.ID)
-export let chancemurloc1c = std.Spells.create(MODNAME,'chancemurloc1c-spell',67672) //caster
-chancemurloc1c.Name.enGB.set('Summon Murloc')
-chancemurloc1c.Description.enGB.set('Your attacks and abilties have the chance to summon a ravaging Murloc to fight for you.')
-chancemurloc1c.AuraDescription.enGB.set('Your attacks and abilties have the chance to summon a ravaging Murloc to fight for you.')
-chancemurloc1c.Effects.get(0).TriggerSpell.set(chancemurloc1.ID)
+export let chancemurloc1 = std.Spells.create(
+    MODNAME,
+    "chancemurloc1-spell",
+    13049
+); //15283
+chancemurloc1.Name.enGB.set("Summon Murloc");
+chancemurloc1.Effects.get(0).MiscValueA.set(MurlocCreatureSpawn.ID);
+export let chancemurloc1m = std.Spells.create(
+    MODNAME,
+    "chancemurloc1m-spell",
+    67670
+); //melee
+chancemurloc1m.Name.enGB.set("Summon Murloc");
+chancemurloc1m.Description.enGB.set(
+    "Your attacks and abilties have the chance to summon a ravaging Murloc to fight for you."
+);
+chancemurloc1m.AuraDescription.enGB.set(
+    "Your attacks and abilties have the chance to summon a ravaging Murloc to fight for you."
+);
+chancemurloc1m.Effects.get(0).TriggerSpell.set(chancemurloc1.ID);
+export let chancemurloc1c = std.Spells.create(
+    MODNAME,
+    "chancemurloc1c-spell",
+    67672
+); //caster
+chancemurloc1c.Name.enGB.set("Summon Murloc");
+chancemurloc1c.Description.enGB.set(
+    "Your attacks and abilties have the chance to summon a ravaging Murloc to fight for you."
+);
+chancemurloc1c.AuraDescription.enGB.set(
+    "Your attacks and abilties have the chance to summon a ravaging Murloc to fight for you."
+);
+chancemurloc1c.Effects.get(0).TriggerSpell.set(chancemurloc1.ID);

@@ -21,6 +21,7 @@
 #include "TSString.h"
 #include "TSEntity.h"
 #include "TSWorldEntity.h"
+#include "TSMap.h"
 
 class TSPlayer;
 class TSWorldPacket;
@@ -32,6 +33,8 @@ class TC_GAME_API TSBattlegroundPlayer: public TSEntityProvider {
 public:
     TSBattlegroundPlayer();
     TSBattlegroundPlayer(TSBattleground bg, uint64 guid, uint32 team, int64 offlineRemoveTime);
+    operator bool() const { return m_guid > 0; }
+    bool operator==(TSBattlegroundPlayer const& rhs) { return m_guid == rhs.m_guid; }
     uint64 GetGUID();
     uint32 GetTeam();
     int64 GetOfflineRemoveTime();
@@ -41,24 +44,23 @@ public:
 #define TS_TEAM_HORDE 1
 #define TS_TEAM_NEUTRAL 2
 
-class TC_GAME_API TSBattleground: public TSEntityProvider, public TSWorldEntityProvider<TSBattleground> {
+class TC_GAME_API TSBattleground: public TSMap {
 public:
     friend class TSBattlegroundPlayer;
     Battleground* bg;
-    TSBattleground(Battleground* bg);
+    TSBattleground(Map*, Battleground* bg);
     TSBattleground();
-    bool IsNull() { return bg == nullptr; };
+    bool IsNull() { return bg == nullptr || map == nullptr; };
+    operator bool() const { return map != nullptr && bg != nullptr; }
     TSBattleground* operator->() { return this;}
-    uint32 GetBracketId();
-    TSString GetName();
+    uint32 GetBracketID();
+    TSString GetBGName();
     uint32 GetAlivePlayersCountByTeam(uint32 team);
-    TSMap GetMap();
     uint32 GetBonusHonorFromKillCount(uint32 kills);
     uint32 GetEndTime();
     uint32 GetFreeSlotsForTeam(uint32 team);
-    uint32 GetInstanceId();
-    uint32 GetMapId();
-    uint32 GetTypeId();
+    uint32 GetInstanceID();
+    uint32 GetTypeID();
     uint32 GetMaxLevel();
     uint32 GetMinLevel();
     uint32 GetMaxPlayers();
@@ -69,8 +71,8 @@ public:
     uint32 GetStatus();
 
     bool IsRandom();
-    TSBattlegroundPlayer GetPlayer(uint64 guid);
-    TSArray<TSBattlegroundPlayer> GetPlayers();
+    TSBattlegroundPlayer GetBGPlayer(uint64 guid);
+    TSArray<TSBattlegroundPlayer> GetBGPlayers();
     void SetStartPosition(uint32 teamid, float x, float y, float z, float o);
     float GetStartX(uint32 teamid);
     float GetStartY(uint32 teamid);
@@ -85,16 +87,16 @@ public:
     void RewardHonor(uint32 honor, uint32 team = TS_TEAM_NEUTRAL);
     void RewardReputation(uint32 faction, uint32 reputation, uint32 team = TS_TEAM_NEUTRAL);
     void UpdateWorldState(uint32 variable, uint32 value);
-    void EndBattleground(uint32 winnerTeam = TS_TEAM_NEUTRAL);
-    TSGroup GetRaid(uint32 faction);
-    uint32 GetPlayerCount(uint32 team = TS_TEAM_NEUTRAL);
-    uint32 GetAlivePlayerCount(uint32 team = TS_TEAM_NEUTRAL);
+    void EndBG(uint32 winnerTeam = TS_TEAM_NEUTRAL);
+    TSGroup GetBGRaid(uint32 faction);
+    uint32 GetBGPlayerCount(uint32 team = TS_TEAM_NEUTRAL);
+    uint32 GetBGAlivePlayerCount(uint32 team = TS_TEAM_NEUTRAL);
     TSCreature AddCreature(uint32 entry, uint32 type, float x, float y, float z, float o, uint32 respawnTime = 0, uint32 teamId = TS_TEAM_NEUTRAL);
     bool AddObject(uint32 type, uint32 entry, float x, float y, float z, float o, float rot0, float rot1, float rot2, float rot3, uint32 respawnTime = 0, uint32 goState = 1);
     void AddSpiritGuide(uint32 type, float x, float y, float z, float o, uint32 teamId = TS_TEAM_NEUTRAL);
     void OpenDoor(uint32 type);
     void CloseDoor(uint32 type);
-    bool IsPlayerInBattleground(uint64 guid);
+    bool IsPlayerInBG(uint64 guid);
     uint32 GetTeamScore(uint32 team);
     void SendMessage(uint32 entry, uint8 type, TSPlayer source);
     uint32 GetUniqueBracketID();
@@ -110,6 +112,6 @@ public:
     void SetHoliday(bool isHoliday);
     bool IsHoliday();
 
-    TSGameObject GetGameObject(uint32 type, bool logErrors = false);
-    TSCreature GetCreature(uint32 type, bool logErrors = false);
+    TSGameObject GetBGGameObject(uint32 type, bool logErrors = false);
+    TSCreature GetBGCreature(uint32 type, bool logErrors = false);
 };

@@ -20,6 +20,7 @@
 #include "TSString.h"
 #include "TSArray.h"
 #include "TSWorldObject.h"
+#include "TSItem.h"
 #include "TSClasses.h"
 
 class TC_GAME_API TSUnit : public TSWorldObject {
@@ -28,6 +29,7 @@ public:
     TSUnit(Unit* unit);
     TSUnit();
     TSUnit* operator->() { return this;}
+    operator Unit* () const { return unit; }
     bool IsNull() { return unit == nullptr; }
     bool Attack(TSUnit who, bool meleeAttack);
     bool AttackStop();
@@ -70,11 +72,13 @@ public:
     bool HasUnitState(uint32 state);
     TSUnit  GetOwner();
     uint64 GetOwnerGUID();
-    uint32 GetMountId();
+    uint32 GetMountID();
     uint64 GetCreatorGUID();
     uint64 GetCharmerGUID();
     uint64 GetCharmGUID();
     uint64 GetPetGUID(uint32 slot = 0);
+    TSCreature GetPet(uint32 slot = 0);
+    TSUnit GetController();
     uint64 GetControllerGUID();
     uint64 GetControllerGUIDS();
     float GetStat(uint32 stat);
@@ -82,8 +86,8 @@ public:
     TSUnit  GetVictim();
     TSSpell  GetCurrentSpell(uint32 type);
     uint8 GetStandState();
-    uint32 GetDisplayId();
-    uint32 GetNativeDisplayId();
+    uint32 GetDisplayID();
+    uint32 GetNativeDisplayID();
     uint8 GetLevel();
     uint32 GetHealth();
     uint32 PowerSelectorHelper(TSUnit unit, int powerType = -1);
@@ -123,8 +127,8 @@ public:
     void ModifyPower(int type, int32 amt);
     void SetMaxPower(int type, uint32 amt);
     void SetPowerType(uint32 type);
-    void SetDisplayId(uint32 model);
-    void SetNativeDisplayId(uint32 model);
+    void SetDisplayID(uint32 model);
+    void SetNativeDisplayID(uint32 model);
     void SetFacing(float o);
     void SetFacingToObject(TSWorldObject obj);
     void SetCreatorGUID(uint64 guid);
@@ -163,7 +167,16 @@ public:
     void SendUnitYell(TSString msg, uint32 language);
     void DeMorph();
     void CastSpell(TSUnit target, uint32 spell, bool triggered);
-    void CastCustomSpell(TSUnit target, uint32 spell, bool triggered, int32 bp0, int32 bp1, int32 bp2, TSItem castItem, uint64 originalCaster);
+    void CastCustomSpell(
+          TSUnit target
+        , uint32 spell
+        , bool triggered = false
+        , int32 bp0 = 0
+        , int32 bp1 = 0
+        , int32 bp2 = 0
+        , TSItem castItem = TSItem()
+        , uint64 originalCaster = 0
+    );
     void CastSpellAoF(float _x, float _y, float _z, uint32 spell, bool triggered);
     void ClearInCombat();
     void StopSpellCast(uint32 spellId);

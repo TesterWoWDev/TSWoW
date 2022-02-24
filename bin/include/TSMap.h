@@ -23,19 +23,25 @@
 #include "TSEntity.h"
 #include "TSWorldEntity.h"
 
+#include <functional>
+
 class TSBattleground;
 class TSInstance;
+class TSMapManager;
 
 class TC_GAME_API TSMap: public TSEntityProvider, public TSWorldEntityProvider<TSMap> {
 public:
     Map *map;
     TSMap(Map *map);
     TSMap();
+    operator bool() const { return map != nullptr; }
+    bool operator==(TSMap const& rhs) { return map == rhs.map; }
+
     TSMap* operator->() { return this;}
     bool IsNull() { return map == nullptr; };
     bool IsArena();
-    bool IsBattleground();
-    TSBattleground GetBattleground();
+    bool IsBG();
+    TSBattleground ToBG();
     bool IsDungeon();
     bool IsEmpty();
     bool IsHeroic();
@@ -43,21 +49,27 @@ public:
     TSString GetName();
     float GetHeight(float x, float y, uint32 phasemask);
     int32 GetDifficulty();
-    uint32 GetInstanceId();
+    uint32 GetInstanceID();
     uint32 GetPlayerCount();
-    uint32 GetMapId();
-    bool HasInstanceScript();
-    TSInstance GetInstanceScript();
+    uint32 GetMapID();
+
+    bool IsInstance();
+    TSInstance ToInstance();
+
     TSArray<TSPlayer> GetPlayers(uint32 team = 2);
     TSArray<TSUnit> GetUnits();
     TSArray<TSGameObject> GetGameObjects(uint32 entry = 0);
     TSArray<TSCreature> GetCreatures(uint32 entry = 0);
+    TSCreature GetCreature(uint64 guid);
+    TSGameObject GetGameObject(uint64 guid);
+    TSPlayer GetPlayer(uint64 guid);
     TSCreature GetCreatureByDBGUID(uint32 dbguid);
     TSGameObject GetGameObjectByDBGUID(uint32 dbguid);
     TSCreature SpawnCreature(uint32 entry, float x, float y, float z, float o, uint32 despawnTimer = 0, uint32 phase = 1);
     TSGameObject SpawnGameObject(uint32 entry, float x, float y, float z, float o, uint32 despawnTimer = 0, uint32 phase = 1);
-    uint32 GetAreaId(float x, float y, float z, float phasemask);
+    uint32 GetAreaID(float x, float y, float z, float phasemask);
     TSWorldObject GetWorldObject(uint64 guid);
     void SetWeather(uint32 zoneId, uint32 weatherType, float grade);
     TSEntity * GetData();
+    void DoDelayed(std::function<void(TSMap, TSMapManager)> callback);
 };
