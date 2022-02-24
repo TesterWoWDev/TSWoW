@@ -193,7 +193,7 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
     temp.SetName(getName(itemInfo, temp.GetQuality()))
     temp.SetDisplayInfoID(getDisplayID(itemInfo, temp.GetQuality()))
 
-    temp = generateStats(itemLevel,temp,itemInfo[3])
+    temp = generateStats(itemLevel, temp, itemInfo[3])
 
     return temp
 }
@@ -272,9 +272,9 @@ function getName(itemInfoArr: TSArray<float>, quality: uint32): string {
 
 function generateStats(itemLevel: uint32, temp: TSItemTemplate, slotMult: float): TSItemTemplate {
     let group = statGroups[getRandNumber(statGroups.length)]
-    let totalStats = slotMult *itemLevel * 20 * qualityMultiplier[temp.GetQuality()] + getRandNumber(temp.GetQuality())
-    let statsPrimary: uint32 = totalStats*.7
-    let statsSecondary: uint32 = totalStats*.3
+    let totalStats = slotMult * itemLevel * 20 * qualityMultiplier[temp.GetQuality()] + getRandNumber(temp.GetQuality())
+    let statsPrimary: uint32 = totalStats * .7
+    let statsSecondary: uint32 = totalStats * .3
     let flat1 = statsPrimary * .1//forced value to each stat
     let flat2 = statsSecondary * .1//forced value to each stat
     let stats = CreateDictionary<uint32, int32>({})
