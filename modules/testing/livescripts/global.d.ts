@@ -63,28 +63,393 @@ declare const enum Class /** @realType: uint8 */ {
 }
 declare type ClassID = Class | uint8
 
-declare const enum TimerFlags {} /** TSWorldEntity.h:TimerFlags */
-declare const enum TimerLoops {} /** TSWorldEntity.h:TimerLoops */
-declare const enum Outfit {} /** TSOutfit.h:Outfit */
-declare const enum SpellCastResult {} /** SharedDefines.h:SpellCastResult */
-declare const enum EquipmentSlots {} /** Player.h:EquipmentSlots */
+declare const enum TimerFlags /**@realType:uint32*/ {
+    CLEARS_ON_DEATH       = 0x1,
+    CLEARS_ON_MAP_CHANGED = 0x2,
+    AGGREGATE_LOOPS       = 0x4,
+//  SYNCHRONIZED          = 0x8,
+}
+declare const enum TimerLoops /**@realType:uint32*/ {
+    ONCE = 1,
+    INDEFINITE = -1,
+}
+declare const enum Outfit /**@realType:uint32_t*/ {
+    SOUND_ID   = 0x1,
+    GUILD      = 0x2,
+    CLASS      = 0x4,
+
+    HEAD       = 0x8,
+    SHOULDERS  = 0x10,
+    BODY       = 0x20,
+    CHEST      = 0x40,
+    WAIST      = 0x80,
+    LEGS       = 0x100,
+    FEET       = 0x200,
+    WRISTS     = 0x400,
+    HANDS      = 0x800,
+    BACK       = 0x1000,
+    MAINHAND   = 0x2000,
+    OFFHAND    = 0x4000,
+    RANGED     = 0x8000,
+
+    WEAPONS = MAINHAND | OFFHAND | RANGED,
+    ARMOR = HEAD | SHOULDERS | BODY | CHEST | WAIST
+                 | LEGS | FEET | WRISTS | HANDS | BACK,
+    GEAR = WEAPONS | ARMOR,
+    EVERYTHING = GEAR | SOUND_ID | GUILD | CLASS
+}
+declare const enum SpellCastResult /**@realType:uint8*/ {
+    FAILED_SUCCESS = 0,
+    FAILED_AFFECTING_COMBAT = 1,
+    FAILED_ALREADY_AT_FULL_HEALTH = 2,
+    FAILED_ALREADY_AT_FULL_MANA = 3,
+    FAILED_ALREADY_AT_FULL_POWER = 4,
+    FAILED_ALREADY_BEING_TAMED = 5,
+    FAILED_ALREADY_HAVE_CHARM = 6,
+    FAILED_ALREADY_HAVE_SUMMON = 7,
+    FAILED_ALREADY_OPEN = 8,
+    FAILED_AURA_BOUNCED = 9,
+    FAILED_AUTOTRACK_INTERRUPTED = 10,
+    FAILED_BAD_IMPLICIT_TARGETS = 11,
+    FAILED_BAD_TARGETS = 12,
+    FAILED_CANT_BE_CHARMED = 13,
+    FAILED_CANT_BE_DISENCHANTED = 14,
+    FAILED_CANT_BE_DISENCHANTED_SKILL = 15,
+    FAILED_CANT_BE_MILLED = 16,
+    FAILED_CANT_BE_PROSPECTED = 17,
+    FAILED_CANT_CAST_ON_TAPPED = 18,
+    FAILED_CANT_DUEL_WHILE_INVISIBLE = 19,
+    FAILED_CANT_DUEL_WHILE_STEALTHED = 20,
+    FAILED_CANT_STEALTH = 21,
+    FAILED_CASTER_AURASTATE = 22,
+    FAILED_CASTER_DEAD = 23,
+    FAILED_CHARMED = 24,
+    FAILED_CHEST_IN_USE = 25,
+    FAILED_CONFUSED = 26,
+    FAILED_DONT_REPORT = 27,
+    FAILED_EQUIPPED_ITEM = 28,
+    FAILED_EQUIPPED_ITEM_CLASS = 29,
+    FAILED_EQUIPPED_ITEM_CLASS_MAINHAND = 30,
+    FAILED_EQUIPPED_ITEM_CLASS_OFFHAND = 31,
+    FAILED_ERROR = 32,
+    FAILED_FIZZLE = 33,
+    FAILED_FLEEING = 34,
+    FAILED_FOOD_LOWLEVEL = 35,
+    FAILED_HIGHLEVEL = 36,
+    FAILED_HUNGER_SATIATED = 37,
+    FAILED_IMMUNE = 38,
+    FAILED_INCORRECT_AREA = 39,
+    FAILED_INTERRUPTED = 40,
+    FAILED_INTERRUPTED_COMBAT = 41,
+    FAILED_ITEM_ALREADY_ENCHANTED = 42,
+    FAILED_ITEM_GONE = 43,
+    FAILED_ITEM_NOT_FOUND = 44,
+    FAILED_ITEM_NOT_READY = 45,
+    FAILED_LEVEL_REQUIREMENT = 46,
+    FAILED_LINE_OF_SIGHT = 47,
+    FAILED_LOWLEVEL = 48,
+    FAILED_LOW_CASTLEVEL = 49,
+    FAILED_MAINHAND_EMPTY = 50,
+    FAILED_MOVING = 51,
+    FAILED_NEED_AMMO = 52,
+    FAILED_NEED_AMMO_POUCH = 53,
+    FAILED_NEED_EXOTIC_AMMO = 54,
+    FAILED_NEED_MORE_ITEMS = 55,
+    FAILED_NOPATH = 56,
+    FAILED_NOT_BEHIND = 57,
+    FAILED_NOT_FISHABLE = 58,
+    FAILED_NOT_FLYING = 59,
+    FAILED_NOT_HERE = 60,
+    FAILED_NOT_INFRONT = 61,
+    FAILED_NOT_IN_CONTROL = 62,
+    FAILED_NOT_KNOWN = 63,
+    FAILED_NOT_MOUNTED = 64,
+    FAILED_NOT_ON_TAXI = 65,
+    FAILED_NOT_ON_TRANSPORT = 66,
+    FAILED_NOT_READY = 67,
+    FAILED_NOT_SHAPESHIFT = 68,
+    FAILED_NOT_STANDING = 69,
+    FAILED_NOT_TRADEABLE = 70,
+    FAILED_NOT_TRADING = 71,
+    FAILED_NOT_UNSHEATHED = 72,
+    FAILED_NOT_WHILE_GHOST = 73,
+    FAILED_NOT_WHILE_LOOTING = 74,
+    FAILED_NO_AMMO = 75,
+    FAILED_NO_CHARGES_REMAIN = 76,
+    FAILED_NO_CHAMPION = 77,
+    FAILED_NO_COMBO_POINTS = 78,
+    FAILED_NO_DUELING = 79,
+    FAILED_NO_ENDURANCE = 80,
+    FAILED_NO_FISH = 81,
+    FAILED_NO_ITEMS_WHILE_SHAPESHIFTED = 82,
+    FAILED_NO_MOUNTS_ALLOWED = 83,
+    FAILED_NO_PET = 84,
+    FAILED_NO_POWER = 85,
+    FAILED_NOTHING_TO_DISPEL = 86,
+    FAILED_NOTHING_TO_STEAL = 87,
+    FAILED_ONLY_ABOVEWATER = 88,
+    FAILED_ONLY_DAYTIME = 89,
+    FAILED_ONLY_INDOORS = 90,
+    FAILED_ONLY_MOUNTED = 91,
+    FAILED_ONLY_NIGHTTIME = 92,
+    FAILED_ONLY_OUTDOORS = 93,
+    FAILED_ONLY_SHAPESHIFT = 94,
+    FAILED_ONLY_STEALTHED = 95,
+    FAILED_ONLY_UNDERWATER = 96,
+    FAILED_OUT_OF_RANGE = 97,
+    FAILED_PACIFIED = 98,
+    FAILED_POSSESSED = 99,
+    FAILED_REAGENTS = 100,
+    FAILED_REQUIRES_AREA = 101,
+    FAILED_REQUIRES_FOCUS = 102,
+    FAILED_ROOTED = 103,
+    FAILED_SILENCED = 104,
+    FAILED_IN_PROGRESS = 105,
+    FAILED_LEARNED = 106,
+    FAILED_UNAVAILABLE = 107,
+    FAILED_STUNNED = 108,
+    FAILED_TARGETS_DEAD = 109,
+    FAILED_TARGET_AFFECTING_COMBAT = 110,
+    FAILED_TARGET_AURASTATE = 111,
+    FAILED_TARGET_DUELING = 112,
+    FAILED_TARGET_ENEMY = 113,
+    FAILED_TARGET_ENRAGED = 114,
+    FAILED_TARGET_FRIENDLY = 115,
+    FAILED_TARGET_IN_COMBAT = 116,
+    FAILED_TARGET_IS_PLAYER = 117,
+    FAILED_TARGET_IS_PLAYER_CONTROLLED = 118,
+    FAILED_TARGET_NOT_DEAD = 119,
+    FAILED_TARGET_NOT_IN_PARTY = 120,
+    FAILED_TARGET_NOT_LOOTED = 121,
+    FAILED_TARGET_NOT_PLAYER = 122,
+    FAILED_TARGET_NO_POCKETS = 123,
+    FAILED_TARGET_NO_WEAPONS = 124,
+    FAILED_TARGET_NO_RANGED_WEAPONS = 125,
+    FAILED_TARGET_UNSKINNABLE = 126,
+    FAILED_THIRST_SATIATED = 127,
+    FAILED_TOO_CLOSE = 128,
+    FAILED_TOO_MANY_OF_ITEM = 129,
+    FAILED_TOTEM_CATEGORY = 130,
+    FAILED_TOTEMS = 131,
+    FAILED_TRY_AGAIN = 132,
+    FAILED_UNIT_NOT_BEHIND = 133,
+    FAILED_UNIT_NOT_INFRONT = 134,
+    FAILED_WRONG_PET_FOOD = 135,
+    FAILED_NOT_WHILE_FATIGUED = 136,
+    FAILED_TARGET_NOT_IN_INSTANCE = 137,
+    FAILED_NOT_WHILE_TRADING = 138,
+    FAILED_TARGET_NOT_IN_RAID = 139,
+    FAILED_TARGET_FREEFORALL = 140,
+    FAILED_NO_EDIBLE_CORPSES = 141,
+    FAILED_ONLY_BATTLEGROUNDS = 142,
+    FAILED_TARGET_NOT_GHOST = 143,
+    FAILED_TRANSFORM_UNUSABLE = 144,
+    FAILED_WRONG_WEATHER = 145,
+    FAILED_DAMAGE_IMMUNE = 146,
+    FAILED_PREVENTED_BY_MECHANIC = 147,
+    FAILED_PLAY_TIME = 148,
+    FAILED_REPUTATION = 149,
+    FAILED_MIN_SKILL = 150,
+    FAILED_NOT_IN_ARENA = 151,
+    FAILED_NOT_ON_SHAPESHIFT = 152,
+    FAILED_NOT_ON_STEALTHED = 153,
+    FAILED_NOT_ON_DAMAGE_IMMUNE = 154,
+    FAILED_NOT_ON_MOUNTED = 155,
+    FAILED_TOO_SHALLOW = 156,
+    FAILED_TARGET_NOT_IN_SANCTUARY = 157,
+    FAILED_TARGET_IS_TRIVIAL = 158,
+    FAILED_BM_OR_INVISGOD = 159,
+    FAILED_EXPERT_RIDING_REQUIREMENT = 160,
+    FAILED_ARTISAN_RIDING_REQUIREMENT = 161,
+    FAILED_NOT_IDLE = 162,
+    FAILED_NOT_INACTIVE = 163,
+    FAILED_PARTIAL_PLAYTIME = 164,
+    FAILED_NO_PLAYTIME = 165,
+    FAILED_NOT_IN_BATTLEGROUND = 166,
+    FAILED_NOT_IN_RAID_INSTANCE = 167,
+    FAILED_ONLY_IN_ARENA = 168,
+    FAILED_TARGET_LOCKED_TO_RAID_INSTANCE = 169,
+    FAILED_ON_USE_ENCHANT = 170,
+    FAILED_NOT_ON_GROUND = 171,
+    FAILED_CUSTOM_ERROR = 172,
+    FAILED_CANT_DO_THAT_RIGHT_NOW = 173,
+    FAILED_TOO_MANY_SOCKETS = 174,
+    FAILED_INVALID_GLYPH = 175,
+    FAILED_UNIQUE_GLYPH = 176,
+    FAILED_GLYPH_SOCKET_LOCKED = 177,
+    FAILED_NO_VALID_TARGETS = 178,
+    FAILED_ITEM_AT_MAX_CHARGES = 179,
+    FAILED_NOT_IN_BARBERSHOP = 180,
+    FAILED_FISHING_TOO_LOW = 181,
+    FAILED_ITEM_ENCHANT_TRADE_WINDOW = 182,
+    FAILED_SUMMON_PENDING = 183,
+    FAILED_MAX_SOCKETS = 184,
+    FAILED_PET_CAN_RENAME = 185,
+    FAILED_TARGET_CANNOT_BE_RESURRECTED = 186,
+    FAILED_UNKNOWN = 187, // actually doesn't exist in client
+
+    CAST_OK = 255 // custom value, must not be sent to client
+}
+declare const enum EquipmentSlots /**@realType:uint8*/ {
+    START        = 0,
+    HEAD         = 0,
+    NECK         = 1,
+    SHOULDERS    = 2,
+    BODY         = 3,
+    CHEST        = 4,
+    WAIST        = 5,
+    LEGS         = 6,
+    FEET         = 7,
+    WRISTS       = 8,
+    HANDS        = 9,
+    FINGER1      = 10,
+    FINGER2      = 11,
+    TRINKET1     = 12,
+    TRINKET2     = 13,
+    BACK         = 14,
+    MAINHAND     = 15,
+    OFFHAND      = 16,
+    RANGED       = 17,
+    TABARD       = 18,
+    END          = 19
+}
 declare const enum InventorySlots /**@realType:uint32*/{
     BAG_1 = 19,
     BAG_2 = 20,
     BAG_3 = 21,
     BAG_4 = 22
 }
-declare const enum CorpseType {} /** Corpse.h:CorpseType */
-declare const enum CreatureFamily {} /** SharedDefines.h:CreatureFamily */
-declare const enum RemoveMethod {} /** SharedDefines.h:RemoveMethod */
-declare const enum QuestFlags {} /** QuestDef.h:QuestFlags */
-declare const enum TeamId {} /** SharedDefines.h:TeamId */
-declare const enum WeatherType {} /** SharedDefines.h:WeatherType */
-declare const enum GOState {} /** SharedDefines.h:GOState */
-declare const enum LootState {} /** GameObject.h:LootState */
-declare const enum TempSummonType {} /** ObjectDefines.h:TempSummonType */
-declare const enum TypeID {} /** ObjectGuid.h:TypeID */
-declare const enum CurrentSpellTypes {} /** Unit.h:CurrentSpellTypes */
+declare const enum CorpseType /**@realType:uint32*/ {
+    BONES             = 0,
+    RESURRECTABLE_PVE = 1,
+    RESURRECTABLE_PVP = 2
+}
+declare const enum CreatureFamily /**@realType:uint32*/ {
+    NONE                = 0,
+    WOLF                = 1,
+    CAT                 = 2,
+    SPIDER              = 3,
+    BEAR                = 4,
+    BOAR                = 5,
+    CROCOLISK           = 6,
+    CARRION_BIRD        = 7,
+    CRAB                = 8,
+    GORILLA             = 9,
+    HORSE_CUSTOM        = 10,   // Does not exist in DBC but used for horse like beasts in DB
+    RAPTOR              = 11,
+    TALLSTRIDER         = 12,
+    FELHUNTER           = 15,
+    VOIDWALKER          = 16,
+    SUCCUBUS            = 17,
+    DOOMGUARD           = 19,
+    SCORPID             = 20,
+    TURTLE              = 21,
+    IMP                 = 23,
+    BAT                 = 24,
+    HYENA               = 25,
+    BIRD_OF_PREY        = 26,
+    WIND_SERPENT        = 27,
+    REMOTE_CONTROL      = 28,
+    FELGUARD            = 29,
+    DRAGONHAWK          = 30,
+    RAVAGER             = 31,
+    WARP_STALKER        = 32,
+    SPOREBAT            = 33,
+    NETHER_RAY          = 34,
+    SERPENT             = 35,
+    MOTH                = 37,
+    CHIMAERA            = 38,
+    DEVILSAUR           = 39,
+    GHOUL               = 40,
+    SILITHID            = 41,
+    WORM                = 42,
+    RHINO               = 43,
+    WASP                = 44,
+    CORE_HOUND          = 45,
+    SPIRIT_BEAST        = 46
+}
+declare const enum RemoveMethod /**@realType:uint8*/ {
+    DEFAULT  = 0,
+    KICK     = 1,
+    LEAVE    = 2,
+    KICK_LFG = 3
+}
+declare const enum QuestFlags /**@realType:uint32*/ {
+    // Flags used at server and sent to client
+    NONE                    = 0x00000000,
+    STAY_ALIVE              = 0x00000001,   // Not used currently
+    PARTY_ACCEPT            = 0x00000002,   // Not used currently. If player in party, all players that can accept this quest will receive confirmation box to accept quest CMSG_QUEST_CONFIRM_ACCEPT/SMSG_QUEST_CONFIRM_ACCEPT
+    EXPLORATION             = 0x00000004,   // Not used currently
+    SHARABLE                = 0x00000008,   // Can be shared: Player::CanShareQuest()
+    HAS_CONDITION           = 0x00000010,   // Not used currently
+    HIDE_REWARD_POI         = 0x00000020,   // Not used currently: Unsure of content
+    RAID                    = 0x00000040,   // Can be completed while in raid
+    TBC                     = 0x00000080,   // Not used currently: Available if TBC expansion enabled only
+    NO_MONEY_FROM_XP        = 0x00000100,   // Not used currently: Experience is not converted to gold at max level
+    HIDDEN_REWARDS          = 0x00000200,   // Items and money rewarded only sent in SMSG_QUESTGIVER_OFFER_REWARD (not in SMSG_QUEST_GIVER_QUEST_DETAILS or in client quest log(SMSG_QUEST_QUERY_RESPONSE))
+    TRACKING                = 0x00000400,   // These quests are automatically rewarded on quest complete and they will never appear in quest log client side.
+    DEPRECATE_REPUTATION    = 0x00000800,   // Not used currently
+    DAILY                   = 0x00001000,   // Used to know quest is Daily one
+    FLAGS_PVP               = 0x00002000,   // Having this quest in log forces PvP flag
+    UNAVAILABLE             = 0x00004000,   // Used on quests that are not generically available
+    WEEKLY                  = 0x00008000,
+    AUTOCOMPLETE            = 0x00010000,   // auto complete
+    DISPLAY_ITEM_IN_TRACKER = 0x00020000,   // Displays usable item in quest tracker
+    OBJ_TEXT                = 0x00040000,   // use Objective text as Complete text
+    AUTO_ACCEPT             = 0x00080000,   // The client recognizes this flag as auto-accept. However, NONE of the current quests (3.3.5a) have this flag. Maybe blizz used to use it, or will use it in the future.
+
+    // ... 4.x added flags up to 0x80000000 - all unknown for now
+}
+declare const enum TeamId /**@realType:uint32*/ {
+    ALLIANCE = 0,
+    HORDE,
+    NEUTRAL
+}
+declare const enum WeatherType /**@realType:uint32*/ {
+    FINE       = 0,
+    RAIN       = 1,
+    SNOW       = 2,
+    STORM      = 3,
+    THUNDERS   = 86,
+    BLACKRAIN  = 90
+}
+declare const enum GOState /**@realType:uint8*/ {
+    ACTIVE             = 0,                        // show in world as used and not reset (closed door open)
+    READY              = 1,                        // show in world as ready (closed door close)
+    DESTROYED          = 2                         // show the object in-game as already used and not yet reset (e.g. door opened by a cannon blast)
+}
+declare const enum LootState /**@realType:uint32*/ {
+    NOT_READY = 0,
+    READY,                                               // can be ready but despawned, and then not possible activate until spawn
+    ACTIVATED,
+    JUST_DEACTIVATED
+}
+declare const enum TempSummonType /**@realType:uint32*/ {
+    TIMED_OR_DEAD_DESPAWN       = 1,             // despawns after a specified time OR when the creature disappears
+    TIMED_OR_CORPSE_DESPAWN     = 2,             // despawns after a specified time OR when the creature dies
+    TIMED_DESPAWN               = 3,             // despawns after a specified time
+    TIMED_DESPAWN_OUT_OF_COMBAT = 4,             // despawns after a specified time after the creature is out of combat
+    CORPSE_DESPAWN              = 5,             // despawns instantly after death
+    CORPSE_TIMED_DESPAWN        = 6,             // despawns after a specified time after death
+    DEAD_DESPAWN                = 7,             // despawns when the creature disappears
+    MANUAL_DESPAWN              = 8              // despawns when UnSummon() is called
+}
+declare const enum TypeID /**@realType:uint32*/ {
+    OBJECT        = 0,
+    ITEM          = 1,
+    CONTAINER     = 2,
+    UNIT          = 3,
+    PLAYER        = 4,
+    GAMEOBJECT    = 5,
+    DYNAMICOBJECT = 6,
+    CORPSE        = 7
+}
+declare const enum CurrentSpellTypes /**@realType:uint8*/ {
+    MELEE             = 0,
+    GENERIC           = 1,
+    CHANNELED         = 2,
+    AUTOREPEAT        = 3
+}
 declare const enum Powers /**@realType:int8 */ {
     HEALTH                        = -2,
     MANA                          = 0,
@@ -95,13 +460,87 @@ declare const enum Powers /**@realType:int8 */ {
     RUNE                          = 5,
     RUNIC_POWER                   = 6,
 } /**@realType:int8 */
-declare const enum CreatureType {} /** SharedDefines.h:CreatureType */
-declare const enum ReactStates {} /** UnitDefines.h:ReactStates */
-declare const enum LocaleConstant {} /** Common.h:LocaleConstant */
-declare const enum UnitMoveType {} /** UnitDefines.h:UnitMoveType */
-declare const enum MovementGeneratorType {} /** MovementDefines.h:MovementGeneratorType */
-declare const enum SheathState {} /** UnitDefines.h:SheathState */
-declare const enum SpellSchools {} /** SharedDefines.h:SpellSchools */
+declare const enum CreatureType /**@realType:uint32*/ {
+    BEAST            = 1,
+    DRAGONKIN        = 2,
+    DEMON            = 3,
+    ELEMENTAL        = 4,
+    GIANT            = 5,
+    UNDEAD           = 6,
+    HUMANOID         = 7,
+    CRITTER          = 8,
+    MECHANICAL       = 9,
+    NOT_SPECIFIED    = 10,
+    TOTEM            = 11,
+    NON_COMBAT_PET   = 12,
+    GAS_CLOUD        = 13
+}
+declare const enum ReactStates /**@realType:uint8*/ {
+    PASSIVE    = 0,
+    DEFENSIVE  = 1,
+    AGGRESSIVE = 2
+}
+declare const enum LocaleConstant /**@realType:uint8*/ {
+    enUS = 0,
+    koKR = 1,
+    frFR = 2,
+    deDE = 3,
+    zhCN = 4,
+    zhTW = 5,
+    esES = 6,
+    esMX = 7,
+    ruRU = 8,
+
+    TOTAL_LOCALES
+}
+declare const enum UnitMoveType /**@realType:uint32*/ {
+    WALK           = 0,
+    RUN            = 1,
+    RUN_BACK       = 2,
+    SWIM           = 3,
+    SWIM_BACK      = 4,
+    TURN_RATE      = 5,
+    FLIGHT         = 6,
+    FLIGHT_BACK    = 7,
+    PITCH_RATE     = 8
+}
+declare const enum MovementGeneratorType /**@realType:uint8*/ {
+    IDLE                = 0,     // IdleMovementGenerator.h
+    RANDOM              = 1,     // RandomMovementGenerator.h
+    WAYPOINT            = 2,     // WaypointMovementGenerator.h
+    MAX_DB              = 3,     // Below motion types can't be set in DB.
+    CONFUSED            = 4,     // ConfusedMovementGenerator.h
+    CHASE               = 5,     // ChaseMovementGenerator.h
+    HOME                = 6,     // HomeMovementGenerator.h
+    FLIGHT              = 7,     // FlightPathMovementGenerator.h
+    POINT               = 8,     // PointMovementGenerator.h
+    FLEEING             = 9,     // FleeingMovementGenerator.h
+    DISTRACT            = 10,    // IdleMovementGenerator.h
+    ASSISTANCE          = 11,    // PointMovementGenerator.h
+    ASSISTANCE_DISTRACT = 12,    // IdleMovementGenerator.h
+    TIMED_FLEEING       = 13,    // FleeingMovementGenerator.h
+    FOLLOW              = 14,    // FollowMovementGenerator.h
+    ROTATE              = 15,    // IdleMovementGenerator.h
+    EFFECT              = 16,
+    SPLINE_CHAIN        = 17,    // SplineChainMovementGenerator.h
+    FORMATION           = 18,    // FormationMovementGenerator.h
+    MAX                          // SKIP
+}
+declare const enum SheathState /**@realType:uint8*/ {
+    UNARMED  = 0,                              // non prepared weapon
+    MELEE    = 1,                              // prepared melee weapon
+    RANGED   = 2                               // prepared ranged weapon
+}
+declare const enum SpellSchools /**@realType:uint32*/ {
+    NORMAL                 = 0, // TITLE Physical
+    HOLY                   = 1, // TITLE Holy
+    FIRE                   = 2, // TITLE Fire
+    NATURE                 = 3, // TITLE Nature
+    FROST                  = 4, // TITLE Frost
+    SHADOW                 = 5, // TITLE Shadow
+    ARCANE                 = 6, // TITLE Arcane
+    MAX_SPELL_SCHOOL                    = 7  // SKIP
+}
 declare const enum SpellSchoolMask /**@realType:uint32 */ {
     NONE    = 0,
     NORMAL  = 1,
@@ -112,26 +551,607 @@ declare const enum SpellSchoolMask /**@realType:uint32 */ {
     SHADOW  = 32,
     ARCANE  = 64,
 }
-declare const enum GossipOptionIcon {} /** GossipDef.h:GossipOptionIcon */
-declare const enum ProgressType {} /** AchievementMgr.h:ProgressType */
+declare const enum GossipOptionIcon /**@realType:uint32*/ {
+    CHAT                = 0,                    // white chat bubble
+    VENDOR              = 1,                    // brown bag
+    TAXI                = 2,                    // flightmarker (paperplane)
+    TRAINER             = 3,                    // brown book (trainer)
+    INTERACT_1          = 4,                    // golden interaction wheel
+    INTERACT_2          = 5,                    // golden interaction wheel
+    MONEY_BAG           = 6,                    // brown bag (with gold coin in lower corner)
+    TALK                = 7,                    // white chat bubble (with "..." inside)
+    TABARD              = 8,                    // white tabard
+    BATTLE              = 9,                    // two crossed swords
+    DOT                 = 10,                   // yellow dot/point
+    CHAT_11             = 11,                   // white chat bubble
+    CHAT_12             = 12,                   // white chat bubble
+    CHAT_13             = 13,                   // white chat bubble
+    UNK_14              = 14,                   // INVALID - DO NOT USE
+    UNK_15              = 15,                   // INVALID - DO NOT USE
+    CHAT_16             = 16,                   // white chat bubble
+    CHAT_17             = 17,                   // white chat bubble
+    CHAT_18             = 18,                   // white chat bubble
+    CHAT_19             = 19,                   // white chat bubble
+    CHAT_20             = 20,                   // white chat bubble
+    MAX
+}
+declare const enum ProgressType /**@realType:uint32*/ {
+    SET,
+    ACCUMULATE,
+    HIGHEST
+}
 
-declare const enum WeaponAttackType {} /** SharedDefines.h:WeaponAttackType */
+declare const enum WeaponAttackType /**@realType:uint8*/ {
+    BASE   = 0,
+    OFF    = 1,
+    RANGED = 2,
+    MAX
+}
 
-declare const enum RuneType {} /** Player.h:RuneType */
+declare const enum RuneType /**@realType:uint8*/ {
+    RUNE_BLOOD      = 0,
+    RUNE_UNHOLY     = 1,
+    RUNE_FROST      = 2,
+    RUNE_DEATH      = 3,
+    NUM_RUNE_TYPES  = 4
+}
 
-declare const enum AuraRemoveMode {} /** SpellAuraDefines.h:AuraRemoveMode */
+declare const enum AuraRemoveMode /**@realType:uint32*/ {
+    NONE = 0,
+    BY_DEFAULT = 1,       // scripted remove, remove by stack with aura with different ids and sc aura remove
+    BY_CANCEL,
+    BY_ENEMY_SPELL,       // dispel and absorb aura destroy
+    BY_EXPIRE,            // aura duration has ended
+    BY_DEATH
+}
 
-declare const enum Stats {} /** SharedDefines.h:Stats */
+declare const enum Stats /**@realType:uint32*/ {
+    STRENGTH                      = 0,
+    AGILITY                       = 1,
+    STAMINA                       = 2,
+    INTELLECT                     = 3,
+    SPIRIT                        = 4,
+    MAX_STATS
+}
 
-declare const enum Mechanics { } /** SharedDefines.h:Mechanics */
+declare const enum Mechanics /**@realType:uint32*/ {
+    NONE             = 0,
+    CHARM            = 1,
+    DISORIENTED      = 2,
+    DISARM           = 3,
+    DISTRACT         = 4,
+    FEAR             = 5,
+    GRIP             = 6,
+    ROOT             = 7,
+    SLOW_ATTACK      = 8,
+    SILENCE          = 9,
+    SLEEP            = 10,
+    SNARE            = 11,
+    STUN             = 12,
+    FREEZE           = 13,
+    KNOCKOUT         = 14,
+    BLEED            = 15,
+    BANDAGE          = 16,
+    POLYMORPH        = 17,
+    BANISH           = 18,
+    SHIELD           = 19,
+    SHACKLE          = 20,
+    MOUNT            = 21,
+    INFECTED         = 22,
+    TURN             = 23,
+    HORROR           = 24,
+    INVULNERABILITY  = 25,
+    INTERRUPT        = 26,
+    DAZE             = 27,
+    DISCOVERY        = 28,
+    IMMUNE_SHIELD    = 29,                         // Divine (Blessing) Shield/Protection and Ice Block
+    SAPPED           = 30,
+    ENRAGED          = 31,
+    MAX_MECHANIC              = 32 // SKIP
+}
 
-declare const enum SpellEffects { } /** SharedDefines.h:SpellEffects */
+declare const enum SpellEffects /**@realType:uint32*/ {
+    NONE                               = 0,
+    INSTAKILL                          = 1,
+    SCHOOL_DAMAGE                      = 2,
+    DUMMY                              = 3,
+    PORTAL_TELEPORT                    = 4,
+    TELEPORT_UNITS                     = 5,
+    APPLY_AURA                         = 6,
+    ENVIRONMENTAL_DAMAGE               = 7,
+    POWER_DRAIN                        = 8,
+    HEALTH_LEECH                       = 9,
+    HEAL                               = 10,
+    BIND                               = 11,
+    PORTAL                             = 12,
+    RITUAL_BASE                        = 13,
+    RITUAL_SPECIALIZE                  = 14,
+    RITUAL_ACTIVATE_PORTAL             = 15,
+    QUEST_COMPLETE                     = 16,
+    WEAPON_DAMAGE_NOSCHOOL             = 17,
+    RESURRECT                          = 18,
+    ADD_EXTRA_ATTACKS                  = 19,
+    DODGE                              = 20,
+    EVADE                              = 21,
+    PARRY                              = 22,
+    BLOCK                              = 23,
+    CREATE_ITEM                        = 24,
+    WEAPON                             = 25,
+    DEFENSE                            = 26,
+    PERSISTENT_AREA_AURA               = 27,
+    SUMMON                             = 28,
+    LEAP                               = 29,
+    ENERGIZE                           = 30,
+    WEAPON_PERCENT_DAMAGE              = 31,
+    TRIGGER_MISSILE                    = 32,
+    OPEN_LOCK                          = 33,
+    SUMMON_CHANGE_ITEM                 = 34,
+    APPLY_AREA_AURA_PARTY              = 35,
+    LEARN_SPELL                        = 36,
+    SPELL_DEFENSE                      = 37,
+    DISPEL                             = 38,
+    LANGUAGE                           = 39,
+    DUAL_WIELD                         = 40,
+    JUMP                               = 41,
+    JUMP_DEST                          = 42,
+    TELEPORT_UNITS_FACE_CASTER         = 43,
+    SKILL_STEP                         = 44,
+    ADD_HONOR                          = 45,
+    SPAWN                              = 46,
+    TRADE_SKILL                        = 47,
+    STEALTH                            = 48,
+    DETECT                             = 49,
+    TRANS_DOOR                         = 50,
+    FORCE_CRITICAL_HIT                 = 51,
+    GUARANTEE_HIT                      = 52,
+    ENCHANT_ITEM                       = 53,
+    ENCHANT_ITEM_TEMPORARY             = 54,
+    TAMECREATURE                       = 55,
+    SUMMON_PET                         = 56,
+    LEARN_PET_SPELL                    = 57,
+    WEAPON_DAMAGE                      = 58,
+    CREATE_RANDOM_ITEM                 = 59,
+    PROFICIENCY                        = 60,
+    SEND_EVENT                         = 61,
+    POWER_BURN                         = 62,
+    THREAT                             = 63,
+    TRIGGER_SPELL                      = 64,
+    APPLY_AREA_AURA_RAID               = 65,
+    CREATE_MANA_GEM                    = 66,
+    HEAL_MAX_HEALTH                    = 67,
+    INTERRUPT_CAST                     = 68,
+    DISTRACT                           = 69,
+    PULL                               = 70,
+    PICKPOCKET                         = 71,
+    ADD_FARSIGHT                       = 72,
+    UNTRAIN_TALENTS                    = 73,
+    APPLY_GLYPH                        = 74,
+    HEAL_MECHANICAL                    = 75,
+    SUMMON_OBJECT_WILD                 = 76,
+    SCRIPT_EFFECT                      = 77,
+    ATTACK                             = 78,
+    SANCTUARY                          = 79,
+    ADD_COMBO_POINTS                   = 80,
+    CREATE_HOUSE                       = 81,
+    BIND_SIGHT                         = 82,
+    DUEL                               = 83,
+    STUCK                              = 84,
+    SUMMON_PLAYER                      = 85,
+    ACTIVATE_OBJECT                    = 86,
+    GAMEOBJECT_DAMAGE                  = 87,
+    GAMEOBJECT_REPAIR                  = 88,
+    GAMEOBJECT_SET_DESTRUCTION_STATE   = 89,
+    KILL_CREDIT                        = 90,
+    THREAT_ALL                         = 91,
+    ENCHANT_HELD_ITEM                  = 92,
+    FORCE_DESELECT                     = 93,
+    SELF_RESURRECT                     = 94,
+    SKINNING                           = 95,
+    CHARGE                             = 96,
+    CAST_BUTTON                        = 97,
+    KNOCK_BACK                         = 98,
+    DISENCHANT                         = 99,
+    INEBRIATE                          = 100,
+    FEED_PET                           = 101,
+    DISMISS_PET                        = 102,
+    REPUTATION                         = 103,
+    SUMMON_OBJECT_SLOT1                = 104,
+    SUMMON_OBJECT_SLOT2                = 105,
+    SUMMON_OBJECT_SLOT3                = 106,
+    SUMMON_OBJECT_SLOT4                = 107,
+    DISPEL_MECHANIC                    = 108,
+    RESURRECT_PET                      = 109,
+    DESTROY_ALL_TOTEMS                 = 110,
+    DURABILITY_DAMAGE                  = 111,
+    SPELL_EFFECT_112                   = 112,
+    RESURRECT_NEW                      = 113,
+    ATTACK_ME                          = 114,
+    DURABILITY_DAMAGE_PCT              = 115,
+    SKIN_PLAYER_CORPSE                 = 116,
+    SPIRIT_HEAL                        = 117,
+    SKILL                              = 118,
+    APPLY_AREA_AURA_PET                = 119,
+    TELEPORT_GRAVEYARD                 = 120,
+    NORMALIZED_WEAPON_DMG              = 121,
+    SPELL_EFFECT_122                   = 122,
+    SEND_TAXI                          = 123,
+    PULL_TOWARDS                       = 124,
+    MODIFY_THREAT_PERCENT              = 125,
+    STEAL_BENEFICIAL_BUFF              = 126,
+    PROSPECTING                        = 127,
+    APPLY_AREA_AURA_FRIEND             = 128,
+    APPLY_AREA_AURA_ENEMY              = 129,
+    REDIRECT_THREAT                    = 130,
+    PLAY_SOUND                         = 131,
+    PLAY_MUSIC                         = 132,
+    UNLEARN_SPECIALIZATION             = 133,
+    KILL_CREDIT2                       = 134,
+    CALL_PET                           = 135,
+    HEAL_PCT                           = 136,
+    ENERGIZE_PCT                       = 137,
+    LEAP_BACK                          = 138,
+    CLEAR_QUEST                        = 139,
+    FORCE_CAST                         = 140,
+    FORCE_CAST_WITH_VALUE              = 141,
+    TRIGGER_SPELL_WITH_VALUE           = 142,
+    APPLY_AREA_AURA_OWNER              = 143,
+    KNOCK_BACK_DEST                    = 144,
+    PULL_TOWARDS_DEST                  = 145,
+    ACTIVATE_RUNE                      = 146,
+    QUEST_FAIL                         = 147,
+    TRIGGER_MISSILE_SPELL_WITH_VALUE   = 148,
+    CHARGE_DEST                        = 149,
+    QUEST_START                        = 150,
+    TRIGGER_SPELL_2                    = 151,
+    SUMMON_RAF_FRIEND                  = 152,
+    CREATE_TAMED_PET                   = 153,
+    DISCOVER_TAXI                      = 154,
+    TITAN_GRIP                         = 155,
+    ENCHANT_ITEM_PRISMATIC             = 156,
+    CREATE_ITEM_2                      = 157,
+    MILLING                            = 158,
+    ALLOW_RENAME_PET                   = 159,
+    FORCE_CAST_2                       = 160,
+    TALENT_SPEC_COUNT                  = 161,
+    TALENT_SPEC_SELECT                 = 162,
+    SPELL_EFFECT_163                   = 163,
+    REMOVE_AURA                        = 164,
+    TOTAL_SPELL_EFFECTS                             = 165
+}
 
-declare const enum AuraType { } /** SpellAuraDefines.h:AuraType */
+declare const enum AuraType /**@realType:uint32*/ {
+    NONE                                         = 0,
+    BIND_SIGHT                                   = 1,
+    MOD_POSSESS                                  = 2,
+    PERIODIC_DAMAGE                              = 3,
+    DUMMY                                        = 4,
+    MOD_CONFUSE                                  = 5,
+    MOD_CHARM                                    = 6,
+    MOD_FEAR                                     = 7,
+    PERIODIC_HEAL                                = 8,
+    MOD_ATTACKSPEED                              = 9,
+    MOD_THREAT                                   = 10,
+    MOD_TAUNT                                    = 11,
+    MOD_STUN                                     = 12,
+    MOD_DAMAGE_DONE                              = 13,
+    MOD_DAMAGE_TAKEN                             = 14,
+    DAMAGE_SHIELD                                = 15,
+    MOD_STEALTH                                  = 16,
+    MOD_STEALTH_DETECT                           = 17,
+    MOD_INVISIBILITY                             = 18,
+    MOD_INVISIBILITY_DETECT                      = 19,
+    OBS_MOD_HEALTH                               = 20,   // 20, 21 unofficial
+    OBS_MOD_POWER                                = 21,
+    MOD_RESISTANCE                               = 22,
+    PERIODIC_TRIGGER_SPELL                       = 23,
+    PERIODIC_ENERGIZE                            = 24,
+    MOD_PACIFY                                   = 25,
+    MOD_ROOT                                     = 26,
+    MOD_SILENCE                                  = 27,
+    REFLECT_SPELLS                               = 28,
+    MOD_STAT                                     = 29,
+    MOD_SKILL                                    = 30,
+    MOD_INCREASE_SPEED                           = 31,
+    MOD_INCREASE_MOUNTED_SPEED                   = 32,
+    MOD_DECREASE_SPEED                           = 33,
+    MOD_INCREASE_HEALTH                          = 34,
+    MOD_INCREASE_ENERGY                          = 35,
+    MOD_SHAPESHIFT                               = 36,
+    EFFECT_IMMUNITY                              = 37,
+    STATE_IMMUNITY                               = 38,
+    SCHOOL_IMMUNITY                              = 39,
+    DAMAGE_IMMUNITY                              = 40,
+    DISPEL_IMMUNITY                              = 41,
+    PROC_TRIGGER_SPELL                           = 42,
+    PROC_TRIGGER_DAMAGE                          = 43,
+    TRACK_CREATURES                              = 44,
+    TRACK_RESOURCES                              = 45,
+    SPELL_AURA_46                                = 46,   // Ignore all Gear test spells
+    MOD_PARRY_PERCENT                            = 47,
+    PERIODIC_TRIGGER_SPELL_FROM_CLIENT           = 48,   // One periodic spell
+    MOD_DODGE_PERCENT                            = 49,
+    MOD_CRITICAL_HEALING_AMOUNT                  = 50,
+    MOD_BLOCK_PERCENT                            = 51,
+    MOD_WEAPON_CRIT_PERCENT                      = 52,
+    PERIODIC_LEECH                               = 53,
+    MOD_HIT_CHANCE                               = 54,
+    MOD_SPELL_HIT_CHANCE                         = 55,
+    TRANSFORM                                    = 56,
+    MOD_SPELL_CRIT_CHANCE                        = 57,
+    MOD_INCREASE_SWIM_SPEED                      = 58,
+    MOD_DAMAGE_DONE_CREATURE                     = 59,
+    MOD_PACIFY_SILENCE                           = 60,
+    MOD_SCALE                                    = 61,
+    PERIODIC_HEALTH_FUNNEL                       = 62,
+    SPELL_AURA_63                                = 63,   // old PERIODIC_MANA_FUNNEL
+    PERIODIC_MANA_LEECH                          = 64,
+    MOD_CASTING_SPEED_NOT_STACK                  = 65,
+    FEIGN_DEATH                                  = 66,
+    MOD_DISARM                                   = 67,
+    MOD_STALKED                                  = 68,
+    SCHOOL_ABSORB                                = 69,
+    EXTRA_ATTACKS                                = 70,
+    MOD_SPELL_CRIT_CHANCE_SCHOOL                 = 71,
+    MOD_POWER_COST_SCHOOL_PCT                    = 72,
+    MOD_POWER_COST_SCHOOL                        = 73,
+    REFLECT_SPELLS_SCHOOL                        = 74,
+    MOD_LANGUAGE                                 = 75,
+    FAR_SIGHT                                    = 76,
+    MECHANIC_IMMUNITY                            = 77,
+    MOUNTED                                      = 78,
+    MOD_DAMAGE_PERCENT_DONE                      = 79,
+    MOD_PERCENT_STAT                             = 80,
+    SPLIT_DAMAGE_PCT                             = 81,
+    WATER_BREATHING                              = 82,
+    MOD_BASE_RESISTANCE                          = 83,
+    MOD_REGEN                                    = 84,
+    MOD_POWER_REGEN                              = 85,
+    CHANNEL_DEATH_ITEM                           = 86,
+    MOD_DAMAGE_PERCENT_TAKEN                     = 87,
+    MOD_HEALTH_REGEN_PERCENT                     = 88,
+    PERIODIC_DAMAGE_PERCENT                      = 89,
+    SPELL_AURA_90                                = 90,   // old MOD_RESIST_CHANCE
+    MOD_DETECT_RANGE                             = 91,
+    PREVENTS_FLEEING                             = 92,
+    MOD_UNATTACKABLE                             = 93,
+    INTERRUPT_REGEN                              = 94,
+    GHOST                                        = 95,
+    SPELL_MAGNET                                 = 96,
+    MANA_SHIELD                                  = 97,
+    MOD_SKILL_TALENT                             = 98,
+    MOD_ATTACK_POWER                             = 99,
+    AURAS_VISIBLE                                = 100,
+    MOD_RESISTANCE_PCT                           = 101,
+    MOD_MELEE_ATTACK_POWER_VERSUS                = 102,
+    MOD_TOTAL_THREAT                             = 103,
+    WATER_WALK                                   = 104,
+    FEATHER_FALL                                 = 105,
+    HOVER                                        = 106,
+    ADD_FLAT_MODIFIER                            = 107,
+    ADD_PCT_MODIFIER                             = 108,
+    ADD_TARGET_TRIGGER                           = 109,
+    MOD_POWER_REGEN_PERCENT                      = 110,
+    ADD_CASTER_HIT_TRIGGER                       = 111,
+    OVERRIDE_CLASS_SCRIPTS                       = 112,
+    MOD_RANGED_DAMAGE_TAKEN                      = 113,
+    MOD_RANGED_DAMAGE_TAKEN_PCT                  = 114,
+    MOD_HEALING                                  = 115,
+    MOD_REGEN_DURING_COMBAT                      = 116,
+    MOD_MECHANIC_RESISTANCE                      = 117,
+    MOD_HEALING_PCT                              = 118,
+    SPELL_AURA_119                               = 119,  // old SHARE_PET_TRACKING
+    UNTRACKABLE                                  = 120,
+    EMPATHY                                      = 121,
+    MOD_OFFHAND_DAMAGE_PCT                       = 122,
+    MOD_TARGET_RESISTANCE                        = 123,
+    MOD_RANGED_ATTACK_POWER                      = 124,
+    MOD_MELEE_DAMAGE_TAKEN                       = 125,
+    MOD_MELEE_DAMAGE_TAKEN_PCT                   = 126,
+    RANGED_ATTACK_POWER_ATTACKER_BONUS           = 127,
+    MOD_POSSESS_PET                              = 128,
+    MOD_SPEED_ALWAYS                             = 129,
+    MOD_MOUNTED_SPEED_ALWAYS                     = 130,
+    MOD_RANGED_ATTACK_POWER_VERSUS               = 131,
+    MOD_INCREASE_ENERGY_PERCENT                  = 132,
+    MOD_INCREASE_HEALTH_PERCENT                  = 133,
+    MOD_MANA_REGEN_INTERRUPT                     = 134,
+    MOD_HEALING_DONE                             = 135,
+    MOD_HEALING_DONE_PERCENT                     = 136,
+    MOD_TOTAL_STAT_PERCENTAGE                    = 137,
+    MOD_MELEE_HASTE                              = 138,
+    FORCE_REACTION                               = 139,
+    MOD_RANGED_HASTE                             = 140,
+    MOD_RANGED_AMMO_HASTE                        = 141,
+    MOD_BASE_RESISTANCE_PCT                      = 142,
+    MOD_RESISTANCE_EXCLUSIVE                     = 143,
+    SAFE_FALL                                    = 144,
+    MOD_PET_TALENT_POINTS                        = 145,
+    ALLOW_TAME_PET_TYPE                          = 146,
+    MECHANIC_IMMUNITY_MASK                       = 147,
+    RETAIN_COMBO_POINTS                          = 148,
+    REDUCE_PUSHBACK                              = 149,  //    Reduce Pushback
+    MOD_SHIELD_BLOCKVALUE_PCT                    = 150,
+    TRACK_STEALTHED                              = 151,  //    Track Stealthed
+    MOD_DETECTED_RANGE                           = 152,  //    Mod Detected Range
+    SPLIT_DAMAGE_FLAT                            = 153,  //    Split Damage Flat
+    MOD_STEALTH_LEVEL                            = 154,  //    Stealth Level Modifier
+    MOD_WATER_BREATHING                          = 155,  //    Mod Water Breathing
+    MOD_REPUTATION_GAIN                          = 156,  //    Mod Reputation Gain
+    PET_DAMAGE_MULTI                             = 157,  //    Mod Pet Damage
+    MOD_SHIELD_BLOCKVALUE                        = 158,
+    NO_PVP_CREDIT                                = 159,
+    MOD_AOE_AVOIDANCE                            = 160,
+    MOD_HEALTH_REGEN_IN_COMBAT                   = 161,
+    POWER_BURN                                   = 162,
+    MOD_CRIT_DAMAGE_BONUS                        = 163,
+    SPELL_AURA_164                               = 164,
+    MELEE_ATTACK_POWER_ATTACKER_BONUS            = 165,
+    MOD_ATTACK_POWER_PCT                         = 166,
+    MOD_RANGED_ATTACK_POWER_PCT                  = 167,
+    MOD_DAMAGE_DONE_VERSUS                       = 168,
+    MOD_CRIT_PERCENT_VERSUS                      = 169,
+    DETECT_AMORE                                 = 170,
+    MOD_SPEED_NOT_STACK                          = 171,
+    MOD_MOUNTED_SPEED_NOT_STACK                  = 172,
+    SPELL_AURA_173                               = 173,  // old ALLOW_CHAMPION_SPELLS
+    MOD_SPELL_DAMAGE_OF_STAT_PERCENT             = 174,  // by defeult intelect, dependent from MOD_SPELL_HEALING_OF_STAT_PERCENT
+    MOD_SPELL_HEALING_OF_STAT_PERCENT            = 175,
+    SPIRIT_OF_REDEMPTION                         = 176,
+    AOE_CHARM                                    = 177,
+    MOD_DEBUFF_RESISTANCE                        = 178,
+    MOD_ATTACKER_SPELL_CRIT_CHANCE               = 179,
+    MOD_FLAT_SPELL_DAMAGE_VERSUS                 = 180,
+    SPELL_AURA_181                               = 181,  // old MOD_FLAT_SPELL_CRIT_DAMAGE_VERSUS - possible flat spell crit damage versus
+    MOD_RESISTANCE_OF_STAT_PERCENT               = 182,
+    MOD_CRITICAL_THREAT                          = 183,
+    MOD_ATTACKER_MELEE_HIT_CHANCE                = 184,
+    MOD_ATTACKER_RANGED_HIT_CHANCE               = 185,
+    MOD_ATTACKER_SPELL_HIT_CHANCE                = 186,
+    MOD_ATTACKER_MELEE_CRIT_CHANCE               = 187,
+    MOD_ATTACKER_RANGED_CRIT_CHANCE              = 188,
+    MOD_RATING                                   = 189,
+    MOD_FACTION_REPUTATION_GAIN                  = 190,
+    USE_NORMAL_MOVEMENT_SPEED                    = 191,
+    MOD_MELEE_RANGED_HASTE                       = 192,
+    MELEE_SLOW                                   = 193,
+    MOD_TARGET_ABSORB_SCHOOL                     = 194,
+    MOD_TARGET_ABILITY_ABSORB_SCHOOL             = 195,
+    MOD_COOLDOWN                                 = 196,  // only 24818 Noxious Breath
+    MOD_ATTACKER_SPELL_AND_WEAPON_CRIT_CHANCE    = 197,
+    SPELL_AURA_198                               = 198,  // old MOD_ALL_WEAPON_SKILLS
+    MOD_INCREASES_SPELL_PCT_TO_HIT               = 199,
+    MOD_XP_PCT                                   = 200,
+    FLY                                          = 201,
+    IGNORE_COMBAT_RESULT                         = 202,
+    MOD_ATTACKER_MELEE_CRIT_DAMAGE               = 203,
+    MOD_ATTACKER_RANGED_CRIT_DAMAGE              = 204,
+    MOD_SCHOOL_CRIT_DMG_TAKEN                    = 205,
+    MOD_INCREASE_VEHICLE_FLIGHT_SPEED            = 206,
+    MOD_INCREASE_MOUNTED_FLIGHT_SPEED            = 207,
+    MOD_INCREASE_FLIGHT_SPEED                    = 208,
+    MOD_MOUNTED_FLIGHT_SPEED_ALWAYS              = 209,
+    MOD_VEHICLE_SPEED_ALWAYS                     = 210,
+    MOD_FLIGHT_SPEED_NOT_STACK                   = 211,
+    MOD_RANGED_ATTACK_POWER_OF_STAT_PERCENT      = 212,
+    MOD_RAGE_FROM_DAMAGE_DEALT                   = 213,
+    SPELL_AURA_214                               = 214,
+    ARENA_PREPARATION                            = 215,
+    HASTE_SPELLS                                 = 216,
+    MOD_MELEE_HASTE_2                            = 217, // NYI
+    HASTE_RANGED                                 = 218,
+    MOD_MANA_REGEN_FROM_STAT                     = 219,
+    MOD_RATING_FROM_STAT                         = 220,
+    MOD_DETAUNT                                  = 221,
+    SPELL_AURA_222                               = 222,
+    RAID_PROC_FROM_CHARGE                        = 223,
+    SPELL_AURA_224                               = 224,
+    RAID_PROC_FROM_CHARGE_WITH_VALUE             = 225,
+    PERIODIC_DUMMY                               = 226,
+    PERIODIC_TRIGGER_SPELL_WITH_VALUE            = 227,
+    DETECT_STEALTH                               = 228,
+    MOD_AOE_DAMAGE_AVOIDANCE                     = 229,
+    SPELL_AURA_230                               = 230,
+    PROC_TRIGGER_SPELL_WITH_VALUE                = 231,
+    MECHANIC_DURATION_MOD                        = 232,
+    CHANGE_MODEL_FOR_ALL_HUMANOIDS               = 233,  // client-side only
+    MECHANIC_DURATION_MOD_NOT_STACK              = 234,
+    MOD_DISPEL_RESIST                            = 235,
+    CONTROL_VEHICLE                              = 236,
+    MOD_SPELL_DAMAGE_OF_ATTACK_POWER             = 237,
+    MOD_SPELL_HEALING_OF_ATTACK_POWER            = 238,
+    MOD_SCALE_2                                  = 239,
+    MOD_EXPERTISE                                = 240,
+    FORCE_MOVE_FORWARD                           = 241,
+    MOD_SPELL_DAMAGE_FROM_HEALING                = 242,
+    MOD_FACTION                                  = 243,
+    COMPREHEND_LANGUAGE                          = 244,
+    MOD_AURA_DURATION_BY_DISPEL                  = 245,
+    MOD_AURA_DURATION_BY_DISPEL_NOT_STACK        = 246,
+    CLONE_CASTER                                 = 247,
+    MOD_COMBAT_RESULT_CHANCE                     = 248,
+    CONVERT_RUNE                                 = 249,
+    MOD_INCREASE_HEALTH_2                        = 250,
+    MOD_ENEMY_DODGE                              = 251,
+    MOD_SPEED_SLOW_ALL                           = 252,
+    MOD_BLOCK_CRIT_CHANCE                        = 253,
+    MOD_DISARM_OFFHAND                           = 254,
+    MOD_MECHANIC_DAMAGE_TAKEN_PERCENT            = 255,
+    NO_REAGENT_USE                               = 256,
+    MOD_TARGET_RESIST_BY_SPELL_CLASS             = 257,
+    SPELL_AURA_258                               = 258,
+    MOD_HOT_PCT                                  = 259,
+    SCREEN_EFFECT                                = 260,
+    PHASE                                        = 261,
+    ABILITY_IGNORE_AURASTATE                     = 262,
+    ALLOW_ONLY_ABILITY                           = 263,
+    SPELL_AURA_264                               = 264,
+    SPELL_AURA_265                               = 265,
+    SPELL_AURA_266                               = 266,
+    MOD_IMMUNE_AURA_APPLY_SCHOOL                 = 267,
+    MOD_ATTACK_POWER_OF_STAT_PERCENT = 268,
+    MOD_IGNORE_TARGET_RESIST                     = 269,
+    MOD_ABILITY_IGNORE_TARGET_RESIST             = 270,  // Possibly need swap vs 195 aura used only in 1 spell Chaos Bolt Passive
+    MOD_DAMAGE_FROM_CASTER                       = 271,
+    IGNORE_MELEE_RESET                           = 272,
+    X_RAY                                        = 273,
+    ABILITY_CONSUME_NO_AMMO                      = 274,
+    MOD_IGNORE_SHAPESHIFT                        = 275,
+    MOD_DAMAGE_DONE_FOR_MECHANIC                 = 276,  // NYI
+    MOD_MAX_AFFECTED_TARGETS                     = 277,
+    MOD_DISARM_RANGED                            = 278,
+    INITIALIZE_IMAGES                            = 279,
+    MOD_ARMOR_PENETRATION_PCT = 280,
+    MOD_HONOR_GAIN_PCT                           = 281,
+    MOD_BASE_HEALTH_PCT                          = 282,
+    MOD_HEALING_RECEIVED                         = 283,  // Possibly only for some spell family class spells
+    LINKED                                       = 284,
+    MOD_ATTACK_POWER_OF_ARMOR                    = 285,
+    ABILITY_PERIODIC_CRIT                        = 286,
+    DEFLECT_SPELLS                               = 287,
+    IGNORE_HIT_DIRECTION                         = 288,
+    PREVENT_DURABILITY_LOSS                      = 289,
+    MOD_CRIT_PCT                                 = 290,
+    MOD_XP_QUEST_PCT                             = 291,
+    OPEN_STABLE                                  = 292,
+    OVERRIDE_SPELLS                              = 293,
+    PREVENT_REGENERATE_POWER                     = 294,
+    SPELL_AURA_295                               = 295,
+    SET_VEHICLE_ID                               = 296,
+    BLOCK_SPELL_FAMILY                           = 297,
+    STRANGULATE                                  = 298,
+    SPELL_AURA_299                               = 299,
+    SHARE_DAMAGE_PCT                             = 300,
+    SCHOOL_HEAL_ABSORB                           = 301,
+    SPELL_AURA_302                               = 302,
+    MOD_DAMAGE_DONE_VERSUS_AURASTATE             = 303,
+    MOD_FAKE_INEBRIATE                           = 304,
+    MOD_MINIMUM_SPEED                            = 305,
+    SPELL_AURA_306                               = 306,
+    HEAL_ABSORB_TEST                             = 307,
+    MOD_CRIT_CHANCE_FOR_CASTER                   = 308,
+    SPELL_AURA_309                               = 309,
+    MOD_CREATURE_AOE_DAMAGE_AVOIDANCE            = 310,
+    SPELL_AURA_311                               = 311,
+    SPELL_AURA_312                               = 312,
+    SPELL_AURA_313                               = 313,
+    PREVENT_RESURRECTION                         = 314,
+    UNDERWATER_WALKING                           = 315,
+    PERIODIC_HASTE                               = 316,
+    TOTAL_AURAS                                             = 317
+}
 
-declare const enum SpellEffIndex { } /** SharedDefines.h:SpellEffIndex */
+declare const enum SpellEffIndex /**@realType:uint8*/ {
+    EFFECT_0 = 0,
+    EFFECT_1 = 1,
+    EFFECT_2 = 2
+}
 
-declare const enum SpellEffectHandleMode { } /** Spell.h:SpellEffectHandleMode */
+declare const enum SpellEffectHandleMode /**@realType:uint32*/ {
+    LAUNCH,
+    LAUNCH_TARGET,
+    HIT,
+    HIT_TARGET
+}
 
 declare interface TSMutable<T> {
     constructor(field: T);
@@ -6926,12 +7946,12 @@ declare interface TSItemTemplate extends TSEntityProvider {
     SetEntry(entry: uint32): void
     SetStatType(index: uint32, type: uint32): void
     SetStatValue(index: uint32, value: int32): void
-    SetDamageMinA(value: int64): void
-    SetDamageMinB(value: int64): void
-    SetDamageMaxA(value: int64): void
-    SetDamageMaxB(value: int64): void
-    SetDamageTypeA(value: int64): void
-    SetDamageTypeB(value: int64): void
+    SetDamageMinA(value: float): void
+    SetDamageMinB(value: float): void
+    SetDamageMaxA(value: float): void
+    SetDamageMaxB(value: float): void
+    SetDamageTypeA(value: uint32): void
+    SetDamageTypeB(value: uint32): void
     SetStatCount(value: uint32): void
 
     SaveItemTemplate(): void
