@@ -78,7 +78,6 @@ let apen = 44
 let sp = 45
 let spen = 47
 
-
 const statGroups: TSArray<TSArray<TSArray<float>>> = <TSArray<TSArray<TSArray<float>>>>[//statgroups
     //str groups
     [
