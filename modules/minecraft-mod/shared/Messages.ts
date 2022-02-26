@@ -1,4 +1,4 @@
-export const craftMessageID = 11;
+export const craftMessageID = 20;
 export const empty: TSArray<uint32> = [0, 0];
 export class craftMessage {
     itemIDs: TSArray<uint32> = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -53,7 +53,7 @@ export class craftMessage {
     }
 }
 
-export const returnCraftItemMessageID = 12;
+export const returnCraftItemMessageID = 21;
 export class returnCraftItemMessage {
     craftItem: uint32 = 0;
     craftItemCount: uint32 = 0;
@@ -84,7 +84,7 @@ export class returnCraftItemMessage {
     }
 }
 
-export const showScreenID = 13;
+export const showScreenID = 22;
 export class showScreen {
     value: uint32 = 0;
 
@@ -103,7 +103,7 @@ export class showScreen {
     }
 }
 
-export const spellChoicesID = 21;
+export const spellChoicesID = 23;
 export class spellChoices {
     spellIDs: TSArray<uint32> = [1];
     spellRarity: TSArray<uint32> = [1];
@@ -137,7 +137,7 @@ export class spellChoices {
     }
 }
 
-export const spellChoiceID = 22;
+export const spellChoiceID = 24;
 export class spellChoice {
     choice: uint32 = 1;
 
@@ -157,7 +157,7 @@ export class spellChoice {
 }
 
 
-export const itemCacheID = 23;
+export const itemCacheID = 25;
 export class itemCache {
     entry: uint32 = 0;
     type: uint8 = 0;

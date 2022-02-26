@@ -58,7 +58,7 @@ export class itemLootMessage {
     }
 }
 
-export const creatureNoExistMessageID = 4;
+export const creatureNoExistMessageID = 3;
 export class creatureNoExistMessage {
     finish: uint32 = 0;
 
@@ -77,7 +77,7 @@ export class creatureNoExistMessage {
     }
 }
 
-export const requestClassSpellsMessageID = 7;
+export const requestClassSpellsMessageID = 4;
 export class requestClassSpellsMessage {
     value: uint32 = 0;
 
@@ -96,7 +96,7 @@ export class requestClassSpellsMessage {
     }
 }
 
-export const sendClassSpellsMessageID = 8;
+export const sendClassSpellsMessageID = 5;
 export class sendClassSpellsMessage {
     level: uint32 = 0;
     spellID: uint32 = 0;
@@ -119,7 +119,7 @@ export class sendClassSpellsMessage {
     }
 }
 
-export const attemptToCompleteID = 23;
+export const attemptToCompleteID = 6;
 export class attemptToComplete {
     msg: uint32 = 0;
 
@@ -138,7 +138,7 @@ export class attemptToComplete {
     }
 }
 
-export const questInfoID = 24;
+export const questInfoID = 7;
 export class questInfo {
     reqType: uint8 = 0;
     reqID: uint32 = 0;
