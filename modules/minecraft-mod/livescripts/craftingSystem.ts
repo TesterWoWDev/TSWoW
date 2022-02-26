@@ -14,103 +14,10 @@ const blank2: TSArray<TSArray<uint32>> = [
     empty,
 ];
 const blank3: TSArray<uint32> = [0, 0, 0, 0, 0];
-
-const IDToType = CreateDictionary<uint32, TSArray<float>>({
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 0],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 1],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 2],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 3],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 4],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 5],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 6],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 7],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 8],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 9],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 10],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 11],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 12],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 13],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 14],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 15],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 16],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 17],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 18],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 19],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 20],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 21],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 22],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 23],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 24],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 25],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 26],
-    [GetID("item_template", "minecraft-mod",  'test')]: [0, 27],
-    //weapons
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 0],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 1],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 2],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 3],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 4],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 5],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 6],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 7],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 8],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 9],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 10],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 11],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 12],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 13],
-    [GetID("item_template", "minecraft-mod",  'test')]: [1, 14],
-})
-
-const AllItemTypes = [
-    //armor
-    [0, 0],
-    [0, 1],
-    [0, 2],
-    [0, 3],
-    [0, 4],
-    [0, 5],
-    [0, 6],
-    [0, 7],
-    [0, 8],
-    [0, 9],
-    [0, 10],
-    [0, 11],
-    [0, 12],
-    [0, 13],
-    [0, 14],
-    [0, 15],
-    [0, 16],
-    [0, 17],
-    [0, 18],
-    [0, 19],
-    [0, 20],
-    [0, 21],
-    [0, 22],
-    [0, 23],
-    [0, 24],
-    [0, 25],
-    [0, 26],
-    [0, 27],
-    //weapons
-    [1, 0],
-    [1, 1],
-    [1, 2],
-    [1, 3],
-    [1, 4],
-    [1, 5],
-    [1, 6],
-    [1, 7],
-    [1, 8],
-    [1, 9],
-    [1, 10],
-    [1, 11],
-    [1, 12],
-    [1, 13],
-    [1, 14],
-]
+const IDToType = CreateDictionary<uint32, TSArray<float>>({})
 
 export function handleCraftMessages(events: TSEvents) {
+    setupTable();
     events.CustomPacketID.OnReceive(craftMessageID, (_, packet, player) => {
         let message = new craftMessage(blank1, blank2, 0, blank3);
         message.read(packet);
@@ -182,8 +89,7 @@ export function handleCraftMessages(events: TSEvents) {
                                 message.positions[i][1] += -1;
                             }
                             if (!(isEnchant && i == 4)) {
-                                player.RemoveItem(player.GetItemByPos(message.positions[i][0], message.positions[i][1]))
-                                //player.RemoveItem(player.GetItemByEntry(message.itemIDs[i]), 1);
+                                player.RemoveItem(player.GetItemByEntry(message.itemIDs[i]), 1);
                             }
                         }
                     }
@@ -194,10 +100,10 @@ export function handleCraftMessages(events: TSEvents) {
                             message.positions[4][1]
                         );
                     } else {
-                        //if(IDToType[pkt.craftItem] != null){
-                        if (pkt.craftItem <= 500) {                                
-                            let itemChoice = AllItemTypes[pkt.craftItem]
-                            CreateCustomItem(player, itemChoice[0], itemChoice[1], Math.ceil(<float>(pkt.craftItem / 50)) * 5)
+                        
+                        if(IDToType.contains(pkt.craftItem)){
+                        let itemChoice = IDToType[pkt.craftItem]                             
+                            CreateCustomItem(player, itemChoice[0], itemChoice[1], player.GetLevel());//get tier later?
                         } else {
                             let itema = player.AddItem(pkt.craftItem, pkt.craftItemCount);
                             if (itema.IsNull()) {
@@ -239,5 +145,61 @@ export function handleCraftMessages(events: TSEvents) {
 
 function CreateCustomItem(player: TSPlayer, index1: number, index2: number, level: number): TSItem {
     return createItemWithChoices(player, index1, index2, level)
+}
+
+function setupTable() {
+    //ARMOR
+    GetIDTag('minecraft-mod','cloth-head').forEach((val,i,arr)=>{ IDToType[val] = [0,0]; });
+    GetIDTag('minecraft-mod','cloth-shoulder').forEach((val,i,arr)=>{ IDToType[val] = [0,1]; });
+    GetIDTag('minecraft-mod','cloth-chest').forEach((val,i,arr)=>{ IDToType[val] = [0,2]; });
+    GetIDTag('minecraft-mod','cloth-waist').forEach((val,i,arr)=>{ IDToType[val] = [0,3]; });
+    GetIDTag('minecraft-mod','cloth-legs').forEach((val,i,arr)=>{ IDToType[val] = [0,4]; });
+    GetIDTag('minecraft-mod','cloth-boots').forEach((val,i,arr)=>{ IDToType[val] = [0,5]; });
+    GetIDTag('minecraft-mod','cloth-wrists').forEach((val,i,arr)=>{ IDToType[val] = [0,6]; });
+    GetIDTag('minecraft-mod','cloth-hands').forEach((val,i,arr)=>{ IDToType[val] = [0,7]; });
+    GetIDTag('minecraft-mod','cloth-neck').forEach((val,i,arr)=>{ IDToType[val] = [0,24]; });
+    GetIDTag('minecraft-mod','cloth-ring').forEach((val,i,arr)=>{ IDToType[val] = [0,25]; });
+    GetIDTag('minecraft-mod','cloth-cloak').forEach((val,i,arr)=>{ IDToType[val] = [0,27]; });
+    GetIDTag('minecraft-mod','leather-head').forEach((val,i,arr)=>{ IDToType[val] = [0,8]; });
+    GetIDTag('minecraft-mod','leather-shoulder').forEach((val,i,arr)=>{ IDToType[val] = [0,9]; });
+    GetIDTag('minecraft-mod','leather-chest').forEach((val,i,arr)=>{ IDToType[val] = [0,10]; });
+    GetIDTag('minecraft-mod','leather-waist').forEach((val,i,arr)=>{ IDToType[val] = [0,11]; });
+    GetIDTag('minecraft-mod','leather-legs').forEach((val,i,arr)=>{ IDToType[val] = [0,12]; });
+    GetIDTag('minecraft-mod','leather-boots').forEach((val,i,arr)=>{ IDToType[val] = [0,13]; });
+    GetIDTag('minecraft-mod','leather-wrists').forEach((val,i,arr)=>{ IDToType[val] = [0,14]; });
+    GetIDTag('minecraft-mod','leather-hands').forEach((val,i,arr)=>{ IDToType[val] = [0,15]; });
+    GetIDTag('minecraft-mod','leather-neck').forEach((val,i,arr)=>{ IDToType[val] = [0,24]; });
+    GetIDTag('minecraft-mod','leather-ring').forEach((val,i,arr)=>{ IDToType[val] = [0,25]; });
+    GetIDTag('minecraft-mod','leather-cloak').forEach((val,i,arr)=>{ IDToType[val] = [0,27]; });
+    GetIDTag('minecraft-mod','mail-head').forEach((val,i,arr)=>{ IDToType[val] = [0,16]; });
+    GetIDTag('minecraft-mod','mail-shoulder').forEach((val,i,arr)=>{ IDToType[val] = [0,17]; });
+    GetIDTag('minecraft-mod','mail-chest').forEach((val,i,arr)=>{ IDToType[val] = [0,18]; });
+    GetIDTag('minecraft-mod','mail-waist').forEach((val,i,arr)=>{ IDToType[val] = [0,19]; });
+    GetIDTag('minecraft-mod','mail-legs').forEach((val,i,arr)=>{ IDToType[val] = [0,20]; });
+    GetIDTag('minecraft-mod','mail-boots').forEach((val,i,arr)=>{ IDToType[val] = [0,21]; });
+    GetIDTag('minecraft-mod','mail-wrists').forEach((val,i,arr)=>{ IDToType[val] = [0,22]; });
+    GetIDTag('minecraft-mod','mail-hands').forEach((val,i,arr)=>{ IDToType[val] = [0,23]; });
+    GetIDTag('minecraft-mod','mail-neck').forEach((val,i,arr)=>{ IDToType[val] = [0,24]; });
+    GetIDTag('minecraft-mod','mail-ring').forEach((val,i,arr)=>{ IDToType[val] = [0,25]; });
+    GetIDTag('minecraft-mod','mail-cloak').forEach((val,i,arr)=>{ IDToType[val] = [0,27]; });
+    GetIDTag('minecraft-mod','trinket').forEach((val,i,arr)=>{ IDToType[val] = [0,26]; });
+    
+    //WEAPONS
+    GetIDTag('minecraft-mod','1h-axe').forEach((val,i,arr)=>{ IDToType[val] = [1,0]; });
+    GetIDTag('minecraft-mod','2h-axe').forEach((val,i,arr)=>{ IDToType[val] = [1,1]; });
+    GetIDTag('minecraft-mod','bow').forEach((val,i,arr)=>{ IDToType[val] = [1,2]; });
+    //GetIDTag('minecraft-mod','gun').forEach((val,i,arr)=>{ IDToType[val] = [1,3]; });//no crafting for gun yet
+    GetIDTag('minecraft-mod','1h-mace').forEach((val,i,arr)=>{ IDToType[val] = [1,4]; });
+    GetIDTag('minecraft-mod','2h-mace').forEach((val,i,arr)=>{ IDToType[val] = [1,5]; });
+    GetIDTag('minecraft-mod','polearm').forEach((val,i,arr)=>{ IDToType[val] = [1,6]; });
+    GetIDTag('minecraft-mod','1h-sword').forEach((val,i,arr)=>{ IDToType[val] = [1,7]; });
+    GetIDTag('minecraft-mod','2h-sword').forEach((val,i,arr)=>{ IDToType[val] = [1,8]; });
+    GetIDTag('minecraft-mod','staff').forEach((val,i,arr)=>{ IDToType[val] = [1,9]; });
+    GetIDTag('minecraft-mod','fist-wep').forEach((val,i,arr)=>{ IDToType[val] = [1,10]; });
+    GetIDTag('minecraft-mod','dagger').forEach((val,i,arr)=>{ IDToType[val] = [1,11]; });
+    GetIDTag('minecraft-mod','wand').forEach((val,i,arr)=>{ IDToType[val] = [1,12]; });
+    GetIDTag('minecraft-mod','tome').forEach((val,i,arr)=>{ IDToType[val] = [1,13]; });
+    GetIDTag('minecraft-mod','shield').forEach((val,i,arr)=>{ IDToType[val] = [1,14]; });
+    
 }
 

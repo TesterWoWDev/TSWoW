@@ -25,7 +25,7 @@ export function createMaterial(
     let parentItem = 2934;
     let item = std.Items.create(
         MODNAME,
-        tier + "-" + itemName.toLowerCase().replace(" ", "-"),
+        tier,
         parentItem
     );
     item.Quality.set(QualityValue);
@@ -65,16 +65,25 @@ export function createBaseResources(
 export function createGear(
     levelrequirement: number,
     tier: string,
+    tagString: string,
     quality: number,
-    statMultiplier: number,
     materialType: number,
-    disenchantID: number,
-    randomPropID: number,
     names: string[],
     display: number[],
-    armSpell: number[],
-    armTrigger: number[]
 ): number[] {
+    let t = [
+        'head',
+        'neck',
+        'shoulder',
+        'cloak',
+        'chest',
+        'wrists',
+        'hands',
+        'waist',
+        'legs',
+        'boots',
+        'ring',
+    ]
     let ids = [
         [4, materialType, 1],
         [4, 0, 2],
@@ -87,46 +96,24 @@ export function createGear(
         [4, materialType, 7],
         [4, materialType, 8],
         [4, 0, 11],
-        [4, 0, 12],
     ];
-    let costs = [5, 9, 6, 6, 8, 4, 4, 3, 7, 4, 6, 7];
     let returnIDs = [];
 
     for (let i = 0; i < names.length; i++) {
         let item = std.Items.create(
             MODNAME,
-            tier + " " + names[i].toLowerCase().replace(" ", "-").replace('\'',''),
+            tier + "-" + names[i].toLowerCase().replace('\'', '').replace(" ", "-").replace(" ", "-"),
             38
         );
+        item.Tags.add('minecraft-mod', tagString +'-'+ t[i]);
         item.Class.set(ids[i][0], ids[i][1]);
         item.InventoryType.set(ids[i][2]);
         item.Quality.set(quality);
-        item.Description.enGB.set("");
+        item.Description.enGB.set("This is a display item and will be changed when crafted");
         item.RequiredLevel.set(levelrequirement);
         item.Name.enGB.set(names[i]);
         item.DisplayInfo.set(display[i]);
-        item.Durability.set(20);
-        item.RandomProperty.set(randomPropID);
-        item.Disenchant.set(disenchantID);
-        item.RequiredDisenchantSkill.set(0);
-        item.Flags.set(0);
         item.Bonding.BINDS_ON_EQUIP.set();
-        armSpell.forEach((value, index) => {
-            item.Spells.addMod((itemSpell) => {
-                itemSpell.Spell.set(value);
-                itemSpell.Trigger.set(armTrigger[index]);
-            });
-        });
-
-        let costval = (costs[i] / 2) * statMultiplier;
-        item.Price.set(
-            levelrequirement * levelrequirement * 1,
-            levelrequirement * levelrequirement * 2,
-        ); //sellprice + buyprice
-        // item.Price.set(((quality*quality*100)/1.5),(quality*quality*100))
-        item.ItemLevel.set(costval);
-        item.Stats.addStamina((costval + levelrequirement) / 2);
-        item.Armor.set(costval * materialType * 3);
 
         returnIDs.push(item.ID);
     }
@@ -137,44 +124,26 @@ export function createTrinket(
     levelrequirement: number,
     tier: string,
     quality: number,
-    disenchantID: number,
-    randomPropID: number,
     name: string,
     display: number,
-    armSpell: number[],
-    armTrigger: number[]
 ) {
     let ids = [4, 0, 12];
-    let costs = 7;
     let item = std.Items.create(
         MODNAME,
-        tier + " " + name.toLowerCase().replace(" ", "-").replace('\'',''),
+        tier + "-" + name.toLowerCase().replace('\'', '').replace(" ", "-").replace(" ", "-"),
         38
     );
     item.Class.set(ids[0], ids[1]);
     item.InventoryType.set(ids[2]);
     item.Quality.set(quality);
-    item.Description.enGB.set("");
+    item.Description.enGB.set("This is a display item and will be changed when crafted");
     item.RequiredLevel.set(levelrequirement);
     item.Name.enGB.set(name);
     item.DisplayInfo.set(display);
     item.Durability.set(20);
-    item.RandomProperty.set(randomPropID);
-    item.Disenchant.set(disenchantID);
-    item.RequiredDisenchantSkill.set(0);
-    item.Flags.set(0);
     item.Bonding.BINDS_ON_EQUIP.set();
-    armSpell.forEach((value, index) => {
-        item.Spells.addMod((itemSpell) => {
-            itemSpell.Spell.set(value);
-            itemSpell.Trigger.set(armTrigger[index]);
-        });
-    });
-    item.Price.set(
-        levelrequirement * levelrequirement * 1,
-        levelrequirement * levelrequirement * 2
-    ); //sellprice + buyprice
-    item.ItemLevel.set((costs / 2) * quality);
+    item.Tags.add('minecraft-mod','trinket')
+
     return item.ID;
 }
 
@@ -182,14 +151,27 @@ export function createWeapons(
     levelrequirement: number,
     tier: string,
     quality: number,
-    statMultiplier: number,
-    disenchantID: number,
-    randomPropID: number,
     names: string[],
     display: number[],
-    wepSpell: number[],
-    wepTrigger: number[]
 ): number[] {
+
+    let t = [
+        '1h-sword',
+        '1h-mace',
+        '1h-axe',
+        'dagger',
+        '2h-sword',
+        '2h-mace',
+        '2h-axe',
+        'tome',
+        'polearm',
+        'bow',
+        'staff',
+        'wand',
+        'shield',
+        'fist-wep',
+    ]
+
     let ids = [
         [2, 7, 13],
         [2, 4, 13],
@@ -206,127 +188,25 @@ export function createWeapons(
         [4, 6, 14],
         [2, 13, 13],
     ];
-    let costs = [7, 7, 7, 4, 15, 15, 15, 7, 15, 5, 6, 5, 11, 7];
     let returnIDs = [];
-
     for (let i = 0; i < names.length; i++) {
         let item = std.Items.create(
             MODNAME,
-            tier + " " + names[i].toLowerCase().replace(" ", "-").replace("'", ""),
+            tier + "-" + names[i].toLowerCase().replace("'", "").replace(" ", "-").replace(" ", "-"),
             38
         );
+        item.Tags.add('minecraft-mod', t[i]);
         item.Class.set(ids[i][0], ids[i][1]);
         item.InventoryType.set(ids[i][2]);
         item.Quality.set(quality);
-        item.Description.enGB.set("");
+        item.Description.enGB.set("This is a display item and will be changed when crafted");
         item.RequiredLevel.set(levelrequirement);
         item.Name.enGB.set(names[i]);
         item.DisplayInfo.set(display[i]);
         item.Durability.set(20);
-        item.RandomProperty.set(randomPropID);
-        item.Disenchant.set(disenchantID);
-        //item.DisenchantID.set(disenchantID)
-        item.RequiredDisenchantSkill.set(0);
         item.Bonding.BINDS_ON_EQUIP.set();
-        item.Flags.set(0);
-        item.Material.set(7);
-        wepSpell.forEach((value, index) => {
-            item.Spells.addMod((itemSpell) => {
-                itemSpell.Spell.set(value);
-                itemSpell.Trigger.set(wepTrigger[index]);
-            });
-        });
 
-        let costval = (costs[i] / 2) * statMultiplier;
-        item.Price.set(
-            levelrequirement * levelrequirement * 1,
-            levelrequirement * levelrequirement * 2
-        ); //sellprice + buyprice
-        //  item.Price.set(((quality*quality*100)/2),(quality*quality*100))
-        item.ItemLevel.set(costval);
-        costval = costval * 2;
-        if (ids[i][0] == 2) {
-            //weapon
-            if (ids[i][2] == 17) {
-                //2h
-                item.Damage.addPhysical(
-                    costval * levelrequirement * 1.5,
-                    costval * levelrequirement * 2.2
-                );
-                item.Delay.set(2800);
-                let sheathval = 1;
-                if (ids[i][1] == 10) {
-                    //staff
-                    sheathval = 2;
-                }
-                item.Sheath.set(sheathval);
-                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
-                    value.SheatheType.set(sheathval);
-                });
-            } else if (ids[i][1] == 15) {
-                //dagger
-                item.Damage.addPhysical(
-                    (costval * levelrequirement*2) / 1.5,
-                    costval * levelrequirement*2
-                );
-                item.Delay.set(1600);
-                item.Sheath.set(6);
-                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
-                    value.SheatheType.set(6);
-                });
-            } else if (ids[i][2] == 26) {
-                //bow
-                item.Damage.addPhysical(
-                    costval * levelrequirement * 2,
-                    costval * levelrequirement * 3
-                );
-                item.Delay.set(2200);
-                item.Sheath.set(2);
-                item.RangeMod.set(100);
-                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
-                    value.SheatheType.set(2);
-                });
-            } else {
-                //1h
-                item.Damage.addPhysical(
-                    costval * levelrequirement,
-                    costval * levelrequirement * 1.5
-                );
-                item.Delay.set(1900);
-                let sheathval = 3;
-                if (ids[i][1] == 13) {
-                    //fist wep
-                    sheathval = 0;
-                }
-                item.Sheath.set(sheathval);
-                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
-                    value.SheatheType.set(sheathval);
-                });
-            }
-        } else {
-            if (ids[i][1] == 6) {
-                //shield
-                item.Armor.set(costval * 5);
-                item.Stats.addBlockRating(costval / 2);
-                item.Sheath.set(4);
-                item.BlockChance.set(costval);
-                std.DBC.Item.queryAll({ ID: item.ID }).forEach((value, index, array) => {
-                    value.SheatheType.set(4);
-                });
-            }
-        }
         returnIDs.push(item.ID);
     }
     return returnIDs;
 }
-
-// export function addLootToItem(loot: , items: number[], chances: number[],groupID?:number) {
-//     if(groupID == null){
-//         groupID = 0
-//     }
-//     items.forEach((value,index)=>{
-//         if(chances[index] > 0) {
-//             loot.addItem(value,chances[index],1,1,false,groupID,0)
-//         }
-//     })
-// }
