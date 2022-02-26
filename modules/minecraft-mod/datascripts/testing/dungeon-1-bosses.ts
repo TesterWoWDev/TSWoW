@@ -93,7 +93,7 @@ TorghastBoss1.InlineScripts.OnJustEnteredCombat((creature, target) => {
         }
     }
     //start of combat
-    creature.CastSpell(target,GetID("Spell", "minecraft-mod", "boss1flameshock1-spell"),true);
+    creature.CastSpell(target,GetID("Spell", "minecraft-mod", "boss1flameshock1-spell2"),true);
     //start of timers
     creature.AddNamedTimer("event1", 3000, -1, (owner, timer) => {
         let self = owner.ToCreature();
@@ -103,7 +103,7 @@ TorghastBoss1.InlineScripts.OnJustEnteredCombat((creature, target) => {
     creature.AddNamedTimer("event2", 5500, -1, (owner, timer) => {
         let self = owner.ToCreature();
         let target = self.GetVictim();
-        attemptCast(GetID("Spell", "minecraft-mod", "boss1flameshock1-spell"),self,target,false);
+        attemptCast(GetID("Spell", "minecraft-mod", "boss1flameshock1-spell2"),self,target,false);
     });
     creature.AddNamedTimer("event3", 14000, 1, (owner, timer) => {
         let self = owner.ToCreature();
