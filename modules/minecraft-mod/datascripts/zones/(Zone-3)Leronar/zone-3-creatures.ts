@@ -1,7 +1,7 @@
 import { std } from "wow/wotlk";
 
 import { spawnMultipleNPCWithTimer } from "../../functions/spawning-functions";
-import { tierTwoBaseResources } from "../../items/armor/tier2-set";
+
 import { MODNAME } from "../../modname";
 import { LoggingPileLogs } from "../item-manifest";
 
@@ -425,7 +425,6 @@ WoodcuttingTree02.Level.set(1, 1);
 WoodcuttingTree02.MovementSpeed.set(0, 0);
 WoodcuttingTree02.NormalLoot.modRefCopy((table) => {
     table.addItem(LoggingPileLogs.ID, 100, 1, 3, false, 1, 1);
-    table.addItem(tierTwoBaseResources[5], 25, 1, 1, false, 3, 1);
 });
 std.SQL.creature_template_movement.add(WoodcuttingTree02.ID).Rooted.set(1);
 spawnMultipleNPCWithTimer(

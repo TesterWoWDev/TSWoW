@@ -76,7 +76,7 @@ harpyScroll.RequiredLevel.set(1);
 harpyScroll.Spells.clearAll();
 harpyScroll.Spells.addMod((spell) => {
     spell.Spell.set(harpy.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set("UNLIMITED");
 });
 
 /*Spell Scripts - Champion Boss Items*/

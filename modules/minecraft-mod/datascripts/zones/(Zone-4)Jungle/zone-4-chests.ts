@@ -4,12 +4,7 @@ import {
     addLootToGobChestSingleChance,
 } from "../../functions/gob-functions";
 import { makeResourceNode } from "../../functions/resource-node-functions";
-import {
-    tierFourBaseResources,
-    tierFourMailMaterial,
-    tierFourLeatherMaterial,
-    tierFourClothMaterial,
-} from "../../items/armor/tier4-set";
+
 import {
     LargeSackofCoins,
     MassiveSackofCoins,
@@ -142,16 +137,7 @@ export let Zone4Chest1 = makeResourceNode(
     "zone4chest1-chest"
 );
 Zone4Chest1.Size.set(1.25);
-addLootToGobChest(Zone4Chest1, tierFourBaseResources, [4, 3, 1, 2, 2, 5, 3]);
-/*Base Resources - Group 5*/
-addLootToGobChestSingleChanceMultiGroup(
-    Zone4Chest1,
-    [tierFourMailMaterial, tierFourLeatherMaterial, tierFourClothMaterial],
-    33,
-    1,
-    3,
-    5
-);
+
 /*Epic Items - Group 0*/
 addLootToGobChestSingleChance(
     Zone4Chest1,

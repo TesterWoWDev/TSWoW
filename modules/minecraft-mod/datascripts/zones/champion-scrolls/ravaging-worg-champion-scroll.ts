@@ -104,7 +104,7 @@ WorgScroll.RequiredLevel.set(1);
 WorgScroll.Spells.clearAll();
 WorgScroll.Spells.addMod((spell) => {
     spell.Spell.set(WorgChampion.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set("UNLIMITED");
 });
 
 /*Spell Scripts - Champion Boss Items*/

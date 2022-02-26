@@ -5,12 +5,7 @@ import {
 } from "../../functions/gob-functions";
 import { makeResourceNode } from "../../functions/resource-node-functions";
 import { spawnMultiGobTimer } from "../../functions/spawning-functions";
-import {
-    tierThreeBaseResources,
-    tierThreeMailMaterial,
-    tierThreeLeatherMaterial,
-    tierThreeClothMaterial,
-} from "../../items/armor/tier3-set";
+
 import { SmallSackofCoins, LargeSackofCoins } from "../currencies";
 import {
     DazzlingLongsword,
@@ -180,16 +175,7 @@ spawnMultiGobTimer(
     600
 );
 Zone3Chest1.Size.set(1);
-addLootToGobChest(Zone3Chest1, tierThreeBaseResources, [4, 3, 1, 2, 2, 5, 3]);
-/*Base Resources - Group 5*/
-addLootToGobChestSingleChanceMultiGroup(
-    Zone3Chest1,
-    [tierThreeMailMaterial, tierThreeLeatherMaterial, tierThreeClothMaterial],
-    33,
-    1,
-    3,
-    5
-);
+
 /*Epic Items - Group 0*/
 addLootToGobChestSingleChance(
     Zone3Chest1,

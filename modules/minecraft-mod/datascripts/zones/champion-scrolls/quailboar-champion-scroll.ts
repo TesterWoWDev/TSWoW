@@ -96,7 +96,7 @@ quailboarScroll.RequiredLevel.set(1);
 quailboarScroll.Spells.clearAll();
 quailboarScroll.Spells.addMod((spell) => {
     spell.Spell.set(quailboar.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set("UNLIMITED");
 });
 
 /*Spell Scripts - Champion Boss Items*/

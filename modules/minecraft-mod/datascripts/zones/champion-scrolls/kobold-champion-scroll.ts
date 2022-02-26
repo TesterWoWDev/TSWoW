@@ -98,7 +98,7 @@ KoboldScroll.RequiredLevel.set(1);
 KoboldScroll.Spells.clearAll();
 KoboldScroll.Spells.addMod((spell) => {
     spell.Spell.set(KoboldChampion.ID);
-    spell.Charges.set(-1);
+    spell.Charges.set("UNLIMITED");
 });
 
 /*Spell Scripts - Champion Boss Items*/

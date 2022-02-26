@@ -1,12 +1,7 @@
 import { GameObjectChest } from "wow/wotlk/std/GameObject/GameObjectTemplate";
 import { makeResourceNode } from "../../functions/resource-node-functions";
 import { spawnGobTimer } from "../../functions/spawning-functions";
-import {
-    tierFourBaseResources,
-    tierFourMailMaterial,
-    tierFourLeatherMaterial,
-    tierFourClothMaterial,
-} from "../../items/armor/tier4-set";
+
 import {
     SmallSackofCoins,
     LargeSackofCoins,
@@ -33,20 +28,6 @@ export let ArenaofChampionsChest = makeResourceNode(
     "arenachampion-chest"
 );
 ArenaofChampionsChest.Size.set(1.25);
-addLoot(
-    ArenaofChampionsChest,
-    tierFourBaseResources,
-    [10, 10, 10, 10, 10, 10, 10]
-);
-/*Base Resources - Group 5*/
-addLootSingleChanceMultiGroup(
-    ArenaofChampionsChest,
-    [tierFourMailMaterial, tierFourLeatherMaterial, tierFourClothMaterial],
-    33,
-    5,
-    5,
-    5
-);
 /*Epic Items - Group 4*/
 addLootSingleChance(
     ArenaofChampionsChest,
