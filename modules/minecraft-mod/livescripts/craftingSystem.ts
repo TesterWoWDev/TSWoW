@@ -1,21 +1,22 @@
 import { craftMessageID, empty, craftMessage, returnCraftItemMessage, showScreen } from "../shared/Messages";
 
+const blank1: TSArray<uint32> = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+const blank2: TSArray<TSArray<uint32>> = [
+    empty,
+    empty,
+    empty,
+    empty,
+    empty,
+    empty,
+    empty,
+    empty,
+    empty,
+];
+const blank3: TSArray<uint32> = [0, 0, 0, 0, 0];
+
 export function handleCraftMessages(events: TSEvents) {
     events.CustomPacketID.OnReceive(craftMessageID, (_, packet, player) => {
-        let v: TSArray<uint32> = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        let vv: TSArray<TSArray<uint32>> = [
-            empty,
-            empty,
-            empty,
-            empty,
-            empty,
-            empty,
-            empty,
-            empty,
-            empty,
-        ];
-        let vvv: TSArray<uint32> = [0, 0, 0, 0, 0];
-        let message = new craftMessage(v, vv, 0, vvv);
+        let message = new craftMessage(blank1, blank2, 0, blank3);
         message.read(packet);
         let check = 0;
         let queryString =
@@ -23,7 +24,7 @@ export function handleCraftMessages(events: TSEvents) {
         let posString = "";
         let isEnchant = false;
         for (let i = 0; i < message.itemIDs.length; i++) {
-            let fillVal: int32 = <int32> message.itemIDs[i];
+            let fillVal: int32 = <int32>message.itemIDs[i];
             if (message.itemIDs[i] != 0) {
                 if (i == 4) {
                     if (player.HasItem(message.itemIDs[i], 1, false)) {
@@ -39,8 +40,7 @@ export function handleCraftMessages(events: TSEvents) {
         }
         posString = posString.substring(0, posString.length - 4);
         let result = QueryWorld(queryString + posString);
-        let va: TSArray<uint32> = [0, 0, 0, 0, 0];
-        let pkt = new returnCraftItemMessage(0, 0, va);
+        let pkt = new returnCraftItemMessage(0, 0, blank3);
         while (result.GetRow()) {
             check = 1;
             if (isEnchant) {
@@ -66,26 +66,18 @@ export function handleCraftMessages(events: TSEvents) {
             pkt.craftItemCount = result.GetUInt32(1);
             if (message.purchase == 1) {
                 let checkItems = 1;
-                for (let i = 2; i < 23; i++) {
+                for (let i = 2; i <= 22; i += 2) {
                     if (result.GetUInt32(i) != 0) {
-                        if (
-                            !player.HasItem(
-                                result.GetUInt32(i),
-                                result.GetUInt32(i + 1),
-                                false
-                            )
-                        ) {
+                        if (!player.HasItem(result.GetUInt32(i), result.GetUInt32(i + 1), false)) {
                             checkItems = 0;
                         }
                     } else {
                         break;
                     }
-                    i++;
                 }
                 if (checkItems == 1) {
                     for (let i = 0; i < message.positions.length; i++) {
                         if (message.itemIDs[i] != 0) {
-                            let itemID = message.itemIDs[i];
                             if (message.positions[i][0] == 0) {
                                 message.positions[i][0] = 255;
                                 message.positions[i][1] += 22;
@@ -94,7 +86,8 @@ export function handleCraftMessages(events: TSEvents) {
                                 message.positions[i][1] += -1;
                             }
                             if (!(isEnchant && i == 4)) {
-                                player.RemoveItem(player.GetItemByEntry(itemID), 1);
+                                player.RemoveItem(player.GetItemByPos(message.positions[i][0], message.positions[i][1]))
+                                //player.RemoveItem(player.GetItemByEntry(message.itemIDs[i]), 1);
                             }
                         }
                     }
@@ -110,16 +103,16 @@ export function handleCraftMessages(events: TSEvents) {
                             //player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,[item])
                         }
                     }
-                    
+
                     item.SetEnchantment(message.enchants[0], 0);
-                    if(message.enchants[1] != 0)
-                    item.SetEnchantment(message.enchants[1], 2);
-                    if(message.enchants[2] != 0)
-                    item.SetEnchantment(message.enchants[2], 3);
-                    if(message.enchants[3] != 0)
-                    item.SetEnchantment(message.enchants[3], 4);
-                    if(message.enchants[4] != 0)
-                    item.SetEnchantment(message.enchants[4], 5);
+                    if (message.enchants[1] != 0)
+                        item.SetEnchantment(message.enchants[1], 2);
+                    if (message.enchants[2] != 0)
+                        item.SetEnchantment(message.enchants[2], 3);
+                    if (message.enchants[3] != 0)
+                        item.SetEnchantment(message.enchants[3], 4);
+                    if (message.enchants[4] != 0)
+                        item.SetEnchantment(message.enchants[4], 5);
                     item.SetEnchantment(1, 6);
                     new showScreen(0).write().SendToPlayer(player);
                     pkt.craftItem = 0;
