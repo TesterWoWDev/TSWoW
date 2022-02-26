@@ -10,23 +10,6 @@ import {
     spawnNPC,
     spawnMultipleNPCWithTimer,
 } from "../functions/spawning-functions";
-import {
-    tierOneClothMaterial,
-    tierOneMailMaterial,
-    tierOneLeatherMaterial,
-    tierOneBaseResources,
-    tierOneClothGear,
-} from "../items/armor/tier1-set";
-import {
-    tierTwoClothMaterial,
-    tierTwoMailMaterial,
-    tierTwoLeatherMaterial,
-} from "../items/armor/tier2-set";
-import {
-    tierThreeClothMaterial,
-    tierThreeLeatherMaterial,
-    tierThreeMailMaterial,
-} from "../items/armor/tier3-set";
 import { SmallSackofCoinswithBag } from "./currencies";
 import { MODNAME } from "../modname";
 import {
@@ -636,9 +619,6 @@ startingQuest01.QuestLevel.set(5);
 startingQuest01.Objectives.Entity.add(startingZoneWolfBoss.ID, 1); //kill quest
 startingQuest01.Objectives.Item.add(AgathasLockbox.ID, 1); //return item quest
 startingQuest01.Questgiver.addCreatureBoth(questGiver01.ID, false);
-startingQuest01.Rewards.ChoiceItem.add(tierOneClothMaterial, 2);
-startingQuest01.Rewards.ChoiceItem.add(tierOneMailMaterial, 2);
-startingQuest01.Rewards.ChoiceItem.add(tierOneLeatherMaterial, 2);
 startingQuest01.Rewards.Item.add(SmallSackofCoinswithBag.ID, 1);
 startingQuest01.Rewards.Money.set(216);
 startingQuest01.Text.Objective.enGB.set(
@@ -660,11 +640,6 @@ startingQuest02.MinLevel.set(1);
 startingQuest02.QuestLevel.set(5);
 startingQuest02.Questgiver.addCreatureBoth(questGiver01.ID, false);
 startingQuest02.Objectives.Item.add(startingResource01.ID, 10);
-startingQuest02.Rewards.ChoiceItem.add(tierOneBaseResources[0], 2);
-startingQuest02.Rewards.ChoiceItem.add(tierOneBaseResources[2], 2);
-startingQuest02.Rewards.ChoiceItem.add(tierOneBaseResources[3], 2);
-startingQuest02.Rewards.ChoiceItem.add(tierOneBaseResources[4], 2);
-startingQuest02.Rewards.ChoiceItem.add(tierOneBaseResources[5], 2);
 startingQuest02.Rewards.Money.set(416);
 startingQuest02.Text.Objective.enGB.set(
     "Slaying monsters is not all you need to be prepared for hero, we like to use our hands to collect materials and craft our own gear, and a valuable lesson you will learn is how to gather resources for your crafting recipes.$B$BI want you to venture around the Walk of Heroes and gather 10 peacelillies. You can utilize the track resource node feature on your minimap if you have any difficulties."
@@ -703,11 +678,7 @@ startingQuest04.MinLevel.set(1);
 startingQuest04.QuestLevel.set(5);
 startingQuest04.Questgiver.addCreatureStarter(questGiver02.ID);
 startingQuest04.Questgiver.addCreatureEnder(questGiver02.ID, false);
-startingQuest04.Rewards.ChoiceItem.add(tierOneClothMaterial, 2);
-startingQuest04.Rewards.ChoiceItem.add(tierOneMailMaterial, 2);
-startingQuest04.Rewards.ChoiceItem.add(tierOneLeatherMaterial, 2);
 startingQuest04.Rewards.Money.set(586);
-startingQuest04.Objectives.Item.add(tierOneClothGear[6], 1);
 startingQuest04.StartItem.set(SatchelofResources.ID);
 startingQuest04.Text.Objective.enGB.set(
     "It is here at this lake, that I have found peace in doing the most mundane tasks. Fortunately, you are not a scripted NPC and you have free will. There is an icon on your minimap that looks like a piece of armor, click that and craft a pair of gloves for me."
@@ -728,9 +699,6 @@ startingQuest05.MinLevel.set(1);
 startingQuest05.QuestLevel.set(5);
 startingQuest05.Questgiver.addCreatureStarter(questGiver02.ID);
 startingQuest05.Questgiver.addCreatureEnder(questGiver03.ID, false);
-startingQuest05.Rewards.ChoiceItem.add(tierOneClothMaterial, 2);
-startingQuest05.Rewards.ChoiceItem.add(tierOneMailMaterial, 2);
-startingQuest05.Rewards.ChoiceItem.add(tierOneLeatherMaterial, 2);
 startingQuest05.Rewards.Money.set(286);
 startingQuest05.Text.Objective.enGB.set(
     "Your journey is almost over hero, and it may feel like it has already begun. Head to the town hall outside of the Walk of Heroes and speak to the Knight Captain in the barracks. He shall guide you on what you must do next. You are always welcomed here."
@@ -751,9 +719,6 @@ startingQuest06.MinLevel.set(1);
 startingQuest06.QuestLevel.set(5);
 startingQuest06.Questgiver.addCreatureStarter(questGiver03.ID);
 startingQuest06.Questgiver.addCreatureEnder(questGiver03.ID, false);
-startingQuest06.Rewards.ChoiceItem.add(tierOneClothMaterial, 5);
-startingQuest06.Rewards.ChoiceItem.add(tierOneMailMaterial, 5);
-startingQuest06.Rewards.ChoiceItem.add(tierOneLeatherMaterial, 5);
 startingQuest06.Rewards.Money.set(4025);
 startingQuest06.Objectives.Entity.add(BanditNpc.ID, 15);
 startingQuest06.Objectives.Entity.add(BanditBossNpc.ID, 3);
@@ -777,9 +742,6 @@ startingQuest07.MinLevel.set(1);
 startingQuest07.QuestLevel.set(5);
 startingQuest07.Questgiver.addCreatureStarter(questGiver03.ID);
 startingQuest07.Questgiver.addCreatureEnder(questGiver03.ID, false);
-startingQuest07.Rewards.ChoiceItem.add(tierOneClothMaterial, 5);
-startingQuest07.Rewards.ChoiceItem.add(tierOneMailMaterial, 5);
-startingQuest07.Rewards.ChoiceItem.add(tierOneLeatherMaterial, 5);
 startingQuest07.Rewards.Money.set(3025);
 startingQuest07.Objectives.Entity.add(creature4.ID, 10);
 startingQuest07.Objectives.Entity.add(creature5.ID, 10);
@@ -804,9 +766,6 @@ startingQuest08.MinLevel.set(1);
 startingQuest08.QuestLevel.set(10);
 startingQuest08.Questgiver.addCreatureStarter(questGiver03.ID);
 startingQuest08.Questgiver.addCreatureEnder(questGiver03.ID, false);
-startingQuest08.Rewards.ChoiceItem.add(tierTwoClothMaterial, 3);
-startingQuest08.Rewards.ChoiceItem.add(tierTwoMailMaterial, 3);
-startingQuest08.Rewards.ChoiceItem.add(tierTwoLeatherMaterial, 3);
 startingQuest08.Rewards.Money.set(4059);
 startingQuest08.Objectives.Entity.add(Zone2Creature1.ID, 25);
 startingQuest08.Rewards.Item.add(OrbofPower.ID, 1);
@@ -847,9 +806,6 @@ startingQuest10.MinLevel.set(1);
 startingQuest10.QuestLevel.set(10);
 startingQuest10.Questgiver.addCreatureStarter(questGiver04.ID);
 startingQuest10.Questgiver.addCreatureEnder(questGiver03.ID, false);
-startingQuest10.Rewards.ChoiceItem.add(tierTwoClothMaterial, 3);
-startingQuest10.Rewards.ChoiceItem.add(tierTwoMailMaterial, 3);
-startingQuest10.Rewards.ChoiceItem.add(tierTwoLeatherMaterial, 3);
 startingQuest10.Rewards.Money.set(4059);
 startingQuest10.Objectives.Item.add(VialofPoison.ID, 10);
 startingQuest10.Rewards.Item.add(OrbofPower.ID, 1);
@@ -955,9 +911,6 @@ OpenWorldQuest01.Objectives.Entity.add(DungeonMob01.ID, 25);
 OpenWorldQuest01.Objectives.Entity.add(DungeonMob02.ID, 10);
 OpenWorldQuest01.Objectives.Entity.add(DungeonBoss01.ID, 1);
 OpenWorldQuest01.Rewards.Money.set(52532);
-OpenWorldQuest01.Rewards.ChoiceItem.add(tierThreeClothMaterial, 5);
-OpenWorldQuest01.Rewards.ChoiceItem.add(tierThreeLeatherMaterial, 5);
-OpenWorldQuest01.Rewards.ChoiceItem.add(tierThreeMailMaterial, 5);
 OpenWorldQuest01.Rewards.Item.add(OrbofPower.ID, 1);
 OpenWorldQuest01.Text.Objective.enGB.set(
     "I am impressed that you managed to venture out this way $c, and it is time for you to do what I was unable to do. If you can manage it, please enter the dungeon and dispatch the enemies within."

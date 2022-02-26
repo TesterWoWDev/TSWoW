@@ -9,12 +9,6 @@ import {
     StaminaI,
     StrengthI,
 } from "./(Zone-1)Bramblewood/zone-1-item-spells";
-import {
-    tierOneBaseResources,
-    tierOneClothMaterial,
-    tierOneLeatherMaterial,
-    tierOneMailMaterial,
-} from "../items/armor/tier1-set";
 import { expSpell4 } from "../spells/experience-rate-spells";
 import {
     SpiritIV,
@@ -201,11 +195,6 @@ SatchelofResources.Name.enGB.set("Fractal's Resource Cache");
 SatchelofResources.Quality.GREEN.set();
 SatchelofResources.Bonding.QUEST_ITEM.set();
 SatchelofResources.Spells.clearAll();
-std.SQL.item_loot_template
-    .add(SatchelofResources.ID, tierOneClothMaterial)
-    .Chance.set(100)
-    .MinCount.set(4)
-    .MaxCount.set(4);
 
 export let startingResource01 = std.Items.create(
     MODNAME,
@@ -4221,15 +4210,7 @@ export let FallenChest = makeResourceNode(
     "cacheofresources-chest"
 );
 FallenChest.Size.set(0.5);
-addLootToGobChest(FallenChest, tierOneBaseResources, [4, 3, 1, 2, 2, 5, 3]);
-addLootToGobChestSingleChanceMultiGroup(
-    FallenChest,
-    [tierOneMailMaterial, tierOneLeatherMaterial, tierOneClothMaterial],
-    33,
-    1,
-    3,
-    5
-);
+
 addLootToGobChestSingleChance(
     FallenChest,
     [

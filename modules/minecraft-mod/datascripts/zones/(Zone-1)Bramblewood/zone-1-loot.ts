@@ -5,27 +5,7 @@ import {
     addLootToCreature,
     addLootToCreatureSingleChance,
 } from "../../functions/npc-functions";
-import {
-    tierOneClothMaterial,
-    tierOneLeatherMaterial,
-    tierOneMailMaterial,
-    tierOneBaseResources,
-} from "../../items/armor/tier1-set";
-import {
-    tierTwoClothMaterial,
-    tierTwoLeatherMaterial,
-    tierTwoMailMaterial,
-    tierTwoBaseResources,
-} from "../../items/armor/tier2-set";
-import { SmallSackofCoins } from "../currencies";
-import {
-    undiscoveredReds,
-    undiscoveredGreens,
-    undiscoveredYellows,
-    undiscoveredPurples,
-    undiscoveredBlues,
-    undiscoveredOranges,
-} from "../../items/gems/tier1-gem";
+
 import { KoboldScroll } from "../champion-scrolls/kobold-champion-scroll";
 import { MurlocScroll } from "../champion-scrolls/murloc-champion-scroll";
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
@@ -130,12 +110,7 @@ addLootToCreature(
     [0.5],
     2
 );
-addLootToCreature(
-    creature2Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [2, 4, 0]
-);
-addLootToCreature(creature2Loot, tierOneBaseResources, [0, 0, 5, 0, 0, 8, 0]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     creature2Loot,
@@ -153,21 +128,11 @@ addLootToCreature(
     0
 );
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature2Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
+
 
 // Creature 3 - Wild Boar
 // Group 1 Loot Percentage = 7% + 4% + 41% = 52%
-addLootToCreature(
-    creature3Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [0, 5, 2]
-);
-addLootToCreature(creature3Loot, tierOneBaseResources, [0, 0, 2, 0, 0, 2, 0]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     creature3Loot,
@@ -187,12 +152,7 @@ addLootToCreature(
 //Boarskin
 addLootToCreature(creature3Loot, [BoarSkin.ID], [100], 7);
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature3Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
+
 
 // Creature 4 - Kobold Foreman
 // Group 1 Loot Percentage = 8% + 25% + 41% = 74%
@@ -204,12 +164,7 @@ addLootToCreature(
     [0.5],
     2
 );
-addLootToCreature(
-    creature4Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [4, 4, 0]
-);
-addLootToCreature(creature4Loot, tierOneBaseResources, [6, 2, 4, 4, 3, 2, 4]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     creature4Loot,
@@ -227,12 +182,7 @@ addLootToCreature(
     0
 );
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature4Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
+
 
 // Creature 5 - Kobold Miner
 // Group 1 Loot Percentage = 9% + 26% + 41% = 76%
@@ -244,12 +194,7 @@ addLootToCreature(
     [0.5],
     2
 );
-addLootToCreature(
-    creature5Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [0, 4, 5]
-);
-addLootToCreature(creature5Loot, tierOneBaseResources, [8, 0, 0, 6, 4, 3, 5]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     creature5Loot,
@@ -273,12 +218,6 @@ addLootToCreature(
     1
 );
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature5Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
 
 // Creature 6 - Salty Murloc
 // Group 1 Loot Percentage = 8% + 4% + 41% = 53%
@@ -291,12 +230,7 @@ addLootToCreature(
     [0.5],
     2
 );
-addLootToCreature(
-    creature6Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [8, 0, 0]
-);
-addLootToCreature(creature6Loot, tierOneBaseResources, [0, 0, 0, 0, 0, 4, 0]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     creature6Loot,
@@ -314,12 +248,6 @@ addLootToCreature(
     0
 );
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature6Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
 
 // Creature 7 - Murloc Wavebender
 // Group 1 Loot Percentage = 12% + 19% + 41% = 72%
@@ -331,12 +259,7 @@ addLootToCreature(
     [0.5],
     2
 );
-addLootToCreature(
-    creature7Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [6, 0, 6]
-);
-addLootToCreature(creature7Loot, tierOneBaseResources, [6, 0, 3, 0, 0, 2, 8]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     creature7Loot,
@@ -354,22 +277,11 @@ addLootToCreature(
     0
 );
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature7Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
+
 
 // Creature 8 - Placeholder Creature
 // Group 1 Loot Percentage = 9% + 35% + 41% = 85%
-addLootToCreature(
-    creature8Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-);
-addLootToCreature(creature8Loot, tierOneBaseResources, [5, 5, 5, 5, 5, 5, 5]);
-/*Bags and Food - Group 0*/
+
 addLootToCreature(
     creature8Loot,
     [
@@ -386,21 +298,11 @@ addLootToCreature(
     0
 );
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature8Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
+
 
 // Creature 9 - Placeholder Creature
 // Group 1 Loot Percentage = 9% + 35% + 41% = 85%
-addLootToCreature(
-    creature9Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-);
-addLootToCreature(creature9Loot, tierOneBaseResources, [5, 5, 5, 5, 5, 5, 5]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     creature9Loot,
@@ -418,21 +320,11 @@ addLootToCreature(
     0
 );
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature9Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
+
 
 // Creature 10 - Placeholder Creature
 // Group 1 Loot Percentage = 9% + 35% + 41% = 85%
-addLootToCreature(
-    creature10Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-);
-addLootToCreature(creature10Loot, tierOneBaseResources, [5, 5, 5, 5, 5, 5, 5]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     creature10Loot,
@@ -450,12 +342,7 @@ addLootToCreature(
     0
 );
 /*Quest Requirements - Group 8*/
-addLootToCreature(
-    creature10Loot,
-    [SmallSackofCoins.ID, ExpScroll.ID],
-    [1, 3],
-    8
-);
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -467,32 +354,11 @@ addLootToCreature(
 // Group 0 (Resources and Food) Loot Percentage         = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
 // Group 1 (Epic Equipment) Loot Percentage  = 0.300%
 // Group 2 (Rare Equipment) Loot Percentage  = 36.00%
-addLootToCreature(
-    RareCreature1Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-); // Tier 1 Scraps
-addLootToCreature(
-    RareCreature1Loot,
-    [tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial],
-    [1, 1, 1]
-); // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
-addLootToCreature(
-    RareCreature1Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5]
-);
-addLootToCreature(
-    RareCreature1Loot,
-    tierTwoBaseResources,
-    [1, 1, 1, 1, 1, 1, 1]
-); // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootToCreatureSingleChance(RareCreature1Loot, undiscoveredReds, 0.125); // All Gems = 4.625%
-addLootToCreatureSingleChance(RareCreature1Loot, undiscoveredGreens, 0.125);
-addLootToCreatureSingleChance(RareCreature1Loot, undiscoveredYellows, 0.125);
-addLootToCreatureSingleChance(RareCreature1Loot, undiscoveredPurples, 0.125);
-addLootToCreatureSingleChance(RareCreature1Loot, undiscoveredBlues, 0.125);
-addLootToCreatureSingleChance(RareCreature1Loot, undiscoveredOranges, 0.125);
+ // Tier 1 Scraps
+ // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
+
+ // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
+
 /*Bags - Group 0*/
 addLootToCreature(
     RareCreature1Loot,
@@ -586,32 +452,10 @@ addLootToCreature(
     [2.0],
     3
 );
-addLootToCreature(
-    RareCreature2Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-); // Tier 1 Scraps
-addLootToCreature(
-    RareCreature2Loot,
-    [tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial],
-    [1, 1, 1]
-); // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
-addLootToCreature(
-    RareCreature2Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5]
-);
-addLootToCreature(
-    RareCreature2Loot,
-    tierTwoBaseResources,
-    [1, 1, 1, 1, 1, 1, 1]
-); // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootToCreatureSingleChance(RareCreature2Loot, undiscoveredReds, 0.125); // All Gems = 4.625%
-addLootToCreatureSingleChance(RareCreature2Loot, undiscoveredGreens, 0.125);
-addLootToCreatureSingleChance(RareCreature2Loot, undiscoveredYellows, 0.125);
-addLootToCreatureSingleChance(RareCreature2Loot, undiscoveredPurples, 0.125);
-addLootToCreatureSingleChance(RareCreature2Loot, undiscoveredBlues, 0.125);
-addLootToCreatureSingleChance(RareCreature2Loot, undiscoveredOranges, 0.125);
+ // Tier 1 Scraps
+ // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
+ // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
+
 /*Bags - Group 0*/
 addLootToCreature(
     RareCreature2Loot,
@@ -705,32 +549,11 @@ addLootToCreature(
     [2.0],
     3
 );
-addLootToCreature(
-    RareCreature3Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-); // Tier 1 Scraps
-addLootToCreature(
-    RareCreature3Loot,
-    [tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial],
-    [1, 1, 1]
-); // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
-addLootToCreature(
-    RareCreature3Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5]
-);
-addLootToCreature(
-    RareCreature3Loot,
-    tierTwoBaseResources,
-    [1, 1, 1, 1, 1, 1, 1]
-); // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootToCreatureSingleChance(RareCreature3Loot, undiscoveredReds, 0.125); // All Gems = 4.625%
-addLootToCreatureSingleChance(RareCreature3Loot, undiscoveredGreens, 0.125);
-addLootToCreatureSingleChance(RareCreature3Loot, undiscoveredYellows, 0.125);
-addLootToCreatureSingleChance(RareCreature3Loot, undiscoveredPurples, 0.125);
-addLootToCreatureSingleChance(RareCreature3Loot, undiscoveredBlues, 0.125);
-addLootToCreatureSingleChance(RareCreature3Loot, undiscoveredOranges, 0.125);
+ // Tier 1 Scraps
+ // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
+
+ // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
+
 /*Bags - Group 0*/
 addLootToCreature(
     RareCreature3Loot,
@@ -816,32 +639,11 @@ addLootToCreatureSingleChance(RareCreature3Loot, [OrbofPower.ID], 1, 3);
 // Group 1 Loot Percentage = 9% + 3% + 35% + 7% + + 4.625% + 23% = 81.625%
 // Group 1 (Epic Equipment) Loot Percentage  = 0.300%
 // Group 2 (Rare Equipment) Loot Percentage  = 36.00%
-addLootToCreature(
-    RareCreature4Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-); // Tier 1 Scraps
-addLootToCreature(
-    RareCreature4Loot,
-    [tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial],
-    [1, 1, 1]
-); // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
-addLootToCreature(
-    RareCreature4Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5]
-);
-addLootToCreature(
-    RareCreature4Loot,
-    tierTwoBaseResources,
-    [1, 1, 1, 1, 1, 1, 1]
-); // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootToCreatureSingleChance(RareCreature4Loot, undiscoveredReds, 0.125); // All Gems = 4.625%
-addLootToCreatureSingleChance(RareCreature4Loot, undiscoveredGreens, 0.125);
-addLootToCreatureSingleChance(RareCreature4Loot, undiscoveredYellows, 0.125);
-addLootToCreatureSingleChance(RareCreature4Loot, undiscoveredPurples, 0.125);
-addLootToCreatureSingleChance(RareCreature4Loot, undiscoveredBlues, 0.125);
-addLootToCreatureSingleChance(RareCreature4Loot, undiscoveredOranges, 0.125);
+ // Tier 1 Scraps
+ // Tier 2 Scraps (Only on Rare Mobs, Low Drop Chance)
+
+ // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
+
 /*Bags - Group 0*/
 addLootToCreature(
     RareCreature4Loot,
@@ -931,39 +733,7 @@ addLootToCreatureSingleChance(RareCreature4Loot, [OrbofPower.ID], 1, 3);
 
 // Demiboss Creature 1 - Lieutenant Commander Springraven
 // Group 1 Loot Percentage = 9% + 35% + 7% + + 4.625% + 23% = 78.625%
-addLootToCreature(
-    DemiBosscreature1Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-); // Tier 1 Scraps
-addLootToCreature(
-    DemiBosscreature1Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5]
-);
-addLootToCreature(
-    DemiBosscreature1Loot,
-    tierTwoBaseResources,
-    [1, 1, 1, 1, 1, 1, 1]
-); // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootToCreatureSingleChance(DemiBosscreature1Loot, undiscoveredReds, 0.125);
-addLootToCreatureSingleChance(DemiBosscreature1Loot, undiscoveredGreens, 0.125);
-addLootToCreatureSingleChance(
-    DemiBosscreature1Loot,
-    undiscoveredYellows,
-    0.125
-);
-addLootToCreatureSingleChance(
-    DemiBosscreature1Loot,
-    undiscoveredPurples,
-    0.125
-);
-addLootToCreatureSingleChance(DemiBosscreature1Loot, undiscoveredBlues, 0.125);
-addLootToCreatureSingleChance(
-    DemiBosscreature1Loot,
-    undiscoveredOranges,
-    0.125
-);
+
 /*Bags - Group 0*/
 addLootToCreature(
     DemiBosscreature1Loot,
@@ -982,39 +752,10 @@ addLootToCreatureSingleChance(DemiBosscreature1Loot, [OrbofPower.ID], 1, 3);
 
 // Demiboss Creature 2 - Widow Fae
 // Group 1 Loot Percentage = 9% + 35% + 7% + + 4.625% + 23% = 78.625%
-addLootToCreature(
-    DemiBosscreature2Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-); // Tier 1 Scraps
-addLootToCreature(
-    DemiBosscreature2Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5]
-);
-addLootToCreature(
-    DemiBosscreature2Loot,
-    tierTwoBaseResources,
-    [1, 1, 1, 1, 1, 1, 1]
-); // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootToCreatureSingleChance(DemiBosscreature2Loot, undiscoveredReds, 0.125);
-addLootToCreatureSingleChance(DemiBosscreature2Loot, undiscoveredGreens, 0.125);
-addLootToCreatureSingleChance(
-    DemiBosscreature2Loot,
-    undiscoveredYellows,
-    0.125
-);
-addLootToCreatureSingleChance(
-    DemiBosscreature2Loot,
-    undiscoveredPurples,
-    0.125
-);
-addLootToCreatureSingleChance(DemiBosscreature2Loot, undiscoveredBlues, 0.125);
-addLootToCreatureSingleChance(
-    DemiBosscreature2Loot,
-    undiscoveredOranges,
-    0.125
-);
+ // Tier 1 Scraps
+
+ // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
+
 /*Bags - Group 0*/
 addLootToCreature(
     DemiBosscreature2Loot,
@@ -1038,27 +779,7 @@ addLootToCreatureSingleChance(DemiBosscreature2Loot, [OrbofPower.ID], 1, 3);
 
 // Boss Creature 1 - Maxim Wintergrave
 // Group 1 Loot Percentage = 9% + 35% + 7% + + 4.625% + 23% = 78.625%
-addLootToCreature(
-    Bosscreature1Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 2, 2]
-); // Tier 1 Scraps
-addLootToCreature(
-    Bosscreature1Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5]
-);
-addLootToCreature(
-    Bosscreature1Loot,
-    tierTwoBaseResources,
-    [1, 1, 1, 1, 1, 1, 1]
-); // Tier 2 Base Resources (Only on Rare Mobs, Low Drop Chance)
-addLootToCreatureSingleChance(Bosscreature1Loot, undiscoveredReds, 0.125);
-addLootToCreatureSingleChance(Bosscreature1Loot, undiscoveredGreens, 0.125);
-addLootToCreatureSingleChance(Bosscreature1Loot, undiscoveredYellows, 0.125);
-addLootToCreatureSingleChance(Bosscreature1Loot, undiscoveredPurples, 0.125);
-addLootToCreatureSingleChance(Bosscreature1Loot, undiscoveredBlues, 0.125);
-addLootToCreatureSingleChance(Bosscreature1Loot, undiscoveredOranges, 0.125);
+
 /*Bags - Group 0*/
 addLootToCreature(
     Bosscreature1Loot,

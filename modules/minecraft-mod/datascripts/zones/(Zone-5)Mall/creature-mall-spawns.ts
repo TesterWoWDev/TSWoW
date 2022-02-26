@@ -15,17 +15,7 @@ import {
     spawnMultipleNPCWithTimer,
     spawnNPC,
 } from "../../functions/spawning-functions";
-import {
-    tierOneClothMaterial,
-    tierOneLeatherMaterial,
-    tierOneMailMaterial,
-} from "../../items/armor/tier1-set";
-import {
-    tierTwoClothMaterial,
-    tierTwoLeatherMaterial,
-    tierTwoMailMaterial,
-    tierTwoBaseResources,
-} from "../../items/armor/tier2-set";
+
 import { MODNAME } from "../../modname";
 import {
     PulseStaff,
@@ -477,9 +467,7 @@ std.DBC.ItemExtendedCost.add(5001)
     .ItemCount.set([1])
     .HonorPoints.set(0)
     .ArenaPoints.set(0);
-OrganicMatterVendor.Vendor.add(tierOneClothMaterial, 0, 0, 5001);
-OrganicMatterVendor.Vendor.add(tierOneMailMaterial, 0, 0, 5001);
-OrganicMatterVendor.Vendor.add(tierOneLeatherMaterial, 0, 0, 5001);
+
 
 spawnMultipleNPCWithTimer(
     28951,
@@ -512,12 +500,7 @@ GrizzlyBen.Stats.ManaMod.set(25);
 GrizzlyBen.Scale.set(2);
 GrizzlyBen.Rank.ELITE.set();
 export let GrizzlyBenLoot = GrizzlyBen.NormalLoot;
-addLootToCreature(
-    GrizzlyBenLoot,
-    [tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial],
-    [2, 2, 2]
-);
-addLootToCreature(GrizzlyBenLoot, tierTwoBaseResources, [3, 3, 2, 3, 1, 2, 1]);
+
 /*Bags and Armor*/
 addLootToCreatureSingleChance(
     GrizzlyBenLoot,

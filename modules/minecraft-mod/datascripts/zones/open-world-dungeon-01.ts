@@ -14,33 +14,6 @@ import {
     spawnMultiGobTimer,
     spawnMultipleNPCWithTimer,
 } from "../functions/spawning-functions";
-import {
-    tierOneBaseResources,
-    tierOneClothMaterial,
-    tierOneLeatherMaterial,
-    tierOneMailMaterial,
-} from "../items/armor/tier1-set";
-import {
-    tierTwoClothMaterial,
-    tierTwoLeatherMaterial,
-    tierTwoMailMaterial,
-    tierTwoBaseResources,
-} from "../items/armor/tier2-set";
-import {
-    tierThreeClothMaterial,
-    tierThreeLeatherMaterial,
-    tierThreeMailMaterial,
-    tierThreeBaseResources,
-} from "../items/armor/tier3-set";
-import { LargeSackofCoins } from "./currencies";
-import {
-    undiscoveredReds,
-    undiscoveredGreens,
-    undiscoveredPurples,
-    undiscoveredYellows,
-    undiscoveredBlues,
-    undiscoveredOranges,
-} from "../items/gems/tier1-gem";
 import { MODNAME } from "../modname";
 import {
     ReignLeggings,
@@ -223,30 +196,6 @@ spawnMultipleNPCWithTimer(
     300
 );
 
-addLootToCreature(
-    DungeonMob01Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [10, 10, 10],
-    3
-);
-addLootToCreature(
-    DungeonMob01Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5],
-    3
-);
-addLootToCreature(
-    DungeonMob01Loot,
-    [tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial],
-    [2, 2, 2],
-    4
-);
-addLootToCreature(
-    DungeonMob01Loot,
-    tierTwoBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    4
-);
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(
@@ -272,50 +221,7 @@ addLootToCreatureSingleChance(
     0.5,
     1
 );
-addLootToCreatureSingleChance(
-    DungeonMob01Loot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
-);
+
 addLootToCreatureSingleChance(DungeonMob01Loot, [OrbofPower.ID], 0.5, 3);
 
 export let ConsumeSpell = std.Spells.create(
@@ -386,30 +292,7 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -8813.744141, y: 662.621155, z: -17.837614, o: 0.31541 }],
     3600
 );
-addLootToCreature(
-    DungeonBoss01Loot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [4, 4, 4],
-    3
-);
-addLootToCreature(
-    DungeonBoss01Loot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    3
-);
-addLootToCreature(
-    DungeonBoss01Loot,
-    [tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial],
-    [10, 10, 10],
-    4
-);
-addLootToCreature(
-    DungeonBoss01Loot,
-    tierTwoBaseResources,
-    [5, 5, 5, 5, 5, 5, 5],
-    4
-);
+
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(
@@ -435,50 +318,7 @@ addLootToCreatureSingleChance(
     0.5,
     1
 );
-addLootToCreatureSingleChance(
-    DungeonBoss01Loot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
-);
+
 addLootToCreatureSingleChance(DungeonBoss01Loot, [OrbofPower.ID], 100, 3);
 
 export let AgitatedBloodMite = std.CreatureTemplates.create(
@@ -666,30 +506,7 @@ spawnMultipleNPCWithTimer(
 );
 
 std.SQL.creature_template_movement.add(DungeonMob02.ID).Flight.set(1);
-addLootToCreature(
-    DungeonMob02Loot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [10, 10, 10],
-    3
-);
-addLootToCreature(
-    DungeonMob02Loot,
-    tierOneBaseResources,
-    [5, 5, 5, 5, 5, 5, 5],
-    3
-);
-addLootToCreature(
-    DungeonMob02Loot,
-    [tierTwoClothMaterial, tierTwoLeatherMaterial, tierTwoMailMaterial],
-    [2, 2, 2],
-    4
-);
-addLootToCreature(
-    DungeonMob02Loot,
-    tierTwoBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    4
-);
+
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(
@@ -715,50 +532,7 @@ addLootToCreatureSingleChance(
     0.5,
     1
 );
-addLootToCreatureSingleChance(
-    DungeonMob02Loot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
-);
+
 addLootToCreatureSingleChance(DungeonMob02Loot, [OrbofPower.ID], 0.5, 3);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -908,18 +682,7 @@ spawnMultipleNPCWithTimer(
     ],
     300
 );
-addLootToCreature(
-    SentinelMobLoot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [2, 2, 2],
-    4
-);
-addLootToCreature(
-    SentinelMobLoot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    4
-);
+
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(
@@ -948,50 +711,6 @@ addLootToCreatureSingleChance(
     ],
     0.25,
     1
-);
-addLootToCreatureSingleChance(
-    SentinelMobLoot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
 );
 addLootToCreatureSingleChance(SentinelMobLoot, [OrbofPower.ID], 5, 3);
 
@@ -1060,18 +779,7 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -8925.356, y: 642.169, z: -17.079, o: 0.3456 }],
     3600
 );
-addLootToCreature(
-    DungeonBoss02Loot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [4, 4, 4],
-    3
-);
-addLootToCreature(
-    DungeonBoss02Loot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    3
-);
+
 
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
@@ -1102,50 +810,7 @@ addLootToCreatureSingleChance(
     0.5,
     1
 );
-addLootToCreatureSingleChance(
-    DungeonBoss02Loot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
-);
+
 addLootToCreatureSingleChance(DungeonBoss02Loot, [OrbofPower.ID], 100, 3);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                Dungeon Chest Loot Must Always Remain at Bottom
@@ -1169,20 +834,7 @@ spawnMultiGobTimer(
     1800
 );
 OpenWorldDungeonChest01.Size.set(0.5);
-addLootToGobChest(
-    OpenWorldDungeonChest01,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2]
-);
-/*Base Resources - Group 5*/
-addLootToGobChestSingleChanceMultiGroup(
-    OpenWorldDungeonChest01,
-    [tierThreeMailMaterial, tierThreeLeatherMaterial, tierThreeClothMaterial],
-    10,
-    1,
-    3,
-    5
-);
+
 /*Epic Items - Group 0*/
 addLootToGobChestSingleChance(
     OpenWorldDungeonChest01,
@@ -1286,7 +938,7 @@ addLootToGobChestSingleChance(
     3
 );
 /*Money Bags*/
-addLootToGobChest(OpenWorldDungeonChest01, [LargeSackofCoins.ID], [15], 8);
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1476,18 +1128,7 @@ spawnMultipleNPCWithTimer(
     ],
     300
 );
-addLootToCreature(
-    ScythemawDestroyerLoot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [2, 2, 2],
-    4
-);
-addLootToCreature(
-    ScythemawDestroyerLoot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    4
-);
+
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(
@@ -1516,50 +1157,6 @@ addLootToCreatureSingleChance(
     ],
     0.25,
     1
-);
-addLootToCreatureSingleChance(
-    ScythemawDestroyerLoot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
 );
 addLootToCreatureSingleChance(ScythemawDestroyerLoot, [OrbofPower.ID], 5, 3);
 
@@ -1677,18 +1274,6 @@ spawnMultipleNPCWithTimer(
     ],
     300
 );
-addLootToCreature(
-    ApothecaryAcolyteLoot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [2, 2, 2],
-    4
-);
-addLootToCreature(
-    ApothecaryAcolyteLoot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    4
-);
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(
@@ -1717,50 +1302,6 @@ addLootToCreatureSingleChance(
     ],
     0.25,
     1
-);
-addLootToCreatureSingleChance(
-    ApothecaryAcolyteLoot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
 );
 addLootToCreatureSingleChance(ApothecaryAcolyteLoot, [OrbofPower.ID], 5, 3);
 
@@ -1823,19 +1364,6 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -8998.505859, y: 577.777466, z: -3.098353, o: 4.728919 }],
     3600
 );
-addLootToCreature(
-    DungeonBoss03Loot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [4, 4, 4],
-    3
-);
-addLootToCreature(
-    DungeonBoss03Loot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    3
-);
-
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
 addLootToCreatureSingleChance(
@@ -1864,50 +1392,6 @@ addLootToCreatureSingleChance(
     ],
     0.5,
     1
-);
-addLootToCreatureSingleChance(
-    DungeonBoss03Loot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
 );
 addLootToCreatureSingleChance(DungeonBoss03Loot, [OrbofPower.ID], 100, 3);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1972,18 +1456,6 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -9063.556641, y: 505.916321, z: -4.03881, o: 0.027225 }],
     3600
 );
-addLootToCreature(
-    CouncilBoss01Loot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [4, 4, 4],
-    3
-);
-addLootToCreature(
-    CouncilBoss01Loot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    3
-);
 
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
@@ -2013,50 +1485,6 @@ addLootToCreatureSingleChance(
     ],
     0.5,
     1
-);
-addLootToCreatureSingleChance(
-    CouncilBoss01Loot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
 );
 addLootToCreatureSingleChance(CouncilBoss01Loot, [OrbofPower.ID], 100, 3);
 
@@ -2112,18 +1540,6 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -9063.827148, y: 514.786133, z: -4.040724, o: 6.25936 }],
     3600
 );
-addLootToCreature(
-    CouncilBoss02Loot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [4, 4, 4],
-    3
-);
-addLootToCreature(
-    CouncilBoss02Loot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    3
-);
 
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
@@ -2153,50 +1569,6 @@ addLootToCreatureSingleChance(
     ],
     0.5,
     1
-);
-addLootToCreatureSingleChance(
-    CouncilBoss02Loot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
 );
 addLootToCreatureSingleChance(CouncilBoss02Loot, [OrbofPower.ID], 100, 3);
 //Boss Creature Spawns
@@ -2251,18 +1623,6 @@ spawnMultipleNPCWithTimer(
     [{ map: 725, x: -9063.713867, y: 523.42981, z: -3.872571, o: 6.282922 }],
     3600
 );
-addLootToCreature(
-    CouncilBoss03Loot,
-    [tierThreeClothMaterial, tierThreeLeatherMaterial, tierThreeMailMaterial],
-    [4, 4, 4],
-    3
-);
-addLootToCreature(
-    CouncilBoss03Loot,
-    tierThreeBaseResources,
-    [2, 2, 2, 2, 2, 2, 2],
-    3
-);
 
 /*Bags and Armor*/
 /*Weapons and Misc Drops - Group 1*/
@@ -2292,49 +1652,5 @@ addLootToCreatureSingleChance(
     ],
     0.5,
     1
-);
-addLootToCreatureSingleChance(
-    CouncilBoss03Loot,
-    [
-        undiscoveredReds[0],
-        undiscoveredReds[1],
-        undiscoveredReds[2],
-        undiscoveredReds[3],
-        undiscoveredReds[4],
-        undiscoveredReds[5],
-        undiscoveredReds[6],
-        undiscoveredReds[7],
-        undiscoveredGreens[0],
-        undiscoveredGreens[1],
-        undiscoveredGreens[2],
-        undiscoveredGreens[3],
-        undiscoveredGreens[4],
-        undiscoveredGreens[5],
-        undiscoveredGreens[6],
-        undiscoveredPurples[0],
-        undiscoveredPurples[1],
-        undiscoveredPurples[2],
-        undiscoveredPurples[3],
-        undiscoveredPurples[4],
-        undiscoveredPurples[5],
-        undiscoveredPurples[6],
-        undiscoveredYellows[0],
-        undiscoveredYellows[1],
-        undiscoveredYellows[2],
-        undiscoveredYellows[3],
-        undiscoveredYellows[4],
-        undiscoveredBlues[0],
-        undiscoveredBlues[1],
-        undiscoveredBlues[2],
-        undiscoveredBlues[3],
-        undiscoveredOranges[0],
-        undiscoveredOranges[1],
-        undiscoveredOranges[2],
-        undiscoveredOranges[3],
-        undiscoveredOranges[4],
-        undiscoveredOranges[5],
-    ],
-    2,
-    2
 );
 addLootToCreatureSingleChance(CouncilBoss03Loot, [OrbofPower.ID], 100, 3);

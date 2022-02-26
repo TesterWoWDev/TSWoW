@@ -3,11 +3,6 @@ import { addLootToGobChest } from "../../functions/gob-functions";
 import { makeResourceNode } from "../../functions/resource-node-functions";
 import { spawnMultiGobTimer } from "../../functions/spawning-functions";
 import {
-    tierOneClothMaterial,
-    tierOneLeatherMaterial,
-    tierOneMailMaterial,
-} from "../../items/armor/tier1-set";
-import {
     RedFlower01,
     ImmortalFlower,
     BlueFlower01,
@@ -292,7 +287,6 @@ DestroyCloth.Reagents.clearAll();
 DestroyCloth.Effects.get(0).ItemType.set(OrganicMatter.ID); //3 Organic Matter for 5 Cloth
 DestroyCloth.Effects.get(0).PointsBase.set(2);
 DestroyCloth.Effects.get(0).PointsDieSides.set(1);
-DestroyCloth.Reagents.add(tierOneClothMaterial, 5);
 DestroyCloth.Icon.setPath("inv_misc_enggizmos_27");
 
 export let DestroyLeather = std.Spells.load(3115);
@@ -301,7 +295,6 @@ DestroyLeather.Reagents.clearAll();
 DestroyLeather.Effects.get(0).ItemType.set(OrganicMatter.ID); //3 Organic Matter for 5 Leather
 DestroyLeather.Effects.get(0).PointsBase.set(2);
 DestroyLeather.Effects.get(0).PointsDieSides.set(1);
-DestroyLeather.Reagents.add(tierOneLeatherMaterial, 5);
 DestroyLeather.Icon.setPath("inv_misc_enggizmos_27");
 
 export let DestroyMail = std.Spells.load(2663);
@@ -310,7 +303,6 @@ DestroyMail.Reagents.clearAll();
 DestroyMail.Effects.get(0).ItemType.set(OrganicMatter.ID); //3 Organic Matter for 5 Mail
 DestroyMail.Effects.get(0).PointsBase.set(2);
 DestroyMail.Effects.get(0).PointsDieSides.set(1);
-DestroyMail.Reagents.add(tierOneMailMaterial, 5);
 DestroyMail.Icon.setPath("inv_misc_enggizmos_27");
 DestroyMail.RequiresSpellFocus.set(0);
 DestroyMail.RequiredTotems.clear(0);

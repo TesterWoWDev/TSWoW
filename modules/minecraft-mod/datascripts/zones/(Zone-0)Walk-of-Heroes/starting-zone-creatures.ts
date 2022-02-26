@@ -11,12 +11,7 @@ import {
     spawnMultipleNPCWithTimer,
     spawnMultipleNPCs,
 } from "../../functions/spawning-functions";
-import {
-    tierOneBaseResources,
-    tierOneClothMaterial,
-    tierOneLeatherMaterial,
-    tierOneMailMaterial,
-} from "../../items/armor/tier1-set";
+
 import { MODNAME } from "../../modname";
 import {
     LoggingPileLogs,
@@ -104,7 +99,6 @@ WoodcuttingTree.NormalLoot.modRefCopy((table) => {
     table.addItem(FightingStick01.ID, 0.5, 1, 1, false, 2, 1);
     table.addItem(FightingStick02.ID, 0.5, 1, 1, false, 2, 1);
     table.addItem(FightingStick03.ID, 0.5, 1, 1, false, 2, 1);
-    table.addItem(tierOneBaseResources[5], 25, 1, 1, false, 3, 1);
 });
 std.SQL.creature_template_movement.add(WoodcuttingTree.ID).Rooted.set(1);
 
@@ -278,12 +272,7 @@ BanditNpc.Stats.ExperienceMod.set(2);
 BanditNpc.Stats.HealthMod.set(2);
 BanditNpc.Stats.ManaMod.set(1);
 export let BanditNpcLoot = BanditNpc.NormalLoot;
-addLootToCreature(
-    BanditNpcLoot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [5, 5, 2]
-);
-addLootToCreature(BanditNpcLoot, tierOneBaseResources, [0, 0, 2, 0, 0, 2, 0]);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     BanditNpcLoot,
@@ -319,16 +308,7 @@ BanditBossNpc.Stats.ExperienceMod.set(3);
 BanditBossNpc.Stats.HealthMod.set(3);
 BanditBossNpc.Stats.ManaMod.set(1);
 export let BanditBossNpcLoot = BanditBossNpc.NormalLoot;
-addLootToCreature(
-    BanditBossNpcLoot,
-    [tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial],
-    [10, 10, 5]
-);
-addLootToCreature(
-    BanditBossNpcLoot,
-    tierOneBaseResources,
-    [3, 3, 4, 3, 2, 2, 3]
-);
+
 /*Bags and Food - Group 0*/
 addLootToCreature(
     BanditBossNpcLoot,
