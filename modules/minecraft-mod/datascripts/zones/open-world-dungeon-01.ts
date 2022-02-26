@@ -32,7 +32,7 @@ import {
     tierThreeMailMaterial,
     tierThreeBaseResources,
 } from "../items/armor/tier3-set";
-import { LargeSackofCoins } from "../items/currencies";
+import { LargeSackofCoins } from "./currencies";
 import {
     undiscoveredReds,
     undiscoveredGreens,

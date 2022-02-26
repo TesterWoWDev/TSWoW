@@ -11,7 +11,7 @@ import {
     tierThreeLeatherMaterial,
     tierThreeClothMaterial,
 } from "../../items/armor/tier3-set";
-import { SmallSackofCoins, LargeSackofCoins } from "../../items/currencies";
+import { SmallSackofCoins, LargeSackofCoins } from "../currencies";
 import {
     DazzlingLongsword,
     Nightblade,

@@ -1,5 +1,5 @@
 import { makeResourceNode } from "../../functions/resource-node-functions";
-import { SmallSackofCoins } from "../../items/currencies";
+import { SmallSackofCoins } from "../currencies";
 import { addLootToGobChestMultiDrop } from "../../functions/gob-functions";
 import { spawnMultiGobTimer } from "../../functions/spawning-functions";
 import {

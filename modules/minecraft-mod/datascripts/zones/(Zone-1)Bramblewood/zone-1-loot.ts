@@ -17,7 +17,7 @@ import {
     tierTwoMailMaterial,
     tierTwoBaseResources,
 } from "../../items/armor/tier2-set";
-import { SmallSackofCoins } from "../../items/currencies";
+import { SmallSackofCoins } from "../currencies";
 import {
     undiscoveredReds,
     undiscoveredGreens,

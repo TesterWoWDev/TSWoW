@@ -11,7 +11,7 @@ import {
     SmallSackofCoins,
     LargeSackofCoins,
     MassiveSackofCoins,
-} from "../../items/currencies";
+} from "../currencies";
 import {
     EyeofGruul,
     DragonspineTrophy,

@@ -1,5 +1,5 @@
 import { addLootToCreature } from "../../functions/npc-functions";
-import { SmallSackofCoins } from "../../items/currencies";
+import { SmallSackofCoins } from "../currencies";
 import { WorgScroll } from "../champion-scrolls/ravaging-worg-champion-scroll";
 import {
     SmallRedPouch,

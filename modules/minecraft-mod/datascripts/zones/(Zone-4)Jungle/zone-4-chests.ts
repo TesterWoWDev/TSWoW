@@ -14,7 +14,7 @@ import {
     LargeSackofCoins,
     MassiveSackofCoins,
     SmallSackofCoins,
-} from "../../items/currencies";
+} from "../currencies";
 import {
     GenesisHelm,
     GenesisShoulderpads,

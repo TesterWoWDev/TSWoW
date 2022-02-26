@@ -16,7 +16,7 @@ import {
     spawnGobTimer,
     spawnMultiGobTimer,
 } from "../../functions/spawning-functions";
-import { SmallSackofCoins } from "../../items/currencies";
+import { SmallSackofCoins } from "../currencies";
 import {
     AgathasLockbox,
     startingResource01,

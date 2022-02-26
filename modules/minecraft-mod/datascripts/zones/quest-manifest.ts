@@ -27,7 +27,7 @@ import {
     tierThreeLeatherMaterial,
     tierThreeMailMaterial,
 } from "../items/armor/tier3-set";
-import { SmallSackofCoinswithBag } from "../items/currencies";
+import { SmallSackofCoinswithBag } from "./currencies";
 import { MODNAME } from "../modname";
 import {
     startingZoneWolfBoss,
