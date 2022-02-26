@@ -15,6 +15,53 @@ const blank2: TSArray<TSArray<uint32>> = [
 ];
 const blank3: TSArray<uint32> = [0, 0, 0, 0, 0];
 
+const IDToType = CreateDictionary<uint32, TSArray<float>>({
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 0],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 1],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 2],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 3],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 4],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 5],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 6],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 7],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 8],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 9],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 10],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 11],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 12],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 13],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 14],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 15],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 16],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 17],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 18],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 19],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 20],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 21],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 22],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 23],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 24],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 25],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 26],
+    [GetID("item_template", "minecraft-mod",  'test')]: [0, 27],
+    //weapons
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 0],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 1],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 2],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 3],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 4],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 5],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 6],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 7],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 8],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 9],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 10],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 11],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 12],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 13],
+    [GetID("item_template", "minecraft-mod",  'test')]: [1, 14],
+})
+
 const AllItemTypes = [
     //armor
     [0, 0],
@@ -147,8 +194,8 @@ export function handleCraftMessages(events: TSEvents) {
                             message.positions[4][1]
                         );
                     } else {
-                        if (pkt.craftItem <= 500) {
-                            //create custom item
+                        //if(IDToType[pkt.craftItem] != null){
+                        if (pkt.craftItem <= 500) {                                
                             let itemChoice = AllItemTypes[pkt.craftItem]
                             CreateCustomItem(player, itemChoice[0], itemChoice[1], Math.ceil(<float>(pkt.craftItem / 50)) * 5)
                         } else {
