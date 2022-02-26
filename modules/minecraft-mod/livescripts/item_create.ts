@@ -1,55 +1,55 @@
 const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invType,statMult
     [//ARMOR
         //cloth
-        [4, 1, 1, 0.8125],//head
-        [4, 1, 3, 0.75],//shoulder
-        [4, 1, 5, 1],//chest
-        [4, 1, 6, 0.5625],//waist
-        [4, 1, 7, 0.875],//legs
-        [4, 1, 8, 0.6875],//boots
-        [4, 1, 9, 0.4375],//wrist
-        [4, 1, 10, 0.625],//hands
+        [4, 1, 1,7, 0.8125],//head
+        [4, 1, 3,7, 0.75],//shoulder
+        [4, 1, 5,7, 1],//chest
+        [4, 1, 6,7, 0.5625],//waist
+        [4, 1, 7,7, 0.875],//legs
+        [4, 1, 8,7, 0.6875],//boots
+        [4, 1, 9,7, 0.4375],//wrist
+        [4, 1, 10,7, 0.625],//hands
         //leather
-        [4, 2, 1, 0.8125],//head
-        [4, 2, 3, 0.75],//shoulder
-        [4, 2, 5, 1],//chest
-        [4, 2, 6, 0.5625],//waist
-        [4, 2, 7, 0.875],//legs
-        [4, 2, 8, 0.6875],//boots
-        [4, 2, 9, 0.4375],//wrist
-        [4, 2, 10, 0.625],//hands
+        [4, 2, 1,8, 0.8125],//head
+        [4, 2, 3,8, 0.75],//shoulder
+        [4, 2, 5,8, 1],//chest
+        [4, 2, 6,8, 0.5625],//waist
+        [4, 2, 7,8, 0.875],//legs
+        [4, 2, 8,8, 0.6875],//boots
+        [4, 2, 9,8, 0.4375],//wrist
+        [4, 2, 10,8, 0.625],//hands
         //mail
-        [4, 3, 1, 0.8125],//head
-        [4, 3, 3, 0.75],//shoulder
-        [4, 3, 5, 1],//chest
-        [4, 3, 6, 0.5625],//waist
-        [4, 3, 7, 0.875],//legs
-        [4, 3, 8, 0.6875],//boots
-        [4, 3, 9, 0.4375],//wrist
-        [4, 3, 10, 0.625],//hands
+        [4, 3, 1,1, 0.8125],//head
+        [4, 3, 3,1, 0.75],//shoulder
+        [4, 3, 5,1, 1],//chest
+        [4, 3, 6,1, 0.5625],//waist
+        [4, 3, 7,1, 0.875],//legs
+        [4, 3, 8,1, 0.6875],//boots
+        [4, 3, 9,1, 0.4375],//wrist
+        [4, 3, 10,1, 0.625],//hands
         //extras
-        [4, 0, 2, 0.5],//neck
-        [4, 0, 11, 0.5],//ring
-        [4, 0, 12, 0.5],//trinket
-        [4, 1, 16, 0.48],//cloak
+        [4, 0, 2,5, 0.5],//neck
+        [4, 0, 11,4, 0.5],//ring
+        [4, 0, 12,4, 0.5],//trinket
+        [4, 1, 16,7, 0.48],//cloak
     ],
     [//WEAPONS
-        [2, 0, 13, 0.6],//1h axe
-        [2, 1, 17, 1],//2h axe
-        [2, 2, 26, 0.8],//bow
-        [2, 3, 26, 0.8],//gun
-        [2, 4, 13, 0.6],//1h mace
-        [2, 5, 17, 1],//2h mace
-        [2, 6, 17, 1],//polearm
-        [2, 7, 13, 0.6],//1h sword
-        [2, 8, 17, 1],//2h sword
-        [2, 10, 17, 1],//staff
-        [2, 13, 13, 0.6],//first weapon
-        [2, 15, 13, 0.5],//dagger
-        [2, 19, 26, 0.6],//wand
+        [2, 0, 13,1, 0.6],//1h axe
+        [2, 1, 17,1, 1],//2h axe
+        [2, 2, 26,2, 0.8],//bow
+        [2, 3, 26,2, 0.8],//gun
+        [2, 4, 13,1, 0.6],//1h mace
+        [2, 5, 17,1, 1],//2h mace
+        [2, 6, 17,1, 1],//polearm
+        [2, 7, 13,1, 0.6],//1h sword
+        [2, 8, 17,1, 1],//2h sword
+        [2, 10, 17,2, 1],//staff
+        [2, 13, 13,1, 0.6],//first weapon
+        [2, 15, 13,1, 0.5],//dagger
+        [2, 19, 26,2, 0.6],//wand
 
-        [4, 0, 23, 0.4],//offhand tome
-        [4, 6, 14, 0.4],//shield
+        [4, 0, 23,4, 0.4],//offhand tome
+        [4, 6, 14,1, 0.4],//shield
     ]
 ];
 
@@ -170,16 +170,17 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
     temp.SetClass(itemInfo[0])
     temp.SetSubClass(itemInfo[1])
     temp.SetInventoryType(itemInfo[2])
+    temp.SetMaterial(itemInfo[3])
 
     if (temp.GetClass() == 4)//if armor
     {
-        temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
+        temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[4] * qualityMultiplier[temp.GetQuality()]))
     } else {//setup weapon swing damage
-        temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
-        temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
+        temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[4] * qualityMultiplier[temp.GetQuality()]))
+        temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[4] * qualityMultiplier[temp.GetQuality()]))
         if (temp.GetQuality() == 5) {
-            temp.SetDamageMinB(<uint32>(3 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
-            temp.SetDamageMaxB(<uint32>(5 * itemLevel * itemInfo[3] * qualityMultiplier[temp.GetQuality()]))
+            temp.SetDamageMinB(<uint32>(3 * itemLevel * itemInfo[4] * qualityMultiplier[temp.GetQuality()]))
+            temp.SetDamageMaxB(<uint32>(5 * itemLevel * itemInfo[4] * qualityMultiplier[temp.GetQuality()]))
         }
         if (itemInfo[2] == 13) {//1h
             temp.SetDelay(1700 + (getRandNumber(5) * 100))
@@ -192,7 +193,7 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
     temp.SetName(getName(itemInfo, temp.GetQuality()))
     temp.SetDisplayInfoID(getDisplayID(itemInfo, temp.GetQuality()))
 
-    temp = generateStats(itemLevel, temp, itemInfo[3])
+    temp = generateStats(itemLevel, temp, itemInfo[4])
 
     return temp
 }
