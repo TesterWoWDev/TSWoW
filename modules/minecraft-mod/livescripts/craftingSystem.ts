@@ -1,4 +1,5 @@
 import { craftMessageID, empty, craftMessage, returnCraftItemMessage, showScreen } from "../shared/Messages";
+import { createItemWithChoices } from "./item_create";
 
 const blank1: TSArray<uint32> = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 const blank2: TSArray<TSArray<uint32>> = [
@@ -13,6 +14,54 @@ const blank2: TSArray<TSArray<uint32>> = [
     empty,
 ];
 const blank3: TSArray<uint32> = [0, 0, 0, 0, 0];
+
+const AllItemTypes = [
+    //armor
+    [0, 0],
+    [0, 1],
+    [0, 2],
+    [0, 3],
+    [0, 4],
+    [0, 5],
+    [0, 6],
+    [0, 7],
+    [0, 8],
+    [0, 9],
+    [0, 10],
+    [0, 11],
+    [0, 12],
+    [0, 13],
+    [0, 14],
+    [0, 15],
+    [0, 16],
+    [0, 17],
+    [0, 18],
+    [0, 19],
+    [0, 20],
+    [0, 21],
+    [0, 22],
+    [0, 23],
+    [0, 24],
+    [0, 25],
+    [0, 26],
+    [0, 27],
+    //weapons
+    [1, 0],
+    [1, 1],
+    [1, 2],
+    [1, 3],
+    [1, 4],
+    [1, 5],
+    [1, 6],
+    [1, 7],
+    [1, 8],
+    [1, 9],
+    [1, 10],
+    [1, 11],
+    [1, 12],
+    [1, 13],
+    [1, 14],
+]
 
 export function handleCraftMessages(events: TSEvents) {
     events.CustomPacketID.OnReceive(craftMessageID, (_, packet, player) => {
@@ -98,9 +147,15 @@ export function handleCraftMessages(events: TSEvents) {
                             message.positions[4][1]
                         );
                     } else {
-                        let itema = player.AddItem(pkt.craftItem, pkt.craftItemCount);
-                        if (itema.IsNull()) {
-                            //player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,[item])
+                        if (pkt.craftItem <= 500) {
+                            //create custom item
+                            let itemChoice = AllItemTypes[pkt.craftItem]
+                            CreateCustomItem(player, itemChoice[0], itemChoice[1], Math.ceil(<float>(pkt.craftItem / 50)) * 5)
+                        } else {
+                            let itema = player.AddItem(pkt.craftItem, pkt.craftItemCount);
+                            if (itema.IsNull()) {
+                                //player.SendMail(41,0,'forgotten items','You seem to have forgotten to make space in your bags, i have made sure this made its way to you. Shame about those names though, seem to of been lost.',0,0,[item])
+                            }
                         }
                     }
 
@@ -135,3 +190,7 @@ export function handleCraftMessages(events: TSEvents) {
         pkt.write().SendToPlayer(player);
     });
 }
+function CreateCustomItem(player: TSPlayer, index1: number, index2: number, level: number): TSItem {
+    return createItemWithChoices(player, index1, index2, level)
+}
+

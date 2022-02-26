@@ -142,31 +142,45 @@ export function itemCreate(events: TSEvents) {
         const cmd = command.get().split(' ')
         if (cmd[0] == 'createitem') {
             found.set(true)
-            let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
-            //make changes
-            const entry = getOpenID()
-            temp.SetEntry(entry)
-            temp = setupItem(temp, player.GetLevel())
-            //save
-            temp.SaveItemTemplate()
-            //apply
-            ReloadSingleItemTemplateObject(temp)
-            //add
-            player.AddItem(entry, 1)
-            //cache//not needed with exe mod?
-            player.SendItemQueryPacketWithTemplate(temp)
+            createItem(player)
         }
     })
 }
+function createItem(player: TSPlayer) {
+    let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
+    //make changes
+    const entry = getOpenID()
+    temp.SetEntry(entry)
+    temp = setupItem(temp, chooseItemType(), player.GetLevel())
+    //save
+    temp.SaveItemTemplate()
+    //apply
+    ReloadSingleItemTemplateObject(temp)
+    //add
+    player.AddItem(entry, 1)
+    //cache//not needed with exe mod?
+    player.SendItemQueryPacketWithTemplate(temp)
+}
 
-function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
+export function createItemWithChoices(player: TSPlayer, i1: number, i2: number, level: uint32): TSItem {
+    let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
+    const entry = getOpenID()
+    temp.SetEntry(entry)
+    temp = setupItem(temp, itemClassInfo[i1][i2], level)
+    temp.SaveItemTemplate()
+    ReloadSingleItemTemplateObject(temp)
+    player.SendItemQueryPacketWithTemplate(temp)
+    return player.AddItem(entry, 1)
+}
+
+function setupItem(temp: TSItemTemplate, itemInfo: TSArray<float>, playerLevel: uint32): TSItemTemplate {
     const itemLevel: uint32 = (playerLevel / 4) * qualityMultiplier[temp.GetQuality()]
     temp.SetItemLevel(itemLevel);
     temp.SetRequiredLevel(playerLevel)
     temp.SetQuality(GetRandQuality())
     temp.SetStatCount(temp.GetQuality() - 1)
 
-    const itemInfo: TSArray<float> = chooseItemType()
+
     temp.SetClass(itemInfo[0])
     temp.SetSubClass(itemInfo[1])
     temp.SetInventoryType(itemInfo[2])
@@ -175,15 +189,15 @@ function setupItem(temp: TSItemTemplate, playerLevel: uint32): TSItemTemplate {
 
     if (temp.GetClass() == 4)//if armor or shield/tome
     {
-        if(temp.GetSubClass() != 23)//if not tome
+        if (temp.GetSubClass() != 23)//if not tome
         {
             temp.SetArmor(<uint32>(10 * itemLevel * itemInfo[5] * qualityMultiplier[temp.GetQuality()]))
         }
-        if(itemInfo[2] == 14)//if shield
+        if (itemInfo[2] == 14)//if shield
         {
             temp.SetBlock(<uint32>(itemLevel * itemInfo[5] * qualityMultiplier[temp.GetQuality()]))
         }
-            
+
     } else {//setup weapon swing damage
         temp.SetDamageMinA(<uint32>(10 * itemLevel * itemInfo[5] * qualityMultiplier[temp.GetQuality()]))
         temp.SetDamageMaxA(<uint32>(20 * itemLevel * itemInfo[5] * qualityMultiplier[temp.GetQuality()]))
