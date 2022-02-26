@@ -142,11 +142,11 @@ export function itemCreate(events: TSEvents) {
         const cmd = command.get().split(' ')
         if (cmd[0] == 'createitem') {
             found.set(true)
-            createItem(player)
+            createItemRandom(player)
         }
     })
 }
-function createItem(player: TSPlayer) {
+function createItemRandom(player: TSPlayer) {
     let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
     //make changes
     const entry = getOpenID()

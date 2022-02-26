@@ -158,7 +158,6 @@ export function handleCraftMessages(events: TSEvents) {
                             }
                         }
                     }
-
                     item.SetEnchantment(message.enchants[0], 0);
                     if (message.enchants[1] != 0)
                         item.SetEnchantment(message.enchants[1], 2);
@@ -190,6 +189,7 @@ export function handleCraftMessages(events: TSEvents) {
         pkt.write().SendToPlayer(player);
     });
 }
+
 function CreateCustomItem(player: TSPlayer, index1: number, index2: number, level: number): TSItem {
     return createItemWithChoices(player, index1, index2, level)
 }
