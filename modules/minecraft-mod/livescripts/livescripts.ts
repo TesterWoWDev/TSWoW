@@ -1,9 +1,9 @@
 import { handleCraftMessages } from "./craftingSystem";
 import { dungeon1 } from "./dungeon/dungeon-1";
 import { torghastBuffSystem } from "./dungeon/torghast-master";
-import { itemCacheSend } from "./item-cache";
-import { itemCreate } from "./item_create";
-import { itemReloading } from "./item_reloading";
+import { itemCacheSend } from "./item-stuff/item-cache";
+import { itemCreate } from "./item-stuff/item_create";
+import { itemReloading } from "./item-stuff/item_reloading";
 import { Killstreaks } from "./QoL/Killstreak";
 import { onLevelup } from "./QoL/onLevelup";
 import { onLoginEvents } from "./QoL/onLogin";

@@ -1,5 +1,5 @@
 import { craftMessageID, empty, craftMessage, returnCraftItemMessage, showScreen } from "../shared/Messages";
-import { createItemWithChoices } from "./item_create";
+import { createItemWithChoices } from "./item-stuff/item_create";
 
 const blank1: TSArray<uint32> = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 const blank2: TSArray<TSArray<uint32>> = [
