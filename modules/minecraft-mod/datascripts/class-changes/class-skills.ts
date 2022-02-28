@@ -1,5 +1,7 @@
 import { std } from "wow/wotlk";
+import { ClassMask } from "wow/wotlk/std/Class/ClassRegistry";
 import { ClassType } from "wow/wotlk/std/Class/ClassType";
+import { RaceMask } from "wow/wotlk/std/Race/RaceType";
 
 let classes: ClassType[] = [
     "WARRIOR",
@@ -33,3 +35,8 @@ classes.forEach((value, index, array) => {
         });
     });
 });
+
+std.EquipSkills.Bows.Ability.get().AcquireMethod.LEARN_ON_CREATE.set();
+std.EquipSkills.Crossbows.Ability.get().AcquireMethod.LEARN_ON_CREATE.set();
+std.EquipSkills.Bows.Ability.get().RaceMask.set(RaceMask.DWARF).ClassMask.set(ClassMask.HUNTER);
+std.EquipSkills.Crossbows.Ability.get().RaceMask.set(RaceMask.DWARF).ClassMask.set(ClassMask.HUNTER);

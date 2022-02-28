@@ -1,5 +1,4 @@
 import { handleCraftMessages } from "./craftingSystem";
-import { creature1Script } from "./creature/creature1-test";
 import { onLevelup } from "./QoL/onLevelup";
 import { worldChat } from "./QoL/world-chat";
 import { Killstreaks } from "./QoL/Killstreak";
@@ -18,7 +17,6 @@ export function Main(events: TSEvents) {
     handleCraftMessages(events);
     onLoginEvents(events);
     worldChat(events);
-    creature1Script(events);
     onLevelup(events);
     Killstreaks(events);
     itemLearnSpell(events);
@@ -26,7 +24,6 @@ export function Main(events: TSEvents) {
     creatureDeathApplyBuff(events);
     creatureDeathSummon(events);
     torghastBuffSystem(events);
-    //hungerGames(events)
     dungeon1(events);
     itemReloading(events);
     itemCreate(events);

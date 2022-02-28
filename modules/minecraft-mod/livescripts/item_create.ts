@@ -146,6 +146,7 @@ export function itemCreate(events: TSEvents) {
         }
     })
 }
+
 function createItemRandom(player: TSPlayer) {
     let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
     //make changes
