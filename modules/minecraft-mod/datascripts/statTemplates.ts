@@ -17,9 +17,6 @@ let spellPowerTemplate = [45, 1];
 let stamIntTemplate = joinTemplates([staminaTemplate, intellectTemplate], 1);
 let stamAgiTemplate = joinTemplates([staminaTemplate, agilityTemplate], 1);
 
-let item = std.Items.load(25);
-useTemplates(item, 1, [stamIntTemplate, stamAgiTemplate]);
-
 function joinTemplates(statTemplates: number[][], modifier: number) {
     statTemplates.forEach((val, index, arr) => {
         val[1] *= modifier;
