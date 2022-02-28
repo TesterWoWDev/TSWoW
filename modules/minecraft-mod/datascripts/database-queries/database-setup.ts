@@ -1,35 +1,19 @@
 import { std } from "wow/wotlk";
 //custom sql files in bin/sql/custom/world
-
+//crafting
 std.SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `minecraft_recipes`");
-//invasions
-std.SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `invasions`");
-std.SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `invasions_bosses`");
-std.SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `invasions_spawners`");
-
-std.SQL.Databases.world_dest.writeEarly(
-    "TRUNCATE TABLE `player_housing_item_spell_link`"
-);
+//unused rn
+std.SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `player_housing_item_spell_link`");
+//sidequest
 std.SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `player_quest_options`");
 std.SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `player_quest_reward`");
-
-
+//torghast
 std.SQL.Databases.world_dest.writeEarly("TRUNCATE TABLE `torghast_spells`");
 
-//clears
-std.SQL.Databases.world_dest.writeEarly(
-    "DELETE FROM `item_enchantment_template` WHERE entry >= 8700"
-);
-std.SQL.Databases.world_dest.writeEarly(
-    "DELETE FROM `creature_equip_template` WHERE creatureID >= 100000"
-);
-std.SQL.Databases.world_source.writeEarly(
-    "DELETE FROM `creature_loot_template` WHERE Entry = 299"
-);
-std.SQL.Databases.world_source.writeEarly(
-    "DELETE FROM `npc_vendor` WHERE entry = 3562"
-);
-
+//clear for loot and vendors
+std.SQL.Databases.world_source.writeEarly("DELETE FROM `creature_loot_template` WHERE Entry = 299");
+std.SQL.Databases.world_source.writeEarly("DELETE FROM `npc_vendor` WHERE entry = 3562");
+//teleports
 std.SQL.game_tele
     .add(1450)
     .position_x.set(-8750.45)
@@ -45,7 +29,7 @@ std.SQL.game_tele
     .position_z.set(414)
     .map.set(726)
     .name.set("torghast");
-
+//base map info
 std.DBC.MapDifficulty.add(1000)
     .MapID.set(725)
     .Difficulty.set(0)
