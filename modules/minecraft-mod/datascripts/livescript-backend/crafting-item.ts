@@ -1,5 +1,5 @@
 import { std } from "wow/wotlk";
-import { MODNAME } from "./modname";
+import { MODNAME } from "../modname";
 let item = std.Items.create(MODNAME, "multitool", 40772);
 item.Name.enGB.set("Axepickvel");
 item.Description.enGB.set(
