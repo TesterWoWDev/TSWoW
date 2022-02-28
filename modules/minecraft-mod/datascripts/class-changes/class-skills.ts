@@ -35,8 +35,3 @@ classes.forEach((value, index, array) => {
         });
     });
 });
-
-std.EquipSkills.Bows.Ability.get().AcquireMethod.LEARN_ON_CREATE.set();
-std.EquipSkills.Crossbows.Ability.get().AcquireMethod.LEARN_ON_CREATE.set();
-std.EquipSkills.Bows.Ability.get().RaceMask.set(RaceMask.DWARF).ClassMask.set(ClassMask.HUNTER);
-std.EquipSkills.Crossbows.Ability.get().RaceMask.set(RaceMask.DWARF).ClassMask.set(ClassMask.HUNTER);
