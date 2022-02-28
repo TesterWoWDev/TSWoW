@@ -1,6 +1,6 @@
 import { std } from "wow/wotlk";
 import { ItemTemplate } from "wow/wotlk/std/Item/ItemTemplate";
-import { MODNAME } from "../modname";
+import { MODNAME } from "./modname";
 
 var manaTemplate = [0, 5];
 var healthTemplate = [1, 3];
