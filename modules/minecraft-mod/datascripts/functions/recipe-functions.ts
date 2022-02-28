@@ -7,7 +7,8 @@ export function generateGearRecipes(
     material: Number,
     epulet: Number,
     chain: Number,
-    itemID: Number[]
+    itemID: Number[],
+    count:number
 ) {
     let zero = 0;
     std.SQL.Databases.world_dest.write(
@@ -70,7 +71,7 @@ export function generateGearRecipes(
         "" +
         itemID[0] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -133,7 +134,7 @@ export function generateGearRecipes(
         "" +
         itemID[1] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -196,7 +197,7 @@ export function generateGearRecipes(
         "" +
         itemID[2] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -259,7 +260,7 @@ export function generateGearRecipes(
         "" +
         itemID[3] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -322,7 +323,7 @@ export function generateGearRecipes(
         "" +
         itemID[4] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -385,7 +386,7 @@ export function generateGearRecipes(
         "" +
         itemID[5] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -448,7 +449,7 @@ export function generateGearRecipes(
         "" +
         itemID[6] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -511,7 +512,7 @@ export function generateGearRecipes(
         "" +
         itemID[7] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -574,7 +575,7 @@ export function generateGearRecipes(
         "" +
         itemID[8] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -637,7 +638,7 @@ export function generateGearRecipes(
         "" +
         itemID[9] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -700,7 +701,7 @@ export function generateGearRecipes(
         "" +
         itemID[10] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -763,7 +764,7 @@ export function generateGearRecipes(
         "" +
         itemID[11] +
         "," +
-        1 +
+        count +
         ")"
     );
 }
@@ -774,7 +775,8 @@ export function generateWeaponRecipes(
     metal: number,
     reinforced: number,
     string: number,
-    itemID: number[]
+    itemID: number[],
+    count:number
 ) {
     let zero = 0;
     std.SQL.Databases.world_dest.write(
@@ -837,7 +839,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[0] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -900,7 +902,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[1] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -963,7 +965,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[2] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1026,7 +1028,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[3] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1089,7 +1091,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[4] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1152,7 +1154,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[5] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1215,7 +1217,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[6] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1278,7 +1280,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[7] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1341,7 +1343,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[8] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1404,7 +1406,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[9] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1467,7 +1469,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[10] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1530,7 +1532,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[11] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1593,7 +1595,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[12] +
         "," +
-        1 +
+        count +
         ")"
     );
     std.SQL.Databases.world_dest.write(
@@ -1656,7 +1658,7 @@ export function generateWeaponRecipes(
         "" +
         itemID[13] +
         "," +
-        1 +
+        count +
         ")"
     );
 }

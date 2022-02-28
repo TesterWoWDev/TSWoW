@@ -103,7 +103,7 @@ export function handleCraftMessages(events: TSEvents) {
                         
                         if(IDToType.contains(pkt.craftItem)){
                         let itemChoice = IDToType[pkt.craftItem]                             
-                            CreateCustomItem(player, itemChoice[0], itemChoice[1], player.GetLevel());//get tier later?
+                            item = CreateCustomItem(player, itemChoice[0], itemChoice[1],pkt.craftItemCount);
                         } else {
                             let itema = player.AddItem(pkt.craftItem, pkt.craftItemCount);
                             if (itema.IsNull()) {
