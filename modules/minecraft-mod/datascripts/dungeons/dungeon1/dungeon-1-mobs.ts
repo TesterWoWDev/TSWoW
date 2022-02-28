@@ -1,5 +1,5 @@
 import { std } from "wow/wotlk";
-import { MODNAME } from "../modname";
+import { MODNAME } from "../../modname";
 import { minimobTwo } from "./dungeon-1-mini-mobs";
 
 export let LightningTotemBolt = std.Spells.load(43301);

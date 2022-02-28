@@ -1,5 +1,5 @@
 import { std } from "wow/wotlk";
-import { MODNAME } from "../modname";
+import { MODNAME } from "../../modname";
 
 std.Maps.load(726).Type.DUNGEON.set(MODNAME,'map726').MaxPlayers.set(5).Flags.set(13).CorpseMap.set(725).CorpsePos.set({ x: 900, y: 150 }).Name.enGB.set('Torghast')
 std.SQL.instance_template.add(726).parent.set(725).script.set('')

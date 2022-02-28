@@ -1,5 +1,5 @@
 import { std } from "wow/wotlk";
-import { MODNAME } from "../modname";
+import { MODNAME } from "../../modname";
 
 export let minimobOne = std.CreatureTemplates.create(MODNAME,'torghastminimob1',98)
 minimobOne.Name.enGB.set('mini mob 1')
