@@ -1,5 +1,5 @@
-import { createBaseResources, createGear, createMaterial, createTrinket, createWeapons } from "../functions/item-functions";
-import { generateGearRecipes } from "../functions/recipe-functions";
+import { createBaseResources, createGear, createMaterial, createTrinket, createWeapons } from "../../functions/item-functions";
+import { generateGearRecipes } from "../../functions/recipe-functions";
 
 let levelrequirement = 1;
 export let tierOneBaseResources = createBaseResources(
