@@ -249,7 +249,7 @@ export function onLevelup(events: TSEvents) {
             player.LearnSpell(50310); //mining
             player.LearnSpell(13262); //disenchant
             player.LearnSpell(51296); //cooking
-            player.LearnSpell(GetID("Spell", "minecraft-mod", "threatspell-spell")); //Threat Spell
+            //player.LearnSpell(GetID("Spell", "minecraft-mod", "threatspell-spell")); //Threat Spell
             player.LearnSpell(51304); //Alchemy
             player.LearnSpell(668); //Common language
             player.LearnSpell(51300); //Resource Refining

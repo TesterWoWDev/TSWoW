@@ -37,7 +37,7 @@ export function worldChat(events: TSEvents) {
             } else if (faction == 1) {
                 teamIcon = a;
             }
-            //SendWorldMessage("[World] [" + teamIcon + "|cff" + colors[player.GetClass()]+ "|Hplayer:" + player.GetName() + "|h" + player.GetName() + "|h|r]: |cffffffff"+message+"|r")
+            SendWorldMessage("[World] [" + teamIcon + "|cff" + colors[player.GetClass()]+ "|Hplayer:" + player.GetName() + "|h" + player.GetName() + "|h|r]: |cffffffff"+message+"|r")
         }
     });
 }
