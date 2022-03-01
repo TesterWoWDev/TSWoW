@@ -12920,6 +12920,12 @@ declare namespace WoWAPI {
          * @param a Alpha component (1.0 is opaque, 0.0 is transparent). The default value is 1.0.
          */
         SetColorTexture(r: number, g: number, b: number, a?: number): void;
+     
+        /**
+         * Sets the desaturation mode for a texture.
+         * @param flag Whether or not to enable desaturation
+         */
+        SetDesaturated(flag: boolean): void;
     }
 
     /**
