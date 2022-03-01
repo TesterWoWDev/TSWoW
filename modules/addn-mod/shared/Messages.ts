@@ -193,3 +193,66 @@ export class questInfo {
         return packet;
     }
 }
+
+
+export const talentInformationID = 8;
+export class talentInformation {
+    size: uint32 = 0;
+    info: TSArray<TSArray<uint32>> = [];
+    constructor(size: uint32, info: TSArray<TSArray<uint32>>) {
+        this.size = size;
+        this.info = info;
+    }
+    read(read: TSPacketRead): void {
+        this.info.pop();
+        this.size = read.ReadUInt32();
+        for (let i = 0; i < this.size; i++) {
+            this.info.push([
+                read.ReadUInt32(),
+                read.ReadUInt32(),
+                read.ReadUInt32(),
+                read.ReadUInt32(),
+                read.ReadUInt32(),
+                read.ReadUInt32(),
+            ]
+            );
+        }
+    }
+
+    write(): TSPacketWrite {
+        let packet = CreateCustomPacket(talentInformationID, 0);
+        packet.WriteUInt32(this.size);
+        for (let i = 0; i < this.size; i++) {
+            packet.WriteDouble(this.info[i][0]);
+            packet.WriteDouble(this.info[i][1]);
+            packet.WriteDouble(this.info[i][2]);
+            packet.WriteDouble(this.info[i][3]);
+            packet.WriteDouble(this.info[i][4]);
+            packet.WriteDouble(this.info[i][5]);
+        }
+        return packet;
+    }
+}
+
+export const attemptTalentActionPacketID = 9;
+export class attemptTalentActionPacket {
+    talentID: uint32 = 0;
+    action: uint32 = 0;
+
+    constructor(talentID: uint32, action: uint32) {
+        this.talentID = talentID;
+        this.action = action
+    }
+
+    read(read: TSPacketRead): void {
+        this.talentID = read.ReadUInt32();
+        this.action = read.ReadUInt32();
+    }
+
+    write(): TSPacketWrite {
+        let packet = CreateCustomPacket(attemptTalentActionPacketID, 0);
+        packet.WriteUInt32(this.talentID);
+        packet.WriteUInt32(this.action);
+        return packet;
+    }
+}

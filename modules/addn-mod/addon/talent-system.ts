@@ -1,4 +1,7 @@
+import { attemptTalentActionPacket, talentInformation, talentInformationID } from "../shared/Messages";
+
 let buttonWidth = 48
+let buttons = []
 export function talentSystem() {
     let mframe = CreateFrame("Frame", "talentSystem", UIParent);
     mframe.SetWidth(256);
@@ -37,29 +40,27 @@ export function talentSystem() {
         mframe.Show();
     });
 
-    function addTalentButton(talentId, row, column, spellID, currentRank,MaxRank) {
+    function addTalentButton(talentId, row, column, spellID, currentRank, MaxRank) {
         let button = CreateFrame("Button", "talentSystem_button_" + spellID, mframe, "SecureActionButtonTemplate");
         button.SetSize(buttonWidth, buttonWidth);
         let info = GetSpellInfo(spellID);
         button.SetNormalTexture(info[2]);
         button.RegisterForClicks("AnyDown")
-        button.SetPoint("TOPLEFT", buttonWidth + column*(buttonWidth+8), -(row*(buttonWidth+16)) - 64);
+        button.SetPoint("TOPLEFT", buttonWidth + column * (buttonWidth + 8), -(row * (buttonWidth + 16)) - 64);
 
         let rankText = button.CreateFontString('', "OVERLAY", "GameFontNormal");
         rankText.SetPoint("BOTTOM", 0, -10);
         rankText.SetText(currentRank + "/" + MaxRank);
 
-        button.SetScript("OnClick", (frame,button) => {
-            //LearnTalent(talentId);
-            print(button)
-            if(button == "LeftButton"){
-            print("Learned talent " + spellID + " (" + talentId + ")");
+        button.SetScript("OnClick", (frame, button) => {
+            if (button == "LeftButton") {
+                print("Learned talent " + spellID + " (" + talentId + ")");
+                AttemptTalentAction(talentId, 1);
             }
-            else if(button == "RightButton")
-            {
+            else if (button == "RightButton") {
                 print("Unlearned talent " + spellID + " (" + talentId + ")");
+                AttemptTalentAction(talentId, 0);
             }
-
         })
         button.SetScript("OnEnter", () => {
             GameTooltip.SetOwner(button, "ANCHOR_RIGHT");
@@ -68,13 +69,28 @@ export function talentSystem() {
         button.SetScript("OnLeave", () => {
             GameTooltip.Hide();
         });
+        buttons.push(button)
     }
 
-    addTalentButton("1",  0, 0, 23881,0,1);
-    addTalentButton("2", 0, 1, 1159,2,2);
-    addTalentButton("3",  0, 2, 20577,0,2);
-    addTalentButton("4",  1, 0, 12318,3,4);
-    addTalentButton("5",  2, 0, 12292,0,1);
-    addTalentButton("6", 2, 1, 29590,1,2)
+    function hideButtons() {
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].Hide();
+        }
+        buttons = []
+    }
+
+    function AttemptTalentAction(talentId: any, action: uint32) {//request a learn or unlearn
+        let pkt = new attemptTalentActionPacket(talentId, action);
+        pkt.write().Send()
+    }
+
+    OnCustomPacket(talentInformationID, (pack) => {//receive all pkt info
+        hideButtons()
+        let pkt = new talentInformation(1, []);
+        pkt.read(pack);
+        for (let i = 0; i < pkt.size; i++) {
+            addTalentButton(pkt.info[i][0], pkt.info[i][1], pkt.info[i][2], pkt.info[i][3], pkt.info[i][4], pkt.info[i][5]);
+        }
+    })
 
 }
