@@ -2,6 +2,7 @@ import { attemptTalentActionPacket, talentInformation, talentInformationID } fro
 
 let buttonWidth = 48
 let buttons = []
+
 export function talentSystem() {
     let mframe = CreateFrame("Frame", "talentSystem", UIParent);
     mframe.SetWidth(256);
@@ -33,12 +34,20 @@ export function talentSystem() {
     mframe_close.SetPoint("TOPRIGHT", -5, -5);
 
     let mframe_open = CreateFrame("Button", "talentSystem_open", UIParent);
-    mframe_open.SetPoint("CENTER", 5, 5);
+    mframe_open.SetPoint("TOPRIGHT", 5, 5);
     mframe_open.SetSize(32, 32)
     mframe_open.SetNormalTexture("Interface\\Buttons\\UI-SpellbookIcon-NextPage-Up");
     mframe_open.SetScript("OnClick", () => {
-        mframe.Show();
+        if (mframe.IsShown()) {
+            mframe.Hide();
+        } else {
+            mframe.Show();
+        }
     });
+
+    let mframe_talentPoints = mframe.CreateFontString('', "OVERLAY", "GameFontNormal");
+    mframe_talentPoints.SetPoint("TOPLEFT", 0, -64);
+    
 
     function addTalentButton(talentId, row, column, spellID, currentRank, MaxRank) {
         let button = CreateFrame("Button", "talentSystem_button_" + spellID, mframe, "SecureActionButtonTemplate");
@@ -86,11 +95,16 @@ export function talentSystem() {
 
     OnCustomPacket(talentInformationID, (pack) => {//receive all pkt info
         hideButtons()
-        let pkt = new talentInformation(1, []);
+        let pkt = new talentInformation(1,1, []);
         pkt.read(pack);
         for (let i = 0; i < pkt.size; i++) {
             addTalentButton(pkt.info[i][0], pkt.info[i][1], pkt.info[i][2], pkt.info[i][3], pkt.info[i][4], pkt.info[i][5]);
         }
+        updateTalentPoints(pkt.talentPoints);
     })
 
+    function updateTalentPoints(talentPoints: number) {
+        mframe_talentPoints.SetText("Talent Points: " + talentPoints);
+    }
 }
+

@@ -198,14 +198,17 @@ export class questInfo {
 export const talentInformationID = 8;
 export class talentInformation {
     size: uint32 = 0;
+    talentPoints: uint32 = 0;
     info: TSArray<TSArray<uint32>> = [];
-    constructor(size: uint32, info: TSArray<TSArray<uint32>>) {
+    constructor(size: uint32,points:uint32, info: TSArray<TSArray<uint32>>) {
         this.size = size;
+        this.talentPoints = points
         this.info = info;
     }
     read(read: TSPacketRead): void {
         this.info.pop();
         this.size = read.ReadUInt32();
+        this.talentPoints = read.ReadUInt32();
         for (let i = 0; i < this.size; i++) {
             let talentId = read.ReadUInt32();
             let row = read.ReadUInt32();
@@ -220,6 +223,7 @@ export class talentInformation {
     write(): TSPacketWrite {
         let packet = CreateCustomPacket(talentInformationID, 0);
         packet.WriteUInt32(this.size);
+        packet.WriteUInt32(this.talentPoints);
         for (let i = 0; i < this.size; i++) {
             packet.WriteDouble(this.info[i][0]);
             packet.WriteDouble(this.info[i][1]);
