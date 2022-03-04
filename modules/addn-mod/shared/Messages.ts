@@ -207,15 +207,13 @@ export class talentInformation {
         this.info.pop();
         this.size = read.ReadUInt32();
         for (let i = 0; i < this.size; i++) {
-            this.info.push([
-                read.ReadUInt32(),
-                read.ReadUInt32(),
-                read.ReadUInt32(),
-                read.ReadUInt32(),
-                read.ReadUInt32(),
-                read.ReadUInt32(),
-            ]
-            );
+            let talentId = read.ReadUInt32();
+            let row = read.ReadUInt32();
+            let column = read.ReadUInt32();
+            let spellID = read.ReadUInt32();
+            let currentRank = read.ReadUInt32();
+            let MaxRank = read.ReadUInt32();
+            this.info.push(<TSArray<uint32>>[talentId, row, column, spellID, currentRank, MaxRank]);
         }
     }
 
