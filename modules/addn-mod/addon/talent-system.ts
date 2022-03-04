@@ -27,7 +27,8 @@ export function talentSystem() {
     });
 
     let mframe_title = mframe.CreateFontString('', "OVERLAY", "GameFontNormal");
-    mframe_title.SetPoint("TOP", 0, -15);
+    mframe_title.SetFont("Fonts\\MORPHEUS.TTF", 18, "OUTLINE")
+    mframe_title.SetPoint("TOP", 0, -20);
     mframe_title.SetText("Talent System");
 
     let mframe_close = CreateFrame("Button", "talentSystem_close", mframe, "UIPanelCloseButton");
@@ -46,7 +47,8 @@ export function talentSystem() {
     });
 
     let mframe_talentPoints = mframe.CreateFontString('', "OVERLAY", "GameFontNormal");
-    mframe_talentPoints.SetPoint("TOPLEFT", 0, -64);
+    mframe_talentPoints.SetPoint("BOTTOM", 0, 15);
+    mframe_talentPoints.SetText("Unspent Talent Points: " + 0);
     
 
     function addTalentButton(talentId, row, column, spellID, currentRank, MaxRank) {
@@ -104,7 +106,7 @@ export function talentSystem() {
     })
 
     function updateTalentPoints(talentPoints: number) {
-        mframe_talentPoints.SetText("Talent Points: " + talentPoints);
+        mframe_talentPoints.SetText("Unspent Talent Points: " + talentPoints);
     }
 }
 
