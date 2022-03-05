@@ -140,7 +140,7 @@ function applyTalents(player: TSPlayer, playerTalentObject: PlayerTalents) {
 
 function getCurrentTalentsDB(player: TSPlayer): TSDictionary<float, TSArray<float>> {
     let dict = CreateDictionary<float, TSArray<float>>({});
-    let q = QueryCharacters(`SELECT spell, type, rank,  FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()}`)
+    let q = QueryCharacters(`SELECT spell, type, rank FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()}`)
     while (q.GetRow()) {
         dict[q.GetUInt32(0)] = [q.GetFloat(1), q.GetFloat(2)]
     }
