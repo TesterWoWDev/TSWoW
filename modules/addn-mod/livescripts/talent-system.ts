@@ -1,49 +1,49 @@
 import { attemptTalentActionPacket, attemptTalentActionPacketID, talentInformation } from "../shared/Messages";
 
-let talents: TSArray<TSArray<TSArray<uint32>>> = [///spellID,row,col,type(0 learn, 1 customAura),maxRank
-    [],//none
+let talents: TSArray<TSArray<TSArray<float>>> = [///spellID,row,col,type(0 learn, 1 customAura),maxRank
+    [[0]],//none
     [//warr
         [311, 1, 1, 3, 5],//spellID,row,col,type,maxRank
         [311, 1, 1, 3, 1],
     ],
     [
-
+        [311, 1, 1, 3, 1],
     ],
     [
-
+        [311, 1, 1, 3, 1],
     ],
     [
-
+        [311, 1, 1, 3, 1],
     ],
     [
-
+        [311, 1, 1, 3, 1],
     ],
     [
-
+        [311, 1, 1, 3, 1],
     ],
     [
-
+        [311, 1, 1, 3, 1],
+    ],
+    [   
+        [311, 1, 1, 3, 1],
     ],
     [
-
+        [311, 1, 1, 3, 1],
     ],
-    [
-
-    ],
-    [],//none
+    [[0]],//none
     [//druid
-
+    [311, 1, 1, 3, 1],
     ],
 ]
 
 const TABLE_NAME_TALENTS = "custom_character_talents"
 class PlayerTalents {
     talentPoints: uint32 = 0;
-    talentTest: TSDictionary<uint32, TSArray<uint32>> = CreateDictionary<uint32, TSArray<uint32>>({//spellID->type,curRank
+    talentTest: TSDictionary<float, TSArray<float>> = CreateDictionary<float, TSArray<float>>({//spellID->type,curRank
     });
     constructor() {
         this.talentPoints = 0;
-        this.talentTest = CreateDictionary<uint32, TSArray<uint32>>({});
+        this.talentTest = CreateDictionary<float, TSArray<float>>({});
     }
 }
 
@@ -63,15 +63,29 @@ export function talentSystem(events: TSEvents) {
 
         let playerTalentObject = player.GetObject<PlayerTalents>(TABLE_NAME_TALENTS, new PlayerTalents())
 
+        let spellID = talents[player.GetClass()][msg.talentID][0]
         if (msg.action == 0) {//unlearn
             playerTalentObject.talentPoints++;
+
+            playerTalentObject.talentTest[spellID] = [playerTalentObject.talentTest[spellID][0]--, playerTalentObject.talentTest[spellID][1]]
+            if (playerTalentObject.talentTest[spellID][0] == 0) {
+                playerTalentObject.talentTest = playerTalentObject.talentTest.filter(key => key !== spellID)
+                if(playerTalentObject.talentTest[spellID][1] == 0)
+                player.RemoveAura(spellID)
+                if(playerTalentObject.talentTest[spellID][1] == 1)
+                player.RemoveSpell(spellID,false,true)
+            }
             removeFromTalentDB(player, talents[player.GetClass()][msg.talentID][0])
         }
         else if (msg.action == 1) {//learn
             if (playerTalentObject.talentPoints > 0) {
-                //player.talentPoints--;
+                playerTalentObject.talentPoints++;
                 let rank = 1
-                addToTalentDB(player, talents[player.GetClass()][msg.talentID][0], rank)
+                
+                if (playerTalentObject.talentTest.contains(spellID)) {
+                    rank = playerTalentObject.talentTest[spellID][1] + 1
+                }
+                addToTalentDB(player, spellID, rank)
             }
             else {
                 player.SendAreaTriggerMessage("You don't have any talent points to spend!");
@@ -82,20 +96,20 @@ export function talentSystem(events: TSEvents) {
 }
 
 function sendAllPlayerTalents(player: TSPlayer, playerTalentObject: PlayerTalents) {
-    let pkt = new talentInformation(1, 1, []);
+    let pkt = new talentInformation(1, 1, [[1]]);
     pkt.talentPoints = playerTalentObject.talentPoints;
 
     let i = player.GetClass()
     for (let j = 0; j < talents[i].length; j++) {
         let spellInfo = talents[i][j]
         let curRank = playerTalentObject.talentTest[spellInfo[0]][1]
-        pkt.info.push([j, spellInfo[1], spellInfo[2], spellInfo[0], curRank, spellInfo[4]]);
+        pkt.info.push(<TSArray<float>>[<float>j, spellInfo[1], spellInfo[2], spellInfo[0], curRank, spellInfo[4]]);
     }
     pkt.size = pkt.info.length;
 
 }
 
-function lookupCurrentTalentPoints(player: TSPlayer) {
+function lookupCurrentTalentPoints(player: TSPlayer):uint32 {
     let talentPoints = player.GetLevel() - 10;
     let q = QueryCharacters(`SELECT spell FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()}`)
     while (q.GetRow()) {
@@ -124,11 +138,11 @@ function applyTalents(player: TSPlayer, playerTalentObject: PlayerTalents) {
     })
 }
 
-function getCurrentTalentsDB(player: TSPlayer): TSDictionary<number, TSArray<number>> {
-    let dict = CreateDictionary<number, TSArray<number>>({});
+function getCurrentTalentsDB(player: TSPlayer): TSDictionary<float, TSArray<float>> {
+    let dict = CreateDictionary<float, TSArray<float>>({});
     let q = QueryCharacters(`SELECT spell, type, rank,  FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()}`)
     while (q.GetRow()) {
-        dict[q.GetUInt32(0)] = [q.GetUInt32(1), q.GetUInt32(2)]
+        dict[q.GetUInt32(0)] = [q.GetFloat(1), q.GetFloat(2)]
     }
     return dict;
 }

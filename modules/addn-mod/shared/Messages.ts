@@ -199,8 +199,8 @@ export const talentInformationID = 8;
 export class talentInformation {
     size: uint32 = 0;
     talentPoints: uint32 = 0;
-    info: TSArray<TSArray<uint32>> = [];
-    constructor(size: uint32,points:uint32, info: TSArray<TSArray<uint32>>) {
+    info: TSArray<TSArray<float>> = [];
+    constructor(size: uint32,points:uint32, info: TSArray<TSArray<float>>) {
         this.size = size;
         this.talentPoints = points
         this.info = info;
@@ -210,13 +210,13 @@ export class talentInformation {
         this.size = read.ReadUInt32();
         this.talentPoints = read.ReadUInt32();
         for (let i = 0; i < this.size; i++) {
-            let talentId = read.ReadUInt32();
-            let row = read.ReadUInt32();
-            let column = read.ReadUInt32();
-            let spellID = read.ReadUInt32();
-            let currentRank = read.ReadUInt32();
-            let MaxRank = read.ReadUInt32();
-            this.info.push(<TSArray<uint32>>[talentId, row, column, spellID, currentRank, MaxRank]);
+            let talentId = read.ReadFloat();
+            let row = read.ReadFloat();
+            let column = read.ReadFloat();
+            let spellID = read.ReadFloat();
+            let currentRank = read.ReadFloat();
+            let MaxRank = read.ReadFloat();
+            this.info.push([talentId, row, column, spellID, currentRank, MaxRank]);
         }
     }
 
@@ -225,12 +225,12 @@ export class talentInformation {
         packet.WriteUInt32(this.size);
         packet.WriteUInt32(this.talentPoints);
         for (let i = 0; i < this.size; i++) {
-            packet.WriteDouble(this.info[i][0]);
-            packet.WriteDouble(this.info[i][1]);
-            packet.WriteDouble(this.info[i][2]);
-            packet.WriteDouble(this.info[i][3]);
-            packet.WriteDouble(this.info[i][4]);
-            packet.WriteDouble(this.info[i][5]);
+            packet.WriteFloat(this.info[i][0]);
+            packet.WriteFloat(this.info[i][1]);
+            packet.WriteFloat(this.info[i][2]);
+            packet.WriteFloat(this.info[i][3]);
+            packet.WriteFloat(this.info[i][4]);
+            packet.WriteFloat(this.info[i][5]);
         }
         return packet;
     }
