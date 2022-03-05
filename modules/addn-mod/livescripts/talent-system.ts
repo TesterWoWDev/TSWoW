@@ -24,7 +24,7 @@ let talents: TSArray<TSArray<TSArray<float>>> = [///spellID,row,col,type(0 learn
     [
         [311, 1, 1, 3, 1],
     ],
-    [   
+    [
         [311, 1, 1, 3, 1],
     ],
     [
@@ -32,7 +32,7 @@ let talents: TSArray<TSArray<TSArray<float>>> = [///spellID,row,col,type(0 learn
     ],
     [[0]],//none
     [//druid
-    [311, 1, 1, 3, 1],
+        [311, 1, 1, 3, 1],
     ],
 ]
 
@@ -70,10 +70,10 @@ export function talentSystem(events: TSEvents) {
             playerTalentObject.talentTest[spellID] = [playerTalentObject.talentTest[spellID][0]--, playerTalentObject.talentTest[spellID][1]]
             if (playerTalentObject.talentTest[spellID][0] == 0) {
                 playerTalentObject.talentTest = playerTalentObject.talentTest.filter(key => key !== spellID)
-                if(playerTalentObject.talentTest[spellID][1] == 0)
-                player.RemoveAura(spellID)
-                if(playerTalentObject.talentTest[spellID][1] == 1)
-                player.RemoveSpell(spellID,false,true)
+                if (playerTalentObject.talentTest[spellID][1] == 0)
+                    player.RemoveAura(spellID)
+                if (playerTalentObject.talentTest[spellID][1] == 1)
+                    player.RemoveSpell(spellID, false, true)
             }
             removeFromTalentDB(player, talents[player.GetClass()][msg.talentID][0])
         }
@@ -81,7 +81,7 @@ export function talentSystem(events: TSEvents) {
             if (playerTalentObject.talentPoints > 0) {
                 playerTalentObject.talentPoints++;
                 let rank = 1
-                
+
                 if (playerTalentObject.talentTest.contains(spellID)) {
                     rank = playerTalentObject.talentTest[spellID][1] + 1
                 }
@@ -109,7 +109,7 @@ function sendAllPlayerTalents(player: TSPlayer, playerTalentObject: PlayerTalent
 
 }
 
-function lookupCurrentTalentPoints(player: TSPlayer):uint32 {
+function lookupCurrentTalentPoints(player: TSPlayer): uint32 {
     let talentPoints = player.GetLevel() - 10;
     let q = QueryCharacters(`SELECT spell FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()}`)
     while (q.GetRow()) {
