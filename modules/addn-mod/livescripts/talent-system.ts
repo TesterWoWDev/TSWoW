@@ -115,20 +115,12 @@ function removeFromTalentDB(player: TSPlayer, spellID: number) {
     QueryCharacters(`DELETE FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()} AND spell = ${spellID}`)
 }
 
-
 function applyTalents(player: TSPlayer, playerTalentObject: PlayerTalents) {
     playerTalentObject.talentTest.forEach((key, val) => {
         if (val[0] == 0)
             player.LearnSpell(key)
         if (val[1] == 1)
             player.AddAura(key, player).SetStackAmount(val[1])
-    })
-}
-
-function removeTalentAuras(player: TSPlayer, playerTalentObject: PlayerTalents) {
-    playerTalentObject.talentTest.forEach((key, val) => {
-        if (val[1] == 1)
-            player.RemoveAura(key)
     })
 }
 
@@ -140,4 +132,3 @@ function getCurrentTalentsDB(player: TSPlayer): TSDictionary<number, TSArray<num
     }
     return dict;
 }
-
