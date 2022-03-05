@@ -98,15 +98,12 @@ export function talentSystem(events: TSEvents) {
 function sendAllPlayerTalents(player: TSPlayer, playerTalentObject: PlayerTalents) {
     let pkt = new talentInformation(1, 1, [[1]]);
     pkt.talentPoints = playerTalentObject.talentPoints;
-
-    let i = player.GetClass()
-    for (let j = 0; j < talents[i].length; j++) {
-        let spellInfo = talents[i][j]
-        let curRank = playerTalentObject.talentTest[spellInfo[0]][1]
-        pkt.info.push(<TSArray<float>>[<float>j, spellInfo[1], spellInfo[2], spellInfo[0], curRank, spellInfo[4]]);
+    let pClass = player.GetClass()
+    for (let talentID = 0; talentID < talents[pClass].length; talentID++) {
+        let spellInfo = talents[pClass][talentID]
+        pkt.info.push(<TSArray<float>>[<float>talentID, spellInfo[1], spellInfo[2], spellInfo[0], playerTalentObject.talentTest[spellInfo[0]][1], spellInfo[4]]);
     }
     pkt.size = pkt.info.length;
-
 }
 
 function lookupCurrentTalentPoints(player: TSPlayer): uint32 {
