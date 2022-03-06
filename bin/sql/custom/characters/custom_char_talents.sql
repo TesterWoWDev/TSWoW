@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS `custom_character_talents`  (  `guid` int(11) NOT NULL,  `spell` int(11) NOT NULL,  `type` int(11) NULL DEFAULT NULL,  `rank` int(11) NULL DEFAULT NULL,  PRIMARY KEY (`guid`, `spell`) USING BTREE);

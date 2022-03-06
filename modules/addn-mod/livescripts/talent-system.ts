@@ -108,9 +108,9 @@ function sendAllPlayerTalents(player: TSPlayer, playerTalentObject: PlayerTalent
 
 function lookupCurrentTalentPoints(player: TSPlayer): uint32 {
     let talentPoints = player.GetLevel() - 10;
-    let q = QueryCharacters(`SELECT spell FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()}`)
+    let q = QueryCharacters(`SELECT COUNT(*) FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()}`)
     while (q.GetRow()) {
-        talentPoints--
+        talentPoints = talentPoints - q.GetUInt32(0);
     }
     if (talentPoints < 0) {
         talentPoints = 0
