@@ -55,6 +55,13 @@ export function talentSystem(events: TSEvents) {
         player.SetObject(TABLE_NAME_TALENTS, newTalents);
         applyTalents(player, newTalents)
     })
+    events.Player.OnLevelChanged((player, oldLevel) => {
+        if (player.GetLevel() > oldLevel) {
+            let newTalents = player.GetObject<PlayerTalents>(TABLE_NAME_TALENTS, new PlayerTalents())
+            newTalents.talentPoints = newTalents.talentPoints++
+            sendAllPlayerTalents(player, newTalents);
+        }
+    })
 
     events.CustomPacketID.OnReceive(attemptTalentActionPacketID, (opcode, packet, player) => {
         let msg = new attemptTalentActionPacket(1, 1);
@@ -97,7 +104,11 @@ export function talentSystem(events: TSEvents) {
 
 function sendAllPlayerTalents(player: TSPlayer, playerTalentObject: PlayerTalents) {
     let pkt = new talentInformation(1, 1, [[1]]);
-    pkt.talentPoints = playerTalentObject.talentPoints;
+    if (playerTalentObject.talentPoints > 0) {
+        pkt.talentPoints = playerTalentObject.talentPoints;
+    } else {
+        pkt.talentPoints = 0;
+    }
     let pClass = player.GetClass()
     for (let talentID = 0; talentID < talents[pClass].length; talentID++) {
         let spellInfo = talents[pClass][talentID]
@@ -111,9 +122,6 @@ function lookupCurrentTalentPoints(player: TSPlayer): uint32 {
     let q = QueryCharacters(`SELECT COUNT(*) FROM custom_character_talents WHERE guid = ${player.GetGUIDLow()}`)
     while (q.GetRow()) {
         talentPoints = talentPoints - q.GetUInt32(0);
-    }
-    if (talentPoints < 0) {
-        talentPoints = 0
     }
     return talentPoints
 }
