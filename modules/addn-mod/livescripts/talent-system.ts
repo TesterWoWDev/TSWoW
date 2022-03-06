@@ -66,14 +66,13 @@ export function talentSystem(events: TSEvents) {
     events.CustomPacketID.OnReceive(attemptTalentActionPacketID, (opcode, packet, player) => {
         let msg = new attemptTalentActionPacket(1, 1);
         msg.read(packet);
-        if (msg.action != 0 && msg.action != 1) return //invalid action ID  (0 = ulearn, 1 = learn)
+        if (msg.action != 0 && msg.action != 1 && 2) return //invalid action ID  (0 = ulearn, 1 = learn, 2= update)
 
         let playerTalentObject = player.GetObject<PlayerTalents>(TABLE_NAME_TALENTS, new PlayerTalents())
 
         let spellID = talents[player.GetClass()][msg.talentID][0]
         if (msg.action == 0) {//unlearn
             playerTalentObject.talentPoints++;
-
             playerTalentObject.talentTest[spellID] = [playerTalentObject.talentTest[spellID][0]--, playerTalentObject.talentTest[spellID][1]]
             if (playerTalentObject.talentTest[spellID][0] == 0) {
                 playerTalentObject.talentTest = playerTalentObject.talentTest.filter(key => key !== spellID)
@@ -83,33 +82,39 @@ export function talentSystem(events: TSEvents) {
                     player.RemoveSpell(spellID, false, true)
             }
             removeFromTalentDB(player, talents[player.GetClass()][msg.talentID][0])
+            sendAllPlayerTalents(player, playerTalentObject)
         }
         else if (msg.action == 1) {//learn
             if (playerTalentObject.talentPoints > 0) {
-                playerTalentObject.talentPoints++;
+                playerTalentObject.talentPoints--;
                 let rank = 1
-
                 if (playerTalentObject.talentTest.contains(spellID)) {
                     rank = playerTalentObject.talentTest[spellID][1] + 1
                 }
                 addToTalentDB(player, spellID, rank)
+                sendAllPlayerTalents(player, playerTalentObject)
             }
             else {
                 player.SendAreaTriggerMessage("You don't have any talent points to spend!");
             }
+
+        } else if (msg.action == 2) {//update
+            sendAllPlayerTalents(player, playerTalentObject);
         }
-        sendAllPlayerTalents(player, playerTalentObject)
     })
 }
 
 function sendAllPlayerTalents(player: TSPlayer, playerTalentObject: PlayerTalents) {
     let pkt = new talentInformation(1, 1, [[1]]);
+    pkt.info.pop()//clear the default
+    
     if (playerTalentObject.talentPoints > 0) {
         pkt.talentPoints = playerTalentObject.talentPoints;
     } else {
         pkt.talentPoints = 0;
     }
     let pClass = player.GetClass()
+    
     for (let talentID = 0; talentID < talents[pClass].length; talentID++) {
         let spellInfo = talents[pClass][talentID]
         pkt.info.push(<TSArray<float>>[<float>talentID, spellInfo[1], spellInfo[2], spellInfo[0], playerTalentObject.talentTest[spellInfo[0]][1], spellInfo[4]]);
