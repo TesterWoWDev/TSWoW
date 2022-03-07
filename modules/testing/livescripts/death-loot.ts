@@ -15,8 +15,11 @@ export function deathLoot(events: TSEvents) {
             return
         let loot = creature.GetLoot();
         addGoldLootCreature(creature.GetLootRecipient(), creature, loot.GetMoney())
+        let angle = 0
+        let variant = 3.6/loot.GetItemCount()
         for (let i = 0; i < loot.GetItemCount(); i++) {
-            addItemLootCreature(creature.GetLootRecipient(), creature, loot.GetItem(i), i)
+            addItemLootCreature(creature.GetLootRecipient(), creature, loot.GetItem(i), i,angle)
+            angle += variant
         }
         //clears inventory so no loot
         loot.SetMoney(0)
@@ -29,7 +32,7 @@ function addGoldLootCreature(killer: TSPlayer, creature: TSCreature, goldAmount:
     if (goldAmount <= 0)
         return
     let c = killer.SpawnCreature(creatureID, creature.GetX(), creature.GetY(), creature.GetZ(), 0, 8, 30000)
-    const TSPosition = c.GetRelativePoint(Math.random() * 3, Math.random() * 3.6);
+    const TSPosition = c.GetRelativePoint(Math.random()* 2 + 1, Math.random() * 3.6);
     c.MoveTo(1, TSPosition.x, TSPosition.y, TSPosition.z, true)
     //change depending on item type
     c.SetDisplayID(11010)
@@ -49,9 +52,9 @@ function addGoldCollision(c: TSCreature) {
     })
 }
 
-function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootItem, index: uint32) {
+function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootItem, index: uint32, angle:float) {
     let c = killer.SpawnCreature(creatureID, creature.GetX(), creature.GetY(), creature.GetZ(), 0, 8, 30000)
-    const TSPosition = c.GetRelativePoint(Math.random() * 3, Math.random() * 3.6);
+    const TSPosition = c.GetRelativePoint(Math.random() * 2 + 1,angle);
     c.MoveTo(1, TSPosition.x, TSPosition.y, TSPosition.z, true)
     c.SetDisplayID(11010)
     let quality = CreateItem(item.GetItemID(), 1).GetQuality()
@@ -66,7 +69,7 @@ function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootI
 }
 
 function addItemCollision(c: TSCreature, index: uint32) {
-    c.AddCollision('item-' + index, 2, 500, 0, (self, collided) => {
+    c.AddCollision('item-' + index, 1, 500, 0, (self, collided) => {
         if (collided.IsPlayer()) {
             if (collided.GetGUID() == self.GetUInt('playerguid')) {
                 let player = collided.ToPlayer()
