@@ -15,11 +15,15 @@ export function deathLoot(events: TSEvents) {
             return
         let loot = creature.GetLoot();
         addGoldLootCreature(creature.GetLootRecipient(), creature, loot.GetMoney())
-        let angle = 0
-        let variant = 3.6 / loot.GetItemCount()
-        for (let i = 0; i < loot.GetItemCount(); i++) {
-            addItemLootCreature(creature.GetLootRecipient(), creature, loot.GetItem(i), i, angle)
-            angle += variant
+        let itemCount = loot.GetItemCount()
+        if(itemCount > 0)
+        {
+            let angle = 0
+            let variant = 3.6 / itemCount
+            for (let i = 0; i < itemCount; i++) {
+                addItemLootCreature(creature.GetLootRecipient(), creature, loot.GetItem(i), i, angle)
+                angle += variant
+            }
         }
         //clears inventory so no loot
         loot.SetMoney(0)
