@@ -38,8 +38,6 @@ function addGoldLootCreature(killer: TSPlayer, creature: TSCreature, goldAmount:
     let c = killer.SpawnCreature(creatureID, creature.GetX(), creature.GetY(), creature.GetZ(), 0, 8, 30000)
     const TSPosition = c.GetRelativePoint(Math.random() * 2 + 1, Math.random() * 3.6);
     c.MoveTo(1, TSPosition.x, TSPosition.y, TSPosition.z, true)
-    //change depending on item type
-    c.SetDisplayID(11010)
     c.SetUInt('goldCount', goldAmount)
     c.SetUInt('playerguid', killer.GetGUID())
     addGoldCollision(c)
@@ -60,7 +58,6 @@ function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootI
     let c = killer.SpawnCreature(creatureID, creature.GetX(), creature.GetY(), creature.GetZ(), 0, 8, 30000)
     const TSPosition = c.GetRelativePoint(Math.random() * 2 + 1, angle);
     c.MoveTo(1, TSPosition.x, TSPosition.y, TSPosition.z, true)
-    c.SetDisplayID(11010)
     let quality = CreateItem(item.GetItemID(), 1).GetQuality()
     if (quality > 1)
         c.AddAura(colorAuras[quality], c)
