@@ -7,7 +7,7 @@ const colorAuras = [
     22580,//legendary
 ]
 
-let creatureID = GetID("creature_template", "death-loot", "npc_death_loot")
+let creatureID = 24417
 
 export function deathLoot(events: TSEvents) {
     events.Creatures.OnGenerateLoot((creature, killer) => {
@@ -16,8 +16,7 @@ export function deathLoot(events: TSEvents) {
         let loot = creature.GetLoot();
         addGoldLootCreature(creature.GetLootRecipient(), creature, loot.GetMoney())
         let itemCount = loot.GetItemCount()
-        if(itemCount > 0)
-        {
+        if (itemCount > 0) {
             let angle = 0
             let variant = 3.6 / itemCount
             for (let i = 0; i < itemCount; i++) {
@@ -58,6 +57,18 @@ function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootI
     let c = killer.SpawnCreature(creatureID, creature.GetX(), creature.GetY(), creature.GetZ(), 0, 8, 30000)
     const TSPosition = c.GetRelativePoint(Math.random() * 2 + 1, angle);
     c.MoveTo(1, TSPosition.x, TSPosition.y, TSPosition.z, true)
+    let itemProper = CreateItem(item.GetItemID(),1)
+    let iclass = itemProper.GetClass()
+    if(iclass == 2)
+    {
+        //c.GetOutfit().SetItem(slotToEquip,item.GetItemID())
+    }else if (iclass == 4){
+        c.GetOutfit().SetMainhand(item.GetItemID())//possibly displayID?
+    }else{
+        c.SetDisplayID(GetID('creature_template','death-loot','npc_death_loot'))
+    }
+    
+
     let quality = CreateItem(item.GetItemID(), 1).GetQuality()
     if (quality > 1)
         c.AddAura(colorAuras[quality], c)
