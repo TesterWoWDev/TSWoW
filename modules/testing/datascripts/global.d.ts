@@ -3910,8 +3910,6 @@ declare interface TSCreature extends TSUnit {
      */
     SetWalk(enable : bool) : void
 
-
-        testing(): void
     /**
      * Equips given [Item]s to the [Unit]. Using 0 removes the equipped [Item]
      *
