@@ -77,10 +77,10 @@ function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootI
     if (iclass == 4 || iclass == 2) {
         c.SetDisplayID(40000)
         let outfit = CreateOutfit(-1, -1)
-        // outfit.SetFace(55)
+         outfit.SetFace(55)
         // outfit.SetHairColor(55)
         // outfit.SetHairStyle(55)
-        //outfit.SetSkin(14)
+        outfit.SetSkin(14)
         let invType = itemProper.GetInventoryType()
         if (invType == 11 || invType == 12)//trinket and ring
         {
