@@ -9,6 +9,7 @@ std.SQL.creature_model_info.add(cdi.ID.get())
 
 let cmd1 = std.DBC.CreatureModelData.add(id++).ModelName.set("Character\\Human2\\Male\\HumanMale.mdx");
 let cdi1 = std.DBC.CreatureDisplayInfo.add(id2++).ModelID.set(cmd1.ID.get())
+
 std.SQL.creature_model_info.add(cdi1.ID.get())
 
 
@@ -17,5 +18,5 @@ c.MovementSpeed.set(0.2, 0.2)
 c.MovementType.set("IDLE")
 c.Scale.set(0.4)
 c.Models.clearAll()
-c.Models.addIds(cdi1.ID.get())
+c.Models.addIds(cdi.ID.get())
 c.Scale.set(0.5)

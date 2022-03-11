@@ -76,11 +76,12 @@ function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootI
     c.AddAura(5384, c)
     if (iclass == 4 || iclass == 2) {
         c.SetDisplayID(40000)
-        let outfit = CreateOutfit(-1, -1)
+        let outfit = CreateOutfit(-1, 0)
          outfit.SetFace(55)
         // outfit.SetHairColor(55)
         // outfit.SetHairStyle(55)
-        outfit.SetSkin(14)
+        //outfit.SetSkin(14)
+        outfit.SetDisplayID(40001)
         let invType = itemProper.GetInventoryType()
         if (invType == 11 || invType == 12)//trinket and ring
         {
