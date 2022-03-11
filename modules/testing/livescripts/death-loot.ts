@@ -7,7 +7,22 @@ const colorAuras = [
     22580,//legendary
 ]
 
-let creatureID = 31216
+let creatureID = GetID('creature_template', 'death-loot', 'npc_death_loot')//31005
+//24417(working, misasing geosets)
+
+const invToEquip = CreateDictionary<uint32, uint32>({
+    1: EquipmentSlots.HEAD,
+    2: EquipmentSlots.NECK,
+    3: EquipmentSlots.SHOULDERS,
+    4: EquipmentSlots.BODY,//shirt?
+    5: EquipmentSlots.CHEST,
+    6: EquipmentSlots.WAIST,
+    7: EquipmentSlots.LEGS,
+    8: EquipmentSlots.FEET,
+    9: EquipmentSlots.WRISTS,
+    10: EquipmentSlots.HANDS,
+    16: EquipmentSlots.BACK,
+})
 
 export function deathLoot(events: TSEvents) {
     events.Creatures.OnGenerateLoot((creature, killer) => {
@@ -42,7 +57,7 @@ function addGoldLootCreature(killer: TSPlayer, creature: TSCreature, goldAmount:
 }
 
 function addGoldCollision(c: TSCreature) {
-    c.AddCollision('gold', 2, 0, 0, (self, collided, cancel, entry) => {
+    c.AddCollision('gold', 0.2, 0, 0, (self, collided, cancel, entry) => {
         if (collided.IsPlayer()) {
             if (collided.GetGUID() == self.GetUInt('playerguid')) {
                 collided.ToPlayer().ModifyMoney(self.GetUInt('goldCount', 0))
@@ -53,31 +68,44 @@ function addGoldCollision(c: TSCreature) {
 }
 
 function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootItem, index: uint32, angle: float) {
-    let c = killer.SpawnCreature(creatureID, creature.GetX(), creature.GetY(), creature.GetZ(), 0, 8, 30000)
-    const TSPosition = c.GetRelativePoint(Math.random() * 2 + 1, angle);
-    c.MoveTo(1, TSPosition.x, TSPosition.y, TSPosition.z, true)
+    const TSPosition = creature.GetRelativePoint(Math.random() * 3 + 2, angle);
+    let c = killer.SpawnCreature(creatureID, TSPosition.x, TSPosition.y, TSPosition.z, 0, 8, 30000)
     let itemProper = CreateItem(item.GetItemID(), 1)
     let iclass = itemProper.GetClass()
-    if (iclass == 2) {
-        //c.GetOutfitCopy().SetItem(slotToEquip,item.GetItemID())
+    let itemID = item.GetItemID()
+    c.AddAura(5384, c)
+    if (iclass == 4 || iclass == 2) {
         c.SetDisplayID(40000)
-    } else if (iclass == 4) {
-        // let outfit = CreateOutfit(1, 1)
-        // outfit.SetMainhand(item.GetItemID())
-        // outfit.ApplyRef(c)
-        // outfit.ApplyCopy(c)
-        // c.SetOutfit(outfit)
-        c.SetDisplayID(40000)
-    } else {
+        let outfit = CreateOutfit(-1, -1)
+        // outfit.SetFace(55)
+        // outfit.SetHairColor(55)
+        // outfit.SetHairStyle(55)
+        //outfit.SetSkin(14)
+        let invType = itemProper.GetInventoryType()
+        if (invType == 11 || invType == 12)//trinket and ring
+        {
+            c.SetDisplayID(40000)
+        } else if (iclass == 2) {//weapon
+            outfit.SetMainhand(itemID)
+        } else if (invType == 23 || invType == 14) {//tome or shield
+            outfit.SetOffhand(itemID)
+        } else {//armor
+            outfit.SetItem(invToEquip[invType], itemID)
+            outfit.SetItem(EquipmentSlots.SHOULDERS, 60010)
+        }
+        c.SetOutfit(outfit)
+    } else {//anything not equipable
         c.SetDisplayID(40000)
     }
 
-
-    let quality = CreateItem(item.GetItemID(), 1).GetQuality()
-    if (quality > 1)
-        c.AddAura(colorAuras[quality], c)
-
-    c.SetUInt('itemid', item.GetItemID())
+    if (itemProper.GetQuality() > 1) {
+        let cc = c.SpawnCreature(24417, TSPosition.x, TSPosition.y, TSPosition.z, 0, 8, 30000)
+        cc.SetScale(0.3)
+        cc.SetUInt('playerguid', killer.GetGUID())
+        addColorCollision(cc)
+        cc.AddAura(colorAuras[itemProper.GetQuality()], cc)
+    }
+    c.SetUInt('itemid', itemID)
     c.SetUInt('itemcount', item.GetCount())
     c.SetUInt('playerguid', killer.GetGUID())
 
@@ -85,7 +113,7 @@ function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootI
 }
 
 function addItemCollision(c: TSCreature, index: uint32) {
-    c.AddCollision('item-' + index, 1, 500, 0, (self, collided) => {
+    c.AddCollision('item-' + index, 0.2, 500, 0, (self, collided) => {
         if (collided.IsPlayer()) {
             if (collided.GetGUID() == self.GetUInt('playerguid')) {
                 let player = collided.ToPlayer()
@@ -96,6 +124,16 @@ function addItemCollision(c: TSCreature, index: uint32) {
                 else {
                     self.ToCreature().DespawnOrUnsummon(0)
                 }
+            }
+        }
+    })
+}
+
+function addColorCollision(c: TSCreature) {
+    c.AddCollision('color', 0.2, 500, 0, (self, collided) => {
+        if (collided.IsPlayer()) {
+            if (collided.GetGUID() == self.GetUInt('playerguid')) {
+                self.ToCreature().DespawnOrUnsummon(0)
             }
         }
     })
