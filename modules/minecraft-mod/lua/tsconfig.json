@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "C:\\TSWoW\\TSWoW\\modules\\default\\datasets\\dataset\\lib\\lua\\minecraft-mod"
+    },
+    "tstl": {
+        "luaTarget": "5.1",
+        "luaPlugins": [],
+        "noImplicitSelf": true
+    }
+}
