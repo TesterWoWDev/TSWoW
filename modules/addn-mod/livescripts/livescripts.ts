@@ -5,5 +5,5 @@ import { talentSystem } from "./talent-system";
 export function Main(events: TSEvents) {
     Atlas(events);
     customQuest(events);
-    talentSystem(events);
+    //talentSystem(events);
 }
