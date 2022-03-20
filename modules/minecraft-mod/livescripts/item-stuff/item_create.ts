@@ -175,7 +175,7 @@ export function createItemWithChoices(player: TSPlayer, i1: number, i2: number, 
 }
 
 function setupItem(temp: TSItemTemplate, itemInfo: TSArray<float>, playerLevel: uint32): TSItemTemplate {
-    const itemLevel: uint32 = ((playerLevel / 4) * qualityMultiplier[temp.GetQuality()]) + 1
+    const itemLevel: uint32 = ((playerLevel * 2) * qualityMultiplier[temp.GetQuality()]) + 1
     temp.SetItemLevel(itemLevel);
     temp.SetRequiredLevel(playerLevel)
     temp.SetQuality(GetRandQuality())
