@@ -1,4 +1,5 @@
 addn-mod
 default
 minecraft-mod
+minecraft-mod.lua
 testing
