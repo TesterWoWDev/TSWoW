@@ -7990,7 +7990,7 @@ declare interface TSItemTemplate extends TSEntityProvider {
     SetDamageTypeB(value: uint32): void
     SetStatCount(value: uint32): void
 
-    SaveItemTemplate(): void
+    Save(): void
 }
 
 declare interface TSSpellInfo extends TSEntityProvider {
@@ -9829,7 +9829,7 @@ declare function StartGameEvent(event_id: uint16): void
 declare function StopGameEvent(event_id: uint16): void
 
 declare function getExistingItemTemplate(itemID: uint32): TSItemTemplate;
-declare function getNewItemTemplate(entry:uint32, copyItemID: uint32): TSItemTemplate;
+declare function CreateNewItemTemplate(entry:uint32, copyItemID: uint32): TSItemTemplate;
 declare function LoadCustomItems(): void;
 // end of Global.h
 
