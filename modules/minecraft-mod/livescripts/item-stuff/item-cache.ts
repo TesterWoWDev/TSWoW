@@ -10,7 +10,7 @@ export function itemCacheSend(events:TSEvents)
             player.SendItemQueryPacket(msg.entry)
         }
         else{
-            let tmpl = CreateItem(msg.entry,1).GetTemplateCopy()
+            let tmpl = getExistingItemTemplate(msg.entry)
             //changes as necessary
             player.SendItemQueryPacketWithTemplate(tmpl)
         }

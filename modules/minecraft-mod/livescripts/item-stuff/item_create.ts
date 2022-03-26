@@ -148,28 +148,34 @@ export function itemCreate(events: TSEvents) {
 }
 
 function createItemRandom(player: TSPlayer) {
-    let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
-    //make changes
+    console.log(1)
     const entry = getOpenID()
-    temp.SetEntry(entry)
+    console.log(2)
+    let temp: TSItemTemplate = getNewItemTemplate(entry,templateItemID)
+    console.log(3)
+    //make changes
+    console.log(4)
     temp = setupItem(temp, chooseItemType(), player.GetLevel())
+    console.log(5)
     //save
-    temp.SaveItemTemplate()
+    temp.Save()
+    console.log(6)
     //apply
-    ReloadSingleItemTemplateObject(temp)
+    //ReloadSingleItemTemplateObject(temp)
     //add
     player.AddItem(entry, 1)
+    console.log(7)
     //cache//not needed with exe mod?
     player.SendItemQueryPacketWithTemplate(temp)
+    console.log(8)
 }
 
 export function createItemWithChoices(player: TSPlayer, i1: number, i2: number, level: uint32): TSItem {
-    let temp: TSItemTemplate = CreateItem(templateItemID, 1).GetTemplateCopy()
     const entry = getOpenID()
-    temp.SetEntry(entry)
+    let temp: TSItemTemplate = getNewItemTemplate(entry,templateItemID)
     temp = setupItem(temp, itemClassInfo[i1][i2], level)
-    temp.SaveItemTemplate()
-    ReloadSingleItemTemplateObject(temp)
+    temp.Save()
+    //ReloadSingleItemTemplateObject(temp)
     player.SendItemQueryPacketWithTemplate(temp)
     return player.AddItem(entry, 1)
 }
