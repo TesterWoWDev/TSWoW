@@ -148,36 +148,17 @@ export function itemCreate(events: TSEvents) {
 }
 
 function createItemRandom(player: TSPlayer) {
-    console.log(1)
-    const entry = getOpenID()
-    console.log(2)
-    let temp: TSItemTemplate = CreateNewItemTemplate(entry,templateItemID)
-    console.log(3)
-    //make changes
-    console.log(4)
+    let temp: TSItemTemplate = CreateNewItemTemplate(getOpenID(), templateItemID)
     temp = setupItem(temp, chooseItemType(), player.GetLevel())
-    console.log(5)
-    //save
-    temp.Save()
-    console.log(6)
-    //apply
-    //ReloadSingleItemTemplateObject(temp)
-    //add
-    player.AddItem(entry, 1)
-    console.log(7)
-    //cache//not needed with exe mod?
+    player.AddItem(temp.GetEntry(), 1)
     player.SendItemQueryPacketWithTemplate(temp)
-    console.log(8)
 }
 
 export function createItemWithChoices(player: TSPlayer, i1: number, i2: number, level: uint32): TSItem {
-    const entry = getOpenID()
-    let temp: TSItemTemplate = CreateNewItemTemplate(entry,templateItemID)
+    let temp: TSItemTemplate = CreateNewItemTemplate(getOpenID(), templateItemID)
     temp = setupItem(temp, itemClassInfo[i1][i2], level)
-    temp.Save()
-    //ReloadSingleItemTemplateObject(temp)
     player.SendItemQueryPacketWithTemplate(temp)
-    return player.AddItem(entry, 1)
+    return player.AddItem(temp.GetEntry(), 1)
 }
 
 function setupItem(temp: TSItemTemplate, itemInfo: TSArray<float>, playerLevel: uint32): TSItemTemplate {
@@ -186,7 +167,6 @@ function setupItem(temp: TSItemTemplate, itemInfo: TSArray<float>, playerLevel: 
     temp.SetRequiredLevel(playerLevel)
     temp.SetQuality(GetRandQuality())
     temp.SetStatCount(temp.GetQuality() - 1)
-
 
     temp.SetClass(itemInfo[0])
     temp.SetSubClass(itemInfo[1])
@@ -225,6 +205,7 @@ function setupItem(temp: TSItemTemplate, itemInfo: TSArray<float>, playerLevel: 
 
     temp = generateStats(itemLevel, temp, itemInfo[5])
 
+    temp.Save()
     return temp
 }
 
