@@ -151,7 +151,7 @@ function createItemRandom(player: TSPlayer) {
     console.log(1)
     const entry = getOpenID()
     console.log(2)
-    let temp: TSItemTemplate = getNewItemTemplate(entry,templateItemID)
+    let temp: TSItemTemplate = CreateNewItemTemplate(entry,templateItemID)
     console.log(3)
     //make changes
     console.log(4)
@@ -172,7 +172,7 @@ function createItemRandom(player: TSPlayer) {
 
 export function createItemWithChoices(player: TSPlayer, i1: number, i2: number, level: uint32): TSItem {
     const entry = getOpenID()
-    let temp: TSItemTemplate = getNewItemTemplate(entry,templateItemID)
+    let temp: TSItemTemplate = CreateNewItemTemplate(entry,templateItemID)
     temp = setupItem(temp, itemClassInfo[i1][i2], level)
     temp.Save()
     //ReloadSingleItemTemplateObject(temp)
