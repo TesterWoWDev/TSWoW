@@ -141,6 +141,11 @@ export function itemCreate(events: TSEvents) {
     events.Player.OnCommand((player, command, found) => {
         const cmd = command.get().split(' ')
         if (cmd[0] == 'createitem') {
+            // this 1 only works with the modified wow.exe.
+            //the other parts work without. the exe mods are only needed for
+            //newly generated items rather than modified items
+            //there could be some updates(ex. a class/subclass/icon change)
+            //that would require the exe mod. untested but assumptions
             found.set(true)
             createItemRandom(player)
         }else if (cmd[0] == 'updateitem') {
