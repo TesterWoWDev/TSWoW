@@ -144,9 +144,11 @@ export function itemCreate(events: TSEvents) {
             found.set(true)
             createItemRandom(player)
         }else if (cmd[0] == 'updateitem') {
+            //this will add the thori'dal spell to your ranged wep
+            //also adds 5 stam to show stat reloading
             found.set(true)
-            //player.RemoveAllItemMods()
             let item = player.GetItemByPos(255,17)
+            //player.RemoveAllItemMods()//other option rather than slot ID reloading
             player.RemoveItemMods(item,17)
             let t = item.GetTemplate()
             t.SetStatsCount(1)
@@ -155,11 +157,14 @@ export function itemCreate(events: TSEvents) {
             t.SetSpellID(0,46699)
             t.SetSpellTrigger(0,1)
             player.ApplyItemMods(item,17,true,true)
+            //player.ApplyAllItemMods()//other option rather than slot ID reloading
             player.SendItemQueryPacketWithTemplate(t)
         }else if (cmd[0] == 'resetitem') {
+            //this removes the thoridal spell from your ranged wep
+            //also removes 5 stam to show stat reloading
             found.set(true)
-            //player.RemoveAllItemMods()
             let item = player.GetItemByPos(255,17)
+            //player.RemoveAllItemMods()//other option rather than slot ID reloading
             player.RemoveItemMods(item,17)
             let t = item.GetTemplate()
             t.SetStatsCount(0)
@@ -168,6 +173,7 @@ export function itemCreate(events: TSEvents) {
             t.SetSpellID(0,0)
             t.SetSpellTrigger(0,0)
             player.ApplyItemMods(item,17,true,true)
+            //player.ApplyAllItemMods()//other option rather than slot ID reloading
             player.SendItemQueryPacketWithTemplate(t)
         }
     })
