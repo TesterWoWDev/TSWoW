@@ -164,6 +164,7 @@ export function itemCreate(events: TSEvents) {
             player.ApplyItemMods(item,17,true,true)
             //player.ApplyAllItemMods()//other option rather than slot ID reloading
             player.SendItemQueryPacketWithTemplate(t)
+            //player.SendItemQueryPacket(item.GetEntry())//other option
         }else if (cmd[0] == 'resetitem') {
             //this removes the thoridal spell from your ranged wep
             //also removes 5 stam to show stat reloading
@@ -180,6 +181,7 @@ export function itemCreate(events: TSEvents) {
             player.ApplyItemMods(item,17,true,true)
             //player.ApplyAllItemMods()//other option rather than slot ID reloading
             player.SendItemQueryPacketWithTemplate(t)
+            //player.SendItemQueryPacket(item.GetEntry())//other option
         }
     })
 }
