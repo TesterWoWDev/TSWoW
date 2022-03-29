@@ -143,6 +143,32 @@ export function itemCreate(events: TSEvents) {
         if (cmd[0] == 'createitem') {
             found.set(true)
             createItemRandom(player)
+        }else if (cmd[0] == 'updateitem') {
+            found.set(true)
+            //player.RemoveAllItemMods()
+            let item = player.GetItemByPos(255,17)
+            player.RemoveItemMods(item,17)
+            let t = item.GetTemplate()
+            t.SetStatsCount(1)
+            t.SetStatType(0,7)
+            t.SetStatValue(0,5)
+            t.SetSpellID(0,46699)
+            t.SetSpellTrigger(0,1)
+            player.ApplyItemMods(item,17,true,true)
+            player.SendItemQueryPacketWithTemplate(t)
+        }else if (cmd[0] == 'resetitem') {
+            found.set(true)
+            //player.RemoveAllItemMods()
+            let item = player.GetItemByPos(255,17)
+            player.RemoveItemMods(item,17)
+            let t = item.GetTemplate()
+            t.SetStatsCount(0)
+            t.SetStatType(0,0)
+            t.SetStatValue(0,0)
+            t.SetSpellID(0,0)
+            t.SetSpellTrigger(0,0)
+            player.ApplyItemMods(item,17,true,true)
+            player.SendItemQueryPacketWithTemplate(t)
         }
     })
 }
