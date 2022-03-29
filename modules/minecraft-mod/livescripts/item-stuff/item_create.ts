@@ -166,7 +166,7 @@ function setupItem(temp: TSItemTemplate, itemInfo: TSArray<float>, playerLevel: 
     temp.SetItemLevel(itemLevel);
     temp.SetRequiredLevel(playerLevel)
     temp.SetQuality(GetRandQuality())
-    temp.SetStatCount(temp.GetQuality() - 1)
+    temp.SetStatsCount(temp.GetQuality() - 1)
 
     temp.SetClass(itemInfo[0])
     temp.SetSubClass(itemInfo[1])
@@ -319,6 +319,6 @@ function generateStats(itemLevel: uint32, temp: TSItemTemplate, slotMult: float)
         temp.SetStatValue(index, val)
         index++
     })
-    temp.SetStatCount(index)
+    temp.SetStatsCount(index)
     return temp
 }
