@@ -160,22 +160,18 @@ export class spellChoice {
 export const itemCacheID = 25;
 export class itemCache {
     entry: uint32 = 0;
-    type: uint8 = 0;
 
-    constructor(entry: uint32,type:uint8) {
+    constructor(entry: uint32) {
         this.entry = entry;
-        this.type = type;
     }
 
     read(read: TSPacketRead): void {
         this.entry = read.ReadUInt32();
-        this.type = read.ReadUInt8();
     }
 
     write(): TSPacketWrite {
         let packet = CreateCustomPacket(itemCacheID, 0);
         packet.WriteUInt32(this.entry);
-        packet.WriteUInt8(this.type);
         return packet;
     }
 }
