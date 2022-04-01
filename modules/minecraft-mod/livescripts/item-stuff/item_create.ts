@@ -189,8 +189,8 @@ export function itemCreate(events: TSEvents) {
 function createItemRandom(player: TSPlayer) {
     let temp: TSItemTemplate = CreateNewItemTemplate(getOpenID(), templateItemID)
     temp = setupItem(temp, chooseItemType(), player.GetLevel())
-    player.AddItem(temp.GetEntry(), 1)
     player.SendItemQueryPacketWithTemplate(temp)
+    player.AddItem(temp.GetEntry(), 1)
 }
 
 export function createItemWithChoices(player: TSPlayer, i1: number, i2: number, level: uint32): TSItem {
