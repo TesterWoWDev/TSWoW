@@ -134,10 +134,12 @@ const statGroups: TSArray<TSArray<TSArray<float>>> = <TSArray<TSArray<TSArray<fl
     ],
 ]
 
-const startID = 200000
+let startID = 200000
 const templateItemID = 38
 
 export function itemCreate(events: TSEvents) {
+    startID = getOpenID()
+    
     events.Player.OnCommand((player, command, found) => {
         const cmd = command.get().split(' ')
         if (cmd[0] == 'createitem') {
@@ -187,14 +189,14 @@ export function itemCreate(events: TSEvents) {
 }
 
 function createItemRandom(player: TSPlayer) {
-    let temp: TSItemTemplate = CreateNewItemTemplate(getOpenID(), templateItemID)
+    let temp: TSItemTemplate = CreateNewItemTemplate(startID++, templateItemID)
     temp = setupItem(temp, chooseItemType(), player.GetLevel())
     player.SendItemQueryPacketWithTemplate(temp)
     player.AddItem(temp.GetEntry(), 1)
 }
 
 export function createItemWithChoices(player: TSPlayer, i1: number, i2: number, level: uint32): TSItem {
-    let temp: TSItemTemplate = CreateNewItemTemplate(getOpenID(), templateItemID)
+    let temp: TSItemTemplate = CreateNewItemTemplate(startID++, templateItemID)
     temp = setupItem(temp, itemClassInfo[i1][i2], level)
     player.SendItemQueryPacketWithTemplate(temp)
     return player.AddItem(temp.GetEntry(), 1)
@@ -251,14 +253,16 @@ function setupItem(temp: TSItemTemplate, itemInfo: TSArray<float>, playerLevel: 
 
 function getOpenID(): uint32 {
     //we start our custom items at 200k//perhaps QueryWorld('SELECT MAX(entry) FROM item_template') and saved as const at top of file
-    let id = startID
-    let q = QueryCharacters('SELECT MAX(entry) FROM custom_item_template')
-    while (q.GetRow()) {
-        id = q.GetUInt32(0) + 1
-        if (id < startID)
-            id = startID
+    if(startID = 200000){
+        let q = QueryCharacters('SELECT MAX(entry) FROM custom_item_template')
+        while (q.GetRow()) {
+            return (q.GetUInt32(0) + 1)
+        }
+        return 200000
+    }else{
+        return startID+1
     }
-    return id;
+    
 }
 
 function GetRandQuality(): number {
