@@ -271,7 +271,7 @@ function GetRandQuality(): number {
         return 2
     } else if (qualityCheck < 80) {//rare
         return 3
-    } else if (qualityCheck < 95) {//epic
+    } else if (qualityCheck < 97) {//epic
         return 4
     } else {//legendary
         return 5
@@ -292,12 +292,11 @@ function getRandNumber(max: uint32): uint32 {
 }
 
 function getDisplayID(itemInfoArr: TSArray<float>, quality: uint32): uint32 {
-    let display = 1
     let q = QueryCharacters('SELECT displayid FROM custom_item_template_displays WHERE quality = ' + quality + ' AND class = ' + itemInfoArr[0] + ' AND subclass = ' + itemInfoArr[1] + ' AND invtype = ' + itemInfoArr[2] + ' ORDER BY RAND() LIMIT 1')
     while (q.GetRow()) {
-        display = q.GetUInt32(0)
+        return q.GetUInt32(0)
     }
-    return display
+    return 1
 }
 
 function getName(itemInfoArr: TSArray<float>, quality: uint32): string {
