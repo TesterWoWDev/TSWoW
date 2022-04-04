@@ -3,7 +3,7 @@ import { atlas } from "./atlas";
 import { customQuest } from "./custom-quest";
 import { toBeLearnedSpellsPane } from "./to-be-learned";
 
-//atlas();
+atlas();
 //allStats()
 //customQuest();
 toBeLearnedSpellsPane();
