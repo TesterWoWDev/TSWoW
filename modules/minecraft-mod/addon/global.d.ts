@@ -2418,6 +2418,7 @@ declare function MouselookStart(): void;
 declare function MouselookStop(): void;
 
 declare function ReloadUI(): void;
+
 declare function IsModifierKeyDown(): boolean;
 declare function IsShiftKeyDown(): boolean;
 declare function IsAltKeyDown(): boolean;
@@ -2433,6 +2434,21 @@ declare function DressUpItemLink(itemLink:string):void;
 declare function DressUpMountLink(itemLink:string):void;
 declare function DressUpTransmogLink(transmogLink:string):void;
 declare function SetDressUpBackground(frame:WoWAPI.Frame,raceFilename:string,classFilename :string):void;
+
+declare function GetMouseFocus(): WoWAPI.Frame;
+/**
+ * Returns the WorldMapAreaID of the currently displayed area map, and whether quest objectives should be shown.
+ * @returns mapID,isContinent
+ * @tupleReturn
+ */
+declare function GetCurrentMapAreaID(): [number, boolean];
+
+/**
+ * Returns the WorldMapAreaID of the currently displayed area map, and whether quest objectives should be shown.
+ * @returns posX,posY
+ * @tupleReturn
+ */
+ declare function GetPlayerMapPosition(unit:WoWAPI.UnitId): [number, number];
 
 /**
  * Exits mouse look mode; allows mouse input to move the mouse cursor
@@ -12689,7 +12705,7 @@ declare namespace WoWAPI {
          * @param size size in points.
          * @param flags any comma-delimited combination of "OUTLINE", "THICKOUTLINE" and "MONOCHROME".
          */
-        SetFont(font: string, size: number, flags?: FontInstanceFlags | string): void;
+        SetFont(font: string, size: number, flags?: FontInstanceFlags): void;
 
         /**
          * Sets horizontal text justification
