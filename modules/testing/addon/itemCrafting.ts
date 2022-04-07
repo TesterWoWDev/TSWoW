@@ -1,3 +1,5 @@
+import { itemCraftingMessage } from "../shared/Messages"
+
 export function itemCrafting() {
     let ichoice = 0
     let gems = [0, 0, 0, 0, 0, 0]
@@ -124,7 +126,6 @@ export function itemCrafting() {
     skillStatusBarValue.SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
     skillStatusBarValue.SetText(curSkill + ' /' + maxSkill + ' Skill')
 
-
     function createButtons() {
         buttonsCreated = true
         for (let i = 0; i < 6; i++) {
@@ -163,7 +164,6 @@ export function itemCrafting() {
                 } else {
                     gems[Number(frame.GetName())] = itemid;
                 }
-
                 let itemstring: string = GetCursorInfo()[2];
                 (frame as WoWAPI.Button).SetNormalTexture(info[9].toString());
                 frame.SetScript("OnEnter", (self) => {
@@ -192,10 +192,9 @@ export function itemCrafting() {
             deselect(buttons[i]);
         }
         deselect(choiceButton)
-
     }
 
     function updateProduct(purchase: uint32) {
-        //new message(ichoice, gems, purchase).write().Send();
+        new itemCraftingMessage(ichoice, gems, purchase).write().Send();
     }
 }
