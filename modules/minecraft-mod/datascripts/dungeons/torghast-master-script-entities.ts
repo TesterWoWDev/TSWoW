@@ -73,7 +73,7 @@ mapPrestige.Description.enGB.set(
     "Damage done increased by $s1%. Health increased by $s2%."
 );
 mapPrestige.AuraDescription.enGB.set(
-    "Damage done increased by $s1%. Attack and casting speeds increased by $s2%. Health increased by $s1%."
+    "Damage done increased by $s1%. Attack and casting speeds increased by $s2%. Health increased by $s3%."
 );
 mapPrestige.Effects.get(0).PointsBase.set(9);
 mapPrestige.Effects.get(1).PointsBase.set(9);
