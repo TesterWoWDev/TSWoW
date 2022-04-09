@@ -269,8 +269,8 @@ const mobSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
         CreateDictionary<string, float>({m:726,x:594.008545,y:0.518031,z:423.218475,o:1.644257}),
         CreateDictionary<string, float>({m:726,x:1080.496704,y:197.572815,z:435.080322,o:2.897840}),
     ],
-
 ]
+
 const mobIDs: TSArray<uint32> = [
     GetID("creature_template", "minecraft-mod", "torghastmob1"),
     GetID("creature_template", "minecraft-mod", "torghastmob2"),

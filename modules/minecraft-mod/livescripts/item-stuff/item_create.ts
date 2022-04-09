@@ -261,8 +261,7 @@ function getOpenID(): uint32 {
         return 200000
     }else{
         return startID+1
-    }
-    
+    } 
 }
 
 function GetRandQuality(): number {
