@@ -12705,7 +12705,7 @@ declare namespace WoWAPI {
          * @param size size in points.
          * @param flags any comma-delimited combination of "OUTLINE", "THICKOUTLINE" and "MONOCHROME".
          */
-        SetFont(font: string, size: number, flags?: FontInstanceFlags): void;
+        SetFont(font: string, size: number, flags?: FontInstanceFlags | string): void;
 
         /**
          * Sets horizontal text justification
