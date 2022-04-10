@@ -3,7 +3,6 @@ import { dungeon1 } from "./dungeon/dungeon-1";
 import { getRandomInt, torghastBuffSystem } from "./dungeon/torghast-master";
 import { itemCacheSend } from "./item-stuff/item-cache";
 import { itemCreate } from "./item-stuff/item_create";
-import { itemReloading } from "./item-stuff/item_reloading";
 import { Killstreaks } from "./QoL/Killstreak";
 import { onLevelup } from "./QoL/onLevelup";
 import { onLoginEvents } from "./QoL/onLogin";
@@ -16,7 +15,6 @@ export function Main(events: TSEvents) {
     torghastBuffSystem(events)
     itemCacheSend(events)
     itemCreate(events)
-    itemReloading(events)
     Killstreaks(events)
     onLevelup(events)
     onLoginEvents(events)

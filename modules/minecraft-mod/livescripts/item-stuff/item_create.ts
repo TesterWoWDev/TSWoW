@@ -165,7 +165,7 @@ export function itemCreate(events: TSEvents) {
             t.SetSpellTrigger(0, 1)
             player.ApplyItemMods(item, 17, true, true)
             //player.ApplyAllItemMods()//other option rather than slot ID reloading
-            player.SendItemQueryPacketWithTemplate(t)
+            player.SendItemQueryPacket(t)
             //player.SendItemQueryPacket(item.GetEntry())//other option
         } else if (cmd[0] == 'resetitem') {
             //this removes the thoridal spell from your ranged wep
@@ -182,23 +182,23 @@ export function itemCreate(events: TSEvents) {
             t.SetSpellTrigger(0, 0)
             player.ApplyItemMods(item, 17, true, true)
             //player.ApplyAllItemMods()//other option rather than slot ID reloading
-            player.SendItemQueryPacketWithTemplate(t)
+            player.SendItemQueryPacket(t)
             //player.SendItemQueryPacket(item.GetEntry())//other option
         }
     })
 }
 
 function createItemRandom(player: TSPlayer) {
-    let temp: TSItemTemplate = CreateNewItemTemplate(startID++, templateItemID)
+    let temp: TSItemTemplate = CreateItemTemplate(startID++, templateItemID)
     temp = setupItem(temp, chooseItemType(), player.GetLevel())
-    player.SendItemQueryPacketWithTemplate(temp)
+    player.SendItemQueryPacket(temp)
     player.AddItem(temp.GetEntry(), 1)
 }
 
 export function createItemWithChoices(player: TSPlayer, i1: number, i2: number, level: uint32): TSItem {
-    let temp: TSItemTemplate = CreateNewItemTemplate(startID++, templateItemID)
+    let temp: TSItemTemplate = CreateItemTemplate(startID++, templateItemID)
     temp = setupItem(temp, itemClassInfo[i1][i2], level)
-    player.SendItemQueryPacketWithTemplate(temp)
+    player.SendItemQueryPacket(temp)
     return player.AddItem(temp.GetEntry(), 1)
 }
 
