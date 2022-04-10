@@ -2,7 +2,7 @@ import { itemCraftingMessage, itemCraftingMessageID } from "../shared/Messages";
 
 export function itemCrafting(events: TSEvents) {
     events.CustomPacketID.OnReceive(itemCraftingMessageID, (opcode, packet, player) => {
-        let message = new itemCraftingMessage(1, [0], 1);
+        let message = new itemCraftingMessage(1, <TSArray<uint32>>[0], 1);
         message.read(packet);
         if (message.purchase == 1) {
             let dict = CreateDictionary<uint32, uint32>({})

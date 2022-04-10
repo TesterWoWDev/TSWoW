@@ -36,7 +36,7 @@ const levelColors = [
     "FF0000",
     "FF005D",
 ];
-const colors = [
+const chatColors = [
     "",
     "C79C6E",
     "F58CBA",
@@ -58,7 +58,7 @@ export function onLoginEvents(events: TSEvents) {
             level = 20;
         }
 
-        SendWorldMessage('|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r, the level [' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] + player.GetLevel() + '|r] '+'|cff'+ colors[player.GetClass()] + player.GetClassAsString(0).toLowerCase() + '|r has logged in.')
-        SendWorldMessage('[' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] +player.GetLevel()+ '|r] '+'|cff'+ colors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r' + ' has logged in.')
+        SendWorldMessage('|cff'+ chatColors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r, the level [' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] + player.GetLevel() + '|r] '+'|cff'+ chatColors[player.GetClass()] + player.GetClassAsString(0).toLowerCase() + '|r has logged in.')
+        SendWorldMessage('[' +classIcons[player.GetClass()] + ' |cff'+levelColors[level] +player.GetLevel()+ '|r] '+'|cff'+ chatColors[player.GetClass()] + "|Hplayer:" + player.GetName() + "|h["+player.GetName() + ']|h|r' + ' has logged in.')
     });
 }
