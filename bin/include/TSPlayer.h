@@ -116,6 +116,7 @@ public:
 	int32 GetDifficulty(bool isRaid);
 	uint32 GetGuildRank();
 	uint32 GetFreeTalentPoints();
+	uint32 GetFreeInventorySpace();
 	TSString GetGuildName();
 	int32 GetReputation(uint32 faction);
 	TSUnit GetComboTarget();
@@ -197,7 +198,7 @@ public:
 	void SendCreatureQueryPacket(uint32 entry);
 	void SendGameObjectQueryPacket(uint32 entry);
 	void SendItemQueryPacket(uint32 entry);
-	void SendItemQueryPacketWithTemplate(TSItemTemplate curItem);
+	void SendItemQueryPacket(TSItemTemplate curItem);
 	void SendSpiritResurrect();
 	void SendTabardVendorActivate(TSWorldObject obj);
 	void SendShowBank(TSWorldObject obj);
@@ -420,5 +421,9 @@ private:
 
 		void LGossipSendMenu0(uint32 npc_text, TSObject sender, uint32 menu_id);
 		void LGossipSendMenu1(uint32 npc_text, TSObject sender);
+
+		void LSendItemQueryPacket0(uint32 entry);
+		void LSendItemQueryPacket1(TSItemTemplate item);
+
 		friend class TSLuaState;
 };
