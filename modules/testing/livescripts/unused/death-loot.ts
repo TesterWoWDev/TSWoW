@@ -92,7 +92,6 @@ function addItemLootCreature(killer: TSUnit, creature: TSCreature, item: TSLootI
             outfit.SetOffhand(itemID)
         } else {//armor
             outfit.SetItem(invToEquip[invType], itemID)
-            outfit.SetItem(EquipmentSlots.SHOULDERS, 60010)
         }
         c.SetOutfit(outfit)
     } else {//anything not equipable
