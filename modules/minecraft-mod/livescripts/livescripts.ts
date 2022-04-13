@@ -10,17 +10,21 @@ import { reviveFix } from "./QoL/revive";
 import { worldChat } from "./QoL/world-chat";
 
 export function Main(events: TSEvents) {
-    handleCraftMessages(events)
-    dungeon1(events)
-    torghastBuffSystem(events)
-    itemCacheSend(events)
-    itemCreate(events)
-    Killstreaks(events)
-    onLevelup(events)
-    onLoginEvents(events)
-    reviveFix(events)
-    worldChat(events)
+    // handleCraftMessages(events)
+    // dungeon1(events)
+    // torghastBuffSystem(events)
+    // itemCacheSend(events)
+     itemCreate(events)
+    // Killstreaks(events)
+    // onLevelup(events)
+    // onLoginEvents(events)
+    // reviveFix(events)
+    // worldChat(events)
 
+
+    events.Spells.OnCalcMiss((spell,caster,target,effectMask,missCondition) => {
+        missCondition.set(6)
+    })
     // GetIDTag('minecraft-mod','tier1-normal-mob').forEach((val,i,arr) => {//iterate all tier1 mobs
     //     events.CreatureID.OnGenerateLoot(val,(creature,killer)=>{
     //         let cLoot = creature.GetLoot()

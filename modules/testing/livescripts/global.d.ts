@@ -319,6 +319,22 @@ declare const enum InventorySlots /**@realType:uint32*/{
     BAG_3 = 21,
     BAG_4 = 22
 }
+
+
+declare const enum SpellMissInfo /**@realType:uint32*/ {
+    NONE                    = 0,
+    MISS                    = 1,
+    RESIST                  = 2,
+    DODGE                   = 3,
+    PARRY                   = 4,
+    BLOCK                   = 5,
+    EVADE                   = 6,
+    IMMUNE                  = 7,
+    IMMUNE2                 = 8, // one of these 2 is MISS_TEMPIMMUNE
+    DEFLECT                 = 9,
+    ABSORB                  = 10,
+    REFLECT                 = 11
+}
 declare const enum CorpseType /**@realType:uint32*/ {
     BONES             = 0,
     RESURRECTABLE_PVE = 1,
@@ -2135,37 +2151,37 @@ declare interface TSPlayer extends TSUnit {
     GetDbcLocale(): uint32
 
     /**
-     * remove all item's stats on player
+     * Remove all item's stats on player
      *
-     *
+     * @note Generally only used when creating/modifying ItemTemplates
      */
     RemoveAllItemMods(): void
 
     /**
-     * remove single item's stats on player
+     * Remove single item's stats on player
      *
-     *
+     * @note Generally only used when creating/modifying ItemTemplates
      */
     RemoveItemMods(item: TSItem, slot: uint8): void
 
     /**
-     * apply all item's stats on player
+     * Apply all item's stats on player
      *
-     *
+     * @note Generally only used when creating/modifying ItemTemplates
      */
     ApplyAllItemMods(): void
 
     /**
-     * apply single item's stats on player
+     * Apply single item's stats on player
      *
-     *
+     * @note Generally only used when creating/modifying ItemTemplates
      */
     ApplyItemMods(item: TSItem, slot: uint8, apply: bool, updateAuras:bool): void
 
     /**
      * Applies all custom item cache to player
      *
-     *
+     * @note Generally only used when creating/modifying ItemTemplates
      */
     UpdateCache(): void
 
@@ -8567,7 +8583,8 @@ declare namespace _hidden {
         OnTick(spell: EventID, callback: (effect: TSAuraEffect)=>void);
         OnRemove(spell: EventID, callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void);
         OnCalcMeleeMiss(callback: (spell: TSSpellInfo, miss: TSMutable<float>, attacker: TSUnit, victim: TSUnit, attackType: uint8, skillDiff: WeaponAttackType)=>void): T
-        OnApply(spell: EventID, callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void);
+        OnApply(spell: EventID, callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32) => void);
+        OnCalcMiss(spell: EventID, callback: (spell: TSSpell, caster: TSWorldObject, target: TSUnit, effectMask: TSMutable<uint32>, missCondition: TSMutable<SpellMissInfo>) => void)
         OnDamageEarly(spell: EventID, callback : (
               spell: TSSpell
             , damage: TSMutable<int32>
@@ -8634,7 +8651,8 @@ declare namespace _hidden {
         OnRemove(callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void): T;
         OnApply(callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void): T;
         OnCalcMeleeMiss(callback: (spell: TSSpellInfo, miss: TSMutable<float>, attacker: TSUnit, victim: TSUnit, attackType: WeaponAttackType, skillDiff: int32)=>void): T
-        OnDamageEarly(callback : (
+        OnCalcMiss(callback: (spell: TSSpell, caster: TSWorldObject, target: TSUnit, effectMask: TSMutable<uint32>, missCondition: TSMutable<SpellMissInfo>) => void)
+        OnDamageEarly(callback: (
             spell: TSSpell
           , damage: TSMutable<int32>
           , info: TSSpellDamageInfo
@@ -9925,7 +9943,11 @@ declare function GetActiveGameEvents(): TSArray<uint16>
 declare function StartGameEvent(event_id: uint16): void
 declare function StopGameEvent(event_id: uint16): void
 
-//defaults to 38
+/**
+ * @param entry - The id to be used for the new item template.
+ * @param copyItemID? - the old template to be used as a base.
+ *                      defaults to 38 (Recruits Shirt, shirt slot equip)
+ */
 declare function CreateItemTemplate(entry:uint32, copyItemID?: uint32): TSItemTemplate;
 // end of Global.h
 

@@ -13285,6 +13285,10 @@ declare namespace WoWAPI {
         SetFrameLevel(level: number): void;
 
         RegisterForDrag(button: WoWAPI.MouseButton): void;
+
+        SetID(id: number): void;
+        
+        GetID(): number;
     }
 
     /**
