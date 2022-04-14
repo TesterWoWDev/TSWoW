@@ -1,5 +1,5 @@
-import { std } from "wow/wotlk";
-import { MODNAME } from "../modname";
+ import { std } from "wow/wotlk";
+ import { MODNAME } from "../modname";
 
  const REMOVALS = [
     190549, // Thunderbluff -> Orgrimmar
@@ -32,10 +32,10 @@ REMOVALS.forEach((value) => {
     std.SQL.Databases.world_dest.write(`DELETE FROM transports WHERE entry = ${value};`);
 });
 
- std.Maps.load(0).Type.RAID.set(MODNAME,'map0');
- std.Maps.load(1).Type.RAID.set(MODNAME,'map1');
- std.Maps.load(530).Type.RAID.set(MODNAME,'map530');
- std.Maps.load(571).Type.RAID.set(MODNAME,'map571');
+//  std.Maps.load(0).Type.RAID.set(MODNAME,'map0');
+//  std.Maps.load(1).Type.RAID.set(MODNAME,'map1');
+//  std.Maps.load(530).Type.RAID.set(MODNAME,'map530');
+//  std.Maps.load(571).Type.RAID.set(MODNAME,'map571');
 std.SQL.Databases.world_dest.write('DELETE FROM battlefield_template WHERE TypeId = 1;')
 
 std.SQL.outdoorpvp_template.query({ ScriptName: 'outdoorpvp_ep' }).delete();
