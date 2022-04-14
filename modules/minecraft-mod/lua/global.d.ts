@@ -319,22 +319,6 @@ declare const enum InventorySlots /**@realType:uint32*/{
     BAG_3 = 21,
     BAG_4 = 22
 }
-
-
-declare const enum SpellMissInfo /**@realType:uint32*/ {
-    NONE                    = 0,
-    MISS                    = 1,
-    RESIST                  = 2,
-    DODGE                   = 3,
-    PARRY                   = 4,
-    BLOCK                   = 5,
-    EVADE                   = 6,
-    IMMUNE                  = 7,
-    IMMUNE2                 = 8, // one of these 2 is MISS_TEMPIMMUNE
-    DEFLECT                 = 9,
-    ABSORB                  = 10,
-    REFLECT                 = 11
-}
 declare const enum CorpseType /**@realType:uint32*/ {
     BONES             = 0,
     RESURRECTABLE_PVE = 1,
@@ -8583,8 +8567,7 @@ declare namespace _hidden {
         OnTick(spell: EventID, callback: (effect: TSAuraEffect)=>void);
         OnRemove(spell: EventID, callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void);
         OnCalcMeleeMiss(callback: (spell: TSSpellInfo, miss: TSMutable<float>, attacker: TSUnit, victim: TSUnit, attackType: uint8, skillDiff: WeaponAttackType)=>void): T
-        OnApply(spell: EventID, callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32) => void);
-        OnCalcMiss(spell: EventID, callback: (spell: TSSpell, caster: TSWorldObject, target: TSUnit, effectMask: TSMutable<uint32>, missCondition: TSMutable<SpellMissInfo>) => void)
+        OnApply(spell: EventID, callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void);
         OnDamageEarly(spell: EventID, callback : (
               spell: TSSpell
             , damage: TSMutable<int32>
@@ -8651,8 +8634,7 @@ declare namespace _hidden {
         OnRemove(callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void): T;
         OnApply(callback: (effect: TSAuraEffect, application: TSAuraApplication, type: uint32)=>void): T;
         OnCalcMeleeMiss(callback: (spell: TSSpellInfo, miss: TSMutable<float>, attacker: TSUnit, victim: TSUnit, attackType: WeaponAttackType, skillDiff: int32)=>void): T
-        OnCalcMiss(callback: (spell: TSSpell, caster: TSWorldObject, target: TSUnit, effectMask: TSMutable<uint32>, missCondition: TSMutable<SpellMissInfo>) => void)
-        OnDamageEarly(callback: (
+        OnDamageEarly(callback : (
             spell: TSSpell
           , damage: TSMutable<int32>
           , info: TSSpellDamageInfo
@@ -9178,6 +9160,8 @@ declare namespace _hidden {
             , dodgeChance: TSMutable<float>
             , blockChance : TSMutable<float>
             , parryChance: TSMutable<float>
+            , glancingChance: TSMutable<float>
+            , crushingChance: TSMutable<float>
             , attackType: WeaponAttackType
         )=>void)
 
