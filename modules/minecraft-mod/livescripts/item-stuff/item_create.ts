@@ -36,7 +36,7 @@ const itemClassInfo: TSArray<TSArray<TSArray<float>>> = [//class,subclass,invTyp
     [//WEAPONS
         [2, 0, 13, 1, 3, 0.6],//1h axe
         [2, 1, 17, 1, 1, 1],//2h axe
-        [2, 2, 26, 2, 1, 0.8],//bow
+        [2, 2, 15, 2, 1, 0.8],//bow
         [2, 3, 26, 2, 1, 0.8],//gun
         [2, 4, 13, 1, 3, 0.6],//1h mace
         [2, 5, 17, 1, 1, 1],//2h mace
