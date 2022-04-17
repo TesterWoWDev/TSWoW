@@ -23,6 +23,7 @@ export function Main(events: TSEvents) {
 
 events.Player.OnLogin((player,first)=>{
     if(first){
+        player.SetLevel(20)
         let pclass = player.GetClass()
         if(pclass == 1 || pclass == 2 || pclass == 6 || pclass == 3 || pclass == 7){
             player.AddItem(GetID('item_template','minecraft-mod','tier1-mat-mail'),200)//base resource

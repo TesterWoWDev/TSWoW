@@ -3,7 +3,7 @@ import { createBaseResources, createGear, createMaterial, createTrinket, createW
 import { generateGearRecipes, generateWeaponRecipes } from "../../functions/recipe-functions";
 import { MODNAME } from "../../modname";
 
-let levelrequirement = 1;
+let levelrequirement = 15;
 
 export let stringItem = std.Items.create(MODNAME,'string', 2934)
     stringItem.Name.enGB.set('String')
