@@ -314,7 +314,7 @@ function getName(itemInfoArr: TSArray<float>, quality: uint32): string {
     }
 
     if (quality == 4 || quality == 5) {//suffix
-        q = QueryCharacters('SELECT name FROM custom_item_template_names WHERE  nametype = 3 AND class = ' + itemInfoArr[0] + ' AND subclass = ' + itemInfoArr[1] + ' AND invtype = ' + itemInfoArr[2] + ' ORDER BY RAND() LIMIT 1')
+        q = QueryCharacters('SELECT name FROM custom_item_template_names WHERE  nametype = 3 ORDER BY RAND() LIMIT 1')
         while (q.GetRow()) {
             name += " " + q.GetString(0)
         }
