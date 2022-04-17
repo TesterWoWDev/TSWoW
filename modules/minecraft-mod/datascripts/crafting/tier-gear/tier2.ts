@@ -7,7 +7,7 @@ let levelrequirement = 20;
 export let tierTwoBaseResources = createBaseResources(
     2,
     "tier2-resource",
-    "Worn",
+    "Reinforced",
     ["Pearl", "Epaulet", "Chain", "Metal", "Reinforced Metal", "Stick", "Dust"],
     [12310, 35338, 39340, 7355, 7389, 2618, 6371]
 );
@@ -15,7 +15,7 @@ export let tierTwoBaseResources = createBaseResources(
 export let tierTwoMailMaterial = createMaterial(
     2,
     "tier2-mat-mail",
-    "Worn Mail Scraps",
+    "Reinforced Mail Scraps",
     "mail armor pieces",
     22924
 );
@@ -26,17 +26,17 @@ export let tierTwoMailGear = createGear(
     2,
     3,
     [
-        "Trainee's Worn Helm",
-        "Trainee's Worn Necklace",
-        "Trainee's Worn Spaulders",
-        "Trainee's Worn Cloak",
-        "Trainee's Worn Chestguard",
-        "Trainee's Worn Bracers",
-        "Trainee's Worn Gloves",
-        "Trainee's Worn Belt",
-        "Trainee's Worn Legguards",
-        "Trainee's Worn Greaves",
-        "Trainee's Worn Ring",
+        "Trainee's Reinforced Helm",
+        "Trainee's Reinforced Necklace",
+        "Trainee's Reinforced Spaulders",
+        "Trainee's Reinforced Cloak",
+        "Trainee's Reinforced Chestguard",
+        "Trainee's Reinforced Bracers",
+        "Trainee's Reinforced Gloves",
+        "Trainee's Reinforced Belt",
+        "Trainee's Reinforced Legguards",
+        "Trainee's Reinforced Greaves",
+        "Trainee's Reinforced Ring",
     ],
     [16115, 9854, 9407, 23068, 32157, 32158, 9406, 24514, 4333, 9404, 9836],
 );
@@ -45,7 +45,7 @@ tierTwoMailGear.push(
         levelrequirement,
         "tier2-trink-mail",
         2,
-        "Trainee's Worn Trinket",
+        "Trainee's Reinforced Trinket",
         9637,
     )
 );
@@ -54,7 +54,7 @@ generateGearRecipes(tierTwoBaseResources[0], tierTwoMailMaterial, tierTwoBaseRes
 export let tierTwoLeatherMaterial = createMaterial(
     2,
     "tier2-mat-leather",
-    "Worn Leather Scraps",
+    "Reinforced Leather Scraps",
     "leather armor pieces",
     29468
 );
@@ -65,17 +65,17 @@ export let tierTwoLeatherGear = createGear(
     2,
     2,
     [
-        "Trainee's Worn Hat",
-        "Trainee's Worn Necklace",
-        "Trainee's Worn Shoulderpads",
-        "Trainee's Worn Cloak",
-        "Trainee's Worn Chestpad",
-        "Trainee's Worn Bracers",
-        "Trainee's Worn Gloves",
-        "Trainee's Worn Belt",
-        "Trainee's Worn Pants",
-        "Trainee's Worn Boots",
-        "Trainee's Worn Ring",
+        "Trainee's Reinforced Hat",
+        "Trainee's Reinforced Necklace",
+        "Trainee's Reinforced Shoulderpads",
+        "Trainee's Reinforced Cloak",
+        "Trainee's Reinforced Chestpad",
+        "Trainee's Reinforced Bracers",
+        "Trainee's Reinforced Gloves",
+        "Trainee's Reinforced Belt",
+        "Trainee's Reinforced Pants",
+        "Trainee's Reinforced Boots",
+        "Trainee's Reinforced Ring",
     ],
     [25729, 6539, 11274, 23068, 9502, 14002, 2362, 45056, 9514, 13864, 9833],
 );
@@ -84,7 +84,7 @@ tierTwoLeatherGear.push(
         levelrequirement,
         "tier2-trink-leather",
         2,
-        "Trainee's Worn Trinket",
+        "Trainee's Reinforced Trinket",
         22794,
     )
 );
@@ -94,7 +94,7 @@ generateGearRecipes(tierTwoBaseResources[0], tierTwoLeatherMaterial, tierTwoBase
 export let tierTwoClothMaterial = createMaterial(
     2,
     "tier2-mat-cloth",
-    "Worn Cloth Scraps",
+    "Reinforced Cloth Scraps",
     "cloth armor pieces",
     7383
 );
@@ -106,17 +106,17 @@ export let tierTwoClothGear = createGear(
     2,
     1,
     [
-        "Trainee's Worn Headress",
-        "Trainee's Worn Necklace",
-        "Trainee's Worn Shoulders",
-        "Trainee's Worn Cloak",
-        "Trainee's Worn Chestpiece",
-        "Trainee's Worn Bracers",
-        "Trainee's Worn Gloves",
-        "Trainee's Worn Belt",
-        "Trainee's Worn Leggings",
-        "Trainee's Worn Mocassins",
-        "Trainee's Worn Ring",
+        "Trainee's Reinforced Headress",
+        "Trainee's Reinforced Necklace",
+        "Trainee's Reinforced Shoulders",
+        "Trainee's Reinforced Cloak",
+        "Trainee's Reinforced Chestpiece",
+        "Trainee's Reinforced Bracers",
+        "Trainee's Reinforced Gloves",
+        "Trainee's Reinforced Belt",
+        "Trainee's Reinforced Leggings",
+        "Trainee's Reinforced Mocassins",
+        "Trainee's Reinforced Ring",
     ],
     [15314, 9853, 17135, 23068, 8721, 8089, 13681, 24978, 24927, 24935, 9823],
 );
@@ -125,7 +125,7 @@ tierTwoClothGear.push(
         levelrequirement,
         "tier2-trink-cloth",
         2,
-        "Trainee's Worn Trinket",
+        "Trainee's Reinforced Trinket",
         15771,
     )
 );
@@ -136,20 +136,20 @@ export let tierTwoWeapons = createWeapons(
     "tier2-weps",
     2,
     [
-        "Trainee's Worn Shortsword",
-        "Trainee's Worn Cudgel",
-        "Trainee's Worn Carver",
-        "Trainee's Worn Shiv",
-        "Trainee's Worn Broadsword",
-        "Trainee's Worn Bludgeon",
-        "Trainee's Worn Cleaver",
-        "Trainee's Worn Reliquery",
-        "Trainee's Worn Polearm",
-        "Trainee's Worn Recurve",
-        "Trainee's Worn Staff",
-        "Trainee's Worn Wand",
-        "Trainee's Worn Buckler",
-        "Trainee's Worn Knuckles",
+        "Trainee's Reinforced Shortsword",
+        "Trainee's Reinforced Cudgel",
+        "Trainee's Reinforced Carver",
+        "Trainee's Reinforced Shiv",
+        "Trainee's Reinforced Broadsword",
+        "Trainee's Reinforced Bludgeon",
+        "Trainee's Reinforced Cleaver",
+        "Trainee's Reinforced Reliquery",
+        "Trainee's Reinforced Polearm",
+        "Trainee's Reinforced Recurve",
+        "Trainee's Reinforced Staff",
+        "Trainee's Reinforced Wand",
+        "Trainee's Reinforced Buckler",
+        "Trainee's Reinforced Knuckles",
     ],
     [
         5153, 5211, 8496, 6434, 20196, 16146, 8528, 31805, 40409, 8104, 28699,
