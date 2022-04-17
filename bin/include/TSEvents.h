@@ -124,8 +124,6 @@ EVENT_TYPE(UnitOnCalcMeleeOutcome
     , TSMutable<float>
     , TSMutable<float>
     , TSMutable<float>
-    , TSMutable<float>
-    , TSMutable<float>
     , uint32
 );
 EVENT_TYPE(UnitOnCalcThreatEarly
