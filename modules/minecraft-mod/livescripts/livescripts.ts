@@ -15,7 +15,7 @@ export function Main(events: TSEvents) {
     dungeon1(events)
     torghastBuffSystem(events)
     itemCacheSend(events)
-     itemCreate(events)
+    itemCreate(events)
     Killstreaks(events)
     onLevelup(events)
     onLoginEvents(events)

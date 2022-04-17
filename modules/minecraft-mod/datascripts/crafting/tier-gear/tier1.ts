@@ -5,11 +5,11 @@ import { MODNAME } from "../../modname";
 
 let levelrequirement = 15;
 
-export let stringItem = std.Items.create(MODNAME,'string', 2934)
-    stringItem.Name.enGB.set('String')
-    stringItem.DisplayInfo.set(58198)
-    stringItem.Description.enGB.set('A unique piece of string.')
-    
+export let stringItem = std.Items.create(MODNAME, 'string', 2934)
+stringItem.Name.enGB.set('String')
+stringItem.DisplayInfo.set(58198)
+stringItem.Description.enGB.set('A unique piece of string.')
+
 export let tierOneBaseResources = createBaseResources(
     2,
     "tier1-resource",
@@ -55,7 +55,7 @@ tierOneMailGear.push(
         9637,
     )
 );
-generateGearRecipes(tierOneBaseResources[0],tierOneMailMaterial,tierOneBaseResources[1],tierOneBaseResources[2],tierOneMailGear,levelrequirement)
+generateGearRecipes(tierOneBaseResources[0], tierOneMailMaterial, tierOneBaseResources[1], tierOneBaseResources[2], tierOneMailGear, levelrequirement)
 //
 export let tierOneLeatherMaterial = createMaterial(
     2,
@@ -95,7 +95,7 @@ tierOneLeatherGear.push(
     )
 );
 //
-generateGearRecipes(tierOneBaseResources[0],tierOneLeatherMaterial,tierOneBaseResources[1],tierOneBaseResources[2],tierOneLeatherGear,levelrequirement)
+generateGearRecipes(tierOneBaseResources[0], tierOneLeatherMaterial, tierOneBaseResources[1], tierOneBaseResources[2], tierOneLeatherGear, levelrequirement)
 
 export let tierOneClothMaterial = createMaterial(
     2,
@@ -135,7 +135,7 @@ tierOneClothGear.push(
         15771,
     )
 );
-generateGearRecipes(tierOneBaseResources[0],tierOneClothMaterial,tierOneBaseResources[1],tierOneBaseResources[2],tierOneClothGear,levelrequirement)
+generateGearRecipes(tierOneBaseResources[0], tierOneClothMaterial, tierOneBaseResources[1], tierOneBaseResources[2], tierOneClothGear, levelrequirement)
 //
 export let tierOneWeapons = createWeapons(
     levelrequirement,
@@ -162,4 +162,4 @@ export let tierOneWeapons = createWeapons(
         40146, 26234, 3007,
     ],
 );
-generateWeaponRecipes(tierOneBaseResources[0],tierOneBaseResources[5],tierOneBaseResources[3],tierOneBaseResources[4],stringItem.ID,tierOneWeapons,levelrequirement)
+generateWeaponRecipes(tierOneBaseResources[0], tierOneBaseResources[5], tierOneBaseResources[3], tierOneBaseResources[4], stringItem.ID, tierOneWeapons, levelrequirement)
