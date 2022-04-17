@@ -316,7 +316,7 @@ const bossIDs: TSArray<uint32> = [
 
 const vaseSpawnCoords: TSArray<TSArray<TSDictionary<string, float>>> = [
     [
-        CreateDictionary<string, float>({ m: 726, x: 908.864197, y: 159.892090, z: 413.189667, o: 1.254526 }),
+        CreateDictionary<string, float>({ m: 726, x: 912.864197, y: 158.892090, z: 413.189667, o: 1.254526 }),
     ],
 ]
 
