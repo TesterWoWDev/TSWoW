@@ -1,8 +1,7 @@
 import { std } from "wow/wotlk";
-import { Pos } from "wow/wotlk/std/Misc/Position";
 import { torghastEndCurrency } from "../dungeons/torghast-master-script-entities";
 import { MODNAME } from "../modname";
-import { stringItem, tierOneBaseResources, tierOneClothGear, tierOneClothMaterial, tierOneLeatherGear, tierOneLeatherMaterial, tierOneMailGear, tierOneMailMaterial } from "./tier-gear/tier1";
+import { stringItem, tierOneBaseResources, tierOneClothMaterial, tierOneLeatherMaterial, tierOneMailMaterial } from "./tier-gear/tier1";
 
 std.DBC.ItemExtendedCost.add(7000)
     .ItemCount.fill(0).ItemCount.set([5])
@@ -21,7 +20,7 @@ tierOneBaseResources.forEach(element => {
 craftingVendor.Vendor.add(tierOneMailMaterial, 7000);
 craftingVendor.Vendor.add(tierOneLeatherMaterial, 7000);
 craftingVendor.Vendor.add(tierOneClothMaterial, 7000);
-craftingVendor.Spawns.add(MODNAME,'craft-spawn',{map: 725, x: -8737, y: -68.5, z: 31.35, o: 3.23});
+craftingVendor.Spawns.add(MODNAME, 'craft-spawn', { map: 725, x: -8737, y: -68.5, z: 31.35, o: 3.23 });
 
 export let torghastStartObj = std.GameObjectTemplates.Rituals.create(
     MODNAME,
@@ -29,4 +28,4 @@ export let torghastStartObj = std.GameObjectTemplates.Rituals.create(
     177193
 );
 torghastStartObj.Name.enGB.set("Mystical Starting Stone");
-torghastStartObj.Spawns.add(MODNAME,'start-spawn',{map: 725, x: -8739.3, y: -62.6, z: 31.14, o: 4.13});
+torghastStartObj.Spawns.add(MODNAME, 'start-spawn', { map: 725, x: -8739.3, y: -62.6, z: 31.14, o: 4.13 });
