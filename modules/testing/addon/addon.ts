@@ -1,3 +1,3 @@
 import { itemCrafting } from "./itemCrafting";
 
-itemCrafting()
+//itemCrafting()
