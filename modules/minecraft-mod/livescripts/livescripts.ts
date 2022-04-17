@@ -21,17 +21,6 @@ export function Main(events: TSEvents) {
     // reviveFix(events)
     // worldChat(events)
 
-
-    events.Unit.OnCalcMeleeOutcome((attacker,victim,miss,crit,dodge,block,parry,glancing,crush,atkType)=>{
-        miss.set(0)
-        crit.set(0)
-        dodge.set(0)
-        block.set(0)
-        parry.set(0)
-        glancing.set(100)
-        crush.set(0)
-
-    })
     // GetIDTag('minecraft-mod','tier1-normal-mob').forEach((val,i,arr) => {//iterate all tier1 mobs
     //     events.CreatureID.OnGenerateLoot(val,(creature,killer)=>{
     //         let cLoot = creature.GetLoot()
