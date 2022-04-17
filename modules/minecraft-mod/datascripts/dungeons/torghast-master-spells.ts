@@ -1301,7 +1301,7 @@ BloodierStrike.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 BloodierStrike.AuraInterruptFlags.set(0x0080000);
 BloodierStrike.Stacks.set(99);
 BloodierStrike.Icon.setPath("Ability_Warrior_BloodBath");
-addSpellToTorghastScript(BloodierStrike,6,2,0)
+//addSpellToTorghastScript(BloodierStrike,6,2,0)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1415,7 +1415,7 @@ IceLanceUberProc.row.Attributes.set(IncreasedHealth1.row.Attributes.get());
 IceLanceUberProc.AuraInterruptFlags.set(0x0080000);
 IceLanceUberProc.Stacks.set(99);
 IceLanceUberProc.Icon.setPath("Spell_Frost_IceStorm");
-addSpellToTorghastScript(IceLanceUber,8,5,1)
+addSpellToTorghastScript(IceLanceUberProc,8,5,1)
 
 export let ArcticSwirl = std.Spells.create(MODNAME, "arcticswirl-spell", 12490);                                                                                    //Bleed chances
 ArcticSwirl.Name.enGB.set("Arctic Swirl");
