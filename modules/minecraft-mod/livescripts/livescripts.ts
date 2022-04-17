@@ -1,6 +1,7 @@
 import { handleCraftMessages } from "./craftingSystem";
 import { dungeon1 } from "./dungeon/dungeon-1";
 import { getRandomInt, torghastBuffSystem } from "./dungeon/torghast-master";
+import { easter } from "./easterPlay";
 import { itemCacheSend } from "./item-stuff/item-cache";
 import { itemCreate } from "./item-stuff/item_create";
 import { Killstreaks } from "./QoL/Killstreak";
@@ -20,32 +21,9 @@ export function Main(events: TSEvents) {
     onLoginEvents(events)
     reviveFix(events)
     worldChat(events)
+    easter(events)
 
-events.Player.OnLogin((player,first)=>{
-    if(first){
-        player.SetLevel(20)
-        let pclass = player.GetClass()
-        if(pclass == 1 || pclass == 2 || pclass == 6 || pclass == 3 || pclass == 7){
-            player.AddItem(GetID('item_template','minecraft-mod','tier1-mat-mail'),200)//base resource
-        }else if(pclass == 4 || pclass == 11){
-            player.AddItem(GetID('item_template','minecraft-mod','tier1-mat-leather'),200)//base resource
-        }else if(pclass == 5 || pclass == 8 || pclass == 9 ){
-            player.AddItem(GetID('item_template','minecraft-mod','tier1-mat-cloth'),200)//base resource
-        }
 
-        player.AddItem(GetID('item_template','minecraft-mod','string'),3)//string
-        player.AddItem(GetID('item_template','minecraft-mod','tier1-resource-metal'),30)//metal
-        player.AddItem(GetID('item_template','minecraft-mod','tier1-resource-stick'),5)//stick
-        player.AddItem(GetID('item_template','minecraft-mod','tier1-resource-pearl'),3)//pearl
-        player.AddItem(GetID('item_template','minecraft-mod','tier1-resource-epaulet'),6)//epaulet
-        player.AddItem(GetID('item_template','minecraft-mod','tier1-resource-chain'),3)//chain
-        player.AddItem(GetID('item_template','minecraft-mod','tier1-resource-reinforced-metal'),30)//reinforced metal
-        player.EquipItem(23162,19)//bags
-        player.EquipItem(23162,20)
-        player.EquipItem(23162,21)
-        player.EquipItem(23162,22)
-    }
-})
 
     // GetIDTag('minecraft-mod','tier1-normal-mob').forEach((val,i,arr) => {//iterate all tier1 mobs
     //     events.CreatureID.OnGenerateLoot(val,(creature,killer)=>{
