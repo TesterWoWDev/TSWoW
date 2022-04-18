@@ -435,6 +435,7 @@ export function applyPlayerBuffs(player: TSPlayer) {
     let charItems = player.GetObject<torghastBuffs>("torghastBuffs", new torghastBuffs())
     for (let i = 0; i < charItems.currentBuffs.length; i++) {
         if (charItems.currentBuffsType[i] == 0 || charItems.currentBuffsType[i] == 1) {
+            //console.log('player:'+player.GetName() + ' spellID ' + charItems.currentBuffs[i] + ' stackAmt: ' +charItems.currentBuffsCount[i] )
             if(player.HasAura(charItems.currentBuffs[i])){
                 player.GetAura(charItems.currentBuffs[i]).SetStackAmount(charItems.currentBuffsCount[i])
             }else{
