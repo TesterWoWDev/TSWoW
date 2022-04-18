@@ -382,7 +382,7 @@ export function dungeon1(events: TSEvents) {
             let mapChoice = getRandomInt(mobSpawnCoords.length)
             spawnMap(map, miniMobSpawnCoords[mapChoice], miniMobIDs,mobSpawnCoords[mapChoice], mobIDs, miniBossSpawnCoords[mapChoice], miniBossIDs, bossSpawnCoords[mapChoice], bossIDs, vendorSpawnCoords[mapChoice], chestSpawnCoords[mapChoice],vaseSpawnCoords[mapChoice])
         }
-        player.AddNamedTimer('rebuff',30000,0,(owner,timer)=>{
+        player.AddNamedTimer('rebuff',10000,TimerLoops.INDEFINITE,2,(owner,timer)=>{
             applyPlayerBuffs(owner.ToPlayer())
         })
     })
@@ -394,7 +394,6 @@ export function dungeon1(events: TSEvents) {
         }
     })
     events.MapID.OnPlayerLeave(726, (map, player) => {
-        player.RemoveTimer('rebuff')
         removePlayerBuffs(player)
         let curPrestige: uint32 = player.GetUInt('prestige', 0)
         let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 10
