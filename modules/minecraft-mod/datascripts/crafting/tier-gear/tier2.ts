@@ -2,7 +2,7 @@ import { createBaseResources, createGear, createMaterial, createTrinket, createW
 import { generateGearRecipes, generateWeaponRecipes } from "../../functions/recipe-functions";
 import { stringItem } from "./tier1";
 
-let levelrequirement = 20;
+let levelrequirement = 15;
 
 export let tierTwoBaseResources = createBaseResources(
     2,
