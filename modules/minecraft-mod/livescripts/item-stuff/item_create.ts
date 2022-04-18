@@ -126,7 +126,7 @@ const statGroups: TSArray<TSArray<TSArray<float>>> = <TSArray<TSArray<TSArray<fl
     ],
     [
         [intl, stam],
-        [crit, haste]
+        [crit, sp]
     ],
     [
         [intl, mana],
