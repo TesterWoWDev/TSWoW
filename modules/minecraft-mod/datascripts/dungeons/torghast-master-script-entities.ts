@@ -62,7 +62,7 @@ animaCellItem.Name.enGB.set("Anima Cell");
 animaCellItem.Spells.clearAll();
 animaCellItem.Spells.addMod((spell) => {
     spell.Spell.set(torghastChoice.ID);
-    spell.Charges.set('UNLIMITED');
+    spell.Charges.set(1,"DELETE_ITEM");
     spell.ProcsPerMinute.set(-1);
     spell.Cooldown.set(3000);
 });
