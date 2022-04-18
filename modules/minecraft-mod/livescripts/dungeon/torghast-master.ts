@@ -133,7 +133,7 @@ export function rewardGroup(player: TSPlayer) {
         let group = player.GetGroup().GetMembers()
         for (let i = 0; i < group.length; i++) {
             let curPrestige: uint32 = group[i].GetUInt('prestige', 0)
-            let rewCount: uint32 = <uint32>(curPrestige * curPrestige) / 5 + curPrestige
+            let rewCount: uint32 = (curPrestige * curPrestige) + curPrestige
             group[i].SendAreaTriggerMessage('You were rewarded with ' + rewCount + ' of anima power for your prowess')
             group[i].AddItem(rewardID, rewCount)
             group[i].SetUInt('prestige', 0)
@@ -142,7 +142,7 @@ export function rewardGroup(player: TSPlayer) {
         }
     } else {
         let curPrestige: uint32 = player.GetUInt('prestige', 0)
-        player.AddItem(rewardID, <uint32>(curPrestige * curPrestige) / 5)
+        player.AddItem(rewardID, (curPrestige * curPrestige) + curPrestige )
         player.SetUInt('prestige', 0)
         player.RemoveItemByEntry(insideID, 999999)
         player.Teleport(725, -8750.45, -74.64, 31, 0)
