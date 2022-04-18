@@ -51,8 +51,8 @@ mobOne.Subname.enGB.set('Acolyte of the Damned')
 mobOne.AIName.set('')
 mobOne.Level.set(20,20)
 mobOne.FactionTemplate.set(18)
-mobOne.Stats.HealthMod.set(2)
-mobOne.Stats.DamageMod.set(1)
+mobOne.Stats.HealthMod.set(5)
+mobOne.Stats.DamageMod.set(2)
 
 mobOne.InlineScripts.OnJustEnteredCombat(creature=>{
     function getrandomInt(max: uint32): uint32 {
@@ -112,7 +112,7 @@ mobTwo.Subname.enGB.set('Acolyte of the Damned')
 mobTwo.AIName.set('')
 mobTwo.Level.set(20,20)
 mobTwo.FactionTemplate.set(18)
-mobTwo.Stats.HealthMod.set(3)
+mobTwo.Stats.HealthMod.set(5)
 mobTwo.Stats.DamageMod.set(3)
 
 mobTwo.InlineScripts.OnJustEnteredCombat(creature=>{
@@ -163,8 +163,8 @@ mobThree.Subname.enGB.set('Acolyte of the Damned')
 mobThree.AIName.set('')
 mobThree.Level.set(20,20)
 mobThree.FactionTemplate.set(18)
-mobThree.Stats.HealthMod.set(5)
-mobThree.Stats.DamageMod.set(2)
+mobThree.Stats.HealthMod.set(8)
+mobThree.Stats.DamageMod.set(3)
 
 mobThree.InlineScripts.OnJustEnteredCombat(creature=>{
     function getrandomInt(max: uint32): uint32 {

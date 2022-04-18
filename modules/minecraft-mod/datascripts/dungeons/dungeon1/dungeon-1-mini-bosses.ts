@@ -46,7 +46,7 @@ TorghastMiniBoss1.UnitClass.PALADIN.set();
 TorghastMiniBoss1.DamageSchool.Normal.set();
 TorghastMiniBoss1.Stats.ArmorMod.set(30);
 TorghastMiniBoss1.Stats.DamageMod.set(4);
-TorghastMiniBoss1.Stats.HealthMod.set(10);
+TorghastMiniBoss1.Stats.HealthMod.set(12);
 TorghastMiniBoss1.Stats.ManaMod.set(50);
 TorghastMiniBoss1.Stats.ExperienceMod.set(5);
 
