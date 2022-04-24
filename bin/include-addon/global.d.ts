@@ -2304,6 +2304,10 @@ declare function CancelItemTempEnchantment(weaponHand: WoWAPI.BuffWeaponHandType
  */
 declare function GetWeaponEnchantInfo(): [boolean, number, number, number, boolean, number, number, number];
 
+declare function UnitName(unitId: WoWAPI.UnitId): string;
+declare function UnitPower(unitId: WoWAPI.UnitId, powerType: number): number;
+declare function UnitPowerMax(unitId: WoWAPI.UnitId, powerType: number): number;
+
 /**
  * Returns information about a buff or debuff on the specified unit
  * @param unitId unit whose auras to query
@@ -10323,6 +10327,20 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/UNIT_MANA
          */
         UNIT_MANA: [UnitId];
+		UNIT_RAGE: [UnitId];
+		UNIT_FOCUS: [UnitId];
+		UNIT_ENERGY: [UnitId];
+		UNIT_HAPPINESS: [UnitId];
+		UNIT_RUNIC_POWER: [UnitId];
+		UNIT_HEALTH: [UnitId];
+		
+		UNIT_MAXMANA: [UnitId];
+		UNIT_MAXRAGE: [UnitId];
+		UNIT_MAXFOCUS: [UnitId];
+		UNIT_MAXENERGY: [UnitId];
+		UNIT_MAXHAPPINESS: [UnitId];
+		UNIT_MAXRUNIC_POWER: [UnitId];
+		UNIT_MAXHEALTH: [UnitId];
 
         /**
          * Fired when a unit's maximum health changes

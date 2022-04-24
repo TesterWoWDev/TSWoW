@@ -1,3 +1,3 @@
-import { itemCrafting } from "./itemCrafting";
+import { allPowers } from "./allPowers";
 
-//itemCrafting()
+allPowers()
